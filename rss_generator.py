@@ -49,7 +49,7 @@ def fetch_blog_posts(config):
     posts = []
     for block in blocks:
         title = block.select_one(config['title_css'])
-        description = block.select_one(config['description_css'])
+        description = block.select_one(config['description_css'] or block)
         link = block.select_one(config['link_css']) if config['link_css'] else block
 
         if title and description and link:
