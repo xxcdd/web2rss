@@ -12,13 +12,16 @@ from datetime import datetime
 from urllib.parse import urljoin
 
 
-def create_webdriver():
+def create_webdriver(proxy=None):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # 启用无头模式
     chrome_options.add_argument("--no-sandbox")  # 解决 DevToolsActivePort 文件错误
     chrome_options.add_argument("--disable-dev-shm-usage")  # 解决资源限制
     chrome_options.add_argument("--disable-gpu")  # 如果不需要 GPU 加速，禁用它
     chrome_options.add_argument("--window-size=1920x1080")  # 设置窗口大小
+    
+    if proxy:
+        chrome_options.add_argument(f'--proxy-server={proxy}')
 
     # 创建 Chrome 驱动
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
@@ -32,15 +35,17 @@ def fetch_blog_posts(config):
     print(f"Fetching posts from: {config['url']}")
     print(f"Using selectors: block={config['block_css']}, title={config['title_css']}, description={config['description_css']}, link={config['link_css']}")
 
-    if config['use_headless_browser']:
-        driver = create_webdriver()
+    proxy = config.get('proxy')  # 获取代理设置
 
+    if config['use_headless_browser']:
+        driver = create_webdriver(proxy)
         driver.get(config['url'])
         time_module.sleep(3)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         driver.quit()
     else:
-        response = requests.get(config['url'])
+        proxies = {'http': proxy, 'https': proxy} if proxy else None
+        response = requests.get(config['url'], proxies=proxies)
         soup = BeautifulSoup(response.content, 'html.parser')
 
     # 基于文本块选择器获取所有相关块
@@ -49,7 +54,7 @@ def fetch_blog_posts(config):
     posts = []
     for block in blocks:
         title = block.select_one(config['title_css'])
-        description = block.select_one(config['description_css'] or block)
+        description = block.select_one(config['description_css']) if config['description_css'] else block
         link = block.select_one(config['link_css']) if config['link_css'] else block
         
         # 获取额外信息
