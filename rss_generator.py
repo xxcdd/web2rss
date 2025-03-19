@@ -51,12 +51,21 @@ def fetch_blog_posts(config):
         title = block.select_one(config['title_css'])
         description = block.select_one(config['description_css'] or block)
         link = block.select_one(config['link_css']) if config['link_css'] else block
+        
+        # 获取额外信息
+        extra_info = []
+        if 'extra_css' in config:
+            for css_selector in config['extra_css']:
+                element = block.select_one(css_selector)
+                if element:
+                    extra_info.append(element.get_text(strip=True))
 
         if title and description and link:
             posts.append({
                 'title': title.get_text(strip=True),
                 'description': description.get_text(strip=True),
-                'link': link['href'] if link['href'].startswith('http') else urljoin(config['url'], link['href'])
+                'link': link['href'] if link['href'].startswith('http') else urljoin(config['url'], link['href']),
+                'extra_info': extra_info
             })
 
     return posts
@@ -70,7 +79,11 @@ def generate_rss(posts, site):
 
     for post in posts:
         entry = feed.add_entry()
-        entry.title(post['title'])
+        # 构建包含额外信息的标题
+        title_parts = [post['title']]
+        if post.get('extra_info'):
+            title_parts.extend(post['extra_info'])
+        entry.title(" | ".join(title_parts))
         entry.link(href=post['link'])
         entry.description(post['description'])
 

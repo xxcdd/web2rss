@@ -33,6 +33,9 @@ sites:
     title_css: h2
     description_css: 
     link_css: h2 a
+    extra_css:  # 额外的CSS选择器，用于获取更多信息
+      - '[itemprop="programmingLanguage"]'  # 语言
+      - ".Link.Link--muted.d-inline-block.mr-3"  # star数
     use_headless_browser: false
 
   - name: anthropic_news
