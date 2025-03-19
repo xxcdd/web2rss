@@ -64,6 +64,9 @@ def fetch_blog_posts(config):
                 element = block.select_one(css_selector)
                 if element:
                     extra_info.append(element.get_text(strip=True))
+                else:
+                    print(f"Warning: No element found for selector: {css_selector}")
+                    extra_info.append("N/A")  # 用默认值填充缺失信息
 
         if title and description and link:
             posts.append({
