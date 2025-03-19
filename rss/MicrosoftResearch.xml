@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 17 Mar 2025 19:49:52 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 18 Mar 2025 14:28:45 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,156 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Introducing KBLaM: Bringing plug-and-play external knowledge to LLMs</title>
+		<link>https://www.microsoft.com/en-us/research/blog/introducing-kblam-bringing-plug-and-play-external-knowledge-to-llms/</link>
+		
+		<dc:creator><![CDATA[Taketomo Isazawa, Xi Wang, Liana Mikaelyan, Mathew Salvaris, James Hensman]]></dc:creator>
+		<pubDate>Tue, 18 Mar 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1133691</guid>
+
+					<description><![CDATA[<p>Introducing KBLaM, an approach that encodes and stores structured knowledge within an LLM itself. By integrating knowledge without retraining, it offers a scalable alternative to traditional methods.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-kblam-bringing-plug-and-play-external-knowledge-to-llms/">Introducing KBLaM: Bringing plug-and-play external knowledge to LLMs</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1.png" alt="KBLaM blog | A flowchart illustrating the process of handling a prompt using a language model. The process begins with documents being used to construct and summarize a knowledge base (KB) offline. The summarized KB is then encoded and fed into the main process. A prompt goes through a tokenizer, followed by rectangular attention, and then into the large language model (LLM). The LLM retrieves information from the encoded KB to generate an answer." class="wp-image-1134055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1280x720.png 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Large language models (LLMs) have demonstrated remarkable capabilities in reasoning, language understanding, and even creative tasks. Yet, a key challenge persists: how to efficiently integrate external knowledge.</p>
+
+
+
+<p>Traditional methods such as fine-tuning and Retrieval-Augmented Generation (RAG) come with trade-offs—fine-tuning demands costly retraining, while RAG introduces separate retrieval modules that increase complexity and prevent seamless, end-to-end training. In-context learning, on the other hand, becomes increasingly inefficient as knowledge bases grow, facing quadratic computational scaling that hinders its ability to handle large repositories. A comparison of these approaches can be seen in Figure 1.</p>
+
+
+
+<h2 class="wp-block-heading" id="a-new-way-to-integrate-knowledge">A new way to integrate knowledge</h2>
+
+
+
+<p>To address these challenges, we introduce the <a href="https://www.microsoft.com/en-us/research/publication/kblam-knowledge-base-augmented-language-model-2/" target="_blank" rel="noreferrer noopener"><strong>Knowledge Base-Augmented Language Model (KBLaM)</strong></a> —a novel approach that integrates structured knowledge bases into pre-trained LLMs. Instead of relying on external retrieval modules or costly fine-tuning, KBLaM encodes knowledge into <strong>continuous key-value vector pairs</strong>, efficiently embedding them within the model’s attention layers using a specialized <strong>rectangular attention mechanism</strong>, which implicitly performs retrieval in an integrated manner.</p>
+
+
+
+<p>We use structured knowledge bases to represent the data, allowing us to <strong>consolidate knowledge </strong>and <strong>leverage structure</strong>. This design allows it to scale <strong>linearly</strong> with the size of the knowledge base while maintaining <strong>dynamic</strong> <strong>updates</strong> without retraining, making it far more efficient than existing methods.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
+				
+								<p class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="scalable-efficient-and-future-ready">Scalable, efficient, and future-ready</h2>
+
+
+
+<p>At its core, KBLaM is designed to integrate structured knowledge into LLMs, making them more efficient and scalable. It achieves this by converting external knowledge bases—collections of facts structured as triples consisting of an entity, a property, and a value—into a format that LLMs can process naturally.&nbsp; Such knowledge bases allow for consolidated, reliable sources of knowledge.</p>
+
+
+
+<p>To create these knowledge bases, we first extract structured data in JSON format using small language models. We then apply <a href="https://www.microsoft.com/en-us/research/project/alexandria/" target="_blank" rel="noreferrer noopener">Project Alexandria</a>’s probabilistic clustering. Once we have this structured knowledge base, KBLaM follows a three-step pipeline:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Knowledge Encoding:</strong> Each knowledge triple is mapped into a key-value vector pair using a <strong>pre-trained sentence encoder</strong> with <strong>lightweight linear adapters</strong>. The key vector, derived from the entity name and property, encodes “index information,” while the value vector captures the corresponding property value. This allows us to create <strong>continuous, learnable key-value representations</strong>.</li>
+
+
+
+<li><strong>Integration with LLMs:</strong> These key-value pairs, or <strong><em>knowledge tokens</em></strong>, are augmented into the model’s attention layers using a specialized <strong>rectangular attention structure</strong>. Unlike traditional transformer models that process all tokens equally and come with quadratic cost—such as GPT-4, Phi, and Llama—rectangular attention enables the model to attend over knowledge with linear cost, as illustrated in Figure 2. Compared to standard attention mechanisms in generative language models, where each token attends to all preceding tokens, our approach introduces a more efficient structure. In this setup, language tokens (such as those from a user’s question) attend to all knowledge tokens. However, knowledge tokens do not attend to one another, nor do they attend back to the language tokens. This selective attention pattern significantly reduces computational cost while preserving the model’s ability to incorporate external knowledge effectively.<br><br>This linear cost, which is crucial for the efficiency of KBLaM, effectively amounts to treating each fact independently—an assumption that holds for most facts.&nbsp;For example, the model’s name, KBLaM, and the fact that the research was conducted at Microsoft Research are very weakly correlated. This rectangular attention is implemented as an extension of standard attention. During training, we keep the base model’s weights frozen, ensuring that when no knowledge tokens are provided, the model functions exactly as it did originally.</li>
+
+
+
+<li><strong>Efficient Knowledge Retrieval:</strong> Through this rectangular attention, the model learns to dynamically retrieve relevant knowledge tokens during inference, eliminating the need for separate retrieval steps.</li>
+</ol>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1531" height="832" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit.png" alt="Figure 1: A diagram comparing KBLaM and existing approaches. With RAG, we take the user’s prompt and use that to retrieve relevant documents from an external corpus using some retriever module, and append a tokenized version of those relevant documents in the context. This is relatively cheap, but requires many components. On the other hand, In Context Learning just puts the entire corpus into the context. This is simple, involving only one component, but is expensive. Our method, KBLaM, makes a structured knowledge base from the documents in an offline process, and includes the entire knowledge base to the context, while using a novel variant of attention, rectangular attention, so that the cost is linear in the size of the knowledge base. This results in a system where the retrieval only requires a single, trainable component, that is also cheap." class="wp-image-1133892" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit.png 1531w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-300x163.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-1024x556.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-768x417.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-240x130.png 240w" sizes="(max-width: 1531px) 100vw, 1531px" /><figcaption class="wp-element-caption"><em>Figure 1:<em> KBLaM allows for attention over the entire knowledge base instead of having an external retriever.</em></em></figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="628" height="209" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2.png" alt="Figure 2: A diagram illustrating rectangular attention. Unlike regular attention, the attention matrix is not square, as we remove the parts where the knowledge base would attend over itself. This allows for KBLaM to scale linearly with the number of items in its context." class="wp-image-1133586" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2.png 628w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2-300x100.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2-240x80.png 240w" sizes="(max-width: 628px) 100vw, 628px" /><figcaption class="wp-element-caption"><em>Figure 2: <em>By having the user’s question attend to the knowledge base, while treating facts in the knowledge base independently, KBLaM scales efficiently and linearly with the size of the knowledge base.</em></em></figcaption></figure>
+
+
+
+<p>Unlike RAG, which appends retrieved document chunks to prompts, KBLaM allows for <strong>direct integration</strong> of knowledge into the model. Compared to in-context learning,&nbsp; KBLaM’s rectangular attention maintains a <strong>linear memory footprint</strong>, making it vastly more scalable for large knowledge bases.&nbsp;</p>
+
+
+
+<p>Its efficiency is a game-changer. While traditional in-context learning methods struggle with quadratic memory growth due to self-attention overhead, KBLaM’s linear overhead means we can store much more knowledge in the context. In practice, this means KBLaM can store and process <strong>over 10,000 knowledge triples</strong>, the equivalent of approximately <strong>200,000 text tokens on a single GPU</strong>—a feat that would be computationally prohibitive with conventional in-context learning. The results across a wide range of triples and&nbsp;can be seen in Figure 3. Remarkably, it achieves this while extending a base model that has a context length of only <strong>8K tokens</strong>. Additionally, KBLaM enables <strong>dynamic updates: modifying </strong>a single knowledge triple does not require retraining or re-computation of the entire knowledge base.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="547" height="236" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-vs-RAG.png" alt="Figure 3: Two graphs, showing time to first token, and memory usage for both KBLaM and RAG. KBLaM’s time to first token remains relatively constant across a large range of knowledge base sizes, with the time-to-first-token with 4096 triples in the context being lower than that of conventional RAG with 5 triples in the context. The memory usage is also much lower, with KBLaM with 512 triples having a similar memory usage to RAG at 5 triples." class="wp-image-1133584" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-vs-RAG.png 547w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-vs-RAG-300x129.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-vs-RAG-240x104.png 240w" sizes="auto, (max-width: 547px) 100vw, 547px" /><figcaption class="wp-element-caption"><em>Figure 3: <em>KBLaM is much faster and uses much less memory than adding the equivalent number of triples in the context using conventional RAG-like approaches. In particular, we have lower time to first token with 4,096 tripes in the context with KBLaM than we would with 5 triples in the context.</em></em></figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="enhancing-interpretability-and-reliability">Enhancing interpretability and reliability</h2>
+
+
+
+<p>Another major benefit of KBLaM is its <strong>interpretability</strong>. Unlike in-context learning, where knowledge injection is opaque, KBLAM’s <strong>attention weights</strong> provide clear insights into how the model utilizes knowledge tokens. Experiments show that KBLaM assigns high attention scores to relevant knowledge triples, effectively mimicking a soft retrieval process.</p>
+
+
+
+<p>Furthermore, KBLaM enhances <strong>model reliability</strong> by learning through its training examples when not to answer a question if the necessary information is missing from the knowledge base. In particular, with knowledge bases larger than approximately 200 triples, we found that the model refuses to answer questions it has no knowledge about more precisely than a model given the information as text in context. This feature helps reduce <strong>hallucinations</strong>, a common problem in LLMs that rely on internal knowledge alone, making responses more accurate and trustworthy.</p>
+
+
+
+<h2 class="wp-block-heading" id="the-future-of-knowledge-augmented-ai">The future of knowledge-augmented AI</h2>
+
+
+
+<p>KBLaM represents a major step forward in integrating structured knowledge into LLMs. By offering a scalable, efficient, and interpretable alternative to existing techniques, it paves the way for AI systems that can stay up to date and provide reliable, knowledge-driven responses. In fields where accuracy and trust are critical—such as medicine, finance, and scientific research—this approach has the potential to transform how language models interact with real-world information.</p>
+
+
+
+<p>As AI systems increasingly rely on dynamic knowledge rather than static model parameters, we hope KBLaM will serve as a bridge between raw computational power and real-world understanding.</p>
+
+
+
+<p>However, there is still work to be done before it can be deployed at scale. Our current model has been trained primarily on factual question-answer pairs, and further research is needed to expand its capabilities across more complex reasoning tasks and diverse knowledge domains.</p>
+
+
+
+<p>To accelerate progress, we are releasing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/KBLaM/" target="_blank" rel="noreferrer noopener"><strong>KBLaM’s code and datasets</strong><span class="sr-only"> (opens in new tab)</span></a> to the research community, and we are planning integrations with the Hugging Face transformers library. By making these resources available, we hope to inspire further research and adoption of <strong>scalable, efficient knowledge augmentation</strong> for LLMs. The future of AI isn’t just about generating text—it’s about generating knowledge that is accurate, adaptable, and deeply integrated with the evolving world. KBLaM is a step in that direction.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-kblam-bringing-plug-and-play-external-knowledge-to-llms/">Introducing KBLaM: Bringing plug-and-play external knowledge to LLMs</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Semantic Telemetry: Understanding how users interact with AI systems</title>
 		<link>https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/</link>
 		
@@ -32,7 +182,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/">Semantic Telemetry: Understanding how users interact with AI systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Semantic Telemetry blog | diagram showing relationships between chat, LLM prompt, and labeled data" class="wp-image-1133588" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Semantic Telemetry blog | diagram showing relationships between chat, LLM prompt, and labeled data" class="wp-image-1133588" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -44,7 +194,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="408" height="232" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat.png" alt="Example chat between user and AI" class="wp-image-1133589" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat.png 408w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat-300x171.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat-240x136.png 240w" sizes="(max-width: 408px) 100vw, 408px" /></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="408" height="232" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat.png" alt="Example chat between user and AI" class="wp-image-1133589" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat.png 408w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat-300x171.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat-240x136.png 240w" sizes="auto, (max-width: 408px) 100vw, 408px" /></figure>
 
 
 
@@ -56,7 +206,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="650" height="280" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier.png" alt="Flow chart illustrating the LLM classification process starting with chat input, then prompting LLM with chat using generated label taxonomy, and output is the labeled chat." class="wp-image-1133590" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier.png 650w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier-300x129.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier-240x103.png 240w" sizes="(max-width: 650px) 100vw, 650px" /><figcaption class="wp-element-caption">Figure 1: Prompting an LLM to classify a conversation based on LLM generated label taxonomy</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="650" height="280" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier.png" alt="Flow chart illustrating the LLM classification process starting with chat input, then prompting LLM with chat using generated label taxonomy, and output is the labeled chat." class="wp-image-1133590" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier.png 650w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier-300x129.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier-240x103.png 240w" sizes="auto, (max-width: 650px) 100vw, 650px" /><figcaption class="wp-element-caption">Figure 1: Prompting an LLM to classify a conversation based on LLM generated label taxonomy</figcaption></figure>
 
 
 
@@ -106,30 +256,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
 				
-								<p class="large">Stay connected to the research community at Microsoft.</p>
+								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -681,30 +831,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115763">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" aria-label="AIOpsLab: Building AI agents for autonomous clouds" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/AIOps-Lab-BlogHeroFeature-1400x788-1.png" alt="White outline illustrations for AIOps on a blue and green gradient background." />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AIOpsLab: Building AI agents for autonomous clouds</h2>
+									<h2 class="h4">What’s Your Story: Lex Story</h2>
 				
-								<p class="large">AIOpsLab is an open-source framework designed to evaluate and improve AI agents for cloud operations, offering standardized, scalable benchmarks for real-world testing, enhancing cloud system reliability.</p>
+								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1754,30 +1904,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
 				
-								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2088,351 +2238,6 @@
 		
 		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Videos_010925_V1.mp4" length="47136083" type="video/mp4" />
 
-			</item>
-		<item>
-		<title>Ideas: Building AI for population-scale systems with Akshay Nambi</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/ideas-building-ai-for-population-scale-systems-with-akshay-nambi/</link>
-		
-		<dc:creator><![CDATA[Chris Stetkiewicz, Akshay Nambi]]></dc:creator>
-		<pubDate>Tue, 11 Feb 2025 04:26:10 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1127448</guid>
-
-					<description><![CDATA[<p>Advances in AI are driving meaningful real-world impact. Principal Researcher Akshay Nambi shares how his passion for tackling real-world challenges across various domains fuels his work in building reliable and robust AI systems.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ideas-building-ai-for-population-scale-systems-with-akshay-nambi/">Ideas: Building AI for population-scale systems with Akshay Nambi</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2.jpg" alt="Outline illustration of Akshay Nambi | Ideas podcast" class="wp-image-1128111" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay-Nambi_Ideas_Hero_Feature_No_Text_1400x788-2-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=142024931&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Behind every emerging technology is a great idea propelling it forward. In the Microsoft Research Podcast series <em>Ideas</em>, members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
-
-
-
-<p>In this episode, guest host Chris Stetkiewicz talks with Microsoft Principal Researcher <a href="https://www.microsoft.com/en-us/research/people/akshayn/?msockid=35739e94ab6c69d41b738b93aa076831">Akshay Nambi</a> about his focus on developing AI-driven technology that addresses real-world challenges at scale. Drawing on firsthand experiences, Nambi combines his expertise in electronics and computer science to create systems that enhance road safety, agriculture, and energy infrastructure. He’s currently working on AI-powered tools to improve education, including a digital assistant that can help teachers work more efficiently and create effective lesson plans and solutions to help improve the accuracy of models underpinning AI tutors.</p>
-
-
-
-<p><strong>Learn more:</strong></p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/blog/teachers-in-india-help-microsoft-research-design-ai-tool-for-creating-great-classroom-content/">Teachers in India help Microsoft Research design AI tool for creating great classroom content</a><br>Microsoft Research Blog, October 2023</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/project/hams/automated-driver-license-testing/">HAMS: Harnessing AutoMobiles for Safety</a><br>Project homepage</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/en-in/features/microsoft-ai-automates-drivers-license-test-india/">Microsoft Research AI project automates driver&#8217;s license tests in India<span class="sr-only"> (opens in new tab)</span></a><br>Microsoft Source Asia Blog</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/insight-monitoring-the-state-of-the-driver-in-low-light-using-smartphones/">InSight: Monitoring the State of the Driver in Low-Light Using Smartphones</a><br>Publication, September 2020</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/chanakya-learning-runtime-decisions-for-adaptive-real-time-perception/">Chanakya: Learning Runtime Decisions for Adaptive Real-Time Perception</a><br>Publication, December 2023</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/alt-towards-automating-driver-license-testing-using-smartphones/">ALT: Towards Automating Driver License Testing using Smartphones</a><br>Publication, November 2019</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/project/dependableiot/">Dependable IoT</a><br>Project homepage</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/project/vasudha/">Vasudha</a><br>Project homepage</p>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[TEASER]</p>
-
-
-
-<p>[MUSIC PLAYS UNDER DIALOGUE]</p>
-
-
-
-<p><strong>AKSHAY NAMBI:</strong> For me, research is just not about pushing the boundaries of the knowledge. It&#8217;s about ensuring that these advancements translate to meaningful impact on the ground. So, yes, the big goals that guide most of my work is twofold. One, how do we build technology that&#8217;s scaled to benefit large populations? And two, at the same time, I&#8217;m motivated by the challenge of tackling complex problems. <em>That</em> provides opportunity to explore, learn, and also create something new, and that&#8217;s what keeps me excited.</p>
-
-
-
-<p>[TEASER ENDS]</p>
-
-
-
-<p><strong>CHRIS STETKIEWICZ:</strong> You&#8217;re listening to <em>Ideas</em>, a Microsoft Research Podcast that dives deep into the world of technology research and the profound questions behind the code. In this series, we&#8217;ll explore the technologies that are shaping our future and the big ideas that propel them forward.</p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-
-
-<p>I&#8217;m your guest host, Chris Stetkiewicz. Today, I&#8217;m talking to Akshay Nambi. Akshay is a principal researcher at Microsoft Research. His work lies at the intersection of systems, AI, and machine learning with a focus on designing, deploying, and scaling AI systems to solve compelling real-world problems. Akshay&#8217;s research extends across education, agriculture, transportation, and energy. He is currently working on enhancing the quality and reliability of AI systems by addressing critical challenges such as reasoning, grounding, and managing complex queries.</p>
-
-
-
-<p>Akshay, welcome to the podcast.</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-3" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p><strong>AKSHAY NAMBI:</strong> Thanks for having me.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> I&#8217;d like to begin by asking you to tell us your origin story. How did you get started on your path? Was there a big idea or experience that captured your imagination or motivated you to do what you&#8217;re doing today?</p>
-
-
-
-<p><strong>NAMBI:</strong> If I look back, my journey into research wasn&#8217;t a straight line. It was more about discovering my passion through some unexpected opportunities and also finding purpose along the way. So before I started with my undergrad studies, I was very interested in electronics and systems. My passion for electronics, kind of, started when I was in school. I was more like an average student, not a nerd or not too curious, but I was always tinkering around, doing things, building stuff, and playing with gadgets and that, kind of, made me very keen on electronics and putting things together, and that was my passion. But sometimes things don&#8217;t go as planned. So I didn&#8217;t get into the college which I had hoped to join for electronics, so I ended up pursuing computer science, which wasn&#8217;t too bad either. So during my final year of bachelor&#8217;s, I had to do a final semester project, which turned out to be a very pivotal moment. And that&#8217;s when I got to know this institute called Indian Institute of Science (IISc), which is a top research institute in India and also globally. And I had a chance to work on a project there. And it was my first real exposure to open-ended research, right, so I remember &#8230; where we were trying to build a solution that helped to efficiently construct an ontology for a specific domain, which simply means that we were building systems to help users uncover relationships in the data and allow them to query it more efficiently, right. And it was super exciting for me to design and build something new. And that experience made me realize that I wanted to pursue research further. And right after that project, I decided to explore research opportunities, which led me to join Indian Institute of Science again as a research assistant.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So what made you want to take the skills you were developing and apply them to a research career?</p>
-
-
-
-<p><strong>NAMBI:</strong> So interestingly when I joined IISc, the professor I worked with specialized in electronics, so things come back, so something I had always been passionate about. And I was the only computer science graduate in the lab at that time with others being electronic engineers, and I didn&#8217;t even know how to solder. But the lab environment was super encouraging, collaborative, so I, kind of, caught up very quickly. In that lab, basically, I worked on several projects in the emerging fields of embedded device and energy harvesting systems. Specifically, we were designing systems that could harvest energy from sources like sun, hydro, and even RF (radio frequency) signals. And my role was kind of twofold. One, I designed circuits and systems to make energy harvesting more efficient so that you can store this energy. And then I also wrote programs, software, to ensure that the harvested energy can be used efficiently. For instance, as we harvest some of this energy, you want to have your programs run very quickly so that you are able to sense the data, send it to the server in an efficient way. And one of the most exciting projects I worked during that time was on data-driven agriculture. So this was back in 2008, 2009, right, where we developed an embedded system device with sensors to monitor the agricultural fields, collecting data like soil moisture, soil temperature. And that was sent to the agronomists who were able to analyze this data and provide feedback to farmers. In many remote areas, still access to power is a huge challenge. So we used many of the technologies we were developing in the lab, specifically energy harvesting techniques, to power these sensors and devices in the rural farms, and that&#8217;s when I really got to see firsthand how technology could help people&#8217;s lives, particularly in rural settings. And that&#8217;s what, kind of, stood out in my experience at IISc, right, was that it was [the] end-to-end nature of the work. And it was not just writing code or designing circuits. It was about identifying the real-world problems, solving them efficiently, and deploying solutions in the field. And this cemented my passion for creating technology that solves real-world problems, and that&#8217;s what keeps me driving even today.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> And as you&#8217;re thinking about those problems that you want to try and solve, where did you look for, for inspiration? It sounds like some of these are happening right there in your home.</p>
-
-
-
-<p><strong>NAMBI:</strong> That&#8217;s right. Growing up and living in India, I&#8217;ve been surrounded by these, kind of, many challenges. And these are not distant problems. These are right in front of us. And some of them are quite literally outside the door. So being here in India provides a unique opportunity to tackle some of the pressing real-world challenges in agriculture, education, or in road safety, where even small advancements can create significant impact.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So how would you describe your research philosophy? Do you have some big goals that guide you?</p>
-
-
-
-<p><strong>NAMBI:</strong> Right, as I mentioned, right, my research philosophy is mainly rooted in solving real-world problems through end-to-end innovation. For me, research is just not about pushing the boundaries of the knowledge. It&#8217;s about ensuring that these advancements translate to meaningful impact on the ground, right. So, yes, the big goals that guide most of my work is twofold. One, how do we build technology that&#8217;s scaled to benefit large populations? And two, at the same time, I&#8217;m motivated by the challenge of tackling complex problems. <em>That</em> provides opportunity to explore, learn, and also create something new. And that&#8217;s what keeps me excited.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So let&#8217;s talk a little bit about your journey at Microsoft Research. I know you began as an intern, and some of the initial work you did was focused on computer vision, road safety, energy efficiency. Tell us about some of those projects.</p>
-
-
-
-<p><strong>NAMBI:</strong> As I was nearing the completion of my PhD, I was eager to look for opportunities in industrial labs, and Microsoft Research obviously stood out as an exciting opportunity. And additionally, the fact that Microsoft Research India was in my hometown, Bangalore, made it even more appealing. So when I joined as an intern, I worked together with Venkat Padmanabhan, who now leads the lab, and we started this project called HAMS, which stands for <em>Harnessing Automobiles for Safety</em>. As you know, road safety is a major public health issue globally, responsible for almost 1.35 million fatalities annually and with the situation being even more severe in countries like India. For instance, there are estimates that there&#8217;s a life lost on the road every four minutes in India. When analyzing the factors which affect road safety, we saw mainly three elements. One, the vehicle. Second, the infrastructure. And then the driver. Among these, the driver plays the most critical role in many incidents, whether it&#8217;s over-speeding, driving without seat belts, drowsiness, fatigue, any of these, right. And this realization motivated us to focus on driver monitoring, which led to the development of HAMS. In a nutshell, HAMS is basically a smartphone-based system where you&#8217;re mounting your smartphone on a windshield of a vehicle to monitor both the driver and the driving in real time with the goal of improving road safety. Basically, it observes key aspects such as where the driver is looking, whether they are distracted or fatigued<a id="_ftnref1" href="#_ftn1">[1]</a>, while also considering the external driving environment, because we truly believe to improve road safety, we need to understand not just the driver&#8217;s action but also the context in which they are driving. For example, if the smartphone&#8217;s accelerometer detects sharp braking, the system would automatically check the distance to the vehicle in the front using the rear camera and whether the driver was distracted or fatigued using the front camera. And this holistic approach ensures a more accurate and comprehensive assessment of the driving behavior, enabling a more meaningful feedback.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So that sounds like a system that&#8217;s got several moving parts to it. And I imagine you had some technical challenges you had to deal with there. Can you talk about that?</p>
-
-
-
-<p><strong>NAMBI:</strong> One of our guiding principles in HAMS was to use commodity, off-the-shelf smartphone devices, right. This should be affordable, in the range of $100 to $200, so that you can just take out regular smartphones and enable this driver and driving monitoring. And that led to handling several technical challenges. For instance, we had to develop efficient computer vision algorithms that could run locally on the device with cheap smartphone processing units while still performing very well at low-light conditions. We wrote multiple papers and developed many of the novel algorithms which we implemented on very low-cost smartphones. And once we had such a monitoring system, right, you can imagine there&#8217;s several deployment opportunities, starting from fleet monitoring to even training new drivers, right. However, one application we hadn&#8217;t originally envisioned but turned out to be its most impactful use case even today is automated driver&#8217;s license testing. As you know, before you get a license, a driver is supposed to pass a test, but what happens in many places, including India, is that licenses are issued with very minimal or no actual testing, leading to unsafe and untrained drivers on the road. At the same time as we were working on HAMS, Indian government were looking at introducing technology to make testing more transparent and also automated. So we worked with the right set of partners, and we demonstrated to the government that HAMS could actually completely automate the entire license testing process. So we first deployed this system in Dehradun RTO (Regional Transport Office)—which is the equivalent of a DMV in the US—in 2019, working very closely with RTO officials to define what should be some of the evaluation criteria, right. Some of these would be very simple like, oh, is it the same candidate who is taking the test who actually registered for the test, right? And whether they are wearing seat belts. Did they scan their mirrors before taking a left turn and how well they performed in tasks like reverse parking and things like that.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So what&#8217;s been the government response to that? Have they embraced it or deployed it in a wider extent?</p>
-
-
-
-<p><strong>NAMBI:</strong> Yes, yes. So after the deployment in Dehradun in 2019, we actually open sourced the entire HAMS technology and our partners are now working with several state governments and scaled HAMS to several states in India. And as of today, we have around 28 RTOs where HAMS is actually being deployed, and the pass rate of such license test is just 60% as compared to 90-plus percent with manual testing. That&#8217;s the extensive rigor the system brings in. And now what excites me is after nearly five years later, we are now taking the next step in this project where we are now evaluating the long-term impact of this intervention on driving behavior and road safety. So we are collaborating with Professor Michael Kremer, who is a Nobel laureate and professor at University of Chicago, and his team to study how this technology has influenced driving patterns and accident rates over time. So this focus on closing the loop and moving beyond just deployment in the field to actually measuring the real impact, right, is something that truly excites me and that makes research at Microsoft is very unique. And that is actually one of the reasons why I joined Microsoft Research as a full-time after my internship, and this unique flexibility to work on real-world problems, develop novel research ideas, and actually collaborate with partners both internally and externally to deploy at scale is something that is very unique here.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So have you actually received any evidence that the project is working? Is driving getting safer?</p>
-
-
-
-<p><strong>NAMBI:</strong> Yes, these are very early analysis, and there are very positive insights we are getting from that. Soon we will be releasing a white paper on our study on this long-term impact.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> That’s great. I look forward to that one. So you&#8217;ve also done some interesting work involving the Internet of Things, with an emphasis on making it more reliable and practical. So for those in our audience who may not know, the Internet of Things, or <em>IoT</em>, is a network that includes billions of devices and sensors in things like smart thermostats and fitness trackers. So talk a little bit about your work in this area.</p>
-
-
-
-<p><strong>NAMBI:</strong> Right, so IoT, as you know, is already transforming several industries with billions of sensors being deployed in areas like industrial monitoring, manufacturing, agriculture, smart buildings, and also air pollution monitoring. And if you think about it, these sensors provide critical data that businesses rely for decision making. However, a fundamental challenge is ensuring that the data collected from these sensors is actually reliable. If the data is faulty, it can lead to poor decisions and inefficiencies. And the challenge is that these sensor failures are always not obvious. What I mean by that is when a sensor stops working, it always doesn&#8217;t stop sending data, but it often continues to send some data which appear to be normal. And that&#8217;s one of the biggest problems, right. So detecting these errors is non-trivial because the faulty sensors can mimic real-world working data, and traditional solutions like deploying redundant sensors or even manually inspecting them are very expensive, labor intensive, and also sometimes infeasible, especially for remote deployments. Our goal in this work was to develop a simple and efficient way to remotely monitor the health of the IoT sensors. So what we did was we hypothesized that most sensor failures occurred due to the electronic malfunctions. It could be either due to short circuits or component degradation or due to environmental factors such as heat, humidity, or pollution. Since these failures originate within the sensor hardware itself, we saw an opportunity to leverage some of the basic electronic principles to create a novel solution. The core idea was to develop a way to automatically generate a fingerprint for each sensor. And by fingerprint, I mean the unique electrical characteristic exhibited by a properly working sensor. We built a system that could devise these fingerprints for different types of sensors, allowing us to detect failures purely based on the sensors internal characteristics, that is the fingerprint, and even without looking at the data it produces. Essentially what it means now is that we were able to tag each sensor data with a reliability score, ensuring verifiability.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So how does that technology get deployed in the real world? Is there an application where it&#8217;s being put to work today?</p>
-
-
-
-<p><strong>NAMBI:</strong> Yes, this technology, we worked together with Azure IoT and open-sourced it where there were several opportunities and several companies took the solution into their systems, including air pollution monitoring, smart buildings, industrial monitoring. The one which I would like to talk about today is about air pollution monitoring. As you know, air pollution is a major challenge in many parts of the world, especially in India. And traditionally, air quality monitoring relies on these expensive fixed sensors, which provide limited coverage. On the other hand, there is a rich body of work on low-cost sensors, which can offer wider deployment. Like, you can put these sensors on a bus or a vehicle and have it move around the entire city, where you can get much more fine-grained, accurate picture on the ground. But these are often unreliable because these are low-cost sensors and have reliability issues. So we collaborated with several startups who were developing these low-cost air pollution sensors who were finding it very challenging to gain trust because one of the main concerns was the&nbsp;accuracy of the data from low-cost sensors. So our solution seamlessly integrated with these sensors, which enabled verification of the data quality coming out from these low-cost air pollution sensors. So this bridged the trust gap, allowing government agencies&nbsp;to initiate large-scale pilots using low-cost sensors for fine-grain air-quality monitoring.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So as we&#8217;re talking about evolving technology, large language models, or LLMs, are also enabling big changes, and they&#8217;re not theoretical. They&#8217;re happening today. And you&#8217;ve been working on LLMs and their applicability to real-world problems. Can you talk about your work there and some of the latest releases?</p>
-
-
-
-<p><strong>NAMBI:</strong> So when ChatGPT was first released, I, like many people, was very skeptical. However, I was also curious both of how it worked and, more importantly, whether it could accelerate solutions to real-world problems. That led to the exploration of LLMs in education, where we fundamentally asked this question, can AI help improve educational outcomes? And this was one of the key questions which led to the development of Shiksha copilot, which is a genAI-powered assistant designed to support teachers in their daily work, starting from helping them to create personalized learning experience, design assignments, generate hands-on activities, and even more. Teachers today universally face several challenges, from time management to lesson planning. And our goal with Shiksha was to empower them to significantly reduce the time spent on this task. For instance, lesson planning, which traditionally took about 60 minutes, can now be completed in just five minutes using the Shiksha copilot. And what makes Shiksha unique is that it&#8217;s completely grounded in the local curriculum and the learning objectives, ensuring that the AI-generated content aligns very well with the pedagogical best practices. The system actually supports multilingual interactions, multimodal capabilities, and also integration with external knowledge base, making it very highly adaptable for different curriculums. Initially, many teachers were skeptical. Some feared this would limit their creativity. However, as they began starting to use Shiksha, they realized that it didn&#8217;t replace their expertise, but rather amplified it, enabling them to do work faster and more efficiently.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So, Akshay, the last time you and I talked about Shiksha copilot, it was very much in the pilot phase and the teachers were just getting their hands on it. So it sounds like, though, you&#8217;ve gotten some pretty good feedback from them since then.</p>
-
-
-
-<p><strong>NAMBI:</strong> Yes, so when we were discussing, we were doing this six-month pilot with 50-plus teachers where we gathered overwhelming positive feedback on how technologies are helping teachers to reduce time in their lesson planning. And in fact, they were using the system so much that they really enjoyed working with Shiksha copilot where they were able to do more things with much less time, right. And with a lot of feedback from teachers, we have improved Shiksha copilot over the past few months. And starting this academic year, we have already deployed Shiksha to 1,000-plus teachers in Karnataka. This is with close collaboration with our partners in … with the Sikshana Foundation and also with the government of Karnataka. And the response has been already incredibly encouraging. And looking ahead, we are actually focusing on again, closing this loop, right, and measuring the impact on the ground, where we are doing a lot of studies with the teachers to understand not just improving efficiency of the teachers but also measuring how AI-generated content enriched by teachers is actually enhancing student learning objectives. So that&#8217;s the study we are conducting, which hopefully will close this loop and understand our original question that, can AI actually help improve educational outcomes?</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> And is the deployment primarily in rural areas, or does it include urban centers, or what&#8217;s the target?</p>
-
-
-
-<p><strong>NAMBI:</strong> So the current deployment with 1,000 teachers is a combination of both rural and urban public schools. These are covering both English medium and Kannada medium teaching schools with grades from Class 5 to Class 10.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> Great. So Shiksha was focused on helping teachers and making their jobs easier, but I understand you&#8217;re also working on some opportunities to use AI to help <em>students</em> succeed. Can you talk about that?</p>
-
-
-
-<p><strong>NAMBI:</strong> So as you know, LLMs are still evolving and inherently they are fragile, and deploying them in real-world settings, especially in education, presents a lot of challenges. With Shiksha, if you think about it, teachers remain in control throughout the interaction, making the final decision on whether to use the AI-generated content in the classroom or not. However, when it comes to AI tutors for students, the stakes are slightly higher, where we need to ensure the AI doesn&#8217;t produce incorrect answers, misrepresent concepts, or even mislead explanations. Currently, we are developing solutions to enhance accuracy and also the reasoning capabilities of these foundational models, particularly solving math problems. This represents a major step towards building AI systems that&#8217;s much more holistic personal tutors, which help student understanding and create more engaging, effective learning experience.</p>
-
-
-
-<p><strong>STETKIEWICZ: </strong>So you&#8217;ve talked about working in computer vision and IoT and LLMs. What do those areas have in common? Is there some thread that weaves through the work that you&#8217;re doing?</p>
-
-
-
-<p><strong>NAMBI: </strong>That&#8217;s a great question. As a systems researcher, I&#8217;m quite interested in this end-to-end systems development, which means that my focus is not just about improving a particular algorithm but also thinking about the end-to-end system, which means that I, kind of, think about computer vision, IoT, and even LLMs as tools, where we would want to improve them for a particular application. It could be agriculture, education, or road safety. And then how do you think this holistically to come up with the best efficient system that can be deployed at population scale, right. I think that&#8217;s the connecting story here, that how do you have this systemic thinking which kind of takes the existing tools, improves them, makes it more efficient, and takes it out from the lab to real world.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So you&#8217;re working on some very powerful technology that is creating tangible benefits for society, which is your goal. At the same time, we&#8217;re still in the very early stages of the development of AI and machine learning. Have you ever thought about unintended consequences? Are there some things that could go wrong, even if we get the technology right? And does that kind of thinking ever influence the development process?</p>
-
-
-
-<p><strong>NAMBI:</strong> Absolutely. Unintended consequences are something I think about deeply. Even the most well-designed technology can have these ripple effects that we may not fully anticipate, especially when we are deploying it at population scale. For me, being proactive is one of the key important aspects. This means not only designing the technology at the lab but actually also carefully deploying them in real world, measuring its impact, and working with the stakeholders to minimize the harm. In most of my work, I try to work very closely with the partner team on the ground to monitor, analyze, how the technology is being used and what are some of the risks and how can we eliminate that. At the same time, I also remain very optimistic. It&#8217;s also about responsibility. If we are able to embed societal values, ethics, into the design of the system and involve diverse perspectives, especially from people on the ground, we can remain vigilant as the technology evolves and we can create systems that can truly deliver immense societal benefits while addressing many of the potential risks.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> So we&#8217;ve heard a lot of great examples today about building technology to solve real-world problems and your motivation to keep doing that. So as you look ahead, where do you see your research going next? How will people be better off because of the technology you develop and the advances that they support?</p>
-
-
-
-<p><strong>NAMBI:</strong> Yeah, I&#8217;m deeply interested in advancing AI systems that can truly assist anyone in their daily tasks, whether it&#8217;s providing personalized guidance to a farmer in a rural village, helping a student get instant 24 by 7 support for their learning doubts, or even empowering professionals to work more efficiently. And to achieve this, my research is focusing on tackling some of the fundamental challenges in AI with respect to reasoning and reliability and also making sure that AI is more context aware and responsive to evolving user needs. And looking ahead, I envision AI as not just an assistant but also as an intelligent and equitable copilot seamlessly integrated into our everyday life, empowering individuals across various domains.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> Great. Well, Akshay, thank you for joining us on <em>Ideas</em>. It&#8217;s been a pleasure.</p>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>NAMBI:</strong> Yeah, I really enjoyed talking to you, Chris. Thank you.</p>
-
-
-
-<p><strong>STETKIEWICZ:</strong> Till next time.</p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-3"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p><a id="_ftn1" href="#_ftnref1">[1]</a> To ensure data privacy, all processing is done locally on the smartphone. This approach ensures that driving behavior insights remain private and secure with no personal data stored or shared.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ideas-building-ai-for-population-scale-systems-with-akshay-nambi/">Ideas: Building AI for population-scale systems with Akshay Nambi</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
 			</item>
 	</channel>
 </rss>
