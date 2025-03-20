@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 18 Mar 2025 14:28:45 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 19 Mar 2025 18:45:45 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,352 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Metasurface: Unlocking the future of wireless sensing and communication</title>
+		<link>https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/</link>
+		
+		<dc:creator><![CDATA[Lili Qiu, Hao Pan]]></dc:creator>
+		<pubDate>Wed, 19 Mar 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1134100</guid>
+
+					<description><![CDATA[<p>Metasurfaces explore engineered 2D materials that manipulate electromagnetic and mechanical waves, offering advances in wireless tech. They can power indoor GPS, extend 5G/6G coverage, and enable wireless sensing and imaging.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/">Metasurface: Unlocking the future of wireless sensing and communication</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg" alt="The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, represents a Wi-Fi signal with curved lines radiating from a central point. The middle icon depicts a satellite with solar panels and an antenna emitting waves. The third icon, on the right, shows a bar chart with ascending bars indicating signal strength." class="wp-image-1134231" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>As the demand for faster, more reliable wireless communication continues to grow, but traditional systems face limitations in efficiency and adaptability. To keep up with evolving needs, researchers are investigating new ways to manipulate electromagnetic waves to improve wireless performance. </p>
+
+
+
+<p>To address these challenges, researchers are exploring new approaches, including metasurfaces—engineered materials that can control wave propagation in unprecedented ways. By dynamically shaping and directing electromagnetic waves, metasurfaces offer a promising path to overcoming the constraints of conventional wireless systems. </p>
+
+
+
+<p>Building on these capabilities, we are developing metasurfaces for a wide range of wireless applications, such as enhancing Low Earth Orbit satellite communication, optimizing acoustic sensing, and enabling acoustic and millimeter-wave technologies for 5G and 6G communication systems with commercial devices. More recently, our work has focused on enabling indoor access to the Global Navigation Satellite System (GNSS), improving millimeter-wave coverage in targeted environments, optimizing heat distribution in microwave ovens, and providing <a href="https://www.microsoft.com/en-us/research/publication/mudis-an-audio-independent-wide-angle-and-leak-free-multi-directional-speaker/" target="_blank" rel="noreferrer noopener">directional sound projection</a> without headphones.</p>
+
+
+
+<p>These advances, published at leading networking conferences—including MobiCom 2023 and <a href="https://www.microsoft.com/en-us/research/articles/mobicom-2024-highlights-from-microsoft-research-asia-exploring-innovations-in-wireless-mobile-technology-and-applications/" target="_blank" rel="noreferrer noopener">2024</a>, MobiSys 2024 and 2025, and NSDI 2023—highlight metasurfaces’ potential in wireless communication and sensing. This post explores some of these applications in more detail. </p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085508">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" aria-label="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/MedFuzz-BlogHeroFeature-1400x788-1.jpg" alt="MedFuzz blog hero (decorative)" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">MedFuzz: Exploring the robustness of LLMs on medical challenge problems</h2>
+				
+								<p class="large">Medfuzz tests LLMs by breaking benchmark assumptions, exposing vulnerabilities to bolster real-world accuracy.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
+							Read more						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="metasurfaces-optimize-gnss-for-accurate-indoor-positioning">Metasurfaces optimize GNSS for accurate indoor positioning</h2>
+
+
+
+<p>While GNSS is widely used for outdoor positioning and navigation, its indoor performance is often hindered by signal blockage, reflection, and attenuation caused by physical obstacles. Additional technologies like Wi-Fi and Bluetooth Low Energy (BLE) are often employed to address these issues. However, these solutions require extra infrastructure, are costly, and are complicated to deploy. Accurate positioning also typically depends on specialized hardware and software on mobile devices.&nbsp;</p>
+
+
+
+<p>Despite these challenges, GNSS signals hold promise for accurate indoor positioning. By leveraging the vast number of available satellites, GNSS-based solutions eliminate the need for base station deployment and maintenance required by Wi-Fi and BLE systems. This approach also allows seamless integration between indoor and outdoor environments, supporting continuous positioning in scenarios like guiding smart vehicles through indoor and outdoor industrial environments.&nbsp;</p>
+
+
+
+<p>To explore this potential, we conducted indoor measurements and found that GNSS satellite signals can penetrate windows at different angles and reflect or diffract from surfaces like floors and ceilings, resulting in uneven signals. Metasurfaces can control structured arrays of electromagnetic signals, allowing them to capture and redirect more GNSS signals. This allows signals to enter buildings in a path parallel to the ground, achieving broader coverage. Using this capability, we developed a <a href="https://www.microsoft.com/en-us/research/publication/gpms-enabling-indoor-gnss-positioning-using-passive-metasurfaces/#:~:text=In%20terms%20of%20indoor%20positioning%20accuracy%2C%20our%20proposed,and%20benefits%20of%20metasurface-assisted%20GNSS%20for%20indoor%20positioning.?msockid=12da2addb70263b40f2e3f57b6c56288">GNSS positioning metasurface system (GPMS) based on passive metasurface technology</a>.</p>
+
+
+
+<p>One limitation of passive metasurfaces is their lack of programmability. To overcome this and enable them to effectively guide signals from different angles and scatter them in parallel, we designed a two-layer metasurface system. As shown in Figure 1, this design ensures that electromagnetic waves from different angles follow similar emission trajectories.&nbsp;&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="758" height="508" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1.png" alt="A diagram showing the optimization of metasurfaces for enhancing GNSS signals indoors. It includes two GNSS satellites, far-field channels, a near-field channel matrix, a passive metasurface grid, and colorful 3D waveforms. The target radiation matrix is shown with indoor users. The text reads: “Optimization problem: The radiation output of our designed metasurfaces should all be close to the target radiation for GNSS signal input at all incidence angles.” " class="wp-image-1134106" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1.png 758w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1-300x201.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1-240x161.png 240w" sizes="(max-width: 758px) 100vw, 758px" /><figcaption class="wp-element-caption">Figure 1: The GPMS two-layer metasurface structure</figcaption></figure>
+
+
+
+<p>To improve positioning accuracy, we developed new algorithms that allow signals to pass through metasurfaces, using them as anchor points. Traditional GPS positioning requires signals from at least four satellites to decode location information. In the GPMS system, illustrated in Figure 2, each deployed metasurface functions as a virtual satellite. By deploying at least three metasurfaces indoors, we achieved high-precision positioning through a triangulation algorithm.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="826" height="476" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2.png" alt="The image depicts a shopping mall indoor environment with three metasurfaces labeled Metasurface 1, Metasurface 2, and Metasurface 3. Each metasurface is associated with a steering and scattering area, labeled Steering and scattering area 1, Steering and scattering area 2, and Steering and scattering area 3 respectively. GNSS satellites are shown outside the building. The image illustrates how GNSS signals interact with metasurfaces within an indoor environment." class="wp-image-1134107" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2.png 826w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2-300x173.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2-768x443.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2-240x138.png 240w" sizes="(max-width: 826px) 100vw, 826px" /><figcaption class="wp-element-caption">Figure 2. Diagram of the GPMS system. Passive metasurfaces guide GNSS signals indoors, while enhanced positioning algorithms provide precise indoor positioning on mobile devices.&nbsp;</figcaption></figure>
+
+
+
+<p>To evaluate the system, we deployed the GPMS with six metasurfaces on a 10×50-meter office floor and a 15×20-meter conference hall. The results show significant improvements in signal quality and availability. C/N₀, a measure of signal-to-noise ratio, increased from 9.1 dB-Hz to 32.2 dB-Hz. The number of visible satellites increased from 3.6 to 21.5. Finally, the absolute positioning error decreased from 30.6 meters to 3.2 meters in the office and from 11.2 meters to 2.7 meters in the conference hall. These findings are promising and highlight the feasibility and advantages of GNSS-based metasurfaces for indoor positioning.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="metasurfaces-extend-millimeter-wave-coverage">Metasurfaces extend millimeter-wave coverage</h2>
+
+
+
+<p>Millimeter waves enable the high-speed, low-latency performance needed for 5G and 6G communication systems. While commercial products like 60 GHz Wi-Fi routers and mobile devices are becoming popular, their limited coverage and susceptibility to signal obstruction restrict their widespread application.&nbsp;</p>
+
+
+
+<p>Traditional solutions include deploying multiple millimeter-wave access points, such as routers or base stations, or placing reflective metal panels in room corners to reflect electromagnetic waves. However, these approaches are both costly and offer limited performance. Metasurfaces offer a promising alternative for improving millimeter-wave applications. Previous research has shown that programmable metasurfaces can enhance signal coverage in blind spots and significantly improve signal quality and efficiency.&nbsp;&nbsp;</p>
+
+
+
+<p>To maximize the benefits of metasurfaces, we developed the <a href="https://www.microsoft.com/en-us/research/publication/automs-automated-service-for-mmwave-coverage-optimization-using-low-cost-metasurfaces/" target="_blank" rel="noreferrer noopener">AutoMS automation service framework</a>, shown in Figure 3. This proposed framework can optimize millimeter-wave coverage using low-cost passive metasurface design and strategic placement.&nbsp;</p>
+
+
+
+<p>The three main components of AutoMS can address the limitations of traditional solutions:&nbsp;</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Automated joint optimization:</strong> AutoMS determines the optimal network deployment configuration by analyzing phase settings, metasurface placement, and access point positioning. It also refines beam-forming configurations to enhance signal coverage. By iteratively identifying and optimizing the number, size, and placement of metasurfaces, AutoMS adjusts the metasurface phase settings and the access point’s configurations to achieve optimal signal coverage.&nbsp;</li>
+</ol>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="725" height="234" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3.png" alt="A flowchart diagram illustrating the AutoMS framework, which generates optimized passive metasurface and access point deployment plans for a specific 3D model based on environmental scanning results. The process starts with an environment scan, producing a 3D model and reflection coefficients. This information feeds into wireless channel modeling, which along with deployment configurations, is optimized by a hyper-configuration tuner. The output includes phase maps used by the surface and AP optimizer. The optimized deployment configurations are then used for metasurface fabrication and network deployment. " class="wp-image-1134108" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3.png 725w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3-300x97.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3-240x77.png 240w" sizes="auto, (max-width: 725px) 100vw, 725px" /><figcaption class="wp-element-caption">Figure 3. The AutoMS framework generates optimized deployment plans for passive metasurface and access points based on environment scanning results<em>.</em>&nbsp;</figcaption></figure>
+
+
+
+<ol start="2" class="wp-block-list">
+<li><strong>Fast 3D ray tracing simulator:</strong> Using hardware and software acceleration, our simulator efficiently calculates channel matrices resulting from metasurfaces with tens of thousands of elements. This simulator, capable of tracing 1.3 billion rays in just three minutes on an A100 GPU, significantly accelerates calculations for complex environments.</li>
+</ol>
+
+
+
+<ol start="3" class="wp-block-list">
+<li><strong>Low-cost passive metasurface design:</strong> We designed a high-reflectivity passive metasurface with near-2π phase control and broadband compatibility for the millimeter-wave frequency band. This metasurface is compatible with low-precision, cost-effective thermoforming processes. This process enables users to create metasurfaces at minimal cost, significantly reducing deployment expenses.<br><br>Shown in Figure 4, users can capture the environment using existing 3D scanning apps on mobile devices, generate a 3D layout model, and upload it to the cloud. AutoMS then generates metasurface settings and placement guidelines.&nbsp;&nbsp;<br><br>Users can print metasurface patterns using hot stamping and customize them without affecting functionality, as millimeter waves penetrate paint and paper.&nbsp;</li>
+</ol>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="536" height="281" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4.png" alt="A step-by-step process for creating low-cost passive metasurfaces. Step 1: Print patterns on paper with a laser printer. Step 2: Hot stamp aluminum foil on paper with a laminator. Step 3: Tear the aluminum foil off to get the metallic patterns. Step 4: Paste patterns on the plastic sheet and aluminum board." class="wp-image-1134109" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4.png 536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4-300x157.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4-240x126.png 240w" sizes="auto, (max-width: 536px) 100vw, 536px" /><figcaption class="wp-element-caption">Figure 4: The low-cost passive metasurface creation process&nbsp;</figcaption></figure>
+
+
+
+<p>Evaluation using publicly available 3D layout datasets and real-world tests shows that AutoMS significantly improves millimeter-wave coverage across various scenarios. Compared to a single router setup, AutoMS increased signal strength by 12.1 dB. Onsite tests further confirmed gains of 11 dB in target areas and over 20 dB in blind spots, with signal throughput increasing from 77 Mbps to 373 Mbps. AutoMS adapts to diverse environments, ensuring reliable and flexible deployment in real-world applications.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="metasurfaces-support-uniform-heating-in-microwave-ovens">Metasurfaces support uniform heating in microwave ovens&nbsp;</h2>
+
+
+
+<p>Microwave ovens often heat unevenly, creating cold spots in food. These can allow harmful bacteria and other pathogens to survive, increasing the risk of foodborne illnesses. Uneven heating can cause eggs to burst or create &#8220;hot spots&#8221; that can scald.</p>
+
+
+
+<p>Uneven heating is due to the appliance’s heating mechanism. Microwave ovens generate high-power radio frequency (RF) electromagnetic waves through dielectric heating. These waves create nodes with zero amplitude, which prevents heating. They also create antinodes, where heating occurs more rapidly.&nbsp;&nbsp;</p>
+
+
+
+<p>To address this issue, we developed <a href="https://www.microsoft.com/en-us/research/publication/microsurf-guiding-energy-distribution-inside-microwave-oven-with-metasurfaces/" target="_blank" rel="noreferrer noopener">MicroSurf</a>, a low-cost solution that improves heating by using passive metasurfaces to control electromagnetic energy inside the microwave oven. It uses the resonance effect between the metasurface and electromagnetic waves to modify the standing-wave distribution and achieve more uniform heating. This is shown in Figure 5.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="859" height="205" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5.png" alt="A diagram illustrating the working principle of MicroSurf in four parts. A shows an uneven electric field distribution inside a microwave oven leading to uneven heating, with images of a microwave and thermal images of food. B depicts accurate modeling of the microwave oven, including geometry refinement, dielectric factor tuning, and frequency tuning. C involves designing and optimizing a metasurface that can function in a high-power environment to change the standing wave distribution, with an image of a high-power phase-tuning metasurface. D demonstrates achieving uniform heating of different foods and selectively heating specific parts of food, with thermal images showing uniform heating results." class="wp-image-1134110" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5.png 859w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5-300x72.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5-768x183.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5-240x57.png 240w" sizes="auto, (max-width: 859px) 100vw, 859px" /><figcaption class="wp-element-caption">Figure 5: MicroSurf’s working principle: Uneven electric field distribution inside the microwave oven leads to uneven heating. B. Modeling the microwave oven. C. Designing and optimizing a metasurface that can function in a high-power environment to change the standing wave distribution. D. Achieving uniform heating of different foods and selectively heating specific parts.&nbsp;</figcaption></figure>
+
+
+
+<p>Tests across four different microwave oven brands demonstrate that MicroSurf effectively optimizes heating for various liquids and solids, uniformly heating water, milk, bread, and meat. It concentrates heat on specific areas and adapts to differently shaped foods. MicroSurf offers a promising solution for even heating in microwave ovens, demonstrating the potential of metasurface technology in everyday applications. This innovation paves the way for smarter, more efficient home appliances.&nbsp;&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="advancing-wireless-innovation">Advancing wireless innovation</h2>
+
+
+
+<p>Wireless sensing and communication technologies are evolving rapidly, driving innovation across a wide range of applications. We are continuing to push the boundaries of these technologies—particularly in metasurface development—while working to create practical solutions for a variety of use cases.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/">Metasurface: Unlocking the future of wireless sensing and communication</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Claimify: Extracting high-quality claims from language model outputs</title>
+		<link>https://www.microsoft.com/en-us/research/blog/claimify-extracting-high-quality-claims-from-language-model-outputs/</link>
+		
+		<dc:creator><![CDATA[Dasha Metropolitansky]]></dc:creator>
+		<pubDate>Wed, 19 Mar 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1134179</guid>
+
+					<description><![CDATA[<p>While large language models (LLMs) are capable of synthesizing vast amounts of information, they sometimes produce inaccurate or unsubstantiated content. To mitigate this risk, tools like Azure AI’s Groundedness Detection (opens in new tab) can be used to verify LLM outputs.  A common strategy for fact-checking LLM-generated texts – especially complex, highly detailed outputs – [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/claimify-extracting-high-quality-claims-from-language-model-outputs/">Claimify: Extracting high-quality claims from language model outputs</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1.jpg" alt="Gradient background transitioning from blue to pink with two white icons. The left icon depicts a network or molecule structure with interconnected nodes, and the right icon shows a laptop and the outline of a person." class="wp-image-1134342" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Claimify-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>While large language models (LLMs) are capable of synthesizing vast amounts of information, they sometimes produce inaccurate or unsubstantiated content. To mitigate this risk, tools like Azure AI’s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/groundedness" target="_blank" rel="noreferrer noopener">Groundedness Detection<span class="sr-only"> (opens in new tab)</span></a> can be used to verify LLM outputs. </p>
+
+
+
+<p>A common strategy for fact-checking LLM-generated texts – especially complex, highly detailed outputs – is <strong>claim extraction</strong>: instead of evaluating the entire text at once, it’s broken down into simple factual statements that can be verified independently. However, the effectiveness of this approach depends on the quality of the extracted claims: if they are inaccurate or incomplete, the fact-checking results may be compromised. </p>
+
+
+
+<p>Our paper “<a href="https://www.microsoft.com/en-us/research/publication/towards-effective-extraction-and-evaluation-of-factual-claims/">Towards Effective Extraction and Evaluation of Factual Claims</a>” proposes a framework for evaluating claim extraction and introduces <strong>Claimify</strong>, a novel LLM-based method that outperforms prior solutions. In this blog post, we discuss common claim extraction issues and explore Claimify’s approach.</p>
+
+
+
+<h2 class="wp-block-heading" id="key-issues-in-claim-extraction">Key issues in claim extraction</h2>
+
+
+
+<p>As a case study, we prompted OpenAI’s GPT-4o model to “<em>provide an overview of challenges in emerging markets</em>” based on a collection of news articles. Here is its output:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong># Emerging market challenges </strong><br>Emerging markets face a myriad of challenges that span economic, social, and environmental dimensions. These challenges are often interconnected, exacerbating the difficulties faced by these regions. <br><br><strong>## Economic instability and inflation </strong><br>Several emerging markets are grappling with severe economic instability. For instance, Argentina&#8217;s rampant inflation, with monthly rates reaching as high as 25.5%, has made many goods unobtainable and plunged the value of the currency, causing severe economic hardship. Some experts estimate that the annual inflation rate could potentially double to 300%, while others predict even higher rates. <br><br><strong>## Food insecurity and agricultural challenges </strong><br>Food insecurity is another critical issue in emerging markets. Nigeria, for example, is striving to become self-sufficient in wheat production but is hindered by climate change and violence, exacerbated by high grain prices due to the suspension of the Black Sea Grain Initiative. Climate change has played a pivotal role in creating food insecurity and economic instability in farming-dependent economies, such as Zambia and Mozambique. <br><br><strong>## Natural disasters and public health emergencies </strong><br>Public health crises, as demonstrated by the experience of Derna, Libya, remain a significant concern in emerging markets. Catastrophic flooding caused by the collapse of two dams has led to significant destruction, complicating access to healthcare. The U.N. found that the resulting contaminated water caused many residents to fall ill, highlighting the need for improved water management. Countries like Afghanistan and Sudan have experienced similar challenges to those of Libya. <br><br><strong>## Conclusion </strong><br>Addressing emerging market challenges will require comprehensive strategies that consider economic stability, food security, and public health. International cooperation and targeted interventions are crucial in fostering sustainable development in emerging markets.</td></tr></tbody></table></figure>
+
+
+
+<p>We then applied a simple prompt<a id="_ftnref1" href="#_ftn1">[1]</a> that extracted the following claims from the answer:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td>1. Emerging markets face economic challenges. <br>2. Emerging markets face social challenges. <br>3. Emerging markets face environmental challenges. <br>4. Argentina experiences severe economic instability. <br>5. Argentina has a monthly inflation rate as high as 25.5%. <br>6. Argentina&#8217;s inflation has made many goods unobtainable. <br>7. Argentina&#8217;s currency value has plunged. <br>8. Some experts estimate Argentina&#8217;s annual inflation rate could reach 300%. <br>9. Food insecurity is a critical issue in emerging markets. <br>10. Nigeria is striving to become self-sufficient in wheat production. <br>11. Nigeria&#8217;s wheat production is hindered by climate change. <br>12. Nigeria&#8217;s wheat production is hindered by violence. <br>13. High grain prices affect Nigeria due to the suspension of the Black Sea Grain Initiative. <br>14. Climate change creates food insecurity in Zambia. <br>15. Climate change creates food insecurity in Mozambique. <br>16. Climate change causes economic instability in farming-dependent economies. <br>17. Public health crises are a concern in emerging markets. <br>18. Derna, Libya, experienced catastrophic flooding. <br>19. The collapse of two dams caused flooding in Derna, Libya. <br>20. Flooding in Derna, Libya, complicated access to healthcare. <br>21. The U.N. found contaminated water in Derna, Libya. <br>22. Contaminated water in Derna, Libya, caused many residents to fall ill. <br>23. Afghanistan has experienced challenges similar to those in Libya. <br>24. Sudan has experienced challenges similar to those in Libya. <br>25. Addressing emerging market challenges requires comprehensive strategies. <br>26. Comprehensive strategies should consider economic stability. <br>27. Comprehensive strategies should consider food security. <br>28. Comprehensive strategies should consider public health. <br>29. International cooperation is crucial for sustainable development in emerging markets. <br>30. Targeted interventions are crucial for sustainable development in emerging markets.</td></tr></tbody></table></figure>
+
+
+
+<p>These claims appear to reflect the answer, but a closer look reveals four critical issues:</p>
+
+
+
+<figure class="wp-block-table"><table><thead><tr><th>#</th><th class="has-text-align-left" data-align="left">Issue</th><th>Example</th></tr></thead><tbody><tr><td>1</td><td class="has-text-align-left" data-align="left">Some claims are not factual statements that can be verified as true or false.</td><td><strong>Excerpt:</strong> “<em>Addressing emerging market challenges will require comprehensive strategies that consider economic stability, food security, and public health.</em>” <br><br><strong>Claims:</strong> <ul><li>Addressing emerging market challenges requires comprehensive strategies.</li> <li>Comprehensive strategies should consider economic stability.</li> <li>Comprehensive strategies should consider food security.</li> <li>Comprehensive strategies should consider public health.</li></ul><strong>Explanation: </strong>These claims are not verifiable because they are opinions.</td></tr><tr><td>2</td><td class="has-text-align-left" data-align="left">Some claims are missing or incomplete.</td><td><strong>Excerpt:</strong> “<em>Argentina&#8217;s rampant inflation, with monthly rates reaching as high as 25.5%, has made many goods unobtainable and plunged the value of the currency, <u>causing severe economic hardship</u>. Some experts estimate that the annual inflation rate could potentially double to 300%, while <u>others predict even higher rates</u>.</em>” <br><br><strong>Claims:</strong> <ul><li>Argentina has a monthly inflation rate as high as 25.5%.</li> <li>Argentina&#8217;s inflation has made many goods unobtainable.</li> <li>Argentina&#8217;s currency value has plunged.</li> <li>Some experts estimate Argentina’s annual inflation rate could reach 300%.</li></ul> <strong>Explanation: </strong>The phrases “<em>causing severe economic hardship</em>” and “<em>others predict even higher rates</em>” are not reflected in any of the claims. The third claim also omits the fact that inflation caused the currency depreciation.</td></tr><tr><td>3</td><td class="has-text-align-left" data-align="left">Some claims are inaccurate.</td><td><strong>Excerpt: </strong>“<em>The U.N. found that the resulting contaminated water caused many residents to fall ill, highlighting the need for improved water management</em>.”<br><br><strong>Claims:</strong> <ul><li>The U.N. found contaminated water in Derna, Libya.</li> <li>Contaminated water in Derna, Libya, caused many residents to fall ill.</li></ul> <strong>Explanation: </strong>The first claim is inaccurate because the U.N. found the link between contaminated water and illness, not the contaminated water itself. The second claim also misrepresents the sentence since it shifts the meaning from a viewpoint of a specific entity (the U.N.) to a general assertion about the effects of contaminated water in Derna, Libya.</td></tr><tr><td>4</td><td class="has-text-align-left" data-align="left">Some claims cannot be understood without additional context.</td><td><strong>Excerpt: </strong>“<em>Countries like Afghanistan and Sudan have experienced similar challenges to those of Libya.</em>”<br><br><strong>Claims:</strong> <ul><li>Afghanistan has experienced challenges similar to those in Libya.</li> <li>Sudan has experienced challenges similar to those in Libya.</li></ul> <strong>Explanation: </strong>These claims cannot be understood on their own because “<em>those</em>” is not defined.</td></tr></tbody></table></figure>
+
+
+
+<h2 class="wp-block-heading" id="introducing-claimify">Introducing Claimify</h2>
+
+
+
+<p>The case study highlights that claim extraction is surprisingly error-prone. <a href="https://www.microsoft.com/en-us/research/publication/towards-effective-extraction-and-evaluation-of-factual-claims/">Our paper</a> demonstrates that the issues identified above are common across LLM-based claim extraction methods. To minimize these errors, we created a system called Claimify<a id="_ftnref2" href="#_ftn2">[2]</a>.</p>
+
+
+
+<h3 class="wp-block-heading" id="core-principles">Core principles</h3>
+
+
+
+<p>Claimify is an LLM-based claim extraction system built on the following principles:</p>
+
+
+
+<figure class="wp-block-table"><table><thead><tr><th>#</th><th>Principle</th><th>Example</th></tr></thead><tbody><tr><td>1</td><td>The claims should capture all verifiable content in the source text and exclude unverifiable content.</td><td>In the sentence “<em>The partnership between John and Jane illustrates the importance of collaboration,</em>” the only verifiable content is the existence of a partnership between John and Jane. The rest is subjective interpretation.</td></tr><tr><td>2</td><td>Each claim should be entailed (i.e., fully supported) by the source text.</td><td>Consider the sentence “<em>Governments are curtailing emissions from cars and trucks, which are the largest source of greenhouse gases from transportation</em>.” The following claims are incorrect: <br><br><ul><li>Cars are the largest source of greenhouse gases from transportation.</li> <li>Trucks are the largest source of greenhouse gases from transportation.</li></ul>The sentence attributes the highest emissions to cars and trucks collectively, not individually.</td></tr><tr><td>3</td><td>Each claim should be understandable on its own, without additional context.</td><td>The claim “<em>They will update the policy next year</em>” is not understandable on its own because it’s unclear what “<em>They</em>,” “<em>the policy</em>,” and “<em>next year</em>” refer to.</td></tr><tr><td>4</td><td>Each claim should minimize the risk of excluding critical context.</td><td>Suppose the<em> claim “The World Trade Organization has supported trade barriers” </em>was extracted from the sentence<em> “An exception to the World Trade Organization’s open-market philosophy is its history of supporting trade barriers when member countries have failed to comply with their obligations.”</em> A fact-checking system would likely classify the claim as false, since there is extensive evidence that the WTO aims to reduce trade barriers. However, if the claim had specified that the WTO has supported trade barriers “<em>when member countries have failed to comply with their obligations,</em>” it would likely have been classified as true. This example demonstrates that missing context can distort the fact-checking verdict.</td></tr><tr><td>5</td><td>The system should flag cases where ambiguity cannot be resolved.</td><td>The sentence “<em>AI has advanced renewable energy and sustainable agriculture at Company A and Company B</em>” has two mutually exclusive interpretations: <br><br><ul><li>AI has advanced renewable energy and sustainable agriculture at both Company A and Company B.</li> <li>AI has advanced renewable energy at Company A and sustainable agriculture at Company B.</li></ul>If the context does not clearly indicate that one of these interpretations is correct, the system should flag the ambiguity instead of picking one interpretation arbitrarily.</td></tr></tbody></table></figure>
+
+
+
+<h3 class="wp-block-heading" id="implementation">Implementation</h3>
+
+
+
+<p>Claimify accepts a question-answer pair as input and performs claim extraction in four stages, illustrated in Figure 1:</p>
+
+
+
+<figure class="wp-block-table"><table><thead><tr><th>#</th><th>Stage</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td>Sentence splitting and context creation</td><td>The answer is split into sentences, with “context” – a configurable combination of surrounding sentences and metadata (e.g., the header hierarchy in a Markdown-style answer)&nbsp;– created for each sentence.</td></tr><tr><td>2</td><td>Selection</td><td>An LLM identifies sentences that do not contain verifiable content. These sentences are labeled “No verifiable claims” and excluded from subsequent stages. When sentences contain verifiable and unverifiable components, the LLM rewrites the sentence, retaining only the verifiable components.</td></tr><tr><td>3</td><td>Disambiguation</td><td>For sentences that passed the Selection stage, an LLM detects ambiguity and determines if it can be resolved using the context. If all ambiguity is resolvable, the LLM returns a disambiguated version of the sentence. Otherwise, the sentence is labeled “Cannot be disambiguated” and excluded from the Decomposition stage.</td></tr><tr><td>4</td><td>Decomposition</td><td>For sentences that are unambiguous or were disambiguated, an LLM creates standalone claims that preserve critical context. If no claims are extracted, the sentence is labeled “No verifiable claims.”</td></tr></tbody></table></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1915" height="453" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog.png" alt="A flowchart outlining Claimify’s stages for extracting claims from a question-answer pair. The process begins by splitting the answer into sentences and creating context. Next, the Selection stage asks if a sentence contains any verifiable content. If no, the sentence is labeled "No verifiable claims" and excluded from subsequent stages; if yes, it proceeds to the Disambiguation stage. The Disambiguation stage asks if the sentence contains any ambiguity that cannot be resolved. If yes, the sentence is labeled "Cannot be disambiguated" and excluded from the final stage; if no, it proceeds to the Decomposition stage. The Decomposition stage attempts to decompose the sentence into claims. If it is decomposed into at least one claim, the sentence is labeled "Extracted claims"; otherwise, the sentence is labeled "No verifiable claims." The Selection, Disambiguation, and Decomposition stages apply to each sentence individually. " class="wp-image-1134259" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog.png 1915w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog-300x71.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog-1024x242.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog-768x182.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog-1536x363.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/claimify_figure_blog-240x57.png 240w" sizes="auto, (max-width: 1915px) 100vw, 1915px" /><figcaption class="wp-element-caption">Figure 1: Overview of Claimify’s stages</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="results">Results</h2>
+
+
+
+<p>In <a href="https://www.microsoft.com/en-us/research/publication/towards-effective-extraction-and-evaluation-of-factual-claims/" target="_blank" rel="noreferrer noopener">our paper</a>, we demonstrate that Claimify outperforms existing LLM-based methods<a href="#_ftn3">[3]</a>. Specifically, we show that: (1) 99% of claims extracted by Claimify are entailed by their source sentence, (2) Claimify strikes the best balance between including verifiable content and excluding unverifiable content, and (3) Claimify is least likely to omit context critical to the fact-checking verdict.</p>
+
+
+
+<p>For the above case study on challenges in emerging markets, here are Claimify’s outputs, with source sentences preceded by a letter and claims numbered<a href="#_ftn4" id="_ftnref4">[4]</a>:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>A. Several emerging markets are grappling with severe economic instability. <br></strong>1. Several emerging markets are grappling with severe economic instability. <br><br><strong>B. For instance, Argentina&#8217;s rampant inflation, with monthly rates reaching as high as 25.5%, has made many goods unobtainable and plunged the value of the currency, causing severe economic hardship. <br></strong>1. Argentina has rampant inflation. <br>2. The monthly inflation rates in Argentina have reached as high as 25.5%. <br>3. Inflation has made many goods unobtainable in Argentina. <br>4. Inflation has plunged the value of the currency in Argentina. <br>5. Inflation has caused severe economic hardship in Argentina. <br><br><strong>C. Some experts estimate that the annual inflation rate could potentially double to 300%, while others predict even higher rates. <br></strong>1. Some experts estimate that Argentina&#8217;s annual inflation rate could double to 300% in the future. <br>2. Some experts predict that Argentina&#8217;s annual inflation rate could be higher than 300% in the future. <br><br><strong>D. Nigeria, for example, is striving to become self-sufficient in wheat production but is hindered by climate change and violence, exacerbated by high grain prices due to the suspension of the Black Sea Grain Initiative. <br></strong>1. Nigeria is striving to become self-sufficient in wheat production. <br>2. Nigeria is hindered by climate change in becoming self-sufficient in wheat production. <br>3. Nigeria is hindered by violence in becoming self-sufficient in wheat production. <br>4. High grain prices exacerbate the hindrance to Nigeria&#8217;s efforts to become self-sufficient in wheat production. <br>5. The suspension of the Black Sea Grain Initiative is a reason for high grain prices. <br><br><strong>E. Climate change has played a pivotal role in creating food insecurity and economic instability in farming-dependent economies, such as Zambia and Mozambique. <br></strong>1. Climate change has played a role in creating food insecurity in farming-dependent economies. <br>2. Zambia is a farming-dependent economy where climate change has played a role in creating food insecurity. <br>3. Mozambique is a farming-dependent economy where climate change has played a role in creating food insecurity. <br>4. Climate change has played a role in creating economic instability in farming-dependent economies. <br>5. Zambia is a farming-dependent economy where climate change has played a role in creating economic instability.<br>6. Mozambique is a farming-dependent economy where climate change has played a role in creating economic instability.<br><br><strong>F. Public health crises, as demonstrated by the experience of Derna, Libya, remain a significant concern in emerging markets.<br></strong>1. Public health crises are a concern in emerging markets.<br>2. Derna, Libya, is an example of a public health crisis in emerging markets.<br><br><strong>G. Catastrophic flooding caused by the collapse of two dams has led to significant destruction, complicating access to healthcare.<br></strong>1. There was catastrophic flooding in Derna, Libya.<br>2. The flooding in Derna, Libya, was caused by the collapse of two dams.<br>3. The flooding in Derna, Libya, has led to significant destruction.<br>4. The flooding in Derna, Libya, has complicated access to healthcare.<br><br><strong>H. Countries like Afghanistan and Sudan have experienced similar challenges to those of Libya.<br></strong>1. Afghanistan has experienced challenges related to public health crises.<br>2. Afghanistan has experienced challenges related to catastrophic flooding.<br>3. Afghanistan has experienced challenges related to contaminated water.<br>4. Sudan has experienced challenges related to public health crises.<br>5. Sudan has experienced challenges related to catastrophic flooding.<br>6. Sudan has experienced challenges related to contaminated water.</td></tr></tbody></table></figure>
+
+
+
+<p>Note that the baseline prompt extracted several claims from the sentence “<em>The U.N. found that the resulting contaminated water caused many residents to fall ill, highlighting the need for improved water management</em>,” but it ignored the phrase <em>“highlighting the need for improved water management</em>.”&nbsp;It also failed to capture that the contaminated water resulted from flooding, as implied by “<em>resulting</em>” in the original sentence.</p>
+
+
+
+<p>Claimify took a different approach. First, it found two instances of ambiguity – “<em>resulting contaminated water</em>” and “<em>many resident</em>s”&nbsp;– that it determined could be resolved using the context. Here’s an excerpt from its reasoning: “&#8230;<em>the context specifies that the contaminated water is a result of the catastrophic flooding in Derna, Libya, and the residents are those of Derna, Libya.</em>”</p>
+
+
+
+<p>However, it also found an instance of ambiguity – “<em>highlighting the need for improved water management”</em> – where it concluded that the context does not definitively support a single interpretation: “<em>The sentence could be interpreted as: (1) The U.N. found that the contaminated water caused illness and also highlighted the need for improved water management, (2) The U.N. only found that the contaminated water caused illness, while the need for improved water management is an implication or conclusion drawn by the writer. Readers … would likely fail to reach consensus about the correct interpretation of this ambiguity.</em>” As a result, Claimify labeled the sentence “Cannot be disambiguated” at the Disambiguation stage and did not proceed to the Decomposition stage.&nbsp;</p>
+
+
+
+<p>To the best of our knowledge, Claimify is the first claim extraction system that identifies when the source text has multiple possible interpretations and extracts claims only when there is high confidence in the correct interpretation.</p>
+
+
+
+<h2 class="wp-block-heading" id="next-steps">Next steps</h2>
+
+
+
+<p>We’re currently working on new methods for evaluating LLM-generated texts. We anticipate that the high-quality claims extracted by Claimify will help not only in verifying the veracity of LLM outputs, but also in assessing their overall quality – especially when gold-standard references are difficult to create (e.g., long-form texts where people may disagree on what defines “good” content). For example, <a href="https://www.microsoft.com/en-us/research/publication/from-local-to-global-a-graph-rag-approach-to-query-focused-summarization/">we recently used Claimify</a> to evaluate the comprehensiveness and diversity of answers generated by <a href="https://www.microsoft.com/en-us/research/project/graphrag/">GraphRAG</a>, showing that GraphRAG outperforms traditional Retrieval Augmented Generation (RAG) in these areas.</p>
+
+
+
+<p>For an in-depth discussion of Claimify and our evaluation framework, please see our paper “<a href="https://www.microsoft.com/en-us/research/publication/towards-effective-extraction-and-evaluation-of-factual-claims/">Towards Effective Extraction and Evaluation of Factual Claims</a>.”</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<p><a id="_ftn1" href="#_ftnref1">[1]<span class="sr-only"> (opens in new tab)</span></a> We used the “proposition chunking” prompt from<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/NirDiamant/RAG_Techniques/blob/main/all_rag_techniques/proposition_chunking.ipynb" target="_blank" rel="noreferrer noopener"> NirDiamant&#8217;s RAG Techniques repository<span class="sr-only"> (opens in new tab)</span></a>. We generated multiple responses using GPT-4o, then picked the response that was most representative of the samples.</p>
+
+
+
+<p><a id="_ftn2" href="#_ftnref2">[2]</a> Claimify is currently used for research purposes only and is not available commercially.</p>
+
+
+
+<p><a id="_ftn3" href="#_ftnref3">[3]<span class="sr-only"> (opens in new tab)</span></a> We benchmarked Claimify against <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.findings-emnlp.552/" target="_blank" rel="noreferrer noopener">VeriScore<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2412.13175" target="_blank" rel="noreferrer noopener">DnD<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2403.18802" target="_blank" rel="noreferrer noopener">SAFE<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.acl-long.104/" target="_blank" rel="noreferrer noopener">AFaCTA<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.findings-emnlp.830/" target="_blank" rel="noreferrer noopener">Factcheck-GPT<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<p><a href="#_ftnref4" id="_ftn4">[4]</a> The outputs were generated using GPT-4o. Sentences not shown were either labeled “No verifiable claims” or “Cannot be disambiguated.”</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/claimify-extracting-high-quality-claims-from-language-model-outputs/">Claimify: Extracting high-quality claims from language model outputs</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Introducing KBLaM: Bringing plug-and-play external knowledge to LLMs</title>
 		<link>https://www.microsoft.com/en-us/research/blog/introducing-kblam-bringing-plug-and-play-external-knowledge-to-llms/</link>
 		
@@ -32,7 +378,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-kblam-bringing-plug-and-play-external-knowledge-to-llms/">Introducing KBLaM: Bringing plug-and-play external knowledge to LLMs</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1.png" alt="KBLaM blog | A flowchart illustrating the process of handling a prompt using a language model. The process begins with documents being used to construct and summarize a knowledge base (KB) offline. The summarized KB is then encoded and fed into the main process. A prompt goes through a tokenizer, followed by rectangular attention, and then into the large language model (LLM). The LLM retrieves information from the encoded KB to generate an answer." class="wp-image-1134055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1280x720.png 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1.png" alt="KBLaM blog | A flowchart illustrating the process of handling a prompt using a language model. The process begins with documents being used to construct and summarize a knowledge base (KB) offline. The summarized KB is then encoded and fed into the main process. A prompt goes through a tokenizer, followed by rectangular attention, and then into the large language model (LLM). The LLM retrieves information from the encoded KB to generate an answer." class="wp-image-1134055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-BlogHeroFeature-1400x788-1-1-1280x720.png 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -56,30 +402,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+								<p class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-							Read more						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -114,11 +460,11 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1531" height="832" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit.png" alt="Figure 1: A diagram comparing KBLaM and existing approaches. With RAG, we take the user’s prompt and use that to retrieve relevant documents from an external corpus using some retriever module, and append a tokenized version of those relevant documents in the context. This is relatively cheap, but requires many components. On the other hand, In Context Learning just puts the entire corpus into the context. This is simple, involving only one component, but is expensive. Our method, KBLaM, makes a structured knowledge base from the documents in an offline process, and includes the entire knowledge base to the context, while using a novel variant of attention, rectangular attention, so that the cost is linear in the size of the knowledge base. This results in a system where the retrieval only requires a single, trainable component, that is also cheap." class="wp-image-1133892" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit.png 1531w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-300x163.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-1024x556.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-768x417.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-240x130.png 240w" sizes="(max-width: 1531px) 100vw, 1531px" /><figcaption class="wp-element-caption"><em>Figure 1:<em> KBLaM allows for attention over the entire knowledge base instead of having an external retriever.</em></em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1531" height="832" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit.png" alt="Figure 1: A diagram comparing KBLaM and existing approaches. With RAG, we take the user’s prompt and use that to retrieve relevant documents from an external corpus using some retriever module, and append a tokenized version of those relevant documents in the context. This is relatively cheap, but requires many components. On the other hand, In Context Learning just puts the entire corpus into the context. This is simple, involving only one component, but is expensive. Our method, KBLaM, makes a structured knowledge base from the documents in an offline process, and includes the entire knowledge base to the context, while using a novel variant of attention, rectangular attention, so that the cost is linear in the size of the knowledge base. This results in a system where the retrieval only requires a single, trainable component, that is also cheap." class="wp-image-1133892" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit.png 1531w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-300x163.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-1024x556.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-768x417.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM-FigureEdit-240x130.png 240w" sizes="auto, (max-width: 1531px) 100vw, 1531px" /><figcaption class="wp-element-caption"><em>Figure 1:<em> KBLaM allows for attention over the entire knowledge base instead of having an external retriever.</em></em></figcaption></figure>
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="628" height="209" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2.png" alt="Figure 2: A diagram illustrating rectangular attention. Unlike regular attention, the attention matrix is not square, as we remove the parts where the knowledge base would attend over itself. This allows for KBLaM to scale linearly with the number of items in its context." class="wp-image-1133586" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2.png 628w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2-300x100.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2-240x80.png 240w" sizes="(max-width: 628px) 100vw, 628px" /><figcaption class="wp-element-caption"><em>Figure 2: <em>By having the user’s question attend to the knowledge base, while treating facts in the knowledge base independently, KBLaM scales efficiently and linearly with the size of the knowledge base.</em></em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="628" height="209" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2.png" alt="Figure 2: A diagram illustrating rectangular attention. Unlike regular attention, the attention matrix is not square, as we remove the parts where the knowledge base would attend over itself. This allows for KBLaM to scale linearly with the number of items in its context." class="wp-image-1133586" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2.png 628w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2-300x100.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/KBLaM_rec-attn-viz-v2-240x80.png 240w" sizes="auto, (max-width: 628px) 100vw, 628px" /><figcaption class="wp-element-caption"><em>Figure 2: <em>By having the user’s question attend to the knowledge base, while treating facts in the knowledge base independently, KBLaM scales efficiently and linearly with the size of the knowledge base.</em></em></figcaption></figure>
 
 
 
@@ -256,29 +602,29 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115766">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" aria-label="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1.png" alt="A diagram illustrating the joint optimization process of instructions and in-context examples in PromptWizard. The figure demonstrates how the framework iteratively refines both components, integrating feedback to enhance the overall prompt effectiveness and adaptability across tasks." />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts</h2>
+									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
 				
-								<p class="large">PromptWizard from Microsoft Research is now open source. It is designed to automate and simplify AI prompt optimization, combining iterative LLM feedback with efficient exploration and refinement techniques to create highly effective prompts in minutes.</p>
+								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
 							Read more						</a>
 					</div>
 				</div>
@@ -831,30 +1177,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115760">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115766">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research blog</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/neurips-2024-the-co-evolution-of-ai-and-systems-with-lidong-zhou/" aria-label="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" data-bi-cN="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Lidong-and-Eliza_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Lidong Zhou and Eliza Strickland" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" aria-label="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1.png" alt="A diagram illustrating the joint optimization process of instructions and in-context examples in PromptWizard. The figure demonstrates how the framework iteratively refines both components, integrating feedback to enhance the overall prompt effectiveness and adaptability across tasks." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou</h2>
+									<h2 class="h4">PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts</h2>
 				
-								<p class="large">Just after his NeurIPS 2024 keynote on the co-evolution of systems and AI, Microsoft CVP Lidong Zhou joins the podcast to discuss how rapidly advancing AI impacts the systems supporting it and the opportunities to use AI to enhance systems engineering itself.</p>
+								<p class="large">PromptWizard from Microsoft Research is now open source. It is designed to automate and simplify AI prompt optimization, combining iterative LLM feedback with efficient exploration and refinement techniques to create highly effective prompts in minutes.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/neurips-2024-the-co-evolution-of-ai-and-systems-with-lidong-zhou/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1757,487 +2103,6 @@
 					
 		
 		
-			</item>
-		<item>
-		<title>Microsoft Research and Physics Wallah team up to enhance AI-based tutoring</title>
-		<link>https://www.microsoft.com/en-us/research/blog/microsoft-research-and-physics-wallah-team-up-to-enhance-ai-based-tutoring/</link>
-		
-		<dc:creator><![CDATA[Chris Stetkiewicz]]></dc:creator>
-		<pubDate>Wed, 12 Feb 2025 21:01:07 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1128279</guid>
-
-					<description><![CDATA[<p>Limited resources, geography, and economic factors present barriers to quality education for many students in India. Learn how Microsoft Research is collaborating with Physics Wallah to make AI-based tutoring more accurate, reliable, and affordable.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-research-and-physics-wallah-team-up-to-enhance-ai-based-tutoring/">Microsoft Research and Physics Wallah team up to enhance AI-based tutoring</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1.jpg" alt="Physics Wallah blog | education icons" class="wp-image-1128240" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Physics-Wallah-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>In India, limited resources, geographical constraints, and economic factors present barriers to quality education for some students.</p>
-
-
-
-<p>A shortage of teachers, particularly in remote or low-income areas, makes it harder for students to receive the guidance they need to prepare for highly competitive professional and academic programs.&nbsp;Microsoft Research is developing new algorithms and techniques that are enabling <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.pw.live/" target="_blank" rel="noreferrer noopener">Physics Wallah<span class="sr-only"> (opens in new tab)</span></a>, a growing educational company, to make its AI-based tutoring services more accurate and reliable, to better support students on their education journey.</p>
-
-
-
-<p>As in other countries, many Indian students purchase coaching and tutoring services to prepare for entrance exams at top institutions. This includes <em>offline</em> coaching, where hundreds of students meet in a classroom staffed by teachers covering a structured curriculum. <em>Online</em> coaching enables students to learn remotely in a virtual classroom. <em>Hybrid</em> coaching delivers virtual lessons in a physical classroom.</p>
-
-
-
-<p class="has-text-align-left">Offline courses can cost as much as 100,000 Indian rupees a year—equivalent to hundreds of U.S. dollars. This puts them out of reach for many lower income students living in smaller and mid-sized Indian cities, as well as rural villages. Online courses are much more affordable. They allow students to work at their own pace by providing high-quality web-based content supported by teachers who work remotely.</p>
-
-
-
-<figure class="wp-block-image alignright size-medium"><img loading="lazy" decoding="async" width="200" height="300" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-200x300.jpeg" alt="Vineet Govil" class="wp-image-1127256" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-200x300.jpeg 200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-683x1024.jpeg 683w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-768x1152.jpeg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-1024x1536.jpeg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-1365x2048.jpeg 1365w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-120x180.jpeg 120w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Vineet_Headshot-scaled.jpeg 1707w" sizes="auto, (max-width: 200px) 100vw, 200px" /><figcaption class="wp-element-caption">Vineet Govil</figcaption></figure>
-
-
-
-<p>Meeting this need is the mission of Physics Wallah. The company uses AI to offer on-demand tutoring at scale, curating volumes of standard science- and math-related content to provide the best answers. Some 2 million students use the Physics Wallah platform every day, at a fraction of the cost of offline tutoring. For example, its prep courses for the Joint Entrance Examination (JEE), which is required for admission to engineering and technology programs, and the National Eligibility cum Entrance Test (NEET), a required entrance exam for medical and dental school candidates, cost between 4,200 and 4,500 rupees per year. That’s roughly 50 U.S. dollars.</p>
-
-
-
-<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
-<p>“The mantra here really is how do we provide quality education in an affordable manner and accessible to every student, regardless of who they are or where they come from.”</p>
-<cite>—Vineet Govil, Chief Technology and Product Officer, Physics Wallah</cite></blockquote>
-
-
-
-<div class="annotations " data-bi-aN="margin-callout">
-	<ul class="annotations__list card depth-16 bg-body p-4 annotations__list--left">
-		<li class="annotations__list-item">
-							<a href="https://www.microsoft.com/en-us/research/articles/microsoft-research-india-celebrating-20-years-of-innovation/" target="_self" aria-label="Celebrating 20 Years at Microsoft Research India" data-bi-type="annotated-link" data-bi-cN="Celebrating 20 Years at Microsoft Research India" class="annotations__list-thumbnail" >
-					<img loading="lazy" decoding="async" width="172" height="96" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1-240x135.jpg" class="mb-2" alt="Microsoft Research India, Bangalore" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1-343x193.jpg 343w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/03/MSR-India-Bangalore-720x405-1.jpg 720w" sizes="auto, (max-width: 172px) 100vw, 172px" />				</a>
-							<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">TIMELINE</span>
-			<a href="https://www.microsoft.com/en-us/research/articles/microsoft-research-india-celebrating-20-years-of-innovation/" target="_self" class="annotations__link font-weight-semibold text-decoration-none" data-bi-type="annotated-link" aria-label="Celebrating 20 Years at Microsoft Research India" data-bi-aN="margin-callout" data-bi-cN="Celebrating 20 Years at Microsoft Research India">
-				Celebrating 20 Years at Microsoft Research India&nbsp;<span class="glyph-append glyph-append-chevron-right glyph-append-xsmall"></span>
-			</a>
-					</li>
-	</ul>
-</div>
-
-
-
-<p>Microsoft Research India’s collaboration with Physics Wallah is part of a 20-year legacy of supporting emerging Indian companies, underscored by the January 2025 announcement that <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/en-in/microsoft-announces-us-3bn-investment-over-two-years-in-india-cloud-and-ai-infrastructure-to-accelerate-adoption-of-ai-skilling-and-innovation/" target="_blank" rel="noreferrer noopener">Microsoft will invest $3 billion<span class="sr-only"> (opens in new tab)</span></a> in cloud and AI infrastructure to accelerate the adoption of AI, skilling, and innovation. &nbsp;</p>
-
-
-
-<p>Physics Wallah has developed an AI-driven educational suite, <strong>Alakh AI</strong>, leveraging OpenAI’s GPT-4o model through Microsoft Azure OpenAI Service. Alakh AI’s flagship offerings include <strong>AI Guru</strong> and the <strong>Smart Doubt Engine</strong>, both designed to transform the learning experience in and beyond the classroom.</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>AI Guru</strong> acts as a personal academic tutor, delivering adaptive guidance based on a student’s progress, real-time question-solving, and customized content that evolves with their learning journey.</li>
-
-
-
-<li><strong>Smart Doubt Engine</strong> is an AI tool through which students can ask questions (also known as “doubts” in Indian English) during live classes and receive instant responses.</li>
-</ul>
-
-
-
-<p>Additionally, the Alakh AI suite includes:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>AI Grader</strong> for subjective answer evaluation without human intervention</li>
-
-
-
-<li><strong>Sahayak</strong> for crafting hyper-personalized learning paths tailored to individual students’ needs</li>
-</ul>
-
-
-
-<p>This innovative ecosystem elevates learning efficiency and accessibility for students.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="Screenshot of AI Guru interface showing a student’s query about Newton’s First Law. The AI tutor responds with a detailed explanation and includes two video resources for additional learning." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-scaled.jpg"><img loading="lazy" decoding="async" width="2560" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-scaled.jpg" alt="Screenshot of AI Guru interface showing a student’s query about Newton’s First Law. The AI tutor responds with a detailed explanation and includes two video resources for additional learning." class="wp-image-1126782" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-300x300.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-1024x1024.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-150x150.jpg 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-768x768.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-1536x1536.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-2048x2048.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-180x180.jpg 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/AI-Guru-2-360x360.jpg 360w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></a><figcaption class="wp-element-caption">AI Guru in action – A student asks, <em>&#8220;Explain Newton’s First Law,&#8221;</em> and the AI tutor provides a detailed explanation along with two videos for further learning.</figcaption></figure>
-
-
-
-<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="Screenshot of the Smart Doubt Engine interface showing a student asking a question about the directrix during a live classroom session. The AI responds with a detailed explanation to clarify the concept." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt.jpg"><img loading="lazy" decoding="async" width="1160" height="478" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt.jpg" alt="Screenshot of the Smart Doubt Engine interface showing a student asking a question about the directrix during a live classroom session. The AI responds with a detailed explanation to clarify the concept." class="wp-image-1126410" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt.jpg 1160w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt-300x124.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt-1024x422.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt-768x316.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Smartdoubt-240x99.jpg 240w" sizes="auto, (max-width: 1160px) 100vw, 1160px" /></a><figcaption class="wp-element-caption">Smart Doubt Engine in action – A student asks a clarifying question during a live class, and the AI provides a detailed explanation in real time.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-does-ai-guru-work-1">How does AI Guru work?</h2>
-
-
-
-<p>Let’s say a student had a question about Newton’s laws of motion, a core concept in physics. She would type her query into the AI Guru chat window (she could also just talk to it or upload an image from a textbook) and receive a text answer plus images derived from standard textbooks and curated content, typically in just a few seconds. AI Guru also provides a short video where a teacher offers additional context.</p>
-
-
-
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<h2 class="wp-block-heading" id="getting-the-technology-right-1">Getting the technology right</h2>
-
-
-
-<p>The Alakh AI suite is powered by OpenAI&#8217;s foundational models GPT-4 and GPT-4o, integrated with a retrieval-augmented generation (RAG) architecture. It leverages Physics Wallah&#8217;s rich repository of high-quality curated content—developed and refined over several years—along with continuous updates from subject matter experts to ensure new materials, textbooks, tutorials, and question banks are seamlessly incorporated. Despite considerable progress, the existing AI sometimes falters when navigating complex academic problems.</p>
-
-
-
-<p>“The accuracy level of today&#8217;s large language models (LLMs) is not up to the mark where we can provide reliable and satisfactory answers to the students all the time—specifically, if it&#8217;s a hard mathematical problem involving complex equations,” Govil said.</p>
-
-
-
-<p>That’s one important focus of the collaboration. Researchers from Microsoft Research are developing new algorithms and techniques to enhance the accuracy and reasoning capabilities of AI models. They are now collaborating with Physics Wallah to apply these advancements to the Alakh AI suite, improving its ability to solve complex problems and provide more reliable, step-by-step guidance to students. A key challenge is the nature of student queries, which are often ambiguous and involve multimodal inputs—text, images, videos, or audio—requiring unified capabilities to address the problem. Many STEM problems require breaking down complex queries into logical sub-problems and applying high-order, step-by-step reasoning for consistency. Additionally, integrating domain-specific knowledge in advanced math, physics, chemistry, and biology requires contextualization and seamless retrieval of specialized, grade-appropriate information.&nbsp;</p>
-
-
-
-<p>Microsoft Research is working with Physics Wallah to move beyond traditional next-token prediction and develop AI systems that approach reliable, systematic, step-by-step problem-solving.</p>
-
-
-
-<p>That includes <a href="https://www.microsoft.com/en-us/research/publication/exposing-the-achilles-heel-evaluating-llms-ability-to-handle-mistakes-in-mathematical-reasoning/">ongoing work</a> to enhance the model’s reasoning capabilities and deliver more accurate query answers on complex JEE math problems. Instead of just providing the final answer, the underlying models now break problems into step-by-step solutions. That helps students learn how to solve the actual problems. The AI can also review student answers, detect mistakes, and give detailed feedback, acting as a personal tutor to guide students, improve their understanding, and enhance their learning experience.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085514">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: blog post</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" aria-label="GraphRAG auto-tuning provides rapid adaptation to new domains" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/GraphRag-3-BlogHeroFeature-1400x788-1.png" alt="GraphRAG image on blue to green gradient" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">GraphRAG auto-tuning provides rapid adaptation to new domains</h2>
-				
-								<p class="large">GraphRAG uses LLM-generated knowledge graphs to substantially improve complex Q&A over retrieval-augmented generation (RAG). Discover automatic tuning of GraphRAG for new datasets, making it more accurate and relevant.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
-							Read more						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<p>Solving complex problems requires enhancing the reasoning capabilities of both large and small language models by training them to not just generate answers, but to systematically think through and reason about complex problems. This requires high-quality reasoning traces—detailed, step-by-step breakdowns of logical problem-solving processes.</p>
-
-
-
-<p>To enable this, researchers collaborated with Physics Wallah to curate a dataset of 150,000 high-quality math reasoning traces. These traces serve as the foundation for training specialized small language models (SLMs) using supervised fine-tuning (SFT). Model performance is further refined through training on carefully curated on-policy preference data, ensuring alignment with high-quality reasoning standards. The team’s current Phi-based models have already outperformed leading LLMs and other baselines on complex math problems.</p>
-
-
-
-<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
-<p>&#8220;Building AI systems capable of human-like thinking and reasoning represents a significant challenge.&#8221;</p>
-<cite>—Akshay Nambi, Principal Researcher at Microsoft Research India</cite></blockquote>
-
-
-
-<p>The next step is to develop a self-evolving learning pipeline using online reinforcement learning techniques, allowing the model to continuously generate high-quality synthetic data that further enhances its capabilities. Additionally, researchers are building a reward model and integrating it with Monte Carlo Tree Search (MCTS) to optimize reasoning and improve inference-time decision-making.</p>
-
-
-
-<p>“The goal is to develop tools that complement education. To do this, we are enhancing the model’s capabilities to process, break down, and solve problems step-by-step. We do this by incorporating high-quality data into training to teach the model how to approach such tasks, alongside algorithmic innovations that enable the model to think and reason more effectively.&#8221;</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-media-text has-vertical-margin-none  has-vertical-padding-none  has-media-on-the-right is-stacked-on-mobile" data-bi-an="media-text"><div class="wp-block-media-text__content" data-bi-an="media-text">
-<h3 class="wp-block-heading has-text-align-right" id="insert-fmt-video-in-this-episode-of-the-microsoft-research-podcast-martin-and-daniela">Listen or read along as <a href="https://www.microsoft.com/en-us/research/podcast/ideas-building-ai-for-population-scale-systems-with-akshay-nambi/" target="_blank" rel="noreferrer noopener">Microsoft Research Podcast</a> guest Akshay Nambi shares how his passion for tackling real-world challenges across various domains fuels his work in building reliable and robust AI systems.</h3>
-</div><figure class="wp-block-media-text__media"><a href="https://www.microsoft.com/en-us/research/podcast/abstracts-september-30-2024/" target="_blank" rel="noreferrer noopener"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-1024x576.jpg" alt="Outline illustration of Akshay Nambi | Ideas podcast" class="wp-image-1127463 size-full" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Akshay_Ideas_Hero_Feature_No_Text_1400x788.jpg 1401w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></a></figure></div>		</div>
-	</div>
-
-	</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading" id="opening-new-doors-for-students-1">Opening new doors for students</h2>
-
-
-
-<figure class="wp-block-image alignright size-full is-resized"><img loading="lazy" decoding="async" width="360" height="360" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Chandramouleswar-Parida_360x360.jpg" alt="Chandramouleswar Parida" class="wp-image-1126932" style="width:176px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Chandramouleswar-Parida_360x360.jpg 360w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Chandramouleswar-Parida_360x360-300x300.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Chandramouleswar-Parida_360x360-150x150.jpg 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Chandramouleswar-Parida_360x360-180x180.jpg 180w" sizes="auto, (max-width: 360px) 100vw, 360px" /><figcaption class="wp-element-caption">Chandramouleswar Parida</figcaption></figure>
-
-
-
-<p>Getting an education at a top university can be life changing for anyone. For Chandramouleswar Parida, it could change the lives of everyone in his home village in Baniatangi, Khordha, Odisha State, India. Chandra decided to become a doctor after watching his grandfather die from a heart attack. The nearest doctor who could have treated him was at a regional hospital 65 kilometers away.</p>
-
-
-
-<p>“He could have been saved if certain procedures had been followed,” Chandra said. He wants to study medicine, perhaps receiving advanced training overseas, and then return home. “I want to be a doctor here in our village and serve our people, because there is a lack of treatment. Being a doctor is a very noble kind of job in this society.”</p>
-
-
-
-<p>Chandra is the only student in Baniatangi Village, Khordha, Odisha, currently preparing for the NEET. Without Physics Wallah, students like Chandra would likely have no access to the support and resources that can’t be found locally.</p>
-
-
-
-<figure class="wp-block-image alignright size-large is-resized"><img loading="lazy" decoding="async" width="606" height="1024" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Student_Headshot_PW-606x1024.jpeg" alt="Anushka Sunil Dhanwade" class="wp-image-1126068" style="width:176px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Student_Headshot_PW-606x1024.jpeg 606w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Student_Headshot_PW-178x300.jpeg 178w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Student_Headshot_PW-107x180.jpeg 107w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Student_Headshot_PW.jpeg 691w" sizes="auto, (max-width: 606px) 100vw, 606px" /><figcaption class="wp-element-caption">Anushka Sunil Dhanwade</figcaption></figure>
-
-
-
-<p>Another student, Anushka Sunil Dhanwade, is optimistic that Physics Wallah will help her dramatically improve her initial score on the NEET exam. While in 11th class, or grade, she joined an online NEET prep class with 800 students. But she struggled to follow the coursework, as the teachers tailored the content to the strongest students. After posting a low score on the NEET exam, her hopes of becoming a doctor were fading.</p>
-
-
-
-<p>But after a serious stomach illness reminded her of the value of having a doctor in her family, she tried again, this time with Physics Wallah and AI Guru. After finishing 12th class, she began preparing for NEET and plans to take the exams again in May, confident that she will increase her score.</p>
-
-
-
-<blockquote class="wp-block-quote is-style-spectrum--blue-green is-layout-flow wp-block-quote-is-layout-flow">
-<p>“AI Guru has made my learning so smooth and easy because it provides me answers related to my study and study-related doubt just within a click.”</p>
-<cite>—Anushka Sunil Dhanwade, Student</cite></blockquote>
-
-
-
-<h2 class="wp-block-heading" id="next-steps-in-the-collaboration-1">Next steps in the collaboration</h2>
-
-
-
-<p>The collaboration between Microsoft Research and Physics Wallah aims to apply the advancements in solving math problems across additional subjects, ultimately creating a unified <em>education LLM</em> with enhanced reasoning capabilities and improved accuracy to support student learning.</p>
-
-
-
-<p>“We’re working on an education-specific LLM that will be fine-tuned using the extensive data we’ve gathered and enriched by Microsoft’s expertise in LLM training and algorithms. Our goal is to create a unified model that significantly improves accuracy and raises student satisfaction rates to 95% and beyond,” Govil explained.</p>
-
-
-
-<p>The teams are also integrating a new tool from Microsoft Research called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/PromptWizard/" target="_blank" rel="noreferrer noopener">PromptWizard<span class="sr-only"> (opens in new tab)</span></a>, an automated framework for optimizing the instructions given to a model, into Physics Wallah’s offerings. New prompts can now be generated in minutes, eliminating months of manual work, while providing more accurate and aligned answers for students.</p>
-
-
-
-<p>For Nambi and the Microsoft Research India team, the collaboration is the latest example of their deep commitment to cultivating the AI ecosystem in India and translating new technology from the lab into useful business applications.</p>
-
-
-
-<p>“By leveraging advanced reasoning techniques and domain expertise, we are transforming how AI addresses challenges across multiple subjects. This represents a key step in building AI systems that act as holistic personal tutors, enhancing student understanding and creating a more engaging learning experience,” Nambi said.</p>
-
-
-
-<h3 class="wp-block-heading" id="explore-more">Explore more</h3>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<div class="annotations " data-bi-aN="citation">
-	<ul class="annotations__list card depth-16 bg-body p-4 ">
-		<li class="annotations__list-item">
-							<a href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" target="_self" aria-label="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" data-bi-type="annotated-link" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" class="annotations__list-thumbnail" >
-					<img loading="lazy" decoding="async" width="172" height="96" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-240x135.png" class="mb-2" alt="A diagram illustrating the joint optimization process of instructions and in-context examples in PromptWizard. The figure demonstrates how the framework iteratively refines both components, integrating feedback to enhance the overall prompt effectiveness and adaptability across tasks." srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1.png 1400w" sizes="auto, (max-width: 172px) 100vw, 172px" />				</a>
-							<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Blog</span>
-			<a href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" target="_self" class="annotations__link font-weight-semibold text-decoration-none" data-bi-type="annotated-link" aria-label="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" data-bi-aN="citation" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts">
-				PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts&nbsp;<span class="glyph-append glyph-append-chevron-right glyph-append-xsmall"></span>
-			</a>
-					</li>
-	</ul>
-</div>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<div class="annotations " data-bi-aN="citation">
-	<ul class="annotations__list card depth-16 bg-body p-4 ">
-		<li class="annotations__list-item">
-							<a href="https://www.microsoft.com/en-us/research/podcast/ideas-language-technologies-for-everyone-with-kalika-bali/" target="_self" aria-label="Ideas: Language technologies for everyone with Kalika Bali" data-bi-type="annotated-link" data-bi-cN="Ideas: Language technologies for everyone with Kalika Bali" class="annotations__list-thumbnail" >
-					<img loading="lazy" decoding="async" width="172" height="96" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-240x135.png" class="mb-2" alt="Microsoft Research Podcast | Ideas | Kalika Bali" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/04/Kalika-Bali_IDEAS_Hero_Feature_No_Text_1400x788_AH.png 1400w" sizes="auto, (max-width: 172px) 100vw, 172px" />				</a>
-							<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Podcast</span>
-			<a href="https://www.microsoft.com/en-us/research/podcast/ideas-language-technologies-for-everyone-with-kalika-bali/" target="_self" class="annotations__link font-weight-semibold text-decoration-none" data-bi-type="annotated-link" aria-label="Ideas: Language technologies for everyone with Kalika Bali" data-bi-aN="citation" data-bi-cN="Ideas: Language technologies for everyone with Kalika Bali">
-				Ideas: Language technologies for everyone with Kalika Bali&nbsp;<span class="glyph-append glyph-append-chevron-right glyph-append-xsmall"></span>
-			</a>
-					</li>
-	</ul>
-</div>
-</div>
-</div>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-6 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<div class="annotations " data-bi-aN="citation">
-	<ul class="annotations__list card depth-16 bg-body p-4 ">
-		<li class="annotations__list-item">
-							<a href="https://www.microsoft.com/en-us/research/blog/teachers-in-india-help-microsoft-research-design-ai-tool-for-creating-great-classroom-content/" target="_self" aria-label="Teachers in India help Microsoft Research design AI tool for creating great classroom content" data-bi-type="annotated-link" data-bi-cN="Teachers in India help Microsoft Research design AI tool for creating great classroom content" class="annotations__list-thumbnail" >
-					<img loading="lazy" decoding="async" width="172" height="96" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-240x135.jpg" class="mb-2" alt="a group of people sitting at a desk in front of a crowd" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-343x193.jpg 343w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2023/10/VeLLUM-BlogHeroFeature-1400x788-2.jpg 1400w" sizes="auto, (max-width: 172px) 100vw, 172px" />				</a>
-							<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Blog</span>
-			<a href="https://www.microsoft.com/en-us/research/blog/teachers-in-india-help-microsoft-research-design-ai-tool-for-creating-great-classroom-content/" target="_self" class="annotations__link font-weight-semibold text-decoration-none" data-bi-type="annotated-link" aria-label="Teachers in India help Microsoft Research design AI tool for creating great classroom content" data-bi-aN="citation" data-bi-cN="Teachers in India help Microsoft Research design AI tool for creating great classroom content">
-				Teachers in India help Microsoft Research design AI tool for creating great classroom content&nbsp;<span class="glyph-append glyph-append-chevron-right glyph-append-xsmall"></span>
-			</a>
-					</li>
-	</ul>
-</div>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<div class="annotations " data-bi-aN="citation">
-	<ul class="annotations__list card depth-16 bg-body p-4 ">
-		<li class="annotations__list-item">
-							<a href="https://youtu.be/EgXJj5X260M" target="_blank" aria-label="Shiksha copilot demo" data-bi-type="annotated-link" data-bi-cN="Shiksha copilot demo" class="annotations__list-thumbnail" >
-					<img loading="lazy" decoding="async" width="172" height="96" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-640x360.jpg" class="mb-2" alt="group of students talking to their teacher" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/shiksha-Hero-1920x1080.jpg 1920w" sizes="auto, (max-width: 172px) 100vw, 172px" />				</a>
-							<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Video</span>
-			<a href="https://youtu.be/EgXJj5X260M" target="_blank" class="annotations__link font-weight-semibold text-decoration-none" data-bi-type="annotated-link" aria-label="Shiksha copilot demo" data-bi-aN="citation" data-bi-cN="Shiksha copilot demo">
-				Shiksha copilot demo&nbsp;<span class="glyph-append glyph-append-share glyph-append-xsmall"></span>
-			</a>
-					</li>
-	</ul>
-</div>
-</div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-research-and-physics-wallah-team-up-to-enhance-ai-based-tutoring/">Microsoft Research and Physics Wallah team up to enhance AI-based tutoring</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>ExACT: Improving AI agents’ decision-making via test-time compute scaling</title>
-		<link>https://www.microsoft.com/en-us/research/blog/exact-improving-ai-agents-decision-making-via-test-time-compute-scaling/</link>
-		
-		<dc:creator><![CDATA[Baolin Peng, Xiao Yu, Hao Cheng, Michel Galley, Zhou Yu, Jianfeng Gao]]></dc:creator>
-		<pubDate>Tue, 11 Feb 2025 22:21:47 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1121829</guid>
-
-					<description><![CDATA[<p>ExACT combines Reflective-MCTS and Exploratory Learning to improve AI agents' decision-making, enabling test-time compute scaling. Learn how these methods help agents refine strategies for state-of-the-art performance and improved computational efficiency.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/exact-improving-ai-agents-decision-making-via-test-time-compute-scaling/">ExACT: Improving AI agents’ decision-making via test-time compute scaling</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1.png" alt="A gradient blue to green background features a white flowchart with rectangular boxes connected by arrows, ending in a hexagonal “STOP” sign and a check mark on the right side." class="wp-image-1124370" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT-BlogHeroFeature-1400x788-1-1280x720.png 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Autonomous AI agents are transforming the way we approach multi-step decision-making processes, streamlining tasks like web browsing, video editing, and file management. By applying advanced machine learning, they automate workflows, optimize performance, and reduce the need for human input.&nbsp;</p>
-
-
-
-<p>However, these systems struggle in complex, dynamic environments. A key challenge lies in balancing <em>exploitation, </em>using known strategies for immediate gains, with <em>exploration</em>, which involves seeking new strategies that could yield long-term benefits. Additionally, they often have difficulty adapting to unpredictable changes in conditions and objectives, as well as generalizing knowledge across contexts, limiting their ability to transfer learned strategies between domains.&nbsp;</p>
-
-
-
-<p>In response, we developed <a href="https://www.microsoft.com/en-us/research/publication/exact-teaching-ai-agents-to-explore-with-reflective-mcts-and-exploratory-learning/?msockid=03509714880a63312154827889b062b6">ExACT</a>, an approach for teaching AI agents to explore more effectively, enabling them to intelligently navigate their environments, gather valuable information, evaluate options, and identify optimal decision-making and planning strategies. ExACT combines two key techniques: Reflective-MCTS (R-MCTS) and Exploratory Learning.</p>
-
-
-
-<p>R-MCTS builds on the traditional Monte Carlo Tree Search (MCTS) algorithm, introducing features like contrastive reflection and a multi-agent debate function. Through contrastive reflection, the agent refines its decision-making by comparing expected outcomes with actual results, allowing it to learn from both its successes and mistakes. The multi-agent debate function provides various evaluations of a given state, where multiple agents offer contrasting perspectives to help provide a balanced and reliable assessment.</p>
-
-
-
-<p>Exploratory Learning trains agents to navigate environments effectively. Together, these techniques show strong computational scalability during both training and testing, as demonstrated on VisualWebArena—a benchmark for evaluating multimodal autonomous language agents (Figure 1).&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="Evaluation demonstrates the compute scaling properties of GPT-4o during both training and testing. The assessment includes two scenarios: (1) applying the GPT-4o-based R-MCTS agent to all 234 tasks from the Classifieds category in VisualWebArena (left), and (2) testing fine-tuned GPT-4o on 169 previously unseen tasks from Classifieds without using search algorithms (right)." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Figure-1-Scaling.gif.gif"><img loading="lazy" decoding="async" width="1920" height="728" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Figure-1-Scaling.gif.gif" alt="Evaluation demonstrates the compute scaling properties of GPT-4o during both training and testing. The assessment includes two scenarios: (1) applying the GPT-4o-based R-MCTS agent to all 234 tasks from the Classifieds category in VisualWebArena (left), and (2) testing fine-tuned GPT-4o on 169 previously unseen tasks from Classifieds without using search algorithms (right)." class="wp-image-1121919" style="object-fit:cover"/></a><figcaption class="wp-element-caption">Figure 1. Evaluation demonstrates the compute scaling properties of GPT-4o during both training and testing. The assessment includes two scenarios: (1) applying the GPT-4o-based R-MCTS agent to all 234 tasks from the Classifieds category in VisualWebArena (left), and (2) testing fine-tuned GPT-4o on 169 previously unseen tasks from Classifieds without using search algorithms (right).</figcaption></figure>
-
-
-
-<p>R-MCTS extends the classic MCTS by enabling real-time improvements in decision-making. Shown in Figure 2, an iterative feedback loop allows R-MCTS to learn from past experiences, avoid prior mistakes, and focus on more effective actions in similar contexts.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><a data-bi-bhvr="14"  data-bi-cn="Overview of the R-MCTS process in ExACT. " href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig2.png"><img loading="lazy" decoding="async" width="852" height="820" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig2.png" alt="Overview of the R-MCTS process in ExACT. " class="wp-image-1121877" style="width:504px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig2.png 852w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig2-300x289.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig2-768x739.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig2-187x180.png 187w" sizes="auto, (max-width: 852px) 100vw, 852px" /></a><figcaption class="wp-element-caption">Figure 2. Overview of the R-MCTS process in ExACT.<em>&nbsp;</em></figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="evaluating-r-mcts">Evaluating R-MCTS</h3>
-
-
-
-<p>R-MCTS demonstrates state-of-the-art performance across all VisualWebArena environments, surpassing the previous best-performing method, Search Agent, with improvements ranging from 6% to 30% (Table 1). Additionally, as of January 2025, it holds the second position on the OSWorld leaderboard and demonstrates state-of-the-art performance in the blind test setting, where there is no prior access to the test environment, reflecting its advanced capabilities (Table 2).&nbsp;</p>
-
-
-
-<figure class="wp-block-table aligncenter is-style-stripes"><table><thead><tr><th>Rank</th><th>Model</th><th>Score</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>GPT-4o + ExACT</td><td>33.70</td></tr><tr><td><strong>2</strong></td><td>GPT-4o + Search</td><td>26.40</td></tr><tr><td><strong>3</strong></td><td>GPT-4o + WebDreamer</td><td>23.60</td></tr><tr><td><strong>4</strong></td><td>GPT-4o + ICAL</td><td>23.40</td></tr><tr><td><strong>5</strong></td><td>GPT-4o</td><td>19.78</td></tr><tr><td><strong>6</strong></td><td>Llama-3-70B + Search</td><td>16.70</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1. The VisualWebArena leaderboard highlights R-MCTS as achieving state-of-the-art performance as of December 2024.<em>&nbsp;</em></figcaption></figure>
-
-
-
-<figure class="wp-block-table aligncenter is-style-stripes"><table><thead><tr><th>Rank</th><th>Model</th><th>Blind Test</th><th>Score</th></tr></thead><tbody><tr><td><strong>1</strong></td><td>learn-by-interact w/ Claude-3.5-sonnet</td><td>🗶</td><td>22.50</td></tr><tr><td><strong>2</strong></td><td>ExACT w/ GPT-4o</td><td><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></td><td>16.60</td></tr><tr><td><strong>3</strong></td><td>GPT-4</td><td><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></td><td>12.24</td></tr><tr><td><strong>4</strong></td><td>GPT-4o</td><td><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></td><td>11.36</td></tr><tr><td><strong>5</strong></td><td>GPT-4 Vision (0409)</td><td><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></td><td>10.82</td></tr><tr><td><strong>6</strong></td><td>learn-by-interact w/ Gemini-1.5-pro</td><td><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></td><td>10.30</td></tr></tbody></table><figcaption class="wp-element-caption">Table 2. The OSWorld leaderboard for the category of A11y tree inputs shows that ExACT with GPT-4o ranks second and demonstrates state-of-the-art performance in the blind test setting, as of December 2024.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-exploratory-learning-works">How Exploratory Learning works</h2>
-
-
-
-<p>Exploratory Learning enables agents to dynamically search and adjust their computational resources during testing without depending on MCTS. In contrast to Imitation Learning, which centers on training models using the optimal actions identified through search, Exploratory Learning focuses on cultivating the agent&#8217;s ability to navigate its environment by teaching it to evaluate states, explore different pathways, and efficiently backtrack from unpromising paths to identify more favorable alternatives.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><a data-bi-bhvr="14"  data-bi-cn="In contrast to Imitation Learning, Exploratory Learning uses the entire search trajectory for training." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3.png"><img loading="lazy" decoding="async" width="1334" height="453" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3.png" alt="In contrast to Imitation Learning, Exploratory Learning uses the entire search trajectory for training." class="wp-image-1121880" style="width:776px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3.png 1334w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3-300x102.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3-1024x348.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3-768x261.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Fig3-240x81.png 240w" sizes="auto, (max-width: 1334px) 100vw, 1334px" /></a><figcaption class="wp-element-caption">Figure 3. In contrast to Imitation Learning, Exploratory Learning uses the entire search trajectory for training.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="evaluating-exploratory-learning">Evaluating Exploratory Learning</h3>
-
-
-
-<p>We conducted experiments using GPT-4o fine-tuned with Exploratory Learning in the VisualWebArena environment. Results demonstrate the following key benefits:&nbsp;</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Improved performance</strong>: GPT-4o achieves performance improvement, comparable with scaling test-time compute with MCTS, even without search.</li>
-
-
-
-<li><strong>Test-time compute scaling</strong>: GPT-4o performs better when given more actions per task, leading to improved decision-making and task completion, which increased from 5% to 12.4%.&nbsp;</li>
-
-
-
-<li><strong>Improved generalization on unseen tasks</strong>: Exploratory Learning helps fine-tuned GPT-4o handle unseen tasks more effectively than agents trained with Imitation Learning or no additional training.</li>
-</ul>
-
-
-
-<p>The following video provides a detailed demonstration of how R-MCTS and Exploratory Learning function.</p>
-
-
-
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Videos_010925_V1.mp4" playsinline></video></figure>
-
-
-
-<h2 class="wp-block-heading" id="continued-exploration">Continued exploration</h2>
-
-
-
-<p>Advancing autonomous AI agents is key to enabling them to handle complex, multi-step tasks with greater precision and adaptability. ExACT represents a significant step toward creating agents that can perform complex decision-making before taking action, leading to improved performance, but challenges remain. How can AI agents improve decision-making in real-world scenarios, where they may be constrained by time or resources? How can they learn effectively and efficiently from environmental feedback? We are currently investigating these questions, and we invite you to explore them with us by building on the ExACT framework. Access the ExACT code at our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/ExACT" target="_blank" rel="noreferrer noopener">GitHub repository<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/exact-improving-ai-agents-decision-making-via-test-time-compute-scaling/">ExACT: Improving AI agents’ decision-making via test-time compute scaling</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/ExACT_Videos_010925_V1.mp4" length="47136083" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
