@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Thu, 20 Mar 2025 01:39:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Mar 2025 01:41:39 +0000</lastBuildDate>
     <item>
       <title>Engineering the future of vulnerability detection</title>
       <link>https://projectdiscovery.io/blog/engineering-the-future-of-vulnerability-detection</link>
@@ -100,13 +100,6 @@ Imagine having a single template that automatically hunts for specific patterns 
 In this post, we</description>
     </item>
     <item>
-      <title>Ruby-SAML / GitLab Authentication Bypass (CVE-2024-45409)</title>
-      <link>https://projectdiscovery.io/blog/ruby-saml-gitlab-auth-bypass</link>
-      <description>Introduction
-
-In this blog post, we will analyze CVE-2024-45409, a critical vulnerability impacting Ruby-SAML, OmniAuth-SAML libraries, which effectively affects GitLab. This vulnerability allows an attacker to bypass SAML authentication mechanisms and gain unauthorized access by exploiting a flaw in how SAML responses are handled. The issue arises due to weaknesses in the verification of the digital signature used to protect SAML assertions, allowing attackers to manipulate the SAML response a</description>
-    </item>
-    <item>
       <title>GitHub Enterprise SAML Authentication Bypass (CVE-2024-4985 / CVE-2024-9487)</title>
       <link>https://projectdiscovery.io/blog/github-enterprise-saml-authentication-bypass</link>
       <description>Introduction
@@ -123,9 +116,11 @@ This blog post will provide an in-depth look at GitHub Enterprise’s SAML imple
 Amid the hype, a security incident surfaced: researchers gained access to DeepSeek’s internal databases. The breach repo</description>
     </item>
     <item>
-      <title>Engineering the future of vulnerability detection</title>
-      <link>https://projectdiscovery.io/blog/engineering-the-future-of-vulnerability-detection</link>
-      <description>We’re building the future of Nuclei-powered scanning - 35x faster, with automated scheduling, smart alerts, and streamlined triaging. With built-in internal scanning, it’s designed for modern security teams who need speed, scale, and precision.</description>
+      <title>CVE-2024-53991 - Discourse Backup Disclosure: Rails send_file Quirk</title>
+      <link>https://projectdiscovery.io/blog/discourse-backup-disclosure-rails-send_file-quirk</link>
+      <description>Introduction
+
+Modern web applications rely on middleware and web server configurations to efficiently handle file delivery while maintaining security. In the Ruby ecosystem, the send_file method in Rack and Rails is a widely used mechanism that can offload file serving to web servers like Nginx and Apache, improving performance and scalability. However, when used in conjunction with Nginx’s internal directive, a feature designed to restrict access to sensitive resources, unexpected security flaw</description>
     </item>
     <item>
       <title>Reinventing custom detections and vulnerability management</title>
@@ -136,6 +131,11 @@ Amid the hype, a security incident surfaced: researchers gained access to DeepSe
       <title>How ConnectWise streamlined vulnerability detection with ProjectDiscovery</title>
       <link>https://projectdiscovery.io/blog/how-connectwise-streamlined-vulnerability-detection-with-projectdiscovery</link>
       <description>ConnectWise chose ProjectDiscovery over Tenable Cloud to streamline vulnerability detection across 20,000+ AWS instances. By leveraging ProjectDiscovery’s automation and scalability, they achieved efficient, high-volume security monitoring without operational overhead.</description>
+    </item>
+    <item>
+      <title>Amplify automates security testing with ProjectDiscovery’s precision</title>
+      <link>https://projectdiscovery.io/blog/amplify-automates-security-testing-with-projectdiscoverys-precision</link>
+      <description>Amplify automated security testing with ProjectDiscovery, reducing workload, improving vulnerability management, and enabling scalable scans. By converting bug bounty reports into tests, they ensure patched issues don’t return, empowering QA teams to enhance security across applications.</description>
     </item>
   </channel>
 </rss>
