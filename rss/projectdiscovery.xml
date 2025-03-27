@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 26 Mar 2025 01:41:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Mar 2025 01:41:21 +0000</lastBuildDate>
     <item>
       <title>Engineering the future of vulnerability detection</title>
       <link>https://projectdiscovery.io/blog/engineering-the-future-of-vulnerability-detection</link>
@@ -100,13 +100,6 @@ Imagine having a single template that automatically hunts for specific patterns 
 In this post, we</description>
     </item>
     <item>
-      <title>DeepSeek’s Data Breach: Could ProjectDiscovery’s Cloud Have Prevented the Hack?</title>
-      <link>https://projectdiscovery.io/blog/deepseeks-data-breach-could-projectdiscoverys-cloud-have-prevented-the-hack-2</link>
-      <description>Last week, DeepSeek made headlines with R1, an open-source model positioned as a competitor to OpenAI’s Model o1. What set R1 apart wasn’t just its capabilities - it was the claim that DeepSeek trained it with significantly fewer GPUs. It challenged conventional wisdom around the compute requirements for large-scale model training and even caused a small stock market selloff.
-
-Amid the hype, a security incident surfaced: researchers gained access to DeepSeek’s internal databases. The breach repo</description>
-    </item>
-    <item>
       <title>CVE-2024-53991 - Discourse Backup Disclosure: Rails send_file Quirk</title>
       <link>https://projectdiscovery.io/blog/discourse-backup-disclosure-rails-send_file-quirk</link>
       <description>Introduction
@@ -121,9 +114,13 @@ Modern web applications rely on middleware and web server configurations to effi
 The vulne</description>
     </item>
     <item>
-      <title>How ConnectWise streamlined vulnerability detection with ProjectDiscovery</title>
-      <link>https://projectdiscovery.io/blog/how-connectwise-streamlined-vulnerability-detection-with-projectdiscovery</link>
-      <description>ConnectWise chose ProjectDiscovery over Tenable Cloud to streamline vulnerability detection across 20,000+ AWS instances. By leveraging ProjectDiscovery’s automation and scalability, they achieved efficient, high-volume security monitoring without operational overhead.</description>
+      <title>IngressNightmare: Unauth RCE in Ingress NGINX (CVE-2025-1974)</title>
+      <link>https://projectdiscovery.io/blog/ingressnightmare-unauth-rce-in-ingress-nginx</link>
+      <description>A critical vulnerability (CVE-2025-1974) was recently discovered in the Kubernetes Ingress-NGINX Controller that allows unauthenticated remote code execution (RCE) on the ingress controller pod.
+
+Originally discovered by the Wiz research team (Nir Ohfeld, Ronen Shustin, Sagi Tzadik, Hillai Ben-Sasson) in late 2024 and disclosed in March 2025, CVE-2025-1974 is part of a series of vulnerabilities collectively called IngressNightmare.
+
+If you’re specifically looking to use the IngressNightmare dete</description>
     </item>
     <item>
       <title>Amplify automates security testing with ProjectDiscovery’s precision</title>
@@ -136,6 +133,13 @@ The vulne</description>
       <description>Introduction
 
 Modern web applications rely on middleware and web server configurations to efficiently handle file delivery while maintaining security. In the Ruby ecosystem, the send_file method in Rack and Rails is a widely used mechanism that can offload file serving to web servers like Nginx and Apache, improving performance and scalability. However, when used in conjunction with Nginx’s internal directive, a feature designed to restrict access to sensitive resources, unexpected security flaw</description>
+    </item>
+    <item>
+      <title>CVE-2025-29927: Next.js Middleware Authorization Bypass - Technical Analysis</title>
+      <link>https://projectdiscovery.io/blog/nextjs-middleware-authorization-bypass</link>
+      <description>Next.js is an open-source web framework built by Vercel that powers React-based apps with features like server-side and static rendering. Recently, a critical vulnerability (CVE) was disclosed that lets attackers bypass middleware-based authorization checks. The issue was originally discovered and analyzed by Rachid Allam (zhero). In this blog, we’ll break down the vulnerability and walk through their research and will create a Nuclei template to help you detect it across your assets.
+
+The vulne</description>
     </item>
   </channel>
 </rss>

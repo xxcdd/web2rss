@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 25 Mar 2025 23:02:43 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 26 Mar 2025 16:18:12 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,358 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Research Focus: Week of March 24, 2025</title>
+		<link>https://www.microsoft.com/en-us/research/blog/research-focus-week-of-march-24-2025/</link>
+		
+		<dc:creator><![CDATA[Microsoft Research Team]]></dc:creator>
+		<pubDate>Wed, 26 Mar 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1135033</guid>
+
+					<description><![CDATA[<p>In this issue, we examine a new conversation segmentation method that delivers more coherent and personalized agent conversation, and we review efforts to improve MLLMs’ understanding of geologic maps. Check out the latest research and other updates.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-march-24-2025/">Research Focus: Week of March 24, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="has-text-align-center"><strong>In this issue:</strong></p>
+
+
+
+<p class="has-text-align-left">We examine a new conversation segmentation method that delivers more coherent and personalized agent conversation, and we review efforts to improve MLLMs’ understanding of geologic maps. Check out the latest research and other updates.</p>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1401" height="789" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1.jpg" alt="diagram" class="wp-image-1135034" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1024x577.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-768x433.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-e734c6e9609233ab051742bb3beeed63" id="new-research">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="secom-on-memory-construction-and-retrieval-for-personalized-conversational-agents">SeCom: On Memory Construction and Retrieval for Personalized Conversational Agents</h3>
+
+
+
+<p>Researchers from Microsoft and Tsinghua University propose a new method to help conversational AI agents deliver more coherent and personalized responses during complex long-term dialogue.</p>
+
+
+
+<p>Large language models (LLMs) are widely used to enable more complicated discussions across a broader range of topics than traditional dialogue systems. However, managing excessively long context that contains irrelevant information is a major challenge. Existing solutions typically perform retrieval augmented response generation by constructing memory banks from conversation history at either the turn-level, session-level, or through summarization.</p>
+
+
+
+<p>The proposed new approach, <a href="https://www.microsoft.com/en-us/research/project/secom/" target="_blank" rel="noreferrer noopener">SeCom</a>, constructs the memory bank at segment level by introducing a conversation <strong>Se</strong>gmentation model that partitions long-term conversations into topically coherent segments, while applying <strong>Com</strong>pression based denoising on memory units to enhance memory retrieval. Experimental results show that <strong>SeCom</strong> exhibits a significant performance advantage over baselines on long-term conversation benchmarks LOCOMO and Long-MT-Bench+. Additionally, the proposed conversation segmentation method demonstrates superior performance on dialogue segmentation datasets such as DialSeg711, TIAGE, and SuperDialSeg.&nbsp;</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/secom-on-memory-construction-and-retrieval-for-personalized-conversational-agents/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-9a2357e04d6b68359937ec2fcc67b1a5" id="new-research-1">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="peace-empowering-geologic-map-holistic-understanding-with-mllms">PEACE: Empowering Geologic Map Holistic Understanding with MLLMs</h3>
+
+
+
+<p>Microsoft Researchers and external colleagues introduce <a href="https://www.microsoft.com/en-us/research/publication/peace-empowering-geologic-map-holistic-understanding-with-mllms/">GeoMap-Agent</a>, an AI system specifically designed for geologic map understanding and analysis. In the lab, they measure its effectiveness using a new benchmark called GeoMap-Bench, a novel gauge for evaluating multimodal large language models (MLLMs) in geologic map understanding. Geologic maps provide critical insights into the structure and composition of Earth&#8217;s surface and subsurface. They are indispensable in fields including disaster detection, resource exploration, and civil engineering.</p>
+
+
+
+<p>Current MLLMs often fall short in understanding geologic maps, largely due to the challenging nature of cartographic generalization, which involves handling high-resolution maps, managing multiple associated components, and requiring domain-specific knowledge.</p>
+
+
+
+<p>This paper presents results of experiments in which GeoMap-Agent achieves an overall score of 0.811 on GeoMap-Bench, significantly outperforming the 0.369 score of GPT-4o. The researchers intend to enable advanced AI applications in geology, powering more efficient and accurate geological investigations.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/peace-empowering-geologic-map-holistic-understanding-with-mllms/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-8580525ca5a22a10ee7a4694b8f59445" id="new-research-2">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="the-future-of-the-industrial-ai-edge-is-cellular">The future of the industrial AI edge is cellular</h3>
+
+
+
+<p>Reliable, high-bandwidth wireless connectivity and local processing at the edge are crucial enablers for emerging industrial AI applications. This work proposes that cellular networking is the ideal connectivity solution for these applications, due to its virtualization and support for open APIs. The researchers project the emergence of a converged industrial AI edge encompassing both computing and connectivity, in which application developers leverage the API to implement advanced functionalities. They present a case study showing evidence of the effectiveness of this approach, evaluated on an enterprise-grade 5G testbed.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/the-future-of-the-industrial-ai-edge-is-cellular/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-fd412f1d3373c86bbb4f4db1930ad0fa" id="new-research-3">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="re-high-performance-derivative-based-regex-matching-with-intersection-complement-and-restricted-lookarounds">RE#: High Performance Derivative-Based Regex Matching with Intersection, Complement, and Restricted Lookarounds</h3>
+
+
+
+<p>A regular expression (regex or RE) is a sequence of characters used to match, search, and manipulate strings in text based on specific criteria. REs are used in programming languages for data validation, text parsing, and search operations.</p>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/publication/re-high-performance-derivative-based-regex-matching-with-intersection-complement-and-restricted-lookarounds/">This paper</a> presents a tool and theory built on symbolic derivatives that does not use backtracking, while supporting both classical operators and complement, intersection, and restricted lookarounds. The researchers show that the main matching algorithm has input-linear complexity both in theory as well as experimentally. They apply thorough evaluation on popular benchmarks that show that RE# is over 71% faster than the next fastest regex engine in Rust on the baseline, and outperforms all state-of-the-art engines on extensions of the benchmarks, often by several orders of magnitude.&nbsp;</p>
+
+
+
+<p>This work could potentially enable new applications in LLM prompt engineering frameworks, new applications in medical research and bioinformatics, and new opportunities in access and resource policy language design by web service providers.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-4 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/re-high-performance-derivative-based-regex-matching-with-intersection-complement-and-restricted-lookarounds/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-1c1c9f6b894c49f1e811e2f568b9620a" id="research-areas-1">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="toward-deep-learning-sequence-structure-co-generation-for-protein-design">Toward deep learning sequence–structure co-generation for protein design</h3>
+
+
+
+<p>Researchers review recent advances in deep generative models for protein design, with a focus on sequence-structure co-generation methods. They describe the key methodological and evaluation principles underlying these methods, highlight recent advances from the literature, and discuss opportunities for continued development of sequence-structure co-generation approaches.</p>
+
+
+
+<p>Deep generative models that learn from the distribution of natural protein sequences and structures may enable the design of new proteins with valuable functions. While most of today’s models focus on generating either sequences or structures, emerging co-generation methods promise more accurate and controllable protein design, ideally achieved by modeling both modalities simultaneously.&nbsp;</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-5 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--5"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/toward-deep-learning-sequence-structure-co-generation-for-protein-design/">Read the paper</a></div>
+</div>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1044939">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">on-demand event</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/sep-2024-brief/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum Episode 4" data-bi-cN="Microsoft Research Forum Episode 4" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/RF4_Panel_1400x788.jpg" alt="Research Forum | Episode 4 Panel | John Langford, Hoifung Poon, Katja Hofmann, Jianwei Yang" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Forum Episode 4</h2>
+				
+								<p class="large">Learn about the latest multimodal AI models, advanced benchmarks for AI evaluation and model self-improvement, and an entirely new kind of computer for AI inference and hard optimization. </p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/sep-2024-brief/?OCID=msr_researchforum_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Watch on-demand" data-bi-cN="Microsoft Research Forum Episode 4" target="_blank">
+							Watch on-demand						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-fcf31b9f10037de288b1b6ba58a7098f" id="podcast-1">PODCAST</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="new-series-the-ai-revolution-in-medicine-revisited">New Series: The AI Revolution in Medicine, Revisited</h3>
+
+
+
+<p>Two years ago, OpenAI’s GPT-4 kick-started a new era in AI. In the months leading up to its public release, <a href="https://www.microsoft.com/en-us/research/people/petelee/">Peter Lee</a>, president of Microsoft Research, cowrote <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.pearson.com/en-us/subject-catalog/p/the-ai-revolution-in-medicine-gpt-4-and-beyond/P200000011399/9780138279516"><em>The AI Revolution in Medicine: GPT-4 and Beyond</em></a>, a book full of optimism for the potential of advanced AI models to transform the world of healthcare. In this special <a href="https://www.microsoft.com/en-us/research/podcast/">Microsoft Research Podcast</a> series, Lee revisits the book, exploring how patients, providers, and other medical professionals are experiencing and using generative AI today while examining what he and his coauthors got right—and what they didn’t foresee.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="The AI Revolution in Medicine, Revisited: An Introduction" width="500" height="281" src="https://www.youtube-nocookie.com/embed/3qOWQpnZDmI?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-6 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">Watch the series</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-61c604b63ea2c27eb637663a9f89e42c" id="podcast">PODCAST</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="the-future-of-generative-ai-for-scientific-discovery">The future of generative AI for scientific discovery</h3>
+
+
+
+<p>Most of us think of generative AI in the context of text or image generation, but it’s also a powerful tool for scientific discovery. In this episode of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=d3V0caeGIFU&feature=youtu.be">Leading the Shift podcast<span class="sr-only"> (opens in new tab)</span></a>, host Susan Etlinger speaks with Ade Famoti, a senior leader on the Microsoft Research Accelerator team. Ade discusses what he calls “AI’s physics moment,” and why he believes generative AI feels fundamentally different from past platform shifts. Ade shares examples of the work Microsoft Research is doing to uncover the opportunities of generative AI for materials discovery—to improve energy efficiency and carbon capture, and for drug discovery, to fight disease. Ade also highlights the role of culture in building trust, informing priorities and driving adoption of emerging technologies.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="The future of generative AI for scientific discovery | Microsoft Research" width="500" height="281" src="https://www.youtube-nocookie.com/embed/d3V0caeGIFU?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-ad7541ccbcbf3a60c1bd4dd58805b339" id="video">VIDEO</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="microsoft-research-s-chris-bishop-talks-ai-for-science-what-it-really-means">Microsoft Research’s Chris Bishop talks AI for Science (what it really means)</h3>
+
+
+
+<p>In this interview, the director of Microsoft Research AI for Science, Chris Bishop, discusses how AI is unlocking new scientific outcomes, from drug creation to materials generation to improved climate modeling.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Director of Microsoft Research talks AI for science (what it really means)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/rfyS_rLOKUc?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+</div>
+
+
+
+<div style="padding-bottom:64px; padding-top:64px" class="wp-block-msr-immersive-section alignfull row has-background has-lighter-gray-background-color has-text-color has-black-color wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner">
+			<div class="wp-block-msr-cards msr-cards msr-cards--default mt-4 has-text-align-left" data-bi-aN="microsoft-research-in-case-you-missed-it">
+	<div class="msr-cards__inner">
+					<div class="heading-wrapper">
+				<h2 class="mb-5 ">Microsoft Research | In case you missed it</h2>
+			</div>
+		
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+	<div class="msr-cards__card msr-cards__card--default col">
+	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
+
+		
+		<div class="card-body bg-white p-4 pt-3">
+							<h3 class="h5">
+					<a
+						class="text-decoration-none text-black"
+						data-bi-cN="Tech Life - The doctor will see you now"
+						href="https://www.bbc.co.uk/sounds/play/w3ct5wnm"
+					>
+						<span>Tech Life &#8211; The doctor will see you now</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
+					</a>
+				</h3>
+										<div class="card__description card__citation small">
+					<p>BBC Sounds | March 4, 2025</p><p>An update on live trials in Ghana of 3D telemedicine technology, developed by Microsoft Research and external collaborators. Using portable equipment and holoportation technology, patients in remote locations can connect with a doctor many miles away. The BBC speaks to Spencer Fowers, who is the lead engineer on the project, as well as a patient and a doctor benefiting from the program.</p>				</div>
+			
+					</div>
+	</div>
+</div>
+<div class="msr-cards__card msr-cards__card--default col">
+	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
+
+		
+		<div class="card-body bg-white p-4 pt-3">
+							<h3 class="h5">
+					<a
+						class="text-decoration-none text-black"
+						data-bi-cN="Katja Hofmann: Why we're training AI on video games"
+						href="https://www.ted.com/talks/katja_hofmann_why_we_re_training_ai_on_video_games"
+					>
+						<span>Katja Hofmann: Why we're training AI on video games</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
+					</a>
+				</h3>
+										<div class="card__description card__citation small">
+					<p>TED Talk | October 2024</p><p>In a recent TED Talk: <a href="https://www.ted.com/talks/katja_hofmann_why_we_re_training_ai_on_video_games" target="_blank" rel="noreferrer noopener">Why we&#8217;re training AI on video games,</a> Microsoft researcher Katja Hofmann discusses the work the Game Intelligence team at Microsoft Research is doing to develop AI that can transform video games. Using AI trained on years of human gameplay data, the team built World and Human Action Model, which can learn to think, play and innovate alongside humans, enabling video game creators to build more robust games. Hoffmann was also interviewed in a related article: <a href="https://spectrum.ieee.org/ai-video-games" target="_blank" rel="noreferrer noopener">Microsoft’s Muse AI Edits Video Games on the Fly</a>.</p>				</div>
+			
+					</div>
+	</div>
+</div>
+</div>
+
+					<div class="justify-content-center text-center mb-4">
+				<a
+					href="https://www.microsoft.com/en-us/research/news-and-awards/"
+					class="btn btn-outline-primary glyph-append glyph-append-small glyph-append-chevron-right msr-cards__cta"
+					data-bi-cN="View more news and awards"
+					data-bi-type="button"
+				>
+					View more news and awards				</a>
+			</div>
+			</div>
+</div>		</div>
+	</div>
+
+	</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-march-24-2025/">Research Focus: Week of March 24, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>The reality of generative AI in the clinic</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/</link>
 		
@@ -32,11 +384,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/">The reality of generative AI in the clinic</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution podcast | Episode 1 - The reality of generative AI in the clinic | outline illustration of Dr. Sara Murray, Peter Lee, Dr. Christopher Longhurst" class="wp-image-1134404" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution podcast | Episode 1 - The reality of generative AI in the clinic | outline illustration of Dr. Sara Murray, Peter Lee, Dr. Christopher Longhurst" class="wp-image-1134404" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=143567237&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=143567237&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -124,7 +476,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -886,7 +1238,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-1"
+				aria-controls="show-more-show-less-toggle-7"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -917,7 +1269,7 @@
 
 
 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/">The reality of generative AI in the clinic</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -938,7 +1290,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/">Metasurface: Unlocking the future of wireless sensing and communication</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg" alt="The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, represents a Wi-Fi signal with curved lines radiating from a central point. The middle icon depicts a satellite with solar panels and an antenna emitting waves. The third icon, on the right, shows a bar chart with ascending bars indicating signal strength." class="wp-image-1134231" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg" alt="The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, represents a Wi-Fi signal with curved lines radiating from a central point. The middle icon depicts a satellite with solar panels and an antenna emitting waves. The third icon, on the right, shows a bar chart with ascending bars indicating signal strength." class="wp-image-1134231" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -958,30 +1310,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085496">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-label="Eureka: Evaluating and understanding progress in AI" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg" alt="White icons representing the Eureka Experiment Pipeline -- PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing, EvalReporting -- on blue to green gradient background." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Eureka: Evaluating and understanding progress in AI</h2>
 				
-								<p class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p class="large">How can we rigorously evaluate and understand state-of-the-art progress in AI? Eureka is an open-source framework for standardizing evaluations of large foundation models, beyond single-score reporting and rankings. Learn more about the extended findings. </p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1308,30 +1660,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1044939">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">on-demand event</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/sep-2024-brief/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum Episode 4" data-bi-cN="Microsoft Research Forum Episode 4" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/RF4_Panel_1400x788.jpg" alt="Research Forum | Episode 4 Panel | John Langford, Hoifung Poon, Katja Hofmann, Jianwei Yang" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum Episode 4</h2>
 				
-								<p class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p class="large">Learn about the latest multimodal AI models, advanced benchmarks for AI evaluation and model self-improvement, and an entirely new kind of computer for AI inference and hard optimization. </p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/sep-2024-brief/?OCID=msr_researchforum_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Watch on-demand" data-bi-cN="Microsoft Research Forum Episode 4" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1508,30 +1860,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085514">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" aria-label="GraphRAG auto-tuning provides rapid adaptation to new domains" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/GraphRag-3-BlogHeroFeature-1400x788-1.png" alt="GraphRAG image on blue to green gradient" />
+				<a class="bg-gray-300" href="https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MRF-24_WebImage_1400x788.png" alt="various abstract 3D shapes on a light blue background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">GraphRAG auto-tuning provides rapid adaptation to new domains</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p class="large">GraphRAG uses LLM-generated knowledge graphs to substantially improve complex Q&A over retrieval-augmented generation (RAG). Discover automatic tuning of GraphRAG for new datasets, making it more accurate and relevant.</p>
+								<p class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
-							Read more						</a>
+						<a href="https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Watch on-demand" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1745,7 +2097,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-3" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-9" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -1799,7 +2151,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-3"
+				aria-controls="show-more-show-less-toggle-9"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -2083,30 +2435,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				<a class="bg-gray-300" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+								<p class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-							Read more						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2161,336 +2513,6 @@
 					
 		
 		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1.mov" length="20730985" type="video/quicktime" />
-
-			</item>
-		<item>
-		<title>Introducing Muse: Our first generative AI model designed for gameplay ideation</title>
-		<link>https://www.microsoft.com/en-us/research/blog/introducing-muse-our-first-generative-ai-model-designed-for-gameplay-ideation/</link>
-		
-		<dc:creator><![CDATA[Katja Hofmann]]></dc:creator>
-		<pubDate>Wed, 19 Feb 2025 16:05:46 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1122837</guid>
-
-					<description><![CDATA[<p>Today Nature published Microsoft’s research detailing our WHAM, an AI model that generates video game visuals &#038; controller actions. We are releasing the model weights, sample data, &#038; WHAM Demonstrator on Azure AI Foundry, enabling researchers to build on the work.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-muse-our-first-generative-ai-model-designed-for-gameplay-ideation/">Introducing Muse: Our first generative AI model designed for gameplay ideation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1.jpg" alt="Three white gaming icons on a green and blue gradient background." class="wp-image-1124868" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/WHAM-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Today, the journal <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41586-025-08600-3" target="_blank" rel="noreferrer noopener">Nature<span class="sr-only"> (opens in new tab)</span></a> is publishing our latest research, which introduces <strong>the first</strong> <strong>World and Human Action Model (WHAM). </strong>The WHAM, which we’ve named “Muse,” is a generative AI model of a video game that can generate game visuals, controller actions, or both.<br><br>The paper in Nature offers a detailed look at Muse, which was developed by the Microsoft Research <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/game-intelligence" target="_blank" rel="noreferrer noopener">Game Intelligence<span class="sr-only"> (opens in new tab)</span></a> and <a href="https://www.microsoft.com/en-us/research/project/taix/" target="_blank" rel="noreferrer noopener">Teachable AI Experiences<span class="sr-only"> (opens in new tab)</span></a> (Tai X) teams in collaboration with Xbox Games Studios’ <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ninjatheory.com/" target="_blank" rel="noreferrer noopener">Ninja Theory<span class="sr-only"> (opens in new tab)</span></a>. Simultaneously, to help other researchers explore these models and build on our work, we are open sourcing the weights and sample data and making the executable available for the WHAM Demonstrator—a concept prototype that provides a visual interface for interacting with WHAM models and multiple ways of prompting the models. Developers can learn and experiment with the weights, sample data, and WHAM Demonstrator on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/" target="_blank" rel="noreferrer noopener">Azure AI Foundry<span class="sr-only"> (opens in new tab)</span></a>. </p>
-
-
-
-<p>In our research, we focus on exploring the capabilities that models like Muse need to effectively support human creatives. I’m incredibly proud of our teams and the milestone we have achieved, not only by showing the rich structure of the game world that a model like Muse can learn, as you see in the video demo below, but also, and even more importantly, by demonstrating how to develop research insights to support creative uses of generative AI models.</p>
-
-
-
-<h2 class="wp-block-heading h3" id="generated-gameplay-examples">Generated gameplay examples</h2>
-
-
-
-<div class="wp-block-group is-style-default is-layout-grid wp-container-core-group-is-layout-2 wp-block-group-is-layout-grid">
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_1.gif" alt="10 seconds video generated by Muse. The character Gizmo from the game Bleeding Edge is attacking an enemy player, jumps forward, and then turns around." class="wp-image-1127328"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_2.gif" alt="10 seconds video generated by Muse. The character Daemon from the game Bleeding Edge destroys a Cannister, and then collects the Power Cell within. Daemon then mounts their hoverboard and moves towards another set of Cannisters to destroy them." class="wp-image-1127325"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_3.gif" alt="10 seconds video generated by Muse. The character Gizmo from the game Bleeding edge is moving forward on a hoverboard towards a group of enemies." class="wp-image-1127322"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_4.gif" alt="10 seconds video generated by Muse. The character Zero Cool from the game Bleeding edge is moving forward up a set of stairs towards a group of enemies. They then activate their ability to jump up to a higher platform." class="wp-image-1127319"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_7.gif" alt="10 seconds video generated by Muse. The character Nidhoggr from the game Bleeding edge is navigating through the game map." class="wp-image-1127310"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_5.gif" alt="10 seconds video generated by Muse. The character Makuto from the game Bleeding edge is being healed by an ally whilst they dash forwards." class="wp-image-1127316"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_8.gif" alt="10 seconds video generated by Muse. The character Miko from the game Bleeding edge is on a hoverboard moving towards a group of Cannisters." class="wp-image-1127307"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_6.gif" alt="10 seconds video generated by Muse. The character Buttercup from the game Bleeding edge is attacking players from the opposing team." class="wp-image-1127313"/></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="300" height="180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/wham_gen_9.gif" alt="10 seconds video generated by Muse. The character Makuto from the game Bleeding edge is fleeing from a fight with enemy players." class="wp-image-1127304"/></figure>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Example gameplay sequences generated by Muse (based on WHAM-1.6B) demonstrate that our model can generate complex gameplay sequences that are consistent over several minutes. All examples shown here were generated by prompting the model with 10 initial frames (1 second) of human gameplay and the controller actions of the whole play sequence. Muse is used in “world model mode” meaning that it is used to predict how the game will evolve from the initial prompt sequence. The more closely the generated gameplay sequence resembles the actual game, the more accurately Muse has captured the dynamics of that game.</figcaption></figure>
-
-
-
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<h2 class="wp-block-heading" id="what-motivated-this-research">What motivated this research?</h2>
-
-
-
-<p>As we release our research insights and model today, I keep thinking back to how this all started.&nbsp; There was a key moment back in December 2022 that I remember clearly. I had recently returned from maternity leave, and while I was away the machine learning world had changed in fundamental ways. ChatGPT had been publicly released, and those who had tried it were in awe of OpenAI’s technical achievements and the model’s capabilities. It was a powerful demonstration of what transformer-based generative models could do when trained on large amounts of (text) data. Coming back from leave at that moment, the key question on my mind was, “What are the implications of this achievement for our team’s work at the intersection of artificial intelligence and video games?”</p>
-
-
-
-<h2 class="wp-block-heading" id="a-new-research-opportunity-enabled-by-data">A new research opportunity enabled by data</h2>
-
-
-
-<p>In our team, we had access to a very different source of data. For years, we had collaborated with Xbox Game Studios’ Ninja Theory (based in Cambridge, UK, just like our research team) to collect gameplay data from Bleeding Edge, their 2020 Xbox game. Bleeding Edge is a 4-versus-4 game where all games are played online, and matches are recorded if the player agrees to the End User License Agreement (EULA). We worked closely with our colleagues at Ninja Theory and with Microsoft compliance teams to ensure that the data was collected ethically and used responsibly for research purposes.</p>
-
-
-
-<p>&#8220;It&#8217;s been amazing to see the variety of ways Microsoft Research has used the Bleeding Edge environment and data to explore novel techniques in a rapidly moving AI industry,&#8221; said Gavin Costello, technical director at Ninja Theory. &#8220;From the hackathon that started it all, where we first integrated AI into Bleeding Edge, to building AI agents that could behave more like human players, to the World and Human Action Model being able to dream up entirely new sequences of Bleeding Edge gameplay under human guidance, it&#8217;s been eye-opening to see the potential this type of technology has.&#8221;&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="muse-training-data">Muse Training Data</h3>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-vertically-aligned-top is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/BE-Training-Data.mp4"></video><figcaption class="wp-element-caption">Current Muse instances were trained on human gameplay data (visuals and controller actions) from the Xbox game Bleeding Edge – shown here at the 300&#215;180 px resolution at which we train current models. Muse (using WHAM-1.6B) has been trained on more than 1 billion images and controller actions, corresponding to over 7 years of continuous human gameplay.</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video aligncenter"><video controls muted src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/BE-Play-Session-edited.mp4"></video><figcaption class="wp-element-caption">The Game Intelligence and Teachable AI Experiences teams playing the Bleeding Edge game together.</figcaption></figure>
-</div>
-</div>
-
-
-
-<p>Until that point in late 2022, we had used Bleeding Edge as a platform for human-like navigation experiments, but we had not yet made meaningful use of the large amount of human player data we now had available. With the powerful demonstration of text-models, the next question was clear: “What could we achieve if we trained a transformer-based model on large amounts of human gameplay data?”&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="scaling-up-model-training">Scaling up model training</h2>
-
-
-
-<p>As the team got to work, some of the key challenges included scaling up the model training. We initially used a V100 cluster, where we were able to prove out how to scale up to training on up to 100 GPUs; that eventually paved the way to training at scale on H100s. Key design decisions we made early focused on how to best leverage insights from the large language model (LLM) community and included choices such as how to effectively represent controller actions and especially images.</p>
-
-
-
-<p>The first sign that the hard work of scaling up training was paying off came in the form of a demo that thoroughly impressed me. Tim Pearce, at that time a researcher in Game Intelligence, had put together examples of what happened early versus later in training. You can see the demo here – <strong>it’s like watching the model learn</strong>. This led to our follow-up work showing <a href="https://www.microsoft.com/en-us/research/publication/scaling-laws-for-pre-training-agents-and-world-models/">how scaling laws emerge in these kinds of models</a>.</p>
-
-
-
-<h3 class="wp-block-heading" id="muse-consistency-over-the-course-of-training">Muse consistency over the course of training</h3>
-
-
-
-<figure class="wp-block-table aligncenter"><table class="has-fixed-layout"><thead><tr><th style="background-color: green; color: white;">Ground truth<br>Human gameplay</th><th colspan="3" style="background-color: purple; color: white;">Game visuals generated by Muse with 206M parameters<br>Conditioned on 1 second of real gameplay and 9 seconds of actions</th></tr></thead><tbody><tr><td><video controls="" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media1.mp4" width="100%"></video>Original</td><td><video controls="" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media2.mp4" width="100%"></video>10k training updates</td><td><video controls="" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media3.mp4" width="100%"></video>100k training updates</td><td><video controls="" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media4.mp4" width="100%"></video>1M training updates</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>Character recognizable<strong>​</strong></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td></tr><tr><td>Basic movements and geometry​</td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td></tr><tr><td>No degeneration over time​</td><td><span style="color: red;">✘</span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td></tr><tr><td>Correct interaction with power cell​</td><td><span style="color: red;">✘</span></td><td><span style="color: red;">✘</span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td></tr><tr><td>Models flying mechanic correctly​</td><td><span style="color: red;">✘</span></td><td><span style="color: red;">✘</span></td><td><span style="color: green;"><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2714.png" alt="✔" class="wp-smiley" style="height: 1em; max-height: 1em;" /></span></td></tr></tbody></table><figcaption class="wp-element-caption">Comparing ground truth human gameplay (left) to visuals generated using Muse (using WHAM-206M) when prompted with 1 second of human gameplay (visuals and controller actions) and 9 seconds of controller actions from the ground truth. In this setting, if Muse can generate visuals that closely match the ground truth, then it has captured the game dynamics. We see that the quality of generated visuals improves visibly over the course of training. In early training (10k training updates) we see signs of life, but quality deteriorates quickly. After 100k training updates, the model is consistent over time but does not yet capture relatively less frequent aspects of the game dynamics, such as the flying mechanic. Consistency with the ground truth continues to improve with additional training, e.g., the flying mechanic is captured after 1M training updates.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="multidisciplinary-collaboration-involving-users-from-the-beginning">Multidisciplinary collaboration: Involving users from the beginning</h2>
-
-
-
-<p>We had started to investigate how to evaluate these types of models early on. For example, we wanted to understand the representations learned using linear probing, which was driven by Research Intern Gunshi Gupta and Senior Research Scientist Sergio Valcarcel Macua; to explore online evaluation, driven by Senior Research Scientist Raluca Georgescu; and to generate both visuals and actions, initially termed “full dreaming” and driven by Research Intern Tarun Gupta. But working through how to systematically evaluate Muse required a much broader set of insights. More importantly, we needed to understand how people might use these models in order to know how to evaluate them.&nbsp;&nbsp;</p>
-
-
-
-<p>This was where the opportunity for multidisciplinary research became crucial. We had discussed aspects of this work with Senior Principal Research Manager Cecily Morrison and her <a href="https://www.microsoft.com/en-us/research/project/taix/" target="_blank" rel="noreferrer noopener">Teachable AI Experiences</a> team for several months. And we had already partnered on an engagement with game creatives (driven by Cecily, Design Researcher Linda Wen, and Principal Research Software Development Engineer Martin Grayson) to investigate how game creators would like to use generative AI capabilities in their creative practice.</p>
-
-
-
-<p>“It was a great opportunity to join forces at this early stage to shape model capabilities to suit the needs of creatives right from the start, rather than try to retrofit an already developed technology,” Cecily said.&nbsp;</p>
-
-
-
-<p>Linda offered some valuable insights about how we approached the work: “We’ve seen how technology-driven AI innovation has disrupted the creative industry—often catching creators off guard and leaving many feeling excluded,” she said. “This is why we invited game creators to help us shape this technology from the start. Recognizing that most AI innovations are developed in the Global North, we also made it a priority to recruit game creators from underrepresented backgrounds and geographies. Our goal was to create a technology that benefits everyone—not just those already in positions of privilege.”&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="unlocking-new-creative-use-cases-with-the-wham-demonstrator">Unlocking new creative use cases with the WHAM Demonstrator</h2>
-
-
-
-<p>Now, with the model’s emerging capabilities and user insights in mind, it was time to put all the pieces together. The teams joined forces during a Microsoft internal hackathon to explore new interaction paradigms and creative uses that Muse could unlock. As a result, we developed a prototype that we call the WHAM Demonstrator, which allows users to directly interface with the model.</p>
-
-
-
-<p>“The Global Hackathon was the perfect opportunity for everyone to come together and build our first working prototype,” Martin said. “We wanted to develop an interface for the WHAM model that would allow us to explore its creative potential and start to test ideas and uses we had learned from our interviews with game developers.”&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="wham-demonstrator">WHAM Demonstrator</h3>
-
-
-
-<p>For interacting with World and Human Action Models like Muse, the WHAM Demonstrator provides a visual interface for interacting with a WHAM instance.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Video-Demo-3.mp4"></video><figcaption class="wp-element-caption">In this example, the user is loading a visual as an initial prompt to the model, here a single promotional image for the game Bleeding Edge. They use Muse to generate multiple potential continuations from this starting point.</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Video-Demo-3-Right.mp4"></video><figcaption class="wp-element-caption">The user explores the generated sequences and can tweak them, for example using a game controller to direct the character. These features demonstrate how Muse’s capabilities can enable iteration as part of the creative process.</figcaption></figure>
-</div>
-</div>
-
-
-
-<h2 class="wp-block-heading" id="identifying-key-capabilities-and-how-to-evaluate-them">Identifying key capabilities and how to evaluate them</h2>
-
-
-
-<p>The hands-on experience of exploring Muse capabilities with the WHAM Demonstrator, and drawing on insights we gained from the user study, allowed us to systematically identify capabilities that game creatives would require to use generative models like Muse. This in turn allowed us to establish evaluation protocols for three key capabilities: consistency, diversity, and persistency. <strong>Consistency</strong> refers to a model’s ability to generate gameplay sequences that respect the dynamics of the game. For example, the character moves consistently with controller actions, does not walk through walls, and generally reflects the physics of the underlying game. <strong>Diversity</strong> refers to a model’s ability to generate a range of gameplay variants given the same initial prompt, covering a wide range of ways in which gameplay could evolve. Finally, <strong>persistency</strong> refers to a model’s ability to incorporate (or “persist”) user modifications into generated gameplay sequences, such as a character that is copy-pasted into a game visual. We give an overview of these capabilities below.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="muse-evaluation-of-consistency-diversity-and-persistency">Muse evaluation of consistency, diversity and persistency</h2>
-
-
-
-<h3 class="wp-block-heading" id="consistency">Consistency</h3>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-3 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/consistency1.mp4"></video></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/consistency2.mp4"></video></figure>
-</div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">We evaluate consistency by prompting the model with ground truth gameplay sequences and controller actions, and letting the model generate game visuals. The videos shown here are generated using Muse (based on WHAM-1.6B) and demonstrate the model’s ability to generate consistent gameplay sequences of up to two minutes. In our paper, we also compare the generated visuals to the ground truth visuals using FVD (Fréchet Video Distance), an established metric in the video generation community.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="diversity">Diversity</h3>
-
-
-
-<div class="wp-block-group is-layout-grid wp-container-core-group-is-layout-3 wp-block-group-is-layout-grid">
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity1new.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity2new.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity3new.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity4new.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity5new.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity6new.mp4"></video></figure>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Muse (based on WHAM-1.6B) generated examples of behavioral and visual diversity, conditioned on the same initial 10 frames (1 second) of real gameplay. The three examples at the top show behavioral diversity (diverse camera movement, loitering near the spawn location, and navigating various paths to the middle jump pad). The three examples below show visual diversity (different hoverboards for the character). In the paper, we also quantitatively assess diversity using the Wasserstein distance, a measure of distance between two distributions, to compare the model-generated sequences to the diversity reflected in human gameplay recordings. Muse generated examples of behavioral and visual diversity, conditioned on the same 10 frames of real gameplay. Three examples of behavioral diversity show diverse camera movement, loitering near the spawn location, and navigating various paths to the middle jump pad. Three examples of visual diversity show different hoverboards for the character.</figcaption></figure>
-
-
-
-<div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p>With our evaluation framework in place, and access to an H100 compute allocation, the team was able to further improve Muse instances, including higher resolution image encoders (our current models generate visuals at a resolution of 300&#215;180 pixels, up from the 128&#215;128 resolution of our earliest models) and larger models, and expand to all seven Bleeding Edge maps. To show some of the capabilities of the model we are publishing today, we have included videos of 2-minute-long generated gameplay sequences above, which give an impression of the consistency and diversity of gameplay sequences that the model can generate.</p>
-
-
-
-<p>According to Senior Researcher Tabish Rashid: “Being handed an allocation of H100s was initially quite daunting, especially in the early stages figuring out how to make best use of it to scale to larger models with the new image encoders. After months of experimentation, it was immensely rewarding to finally see outputs from the model on a different map (not to knock the lovely greenery of Skygarden) and not have to squint so much at smaller images. I&#8217;m sure at this point many of us have watched so many videos from Muse that we&#8217;ve forgotten what the real game looks like.”</p>
-
-
-
-<p>One of my favorite capabilities of the model is how it can be prompted with modifications of gameplay sequences and persist newly introduced elements. For example, in the demo below, we’ve added a character onto the original visual from the game. Prompting the model with the modified visual, we can see how the model “persists” the added character and generates plausible variants of how the gameplay sequence could have evolved from this modified starting point.</p>
-
-
-
-<h3 class="wp-block-heading" id="persistency">Persistency</h3>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-4 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Persistency-Video-1.mp4"></video></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Persistency-Video-2.mp4"></video></figure>
-</div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Demonstrations of how Muse (based on WHAM-1.6B) can persist modifications. A visual is taken from the original gameplay data and an image of an additional character is edited into the image. The generated gameplay sequence shows how the character is adapted into the generated gameplay sequence.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
-
-
-
-<p>Today, our team is excited to be publishing our work in Nature and simultaneously releasing Muse open weights, the WHAM Demonstrator, and sample data to the community.</p>
-
-
-
-<p>I look forward to seeing the many ways in which the community will explore these models and build on our research. I cannot wait to see all the ways that these models and subsequent research will help shape and increase our understanding of how generative AI models of human gameplay may support gameplay ideation and pave the way for future, novel, AI-based game experiences, including the use cases that our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.xbox.com/en-us/2025/02/19/muse-ai-xbox-empowering-creators-and-players/" target="_blank" rel="noreferrer noopener">colleagues at Xbox<span class="sr-only"> (opens in new tab)</span></a> have already started to explore.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-muse-our-first-generative-ai-model-designed-for-gameplay-ideation/">Introducing Muse: Our first generative AI model designed for gameplay ideation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/BE-Training-Data.mp4" length="74674010" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/BE-Play-Session-edited.mp4" length="33495718" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media1.mp4" length="218687" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media2.mp4" length="265657" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media3.mp4" length="192813" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Media4.mp4" length="199715" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Video-Demo-3.mp4" length="13998707" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/Video-Demo-3-Right.mp4" length="18877294" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/consistency1.mp4" length="5840425" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/consistency2.mp4" length="6000871" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity1new.mp4" length="524547" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity2new.mp4" length="551015" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity3new.mp4" length="630243" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity4new.mp4" length="582034" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity5new.mp4" length="591182" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/diversity6new.mp4" length="588437" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Persistency-Video-1.mp4" length="7062234" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Persistency-Video-2.mp4" length="16754349" type="video/mp4" />
 
 			</item>
 	</channel>
