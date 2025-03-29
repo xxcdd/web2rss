@@ -6,17 +6,7 @@
     <description>Latest posts from https://www.rapid7.com/blog/posts/. follow.is: feedId:71371191432910863+userId:71370844472670208</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 28 Mar 2025 01:41:12 +0000</lastBuildDate>
-    <item>
-      <title>Explaining External Network Assessment with Vector Command</title>
-      <link>https://www.rapid7.com/blog/post/2025/03/12/explaining-external-network-assessment-with-vector-command/</link>
-      <description>Learn how external network assessment works within Vector Command, Rapid7’s continuous red team managed service.</description>
-    </item>
-    <item>
-      <title>Unlocking MSSP Success: Why CTEM is Critical</title>
-      <link>https://www.rapid7.com/blog/post/2025/03/14/unlocking-mssp-success-why-ctem-is-critical/</link>
-      <description>Discover why Continuous Threat Exposure Management (CTEM) is a game-changer for MSSPs. Learn how a proactive, risk-based security approach helps service providers stand out, reduce exposure, and deliver measurable security improvements.</description>
-    </item>
+    <lastBuildDate>Sat, 29 Mar 2025 01:40:06 +0000</lastBuildDate>
     <item>
       <title>Metasploit Weekly Wrap-Up 03/14/25</title>
       <link>https://www.rapid7.com/blog/post/2025/03/14/metasploit-weekly-wrap-up-03-14-25/</link>
@@ -58,13 +48,14 @@ for s</description>
     <item>
       <title>Critical Veeam Backup &amp; Replication CVE-2025-23120</title>
       <link>https://www.rapid7.com/blog/post/2025/03/19/etr-critical-veeam-backup-and-replication-cve-2025-23120/</link>
-      <description>On Wednesday, March 19, 2025, backup and recovery software provider Veeam
-published a security advisory  for a critical
-remote code execution vulnerability tracked as CVE-2025-23120
-. The vulnerability
-affects Backup &amp; Replication systems that are domain joined. Veeam explicitly
-mentions that domain-joined backup servers are against security and compliance
-best practices, but in reality, we believe this is lik</description>
+      <description>Update Friday, March 28, 2025: Security researchers at CODE WHITE GmbH have
+noted on social media that it is possible to bypass the patch
+ for CVE-2025-23120.
+Rapid7 has not directly confirmed the patch bypass, but we are relatively
+confident in the validity of the finding. Customers should ensure Veeam Backup &amp;
+Replication is not internet-facing as an urgent priority. 
+
+On Wednesday, March 19, 2025, backup and recovery software provider</description>
     </item>
     <item>
       <title>Secure Your Attack Surface: Key Findings from IDC's 2024 Spotlight Report</title>
@@ -112,6 +103,22 @@ flags</description>
       <title>Unpacking a post-compromise breach simulation with Vector Command</title>
       <link>https://www.rapid7.com/blog/post/2025/03/27/unpacking-a-post-compromise-breach-simulation-with-vector-command/</link>
       <description>This blog is the third in our Vector Command series, where we explore the tactics, techniques, and procedures (TTPs) leveraged by Rapid7’s expert red team.</description>
+    </item>
+    <item>
+      <title>Overcoming the Challenges of Vulnerability Remediation</title>
+      <link>https://www.rapid7.com/blog/post/2025/03/28/overcoming-the-challenges-of-vulnerability-remediation/</link>
+      <description>The following is a guest blog post by Zac Youtz, Co-Founder and CTO at valued Rapid7 partner, Furl. Here, Zac discusses how to effectively remediate vulnerabilities discovered by Rapid7’s InsightVM.</description>
+    </item>
+    <item>
+      <title>Metasploit Wrap-Up 03/28/2025</title>
+      <link>https://www.rapid7.com/blog/post/2025/03/28/metasploit-wrap-up-03-28-2025/</link>
+      <description>Windows LPE - Cloud File Mini Filer Driver Heap Overflow
+This Metasploit release includes an exploit module for CVE-2024-30085, an LPE in
+cldflt.sys which is known as the Windows Cloud Files Mini Filer Driver. This
+driver allows users to manage and sync files between a remote server and a local
+client. The exploit module allows users with an existing session on an affected
+Windows device to seamlessly escalate their privileges to NT AUTHORITY\SYSTEM.
+This module has been tested on Windows workst</description>
     </item>
   </channel>
 </rss>
