@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 31 Mar 2025 18:12:58 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 02 Apr 2025 15:34:43 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,214 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>VidTok introduces compact, efficient tokenization to enhance AI video processing</title>
+		<link>https://www.microsoft.com/en-us/research/blog/vidtok-introduces-compact-efficient-tokenization-to-enhance-ai-video-processing/</link>
+		
+		<dc:creator><![CDATA[Tianyu He, Junliang Guo, Jiang Bian]]></dc:creator>
+		<pubDate>Wed, 02 Apr 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1135315</guid>
+
+					<description><![CDATA[<p>The VidTok method can enable AI systems to process and generate videos more effectively. Compact tokenization reduces computational costs while maintaining video quality across a potentially diverse set of applications.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/vidtok-introduces-compact-efficient-tokenization-to-enhance-ai-video-processing/">VidTok introduces compact, efficient tokenization to enhance AI video processing</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-1024x576.png" alt="Diagram showing an overview of how video tokenizers work with stages labeled as Input, Encoder, Regularizer (Latent Space), Decoder, and Output. " class="wp-image-1135333" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok-BlogHeroFeature-1400x788-1.png 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Every day, countless videos are uploaded and processed online, putting enormous strain on computational resources. The problem isn’t just the sheer volume of data—it’s how this data is structured. Videos consist of raw pixel data, where neighboring pixels often store nearly identical information. This redundancy wastes resources, making it harder for systems to process visual content effectively and efficiently.</p>
+
+
+
+<p>To tackle this, we’ve developed a new approach to compress visual data into a more compact and manageable form. In our paper “<a href="https://www.microsoft.com/en-us/research/publication/vidtok-a-versatile-and-open-source-video-tokenizer/" target="_blank" rel="noreferrer noopener">VidTok: A Versatile and Open-Source Video Tokenizer</a>,” we introduce a method that converts video data into smaller, structured units, or <em>tokens</em>. This technique provides researchers and developers in visual world modeling—a field dedicated to teaching machines to interpret images and videos—with a flexible and efficient tool for advancing their work.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="how-vidtok-works">How VidTok works<strong></strong></h2>
+
+
+
+<p>VidTok is a technique that converts raw video footage into a format that AI can easily work with and understand, a process called <em>video tokenization</em>. This process converts complex visual information into compact, structured tokens, as shown in Figure 1.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="692" height="213" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-1.png" alt="Diagram showing an overview of how video tokenizers work with stages labeled as Input, Encoder, Regularizer (Latent Space), Decoder, and Output. " class="wp-image-1135323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-1.png 692w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-1-300x92.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-1-240x74.png 240w" sizes="(max-width: 692px) 100vw, 692px" /><figcaption class="wp-element-caption">Figure 1. An overview of how video tokenizers work, which form the basis of VidTok.</figcaption></figure>
+
+
+
+<p>By simplifying videos into manageable chunks, VidTok can enable AI systems to learn from, analyze, and generate video content more efficiently. VidTok offers several potential advantages over previous solutions:</p>
+
+
+
+<p><strong>Supports both discrete and continuous tokens.</strong> Not all AI models use the same “language” for video generation. Some perform best with continuous tokens—ideal for high-quality diffusion models—while others rely on discrete tokens, which are better suited for step-by-step generation, like language models for video. VidTok is a tokenizer that has demonstrated seamless support for both, making it adaptable across a range of AI applications.</p>
+
+
+
+<p><strong>Operates in both causal and noncausal modes. </strong>In some scenarios, video understanding depends solely on past frames (causal), while in others, it benefits from access to both past and future frames (noncausal). VidTok can accommodate both modes, making it suitable for real-time use cases like robotics and video streaming, as well as for high-quality offline video generation.</p>
+
+
+
+<p><strong>Efficient training with high performance.</strong> AI-powered video generation typically requires substantial computational resources. VidTok can reduce training costs by half through a two-stage training process—delivering high performance and lowering costs.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+				
+								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+							Read more						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="architecture">Architecture</h2>
+
+
+
+<p>The VidTok framework builds on a classic 3D encoder-decoder structure but introduces 2D and 1D processing techniques to handle spatial and temporal information more efficiently. Because 3D architectures are computationally intensive, VidTok combines them with less resource-intensive 2D and 1D methods to reduce computational costs while maintaining video quality.</p>
+
+
+
+<p><strong>Spatial processing.</strong> Rather than treating video frames solely as 3D volumes, VidTok applies 2D convolutions—pattern-recognition operations commonly used in image processing—to handle spatial information within each frame more efficiently.</p>
+
+
+
+<p><strong>Temporal processing.</strong> To model motion over time, VidTok introduces the <em>AlphaBlender</em> operator, which blends frames smoothly using a learnable parameter. Combined with 1D convolutions—similar operations applied over sequences—this approach captures temporal dynamics without abrupt transitions.</p>
+
+
+
+<p>Figure 2 illustrates VidTok’s architecture in detail.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1269" height="523" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok_Fig2.png" alt="A diagram illustrating VidTok’s architecture, which integrates 2D+1D operations instead of relying solely on 3D techniques. The left side represents the encoder pathway, starting with a 3D InputBlock, followed by multiple 2D+1D DownBlocks and AlphaBlender Temporal DownBlocks. The right side shows the decoder pathway, mirroring the encoder with 2D+1D UpBlocks and AlphaBlender Temporal UpBlocks before reaching the 3D OutputBlock. A Regularizer module is connected at the bottom.  This approach strikes a balance between computational speed and high-quality video output. " class="wp-image-1135324" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok_Fig2.png 1269w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok_Fig2-300x124.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok_Fig2-1024x422.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok_Fig2-768x317.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/VidTok_Fig2-240x99.png 240w" sizes="(max-width: 1269px) 100vw, 1269px" /><figcaption class="wp-element-caption">Figure 2. VidTok’s architecture. It uses a combination of 2D and 1D operations instead of solely relying on 3D techniques, improving efficiency. For smooth frame transitions, VidTok employs the AlphaBlender operator in its temporal processing modules. This approach strikes a balance between computational speed and high-quality video output.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="quantization">Quantization</h2>
+
+
+
+<p>To efficiently compress video data, AI systems often use quantization to reduce the amount of information that needs to be stored or transmitted. A traditional method for doing this is vector quantization (VQ), which groups values together and matches them to a fixed set of patterns (known as a codebook). However, this can lead to an inefficient use of patterns and lower video quality.</p>
+
+
+
+<p>For VidTok, we use an approach called finite scalar quantization (FSQ). Instead of grouping values, FSQ treats each value separately. This makes the compression process more flexible and accurate, helping preserve video quality while keeping the file size small. Figure 3 shows the difference between the VQ and FSQ approaches.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="831" height="179" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/image-17.png" alt="A diagram comparing Vector Quantization (VQ) and Finite Scalar Quantization (FSQ). VQ maps input z to a learned codebook, selecting the closest entry, while FSQ quantizes z using fixed sets independently for each value. FSQ simplifies optimization and improves training stability. " class="wp-image-1135319" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/image-17.png 831w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/image-17-300x65.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/image-17-768x165.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/image-17-240x52.png 240w" sizes="auto, (max-width: 831px) 100vw, 831px" /><figcaption class="wp-element-caption">Figure 3. VQ (left) relies on learning a codebook, while FSQ (right) simplifies the process by independently grouping values into fixed sets, making optimization easier. VidTok adopts FSQ to enhance training stability and reconstruction quality.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="training">Training</h2>
+
+
+
+<p>Training video tokenizers requires significant computing power. VidTok uses a two-stage process:</p>
+
+
+
+<ol class="wp-block-list">
+<li>It first trains the full model on low-resolution videos.</li>
+
+
+
+<li>Then, it fine-tunes only the decoder using high-resolution videos.</li>
+</ol>
+
+
+
+<p>This approach cuts training costs in half—from 3,072 to 1,536 GPU hours—while maintaining video quality. Older tokenizers, trained on full-resolution videos from the start, were slower and more computationally intensive.&nbsp;</p>
+
+
+
+<p>VidTok&#8217;s method allows the model to quickly adapt to new types of videos without affecting its token distribution. Additionally, it trains on lower-frame-rate data to better capture motion, improving how it represents movement in videos.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluating-vidtok">Evaluating VidTok</h2>
+
+
+
+<p>VidTok&#8217;s performance evaluation using the MCL-JCV benchmark—a comprehensive video quality assessment dataset—and an internal dataset demonstrates its superiority over existing state-of-the-art models in video tokenization. The assessment, which covered approximately 5,000 videos of various types, employed four standard metrics to measure video quality:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Peak Signal-to-Noise Ratio (PSNR)</li>
+
+
+
+<li>Structural Similarity Index Measure (SSIM)</li>
+
+
+
+<li>Learned Perceptual Image Patch Similarity (LPIPS)</li>
+
+
+
+<li>Fréchet Video Distance (FVD)</li>
+</ol>
+
+
+
+<p>The following table and Figure 4 illustrate VidTok’s performance:</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1651" height="680" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1.png" alt="Result table showing VidTok's performance compared to other models (MAGVIT-v2, OmniTokenizer, Cosmos-DV, CV-VAE, Open-Sora-v1.2, Open-Sora-Plan-v1.2, CogVideoX, Cosmos-CV) on two datasets (MCL-JCV and Internal-Val) with metrics including PSNR, SSIM, LPIPS, and FVD." class="wp-image-1135326" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1.png 1651w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1-300x124.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1-1024x422.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1-768x316.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1-1536x633.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/table-1-240x99.png 240w" sizes="auto, (max-width: 1651px) 100vw, 1651px" /><figcaption class="wp-element-caption">Table 1</figcaption></figure>
+
+
+
+<p>The results indicate that VidTok outperforms existing models in both discrete and continuous tokenization scenarios. This improved performance is achieved even when using a smaller model or a more compact set of reference patterns, highlighting VidTok&#8217;s efficiency.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1181" height="372" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-2.png" alt="Radar charts comparing the performance of discrete and continuous tokenization methods in VidTok and state-of-the-art methods using four metrics: PSNR, SSIM, LPIPS, and FVD. Larger chart areas indicate better overall performance. " class="wp-image-1135327" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-2.png 1181w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-2-300x94.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-2-1024x323.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-2-768x242.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure-2-240x76.png 240w" sizes="auto, (max-width: 1181px) 100vw, 1181px" /><figcaption class="wp-element-caption">Figure 4. Quantitative comparison of discrete and continuous tokenization performance in VidTok and state-of-the-art methods, evaluated using four metrics: PSNR, SSIM, LPIPS, and FVD. Larger chart areas indicate better overall performance.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="looking-ahead">Looking ahead</h2>
+
+
+
+<p>VidTok represents a significant development in video tokenization and processing. Its innovative architecture and training approach enable improved performance across various video quality metrics, making it a valuable tool for video analysis and compression tasks. Its capacity to model complex visual dynamics could improve the efficiency of video systems by enabling AI processing on more compact units rather than raw pixels.</p>
+
+
+
+<p>VidTok serves as a promising foundation for further research in video processing and representation. The code for VidTok is available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/VidTok" target="_blank" rel="noreferrer noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a>, and we invite the research community to build on this work and help advance the broader field of video modeling and generation.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/vidtok-introduces-compact-efficient-tokenization-to-enhance-ai-video-processing/">VidTok introduces compact, efficient tokenization to enhance AI video processing</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Ideas: Accelerating Foundation Models Research: AI for all</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/ideas-accelerating-foundation-models-research-ai-for-all/</link>
 		
@@ -32,11 +240,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ideas-accelerating-foundation-models-research-ai-for-all/">Ideas: Accelerating Foundation Models Research: AI for all</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788.jpg" alt="Microsoft Research Podcast | Ideas: Evelyne Viegas, Muhammed Idris, Cesar Torres" class="wp-image-1134454" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788.jpg" alt="Microsoft Research Podcast | Ideas: Evelyne Viegas, Muhammed Idris, Cesar Torres" class="wp-image-1134454" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/AFMR_Ideas_Hero_Feature_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=143858112&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=143858112&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -541,7 +749,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="1401" height="789" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1.jpg" alt="diagram" class="wp-image-1135034" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1024x577.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-768x433.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="789" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1.jpg" alt="diagram" class="wp-image-1135034" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1024x577.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-768x433.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/RF58-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
 
 
 
@@ -688,30 +896,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085496">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-label="Eureka: Evaluating and understanding progress in AI" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg" alt="White icons representing the Eureka Experiment Pipeline -- PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing, EvalReporting -- on blue to green gradient background." />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Eureka: Evaluating and understanding progress in AI</h2>
+									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
 				
-								<p class="large">How can we rigorously evaluate and understand state-of-the-art progress in AI? Eureka is an open-source framework for standardizing evaluations of large foundation models, beyond single-score reporting and rankings. Learn more about the extended findings. </p>
+								<p class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1811,30 +2019,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115763">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MRF-24_WebImage_1400x788.png" alt="various abstract 3D shapes on a light blue background" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" aria-label="AIOpsLab: Building AI agents for autonomous clouds" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/AIOps-Lab-BlogHeroFeature-1400x788-1.png" alt="White outline illustrations for AIOps on a blue and green gradient background." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">AIOpsLab: Building AI agents for autonomous clouds</h2>
 				
-								<p class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p class="large">AIOpsLab is an open-source framework designed to evaluate and improve AI agents for cloud operations, offering standardized, scalable benchmarks for real-world testing, enhancing cloud system reliability.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Watch on-demand" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2161,30 +2369,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
 				
-								<p class="large">Stay connected to the research community at Microsoft.</p>
+								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2361,30 +2569,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085508">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" aria-label="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/MedFuzz-BlogHeroFeature-1400x788-1.jpg" alt="MedFuzz blog hero (decorative)" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
+									<h2 class="h4">MedFuzz: Exploring the robustness of LLMs on medical challenge problems</h2>
 				
-								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
+								<p class="large">Medfuzz tests LLMs by breaking benchmark assumptions, exposing vulnerabilities to bolster real-world accuracy.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2774,134 +2982,6 @@
 <div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.nature.com/articles/s41598-025-90453-x?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20250221&utm_content=10.1038/s41598-025-90453-x#citeas" target="_blank" rel="noreferrer noopener">Access the full paper</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/advancing-biomedical-discovery-overcoming-data-challenges-in-precision-medicine/">Advancing biomedical discovery: Overcoming data challenges in precision medicine</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Magma: A foundation model for multimodal AI agents across digital and physical worlds</title>
-		<link>https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/</link>
-		
-		<dc:creator><![CDATA[Swadheen Shukla, Jianwei Yang, Reuben Tan, Qianhui Wu, Jianfeng Gao]]></dc:creator>
-		<pubDate>Tue, 25 Feb 2025 19:08:21 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1131576</guid>
-
-					<description><![CDATA[<p>Explore Magma, a foundation model that can empower AI assistants to interpret environments, plan actions, and execute tasks across digital and physical spaces. Now available, learn how it advances the field of agentic AI.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/">Magma: A foundation model for multimodal AI agents across digital and physical worlds</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1.jpg" alt="Gradient background transitioning from blue on the left to pink on the right. In the center, a rectangular box with ‘MAGMA’ written in bold white letters. To the left, an icon of a globe representing Earth. To the right, an icon of a computer monitor displaying a globe. Arrows connect these three elements in a circular flow, indicating interaction or data exchange between Earth, MAGMA, and the computer." class="wp-image-1131846" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Project-Magma-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Imagine an AI system capable of guiding a robot to manipulate physical objects as effortlessly as it navigates software menus. Such seamless integration of digital and physical tasks has long been the stuff of science fiction.&nbsp;&nbsp;</p>
-
-
-
-<p>Today, Microsoft researchers are bringing that vision closer to reality with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/Magma/" target="_blank" rel="noreferrer noopener">Magma<span class="sr-only"> (opens in new tab)</span></a>, a multimodal AI foundation model designed to process information and generate action proposals across both digital and physical environments. It is designed to enable AI agents to interpret user interfaces and suggest actions like button clicks, while also orchestrating robotic movements and interactions in the physical world. &nbsp;</p>
-
-
-
-<p>Built on the foundation model paradigm, Magma is pretrained on an expansive and diverse dataset, allowing it to generalize better across tasks and environments than smaller, task-specific models. As illustrated in Figure 1, Magma synthesizes visual and textual inputs to generate meaningful actions—whether executing a command in software or grabbing a tool in the physical world. This new model represents a significant step toward AI agents that can serve as versatile, general-purpose assistants.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="4667" height="2100" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3.png" alt="Given a described goal, Magma can formulate plans and execute actions to achieve it. By effectively transferring knowledge from freely available visual and language data, Magma bridges verbal, spatial and temporal intelligence to navigate complex tasks and settings." class="wp-image-1131618" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3.png 4667w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3-300x135.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3-1024x461.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3-768x346.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3-1536x691.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3-2048x922.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-1-3-240x108.png 240w" sizes="auto, (max-width: 4667px) 100vw, 4667px" /><figcaption class="wp-element-caption">Figure 1: Magma is one of the first foundation models that is capable of interpreting and grounding multimodal inputs within both digital and physical environments. Given a described goal, Magma can formulate plans and execute actions to achieve it. By effectively transferring knowledge from freely available visual and language data, Magma bridges verbal, spatial and temporal intelligence to navigate complex tasks and settings.</figcaption></figure>
-
-
-
-<p>Vision-Language-Action (VLA) models integrate visual perception, language comprehension, and action reasoning to enable AI systems to interpret images, process textual instructions, and propose actions. These models bridge the gap between multimodal understanding and real-world interaction. Typically pretrained on large numbers of VLA datasets, they acquire the ability to understand visual content, process language, and perceive and interact with the spatial world, allowing them to perform a wide range of tasks. However, due to the dramatic difference among various digital and physical environments, separate VLA models are trained and used for different environments. As a result, these models struggle to generalize to new tasks and environments outside of their training data. Moreover, most of these models do not leverage pretrained vision-language (VL) models or diverse VL datasets, which hampers their understanding of VL relations and generalizability. &nbsp;</p>
-
-
-
-<p>Magma, to the best of our knowledge, is one of the first VLA foundation model that can adapt to new tasks in both digital and physical environments, which helps AI-powered assistants or robots understand their surroundings and suggest appropriate actions. For example, it could enable a home assistant robot to learn how to organize a new type of object it has never encountered or help a virtual assistant generate step-by-step user interface navigation instructions for an unfamiliar task. Through Magma, we demonstrate the advantages of pretraining a single VLA model for AI agents across multiple environments while still achieving state-of-the-art results on user interface navigation and robotic manipulation tasks, outperforming previous models that are tailored to these specific domains. On VL tasks, Magma also compares favorably to popular VL models that are trained on much larger datasets.&nbsp;</p>
-
-
-
-<p>Building a foundation model that spans such different modalities has required us to rethink how we train and supervise AI agents. Magma introduces a novel training paradigm centered on two key innovations: Set-of-Mark (SoM) and Trace-of-Mark (ToM) annotations. These techniques developed by Microsoft Research, imbue the model with a structured understanding of tasks in both user interface navigation and robotic manipulation domains.&nbsp;</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Set-of-Mark (SoM):</strong> SoM is an annotated set of key objects, or interface elements that are relevant to achieving a given goal. For example, if the task is to navigate a web page, the SoM includes all the bounding boxes for clickable user interface elements. In a physical task like setting a table, the SoM could include the plate, the cup, and the position of each item on the table. By providing SoM, we give Magma a high-level hint of “what needs attention”—the essential elements of the task—without yet specifying the order or method.</li>
-</ul>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1280" height="234" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-2-2.jpg" alt="Set-of-Mark prompting enables effective action grounding in images for both UI screenshot , robot manipulation and human video by having the model predict numeric marks for clickable buttons or robot arms in image space. These marks give Magma a high-level hint of “what needs attention” – the essential elements of the task." class="wp-image-1131630" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-2-2.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-2-2-300x55.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-2-2-1024x187.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-2-2-768x140.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-2-2-240x44.jpg 240w" sizes="auto, (max-width: 1280px) 100vw, 1280px" /><figcaption class="wp-element-caption">Figure 2: Set-of-Mark (SoM) for Action Grounding. Set-of-Mark prompting enables effective action grounding in images for both UI screenshot (left), robot manipulation (middle) and human video (right) by having the model predict numeric marks for clickable buttons or robot arms in image space. These marks give Magma a high-level hint of “what needs attention” – the essential elements of the task&nbsp;</figcaption></figure>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Trace-of-Mark (ToM):</strong> In ToM we extend the strategy of “overlaying marks” from static images to dynamic videos, by incorporating tracing lines following object movements over time. While SoM highlights key objects or interface elements relevant to a task, ToM captures how these elements change or move throughout an interaction. For example, in a physical task like moving an object on a table, ToM might illustrate the motion of a hand placing the object and adjusting its position. By providing these temporal traces, ToM offers Magma a richer understanding of how actions unfold, complementing SoM’s focus on what needs attention.</li>
-</ul>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="9025" height="1707" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4.png" alt="Trace-of-Mark (ToM) for Action Planning. Trace-of-Mark supervisions for robot manipulation and human action. It compels the model to comprehend temporal video dynamics and anticipate future states before acting, while using fewer tokens than next-frame prediction to capture longer temporal horizons and action-related dynamics without ambient distractions" class="wp-image-1131645" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4.png 9025w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4-300x57.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4-1024x194.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4-768x145.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4-1536x291.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4-2048x387.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-3-4-240x45.png 240w" sizes="auto, (max-width: 9025px) 100vw, 9025px" /><figcaption class="wp-element-caption">Figure 3: Trace-of-Mark (ToM) for Action Planning. Trace-of-Mark supervisions for robot manipulation (left) and human action (right). It compels the model to comprehend temporal video dynamics and anticipate future states before acting, while using fewer tokens than next-frame prediction to capture longer temporal horizons and action-related dynamics without ambient distractions.&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="performance-and-evaluation">Performance and evaluation</h2>
-
-
-
-<h3 class="wp-block-heading" id="zero-shot-agentic-intelligence">Zero-shot agentic intelligence</h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2221" height="601" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1.png" alt="Table 1: Zero-shot evaluation on agentic intelligence. We report the results for pretrained Magma without any domain-specific finetuning. In this experiment, Magma is the only model that can conduct the full task spectrum." class="wp-image-1131813" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1.png 2221w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1-300x81.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1-1024x277.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1-768x208.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1-1536x416.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1-2048x554.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-1-1-240x65.png 240w" sizes="auto, (max-width: 2221px) 100vw, 2221px" /><figcaption class="wp-element-caption">Table 1: Zero-shot evaluation on agentic intelligence. We report the results for pretrained Magma without any domain-specific finetuning. In this experiment, Magma is the only model that can conduct the full task spectrum.</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="4284" height="1271" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1.png" alt="Zero-shot evaluation on Google Robots and Bridge with SimplerEnv. Magma shows strong zero-shot cross-domain robustness and demonstrates impressive results in cross-embodiment manipulation simulation tasks." class="wp-image-1131657" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1.png 4284w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1-300x89.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1-1024x304.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1-768x228.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1-1536x456.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1-2048x608.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Figure-4-1-240x71.png 240w" sizes="auto, (max-width: 4284px) 100vw, 4284px" /><figcaption class="wp-element-caption">Figure 4: Zero-shot evaluation on Google Robots and Bridge with SimplerEnv. Magma shows strong zero-shot cross-domain robustness and demonstrates impressive results in cross-embodiment manipulation simulation tasks.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="efficient-finetuning">Efficient finetuning</h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2835" height="844" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2.png" alt="Table showing Zero-shot evaluation on agentic intelligence. We report the results for pretrained Magma without any domain-specific finetuning. In this experiment, Magma is the only model that can conduct the full task spectrum." class="wp-image-1131819" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2.png 2835w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2-300x89.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2-1024x305.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2-768x229.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2-1536x457.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2-2048x610.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-2-240x71.png 240w" sizes="auto, (max-width: 2835px) 100vw, 2835px" /><figcaption class="wp-element-caption">Table 2: Efficient finetuning on Mind2Web for web UI navigation.</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1072" height="255" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5.jpg" alt="Figure 5: Few-shot finetuning on Widow-X robot (left) and LIBERO (right). Magma achieves a significantly higher average success rate in all task suites. Additionally, removing SoM and ToM during pretraining has a negative impact on model performance." class="wp-image-1131771" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5.jpg 1072w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5-300x71.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5-1024x244.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5-768x183.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5-1066x255.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Magma_Figure5-240x57.jpg 240w" sizes="auto, (max-width: 1072px) 100vw, 1072px" /><figcaption class="wp-element-caption">Figure 5: Few-shot finetuning on Widow-X robot (left) and LIBERO (right). Magma achieves a significantly higher average success rate in all task suites. Additionally, removing SoM and ToM during pretraining has a negative impact on model performance. </figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2440" height="686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3.jpg" alt="Without task-specific data, Magma performs competitively and even outperforms some state-of-the-art approaches such as Video-Llama2 and ShareGPT4Video on most benchmarks, despite using much fewer video instruction tuning data." class="wp-image-1131831" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3.jpg 2440w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3-300x84.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3-1024x288.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3-768x216.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3-1536x432.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3-2048x576.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/02/Table-3-240x67.jpg 240w" sizes="auto, (max-width: 2440px) 100vw, 2440px" /><figcaption class="wp-element-caption">Table 3: Without task-specific data, Magma performs competitively and even outperforms some state-of-the-art approaches such as Video-Llama2 and ShareGPT4Video on most benchmarks, despite using much fewer video instruction tuning data.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="relation-to-broader-research">Relation to broader research</h2>
-
-
-
-<p>Magma is one component of a much larger vision within Microsoft Research for the future of agentic AI systems. Across various teams and projects at Microsoft, we are collectively exploring how AI systems can detect, analyze, and respond in the world to amplify human capabilities.</p>
-
-
-
-<p>Earlier this month, we announced <a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noreferrer noopener">AutoGen v0.4</a>, a fully reimagined open-source library for building advanced agentic AI systems. While AutoGen focuses on the structure and management of AI agents, Magma enhances those agents by empowering them with a new level of capability. Developers can already use AutoGen to set up an AI assistant that leverages an LLM for planning and dialogue using conventional LLMs. Now with MAGMA, if developers want to build agents that execute both physical or user interface/browser tasks, that same assistant would call upon Magma to understand the environment, perform reasoning, and take a sequence of actions to complete the task.&nbsp;</p>
-
-
-
-<p>The reasoning ability of Magma can be further developed by incorporating test-time search and reinforcement learning, as described in <a href="https://www.microsoft.com/en-us/research/blog/exact-improving-ai-agents-decision-making-via-test-time-compute-scaling/" target="_blank" rel="noreferrer noopener">ExACT</a>. ExACT shows an approach for teaching AI agents to explore more effectively, enabling them to intelligently navigate their environments, gather valuable information, evaluate options, and identify optimal decision-making and planning strategies.</p>
-
-
-
-<p>At the application level, we are also exploring new user experience (UX) powered by foundation models for the next generation of agentic AI systems. <a href="https://www.microsoft.com/en-us/research/blog/data-formulator-exploring-how-ai-can-help-analysts-create-rich-data-visualizations/" target="_blank" rel="noreferrer noopener">Data Formulator</a> is a prime example. Announced late last year, Data Formulator, is an AI-driven visualization tool developed by Microsoft Research that translates high-level analytical intents into rich visual representations by handling complex data transformations behind the scenes​.&nbsp;&nbsp;</p>
-
-
-
-<p>Looking ahead, the integration of reasoning, exploration and action capabilities will pave the way for highly capable, robust agentic AI systems.</p>
-
-
-
-<p>Magma is available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/labs/projects/magma" target="_blank" rel="noreferrer noopener">Azure AI Foundry Labs<span class="sr-only"> (opens in new tab)</span></a> as well as on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Magma-8B" target="_blank" rel="noreferrer noopener"><u>HuggingFace</u><span class="sr-only"> (opens in new tab)</span></a> with an MIT license. Please refer to the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/Magma/" target="_blank" rel="noreferrer noopener"><u>Magma project page</u><span class="sr-only"> (opens in new tab)</span></a> for more technical details. We invite you to test and explore these cutting-edge agentic model innovations from Microsoft Research.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/magma-a-foundation-model-for-multimodal-ai-agents-across-digital-and-physical-worlds/">Magma: A foundation model for multimodal AI agents across digital and physical worlds</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
