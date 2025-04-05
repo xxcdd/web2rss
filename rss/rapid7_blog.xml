@@ -6,24 +6,7 @@
     <description>Latest posts from https://www.rapid7.com/blog/posts/. follow.is: feedId:71371191432910863+userId:71370844472670208</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 04 Apr 2025 01:41:31 +0000</lastBuildDate>
-    <item>
-      <title>Rapid7 MDR Supports AWS GuardDuty's New Attack Sequence Alerts</title>
-      <link>https://www.rapid7.com/blog/post/2025/03/21/rapid7-mdr-supports-aws-guarddutys-new-attack-sequence-alerts/</link>
-      <description>AWS GuardDuty has introduced two powerful new alerts that enhance its threat detection capabilities: "Potential Credential Compromise" and "Potential S3 Data Compromise."</description>
-    </item>
-    <item>
-      <title>Metasploit Wrap-Up 03/21/2025</title>
-      <link>https://www.rapid7.com/blog/post/2025/03/21/metasploit-wrap-up-03-21-2025/</link>
-      <description>SMB to LDAP Relay
-This week, the Metasploit team have added an exciting relay module that has been
-in the works for a long time. This relay module is used to host an SMB server,
-and execute an SMB to LDAP relay attack against a Domain controller with an LDAP
-server when NTLMv1 is being used as the SMB authentication method. PetitPotam
-can be used to coerce authentication on the victim system and relay it to the
-Domain Controller.The module automatically takes care of removing the relevant
-flags</description>
-    </item>
+    <lastBuildDate>Sat, 05 Apr 2025 01:39:45 +0000</lastBuildDate>
     <item>
       <title>Notable vulnerabilities in Next.js (CVE-2025-29927) and CrushFTP</title>
       <link>https://www.rapid7.com/blog/post/2025/03/25/etr-notable-vulnerabilities-in-next-js-cve-2025-29927/</link>
@@ -94,6 +77,23 @@ This module has been tested on Windows workst</description>
       <title>Ivanti Connect Secure CVE-2025-22457 exploited in the wild</title>
       <link>https://www.rapid7.com/blog/post/2025/04/03/etr-ivanti-connect-secure-cve-2025-22457-exploited-in-the-wild/</link>
       <description>On April 3, 2025, Ivanti disclosed CVE-2025-22457, a critical a stack-based buffer overflow vulnerability that allows for remote code execution on affected devices.</description>
+    </item>
+    <item>
+      <title>Pentales: Red Team vs. N-Day (and How We Won)</title>
+      <link>https://www.rapid7.com/blog/post/2025/04/04/pentales-red-team-vs-n-day-and-how-we-won/</link>
+      <description>While the organization involved remains anonymous, the events described are real. This story reflects how our always-on testing approach closely mirrors the creativity and persistence of actual threat actors.</description>
+    </item>
+    <item>
+      <title>Metasploit Wrap-Up 04/04/2025</title>
+      <link>https://www.rapid7.com/blog/post/2025/04/04/metasploit-wrap-up-04-04-2025/</link>
+      <description>New RCEs
+Metasploit added four new modules this week, including three that leverage
+vulnerabilities to obtain remote code execution (RCE). Among these three, two
+leverage deserialization, showing that the exploit primitive is still going
+strong. The Tomcat vulnerability in particular CVE-2025-24813
+ garnered a lot of
+attention when it was disclosed; however, to function, the exploit requires
+specific conditions to be met, which may no</description>
     </item>
   </channel>
 </rss>
