@@ -6,12 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 09 Apr 2025 01:42:52 +0000</lastBuildDate>
-    <item>
-      <title>Reinventing custom detections and vulnerability management</title>
-      <link>https://projectdiscovery.io/blog/reinventing-custom-detections-and-vulnerability-management</link>
-      <description>We’re making custom vulnerability detection easier with an AI-powered template editor, full-text search, and auto-regressions. These additions help security teams create, refine, and validate detections faster, staying ahead of threats with less manual work.</description>
-    </item>
+    <lastBuildDate>Thu, 10 Apr 2025 01:42:57 +0000</lastBuildDate>
     <item>
       <title>February 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/february-2025-newsletter</link>
@@ -21,6 +16,13 @@
       <title>March 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/march-2025-newsletter</link>
       <description>Our highlight this month? A massive addition of 359 brand-new Nuclei templates—all thanks to our incredible community contributors. Dive into the details of this impressive milestone in our dedicated newsletter and find out exactly what's new!</description>
+    </item>
+    <item>
+      <title>ProjectDiscovery is Selected as a Top 10 Finalist for RSAC™ 2025 Conference 20th Annual Innovation Sandbox Contest</title>
+      <link>https://projectdiscovery.io/blog/rsac-2025-top-10-finalist</link>
+      <description>We’re excited to share that ProjectDiscovery has been named one of the Top 10 Finalists in the 2025 RSA Innovation Sandbox! On Monday, April 28, we’ll take the stage at RSA Conference in San Francisco to showcase how we’re rethinking vulnerability management from the ground up with speed, accuracy, and the power of open-source.
+
+The RSA Innovation Sandbox is widely regarded as the cybersecurity industry’s premier startup competition. Each year, 10 early-stage companies are selected to pitch live</description>
     </item>
     <item>
       <title>Getting Started with ProjectDiscovery in Linux and Windows</title>
@@ -121,13 +123,6 @@ If you’re specifically looking to use the IngressNightmare dete</description>
       <description>Enterprise file transfer solutions are critical infrastructure for many organizations, facilitating secure data exchange between systems and users. CrushFTP, a widely used multi-protocol file transfer server, offers an extensive feature set including Amazon S3-compatible API access. However, a critical vulnerability (CVE-2025-2825) was discovered in versions 10.0.0 through 10.8.3 and 11.0.0 through 11.3.0 that allows unauthenticated attackers to bypass authentication and gain unauthorized access</description>
     </item>
     <item>
-      <title>CVE-2024-53991 - Discourse Backup Disclosure: Rails send_file Quirk</title>
-      <link>https://projectdiscovery.io/blog/discourse-backup-disclosure-rails-send_file-quirk</link>
-      <description>Introduction
-
-Modern web applications rely on middleware and web server configurations to efficiently handle file delivery while maintaining security. In the Ruby ecosystem, the send_file method in Rack and Rails is a widely used mechanism that can offload file serving to web servers like Nginx and Apache, improving performance and scalability. However, when used in conjunction with Nginx’s internal directive, a feature designed to restrict access to sensitive resources, unexpected security flaw</description>
-    </item>
-    <item>
       <title>CVE-2025-29927: Next.js Middleware Authorization Bypass - Technical Analysis</title>
       <link>https://projectdiscovery.io/blog/nextjs-middleware-authorization-bypass</link>
       <description>Next.js is an open-source web framework built by Vercel that powers React-based apps with features like server-side and static rendering. Recently, a critical vulnerability (CVE) was disclosed that lets attackers bypass middleware-based authorization checks. The issue was originally discovered and analyzed by Rachid Allam (zhero). In this blog, we’ll break down the vulnerability and walk through their research and will create a Nuclei template to help you detect it across your assets.
@@ -142,6 +137,11 @@ The vulne</description>
 Originally discovered by the Wiz research team (Nir Ohfeld, Ronen Shustin, Sagi Tzadik, Hillai Ben-Sasson) in late 2024 and disclosed in March 2025, CVE-2025-1974 is part of a series of vulnerabilities collectively called IngressNightmare.
 
 If you’re specifically looking to use the IngressNightmare dete</description>
+    </item>
+    <item>
+      <title>CrushFTP Authentication Bypass - CVE-2025-2825</title>
+      <link>https://projectdiscovery.io/blog/crushftp-authentication-bypass</link>
+      <description>Enterprise file transfer solutions are critical infrastructure for many organizations, facilitating secure data exchange between systems and users. CrushFTP, a widely used multi-protocol file transfer server, offers an extensive feature set including Amazon S3-compatible API access. However, a critical vulnerability (CVE-2025-2825) was discovered in versions 10.0.0 through 10.8.3 and 11.0.0 through 11.3.0 that allows unauthenticated attackers to bypass authentication and gain unauthorized access</description>
     </item>
   </channel>
 </rss>
