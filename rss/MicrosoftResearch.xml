@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 09 Apr 2025 16:25:33 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 10 Apr 2025 14:52:04 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,160 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Debug-gym: an environment for AI coding tools to learn how to debug code like programmers</title>
+		<link>https://www.microsoft.com/en-us/research/blog/debug-gym-an-environment-for-ai-coding-tools-to-learn-how-to-debug-code-like-programmers/</link>
+		
+		<dc:creator><![CDATA[Eric Yuan, Morgane Moss, Charbel Feghali, Chinmay Singh, Darya Moldavskaya, Drew MacPhee, Lucas Caccia, Matheus Pereira, Minseon Kim, Alessandro Sordoni, Marc-Alexandre Côté]]></dc:creator>
+		<pubDate>Thu, 10 Apr 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1136154</guid>
+
+					<description><![CDATA[<p>Developers spend a lot of time debugging code. Learn how debug-gym can equip AI agents to help, enabling them to set breakpoints, navigate the codebase, and print runtime variable values on demand, so they better understand the code and its execution flow.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/debug-gym-an-environment-for-ai-coding-tools-to-learn-how-to-debug-code-like-programmers/">Debug-gym: an environment for AI coding tools to learn how to debug code like programmers</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1.jpg" alt="A graphic with a gradient background transitioning from blue on the left to pink on the right. The graphic features a white outline of a computer monitor with code brackets on the screen, an arrow pointing downwards into the monitor, and another arrow curving around to point upwards towards a magnifying glass with a bug icon inside it." class="wp-image-1136365" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/NEWDeBug-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2100px) 100vw, 2100px" /></figure>
+
+
+
+<p>The ongoing proliferation of AI coding tools is not only boosting developers’ efficiency, it also signals a future where AI will generate a growing share of all new code. <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.freethink.com/robots-ai/github-copilot" target="_blank" rel="noreferrer noopener">GitHub CEO Thomas Dohmke<span class="sr-only"> (opens in new tab)</span></a> predicted as much in 2023, when he said that &#8220;sooner than later, 80% of the code is going to be written by Copilot.&#8221;&nbsp;&nbsp;</p>
+
+
+
+<p>Both large and small software companies are already heavily using AI to generate code. <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=coojA-odaTk&t=861s" target="_blank" rel="noreferrer noopener">Y Combinator’s Garry Tan<span class="sr-only"> (opens in new tab)</span></a> noted that 95% of code for a quarter of Y Combinator’s latest batch of startups was written by large language models.</p>
+
+
+
+<p>In fact, <strong>most developers spend the majority of their time debugging code,</strong> not writing it. As maintainers of popular open-source repositories, this resonates with us. But what if an AI tool could propose fixes for hundreds of open issues, and all we had to do was approve them before merging? This was what motivated us to maximize the potential time savings from AI coding tools by teaching them to debug code.&nbsp;</p>
+
+
+
+<p>By debugging we mean the interactive, iterative process to fix code. Developers typically hypothesize why their code crashed, then gather evidence by stepping through the program and examining variable values. They often use debugging tools like pdb (Python debugger) to assist in gathering information. This process is repeated until the code is fixed.</p>
+
+
+
+<p>Today&#8217;s AI coding tools boost productivity and excel at suggesting solutions for bugs based on available code and error messages. However, unlike human developers, these tools don&#8217;t seek additional information when solutions fail, leaving some bugs unaddressed, as you can see in this simple <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/debug-gym/" target="_blank" rel="noreferrer noopener">demo of how a mislabeled column stumps today’s coding tools<span class="sr-only"> (opens in new tab)</span></a>. This may leave users feeling like AI coding tools don’t understand the full context of the issues they are trying to solve.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="introducing-debug-gym">Introducing debug-gym</h2>
+
+
+
+<p>A natural research question emerges: <strong>to what degree can LLMs use interactive debugging tools such as pdb?</strong> To explore this question, we released <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/debug-gym/" target="_blank" rel="noreferrer noopener"><strong>debug-gym</strong><span class="sr-only"> (opens in new tab)</span></a> – an environment that allows code-repairing agents to access tools for active information-seeking behavior. Debug-gym expands an agent’s action and observation space with feedback from tool usage, enabling setting breakpoints, navigating code, printing variable values, and creating test functions. Agents can interact with tools to investigate code or rewrite it, if confident. We believe interactive debugging with proper tools can empower coding agents to tackle real-world software engineering tasks and is central to LLM-based agent research. The fixes proposed by a coding agent with debugging capabilities, and then approved by a human programmer, will be grounded in the context of the relevant codebase, program execution and documentation, rather than relying solely on guesses based on previously seen training data.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1503" height="488" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_intro_diagram_v2.png" alt="Figure 1: Diagram demonstrating the code-repairing process in outline. Left: conventional code-repairing system; right: additional tools enabled by debug-gym." class="wp-image-1136156" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_intro_diagram_v2.png 1503w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_intro_diagram_v2-300x97.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_intro_diagram_v2-1024x332.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_intro_diagram_v2-768x249.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_intro_diagram_v2-240x78.png 240w" sizes="(max-width: 1503px) 100vw, 1503px" /><figcaption class="wp-element-caption">Figure 1: Diagram demonstrating the code-repairing process in outline. In most existing approaches (shown in <strong>black</strong>), an agent rewrites its code conditioned on error messages obtained from executing the code. debug-gym equips the agent with additional tools such as pdb (shown in <strong>red</strong>), so it can interactively seek necessary information from the semantic space hidden behind the code and therefore have better code-repairing performance.</figcaption></figure>
+
+
+
+<p>Debug-gym is designed and developed to:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Handle repository-level information</strong>: the full repository is available to agents in debug-gym, allowing them to navigate and edit files.</li>
+
+
+
+<li><strong>Be robust and safe</strong>: to safeguard both the system and the development process, debug-gym runs code within sandbox Docker containers. This isolates the runtime environment, preventing harmful actions while still allowing thorough testing and debugging.&nbsp;&nbsp;</li>
+
+
+
+<li><strong>Be easily extensible</strong>: debug-gym was conceived with extensibility in mind and provides practitioners with the possibility of easily adding new tools.&nbsp;&nbsp;</li>
+
+
+
+<li><strong>Be text-based</strong>: debug-gym represents observation information in structured text (e.g., JSON format) and defines a simple syntax for text actions, making the environment fully compatible with modern LLM-based agents.</li>
+</ul>
+
+
+
+<p>With debug-gym, researchers and developers can specify a folder path to work with any custom repository to evaluate their debugging agent&#8217;s performance. Additionally, debug-gym includes three coding benchmarks to measure LLM-based agents’ performance in interactive debugging: Aider for simple function-level code generation, Mini-nightmare for short, hand-crafted buggy code examples, and SWE-bench for real-world coding problems requiring a comprehensive understanding of a large codebase and a solution in the format of a GitHub pull request.</p>
+
+
+
+<p>To learn more about debug-gym and start using it to train your own debugging agents, please refer to the <a href="https://www.microsoft.com/en-us/research/publication/debug-gym-a-text-based-environment-for-interactive-debugging/" target="_blank" rel="noreferrer noopener">technical report<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/debug-gym" target="_blank" rel="noreferrer noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="early-experimentation-promising-signal">Early experimentation: promising signal</h2>
+
+
+
+<p>For our initial attempt to validate that LLMs perform better on coding tests when they have access to debugging tools, we built a simple prompt-based agent and provided it with access to the following debug tools: eval, view, pdb, rewrite, and listdir. We used nine different LLMs as the backbone for our agent. Detailed results can be found in the <a href="https://www.microsoft.com/en-us/research/publication/debug-gym-a-text-based-environment-for-interactive-debugging/">technical report<span class="sr-only"> (opens in new tab)</span></a><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2503.21557" target="_blank" rel="noreferrer noopener">.<span class="sr-only"> (opens in new tab)</span></a></p>
+
+
+
+<p>Even with debugging tools, our simple prompt-based agent rarely solves more than half of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.swebench.com/lite.html" target="_blank" rel="noreferrer noopener">SWE-bench <span class="sr-only"> (opens in new tab)</span></a>Lite issues. We believe this is due to the scarcity of data representing sequential decision-making behavior (e.g., debugging traces) in the current LLM training corpus. However, the significant performance improvement (as shown in the most promising results in the graph below) validates that this is a promising research direction.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1934" height="974" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart.png" alt="Figure 2: The success rate represents the percentage of the 300 SWE-bench Lite issues resolved, comparing between agents with and without debugging tools." class="wp-image-1136159" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart.png 1934w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart-1024x516.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart-768x387.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart-1536x774.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/DeBug_froggy_bar_chart-240x121.png 240w" sizes="(max-width: 1934px) 100vw, 1934px" /><figcaption class="wp-element-caption">Figure 2: The success rate represents the percentage of the 300 SWE-bench Lite issues resolved. The green bars indicate the performance of the agent with debugging tools, while the gray bars show the performance of the agent without debugging tools. Note that both agents use the same backbone LLM to make decisions and propose code edits.</figcaption></figure>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+				
+								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+							Read more						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="future-work">Future work</h2>
+
+
+
+<p>We believe that training or fine-tuning LLMs can enhance their interactive debugging abilities. This requires specialized data, such as trajectory data that records agents interacting with a debugger to gather information before suggesting a fix. Unlike conventional reasoning problems, interactive debugging involves generating actions at each step that trigger feedback from the environment. This feedback helps the agent make new decisions, requiring dense data like the problem description and the sequence of actions leading to the solution.&nbsp;</p>
+
+
+
+<p>Our plan is to fine-tune an info-seeking model specialized in gathering the necessary information to resolve bugs. The goal is to use this model to actively build relevant context for a code generation model. If the code generation model is large, there is an opportunity to build a smaller info-seeking model that can provide relevant information to the larger one, e.g., a generalization of retrieval augmented generation (RAG), thus saving AI inference costs. The data collected during the reinforcement learning loop to train the info-seeking model can also be used to fine-tune larger models for interactive debugging.</p>
+
+
+
+<p>We are open-sourcing debug-gym to facilitate this line of research. We encourage the community to help us advance this research towards building interactive debugging agents and, more generally, agents that can seek information by interacting with the world on demand.</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>We thank Ruoyao Wang for their insightful discussion on building interactive debugging agents, Chris Templeman and Elaina Maffeo for their team coaching, Jessica Mastronardi and Rich Ciapala for their kind support in project management and resource allocation, and Peter Jansen for providing valuable feedback for the technical report.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/debug-gym-an-environment-for-ai-coding-tools-to-learn-how-to-debug-code-like-programmers/">Debug-gym: an environment for AI coding tools to learn how to debug code like programmers</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Research Focus: Week of April 7, 2025</title>
 		<link>https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-7-2025/</link>
 		
@@ -40,7 +194,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus -- Week of April 7" class="wp-image-1136071" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus -- Week of April 7" class="wp-image-1136071" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
 
 
 
@@ -52,7 +206,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="2560" height="899" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-scaled.jpg" alt="A 2-panel figure. The left panel shows a global map with the distribution of 86,410 solar PV installations points and 375,197 onshore windmills points detected by our models in 2024 Q2. The right panel shows satellite imagery with annotated solar and wind installations over the village of Farmsum in the Dutch province of Groningen. " class="wp-image-1136208" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-300x105.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-1024x360.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-768x270.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-1536x540.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-2048x719.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-240x84.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="899" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-scaled.jpg" alt="A 2-panel figure. The left panel shows a global map with the distribution of 86,410 solar PV installations points and 375,197 onshore windmills points detected by our models in 2024 Q2. The right panel shows satellite imagery with annotated solar and wind installations over the village of Farmsum in the Dutch province of Groningen. " class="wp-image-1136208" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-300x105.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-1024x360.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-768x270.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-1536x540.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-2048x719.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-240x84.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -90,7 +244,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="1152" height="648" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SNRAware.gif" alt="The movies correspond to the example in Figure 1b. The ground-truth clean 
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1152" height="648" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SNRAware.gif" alt="The movies correspond to the example in Figure 1b. The ground-truth clean 
 image is the single one on the left.  The first row are the noisy samples. The second 
 row are the SNR images. " class="wp-image-1136115"/></figure>
 
@@ -1687,30 +1841,30 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085508">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" aria-label="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/MedFuzz-BlogHeroFeature-1400x788-1.jpg" alt="MedFuzz blog hero (decorative)" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">MedFuzz: Exploring the robustness of LLMs on medical challenge problems</h2>
+									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
 				
-								<p class="large">Medfuzz tests LLMs by breaking benchmark assumptions, exposing vulnerabilities to bolster real-world accuracy.</p>
+								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2511,30 +2665,30 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085496">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-label="Eureka: Evaluating and understanding progress in AI" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg" alt="White icons representing the Eureka Experiment Pipeline -- PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing, EvalReporting -- on blue to green gradient background." />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Eureka: Evaluating and understanding progress in AI</h2>
+									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
 				
-								<p class="large">How can we rigorously evaluate and understand state-of-the-art progress in AI? Eureka is an open-source framework for standardizing evaluations of large foundation models, beyond single-score reporting and rankings. Learn more about the extended findings. </p>
+								<p class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3634,30 +3788,30 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085508">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115760">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" aria-label="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/MedFuzz-BlogHeroFeature-1400x788-1.jpg" alt="MedFuzz blog hero (decorative)" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/neurips-2024-the-co-evolution-of-ai-and-systems-with-lidong-zhou/" aria-label="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" data-bi-cN="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Lidong-and-Eliza_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Lidong Zhou and Eliza Strickland" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">MedFuzz: Exploring the robustness of LLMs on medical challenge problems</h2>
+									<h2 class="h4">NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou</h2>
 				
-								<p class="large">Medfuzz tests LLMs by breaking benchmark assumptions, exposing vulnerabilities to bolster real-world accuracy.</p>
+								<p class="large">Just after his NeurIPS 2024 keynote on the co-evolution of systems and AI, Microsoft CVP Lidong Zhou joins the podcast to discuss how rapidly advancing AI impacts the systems supporting it and the opportunities to use AI to enhance systems engineering itself.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/medfuzz-exploring-the-robustness-of-llms-on-medical-challenge-problems/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="MedFuzz: Exploring the robustness of LLMs on medical challenge problems" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/neurips-2024-the-co-evolution-of-ai-and-systems-with-lidong-zhou/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3984,7 +4138,7 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -3993,20 +4147,20 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">What’s Your Story: Lex Story</h2>
+									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
 				
-								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
+								<p class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -4092,206 +4246,6 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 <p>To accelerate progress, we are releasing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/KBLaM/" target="_blank" rel="noreferrer noopener"><strong>KBLaM’s code and datasets</strong><span class="sr-only"> (opens in new tab)</span></a> to the research community, and we are planning integrations with the Hugging Face transformers library. By making these resources available, we hope to inspire further research and adoption of <strong>scalable, efficient knowledge augmentation</strong> for LLMs. The future of AI isn’t just about generating text—it’s about generating knowledge that is accurate, adaptable, and deeply integrated with the evolving world. KBLaM is a step in that direction.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-kblam-bringing-plug-and-play-external-knowledge-to-llms/">Introducing KBLaM: Bringing plug-and-play external knowledge to LLMs</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Semantic Telemetry: Understanding how users interact with AI systems</title>
-		<link>https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/</link>
-		
-		<dc:creator><![CDATA[Amber Hoak, Scott Counts, Kate Lytvynets, David Tittsworth, Siddharth Suri, Ben Cutler, Weiwei Yang]]></dc:creator>
-		<pubDate>Mon, 10 Mar 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1133598</guid>
-
-					<description><![CDATA[<p>AI interactions can be iterative and complex. Learn how the Semantic Telemetry project at Microsoft Research is developing a new data science approach to understand human-AI interactions and their value.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/">Semantic Telemetry: Understanding how users interact with AI systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Semantic Telemetry blog | diagram showing relationships between chat, LLM prompt, and labeled data" class="wp-image-1133588" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<p>AI tools are proving useful across a range of applications, from helping to drive the new era of business transformation to helping artists craft songs. But which applications are providing the most value to users? We’ll dig into that question in a series of blog posts that introduce the <a href="https://www.microsoft.com/en-us/research/project/semantic-telemetry/">Semantic Telemetry</a> project at Microsoft Research. In this initial post, we will introduce a new data science approach that we will use to analyze topics and task complexity of Copilot in Bing usage.</p>
-
-
-
-<p>Human-AI interactions can be iterative and complex, requiring a new data science approach to understand user behavior to build and support increasingly high value use cases. Imagine the following chat:</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="408" height="232" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat.png" alt="Example chat between user and AI" class="wp-image-1133589" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat.png 408w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat-300x171.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure0_example_chat-240x136.png 240w" sizes="auto, (max-width: 408px) 100vw, 408px" /></figure>
-
-
-
-<p>Here we see that chats can be complex and span multiple topics, such as event planning, team building, and logistics. Generative AI has ushered in a two-fold paradigm shift. First, LLMs give us a new thing to measure, that is, how people interact with AI systems. Second, they give us a new way to measure those interactions, that is, they give us the capability to understand and make inferences on these interactions, at scale. The Semantic Telemetry project has created new measures to classify human-AI interactions and understand user behavior, contributing to efforts in developing new approaches for <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/source/features/ai/measurement-is-the-key-to-helping-keep-ai-on-track/" target="_blank" rel="noreferrer noopener">measuring generative AI<span class="sr-only"> (opens in new tab)</span></a> across various use cases.</p>
-
-
-
-<p>Semantic Telemetry is a rethink of traditional telemetry&#8211;in which data is collected for understanding systems&#8211;designed for analyzing chat-based AI. We employ an innovative data science methodology that uses a large language model (LLM) to generate meaningful categorical labels, enabling us to gain insights into chat log data.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="650" height="280" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier.png" alt="Flow chart illustrating the LLM classification process starting with chat input, then prompting LLM with chat using generated label taxonomy, and output is the labeled chat." class="wp-image-1133590" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier.png 650w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier-300x129.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure1_llm_clasifier-240x103.png 240w" sizes="auto, (max-width: 650px) 100vw, 650px" /><figcaption class="wp-element-caption">Figure 1: Prompting an LLM to classify a conversation based on LLM generated label taxonomy</figcaption></figure>
-
-
-
-<p>This process begins with developing a set of classifications and definitions. We create these classifications by instructing an LLM to generate a short summary of the conversation, and then iteratively prompting the LLM to generate, update, and review classification labels on a batched set of summaries. This process is outlined in the paper: <a href="https://www.microsoft.com/en-us/research/publication/tnt-llm-text-mining-at-scale-with-large-language-models/">TnT-LLM: Text Mining at Scale with Large Language Models</a>. We then prompt an LLM with these generated classifiers to label new unstructured (and unlabeled) chat log data.</p>
-
-
-
-<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Semantic Telemetry - taxonomy generation" width="500" height="281" src="https://www.youtube-nocookie.com/embed/9O2UaMCtj5c?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Description of LLM generated label taxonomy process</figcaption></figure>
-
-
-
-<p>With this approach, we have analyzed how people interact with Copilot in Bing. In this blog, we examine insights into how people are using Copilot in Bing, including how that differs from traditional search engines. Note that all analyses were conducted on anonymous Copilot interactions containing no personal information.</p>
-
-
-
-<h2 class="wp-block-heading" id="topics">Topics</h2>
-
-
-
-<p>To get a clear picture of how people are using Copilot in Bing, we need to first classify sessions into topical categories. To do this, we developed a topic <strong>classifier</strong>. We used the LLM classification approach described above to label the primary topic (domain) for the entire content of the chat. Although a single chat can cover multiple topics, for this analysis, we generated a single label for the primary topic of the conversation. We sampled five million anonymized Copilot in Bing chats during August and September 2024, and found that globally, 21% of all chats were about <em>technology</em>, with a high concentration of these chats in <em>programming and scripting and computers and electronics</em>.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="564" height="467" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure2_topic_bubble_chart.png" alt="Bubble chart showing topics based on percentage of sample. Primary topics shown are Technology (21%), Entertainment (12.8%), Health (11%), Language, Writing, & Editing (11.6%), Lifestyle (9.2%), Money (8.5%), History, Events, & Law (8.5%), Career (7.8%), Science (6.3%)" class="wp-image-1133591" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure2_topic_bubble_chart.png 564w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure2_topic_bubble_chart-300x248.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure2_topic_bubble_chart-217x180.png 217w" sizes="auto, (max-width: 564px) 100vw, 564px" /><figcaption class="wp-element-caption">Figure 2: Top Copilot in Bing topics based on anonymized data (August-September 2024)</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="346" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure3_technology_topic_bubble_chart.png" alt="Bubble chart of Technology topic showing subtopics: Programming & scripting, Computers & electronics, Engineering & design, Data analysis, and ML & AI." class="wp-image-1133592" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure3_technology_topic_bubble_chart.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure3_technology_topic_bubble_chart-300x173.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure3_technology_topic_bubble_chart-240x138.png 240w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 3: Frequent topic summaries in Technology</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="430" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure4_entertainment_topic_bubble_chart.png" alt="Bubble chart of Entertainment showing subtopics: Entertainment, Sports & fitness, Travel & tourism, Small talk & chatbot, and Gaming" class="wp-image-1133593" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure4_entertainment_topic_bubble_chart.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure4_entertainment_topic_bubble_chart-300x215.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure4_entertainment_topic_bubble_chart-240x172.png 240w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 4: Frequent topic summaries in Entertainment</figcaption></figure>
-
-
-
-<p>Diving into the technology category, we find a lot of professional tasks in <em>programming and scripting</em>, where users request problem-specific assistance such as fixing a SQL query syntax error. In <em>computers and electronics</em>, we observe users getting help with tasks like adjusting screen brightness and troubleshooting internet connectivity issues. We can compare this with our second most common topic, <em>entertainment</em>, in which we see users seeking information related to personal activities like hiking and game nights.</p>
-
-
-
-<p>We also note that top topics differ by platform. The figure below depicts topic popularity based on mobile and desktop usage. Mobile device users tend to use the chat for more personal-related tasks such as helping to plant a garden or understanding medical symptoms whereas desktop users conduct more professional tasks like revising an email.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="501" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure5_sankey_platforms.png" alt="Sankey visual showing top topics for Desktop and Mobile users" class="wp-image-1133594" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure5_sankey_platforms.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure5_sankey_platforms-300x251.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure5_sankey_platforms-216x180.png 216w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 5: Top topics for desktop users and mobile users</figcaption></figure>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="search-versus-copilot">Search versus Copilot</h2>
-
-
-
-<p>Beyond analyzing topics, we compared Copilot in Bing usage to that of traditional search. Chat extends beyond traditional online search by enabling users to summarize, generate, compare, and analyze information. Human-AI interactions are conversational and more complex than traditional search (Figure 6).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="3535" height="2069" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2.png" alt="Venn diagram showing differences between Bing Search and Copilot in Bing, with intersection in information lookup." class="wp-image-1133922" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2.png 3535w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-300x176.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-1024x599.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-768x450.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-1536x899.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-2048x1199.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-480x280.png 480w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure6_venn_diagram_bing_vs_copilot_v2-240x140.png 240w" sizes="auto, (max-width: 3535px) 100vw, 3535px" /><figcaption class="wp-element-caption">Figure 6: Bing Search Query compared to Copilot in Bing Conversation</figcaption></figure>
-
-
-
-<p>A major differentiation between search and chat is the ability to ask more complex questions, but how can we measure this? We think of complexity as a scale ranging from simply asking chat to look up information to evaluating several ideas. We aim to understand the difficulty of a task if performed by a human without the assistance of AI. To achieve this, we developed the <strong>task complexity classifier</strong>, which assesses task difficulty using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.quincycollege.edu/wp-content/uploads/Anderson-and-Krathwohl_Revised-Blooms-Taxonomy.pdf" target="_blank" rel="noreferrer noopener">Anderson and Krathwohl’s Taxonomy of Learning Objectives<span class="sr-only"> (opens in new tab)</span></a>. For our analysis, we have grouped the learning objectives into two categories: <em>low complexity</em> and <em>high complexity</em>. Any task more complicated than information lookup is classified as <em>high complexity</em>. Note that this would be very challenging to classify using traditional data science techniques.</p>
-
-
-
-<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Semantic Telemetry - task complexity classifier" width="500" height="281" src="https://www.youtube-nocookie.com/embed/T-Rt46aozu4?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Description of task complexity and 6 categories of the Anderson and Krathwohl&#8217;s Taxonomy of Learning Objectives</figcaption></figure>
-
-
-
-<p>Comparing <em>low</em> versus <em>high complexity</em> tasks, most chat interactions were categorized as <em>high complexity</em> (78.9%), meaning that they were more complex than looking up information. <em>Programming and scripting, marketing and sales, and creative and professional writing</em> are topics in which users engage in higher complexity tasks (Figure 7) such as learning a skill, troubleshooting a problem, or writing an article.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="356" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure7_high_complexity_tasks.png" alt="Highest and lowest complexity topics based on percent of high complexity chats" class="wp-image-1133596" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure7_high_complexity_tasks.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure7_high_complexity_tasks-300x178.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Semantic-Telemetry_figure7_high_complexity_tasks-240x142.png 240w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 7: Most and least complex topics based on percentage of high complexity tasks.</figcaption></figure>
-
-
-
-<p><em>Travel and tourism and history and culture </em>scored lowest in complexity, with users looking up information like flight times and latest news updates.</p>
-
-
-
-<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Semantic Telemetry - Task Complexity Dashboard" width="500" height="281" src="https://www.youtube-nocookie.com/embed/7ucGpDLbv-U?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Demo of task complexity and topics on anonymous Copilot interactions</figcaption></figure>
-
-
-
-<p>When should you use chat instead of search? A 2024 Microsoft Research study: <a href="https://www.microsoft.com/en-us/research/publication/the-use-of-generative-search-engines-for-knowledge-work-and-complex-tasks/">The Use of Generative Search Engines for Knowledge Work and Complex Tasks</a>, suggests that people are seeing value in technical, complex tasks such as web development and data analysis. Bing Search contained more queries with lower complexity focused on non-professional areas, like <em>gaming and entertainment</em>, <em>travel and tourism</em>, and <em>fashion and beauty</em>, while chat had a greater distribution of complex technical tasks. (Figure 8).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2622" height="1628" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2.png" alt="Comparison of Bing Search and Copilot in Bing topics based on complexity and knowledge work. Copilot in Bing trends greater complexity and greater knowledge work than Bing Search." class="wp-image-1133909" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2.png 2622w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2-300x186.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2-1024x636.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2-768x477.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2-1536x954.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2-2048x1272.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/figure8_bing_vs_copilot_v2-240x149.png 240w" sizes="auto, (max-width: 2622px) 100vw, 2622px" /><figcaption class="wp-element-caption">Figure 8: Comparison of Bing Search and Copilot in Bing for anonymized sample data (May-June 2023)</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
-
-
-
-<p>LLMs have enabled a new era of high-quality human-AI interaction, and with it, the capability to analyze those same interactions with high fidelity, at scale, and in near real-time. We are now able to obtain actionable insight from complex data that is not possible with traditional data science pattern-matching methods. LLM-generated classifications are pushing research into new directions that will ultimately improve user experience and satisfaction when using chat and other user-AI interaction tools.</p>
-
-
-
-<p>This analysis indicates that Copilot in Bing is enabling users to do more complex work, specifically in areas such as technology. In our next post, we will explore how Copilot in Bing is supporting professional knowledge work and how we can use these measures as indicators for retention and engagement.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p>FOOTNOTE: This research was conducted at the time the feature Copilot in Bing was available as part of the Bing service; since October 2024 Copilot in Bing has been deprecated in favor of the standalone Microsoft Copilot service.</p>
-
-
-
-<p><em>References:</em></p>
-
-
-
-<ol class="wp-block-list">
-<li>Krathwohl, D. R. (2002). A Revision of Bloom’s Taxonomy: An Overview. <em>Theory Into Practice</em>, 41(4), 212–218. <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://doi.org/10.1207/s15430421tip4104_2" target="_blank" rel="noreferrer noopener">https://doi.org/10.1207/s15430421tip4104_2<span class="sr-only"> (opens in new tab)</span></a></li>
-</ol>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/">Semantic Telemetry: Understanding how users interact with AI systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
