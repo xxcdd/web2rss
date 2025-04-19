@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 17 Apr 2025 23:38:03 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 18 Apr 2025 19:52:06 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,258 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>The Future of AI in Knowledge Work: Tools for Thought at CHI 2025</title>
+		<link>https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/</link>
+		
+		<dc:creator><![CDATA[Sean Rintel, Leon Reicherts, Lev Tankelevitch, Advait Sarkar, Pratik Ghosh, Richard Banks]]></dc:creator>
+		<pubDate>Fri, 18 Apr 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1136647</guid>
+
+					<description><![CDATA[<p>Join us at CHI 2025 to explore how AI systems can be used as Tools for Thought as we reimage AI’s role in human thinking. Learn about new research, prototypes, and a workshop on designing AI that supports critical thinking, decision-making, and creativity.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/">The Future of AI in Knowledge Work: Tools for Thought at CHI 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1.jpg" alt="A digital illustration of a person with a contemplative expression, resting their chin on their hand. The top of the person's head is open, revealing a white bird standing inside. The seagull is holding a worm in its beak, feeding the baby birds. The background is blue, and the words "TOOLS FOR THOUGHT" are written across the image in white letters." class="wp-image-1136653" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2100px) 100vw, 2100px" /></figure>
+
+
+
+<p>Can AI tools do more than streamline workflows—can they actually help us think better? That’s the driving question behind the Microsoft Research <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/toolsforthought" target="_blank" rel="noreferrer noopener">Tools for Thought</a> initiative. At this year’s <a href="https://www.microsoft.com/en-us/research/event/chi-2025/">CHI</a> conference, we’re presenting four new research papers and cohosting a workshop that dives deep into this intersection of AI and human cognition.</p>
+
+
+
+<p>This post provides an overview of our latest research, starting with a study on how AI is changing the way we think and work. We also introduce three prototype systems designed to support different cognitive tasks. Finally, through our <a href="https://www.microsoft.com/en-us/research/publication/tools-for-thought-research-and-design-for-understanding-protecting-and-augmenting-human-cognition-with-generative-ai/">Tools for Thought workshop</a>, we’re inviting the CHI community to help define AI’s role in supporting human thinking.</p>
+
+
+
+<h2 class="wp-block-heading" id="ai-s-effects-on-thinking-at-work">AI’s effects on thinking at work</h2>
+
+
+
+<p>With a single prompt, AI can generate a wide range of outputs, from documents and meeting agendas to answers and automated workflows. But how are people’s thinking processes affected when they delegate these tasks to AI?</p>
+
+
+
+<p>One of our goals is to understand how knowledge workers use AI, how they perceive its value, and how it affects cognitive effort.</p>
+
+
+
+<p>Our study, “<a href="https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/">The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers</a>,” surveyed 319 professionals using AI across a variety of occupations. Participants shared 936 real-world AI use cases and reflected on how it influenced their critical thinking and mental effort. We summarize these findings below.</p>
+
+
+
+<p><strong>Defining and deploying critical thinking.</strong> Knowledge workers describe critical thinking as involving activities like setting clear goals, refining prompts, and verifying AI outputs against external sources and their own expertise. They rely on these practices to maintain work quality when using AI—motivated by the need to avoid errors, produce better results, and develop their skills.</p>
+
+
+
+<h3 class="wp-block-heading" id="findings">Findings</h3>
+
+
+
+<p><strong>Balancing cognitive effort.</strong> Participants’ reports about critical thinking and the effort involved align with longstanding human tendencies to manage cognitive load at work. For high-stakes tasks requiring accuracy, they say they expend more effort in applying critical thinking with AI than they would performing the same tasks without it. In contrast, during routine, for low-stakes tasks under time pressure, they report spending less effort on critical thinking when using AI compared to completing tasks without it. </p>
+
+
+
+<p><strong>Confidence effects.</strong> The study found that higher confidence in AI was associated with less<strong> </strong>critical thinking, while higher self-confidence in one&#8217;s own abilities was associated with more critical thinking—though at a perceived higher cognitive cost. This suggests a delicate balance between using AI for efficiency and maintaining active critical engagement.&nbsp;</p>
+
+
+
+<p><strong>Shift in the nature of critical thinking.</strong> Participants reported a shift in critical thinking activities, with a greater focus on information verification, response integration, and task stewardship. While AI automates certain aspects of knowledge work, it also demands more effort in evaluating the accuracy and relevance of AI-generated content.&nbsp;</p>
+
+
+
+<p><strong>Barriers to critical engagement.</strong> The study identified several barriers that inhibit critical thinking when using AI. These include a lack of awareness of the need for critical evaluation, limited motivation due to time pressure or perceived job scope, and difficulty in refining prompts—especially in unfamiliar domains.</p>
+
+
+
+<h3 class="wp-block-heading" id="recommendations">Recommendations</h3>
+
+
+
+<p>To foster critical thinking at work, we recommend that AI tools actively encourage awareness, motivation, and skill development.</p>
+
+
+
+<p><strong>AI tools should enhance motivators for critical thinking</strong> (e.g., quality standards, skill-building) and mitigate inhibitors (e.g., time constraints, low awareness). Proactive prompts can surface overlooked tasks, while reactive features can offer on-demand assistance. Motivation can be strengthened by positioning critical reflection as part of professional growth—not just extra work.</p>
+
+
+
+<p><strong>AI tools should also support knowledge workers’ ability to think critically</strong> by providing reasoning explanations (as some newer AI models now do), guided critiques, and cross-references. This shift must occur in both the design of the technology and in the mindsets of knowledge workers. Rather than treating AI as a tool for delivering answers, we suggest treating it as a thought partner—one that can also act as a provocateur.</p>
+
+
+
+<p>Beyond these insights, our other CHI papers explore practical ways to design AI that augments human cognition.</p>
+
+
+
+<h2 class="wp-block-heading" id="enhancing-decision-making-with-ai">Enhancing decision-making with AI</h2>
+
+
+
+<p>Decision-making is central to knowledge work, and AI is increasingly being used to help people make decisions in complex fields like healthcare and finance. However, how much agency do knowledge workers retain when AI is involved?</p>
+
+
+
+<p>Our study, “<a href="https://www.microsoft.com/en-us/research/publication/ai-help-me-think-but-for-myself-assisting-people-in-complex-decision-making-by-providing-different-kinds-of-cognitive-support/">AI, Help Me Think—but for Myself: Exploring How LLMs Can Assist People in Complex Decision-Making by Providing Different Forms of Cognitive Support</a>,” conducted in collaboration with University College London, examines this question. We began with a small formative study involving 10 participants, followed by a comparative study with 21 participants using two different AI-supported decision-making systems.</p>
+
+
+
+<p>For a complex financial investment task, we compared two different AI tools (Figure 1): <strong>RecommendAI</strong>, which provides AI-generated recommendations, and <strong>ExtendAI</strong>, which encourages users to articulate their reasoning before receiving AI feedback.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="600" height="210" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1.png" alt="Figure 1. The figure consists of two horizontal sections, each depicting a different AI interaction model. The top section shows "RecommendAI," where an AI makes a suggestion for action, which is then interpreted by the user to make a final decision. The bottom section shows "ExtendAI," where the user makes a plan for action, and the AI extends this plan by embedding feedback before the user makes sense of it and makes a final decision. An arrow from "makes sense of plan containing AI's feedback" in ExtendAI loops back to "extends user's plan by embedding feedback." Brief description: The image illustrates two models of human-AI collaboration: one where the AI recommends actions and another where it enhances user-generated plans with feedback. This comparison highlights different approaches to integrating AI into decision-making processes." class="wp-image-1136655" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1-300x105.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1-240x84.png 240w" sizes="(max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 1. Illustrative comparison of the thought process involved when interacting with two types of AI: RecommendAI and ExtendAI.</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="findings-1">Findings</h3>
+
+
+
+<p>Both systems were found to offer benefits for augmenting cognition and addressing some of the challenges to critical thinking identified in the knowledge worker survey above, suggesting the potential for a balanced approach.&nbsp;</p>
+
+
+
+<p>RecommendAI offered concrete suggestions that inspired users to explore new directions in their decision-making. This often led to fresh insights and reflections. However, the recommendations at times felt disconnected from the user&#8217;s own reasoning, reducing the depth of engagement.&nbsp;</p>
+
+
+
+<p>In contrast, ExtendAI encouraged users to reflect more deeply on their decisions by providing feedback on their reasoning. This helped them examine their thought processes and consider alternative perspectives. However, some users found the feedback too general and not actionable enough.&nbsp;</p>
+
+
+
+<p>When it came to how users integrated the tools into their decision-making process, RecommendAI, introduced perspectives that pushed users to think beyond their usual patterns. By recommending options not based on users’ own reasoning, it encouraged exploration of ideas they might not have considered. However, some users perceived the recommendations as a &#8220;black box&#8221; solution. This lack of transparency made those recommendations harder to understand, trust, and apply to their own thought processes.&nbsp;</p>
+
+
+
+<p>ExtendAI, on the other hand, aligned with users’ existing reasoning, making its feedback easier to incorporate. This helped the users maintain a sense of control and continuity. However, because the feedback often echoed their initial thoughts, it sometimes limited new insights and risked reinforcing existing biases.</p>
+
+
+
+<p>These findings suggest that AI tools like ExtendAI, designed to elicit and build on users&#8217; own cognitive processes, may offer a more effective approach to augmentation than simply providing “ready-made solutions” that users must figure out how to interpret and apply.</p>
+
+
+
+<h2 class="wp-block-heading" id="are-we-on-track-making-meetings-better-with-ai">Are we on track? Making meetings better with AI</h2>
+
+
+
+<p>Meetings are often criticized for being ineffective. While this is sometimes due to poor practices—such as weak agendas, late starts, and unclear facilitation—we believe the deeper issue is a lack of <em>meeting intentionality</em>: knowing why a meeting is occurring and keeping the discussion focused on that purpose. A key challenge is maintaining goal clarity throughout a meeting.</p>
+
+
+
+<p>In the paper “<a href="https://www.microsoft.com/en-us/research/publication/are-we-on-track-ai-assisted-active-and-passive-goal-reflection-during-meetings/">Are We On Track? AI-Assisted Goal Reflection During Meetings</a>,” we explore how AI tools can improve meetings in real time by encouraging <em>reflection</em>—awareness about the meeting’s goals and how well the current conversation is aligned with those goals.</p>
+
+
+
+<p>Our study with 15 knowledge workers examined two AI-driven design paradigms: <strong>passive goal assistance</strong> through ambient visualization (a live chart displaying how conversational topics relate to meeting objectives) and <strong>active goal assistance</strong> through interactive questioning (nudging participants to consider whether the current conversation aligns with the meeting objectives). These approaches are illustrated in Figure 2.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="600" height="136" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2.png" alt="Figure 2. A figure illustrating two methods of AI interpretation and engagement in a virtual meeting setting. On the left, a graph with "Extent of AI Interpretation" on the y-axis and "Engagement Level" on the x-axis shows two points: "Ambient Visualization" (high AI interpretation, low engagement) and "Interactive Questioning" (high AI interpretation, high engagement). The middle image labeled "Ambient Visualization" shows a virtual meeting with participants' faces blurred and an overlay of data visualizations. The right image labeled "Interactive Questioning" shows a virtual meeting with participants' faces blurred and an overlay of interactive questions. Brief description: This image compares two methods of integrating AI into virtual meetings: Ambient Visualization and Interactive Questioning. It is relevant as it highlights different levels of user engagement and AI interpretation in enhancing virtual communication." class="wp-image-1136656" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2-300x68.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2-240x54.png 240w" sizes="(max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 2. Technology prototypes exploring passive and active ways to keep meetings focused on established objectives.</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="recommendations-1">Recommendations</h3>
+
+
+
+<p>The findings highlight AI’s potential to help teams with meeting objectives. We found three key design tradeoffs between passive and active support. Based on these, we offer the following AI design recommendations.</p>
+
+
+
+<p><strong>Information balance.</strong> There is a tradeoff between ambient visualizations in the passive approach—which can risk information overload—and interactive questioning in the active approach, which may lack detail. To be effective, AI should deliver the right amount of information at the right time and tailor content to the individuals who need it most—without overwhelming users, while offering meaningful and timely support for reflection.</p>
+
+
+
+<p><strong>Balance of engagement versus interruption.</strong> When participants are deeply engaged in discussion, significant interruptions can overwhelm and disrupt the flow. Conversely, during moments of confusion or misalignment, subtle cues may be insufficient to get the team back on track. AI systems should dynamically adjust their level of intervention—from ambient and lightweight to more direct—escalating or de-escalating based on timing thresholds, which can be customized for each team.</p>
+
+
+
+<p><strong>Balance of team versus individual goal awareness.</strong> AI assistance can nudge team action, such as adjusting agendas. These effects were stronger with the active approach, which required group responses, while the passive approach supported individual thinking without directly influencing team behavior. Team-wide engagement depends on both the visibility of AI cues and how they are introduced into the discussion.</p>
+
+
+
+<p>This study helps us understand how AI design choices can support intentionality during meetings and enhance productivity without disrupting natural workflows.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">What’s Your Story: Lex Story</h2>
+				
+								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="encouraging-diverse-problem-solving-brainstorming-with-ai">Encouraging diverse problem-solving brainstorming with AI</h2>
+
+
+
+<p>Diverse perspectives drive creative problem-solving in organizations, but individuals often lack access to varied viewpoints. In the paper “<a href="https://www.microsoft.com/en-us/research/publication/yes-and-a-generative-ai-multi-agent-framework-for-enhancing-diversity-of-thought-in-individual-ideation-for-problem-solving-through-confidence-based-agent-turn-taking/">YES AND: An AI-Powered Problem-Solving Framework for Diversity of Thought</a>,” we build on the idea of “design improv” to explore a multi-agent AI prototype that simulates conversations with persona-based agents representing a range of expertise.</p>
+
+
+
+<p>The agents follow a classic model of conversational turn-taking, combined with a confidence model to determine when to take or respond to a turn. This allows both the agents and the user to organically build on each others&#8217; ideas and ask clarifying questions. The system enables free-flowing, multi-party idea generation while avoiding common pitfalls of group brainstorming—such as social loafing, production blocking, and groupthink (Figure 3).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="439" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig3.png" alt="Figure 3. The image is a flowchart and conversation transcript for agent-based ideation. The flowchart on the left shows four steps: "Define a problem," "Move a conversation forward," "Guide the discussion," and "Ask Sage to report." The conversation on the right involves a designer agent, ML researcher agent, and the user discussing audience targeting, ethical implications, and potential solutions for ideating around the ethical implications of gamifying fitness. Brief Description: The image is a flowchart and conversation transcript for agent-based ideation. It includes both a flowchart outlining the process from identifying the initial problem to final report, as well as a conversation transcript where various stakeholders discuss ethical considerations, audience targeting, and potential solutions." class="wp-image-1136652" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig3.png 800w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig3-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig3-768x421.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig3-240x132.png 240w" sizes="auto, (max-width: 800px) 100vw, 800px" /><figcaption class="wp-element-caption">Figure 3. The YES AND system supports conversational turn-taking among agents and the user to generate ideas around a problem.</figcaption></figure>
+
+
+
+<p>At the end of a session, an AI agent called Sage distills the discussion, leaving it to the user to develop a conclusive approach to the problem. In this way, YES AND helps unblock forward momentum in problem-solving while preserving the agency of knowledge workers to shape their own ideas.</p>
+
+
+
+<h2 class="wp-block-heading" id="next-steps-expanding-the-tools-for-thought-community">Next steps: Expanding the Tools for Thought community</h2>
+
+
+
+<p>We believe the best way to advance next-generation tools for thought is by bringing together a wide range of perspectives and approaches. In addition to our four papers, we are also conducting a workshop at CHI on April 26, co-organized with collaborators from industry and academia: <a href="https://www.microsoft.com/en-us/research/publication/tools-for-thought-research-and-design-for-understanding-protecting-and-augmenting-human-cognition-with-generative-ai/" target="_blank" rel="noreferrer noopener">Tools for Thought: Research and Design for Understanding, Protecting, and Augmenting Human Cognition with Generative AI</a>.<strong>&nbsp;</strong>&nbsp;</p>
+
+
+
+<p>In this session, over 60 researchers, designers, practitioners, and provocateurs will gather to examine what it means to understand and shape the impact of AI on human cognition. Together, we’ll explore how AI is changing workflows, the opportunities and challenges for design, and which theories, perspectives, and methods are increasingly relevant—or still need to be developed.&nbsp;</p>
+
+
+
+<p>The enthusiastic response to this workshop highlights the growing interest in AI’s role in human thought. Our goal is to foster a multidisciplinary community dedicated to ensuring that AI not only accelerates work but also strengthens our ability to think critically, creatively, and strategically.<strong>&nbsp;</strong></p>
+
+
+
+<p>We look forward to ongoing discussions, new collaborations, and the next wave of innovations in AI-assisted cognition at <a href="https://www.microsoft.com/en-us/research/event/chi-2025/" target="_blank" rel="noreferrer noopener">CHI 2025</a>.&nbsp;&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/">The Future of AI in Knowledge Work: Tools for Thought at CHI 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Empowering patients and healthcare consumers in the age of generative AI</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-empowering-patients-and-healthcare-consumers-in-the-age-of-generative-ai/</link>
 		
@@ -32,11 +284,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-empowering-patients-and-healthcare-consumers-in-the-age-of-generative-ai/">Empowering patients and healthcare consumers in the age of generative AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2101" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution podcast | Episode 3 - Are patients using generative AI for their own healthcare? | outline illustration of Christina Farr, Peter Lee, and Dave deBronkart" class="wp-image-1136563" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 2101w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1536x864.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-2048x1152.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1920x1080.jpg 1920w" sizes="(max-width: 2101px) 100vw, 2101px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2101" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution podcast | Episode 3 - Are patients using generative AI for their own healthcare? | outline illustration of Christina Farr, Peter Lee, and Dave deBronkart" class="wp-image-1136563" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 2101w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1536x864.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-2048x1152.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode3-Peter-Christina-Dave-AIRevolution_Hero_Feature_No_Text_1400x788-1920x1080.jpg 1920w" sizes="auto, (max-width: 2101px) 100vw, 2101px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=144710957&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=144710957&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1303,7 +1555,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/engagement-user-expertise-and-satisfaction-key-insights-from-the-semantic-telemetry-project/">Engagement, user expertise, and satisfaction: Key insights from the Semantic Telemetry Project</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1.jpg" alt="The image features four white icons on a gradient background that transitions from blue on the left to green on the right. The first icon is a network or molecule structure with interconnected nodes. The second icon is a light bulb, symbolizing an idea or innovation. The third icon is a checklist with three items and checkmarks next to each item. The fourth icon consists of two overlapping speech bubbles, representing communication or conversation." class="wp-image-1136384" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2100px) 100vw, 2100px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1.jpg" alt="The image features four white icons on a gradient background that transitions from blue on the left to green on the right. The first icon is a network or molecule structure with interconnected nodes. The second icon is a light bulb, symbolizing an idea or innovation. The third icon is a checklist with three items and checkmarks next to each item. The fourth icon consists of two overlapping speech bubbles, representing communication or conversation." class="wp-image-1136384" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2100px) 100vw, 2100px" /></figure>
 
 
 
@@ -1618,30 +1870,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085514">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" aria-label="GraphRAG auto-tuning provides rapid adaptation to new domains" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/GraphRag-3-BlogHeroFeature-1400x788-1.png" alt="GraphRAG image on blue to green gradient" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">GraphRAG auto-tuning provides rapid adaptation to new domains</h2>
+									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
 				
-								<p class="large">GraphRAG uses LLM-generated knowledge graphs to substantially improve complex Q&A over retrieval-augmented generation (RAG). Discover automatic tuning of GraphRAG for new datasets, making it more accurate and relevant.</p>
+								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3345,30 +3597,30 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
+				<a class="bg-gray-300" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">What’s Your Story: Lex Story</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
+								<p class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -5254,192 +5506,6 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 <div class="wp-block-button is-style-outline is-style-outline--17"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/">The reality of generative AI in the clinic</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Metasurface: Unlocking the future of wireless sensing and communication</title>
-		<link>https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/</link>
-		
-		<dc:creator><![CDATA[Lili Qiu, Hao Pan]]></dc:creator>
-		<pubDate>Wed, 19 Mar 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1134100</guid>
-
-					<description><![CDATA[<p>Metasurfaces explore engineered 2D materials that manipulate electromagnetic and mechanical waves, offering advances in wireless tech. They can power indoor GPS, extend 5G/6G coverage, and enable wireless sensing and imaging.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/">Metasurface: Unlocking the future of wireless sensing and communication</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg" alt="The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, represents a Wi-Fi signal with curved lines radiating from a central point. The middle icon depicts a satellite with solar panels and an antenna emitting waves. The third icon, on the right, shows a bar chart with ascending bars indicating signal strength." class="wp-image-1134231" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Metasurface-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>As the demand for faster, more reliable wireless communication continues to grow, but traditional systems face limitations in efficiency and adaptability. To keep up with evolving needs, researchers are investigating new ways to manipulate electromagnetic waves to improve wireless performance. </p>
-
-
-
-<p>To address these challenges, researchers are exploring new approaches, including metasurfaces—engineered materials that can control wave propagation in unprecedented ways. By dynamically shaping and directing electromagnetic waves, metasurfaces offer a promising path to overcoming the constraints of conventional wireless systems. </p>
-
-
-
-<p>Building on these capabilities, we are developing metasurfaces for a wide range of wireless applications, such as enhancing Low Earth Orbit satellite communication, optimizing acoustic sensing, and enabling acoustic and millimeter-wave technologies for 5G and 6G communication systems with commercial devices. More recently, our work has focused on enabling indoor access to the Global Navigation Satellite System (GNSS), improving millimeter-wave coverage in targeted environments, optimizing heat distribution in microwave ovens, and providing <a href="https://www.microsoft.com/en-us/research/publication/mudis-an-audio-independent-wide-angle-and-leak-free-multi-directional-speaker/" target="_blank" rel="noreferrer noopener">directional sound projection</a> without headphones.</p>
-
-
-
-<p>These advances, published at leading networking conferences—including MobiCom 2023 and <a href="https://www.microsoft.com/en-us/research/articles/mobicom-2024-highlights-from-microsoft-research-asia-exploring-innovations-in-wireless-mobile-technology-and-applications/" target="_blank" rel="noreferrer noopener">2024</a>, MobiSys 2024 and 2025, and NSDI 2023—highlight metasurfaces’ potential in wireless communication and sensing. This post explores some of these applications in more detail. </p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
-				
-								<p class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="metasurfaces-optimize-gnss-for-accurate-indoor-positioning">Metasurfaces optimize GNSS for accurate indoor positioning</h2>
-
-
-
-<p>While GNSS is widely used for outdoor positioning and navigation, its indoor performance is often hindered by signal blockage, reflection, and attenuation caused by physical obstacles. Additional technologies like Wi-Fi and Bluetooth Low Energy (BLE) are often employed to address these issues. However, these solutions require extra infrastructure, are costly, and are complicated to deploy. Accurate positioning also typically depends on specialized hardware and software on mobile devices.&nbsp;</p>
-
-
-
-<p>Despite these challenges, GNSS signals hold promise for accurate indoor positioning. By leveraging the vast number of available satellites, GNSS-based solutions eliminate the need for base station deployment and maintenance required by Wi-Fi and BLE systems. This approach also allows seamless integration between indoor and outdoor environments, supporting continuous positioning in scenarios like guiding smart vehicles through indoor and outdoor industrial environments.&nbsp;</p>
-
-
-
-<p>To explore this potential, we conducted indoor measurements and found that GNSS satellite signals can penetrate windows at different angles and reflect or diffract from surfaces like floors and ceilings, resulting in uneven signals. Metasurfaces can control structured arrays of electromagnetic signals, allowing them to capture and redirect more GNSS signals. This allows signals to enter buildings in a path parallel to the ground, achieving broader coverage. Using this capability, we developed a <a href="https://www.microsoft.com/en-us/research/publication/gpms-enabling-indoor-gnss-positioning-using-passive-metasurfaces/#:~:text=In%20terms%20of%20indoor%20positioning%20accuracy%2C%20our%20proposed,and%20benefits%20of%20metasurface-assisted%20GNSS%20for%20indoor%20positioning.?msockid=12da2addb70263b40f2e3f57b6c56288">GNSS positioning metasurface system (GPMS) based on passive metasurface technology</a>.</p>
-
-
-
-<p>One limitation of passive metasurfaces is their lack of programmability. To overcome this and enable them to effectively guide signals from different angles and scatter them in parallel, we designed a two-layer metasurface system. As shown in Figure 1, this design ensures that electromagnetic waves from different angles follow similar emission trajectories.&nbsp;&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="758" height="508" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1.png" alt="A diagram showing the optimization of metasurfaces for enhancing GNSS signals indoors. It includes two GNSS satellites, far-field channels, a near-field channel matrix, a passive metasurface grid, and colorful 3D waveforms. The target radiation matrix is shown with indoor users. The text reads: “Optimization problem: The radiation output of our designed metasurfaces should all be close to the target radiation for GNSS signal input at all incidence angles.” " class="wp-image-1134106" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1.png 758w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1-300x201.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-1-240x161.png 240w" sizes="auto, (max-width: 758px) 100vw, 758px" /><figcaption class="wp-element-caption">Figure 1: The GPMS two-layer metasurface structure</figcaption></figure>
-
-
-
-<p>To improve positioning accuracy, we developed new algorithms that allow signals to pass through metasurfaces, using them as anchor points. Traditional GPS positioning requires signals from at least four satellites to decode location information. In the GPMS system, illustrated in Figure 2, each deployed metasurface functions as a virtual satellite. By deploying at least three metasurfaces indoors, we achieved high-precision positioning through a triangulation algorithm.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="826" height="476" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2.png" alt="The image depicts a shopping mall indoor environment with three metasurfaces labeled Metasurface 1, Metasurface 2, and Metasurface 3. Each metasurface is associated with a steering and scattering area, labeled Steering and scattering area 1, Steering and scattering area 2, and Steering and scattering area 3 respectively. GNSS satellites are shown outside the building. The image illustrates how GNSS signals interact with metasurfaces within an indoor environment." class="wp-image-1134107" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2.png 826w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2-300x173.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2-768x443.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-2-240x138.png 240w" sizes="auto, (max-width: 826px) 100vw, 826px" /><figcaption class="wp-element-caption">Figure 2. Diagram of the GPMS system. Passive metasurfaces guide GNSS signals indoors, while enhanced positioning algorithms provide precise indoor positioning on mobile devices.&nbsp;</figcaption></figure>
-
-
-
-<p>To evaluate the system, we deployed the GPMS with six metasurfaces on a 10×50-meter office floor and a 15×20-meter conference hall. The results show significant improvements in signal quality and availability. C/N₀, a measure of signal-to-noise ratio, increased from 9.1 dB-Hz to 32.2 dB-Hz. The number of visible satellites increased from 3.6 to 21.5. Finally, the absolute positioning error decreased from 30.6 meters to 3.2 meters in the office and from 11.2 meters to 2.7 meters in the conference hall. These findings are promising and highlight the feasibility and advantages of GNSS-based metasurfaces for indoor positioning.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="metasurfaces-extend-millimeter-wave-coverage">Metasurfaces extend millimeter-wave coverage</h2>
-
-
-
-<p>Millimeter waves enable the high-speed, low-latency performance needed for 5G and 6G communication systems. While commercial products like 60 GHz Wi-Fi routers and mobile devices are becoming popular, their limited coverage and susceptibility to signal obstruction restrict their widespread application.&nbsp;</p>
-
-
-
-<p>Traditional solutions include deploying multiple millimeter-wave access points, such as routers or base stations, or placing reflective metal panels in room corners to reflect electromagnetic waves. However, these approaches are both costly and offer limited performance. Metasurfaces offer a promising alternative for improving millimeter-wave applications. Previous research has shown that programmable metasurfaces can enhance signal coverage in blind spots and significantly improve signal quality and efficiency.&nbsp;&nbsp;</p>
-
-
-
-<p>To maximize the benefits of metasurfaces, we developed the <a href="https://www.microsoft.com/en-us/research/publication/automs-automated-service-for-mmwave-coverage-optimization-using-low-cost-metasurfaces/" target="_blank" rel="noreferrer noopener">AutoMS automation service framework</a>, shown in Figure 3. This proposed framework can optimize millimeter-wave coverage using low-cost passive metasurface design and strategic placement.&nbsp;</p>
-
-
-
-<p>The three main components of AutoMS can address the limitations of traditional solutions:&nbsp;</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Automated joint optimization:</strong> AutoMS determines the optimal network deployment configuration by analyzing phase settings, metasurface placement, and access point positioning. It also refines beam-forming configurations to enhance signal coverage. By iteratively identifying and optimizing the number, size, and placement of metasurfaces, AutoMS adjusts the metasurface phase settings and the access point’s configurations to achieve optimal signal coverage.&nbsp;</li>
-</ol>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="725" height="234" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3.png" alt="A flowchart diagram illustrating the AutoMS framework, which generates optimized passive metasurface and access point deployment plans for a specific 3D model based on environmental scanning results. The process starts with an environment scan, producing a 3D model and reflection coefficients. This information feeds into wireless channel modeling, which along with deployment configurations, is optimized by a hyper-configuration tuner. The output includes phase maps used by the surface and AP optimizer. The optimized deployment configurations are then used for metasurface fabrication and network deployment. " class="wp-image-1134108" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3.png 725w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3-300x97.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-3-240x77.png 240w" sizes="auto, (max-width: 725px) 100vw, 725px" /><figcaption class="wp-element-caption">Figure 3. The AutoMS framework generates optimized deployment plans for passive metasurface and access points based on environment scanning results<em>.</em>&nbsp;</figcaption></figure>
-
-
-
-<ol start="2" class="wp-block-list">
-<li><strong>Fast 3D ray tracing simulator:</strong> Using hardware and software acceleration, our simulator efficiently calculates channel matrices resulting from metasurfaces with tens of thousands of elements. This simulator, capable of tracing 1.3 billion rays in just three minutes on an A100 GPU, significantly accelerates calculations for complex environments.</li>
-</ol>
-
-
-
-<ol start="3" class="wp-block-list">
-<li><strong>Low-cost passive metasurface design:</strong> We designed a high-reflectivity passive metasurface with near-2π phase control and broadband compatibility for the millimeter-wave frequency band. This metasurface is compatible with low-precision, cost-effective thermoforming processes. This process enables users to create metasurfaces at minimal cost, significantly reducing deployment expenses.<br><br>Shown in Figure 4, users can capture the environment using existing 3D scanning apps on mobile devices, generate a 3D layout model, and upload it to the cloud. AutoMS then generates metasurface settings and placement guidelines.&nbsp;&nbsp;<br><br>Users can print metasurface patterns using hot stamping and customize them without affecting functionality, as millimeter waves penetrate paint and paper.&nbsp;</li>
-</ol>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="536" height="281" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4.png" alt="A step-by-step process for creating low-cost passive metasurfaces. Step 1: Print patterns on paper with a laser printer. Step 2: Hot stamp aluminum foil on paper with a laminator. Step 3: Tear the aluminum foil off to get the metallic patterns. Step 4: Paste patterns on the plastic sheet and aluminum board." class="wp-image-1134109" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4.png 536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4-300x157.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-4-240x126.png 240w" sizes="auto, (max-width: 536px) 100vw, 536px" /><figcaption class="wp-element-caption">Figure 4: The low-cost passive metasurface creation process&nbsp;</figcaption></figure>
-
-
-
-<p>Evaluation using publicly available 3D layout datasets and real-world tests shows that AutoMS significantly improves millimeter-wave coverage across various scenarios. Compared to a single router setup, AutoMS increased signal strength by 12.1 dB. Onsite tests further confirmed gains of 11 dB in target areas and over 20 dB in blind spots, with signal throughput increasing from 77 Mbps to 373 Mbps. AutoMS adapts to diverse environments, ensuring reliable and flexible deployment in real-world applications.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="metasurfaces-support-uniform-heating-in-microwave-ovens">Metasurfaces support uniform heating in microwave ovens&nbsp;</h2>
-
-
-
-<p>Microwave ovens often heat unevenly, creating cold spots in food. These can allow harmful bacteria and other pathogens to survive, increasing the risk of foodborne illnesses. Uneven heating can cause eggs to burst or create &#8220;hot spots&#8221; that can scald.</p>
-
-
-
-<p>Uneven heating is due to the appliance’s heating mechanism. Microwave ovens generate high-power radio frequency (RF) electromagnetic waves through dielectric heating. These waves create nodes with zero amplitude, which prevents heating. They also create antinodes, where heating occurs more rapidly.&nbsp;&nbsp;</p>
-
-
-
-<p>To address this issue, we developed <a href="https://www.microsoft.com/en-us/research/publication/microsurf-guiding-energy-distribution-inside-microwave-oven-with-metasurfaces/" target="_blank" rel="noreferrer noopener">MicroSurf</a>, a low-cost solution that improves heating by using passive metasurfaces to control electromagnetic energy inside the microwave oven. It uses the resonance effect between the metasurface and electromagnetic waves to modify the standing-wave distribution and achieve more uniform heating. This is shown in Figure 5.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="859" height="205" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5.png" alt="A diagram illustrating the working principle of MicroSurf in four parts. A shows an uneven electric field distribution inside a microwave oven leading to uneven heating, with images of a microwave and thermal images of food. B depicts accurate modeling of the microwave oven, including geometry refinement, dielectric factor tuning, and frequency tuning. C involves designing and optimizing a metasurface that can function in a high-power environment to change the standing wave distribution, with an image of a high-power phase-tuning metasurface. D demonstrates achieving uniform heating of different foods and selectively heating specific parts of food, with thermal images showing uniform heating results." class="wp-image-1134110" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5.png 859w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5-300x72.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5-768x183.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/metasurface-5-240x57.png 240w" sizes="auto, (max-width: 859px) 100vw, 859px" /><figcaption class="wp-element-caption">Figure 5: MicroSurf’s working principle: Uneven electric field distribution inside the microwave oven leads to uneven heating. B. Modeling the microwave oven. C. Designing and optimizing a metasurface that can function in a high-power environment to change the standing wave distribution. D. Achieving uniform heating of different foods and selectively heating specific parts.&nbsp;</figcaption></figure>
-
-
-
-<p>Tests across four different microwave oven brands demonstrate that MicroSurf effectively optimizes heating for various liquids and solids, uniformly heating water, milk, bread, and meat. It concentrates heat on specific areas and adapts to differently shaped foods. MicroSurf offers a promising solution for even heating in microwave ovens, demonstrating the potential of metasurface technology in everyday applications. This innovation paves the way for smarter, more efficient home appliances.&nbsp;&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="advancing-wireless-innovation">Advancing wireless innovation</h2>
-
-
-
-<p>Wireless sensing and communication technologies are evolving rapidly, driving innovation across a wide range of applications. We are continuing to push the boundaries of these technologies—particularly in metasurface development—while working to create practical solutions for a variety of use cases.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/metasurface-unlocking-the-future-of-wireless-sensing-and-communication/">Metasurface: Unlocking the future of wireless sensing and communication</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
