@@ -6,21 +6,23 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 19 Mar 2025 07:20:44 +0000</lastBuildDate>
-    <item>
-      <title>Engineering the future of vulnerability detection</title>
-      <link>https://projectdiscovery.io/blog/engineering-the-future-of-vulnerability-detection</link>
-      <description>We’re building the future of Nuclei-powered scanning - 35x faster, with automated scheduling, smart alerts, and streamlined triaging. With built-in internal scanning, it’s designed for modern security teams who need speed, scale, and precision.</description>
-    </item>
-    <item>
-      <title>Reinventing custom detections and vulnerability management</title>
-      <link>https://projectdiscovery.io/blog/reinventing-custom-detections-and-vulnerability-management</link>
-      <description>We’re making custom vulnerability detection easier with an AI-powered template editor, full-text search, and auto-regressions. These additions help security teams create, refine, and validate detections faster, staying ahead of threats with less manual work.</description>
-    </item>
+    <lastBuildDate>Thu, 24 Apr 2025 01:45:05 +0000</lastBuildDate>
     <item>
       <title>February 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/february-2025-newsletter</link>
       <description>First, we’re so excited to announce that we’ve reached 100,000 GitHub stars across our OSS projects! This wouldn’t have been possible without everyone who’s contributed, used our tools, and offered their support along the way. Thank you, and we can’t wait to keep building with you! 🎉</description>
+    </item>
+    <item>
+      <title>March 2025 Newsletter</title>
+      <link>https://projectdiscovery.io/blog/march-2025-newsletter</link>
+      <description>Our highlight this month? A massive addition of 359 brand-new Nuclei templates—all thanks to our incredible community contributors. Dive into the details of this impressive milestone in our dedicated newsletter and find out exactly what's new!</description>
+    </item>
+    <item>
+      <title>ProjectDiscovery is selected as a top 10 finalist for RSAC™ 2025 conference 20th annual innovation sandbox contest</title>
+      <link>https://projectdiscovery.io/blog/rsac-2025-top-10-finalist</link>
+      <description>We’re excited to share that ProjectDiscovery has been named one of the Top 10 Finalists in the 2025 RSA Innovation Sandbox! On Monday, April 28, we’ll take the stage at RSA Conference in San Francisco to showcase how we’re rethinking vulnerability management from the ground up with speed, accuracy, and the power of open-source.
+
+The RSA Innovation Sandbox is widely regarded as the cybersecurity industry’s premier startup competition. Each year, 10 early-stage companies are selected to pitch live</description>
     </item>
     <item>
       <title>Getting Started with ProjectDiscovery in Linux and Windows</title>
@@ -100,42 +102,54 @@ Imagine having a single template that automatically hunts for specific patterns 
 In this post, we</description>
     </item>
     <item>
-      <title>Ruby-SAML / GitLab Authentication Bypass (CVE-2024-45409)</title>
-      <link>https://projectdiscovery.io/blog/ruby-saml-gitlab-auth-bypass</link>
-      <description>Introduction
+      <title>CVE-2025-29927: Next.js Middleware Authorization Bypass - Technical Analysis</title>
+      <link>https://projectdiscovery.io/blog/nextjs-middleware-authorization-bypass</link>
+      <description>Next.js is an open-source web framework built by Vercel that powers React-based apps with features like server-side and static rendering. Recently, a critical vulnerability (CVE) was disclosed that lets attackers bypass middleware-based authorization checks. The issue was originally discovered and analyzed by Rachid Allam (zhero). In this blog, we’ll break down the vulnerability and walk through their research and will create a Nuclei template to help you detect it across your assets.
 
-In this blog post, we will analyze CVE-2024-45409, a critical vulnerability impacting Ruby-SAML, OmniAuth-SAML libraries, which effectively affects GitLab. This vulnerability allows an attacker to bypass SAML authentication mechanisms and gain unauthorized access by exploiting a flaw in how SAML responses are handled. The issue arises due to weaknesses in the verification of the digital signature used to protect SAML assertions, allowing attackers to manipulate the SAML response a</description>
+The vulne</description>
     </item>
     <item>
-      <title>GitHub Enterprise SAML Authentication Bypass (CVE-2024-4985 / CVE-2024-9487)</title>
-      <link>https://projectdiscovery.io/blog/github-enterprise-saml-authentication-bypass</link>
-      <description>Introduction
+      <title>IngressNightmare: Unauth RCE in Ingress NGINX (CVE-2025-1974)</title>
+      <link>https://projectdiscovery.io/blog/ingressnightmare-unauth-rce-in-ingress-nginx</link>
+      <description>A critical vulnerability (CVE-2025-1974) was recently discovered in the Kubernetes Ingress-NGINX Controller that allows unauthenticated remote code execution (RCE) on the ingress controller pod.
 
-In light of the recent Ruby-SAML bypass discovered in GitLab, we set out to examine the SAML implementation within GitHub Enterprise. During our research, we identified a significant vulnerability that enabled bypassing GitHub’s SAML authentication when encrypted assertions were in use.
+Originally discovered by the Wiz research team (Nir Ohfeld, Ronen Shustin, Sagi Tzadik, Hillai Ben-Sasson) in late 2024 and disclosed in March 2025, CVE-2025-1974 is part of a series of vulnerabilities collectively called IngressNightmare.
 
-This blog post will provide an in-depth look at GitHub Enterprise’s SAML implementation and analyze the specific code issue that permitted this bypass. Although we uncovered this vulnerability inde</description>
+If you’re specifically looking to use the IngressNightmare dete</description>
     </item>
     <item>
-      <title>DeepSeek’s Data Breach: Could ProjectDiscovery’s Cloud Have Prevented the Hack?</title>
-      <link>https://projectdiscovery.io/blog/deepseeks-data-breach-could-projectdiscoverys-cloud-have-prevented-the-hack-2</link>
-      <description>Last week, DeepSeek made headlines with R1, an open-source model positioned as a competitor to OpenAI’s Model o1. What set R1 apart wasn’t just its capabilities - it was the claim that DeepSeek trained it with significantly fewer GPUs. It challenged conventional wisdom around the compute requirements for large-scale model training and even caused a small stock market selloff.
+      <title>CrushFTP Authentication Bypass - CVE-2025-2825</title>
+      <link>https://projectdiscovery.io/blog/crushftp-authentication-bypass</link>
+      <description>Update (April 21, 2025):
 
-Amid the hype, a security incident surfaced: researchers gained access to DeepSeek’s internal databases. The breach repo</description>
+The CVE originally referenced in this blog post CVE-2025-2825 has been rejected by NIST. The vulnerability is now officially tracked as CVE-2025-31161. All technical details and the impact discussed in this post remain accurate and apply to the updated CVE. This change is also reflected in the corresponding Nuclei template update.
+
+Enterprise file transfer solutions are critical infrastructure for many organizations, facilitating secure data exchange between systems and</description>
     </item>
     <item>
-      <title>Engineering the future of vulnerability detection</title>
-      <link>https://projectdiscovery.io/blog/engineering-the-future-of-vulnerability-detection</link>
-      <description>We’re building the future of Nuclei-powered scanning - 35x faster, with automated scheduling, smart alerts, and streamlined triaging. With built-in internal scanning, it’s designed for modern security teams who need speed, scale, and precision.</description>
+      <title>CVE-2025-29927: Next.js Middleware Authorization Bypass - Technical Analysis</title>
+      <link>https://projectdiscovery.io/blog/nextjs-middleware-authorization-bypass</link>
+      <description>Next.js is an open-source web framework built by Vercel that powers React-based apps with features like server-side and static rendering. Recently, a critical vulnerability (CVE) was disclosed that lets attackers bypass middleware-based authorization checks. The issue was originally discovered and analyzed by Rachid Allam (zhero). In this blog, we’ll break down the vulnerability and walk through their research and will create a Nuclei template to help you detect it across your assets.
+
+The vulne</description>
     </item>
     <item>
-      <title>Reinventing custom detections and vulnerability management</title>
-      <link>https://projectdiscovery.io/blog/reinventing-custom-detections-and-vulnerability-management</link>
-      <description>We’re making custom vulnerability detection easier with an AI-powered template editor, full-text search, and auto-regressions. These additions help security teams create, refine, and validate detections faster, staying ahead of threats with less manual work.</description>
+      <title>IngressNightmare: Unauth RCE in Ingress NGINX (CVE-2025-1974)</title>
+      <link>https://projectdiscovery.io/blog/ingressnightmare-unauth-rce-in-ingress-nginx</link>
+      <description>A critical vulnerability (CVE-2025-1974) was recently discovered in the Kubernetes Ingress-NGINX Controller that allows unauthenticated remote code execution (RCE) on the ingress controller pod.
+
+Originally discovered by the Wiz research team (Nir Ohfeld, Ronen Shustin, Sagi Tzadik, Hillai Ben-Sasson) in late 2024 and disclosed in March 2025, CVE-2025-1974 is part of a series of vulnerabilities collectively called IngressNightmare.
+
+If you’re specifically looking to use the IngressNightmare dete</description>
     </item>
     <item>
-      <title>How ConnectWise streamlined vulnerability detection with ProjectDiscovery</title>
-      <link>https://projectdiscovery.io/blog/how-connectwise-streamlined-vulnerability-detection-with-projectdiscovery</link>
-      <description>ConnectWise chose ProjectDiscovery over Tenable Cloud to streamline vulnerability detection across 20,000+ AWS instances. By leveraging ProjectDiscovery’s automation and scalability, they achieved efficient, high-volume security monitoring without operational overhead.</description>
+      <title>CrushFTP Authentication Bypass - CVE-2025-2825</title>
+      <link>https://projectdiscovery.io/blog/crushftp-authentication-bypass</link>
+      <description>Update (April 21, 2025):
+
+The CVE originally referenced in this blog post CVE-2025-2825 has been rejected by NIST. The vulnerability is now officially tracked as CVE-2025-31161. All technical details and the impact discussed in this post remain accurate and apply to the updated CVE. This change is also reflected in the corresponding Nuclei template update.
+
+Enterprise file transfer solutions are critical infrastructure for many organizations, facilitating secure data exchange between systems and</description>
     </item>
   </channel>
 </rss>
