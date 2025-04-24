@@ -20,6 +20,308 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Research Focus: Week of April 21, 2025</title>
+		<link>https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-21-2025/</link>
+		
+		<dc:creator><![CDATA[Microsoft Research Team]]></dc:creator>
+		<pubDate>Wed, 23 Apr 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1136909</guid>
+
+					<description><![CDATA[<p>In this issue: our CHI 2025 &#038; ICLR 2025 contributions, plus research on causal reasoning & LLMs; countering LLM jailbreak attacks; and how people use AI vs. AI-alone. Also, SVP of Microsoft Health Jim Weinstein talks rural healthcare innovation.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-21-2025/">Research Focus: Week of April 21, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="has-text-align-center"><strong>In this issue:</strong></p>
+
+
+
+<p>Catch a preview of our presentations and papers at CHI 2025 and ICLR 2025. We also introduce new research on causal reasoning and LLMs; enhancing LLM jailbreak capabilities to bolster safety and robustness; understanding how people using AI compared to AI-alone, and Distill-MOS, a compact and efficient model that delivers state-of-the-art speech quality assessment. You’ll also find a replay of a podcast discussion on rural healthcare innovation with Senior Vice President of Microsoft Health Jim Weinstein.</p>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus: April 23, 2025" class="wp-image-1137194" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF60-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-01a8c2a8c7d1a47aed2f7d683288c862" id="conference">CONFERENCE</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="microsoft-at-chi-2025">Microsoft at CHI 2025</h3>
+
+
+
+<p>Microsoft Research is proud to be a sponsor of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://chi2025.acm.org/" target="_blank" rel="noreferrer noopener">ACM Computer Human Interaction (CHI) 2025 Conference on Human Factors in Computing Systems<span class="sr-only"> (opens in new tab)</span></a>. CHI brings together researchers and practitioners from all over the world and from diverse cultures, backgrounds, and positionalities, who share an overarching goal to make the world a better place with interactive digital technologies.</p>
+
+
+
+<p>Our researchers will host more than 30 sessions and workshops at this year&#8217;s conference in Yokohama, Japan. We invite you to <a href="https://www.microsoft.com/en-us/research/event/chi-2025/">preview our presentations</a> and our two dozen accepted papers.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/event/chi-2025/">Microsoft @CHI 2025</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-9b4a4a2934ebb0889ed4f06335a18022" id="conference-1">CONFERENCE</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="where-s-the-title-for-this-one-1">Microsoft at ICLR 2025</h3>
+
+
+
+<p>Microsoft is proud to be a sponsor of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://iclr.cc/" target="_blank" rel="noreferrer noopener">the thirteenth International Conference on Learning Representations (ICLR)</a>. This gathering&nbsp;is dedicated to the advancement of representation learning, which is a branch of AI. We are pleased to share that Microsoft has <a href="https://www.microsoft.com/en-us/research/event/microsoft-at-iclr-2025/publications/">more than 30 accepted papers</a> at this year’s conference, which we invite you to preview.</p>
+
+
+
+<p>ICLR is globally renowned for presenting and publishing&nbsp;cutting-edge research on all aspects of deep learning used in the fields of artificial intelligence, statistics and data science, as well as important application areas such as machine vision, computational biology, speech recognition, text understanding, gaming, and robotics.</p>
+
+
+
+<div class="wp-block-group is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/event/microsoft-at-iclr-2025/">Microsoft @ICLR 2025</a></div>
+</div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-e734c6e9609233ab051742bb3beeed63" id="new-research">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="causal-reasoning-and-large-language-models-opening-a-new-frontier-for-causality">Causal Reasoning and Large Language Models: Opening a New Frontier for Causality</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1600" height="1025" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600.jpg" alt="Diagram illustrating the process of tackling real-world causal tasks. The diagram shows how individuals alternate between logical and covariance-based causal reasoning to formulate sub-questions, iterate, and verify their premises and implications. The strategic alternation between these two types of causality is highlighted as a key approach in addressing complex causal tasks. " class="wp-image-1136934" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600-300x192.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600-1024x656.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600-768x492.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600-1536x984.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/causal-frontiers_1600-240x154.jpg 240w" sizes="(max-width: 1600px) 100vw, 1600px" /></figure>
+
+
+
+<p>What kinds of causal arguments can large language models (LLMs) generate, how valid are these arguments, and what causal reasoning workflows can this generation support or automate? This paper, which was selected for ICLR 2025, clarifies this debate. It advances our understanding of LLMs and their causal implications, and proposes a framework for future research at the intersection of LLMs and causality.</p>
+
+
+
+<p>This discussion has critical implications for the use of LLMs in societally impactful domains such as medicine, science, law, and policy. In capturing common sense and domain knowledge about causal mechanisms and supporting translation between natural language and formal methods, LLMs open new frontiers for advancing the research, practice, and adoption of causality.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/causal-reasoning-and-large-language-models-opening-a-new-frontier-for-causality/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-e734c6e9609233ab051742bb3beeed63" id="new-research">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="causal-reasoning-and-large-language-models-opening-a-new-frontier-for-causality">The Future of AI in Knowledge Work: Tools for Thought at CHI 2025</h3>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2.jpg" alt="A digital illustration of a person with a contemplative expression, resting their chin on their hand. The top of the person's head is open, revealing a white bird standing inside. The seagull is holding a worm in its beak, feeding the baby birds. The background is blue, and the words "TOOLS FOR THOUGHT" are written across the image in white letters." class="wp-image-1137202" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-2-1920x1080.jpg 1920w" sizes="(max-width: 2100px) 100vw, 2100px" /></figure>
+
+
+
+<p>Can AI tools do more than streamline workflows—can they actually help us think better? That’s the driving question behind the Microsoft Research <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/toolsforthought" target="_blank" rel="noreferrer noopener">Tools for Thought</a> initiative. At this year’s <a href="https://www.microsoft.com/en-us/research/event/chi-2025/" target="_blank" rel="noreferrer noopener">CHI</a> conference, this group is presenting four new research papers and cohosting a workshop that dives deep into this intersection of AI and human cognition.</p>
+
+
+
+<p>The team provides an <a href="https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/" target="_blank" rel="noreferrer noopener">overview</a> of their latest research, starting with a study on how AI is changing the way people think and work. They introduce three prototype systems designed to support different cognitive tasks. Finally, through their <a href="https://www.microsoft.com/en-us/research/publication/tools-for-thought-research-and-design-for-understanding-protecting-and-augmenting-human-cognition-with-generative-ai/" target="_blank" rel="noreferrer noopener">Tools for Thought workshop</a>, they invite the CHI community to help define AI’s role in supporting human thinking.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-4 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/">Read the blog</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-9a2357e04d6b68359937ec2fcc67b1a5" id="new-research-1">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="building-llms-with-enhanced-jailbreaking-capabilities-to-bolster-safety-and-robustness">Building LLMs with enhanced jailbreaking capabilities to bolster safety and robustness</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1200" height="704" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SelfTuningLLM_FIG1.jpg" alt="The overview of crafting ADV-LLM. The process begins with refining the target and initializing a starting suffix. ADV-LLM then iteratively generates data for self-tuning. " class="wp-image-1136936" style="width:652px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SelfTuningLLM_FIG1.jpg 1200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SelfTuningLLM_FIG1-300x176.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SelfTuningLLM_FIG1-1024x601.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SelfTuningLLM_FIG1-768x451.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SelfTuningLLM_FIG1-240x141.jpg 240w" sizes="auto, (max-width: 1200px) 100vw, 1200px" /></figure>
+
+
+
+<p>Recent research shows that LLMs are vulnerable to automated jailbreak attacks, where algorithm-generated adversarial suffixes bypass safety alignment and trigger harmful responses. This paper introduces ADV-LLM, an iterative self-tuning process for crafting adversarial LLMs with enhanced jailbreak capabilities—which could provide valuable insights for future safety alignment research.</p>
+
+
+
+<p>ADV-LLM is less computationally expensive than prior mechanisms and achieves higher attack success rates (ASR), especially against well-aligned models like Llama2 and Llama3.</p>
+
+
+
+<p>It reaches nearly 100% ASR on various open-source LLMs and demonstrates strong transferability to closed-source models—achieving 99% ASR on GPT-3.5 and 49% ASR on GPT-4—despite being optimized solely on Llama3. Beyond improving jailbreak performance, ADV-LLM offers valuable insights for future alignment research by enabling large-scale generation of safety-relevant datasets.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-5 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--5"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/iterative-self-tuning-llms-for-enhanced-jailbreaking-capabilities/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-8580525ca5a22a10ee7a4694b8f59445" id="new-research-2">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="chatbench-from-static-benchmarks-to-human-ai-evaluation">ChatBench: From Static Benchmarks to Human-AI Evaluation</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1200" height="1298" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/chatbench_user_study_flow.jpg" alt="This figure displays the flow of the ChatBench user study. The rectangle on top represents Phase 1 of the study, where users answer questions on their own, and the rectangle on the bottom represents Phase 2 of the study, where users answer with AI." " class="wp-image-1136935" style="width:408px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/chatbench_user_study_flow.jpg 1200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/chatbench_user_study_flow-277x300.jpg 277w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/chatbench_user_study_flow-947x1024.jpg 947w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/chatbench_user_study_flow-768x831.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/chatbench_user_study_flow-166x180.jpg 166w" sizes="auto, (max-width: 1200px) 100vw, 1200px" /></figure>
+
+
+
+<p>The rapid adoption of LLM-based chatbots raises the need to understand what people and LLMs can achieve together. However, standard benchmarks like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/MMLU" target="_blank" rel="noreferrer noopener">MMLU<span class="sr-only"> (opens in new tab)</span></a> assess LLM capabilities in isolation (i.e., “AI alone”). This paper presents the results of a user study that transforms MMLU questions into interactive user-AI conversations. The researchers seeded the participants with the question and then had them engage in a conversation with the LLM to arrive at an answer. The result is ChatBench, a new dataset comprising AI-alone, user-alone, and user-AI data for 396 questions and two LLMs, including 144,000 answers and 7,336 user-AI conversations.</p>
+
+
+
+<p>The researchers’ analysis reveals that AI-alone accuracy does not predict user-AI accuracy, with notable differences across subjects such as math, physics, and moral reasoning. Examining user-AI conversations yields insights into how these interactions differ from AI-alone benchmarks. Finally, the researchers demonstrate that finetuning a user simulator on a subset of ChatBench improves its ability to predict user-AI accuracy, boosting correlation on held-out questions by more than 20 points, thereby enabling scalable interactive evaluation.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-6 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/chatbench-from-static-benchmarks-to-human-ai-evaluation/">Read the paper</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-8e4c7d6bee6a5b67f371be947a1df4a4" id="podcast">NEW RESEARCH</h2>
+
+
+
+<h2 class="wp-block-heading" id="collaborating-to-affect-change-for-rural-health-care-with-innovation-and-technology">Distill-MOS: A compact speech-quality assessment model&nbsp;</h2>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="8816" height="3152" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos.png" alt="Block diagram illustrating XLS-R-based speech quality assessment and its usage as a teacher model for distillation using unlabeled speech." class="wp-image-1137168" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos.png 8816w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos-1024x366.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos-768x275.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos-1536x549.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos-2048x732.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/distillmos-240x86.png 240w" sizes="auto, (max-width: 8816px) 100vw, 8816px" /></figure>
+
+
+
+<p>Distill-MOS is a compact and efficient speech quality assessment model with dramatically reduced size—over 100x smaller than the reference model—enabling efficient, non-intrusive evaluation in real-world, low-resource settings.&nbsp;</p>
+
+
+
+<p>This paper investigates the distillation and pruning methods to reduce model size for non-intrusive speech quality assessment based on self-supervised representations. The researchers’ experiments build on XLS-R-SQA, a speech quality assessment model using wav2vec 2.0 XLS-R embeddings. They retrain this model on a large compilation of mean opinion score datasets, encompassing over 100,000 labeled clips.&nbsp;</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-7 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--7"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/distill-mos-a-compact-speech-quality-assessment-model/">Read the paper</a></div>
+
+
+
+<div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/Distill-MOS">View GitHub</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-61c604b63ea2c27eb637663a9f89e42c" id="podcast">PODCAST</h2>
+
+
+
+<h2 class="wp-block-heading" id="collaborating-to-affect-change-for-rural-health-care-with-innovation-and-technology">Collaborating to Affect Change for Rural Health Care with Innovation and Technology</h2>
+
+
+
+<p>Senior Vice President of Microsoft Health <a href="https://www.microsoft.com/en-us/research/people/jweinst/">Jim Weinstein</a> joins Dan Liljenquist, Chief Strategy Officer from Intermountain Health, on the NEJM Catalyst podcast for a discussion of their combined expertise and resources and their collaboration to address healthcare challenges in the rural United States. These challenges include limited access to care, rising mortality rates, and severe staffing shortages. Working together, they aim to create a scalable model that can benefit both rural and urban health care systems. Key goals include expanding access through telemedicine and increasing cybersecurity, ultimately improving the quality of care delivered and financial stability for rural communities.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-8 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--9"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://catalyst.nejm.org/doi/full/10.1056/CAT.25.0133">Listen to the podcast</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-61c604b63ea2c27eb637663a9f89e42c" id="podcast">PODCAST</h2>
+
+
+
+<h2 class="wp-block-heading" id="collaborating-to-affect-change-for-rural-health-care-with-innovation-and-technology">Empowering patients and healthcare consumers in the age of generative AI</h2>
+
+
+
+<p>Two champions of patient-centered digital health join Microsoft Research President <a href="https://www.microsoft.com/en-us/research/people/petelee/">Peter Lee</a> to talk about how AI is reshaping healthcare in terms of patient empowerment and emerging digital health business models. Dave deBronkart, a cancer survivor and longtime advocate for patient empowerment, discusses how AI tools like ChatGPT can help patients better understand their conditions, navigate the healthcare system, and communicate more effectively with clinicians. Christina Farr, a healthcare investor and former journalist, talks about the evolving digital health–startup ecosystem, highlighting where AI is having the most meaningful impact—particularly in women’s health, pediatrics, and elder care. She also explores consumer trends, like the rise of cash-pay healthcare. </p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-9 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--10"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-empowering-patients-and-healthcare-consumers-in-the-age-of-generative-ai/">Listen to the podcast</a></div>
+</div>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-61c604b63ea2c27eb637663a9f89e42c" id="podcast">PODCAST</h2>
+
+
+
+<h2 class="wp-block-heading" id="collaborating-to-affect-change-for-rural-health-care-with-innovation-and-technology">Beyond the Image: AI’s Expanding Role in Healthcare</h2>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/people/carlson/">Jonathan Carlson</a>, Managing Director of Microsoft Research Health Futures, joins the Healthcare Unfiltered show to explore the evolution of AI in medicine, from the early days to cutting-edge innovations like ambient clinical intelligence. This podcast explores how pre-trained models and machine learning are transforming care delivery, as well as the future of biomedicine and healthcare, including important ethical and practical questions.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-10 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--11"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://youtu.be/zU4_o1BXzps?si=qKa09M21L5Gf-Bvq">Listen to the podcast</a></div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-21-2025/">Research Focus: Week of April 21, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>The Future of AI in Knowledge Work: Tools for Thought at CHI 2025</title>
 		<link>https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/</link>
 		
@@ -32,7 +334,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/the-future-of-ai-in-knowledge-work-tools-for-thought-at-chi-2025/">The Future of AI in Knowledge Work: Tools for Thought at CHI 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1.jpg" alt="A digital illustration of a person with a contemplative expression, resting their chin on their hand. The top of the person's head is open, revealing a white bird standing inside. The seagull is holding a worm in its beak, feeding the baby birds. The background is blue, and the words "TOOLS FOR THOUGHT" are written across the image in white letters." class="wp-image-1136653" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2100px) 100vw, 2100px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1.jpg" alt="A digital illustration of a person with a contemplative expression, resting their chin on their hand. The top of the person's head is open, revealing a white bird standing inside. The seagull is holding a worm in its beak, feeding the baby birds. The background is blue, and the words "TOOLS FOR THOUGHT" are written across the image in white letters." class="wp-image-1136653" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Thought-at-Microsoft-at-CHI-2025-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2100px) 100vw, 2100px" /></figure>
 
 
 
@@ -120,7 +422,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="600" height="210" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1.png" alt="Figure 1. The figure consists of two horizontal sections, each depicting a different AI interaction model. The top section shows "RecommendAI," where an AI makes a suggestion for action, which is then interpreted by the user to make a final decision. The bottom section shows "ExtendAI," where the user makes a plan for action, and the AI extends this plan by embedding feedback before the user makes sense of it and makes a final decision. An arrow from "makes sense of plan containing AI's feedback" in ExtendAI loops back to "extends user's plan by embedding feedback." Brief description: The image illustrates two models of human-AI collaboration: one where the AI recommends actions and another where it enhances user-generated plans with feedback. This comparison highlights different approaches to integrating AI into decision-making processes." class="wp-image-1136655" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1-300x105.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1-240x84.png 240w" sizes="(max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 1. Illustrative comparison of the thought process involved when interacting with two types of AI: RecommendAI and ExtendAI.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="210" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1.png" alt="Figure 1. The figure consists of two horizontal sections, each depicting a different AI interaction model. The top section shows "RecommendAI," where an AI makes a suggestion for action, which is then interpreted by the user to make a final decision. The bottom section shows "ExtendAI," where the user makes a plan for action, and the AI extends this plan by embedding feedback before the user makes sense of it and makes a final decision. An arrow from "makes sense of plan containing AI's feedback" in ExtendAI loops back to "extends user's plan by embedding feedback." Brief description: The image illustrates two models of human-AI collaboration: one where the AI recommends actions and another where it enhances user-generated plans with feedback. This comparison highlights different approaches to integrating AI into decision-making processes." class="wp-image-1136655" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1-300x105.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig1-240x84.png 240w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 1. Illustrative comparison of the thought process involved when interacting with two types of AI: RecommendAI and ExtendAI.</figcaption></figure>
 
 
 
@@ -168,7 +470,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="600" height="136" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2.png" alt="Figure 2. A figure illustrating two methods of AI interpretation and engagement in a virtual meeting setting. On the left, a graph with "Extent of AI Interpretation" on the y-axis and "Engagement Level" on the x-axis shows two points: "Ambient Visualization" (high AI interpretation, low engagement) and "Interactive Questioning" (high AI interpretation, high engagement). The middle image labeled "Ambient Visualization" shows a virtual meeting with participants' faces blurred and an overlay of data visualizations. The right image labeled "Interactive Questioning" shows a virtual meeting with participants' faces blurred and an overlay of interactive questions. Brief description: This image compares two methods of integrating AI into virtual meetings: Ambient Visualization and Interactive Questioning. It is relevant as it highlights different levels of user engagement and AI interpretation in enhancing virtual communication." class="wp-image-1136656" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2-300x68.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2-240x54.png 240w" sizes="(max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 2. Technology prototypes exploring passive and active ways to keep meetings focused on established objectives.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="136" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2.png" alt="Figure 2. A figure illustrating two methods of AI interpretation and engagement in a virtual meeting setting. On the left, a graph with "Extent of AI Interpretation" on the y-axis and "Engagement Level" on the x-axis shows two points: "Ambient Visualization" (high AI interpretation, low engagement) and "Interactive Questioning" (high AI interpretation, high engagement). The middle image labeled "Ambient Visualization" shows a virtual meeting with participants' faces blurred and an overlay of data visualizations. The right image labeled "Interactive Questioning" shows a virtual meeting with participants' faces blurred and an overlay of interactive questions. Brief description: This image compares two methods of integrating AI into virtual meetings: Ambient Visualization and Interactive Questioning. It is relevant as it highlights different levels of user engagement and AI interpretation in enhancing virtual communication." class="wp-image-1136656" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2-300x68.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/tools-for-thought_CHI2025-fig2-240x54.png 240w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 2. Technology prototypes exploring passive and active ways to keep meetings focused on established objectives.</figcaption></figure>
 
 
 
@@ -196,30 +498,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115763">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" aria-label="AIOpsLab: Building AI agents for autonomous clouds" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/AIOps-Lab-BlogHeroFeature-1400x788-1.png" alt="White outline illustrations for AIOps on a blue and green gradient background." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">What’s Your Story: Lex Story</h2>
+									<h2 class="h4">AIOpsLab: Building AI agents for autonomous clouds</h2>
 				
-								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
+								<p class="large">AIOpsLab is an open-source framework designed to evaluate and improve AI agents for cloud operations, offering standardized, scalable benchmarks for real-world testing, enhancing cloud system reliability.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -429,7 +731,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-12" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -1519,7 +1821,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-1"
+				aria-controls="show-more-show-less-toggle-12"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -1534,7 +1836,7 @@
 
 
 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--13"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-empowering-patients-and-healthcare-consumers-in-the-age-of-generative-ai/">Empowering patients and healthcare consumers in the age of generative AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -1974,8 +2276,8 @@
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/global-renewables-watch-a-temporal-dataset-of-solar-and-wind-energy-derived-from-satellite-imagery/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-12 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--14"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/global-renewables-watch-a-temporal-dataset-of-solar-and-wind-energy-derived-from-satellite-imagery/">Read the paper</a></div>
 </div>
 
 
@@ -2006,8 +2308,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/snraware-improved-deep-learning-mri-denoising-with-snr-unit-training-and-g-factor-map-augmentation/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-13 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--15"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/snraware-improved-deep-learning-mri-denoising-with-snr-unit-training-and-g-factor-map-augmentation/">Read the paper</a></div>
 </div>
 
 
@@ -2036,8 +2338,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-4 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--5"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/articles/can-ai-unlock-the-mysteries-of-the-universe/">Read the article</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-14 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--16"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/articles/can-ai-unlock-the-mysteries-of-the-universe/">Read the article</a></div>
 </div>
 
 
@@ -2066,8 +2368,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-5 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://news.microsoft.com/source/asia/features/japan-airlines-new-ai-app-will-make-it-easier-for-cabin-attendants-to-report-inflight-events-with-microsofts-phi-4-small-language-model/" target="_blank" rel="noreferrer noopener">Read the story</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-15 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--17"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://news.microsoft.com/source/asia/features/japan-airlines-new-ai-app-will-make-it-easier-for-cabin-attendants-to-report-inflight-events-with-microsofts-phi-4-small-language-model/" target="_blank" rel="noreferrer noopener">Read the story</a></div>
 </div>
 
 
@@ -2427,7 +2729,7 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 				</span>
-				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-18" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -3505,7 +3807,7 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-7"
+				aria-controls="show-more-show-less-toggle-18"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -3536,7 +3838,7 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--19"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-real-world-healthcare-ai-development-and-deployment-at-scale/">Real-world healthcare AI development and deployment—at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -3597,30 +3899,30 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085514">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: blog post</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" aria-label="GraphRAG auto-tuning provides rapid adaptation to new domains" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/GraphRag-3-BlogHeroFeature-1400x788-1.png" alt="GraphRAG image on blue to green gradient" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">GraphRAG auto-tuning provides rapid adaptation to new domains</h2>
 				
-								<p class="large">Stay connected to the research community at Microsoft.</p>
+								<p class="large">GraphRAG uses LLM-generated knowledge graphs to substantially improve complex Q&A over retrieval-augmented generation (RAG). Discover automatic tuning of GraphRAG for new datasets, making it more accurate and relevant.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3902,7 +4204,7 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 				</span>
-				<span id="show-more-show-less-toggle-9" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-20" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -4240,7 +4542,7 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-9"
+				aria-controls="show-more-show-less-toggle-20"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -4299,8 +4601,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-7 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--10"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/secom-on-memory-construction-and-retrieval-for-personalized-conversational-agents/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-17 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--21"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/secom-on-memory-construction-and-retrieval-for-personalized-conversational-agents/">Read the paper</a></div>
 </div>
 
 
@@ -4331,8 +4633,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-8 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--11"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/peace-empowering-geologic-map-holistic-understanding-with-mllms/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-18 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--22"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/peace-empowering-geologic-map-holistic-understanding-with-mllms/">Read the paper</a></div>
 </div>
 
 
@@ -4355,8 +4657,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-9 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--12"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/the-future-of-the-industrial-ai-edge-is-cellular/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-19 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--23"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/the-future-of-the-industrial-ai-edge-is-cellular/">Read the paper</a></div>
 </div>
 
 
@@ -4387,8 +4689,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-10 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--13"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/re-high-performance-derivative-based-regex-matching-with-intersection-complement-and-restricted-lookarounds/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-20 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--24"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/re-high-performance-derivative-based-regex-matching-with-intersection-complement-and-restricted-lookarounds/">Read the paper</a></div>
 </div>
 
 
@@ -4415,36 +4717,36 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-11 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--14"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/toward-deep-learning-sequence-structure-co-generation-for-protein-design/">Read the paper</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-21 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--25"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/toward-deep-learning-sequence-structure-co-generation-for-protein-design/">Read the paper</a></div>
 </div>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
 				
-								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+								<p class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4473,8 +4775,8 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 
 
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-12 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--15"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">Watch the series</a></div>
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-22 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--26"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">Watch the series</a></div>
 </div>
 
 
@@ -4600,912 +4902,6 @@ row are the SNR images. " class="wp-image-1136115"/></figure>
 
 	</div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-march-24-2025/">Research Focus: Week of March 24, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>The reality of generative AI in the clinic</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/</link>
-		
-		<dc:creator><![CDATA[Peter Lee, Dr. Sara Murray, Dr. Christopher Longhurst]]></dc:creator>
-		<pubDate>Thu, 20 Mar 2025 21:50:50 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1134402</guid>
-
-					<description><![CDATA[<p>UC San Diego Health’s Dr. Christopher Longhurst and UC San Francisco Health’s Dr. Sara Murray explore how generative AI is changing patient care, clinical workflows, and decision-making and how they envision the technology impacting the future of healthcare.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/">The reality of generative AI in the clinic</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution podcast | Episode 1 - The reality of generative AI in the clinic | outline illustration of Dr. Sara Murray, Peter Lee, Dr. Christopher Longhurst" class="wp-image-1134404" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/Episode1-Peter-Sara-Christopher-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=143567237&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Two years ago, OpenAI’s GPT-4 kick-started a new era in AI. In the months leading up to its public release, Peter Lee, president of Microsoft Research, cowrote a book full of optimism for the potential of advanced AI models to transform the world of healthcare. What has happened since? In this special podcast series—The AI Revolution in Medicine, Revisited—Lee revisits the book, exploring how patients, providers, and other medical professionals are experiencing and using generative AI today while examining what he and his coauthors got right—and what they didn’t foresee.</p>
-
-
-
-<p>In this episode, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://health.ucsd.edu/about-us/leadership/christopher-longhurst/" target="_blank" rel="noreferrer noopener">Dr. Christopher Longhurst<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://profiles.ucsf.edu/sara.murray" target="_blank" rel="noreferrer noopener">Dr. Sara Murray<span class="sr-only"> (opens in new tab)</span></a>, leading experts in healthcare AI implementation, join Lee to discuss the current state and future of AI in clinical settings. Longhurst, chief clinical and innovation officer at UC San Diego Health and executive director of the Jacobs Center for Health Innovation, details his healthcare system&#8217;s collaboration with Epic and Microsoft to integrate GPT into their electronic health record system, offering clinicians support in responding to patient messages. Dr. Murray, chief health AI officer at UC San Francisco Health, discusses AI’s integration into clinical workflows, the promise and risks of AI-driven decision-making, and how generative AI is reshaping patient care and physician workload.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h5" id="learn-more">Learn more:</h2>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/10.1056/AIcs2400420" target="_blank" rel="noreferrer noopener">Large Language Models for More Efficient Reporting of Hospital Quality Measures<span class="sr-only"> (opens in new tab)</span></a><br>Publication | October 2024&nbsp;</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://academic.oup.com/jamiaopen/article/7/2/ooae028/7643693" target="_blank" rel="noreferrer noopener">Generative artificial intelligence responses to patient messages in the electronic health record: early lessons learned<span class="sr-only"> (opens in new tab)</span></a><br>Publication | July 2024&nbsp;</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIp2400109">The Chief Health AI Officer — An Emerging Role for an Emerging Technology<span class="sr-only"> (opens in new tab)</span></a><br>Publication | June 2024&nbsp;</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2817615" target="_blank" rel="noreferrer noopener">AI-Generated Draft Replies Integrated Into Health Records and Physicians&#8217; Electronic Communication<span class="sr-only"> (opens in new tab)</span></a>&nbsp;<br>Publication | April 2024&nbsp;</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2804309" target="_blank" rel="noreferrer noopener">Comparing Physician and Artificial Intelligence Chatbot Responses to Patient Questions Posted to a Public Social Media Forum <span class="sr-only"> (opens in new tab)</span></a><br>Publication | April 2023</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/the-ai-revolution-in-medicine-gpt-4-and-beyond/" target="_blank" rel="noreferrer noopener">The AI Revolution in Medicine: GPT-4 and Beyond</a><br>Book | April 2023</p>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript&nbsp;</h2>
-
-
-
-<p>[MUSIC]&nbsp;</p>
-
-
-
-<p>[BOOK PASSAGE]&nbsp;&nbsp;</p>
-
-
-
-<p><strong>PETER LEE:</strong> “The workload on healthcare workers in the United States has increased dramatically over the past 20 years, and in the worst way possible. &#8230; Far too much of the practical, day-to-day work of healthcare has evolved into a crushing slog of filling out and handling paperwork.<strong> </strong>&#8230; GPT-4 indeed looks very promising as a foundational technology for relieving doctors of many of the most taxing and burdensome aspects of their daily jobs.”&nbsp;</p>
-
-
-
-<p>[END OF BOOK PASSAGE]&nbsp;</p>
-
-
-
-<p>[THEME MUSIC]&nbsp;</p>
-
-
-
-<p>This is <em>The AI Revolution in Medicine, Revisited</em>. I’m your host, Peter Lee.&nbsp;</p>
-
-
-
-<p>Shortly after OpenAI&#8217;s GPT-4 was publicly released, Carey Goldberg, Dr. Zak Kohane, and I published <em>The AI Revolution in Medicine </em>to help educate the world of healthcare and medical research about the transformative impact this new generative AI technology could have. But because we wrote the book when GPT-4 was still a secret, we had to speculate. Now, two years later, what did we get right, and what did we get wrong? &nbsp;</p>
-
-
-
-<p>In this series, we’ll talk to clinicians, patients, hospital administrators, and others to understand the reality of AI in the field and where we go from here. </p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-16" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p>[THEME MUSIC FADES]</p>
-
-
-
-<p>What I read there at the top is a passage from Chapter 2 of the book, which captures part of what we&#8217;re going to cover in this episode. </p>
-
-
-
-<p>In our book, we predicted how AI would be leveraged in the clinic. Some of those predictions, I felt, were slam dunks, for example, AI being used to listen to doctor-patient conversations and write clinical notes. There were already early products coming out in the world <em>not</em> using generative AI that were doing just that. But other predictions we made were bolder, for instance, on the use of generative AI as a second set of eyes, to look over the shoulder of a doctor or a nurse or a patient and spot mistakes.</p>
-
-
-
-<p>In this episode, I’m pleased to welcome Dr. Chris Longhurst and Dr. Sara Murray to talk about how clinicians in their respective systems are using AI, their reactions to it, and what’s ahead. Chris is the chief clinical and innovation officer at UC San Diego Health, and he is also the executive director of the Joan & Irwin Jacobs Center for Health Innovation. He&#8217;s in charge of UCSD Health&#8217;s digital strategy, including the integration of new technologies from bedside to bench and reaching across UCSD Health, the School of Medicine, and the Jacobs School of Engineering. Chris is a board-certified pediatrician and clinical informaticist.</p>
-
-
-
-<p>Sara is vice president and chief health AI officer at UC San Francisco Health. Sara is an internal medicine specialist and associate professor of clinical medicine. A doctor, a professor of medicine, and a strategic health system leader, she builds infrastructure and governance processes to ensure that UCSF&#8217;s deployment of AI, including both AI procured from companies as well as AI-powered tools developed in-house, are trustworthy and ethical.</p>
-
-
-
-<p>I’ve known Chris and Sara for years, and what’s really impressed me about their work—and frankly, the work of all the guests we&#8217;ll have on the show—is that they’ve all done something significant to advance the use of AI in healthcare.</p>
-
-
-
-<p>[TRANSITION MUSIC]</p>
-
-
-
-<p>Here’s my conversation with Dr. Chris Longhurst:&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Chris, thank you so much for joining us today.&nbsp;</p>
-
-
-
-<p><strong>CHRISTOPHER LONGHURST:</strong> Peter, it&#8217;s a pleasure to be here. Really appreciate it.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> We&#8217;re going to get into, you know, what&#8217;s happening in the clinic with AI. But I think we need to find out a little bit more about you first. I introduced you as a person with a fancy title, chief clinical and innovation officer.<strong> </strong>What is that exactly, and how do you spend a typical day at work?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Well, I have a little bit of a unicorn job because my portfolio includes information technology, and I&#8217;m a recovering CIO after spending seven years in that role. It also includes quality patient safety, case management, and the office of our chief medical officer.&nbsp;&nbsp;</p>
-
-
-
-<p>And so I&#8217;m really trying to unify our mission to deliver highly reliable care with these new tools in a way that allows us to transform that care. One good analogy, I think, is it’s about the game, right. Our job is not only to play the game and win the game using the existing tools but also to change the game by leveraging these new tools and showing the rest of the country how that can be done.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And so as you&#8217;re doing that, I can understand, of course, you&#8217;re working at a very, kind of, senior executive level. But, you know, when I&#8217;ve visited you at UCSD Health, you&#8217;re also working with clinicians, doctors, and nurses all the time. In a way, I viewed you as, sort of, connective tissue between these things. Is that accurate?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Well, sure. And we&#8217;ve got, you know, several physicians who are part of the executive team who are also continuing to practice, and I think that&#8217;s one of the ways in which doctors on the executive team can bring value, is being that connective tissue, being the ears on the ground and a little dose of reality.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> [LAUGHS] Well, in fact, that reality is really what I want to delve into. But I just want to, before getting into that, talk a little bit about AI and your encounters with AI. And I think we have to do it in two stages because there is AI and machine learning and data analytics <em>prior</em> to the rise of generative AI and then, of course, after. And so tell us a little bit about, you know, what got you into health informatics and AI to begin with.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Well, Peter, I know that you play video games, and I did too for many years. So I was an early John Carmack id Software, Castle Wolfenstein, and Doom fan.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Love it.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> And that kept me occupied because I lived out in the country on 50 acres of almond trees. And so it was computer gaming that first got me into computers.&nbsp;&nbsp;</p>
-
-
-
-<p>But during medical school, I decided to pursue graduate work in this field called health informatics. And actually my master&#8217;s thesis was using machine learning to help identify and distinguish innocent from pathologic heart murmurs in children. And I worked with Dr. Nancy Reed at UC Davis, who had programmed using Lisp, a really fancy tool to do exactly that.&nbsp;&nbsp;</p>
-
-
-
-<p>And I will tell you that if I never see another parentheses in Lisp code again, it&#8217;ll be too soon. So I spent a solid year on that.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> [LAUGHS] No, no, but you should wear that as a badge of honor. And I will guess that no other guest on this podcast series will have programmed in Lisp. So kudos to you.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> [LAUGHS] Well, it was a lot of work, and I learned a lot, but as you can imagine, it wasn&#8217;t highly successful at the time. And fast forward, we&#8217;ve had lots of traditional machine learning kind of activities using discrete data for predictive analytics to help predict flow in the hospital and even sepsis, which we can talk about. But as you said, the advent of generative AI in the fall of 2022 was a real game-changer.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, you have this interest in technology, and, in fact, I do know you as a fairly intensely geeky person. Really, I think maybe that&#8217;s one reason why we&#8217;ve been attracted to each other. But you also got drawn into medicine. Where did that come from?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> So my father was a practicing cardiologist and scientist. He was MD, PhD trained, and he really shared with me both a love of medicine but also science. I worked in his lab for three summers, and it was during college I decided I wanted to apply to medical school because the human side of the science really drew me in.&nbsp;&nbsp;</p>
-
-
-
-<p>But my father was the one who really identified it was important to cross-train. And that&#8217;s why I decided to take time off to do that master&#8217;s degree in health informatics and see if I could figure out how to take two disparate fields and really combine them into one.&nbsp;&nbsp;</p>
-
-
-
-<p>I actually went down to Stanford to become a pediatrician because they have a standalone children&#8217;s hospital that&#8217;s one of the best in the country. And I still practice pediatrics and see newborns, and it&#8217;s a passion for me and part of my identity.</p>
-
-
-
-<p><strong>LEE:</strong> Well, I&#8217;m just endlessly fascinated and impressed with people who can span these two worlds in the way that you&#8217;ve done. So now, you know, 2022, in November, ChatGPT gets released to the world, and then, you know, a few months later, GPT-4, and then, of course, in the last two years, so much has happened. But what was your first encounter with what we now know of as generative AI?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> So I remember when ChatGPT was released, and, you know, some of my computer science-type of nerd friends, we were on text threads, you know, with a lot of mind-blowing emojis. But when it really hit medicine was when I got a call right after Thanksgiving in 2022 from my colleague.&nbsp;He was playing with ChatGPT, and he said to me, Chris, I&#8217;ve been feeding it patient questions and you wouldn&#8217;t believe the responses. And he emailed some of the examples to me, and my mind <em>was</em> blown.</p>
-
-
-
-<p>And so that&#8217;s when I became one of the reviewers on the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2804309" target="_blank" rel="noreferrer noopener">paper that was published in April of 2023</a> that showed not only could ChatGPT help answer questions from patients in a high-quality way, but it also expressed a tremendous amount of empathy.<a href="#ftn_1">[1]</a> And in fact, in our review, the clickbait headlines that came out of the paper were that the chatbot was both higher quality and more empathetic than doctors.</p>
-
-
-
-<p>But that wasn&#8217;t my takeaway at all. In fact, I&#8217;ll<strong> </strong>take my doctors any day and put them against your chatbot if you give them an hour to Google and construct a really long, thoughtful response. To me, part of the takeaway was that this was really an opportunity to improve efficiency and save time. And so I called up our colleagues at Epic. I think it was right around December of 2022. And I said, Sumit, have you seen this? I&#8217;d like to share some results with you. And I showed him the data from our paper before we had actually had it published. And he said, “Well, that&#8217;s great because we&#8217;re working with Peter Lee and the team at Microsoft to integrate GPT into Epic.”&nbsp;&nbsp;</p>
-
-
-
-<p>And so, of course, that&#8217;s how we became one of the first two sites in the country to roll out GPT inside our electronic health record to help draft answers to patient questions.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And, you know, one thing that&#8217;s worth emphasizing in the story that you&#8217;ve just told is that there is no other major health system that has been confronting the reality of generative AI longer than UC San Diego Health—and I think largely because of your drive and early adoption.&nbsp;&nbsp;</p>
-
-
-
-<p>And many listeners of this podcast will know what Epic is, but many will not. And so it&#8217;s worth saying that Epic is a very important creator of an electronic health records system. And of course, UC San Diego Health uses Epic to store all of the clinical data for its patients.&nbsp;&nbsp;</p>
-
-
-
-<p>And then Sumit is, of course, Sumit Rana, who is president at Epic.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong><strong> </strong>So in partnership with Epic, we decided to tackle a really important challenge in healthcare today, which is, particularly since the pandemic and the increase in virtual and telehealth care, our clinicians get more messages than ever from patients. But answering those asynchronous messages is an unreimbursed, noncompensated activity that can often take time after hours—what we call “pajama time”—for our doctors.&nbsp;&nbsp;</p>
-
-
-
-<p>And in truth, you know, health systems that have thought through this, most of the answers are not actually generated by the doctors themselves. Many times, it&#8217;s mid-level providers, protocol schedulers, other things, because the questions can be about anything from rescheduling an appointment to a medication refill. They don&#8217;t all require doctors.&nbsp;&nbsp;</p>
-
-
-
-<p>When they do, it&#8217;s a more complicated question, and sometimes can require a more complicated answer. And in many cases, the clinicians will see a long complex question, and rather than typing an answer, they&#8217;ll say, “You know, this is complicated. Why don&#8217;t you schedule a visit with me so we can talk about it more?”&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, so now you&#8217;ve made a decision to contact people at Epic to what &#8230; posit the idea that AI might be able to make responding to patient queries easier? Is that the story here?</p>
-
-
-
-<p><strong>LONGHURST:</strong> That&#8217;s exactly right. And Sumit knew well that this is a challenge across many organizations. This is not unique to UC San Diego or Stanford. And there&#8217;s been a lot of publications about it. It&#8217;s even been in the lay press. So our hypothesis was that using GPT to help draft responses for doctors would save them time, make it easier, and potentially result in higher-quality, more empathetic answers to patients.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And so now the thing that I was so impressed with is you actually did a carefully controlled study to try to understand how well does that work. So tell us a little bit first about the results of that study but then how you set it up.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Sure. Well, first, I want to acknowledge something you said at the beginning, which is one of my hats is the executive director of the Joan & Irwin Jacobs Center for Health Innovation. And we&#8217;re incredibly grateful to the Jacobs for their gift, which has allowed us to not only implement AI as part of hospital operations but also to have resources that other health systems may not have to be able to study outcomes. And so that really enabled what we&#8217;re going to talk about here.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Right. By the way, one of the things I was personally so fascinated by is, of course, in our book, we speculated that things like after-visit notes to patients, responding to patient queries might be something that happens. And you, at the same time we were writing the book, were actually actively trying to make that real, which is just incredible and for me, and I think my coauthors, pretty affirming.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> I think you guys were really prescient in your vision. The book is tremendous. I have a signed copy of Peter&#8217;s book, and I recommend it for all your listeners. [LAUGHTER]&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> All right, so now what have you found about …&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> … generative AI?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Yeah. Well, first to understand what we found, you have to understand how we built [the AI inbox response tool]. And so Stanford and UC San Diego really collaborated with Epic on designing what this would look like. So doctor gets that patient message. We feed some information to GPT that&#8217;s not only the message but also some information about the patient—their problems and medications and past medical and surgical history and that sort of thing.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Is there a privacy concern that patients should be worried about when that happens?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Yeah, it&#8217;s a really good question. There&#8217;s not because we&#8217;re operating in partnership with Epic and Microsoft in a HIPAA-compliant cloud. And so that data is not only secure and private, but that&#8217;s our top priority, is keeping it that way.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Great.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> So once we feed that into GPT, of course, we very quickly get a draft message that we could send to a patient. But we chose not to just send that message to a patient. So part of our AI governance is keeping a human in the loop. And there&#8217;s two buttons that allow that clinician to review the message. One button says <strong>Edit draft message</strong>, and the other button says <strong>Start new blank message</strong>. So there&#8217;s no button that says just <strong>Send now</strong>. And that really is illustrative of the approach that we took. The second thing, though, that we chose to do I think is really interesting from a conversation standpoint is that our AI governance, as they were looking at this, said, “You know, AI is new and novel. It can be scary to patients. And if we want to maximize trust with our patients, we should maximize transparency.” And so anytime a clinician uses the button that says <strong>Edit draft response</strong>, we automatically append something in the message that says, “This message was automatically generated and reviewed and edited by your doctor.” We felt strongly that was the right approach, and we&#8217;ve had a lot of positive feedback.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And so we&#8217;ll want to get into, you know, how good these messages are, whether there are issues with bias or hallucination, but before doing that, you know, on this human in loop, this was another theme in our book. And in fact, we recommended this. But there were other health systems around the country that were also later experimenting with similar ideas. And some have taken different approaches. In fact, as time has gone on, if anything, it seems like it&#8217;s become a little bit less clear, this sort of labeling idea. Has your view on this evolved at all over the last two years?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> First of all, I&#8217;m glad that we did it. I think it was the right choice for University of California, and in fact, the other four UC sites are all doing this, as well. There is variability across the organizations that are using this functionality, and as you suggest, there&#8217;s tens of thousands of physicians and hundreds of thousands if not millions of patients receiving these messages. And it&#8217;s been highlighted a bit in the press.&nbsp;&nbsp;</p>
-
-
-
-<p>I can tell you that talking about our approach to transparency, one of our lawmakers in the state of California heard about this and actually proposed a bill that was signed into legislation by our governor so that effective Jan. 1, any communication with patients that uses AI has to be disclosed with those patients. And so there is some thought that this is perhaps the right approach.&nbsp;&nbsp;</p>
-
-
-
-<p>I don&#8217;t think that it&#8217;s a perfect approach, though. We&#8217;re using AI in more and more ways, and it&#8217;s not as if we&#8217;re going to be able to disclose every single time that we&#8217;re doing it to prioritize, you know, scheduling for the sickest patients or to help operationally on billing or something else. And so I think that there are other ways we need to figure it out. But we have called on national societies and others to try to create some guidelines around this because we should be as transparent as we can with our patients.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Obviously, one of the issues—and we highlighted this a lot in our book—is the problem of hallucination. And surely this must be an issue when you&#8217;re having AI draft these notes to patients. What have you found?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> We were worried about that when we rolled it out. And what we found is not only were there very few hallucinations, in some cases, our doctors were <em>learning</em> from the GPT. And I can give you an example. When a patient who had had a visit wrote their doctor afterwards and said, “Doc, I&#8217;ve been thinking a lot about what we discussed in quitting smoking marijuana.” And the GPT draft reply said something to the effect of, “That&#8217;s great news. Here&#8217;s a bunch of evidence on how smoking marijuana can harm your lungs and cause other effects. And by the way, since you live in the state of California, here&#8217;s the marijuana quitters helpline.” And the doctor who was sending this called me up to tell me about it. And I said, well, is there a marijuana quitters helpline in the state of California? And he said, “I didn&#8217;t know, so I Googled it. And yeah, there is.” And so that&#8217;s an example of the GPT actually having more information than, you know, a primary care clinician might have. And so there are cases clearly where the GPT can help us increase the quality. In addition, some of the feedback that we&#8217;ve been getting both anecdotally and now measuring is that these draft responses do carry that tone of empathy that Dr. [John] Ayers <a href="#ftn_2">[2]</a> and I saw in the original manuscript. And we&#8217;ve heard from our clinicians that it&#8217;s reminding them to be empathetic because you don&#8217;t always have that time when you&#8217;re hammering out a quick short message, right?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> You know,<strong> </strong>I think the thing that we&#8217;ve observed, and we&#8217;ve discussed this also, is exactly that reminding thing. There might be in the encounter between a doctor and patient, maybe a conversation about, you know, going to a football game for the first time. That could be part of the conversation. But in a busy doctor&#8217;s life, when writing a note, you might forget about that. And, of course, an AI has the endless ability to remember that it might be friendly to send well wishes.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Exactly right, Peter. In fact, one of the findings in Dr. Ayers’s manuscript that didn&#8217;t get as much attention but I think is really important was the difference in length between the responses. So I was one of the putatively blinded reviewers, but as I was looking at the questions and answers, it was really obvious which ones were the chatbot and which ones were the doctors because the chatbot was always, you know, three or four paragraphs and the doctor was three or four sentences, right. It&#8217;s about time. And so we saw that in the results of our study.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> All right, so now let&#8217;s get into those results.</p>
-
-
-
-<p><strong>LONGHURST:</strong> OK. Well, first of all, my hypothesis was that this would help us save time, and I was wrong. It turns out a busy primary care clinician might get about 30 messages a day from patients, and each one of those messages might take about 30 seconds to type a quick response, a two-sentence response, a dot phrase, a macro. <em>Your labs are normal. No need to worry. I&#8217;ll call you if anything comes up.</em> After we implemented the AI tool, it still took about 30 seconds per message to respond. But we saw that the responses were two to three times longer on average, and they carried a more empathetic tone. <a href="#ftn_3">[3]</a> <em>And</em> our physicians told us it decreased cognitive burden, which is not surprising because any of you have written know that it&#8217;s much easier to edit somebody else&#8217;s copy than it is to face a blank screen, right. That&#8217;s why I like to be senior author, not lead author.</p>
-
-
-
-<p>And so the tool actually helped quite a bit, but it didn&#8217;t help in the ways that we had expected necessarily. There are some other sites that have now found a little bit of time savings, but it&#8217;s really nominal overall. The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2816494" target="_blank" rel="noreferrer noopener">Stanford study<span class="sr-only"> (opens in new tab)</span></a> that was done at the same time—and we actually had some shared coauthors—measured physician burnout using a validated survey, and they saw a decrease in measured physician burnout. And so there are clear advantages to this, and we&#8217;re still learning more.</p>
-
-
-
-<p>In fact, we&#8217;ve now rolled this out not only to all of our physicians, but to all of our nurses who help answer those messages in many different clinics. And one of the things that we&#8217;re finding—and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2824738" target="_blank" rel="noreferrer noopener">Dr. CT Lin at University of Colorado recently published<span class="sr-only"> (opens in new tab)</span></a>—is that this tool might actually help those mid-level providers even more because it&#8217;s really good at protocolized responses. I mentioned at the beginning, some of the questions that come to the physicians may be more the edge cases that require a little bit less protocolized kind of answers. And so as we get into academic subspecialties like gynecology oncology, the GPT might not be dishing up a draft message that&#8217;s quite as useful. But if you&#8217;re a nurse in obstetrics and you&#8217;re getting very routine pregnancy questions, it could save a ton of time. And so we&#8217;ve rolled this out broadly.&nbsp;&nbsp;</p>
-
-
-
-<p>I want to acknowledge the partnership with Seth Hain and the team at Epic, who&#8217;ve just been fantastic. And we&#8217;re finding all sorts of new ways to integrate the GPT tools into our electronic health record, as well.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah. Certainly the doctors and nurses that I&#8217;ve encountered that have access to this feature, they just don&#8217;t want to give it up. But it&#8217;s so interesting that it actually doesn&#8217;t really save time. Is that a problem? Because, of course, you know, there seems to be a workforce shortage in healthcare, a need to lower costs and have greater efficiencies. You know, how do you think about that?</p>
-
-
-
-<p><strong>LONGHURST:</strong> Great question. There are so many opportunities, as you&#8217;ve kind of mentioned. I mean, healthcare is full of waste and inefficiency, and I am super bullish on how these generative AI tools are going to help us reduce some of that inefficiency.&nbsp;&nbsp;</p>
-
-
-
-<p>So everything from revenue cycle to our call centers to operations efficiency, I think, can be positively impacted, and those things make more resources available for clinicians and others. When we think about, you know, saving clinicians time, I don&#8217;t think it&#8217;s necessarily, sort of, the communicating with patients where you want to save that time actually. I think what we want to do is we want to offload some of those administrative tasks that, you know, take a lot of time for our physicians.&nbsp;&nbsp;</p>
-
-
-
-<p>So we&#8217;ve measured “pajama time” in our doctors, and on average, a busy primary care clinician can spend one to two hours after clinic doing things. But only about 15 minutes is answering messages from patients. Actually, the bulk of the time after hours is documenting the notes that are required from those visits, right. And those notes are used for a number of different purposes, not only communicating to the next doctor who sees the patient but also for billing purposes and compliance purposes and medical legal purposes. So another really exciting area is AI scribes.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah. And so, you know, we&#8217;ll get into scribes and actually other possibilities. I wonder, though, about this empathy issue. Because as computer scientists, we know that you can fall into traps if you anthropomorphize these AI systems or any machine. So in this study, how was that measured, and how real do think that is?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> So in the study, you&#8217;ll see anecdotal or qualitative evidence about empathy. We have a follow-up study that will be published soon where we&#8217;ve actually measured empathy using some more quantitative tools, and there is no doubt that the chatbot-generated drafts are coming through with more empathy. And we&#8217;ve heard this from a number of our doctors, so it&#8217;s not surprising. Here&#8217;s one of the more surprising things though. I published <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://academic.oup.com/jamiaopen/article/7/2/ooae028/7643693" target="_blank" rel="noreferrer noopener">a paper last year with Dr. Sally Baxter<span class="sr-only"> (opens in new tab)</span></a>, one of our ophthalmologists, and she actually looked at messages with a negative tone. It turns out, not surprisingly, healthcare can be frustrating. And stressed patients can send some pretty nasty messages to their care teams. [LAUGHTER] And you can imagine being a busy, …&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I&#8217;ve done it. [LAUGHS]</p>
-
-
-
-<p><strong>LONGHURST:</strong> … tired, exhausted clinician, and receiving a bit of a nasty gram from one of your patients can be pretty frustrating. And the GPT is actually really helpful in those instances in helping draft a pretty empathetic response when I think the human instinct would be a pretty nasty one. [LAUGHTER] I should probably use it in my email, Peter.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And is the patient experience, the actually lived experience of patients when they receive these notes, are you absolutely convinced and certain that they are also benefiting from this empathetic tone?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> I am. In fact, in our paper, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2817615" target="_blank" rel="noreferrer noopener">we also found that the messages going to patients that had been drafted with the AI tool were two to three times longer<span class="sr-only"> (opens in new tab)</span></a> than the messages going to patients that weren&#8217;t using the drafts. And so it&#8217;s clear there&#8217;s more content going and that content is either contributing to a greater sense of empathy and relationship among the patients as well as the clinicians, and/or in some cases, that content may be educating the patients or even reducing the need for follow-up visits.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, so now I think an important thing to share with the audience here is, you know, healthcare, of course, is a very highly regulated industry for good reasons. There are issues of safety and privacy that have to be guarded very, very carefully and thoroughly. And for that reason, clinical studies oftentimes have very carefully developed controls and randomization setups. And so to what extent was that done in this case? Because here, it&#8217;s not like you&#8217;re testing a new drug. It&#8217;s something that&#8217;s a little fuzzier, isn&#8217;t it?</p>
-
-
-
-<p><strong>LONGHURST:</strong> Yeah, that&#8217;s right, Peter. And credit to the lead author, Dr. Ming Tai-Seale, we actually did randomize. And so that&#8217;s unusual in these type of studies. We actually got IRB [institutional review board] exemption to do this as a randomized QI study. And it was a crossover study because all the doctors wanted the functionality. So what we tested was the early adopters versus the late adopters. And we compared at the same time the early adopters to those who weren&#8217;t using the functionality and then later the late adopters to the folks that weren&#8217;t using the functionality.&nbsp;</p>
-
-
-
-<p>&nbsp;<strong>LEE:</strong> And in that type of study, you might also, depending on how the randomization is set up, also have to have doctors some days using it and some days not having access. Did that also happen?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> We did, but it wasn&#8217;t on a day-to-day basis. It was more a month-to-month basis.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Uh-huh. And what kind of conversation do you have with a doctor that might be attached to a technology and then be told for the next month you don&#8217;t get to use it?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> [LAUGHS] The good news is because of a doctor&#8217;s medical training, they all understood the need for it. And the conversation was sort of, hey, we&#8217;re going to need you to stop using that for a month so that we can compare it, but we&#8217;ll give it back to you afterwards.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> [LAUGHS] OK, great. All right. So now we made some other predictions. So we talked about, you know, responding to patients. You briefly mentioned clinical note-taking. We also made guesses about other types of paperwork, you know, filling out prior authorization requests or referral letters, maybe for a doctor to refer to a specialist. We even made some guesses about a second set of eyes on medications, on various treatment options, diagnoses. What of these things have happened and what hasn&#8217;t happened, at least in your clinical experience?</p>
-
-
-
-<p><strong>LONGHURST:</strong> Your guesses were spot on. And I would say almost all of them have already happened and are happening today at UC San Diego and many other health systems. We have a HIPAA-compliant GPT instance that can be used for things like generating patient letters, generating referral letters, even generating patient education with patient-friendly language. And that&#8217;s a common use case. The second set of eyes on medications is something that we&#8217;re exploring but have not yet rolled out. One of the areas I&#8217;m really excited about is reporting. So Johns Hopkins did <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jama/fullarticle/2805705" target="_blank" rel="noreferrer noopener">a study a couple of years ago that showed an average academic medical center our size spends about $5 million annually<span class="sr-only"> (opens in new tab)</span></a> just reporting on quality measures that are regulatory requirements. And that&#8217;s about accurate for us.&nbsp;</p>
-
-
-
-<p>We published a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIcs2400420" target="_blank" rel="noreferrer noopener">paper just last fall showing that large language models could help to pre-populate quality data<span class="sr-only"> (opens in new tab)</span></a> for things like sepsis reporting in a really effective way. It was like 91% accurate. And so that&#8217;s a huge time savings and efficiency opportunity. Again, allows us to redeploy those qualities staff. We&#8217;re now looking at things like how do we use large language models to review charts for peer review to help ensure ongoing, you know, accuracy and mitigate risk. I&#8217;m really passionate about the whole space of using AI to improve quality and patient safety in particular.&nbsp;&nbsp;</p>
-
-
-
-<p>Your readers may be familiar with the famous report in 1999, “<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://pubmed.ncbi.nlm.nih.gov/25077248/" target="_blank" rel="noreferrer noopener">To Err is Human<span class="sr-only"> (opens in new tab)</span></a>,” that suggests a hundred thousand Americans die on an annual basis from medical errors. And unfortunately the data shows we really haven&#8217;t made great progress in 25 years, but these new tools give us the opportunity to impact that in a really meaningful way. This is a turning point in healthcare.</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, medication errors—actually, all manner of medical errors—I think has been just such a frustrating problem. And, you know, I think this gives us some new hope. Well, let&#8217;s look ahead a little bit. And just to be a little bit provocative, you know, one question that I get asked a lot by both patients and clinicians is, you know, “Will AI replace doctors sometime in the future?” What are your thoughts?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> So the pat response is AI won&#8217;t replace doctors, but AI will replace doctors who don&#8217;t use AI. And the implication there, of course, is that a doctor using AI will end up being a more effective practitioner than a doctor who doesn&#8217;t. And I think that&#8217;s absolutely true. From a medical legal standpoint, what is standard of care today and what is standard of care five or 10 years from now will be different. And I think there will be a point where doctors who aren&#8217;t using AI regularly, it would almost be unconscionable.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, I think there are already some areas where we&#8217;ve seen this happen. My favorite example is with the technology of ultrasound, where if you&#8217;re a gynecologist or some part of internal medicine, there are some diagnostic procedures where it would really be malpractice not to use ultrasound. Whereas in the late 1950s, the safety and also the doctor training to read ultrasound images were all called into question. And so let&#8217;s look ahead two years from now, five years from now, 10 years from now. And on those three time frames, you know, what do you think—based on the practice of medicine today, what doctors and nurses are doing in clinic every day today—what do you think the biggest differences will be two years from now, five years from now, and 10 years from now?&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Great question, Peter. So first of all, 10 years from now, I think that patients will be still coming to clinic. Doctors will still be seeing them. Hopefully we&#8217;ll have more house calls and care occurring outside the clinic with remote monitoring and things like that. But the most important part of healthcare is the humanism. And so what I&#8217;m really excited about is AI helping to restore humanism in medical care. Because we&#8217;ve lost some of it over the last 20, 30 years as healthcare has become more corporate.&nbsp;&nbsp;</p>
-
-
-
-<p>So in the next two to five years, some things I expect to see is AI baked into more workflows. So AI scribes are going to become incredibly commonplace. I also think that there are huge opportunities to use those scribes to help reduce errors in diagnosis. So five or seven years from now, I think that when you&#8217;re speaking to your physician about your symptoms and other things, the scribe is going to be developing a differential diagnosis and helping recommend not only the right follow-up tests or imaging but even the physical exam findings that the doctor might want to look for in particular to help make a diagnosis.&nbsp;&nbsp;</p>
-
-
-
-<p>Dirty secret in healthcare, Peter, is that 50% of doctors are below average. It&#8217;s just math. And I think that the AI can help raise all of our doctors. So it&#8217;s like Lake Wobegon. They&#8217;re all above average. It has important implications for the workforce as you were saying. Do we need all visits to be with primary care doctors? Will mid-level providers augmented by AI be able to do as great a job as many of our physicians do? I think these are unanswered questions today that need to be explored. And then there was a really stimulating <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nytimes.com/2025/02/02/opinion/ai-doctors-medicine.html" target="_blank" rel="noreferrer noopener">editorial in <em>The New York Times</em> recently by Dr. Eric Topol<span class="sr-only"> (opens in new tab)</span></a>, and he was waxing philosophic about a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://economics.mit.edu/sites/default/files/2023-07/agarwal-et-al-diagnostic-ai.pdf" target="_blank" rel="noreferrer noopener">recent study that showed AI could interpret X-rays with 90% accuracy and radiologists actually achieve about 72% accuracy<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> The study looked at, how did the radiologists do with AI working together? And they got about 74% accuracy. So the doctors didn&#8217;t believe the AI. They thought that they were in the right, and the inference that Eric took that I agree with is that rather than always looking for ways to combine the two, we should be thinking about those tasks that are amenable to automation that could be offloaded with AI. So that our physicians are focused on the things that they&#8217;re great at, which is not only the humanism in healthcare but a lot of those edge cases we talked about. So let&#8217;s take mammogram screening as an example, chest X-ray screening. There&#8217;s going to be a point in the next five years where all first reads are being done by AI, and then it&#8217;s a subset of those that are positive that need to be reviewed by physicians. And that helps free up radiologists to do a lot of other things that we need them to do.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Wow, that is really just such a great vision for the future. And I call some of this <em>the flip</em>, where even patient expectations on the use of technology flips from fear and uncertainty to, you know, you would try to do this without the technology? And I think you just really put a lot of color and detail on that. Well, Chris, thank you so much for this. On that groundbreaking paper from April of 2023, we&#8217;ll put a link to it. It&#8217;s a really great thing to read. And of course, you&#8217;ve published extensively since then. But I can&#8217;t thank you enough for just all the great work that you&#8217;re doing. It&#8217;s really changing medicine.&nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LONGHURST:</strong> Peter, can&#8217;t thank you enough for the opportunity to be here today and the partnership with Microsoft to make this all possible.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I always love talking to Chris because he really is a prime example of an important breed of doctor, a doctor who has clinical experience but is also world-class tech geek. [LAUGHS] You know, it&#8217;s surprising to me, and pleasantly so, that the traditional gold standard of randomized trials that Chris has employed can be used to assess the viability of generative AI, not just for things like medical diagnosis, but even for seemingly mundane things like writing email notes to patients.&nbsp;&nbsp;</p>
-
-
-
-<p>The other surprise is that the use of AI, at least in the in-basket task, which involves doctors having to respond to emails from patients, doesn&#8217;t seem to save much time for doctors, even though the AI is drafting those notes. Doctors seem to love the reduced cognitive burden, and patients seem to appreciate the greater detail and friendliness that AI provides, but it&#8217;s not yet a big timesaver. And of course, the biggest surprise out of the conversation with Chris was his celebrated paper back two years ago now on the idea that AI notes are perceived by patients as being more empathetic than notes written by human doctors. Wow.</p>
-
-
-
-<p>Let&#8217;s go ahead to my conversation with Dr. Sara Murray:&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Sara, I&#8217;m thrilled you&#8217;re here. Welcome.&nbsp;</p>
-
-
-
-<p><strong>SARA MURRAY:</strong> Thank you so much for having me.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> You know, you have actually a lot of roles, and I know that&#8217;s not so uncommon for people at the leading academic medical institutions. But, you know, I think for our audience, understanding what a chief health AI officer does, an associate professor of clinical medicine—what does it all mean? And so to start, when you talk to someone, say, like your parents, how do you describe your job? You know, how do you spend a typical day at work?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> So first and foremost, I do always introduce myself as a physician because that&#8217;s how I identify, that’s how I trained. But in my current role, as the chief health AI officer, I&#8217;m really responsible for the vision and strategy for how we use <em>trustworthy</em> AI at scale to solve the biggest problems in our health system. And so I think there&#8217;s a couple key important points about that. One is that we have to be very careful that everything we&#8217;re doing in healthcare is trustworthy, meaning it&#8217;s safe, it&#8217;s ethical, it&#8217;s doing what we hope it&#8217;s doing, and it&#8217;s not causing any unexpected harm.&nbsp;&nbsp;</p>
-
-
-
-<p>And then, you know, second, we really want to be doing things that affect, you know, the population at large of the patients we&#8217;re taking care of. And so I think if you look historically at what&#8217;s happened with AI in healthcare, you&#8217;ve seen little studies here and there, but nothing broadly affecting or transforming how we deliver care. And I think now that we&#8217;re in this generative AI era, we have the tools to start thinking about how we&#8217;re doing that. And so that&#8217;s part of my role.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And I&#8217;m assuming a chief health AI officer is not a role that has been around for a long time. Is this fairly new at UCSF, or has this particular job title been around?</p>
-
-
-
-<p><strong>MURRAY:</strong> No, it&#8217;s a relatively new role, actually. I came into this role about 18 months ago. I am the first chief health AI officer at UCSF, and I actually wrote <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIp2400109" target="_blank" rel="noreferrer noopener">the paper defining the role<span class="sr-only"> (opens in new tab)</span></a> with<strong> </strong>Dr. Ashley Beecy, Dr. Chris Longhurst, Dr. Karandeep Singh, and Dr. Bob Wachter where we discuss what is this role in healthcare, why do we actually need it now, and what is this person accountable for. And I think it&#8217;s very important that as we roll these technologies out in health systems, we have someone who&#8217;s really accountable for thinking about, you know, whether we&#8217;re selecting the right tools and whether they&#8217;re being used in the right ways to impact our patients.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> It&#8217;s so interesting because I would say in the old days, you know, like five years ago, [LAUGHS] information technology in a hospital or health-system setting might be under the control and responsibility of a chief information officer, a CIO, or an IT, you know, chief. Or if it&#8217;s maybe some sort of medical device technology integration, maybe it&#8217;s some engineering-type of leader, a chief technology officer. But you&#8217;re different, and in fact the role that I think I would credit you with, sort of, making the blueprint for seems different because it&#8217;s actually doctors, practicing clinicians, who tend to inhabit these roles. Is there a reason why it&#8217;s different that way? Like, a typical CIO is not a clinician.</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah, so I report to our CIO. And I think that there&#8217;s a recognition that you need a clinician who really understands in practice how the tools can be deployed effectively. So it&#8217;s not enough to just understand the technology, but you really have to understand the use cases. And I think when you&#8217;re seeing physician chief health AI officers pop up around the country, it&#8217;s because they’re people who both understand the technology—not to the level you do obviously—but to some sufficient level and then understand how to use these tools in clinical care and where they can drive value and what the risks are in clinical care and that type of thing. And so I think it&#8217;d be hard for it not to be some type of clinician in this role.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So I&#8217;m going to want to get into, you know, what&#8217;s really happening in clinic, but before that, I&#8217;ve been asking our guests about their “stages of AI grief,” [LAUGHS] as I like to put it. And for most people, I&#8217;ve been talking about the experiences and encounters with machine learning and AI before ChatGPT and then afterwards. And so can you tell us a little bit about, you know, how did you get into AI in the first place and what were your first encounters like?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah. So I actually started out as a health services researcher, and this was before we had electronic health records [EHR], when we were still writing our notes on carbon copy in the elevators, and a lot of the data we used was actually from claims data. And that was the kind of rich data source at the time, but as you know, that was very limited.&nbsp;&nbsp;</p>
-
-
-
-<p>And so when we went live with our electronic health record, I realized there was this tremendous opportunity to really use rich clinical data for research. And so I initially started collaborating with folks down at Stanford to do machine learning to identify, you know, rare diseases like lupus in the electronic health record but quickly realized there was this real gap in the health system for using data in an actionable way.&nbsp;&nbsp;</p>
-
-
-
-<p>And so I built what was initially our advanced analytics team, grew into our data science team, and is now our health AI team as our ability to use the data in more sophisticated ways evolved. But if we think about, I guess, the pre-generative era and my first encounter with AI or at least AI deployment in healthcare, you know, we initially, gosh, it was probably eight or nine years ago where we got access through our EHR vendor to some initial predictive tools, and these were relatively simple tools, but they were predicting things we care about in healthcare, like who&#8217;s not going make it to a clinic visit or how long patients are going stay in the hospital.&nbsp;&nbsp;</p>
-
-
-
-<p>And so there&#8217;s a lot of interest in, you know, predicting who might not make it to a clinic visit because we have big access issues with it being difficult for patients to get appointments, and the idea was that if you knew who wouldn&#8217;t show, you could actually put someone else in that slot, and it&#8217;s called overbooking. And so when we looked at the initial model, it was striking to me how risky it was for vulnerable patient populations because immediately it was obvious that this model was likely to overbook people by race, by body weight, by things that were clearly protected patient characteristics.&nbsp;&nbsp;</p>
-
-
-
-<p>And so we did a lot of work initially with that model and a lot of education around how these tools could be biased. But the risk existed, and as we continued to look at more of these models, we found there were a lot of issues with trustworthiness. You know, there was a length-of-stay prediction model that my team was able to outperform with a pair of dice. And when I talked to other systems about not implementing this model, you know, folks said, but it must be useful a little bit. I was like, actually, you know, if the dice is better, it&#8217;s not useful at all. [LAUGHS]&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right!&nbsp;&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> And so there was very little out there to frame this, but we quickly realized we have to start putting something together because there&#8217;s a lot of hype and there&#8217;s a lot of hope, but there&#8217;s also a lot of risk here. And so that was my pre-generative moment.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> You know, just before I get to your post-generative moment, you know, this story that you told, I sometimes refer to it as the healthcare IT world&#8217;s version of <em>irrational exuberance</em>. Because I think one thing that I&#8217;ve learned, and I have to say I&#8217;ve been guilty personally as a techie, you look at some of the problems that the world of healthcare faces, and to a techie first encountering this, a lot of it looks like common sense. Of course, we can build a model and predict these things.&nbsp;&nbsp;</p>
-
-
-
-<p>And you sort of don&#8217;t understand some of the realities, as you&#8217;ve described, that make this complicated. And at the same time, from healthcare professionals, I sometimes think they look at all of this dazzling machine learning magic and also are kind of overly optimistic that it can solve so many problems.&nbsp;&nbsp;</p>
-
-
-
-<p>And it does create this danger, this irrational exuberance, that both sides kind of get into a reinforcing cycle where they&#8217;re too quick to adopt technologies without thinking through the implications more carefully. I don&#8217;t know if that resonates with you at all.&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah, totally. I think there&#8217;s a real educational opportunity here because it&#8217;s the “you don&#8217;t know what you don&#8217;t know” phenomenon. And so I do think there is a lot of work in healthcare to be done around, you know, people understanding the strengths and limitations of these tools because they&#8217;re not magic, but they are perceived to be magic.&nbsp;&nbsp;</p>
-
-
-
-<p>And likewise, you know, I think the tech world often doesn&#8217;t understand, you know, how healthcare is practiced and doesn&#8217;t think through these risks in the same way we do, right. So I know that some of the vulnerable patients who might&#8217;ve been overbooked by that algorithm are the people who I most need to see in clinic and are the people who would be, you know, most slighted if that they show up and the other patient shows up and now you have an overworked clinician. But I just think those are stages, you know, further down the pathway of utilization of these algorithms that people don&#8217;t think of when they&#8217;re initially developing them.&nbsp;&nbsp;</p>
-
-
-
-<p>And so one of the things we actually, you know, require in our AI oversight process is when folks come to the table with a tool, they have to have a plan for how it&#8217;s going to be used and operationalized. And a lot of things die right there, honestly, because folks have built a cool tool, but they don&#8217;t know who&#8217;s going to use it in clinic, who the clinical champions are, how it&#8217;ll be acted on, and you can&#8217;t really evaluate whether these tools are trustworthy unless you&#8217;ve thought through all of that.&nbsp;&nbsp;</p>
-
-
-
-<p>Because you can imagine using the same algorithm in dramatically different ways, right. If you&#8217;re using the no-show model to do targeted outreach and send people a free Lyft if they have transportation issues, that&#8217;s going to have very different outcomes than overbooking folks.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> It&#8217;s so interesting and I&#8217;m going to want to get back to this topic because I think it also speaks to the challenges of how do you integrate technologies into the daily workflow of a clinic. And I know this is something you think about a lot, but let&#8217;s get back now to my original question about your AI moments. So now November 2022, ChatGPT happens, and what is your encounter with this new technology?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah. So I used to be on MedTwitter, or I still am actually; it&#8217;s just not as active anymore. But I would say, you know, MedTwitter went crazy after ChatGPT was initially released and it was largely filled with catchy poems and people, you know, having fun &#8230;&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> [LAUGHS] Guilty.&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah, exactly. I still use poems. And people having fun trying to make it hallucinate. And so, you know, I went—I was guilty of that, as well—and so one of the things I initially did was I asked it to do something crazy. So I asked it, draft me a letter for a prior authorization request for a drug called Apixaban, which is a blood thinner, to treat insomnia. And if you practice clinical medicine, you know that we would never use a blood thinner to treat insomnia. But it wrote me such a compelling letter that I actually went back to PubMed and I made sure that I wasn&#8217;t missing anything, like some unexpected side effect. I wasn&#8217;t missing anything and in fact it was hallucination. And so at that moment I said, this is very promising technology, but this is still a party trick.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> A few months later, I went and did the exact same prompt, and I got a lecture, instead of a draft, about how it would be unethical [LAUGHTER] and unsafe for me to draft such a request. And so, you know, I realized these tools were rapidly evolving, and the game was just going to be changing very quickly. I think the other thing that, you know, we&#8217;ve never seen before is the deployment of a technology at scale like we have with AI scribes.&nbsp;&nbsp;</p>
-
-
-
-<p>So this is a technology that was in its infancy, you know, two years ago, and is now largely a commodity deployed at scale across many health systems. A very short period of time. There&#8217;s been no government incentives for people to do this. And so it clearly works well enough to be used in clinics. And I think these tools, you know, like AI scribes, have the opportunity to really undo a lot of the harm that the electronic health record implementations were perceived to have caused.<strong>&nbsp;</strong>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> What is a scribe, first off?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah, so AI scribes or, as we&#8217;re now calling them, <em>AI assistants</em> or <em>ambient assistants</em>, are tools that essentially listen to your clinical interaction. We record them with the permission of a patient, with consent, and then they draft a clinical note, and they can also draft other things like the patient instructions. And the idea is those drafts are very helpful to clinicians, and they have to review them and edit them, but it saves a lot of the furious typing that was previously happening during patient encounters.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> We have been talking also to Chris Longhurst, your colleague at UC San Diego, and, you know, he mentions also the importance of having appropriate billing codes in those notes, which is yet another burden. Of course, when Carey, Zak, and I wrote our book, we predicted that AI scribes would get better and would find wider use because of the improvement in technology. Let me start by asking, do you yourself use an AI scribe?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> So I do not use it yet because I&#8217;m an inpatient doctor, and we have deployed them to all ambulatory clinic doctors because that&#8217;s where the technology is tried and true. So we&#8217;re looking now to deploy it in the inpatient setting, but we&#8217;re doing very initial testing.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And what are the reasons for not integrating it into the inpatient setting?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Well, there&#8217;s two things actually. Most inpatient documentation work, I would say, is follow-up documentation. And so you&#8217;re often taking your prior notes and making small changes to it as you change the care from day to day. And so the tools are just, all of the companies are working on this, but right now they don&#8217;t really incorporate your prior documentation or note when they draft your note for today.&nbsp;&nbsp;</p>
-
-
-
-<p>The second reason is that a lot of the decision-making that we do in the inpatient setting is asynchronous with the patient. So we&#8217;ll often have a conversation in the morning with the patient in their room, and then I&#8217;ll see some labs come back and I&#8217;ll make decisions and act on those labs and give the patient a call later and let them know what&#8217;s going on. And so it&#8217;s not a very succinct encounter, and so the technology is going to have to be a little bit different to work in that case, I think.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right, and so these are distinct workflows from the ambulatory setting, where it is the classic, you&#8217;re sitting with a patient in an exam room having an encounter.&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Mm-hmm. Exactly. And all your decisions are made there. And I would say it&#8217;s also different from nursing. We&#8217;re also looking at deploying these tools to nurses. But a lot of their documentation is in something called flowsheets. They write in columns, you know, specific numbers, and so for them to use these tools, they&#8217;d have to start saying to the patient, sounds like your pain is a five. Your blood pressure is 120 over 60. And so those are different workflows they&#8217;d have to adopt to use the tools.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So you&#8217;ve been in the position of having to oversee the integration of AI scribes into UCSF health. From your perspective how were clinical staff actually viewing all of this?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> So I would say clinical staff are largely very excited, receptive, and would like us to move faster. And in fact, I gave a town hall to UCSF, and all of the comments were, when is this coming for APPs [advanced practice providers]? When is this coming for allied health professionals? And so people want this across healthcare. It&#8217;s not just doctors. But at the same time, you know, I think there&#8217;s a technology adoption curve, and about half of our ambulatory clinicians have signed up and about a third of them are now using the tool. And so we are now doing outreach to figure out who is not using it, why aren&#8217;t they using it, and what can we do to increase adoption. Or are there true barriers that we need to help folks overcome?&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And when you do these things, of course, there are risks. And as you were mentioning several times before, you were really concerned about hallucinations, about trustworthiness. So what were the steps that you took at UCSF to make these integrations happen?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah, so we have a AI oversight process for all tools that come into our healthcare with AI, regardless of where they&#8217;re coming from. So industry tools, internally developed tools, and research tools come through the same process. And we have a committee that is quite multidisciplinary. We have health system leaders, data scientists, bioethicists, researchers, health-equity experts. And through our process, we break down the AI lifecycle to a couple key places where these tools come for committee review. And so for every AI deployment, we expect people to establish performance metrics, fairness metrics, and we help them with figuring out what those things should be.</p>
-
-
-
-<p>We were also fortunate to receive a donation to build a AI monitoring platform, which we&#8217;re working on now at UCSF. We call it our Impact Monitoring Platform for AI and Clinical Care, <em>IMPACC</em>, and AI scribes is actually our first use case. And so on that platform, we have a metric adjudication process where we&#8217;ve established, you know, what do we really care about for our health system executive leaders, what do we really care about for, you know, ensuring safety and trustworthiness, and then, you know, what are our patients going to want to know? Because we want to also be transparent with our patients about the use of these tools. And so we have processes for doing all this work.&nbsp;&nbsp;</p>
-
-
-
-<p>I think the challenge is actually how we scale these processes as more and more tools come through because as you could imagine, a lot of conversation with a lot of stakeholders to figure out what and how we measure things right now.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And so there&#8217;s so much to get into there, but I actually want to zoom in on the actual experience that doctors, nurses, and patients are having. And, you know, do you find that AI is meeting expectations? Is it making a difference, positive or negative, in people&#8217;s lives? And what kinds of potential surprises are people encountering?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Mm-hmm. So we&#8217;re collecting data in a couple of ways. First, we&#8217;re surveying clinicians before and after their experience, and we are hearing from folks that they feel like their clinic work is more manageable, that they&#8217;re more able to finish their documentation in a timely fashion.&nbsp;&nbsp;</p>
-
-
-
-<p>And then we&#8217;re looking at actual metrics that we can extract from the EHR around how long people are spending doing things. And that data is largely aligning with what people are reporting, although the caveat is they&#8217;re not saving enough time for us to have them see more patients. And so we&#8217;ve been very explicit at UCSF around making it clear that this is a tool to improve experience and not to improve efficiency.&nbsp;&nbsp;</p>
-
-
-
-<p>So we&#8217;re not expecting for people to see more patients as a result of using this tool. We want their clinic experience to be more meaningful. But then the other thing that&#8217;s interesting that folks share is this tremendous relief of cognitive burden that folks feel when using this tool. So they may have been really efficient before. You know, they could get all their work done. They could type while they were talking to their patients. But they didn&#8217;t actually, you know, get to look at their patients eye to eye and have the meaningful conversation that people went into medicine for. And so we&#8217;re hearing that, as well.&nbsp;&nbsp;</p>
-
-
-
-<p>And I think one of the things that&#8217;s going to be important to us is actually measuring that moving forward. And that is matched by some of the feedback we&#8217;re getting from patients. So we have quotes from patients where they&#8217;ve said, you know, my doctor is using this new tool and it&#8217;s amazing. We&#8217;re just having eye-to-eye conversations. Keep using it. So I think that&#8217;s really important.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I&#8217;ve been pushing my own primary care doctor to get into this because I really depend on her. I love her dearly, but we never … I&#8217;m always looking at her back as she&#8217;s typing at a computer during our encounters.&nbsp;[LAUGHS]&nbsp;</p>
-
-
-
-<p>So, Sara, while we&#8217;re talking about efficiency, and at least the early evidence doesn&#8217;t show clear efficiency gains, it does actually beg the question about how or why health systems, many of which are financially, you know, not swimming in money, how or why they could adopt these things.&nbsp;&nbsp;</p>
-
-
-
-<p>And then we could also even imagine that there are even more important applications in the future that, you know, might require quite a bit of expense on developers as well as procurers of these things. You know, what&#8217;s your point of view on the I guess we would call this the ROI question about AI?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Mm-hmm. I think this is a really challenging area because return on investment is very important to health systems that are trying to figure out how to spend a limited budget to improve care delivery. And so I think we&#8217;ve started to see a lot of small use cases that prove this technology could likely be beneficial.&nbsp;&nbsp;</p>
-
-
-
-<p>So there are use cases that you may have heard of from Dr. Longhurst around drafting responses to patient messages, for example, where we&#8217;ve seen that this technology is helpful but doesn&#8217;t get us all the way there. And that&#8217;s because these technologies are actually quite expensive. And when you want to process large amounts of data, that&#8217;s called tokens, and tokens cost money.&nbsp;&nbsp;</p>
-
-
-
-<p>And so I think one of the challenges when we envision the future of healthcare, we&#8217;re not really envisioning the expense of querying the entire medical record through a large language model. And we&#8217;re going to have to build systems from a technology standpoint that can do that work in a more affordable way for us to be able to deliver really high-value use cases to clinicians that involve processing that.&nbsp;&nbsp;</p>
-
-
-
-<p>And so those are use cases like summarizing large parts of the patient&#8217;s medical record, providing really meaningful clinical decision support that takes into account the patient&#8217;s entire medical history. We haven&#8217;t seen those types of use cases really come into being yet, largely because, you know, they&#8217;re technically a bit more complex to do well and they&#8217;re expensive, but they&#8217;re completely feasible.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah. You know, what you&#8217;re saying really resonates so strongly from the tech industry&#8217;s perspective. You know, one way that that problem manifests itself is shareholders in big tech companies like ours more or less expect … they&#8217;re paying a high premium—a high multiple on the share price—because they&#8217;re expecting our revenues to grow at very spectacular rates, double digit rates. But that isn&#8217;t obviously compatible with how healthcare works and the healthcare business works. It doesn&#8217;t grow, you know, at 30% year over year or anything like that.</p>
-
-
-
-<p>And so how to make these things financially make sense for all comers. And it&#8217;s sort of part and parcel also with the problem that sometimes efficiency gains in healthcare just translate into heavier caseloads for doctors, which isn&#8217;t obviously the best outcome either. And so in a way, I think it&#8217;s another aspect of the work on impact and trustworthiness when we think about technology, at all, in healthcare.<strong>&nbsp;</strong>&nbsp;</p>
-
-
-
-<p><strong>MURRAY: </strong>Mm-hmm. I think that&#8217;s right. And I think, you know, if you look at the difference between the AI scribe market and the rest of the summarization work that&#8217;s largely happening within the electronic health record, in the AI scribe market, you have a lot of independent companies, and they all are competing to be the best. And so because of that, we&#8217;re seeing the technology get more efficient, cheaper. There&#8217;s just a lot of investment in that space.&nbsp;&nbsp;</p>
-
-
-
-<p>Whereas like with the electronic health record providers, they&#8217;re also invested in really providing us with these tools, but it&#8217;s not their main priority. They&#8217;re delivering an entire electronic health record, and they also have to do it in a way that is affordable for, you know, all kinds of health systems, big UCSF health systems, smaller settings, and so there&#8217;s a real tension, I think, between delivering good-enough tools and truly transformative tools.<strong>&nbsp;</strong>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So I want to go back for a minute to this idea of cognitive burden that you described. When we talk about cognitive burden, it’s often in the context of paperwork, right. There are maybe referral letters, after-visit notes, all of these things. How do you see these AI tools progressing with respect to that stream of different administrative tasks?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> These tools are going to continue to be optimized to do more and more tasks for us. So with AI scribes, for example, you know, we&#8217;re starting to look at whether it can draft the billing and coding information for the clinician, which is a tedious task with many clicks.&nbsp;&nbsp;</p>
-
-
-
-<p>These tools are poised to start pending orders based on the conversation. Again, a tedious task. All of this with clinician oversight. But I think as we move from them being AI scribes to AI assistants, it&#8217;s going to be like a helper on the side for clinicians doing more and more work so they can really focus on the conversations, the shared decision-making, and the reason they went into medicine really.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, let me, since you mentioned AI assistants and that&#8217;s such an interesting word and it does connect with something that was apparent to us even, you know, as we were writing the book, which is this phenomenon that these AI systems might make mistakes.&nbsp;&nbsp;</p>
-
-
-
-<p>They might be guilty of making biased decisions or showing bias, and yet they at the same time seem incredibly effective at spotting other people&#8217;s mistakes or other people&#8217;s biased decisions. And so is there a point where these AI scribes do become AI assistants, that they&#8217;re sort of looking over a doctor&#8217;s shoulder and saying, “Hey, did you think about something else?” or “Hey, you know, maybe you&#8217;re wrong about a certain diagnosis?”&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Mm-hmm. I mean, absolutely. You&#8217;re just really talking about combining technologies that already exist into a more streamlined clinical care experience, right. So you can—and I already do this when I&#8217;m on rounds—I&#8217;ll kind of give the case to ChatGPT if it&#8217;s a complex case, and I&#8217;ll say, “Here&#8217;s how I&#8217;m thinking about it; are there other things?” And it&#8217;ll give me additional ideas that are sometimes useful and sometimes not but often useful, and I&#8217;ll integrate them into my conversation about the patient.&nbsp;&nbsp;</p>
-
-
-
-<p>I think all of these companies are thinking about that. You know, how do we integrate more clinical decision-making into the process? I think it&#8217;s just, you know, healthcare is always a little bit behind the technology industry in general, to say the least. And so it&#8217;s kind of one step at a time, and all of these use cases need a lot of validation. There&#8217;s regulatory issues, and so I think it&#8217;s going to take time for us to get there.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Should I be impressed or concerned that the chief health AI officer at UC San Francisco Health is using ChatGPT off label?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> [LAUGHS] Well, I actually, every time I go on service, I encourage my residents to use it because I think we need to learn how to use these technologies. And, you know, when our medical education leaders start thinking about how do we teach students to use these, we don&#8217;t know how to teach students to use them if we&#8217;re not using them ourselves, right. And so I&#8217;ve learned a lot about what I perceive the strengths and limitations of the tools are.&nbsp;&nbsp;</p>
-
-
-
-<p>And I think … but you know, one of the things that we&#8217;ve learned is—and you&#8217;ve written about this in your book—but the prompting really matters. And so I had a resident ask it for a differential for abnormal liver tests. But in asking for that differential, there is a key important blood finding, something called eosinophilia. It&#8217;s a type of blood cell that was mildly, mildly elevated, and they didn&#8217;t know it. So they didn&#8217;t give it in the prompt, and as a result, they didn&#8217;t get the right differential, but it wasn&#8217;t actually ChatGPT&#8217;s fault. It just didn&#8217;t get the right information because the trainee didn&#8217;t recognize the right information. And so I think there&#8217;s a lot to learn as we practice using these tools clinically. So I&#8217;m not ashamed of it. [LAUGHS]&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> [LAUGHS] Yeah. Well, in fact, I think my coauthor Carey Goldberg would find what you said really validating because in our book, she actually wrote this fictional account of what it might be like in the future. And this medical resident was also using an AI chatbot off label for pretty much the same kinds of purposes. And it&#8217;s these kinds of things that, you know, it seems like might be coming next.&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> I mean, medicine, the practice of medicine, is a very imperfect science, and so, you know, when we have a difficult case, I might sit in the workroom with my colleagues and run it by people. And everyone has different thoughts and opinions on, you know, things I should check for. And so I think this is just one other resource where you can kind of run cases, obviously, just reviewing all of the outputs yourself.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> All right, so we&#8217;re running short on time and so I want to be a little provocative at the end here. And since we&#8217;ve gotten into AI assistants, two questions: First off, do we get to a point in the near future when it would be unthinkable and maybe even bordering on malpractice for a doctor <em>not</em> to use AI assistants in his or her daily work?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> So it&#8217;s possible that we see that in the future. We don&#8217;t see it right now. And that&#8217;s part of the reason we don&#8217;t force this on people. So we see AI scribes or AI assistants as a tool we offer to people to improve their daily work because we don&#8217;t have sufficient data that the outcomes are markedly better from using these tools.&nbsp;&nbsp;</p>
-
-
-
-<p>I think there is a future where specific, you know, tools do actually improve outcomes. And then their use should be incentivized either through, you know, CMS [Centers for Medicare & Medicaid Services] or other systems to ensure that, you know, we’re delivering standard of care. But we&#8217;re not yet at the place where any of these tools are standard of care, which means they <em>should</em> be used to practice good medicine.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And I think I would say that it&#8217;s the work of people like you that would make it possible for these things to become standard of care. And so now, final provocation. It must have crossed your mind through all of this, the possibility that AI might replace doctors in some ways. What are your thoughts?&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> I think we&#8217;re a long way from that happening, honestly. And I think even when I talk to my colleagues in radiology about this, where I perceive, as an internist, they might be the most replaceable, there&#8217;s a million reasons why that&#8217;s not the case. And so I think these tools are going to augment our work. They&#8217;re going to help us streamline access for patients. They&#8217;re going to maybe change what clinicians have to do, but I don&#8217;t think they&#8217;re going fully replace doctors. There&#8217;s just too much complexity and nuance in providing clinical care for these tools to do that work fully.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, I think you&#8217;re right. And actually, you know, I think there&#8217;s plenty of evidence because in the history of modern medicine, we actually haven&#8217;t seen technology replace human doctors. Maybe you could say that we don&#8217;t use barbers for bloodletting anymore because of technology. But I think, as you say, we&#8217;re at least a long ways away.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Sara, this has been just a great conversation. And thank you for the great work that you&#8217;re doing, you know, and for being so open with us on your personal use of AI, but also how you see the adoption of AI in our health system.&nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p><strong>MURRAY:</strong> Thank you, it was really great talking with you.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>I get so much out of talking to Sara. Every time, she manages to get me refocused on two things: the quality of the user experience and the importance of trust in any new technology that is brought into the clinic. I felt like there were several good takeaways from the conversation. One is that she really validated some predictions that Carey, Zak, and I made in our book, first and foremost, that automated note taking would be a highly desirable and practical reality. The other validation is Sara revealing that even she uses ChatGPT as a daily assistant in her clinical work, something that we guessed would happen in the book, but we weren&#8217;t really sure since health systems oftentimes are very locked down when it comes to the use of technological tools.&nbsp;&nbsp;</p>
-
-
-
-<p>And of course, maybe the biggest thing about Sara&#8217;s work is her role in defining a new type of job in healthcare, the health AI officer. This is something that Carey, Zak, and I didn&#8217;t see coming at all, but in retrospect, makes all the sense in the world. Taken together, these two conversations really showed that we were on the right track in the book. AI has made its way into day-to-day life and work in the clinic, and both doctors and patients seem to be appreciating it.&nbsp;&nbsp;</p>
-
-
-
-<p>[MUSIC TRANSITIONS TO THEME]&nbsp;</p>
-
-
-
-<p>I&#8217;d like to extend another big thank you to Chris and Sara for joining me on the show and sharing their insights. And to our listeners, thank you for coming along for the ride. We have some really great conversations planned for the coming episodes. We&#8217;ll delve into how patients are using generative AI for their own healthcare, the hype and reality of AI drug discovery, and more. We hope you&#8217;ll continue to tune in. Until next time.&nbsp;</p>
-
-
-
-<p>[MUSIC FADES]&nbsp;</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-16"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p id="ftn_1">[1] The paper, “<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2804309" target="_blank" rel="noreferrer noopener">Comparing Physician and Artificial Intelligence Chatbot Responses to Patient Questions Posted to a Public Social Media Forum<span class="sr-only"> (opens in new tab)</span></a>,” presented the findings of a cross-sectional study that compared doctor responses to patient questions posted to the public forum r/AskDocs on Reddit to responses to the same questions generated by ChatGPT.</p>
-
-
-
-<p id="ftn_2">[2] Dr. John Ayers is corresponding author of the April 2023 paper “<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2804309" target="_blank" rel="noreferrer noopener">Comparing Physician and Artificial Intelligence Chatbot Responses to Patient Questions Posted to a Public Social Media Forum.&#8221;<span class="sr-only"> (opens in new tab)</span></a></p>
-
-
-
-<p id="ftn_2">[3] These findings are detailed in the paper “<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2817615" target="_blank" rel="noreferrer noopener">AI-Generated Draft Replies Integrated Into Health Records and Physicians’ Electronic Communication,&#8221;<span class="sr-only"> (opens in new tab)</span></a> published in <em>JAMA Network Open</em>.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-end-mark"/>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--17"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-the-reality-of-generative-ai-in-the-clinic/">The reality of generative AI in the clinic</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
