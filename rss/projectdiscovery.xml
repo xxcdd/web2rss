@@ -6,12 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 30 Apr 2025 01:45:51 +0000</lastBuildDate>
-    <item>
-      <title>February 2025 Newsletter</title>
-      <link>https://projectdiscovery.io/blog/february-2025-newsletter</link>
-      <description>First, we’re so excited to announce that we’ve reached 100,000 GitHub stars across our OSS projects! This wouldn’t have been possible without everyone who’s contributed, used our tools, and offered their support along the way. Thank you, and we can’t wait to keep building with you! 🎉</description>
-    </item>
+    <lastBuildDate>Thu, 01 May 2025 01:55:01 +0000</lastBuildDate>
     <item>
       <title>March 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/march-2025-newsletter</link>
@@ -23,6 +18,11 @@
       <description>We’re excited to share that ProjectDiscovery has been named one of the Top 10 Finalists in the 2025 RSA Innovation Sandbox! On Monday, April 28, we’ll take the stage at RSA Conference in San Francisco to showcase how we’re rethinking vulnerability management from the ground up with speed, accuracy, and the power of open-source.
 
 The RSA Innovation Sandbox is widely regarded as the cybersecurity industry’s premier startup competition. Each year, 10 early-stage companies are selected to pitch live</description>
+    </item>
+    <item>
+      <title>April 2025 Newsletter</title>
+      <link>https://projectdiscovery.io/blog/april-2025-newsletter</link>
+      <description>Hot off the press, ProjectDiscovery scooped the award for Most Innovative Startup late this month, after presenting our pitch over at RSAC 2025.</description>
     </item>
     <item>
       <title>Getting Started with ProjectDiscovery in Linux and Windows</title>
@@ -79,13 +79,6 @@ Asset Inventory and Technologies
 The new interface for cataloging and organizing all assets along with their associated technologies in one place represents a significant advancement in asset management. Now, rega</description>
     </item>
     <item>
-      <title>Alibaba Cloud - Nuclei Templates v10.1.1 🎉</title>
-      <link>https://projectdiscovery.io/blog/alibaba-cloud-nuclei-templates-v10-1-1-2</link>
-      <description>We're excited to tell you about Nuclei Templates release v10.1.1 ! This new version includes newly added Alibaba Cloud Review templates. In this blog post, we'll discuss automating Alibaba cloud misconfiguration review, creating custom checks, and sharing results on the PDCP Cloud for review.
-
-An Alibaba Cloud Configuration Security Review is essential for assessing and improving the security of your cloud infrastructure. It ensures that your resources are configured correctly, compliant with re</description>
-    </item>
-    <item>
       <title>Crafting DAST Nuclei Templates for OOB Template Engines Injection: A Practical Guide</title>
       <link>https://projectdiscovery.io/blog/crafting-dast-nuclei-templates-for-oob-template-engines-injection-a-practical-guide</link>
       <description>We’re thrilled to announce the release of new DAST Out-of-Band Template Injection Templates tailored for various templating engines and programming frameworks. This update empowers us to assess vulnerabilities and misconfigurations in diverse tech stacks effectively. In this post, we’ll explore automating Out-of-Band Template Injection Testing, crafting custom vulnerability checks, and sharing the findings through the PDCP Cloud for streamlined collaboration.
@@ -100,6 +93,15 @@ For those particularly interested i</description>
 Imagine having a single template that automatically hunts for specific patterns (like private keys, sensitive tokens, or webhooks) across every HTTP response from all your other templates. That's what global matchers do — and they do it effortlessly.
 
 In this post, we</description>
+    </item>
+    <item>
+      <title>GCP Cloud Configuration Review Templates - Nuclei Templates v10.2.0 🎉</title>
+      <link>https://projectdiscovery.io/blog/gcp-cloud-configuration-review-templates-nuclei-templates-v10-2-0</link>
+      <description>We’re excited to tell you about Nuclei Templates release v10.2.0! This new version includes newly added GCP Config Review templates. In this blog post, we’ll discuss automating Google Cloud misconfiguration review, creating custom GCP checks, and sharing results on the PDCP Cloud for review.
+
+Following our last release on Azure Cloud Security Config Review and Kubernetes Cluster Security, we decided to expand our coverage to include GCP as well.
+
+GCP is well-known for its powerful features and v</description>
     </item>
     <item>
       <title>CVE-2025-29927: Next.js Middleware Authorization Bypass - Technical Analysis</title>
@@ -127,15 +129,6 @@ The CVE originally referenced in this blog post CVE-2025-2825 has been rejected 
 Enterprise file transfer solutions are critical infrastructure for many organizations, facilitating secure data exchange between systems and</description>
     </item>
     <item>
-      <title>IngressNightmare: Unauth RCE in Ingress NGINX (CVE-2025-1974)</title>
-      <link>https://projectdiscovery.io/blog/ingressnightmare-unauth-rce-in-ingress-nginx</link>
-      <description>A critical vulnerability (CVE-2025-1974) was recently discovered in the Kubernetes Ingress-NGINX Controller that allows unauthenticated remote code execution (RCE) on the ingress controller pod.
-
-Originally discovered by the Wiz research team (Nir Ohfeld, Ronen Shustin, Sagi Tzadik, Hillai Ben-Sasson) in late 2024 and disclosed in March 2025, CVE-2025-1974 is part of a series of vulnerabilities collectively called IngressNightmare.
-
-If you’re specifically looking to use the IngressNightmare dete</description>
-    </item>
-    <item>
       <title>CrushFTP Authentication Bypass - CVE-2025-2825</title>
       <link>https://projectdiscovery.io/blog/crushftp-authentication-bypass</link>
       <description>Update (April 21, 2025):
@@ -150,6 +143,11 @@ Enterprise file transfer solutions are critical infrastructure for many organiza
       <description>We’re excited to share that ProjectDiscovery has been named one of the Top 10 Finalists in the 2025 RSA Innovation Sandbox! On Monday, April 28, we’ll take the stage at RSA Conference in San Francisco to showcase how we’re rethinking vulnerability management from the ground up with speed, accuracy, and the power of open-source.
 
 The RSA Innovation Sandbox is widely regarded as the cybersecurity industry’s premier startup competition. Each year, 10 early-stage companies are selected to pitch live</description>
+    </item>
+    <item>
+      <title>Securing the distributed perimeter: How Elastic scaled proactive detection with ProjectDiscovery Cloud</title>
+      <link>https://projectdiscovery.io/blog/how-elastic-scaled-proactive-detection-with-projectdiscovery-cloud</link>
+      <description>Before going all-in on ProjectDiscovery Cloud, Elastic had already embraced Nuclei, the open-source vulnerability scanner built for customization and speed, along with other ProjectDiscovery tools like naabu and httpx.</description>
     </item>
   </channel>
 </rss>
