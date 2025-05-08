@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 02 May 2025 21:34:12 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 07 May 2025 23:25:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,392 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Research Focus: Week of May 7, 2025</title>
+		<link>https://www.microsoft.com/en-us/research/blog/research-focus-week-of-may-7-2025/</link>
+		
+		<dc:creator><![CDATA[Microsoft Research Team]]></dc:creator>
+		<pubDate>Wed, 07 May 2025 23:25:04 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138612</guid>
+
+					<description><![CDATA[<p>In this issue: New research on compound AI systems and causal verification of the Confidential Consortium Framework; release of Phi-4-reasoning; enriching tabular data with semantic structure, and more.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-may-7-2025/">Research Focus: Week of May 7, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p class="has-text-align-center"><strong>In this issue:</strong></p>
+
+
+
+<p>New research on compound AI systems and causal verification of the Confidential Consortium Framework; release of Phi-4-reasoning; enriching tabular data with semantic structure, and more.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img fetchpriority="high" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus: May 07, 2025" class="wp-image-1138631" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-e734c6e9609233ab051742bb3beeed63" id="new-research">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="towards-resource-efficient-compound-ai-systems"><a href="https://www.microsoft.com/en-us/research/publication/towards-resource-efficient-compound-ai-systems/">Towards Resource-Efficient Compound AI Systems</a></h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="936" height="421" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems.png" alt="Unlike the current state-of-the-art, our vision is fungible workflows with high-level descriptions, managed jointly by the Workflow Orchestrator and Cluster Manager. This allows higher resource multiplexing between independent workflows to improve efficiency." class="wp-image-1138633" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems-300x135.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems-768x345.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems-240x108.png 240w" sizes="(max-width: 936px) 100vw, 936px" /></figure>
+
+
+
+<p>This research introduces Murakkab, a prototype system built on a declarative workflow that reimagines how compound AI systems are built and managed to significantly improve resource efficiency. Compound AI systems integrate multiple interacting components like language models, retrieval engines, and external tools. They are essential for addressing complex AI tasks. However, current implementations could benefit from greater efficiencies in resource utilization, with improvements to tight coupling between application logic and execution details, better connections between orchestration and resource management layers, and bridging gaps between efficiency and quality.</p>
+
+
+
+<p>Murakkab addresses critical inefficiencies in current AI architectures and offers a new approach that unifies workflow orchestration and cluster resource management for better performance and sustainability. In preliminary evaluations, it demonstrates speedups up to ∼ 3.4× in workflow completion times while delivering ∼ 4.5× higher energy efficiency, showing promise in optimizing resources and advancing AI system design.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-9a2357e04d6b68359937ec2fcc67b1a5" id="new-research-1">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="smart-casual-verification-of-the-confidential-consortium-framework"><a href="https://www.microsoft.com/en-us/research/publication/smart-casual-verification-of-ccfs-distributed-consensus-and-consistency-protocols/?msockid=3522c0e375a2640e0f72d5ce7493658c">Smart Casual Verification of the Confidential Consortium Framework</a></h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="624" height="364" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification.png" alt="Diagram showing the components of the verification architecture for CCF's consensus. The diagram is discussed in detail in the paper." class="wp-image-1138634" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification.png 624w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification-300x175.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification-480x280.png 480w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification-240x140.png 240w" sizes="(max-width: 624px) 100vw, 624px" /></figure>
+
+
+
+<p>This work presents a new, pragmatic verification technique that improves the trustworthiness of distributed systems like the Confidential Consortium Framework (CCF) and proves its effectiveness by catching critical bugs before deployment. Smart casual verification is a novel hybrid verification approach to validating CCF, an open-source platform for developing trustworthy and reliable cloud applications which underpins Microsoft’s Azure Confidential Ledger service. </p>
+
+
+
+<p>The researchers apply smart casual verification to validate the correctness of CCF’s novel distributed protocols, focusing on its unique distributed consensus protocol and its custom client consistency model. This hybrid approach combines the rigor of formal specification and model checking with the pragmatism of automated testing, specifically binding the formal specification in TLA+ to the C++ implementation. While traditional formal methods are often one-off efforts by domain experts, the researchers have integrated smart casual verification into CCF’s continuous integration pipeline, allowing contributors to continuously validate CCF as it evolves. </p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-8580525ca5a22a10ee7a4694b8f59445" id="new-research-2">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="phi-4-reasoning-technical-report"><a href="https://www.microsoft.com/en-us/research/publication/phi-4-reasoning-technical-report/">Phi-4-reasoning Technical Report</a></h3>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1300" height="644" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning.png" alt="graphical user interface, text, application, email" class="wp-image-1138688" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning.png 1300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-1024x507.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-768x380.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-240x119.png 240w" sizes="auto, (max-width: 1300px) 100vw, 1300px" /></figure>
+
+
+
+<p>This report introduces <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/" target="_blank" rel="noreferrer noopener"><strong>Phi-4-reasoning</strong><span class="sr-only"> (opens in new tab)</span></a>, a 14-billion parameter model optimized for complex reasoning tasks. It is trained via supervised fine-tuning of Phi-4 using a carefully curated dataset of high-quality prompts and reasoning demonstrations generated by o3-mini. These prompts span diverse domains—including math, science, coding, and spatial reasoning—and are selected to challenge the base model near its capability boundaries.</p>
+
+
+
+<p>Building on recent findings that reinforcement learning (RL) can further improve smaller models, the team developed <strong>Phi-4-reasoning-plus</strong>, which incorporates an additional outcome-based RL phase using verifiable math problems. This enhances the model’s ability to generate longer, more effective reasoning chains. </p>
+
+
+
+<p>Despite its smaller size, the Phi-4-reasoning family outperforms significantly larger open-weight models such as DeepSeekR1-Distill-Llama-70B and approaches the performance of full-scale frontier models like DeepSeek R1. It excels in tasks requiring multi-step problem solving, logical inference, and goal-directed planning.</p>
+
+
+
+<p>The work highlights the combined value of supervised fine-tuning and reinforcement learning for building efficient, high-performing reasoning models. It also offers insights into training data design, methodology, and evaluation strategies. Phi-4-reasoning contributes to the growing class of reasoning-specialized language models and points toward more accessible, scalable AI for science, education, and technical domains.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-ffbc8879e59f0447803313cfcaec2fea" id="new-research-4">NEW RESEARCH</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="tecofes-text-column-featurization-using-semantic-analysis"><a href="https://www.microsoft.com/en-us/research/publication/tecofes-text-column-featurization-using-semantic-analysis/">TeCoFeS: Text Column Featurization using Semantic Analysis</a></h3>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="952" height="537" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61.png" alt="The workflow diagram illustrates the various steps in the TECOFES approach. Step 0 is the embedding computation module, which calculates embeddings for all rows of text, setting the foundation for subsequent steps. Step 2, the smart sampler, captures diverse samples and feeds them into the labeling module (step 3), which generates labels. These labels are then utilized by the Extend Mapping module (step 4) to map the remaining unlabeled data." class="wp-image-1138646" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61.png 952w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-768x433.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-640x360.png 640w" sizes="auto, (max-width: 952px) 100vw, 952px" /></figure>
+
+
+
+<p>This research introduces a practical, cost-effective solution for enriching tabular data with semantic structure, making it more useful for downstream analysis and insights—which is especially valuable in business intelligence, data cleaning, and automated analytics workflows. This approach outperforms baseline models and naive LLM applications on converted text classification benchmarks.</p>
+
+
+
+<p>Extracting structured insights from free-text columns in tables—such as product reviews or user feedback—can be time-consuming and error-prone, especially when relying on traditional syntactic methods that often miss semantic meaning. This research introduces the semantic text column featurization problem, which aims to assign meaningful, context-aware labels to each entry in a text column.</p>
+
+
+
+<p>The authors propose a scalable, efficient method that combines the power of LLMs with text embeddings. Instead of labeling an entire column manually or applying LLMs to every cell—an expensive process—this new method intelligently samples a diverse subset of entries, uses an LLM to generate semantic labels for just that subset, and then propagates those labels to the rest of the column using embedding similarity.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-ebd4a57aaf54396b4191f2c1fad6c517" id="new-research-5">NEW RESEARCH</h2>
+
+
+
+<h2 class="wp-block-heading" id="agentic-reasoning-and-tool-integration-for-llms-via-reinforcement-learning"><a href="https://www.microsoft.com/en-us/research/publication/agentic-reasoning-and-tool-integration-for-llms-via-reinforcement-learning/">Agentic Reasoning and Tool Integration for LLMs via Reinforcement Learning</a></h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="154" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning.png" alt="diagram" class="wp-image-1138635" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning-300x49.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning-768x126.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning-240x39.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /></figure>
+
+
+
+<p>This work introduces ARTIST (Agentic Reasoning and Tool Integration in Self-improving Transformers), a new paradigm for LLM reasoning that expands beyond traditional language-only inference. </p>
+
+
+
+<p>While LLMs have made considerable strides in complex reasoning tasks, they remain limited by their reliance on static internal knowledge and text-only reasoning. Real-world problem solving often demands dynamic, multi-step reasoning, adaptive decision making, and the ability to interact with external tools and environments. In this research, ARTIST brings together agentic reasoning, reinforcement learning (RL), and tool integration, designed to enable LLMs to autonomously decide when and how to invoke internal tools within multi-turn reasoning chains. ARTIST leverages outcome-based reinforcement learning to learn robust strategies for tool use and environment interaction without requiring step-level supervision.</p>
+
+
+
+<p>Extensive experiments on mathematical reasoning and multi-turn function calling benchmarks show that ARTIST consistently outperforms state-of-the-art baselines, with up to <em>22%</em> absolute improvement over base models and strong gains on the most challenging tasks. Detailed studies show that agentic RL training leads to deeper reasoning, more effective tool use, and higher-quality solutions.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-61c604b63ea2c27eb637663a9f89e42c" id="podcast">PODCAST</h2>
+
+
+
+<h3 class="wp-block-heading h2" id="materialism-podcast-mattergen"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=Ts1Lzc3T54I&list=PLL0SWcFqypClH6_BM-b1BggB7_qifpWgs&index=3">Materialism Podcast: MatterGen<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p>What if you could find materials with tailored properties without ever entering the lab? The Materialism Podcast, which is dedicated to exploring materials science and engineering, talks with Tian Xie from Microsoft Research to discuss MatterGen, an AI tool which accelerates materials science discovery. Tune in to hear a discussion of the new Azure AI Foundry, where MatterGen will interact with and support MatterSim, an advanced deep learning model designed to simulate the properties of materials across a wide range of elements, temperatures, and pressures.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Episode 103: MatterGen" width="500" height="375" src="https://www.youtube-nocookie.com/embed/Ts1Lzc3T54I?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<div style="padding-bottom:64px; padding-top:64px" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner">
+			<div class="wp-block-msr-cards msr-cards msr-cards--default mt-4 has-text-align-left" data-bi-aN="in-the-news-highlights-of-recent-media-coverage-of-microsoft-research">
+	<div class="msr-cards__inner">
+					<div class="heading-wrapper">
+				<h2 class="mb-5 ">IN THE NEWS: Highlights of recent media coverage of Microsoft Research</h2>
+			</div>
+		
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+	<div class="msr-cards__card msr-cards__card--default col">
+	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
+
+		
+		<div class="card-body bg-white p-4 pt-3">
+							<h3 class="h5">
+					<a
+						class="text-decoration-none text-black"
+						data-bi-cN="When ChatGPT Broke an Entire Field: An Oral History"
+						href="https://www.quantamagazine.org/when-chatgpt-broke-an-entire-field-an-oral-history-20250430/"
+					>
+						<span>When ChatGPT Broke an Entire Field: An Oral History</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
+					</a>
+				</h3>
+										<div class="card__description card__citation small">
+					<p>Quanta Magazine | April 30, 2025</p><p>Large language models are everywhere, igniting discovery, disruption and debate in whatever scientific community they touch. But the one they touched first — for better, worse and everything in between — was natural language processing. What did that impact feel like to the people experiencing it firsthand?</p><p>To tell that story, Quanta interviewed 19 NLP experts, including Kalika Bali, senior principal researcher at Microsoft Research. From researchers to students, tenured academics to startup founders, they describe a series of moments — dawning realizations, elated encounters and at least one “existential crisis” — that changed their world. And ours.</p>				</div>
+			
+					</div>
+	</div>
+</div>
+<div class="msr-cards__card msr-cards__card--default col">
+	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
+
+		
+		<div class="card-body bg-white p-4 pt-3">
+						
+					</div>
+	</div>
+</div>
+<div class="msr-cards__card msr-cards__card--default col">
+	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
+
+		
+		<div class="card-body bg-white p-4 pt-3">
+						
+					</div>
+	</div>
+</div>
+</div>
+
+					<div class="justify-content-center text-center mb-4">
+				<a
+					href="https://www.microsoft.com/en-us/research/news-and-awards/"
+					class="btn btn-outline-primary glyph-append glyph-append-small glyph-append-chevron-right msr-cards__cta"
+					data-bi-cN="View more news and awards"
+					data-bi-type="button"
+				>
+					View more news and awards				</a>
+			</div>
+			</div>
+</div>		</div>
+	</div>
+
+	</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-may-7-2025/">Research Focus: Week of May 7, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Microsoft Fusion Summit explores how AI can accelerate fusion research</title>
+		<link>https://www.microsoft.com/en-us/research/blog/microsoft-fusion-summit-explores-how-ai-can-accelerate-fusion-research/</link>
+		
+		<dc:creator><![CDATA[Kenji Takeda, Shruti Rajurkar, Ade Famoti]]></dc:creator>
+		<pubDate>Wed, 07 May 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138503</guid>
+
+					<description><![CDATA[<p>The first Microsoft Research Fusion Summit brought together global experts to explore how AI can help unlock the potential of fusion energy. Discover how collaborations with leading institutions can help speed progress toward clean, scalable energy.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-fusion-summit-explores-how-ai-can-accelerate-fusion-research/">Microsoft Fusion Summit explores how AI can accelerate fusion research</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1.jpg" alt="Sir Steven Cowley, professor and director of the Princeton Plasma Physics Laboratory and former head of the UK Atomic Energy Authority, giving a presentation." class="wp-image-1138569" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Fusion-Summit-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>The pursuit of nuclear fusion as a limitless, clean energy source has long been one of humanity&#8217;s most ambitious scientific goals. Research labs and companies worldwide are working to replicate the fusion process that occurs at the sun’s core, where isotopes of hydrogen combine to form helium, releasing vast amounts of energy. While scalable fusion energy is still years away, researchers are now exploring how AI can help accelerate fusion research and bring this energy to the grid sooner.&nbsp;</p>
+
+
+
+<p>In March 2025, Microsoft Research held its inaugural Fusion Summit, a landmark event that brought together distinguished speakers and panelists from within and outside Microsoft Research to explore this question.&nbsp;</p>
+
+
+
+<p>Ashley Llorens, Corporate Vice President and Managing Director of Microsoft Research Accelerator, opened the Summit by outlining his vision for a self-reinforcing system that uses AI to drive sustainability. Steven Cowley, laboratory director of the U.S. Department of Energy’s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.pppl.gov/" target="_blank" rel="noreferrer noopener">Princeton Plasma Physics Laboratory<span class="sr-only"> (opens in new tab)</span></a>, professor at Princeton University, and former head of the UK Atomic Energy Authority, followed with a keynote explaining the intricate science and engineering behind fusion reactors. His message was clear: advancing fusion will require international collaboration and the combined power of AI and high-performance computing to model potential fusion reactor designs.&nbsp;</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="1st Annual Fusion Summit: Welcome, Opening Remarks, & Distinguished Keynote Lecture" width="500" height="281" src="https://www.youtube-nocookie.com/embed/fVjasUaj4nc?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<h2 class="wp-block-heading" id="applying-ai-to-fusion-research">Applying AI to fusion research</h2>
+
+
+
+<p>North America’s largest fusion facility, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://d3dfusion.org/">DIII-D<span class="sr-only"> (opens in new tab)</span></a>, operated by General Atomics and owned by the US Department of Energy (DOE), provides a unique platform for developing and testing AI applications for fusion research, thanks to its pioneering data and digital twin platform. </p>
+
+
+
+<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.energy.gov/science/articles/meet-richard-buttery-director-diii-d-national-fusion-facility" target="_blank" rel="noreferrer noopener">Richard Buttery<span class="sr-only"> (opens in new tab)</span></a> from DIII-D and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/dave-humphreys-0b21b09/" target="_blank" rel="noreferrer noopener">Dave Humphreys<span class="sr-only"> (opens in new tab)</span></a> from General Atomics demonstrated how the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.ga.com/magnetic-fusion/diii-d" target="_blank" rel="noreferrer noopener">US DIII-D National Fusion Program<span class="sr-only"> (opens in new tab)</span></a> is already applying AI to advance reactor design and operations, highlighting promising directions for future development. They provided examples of how to apply AI to active plasma control to avoid disruptive instabilities, using AI-controlled trajectories to avoid tearing modes, and implementing feedback control using machine learning-derived density limits for safer high-density operations.&nbsp;</p>
+
+
+
+<p>One persistent challenge in reactor design involves building the interior “first wall,” which must withstand extreme heat and particle bombardment. Zulfi Alam, corporate vice president of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://quantum.microsoft.com/" target="_blank" rel="noreferrer noopener">Microsoft Quantum<span class="sr-only"> (opens in new tab)</span></a>, discussed the potential of using quantum computing in fusion, particularly for addressing material challenges like hydrogen diffusion in reactors.</p>
+
+
+
+<p>He noted that silicon nitride shows promise as a barrier to hydrogen and vapor and explained the challenge of binding it to the reaction chamber. He emphasized the potential of quantum computing to improve material prediction and synthesis, enabling more efficient processes. He shared that his team is also investigating advanced silicon nitride materials to protect this critical component from neutron and alpha particle damage—an innovation that could make fusion commercially viable.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115760">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/neurips-2024-the-co-evolution-of-ai-and-systems-with-lidong-zhou/" aria-label="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" data-bi-cN="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Lidong-and-Eliza_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Lidong Zhou and Eliza Strickland" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou</h2>
+				
+								<p class="large">Just after his NeurIPS 2024 keynote on the co-evolution of systems and AI, Microsoft CVP Lidong Zhou joins the podcast to discuss how rapidly advancing AI impacts the systems supporting it and the opportunities to use AI to enhance systems engineering itself.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/podcast/neurips-2024-the-co-evolution-of-ai-and-systems-with-lidong-zhou/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="NeurIPS 2024: The co-evolution of AI and systems with Lidong Zhou" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="exploring-ai-s-broader-impact-on-fusion-engineering">Exploring AI’s broader impact on fusion engineering</h2>
+
+
+
+<p>Lightning talks from Microsoft Research labs addressed the central question of AI’s potential to accelerate fusion research and engineering. Speakers covered a wide range of applications—from using <a href="https://www.microsoft.com/en-us/research/blog/introducing-muse-our-first-generative-ai-model-designed-for-gameplay-ideation/?msockid=0bc6ff71aae1636d05f4edf0ab8262b9" target="_blank" rel="noreferrer noopener">gaming AI</a> for plasma control and <a href="https://www.microsoft.com/en-us/research/collaboration/embodied-ai">robotics</a> for remote maintenance to physics-informed <a href="https://www.microsoft.com/en-us/research/story/ai-meets-materials-discovery/">AI for simulating materials</a> and <a href="https://www.microsoft.com/en-us/research/project/lordnet-neural-pde-solver/">plasma behavior</a>. Closing the session, Archie Manoharan, Microsoft’s director of nuclear engineering for Cloud Operations and Infrastructure, emphasized the need for a <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/09/20/accelerating-the-addition-of-carbon-free-energy-an-update-on-progress/" target="_blank" rel="noreferrer noopener">comprehensive energy strategy</a>, one that incorporates renewables, efficiency improvements, storage solutions, and carbon-free sources like fusion.</p>
+
+
+
+<p>The Summit culminated in a thought-provoking panel discussion moderated by Ade Famoti, featuring Archie Manoharan, Richard Buttery, Steven Cowley, and Chris Bishop, Microsoft Technical Fellow and director of <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai-for-science/" target="_blank" rel="noreferrer noopener">Microsoft Research AI for Science</a>. Their wide-ranging conversation explored the key challenges and opportunities shaping the field of fusion.&nbsp;</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Nuclear Fusion - Fireside Discussion" width="500" height="281" src="https://www.youtube-nocookie.com/embed/ruopuxf4Dgk?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>The panel highlighted several themes: the role of new regulatory frameworks that balance innovation with safety and public trust; the importance of materials discovery in developing durable fusion reactor walls; and the game-changing role AI could play in plasma optimization and surrogate modelling of fusion’s underlying physics.</p>
+
+
+
+<p>They also examined the importance of global research collaboration, citing projects like the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.iter.org/" target="_blank" rel="noreferrer noopener">International Thermonuclear Experimental Reactor<span class="sr-only"> (opens in new tab)</span></a> (ITER), the world’s largest experimental fusion device under construction in southern France, as testbeds for shared progress. One persistent challenge, however, is data scarcity. This prompted a discussion of using physics-informed neural networks as a potential approach to supplement limited experimental data.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="global-collaboration-and-next-steps">Global collaboration and next steps</h2>
+
+
+
+<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/source/emea/features/nuclear-fusion-delivering-on-the-promise-of-carbon-free-power-with-the-help-of-ai/?msockid=394581ce06c567df2171946b073d6601" target="_blank" rel="noreferrer noopener">Microsoft is collaborating with ITER<span class="sr-only"> (opens in new tab)</span></a> to help advance the technologies and infrastructure needed to achieve fusion ignition—the critical point where a self-sustaining fusion reaction begins, using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/source/emea/features/nuclear-fusion-delivering-on-the-promise-of-carbon-free-power-with-the-help-of-ai/?msockid=0bc6ff71aae1636d05f4edf0ab8262b9" target="_blank" rel="noreferrer noopener">Microsoft 365 Copilot, Azure OpenAI Service, Visual Studio, and GitHub<span class="sr-only"> (opens in new tab)</span></a>. Microsoft Research is now cooperating with ITER to identify where AI can be leveraged to model future experiments to optimize its design and operations. </p>
+
+
+
+<p>Now Microsoft Research has signed a Memorandum of Understanding with the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.pppl.gov/" target="_blank" rel="noreferrer noopener">Princeton Plasma Physics Laboratory (PPPL)<span class="sr-only"> (opens in new tab)</span></a> to foster collaboration through knowledge exchange, workshops, and joint research projects. This effort aims to address key challenges in fusion, materials, plasma control, digital twins, and experiment optimization. Together, Microsoft Research and PPPL will work to drive innovation and advances in these critical areas.</p>
+
+
+
+<p>Fusion is a scientific challenge unlike any other and could be key to sustainable energy in the future. We’re excited about the role AI can play in helping make that vision a reality. To learn more, visit the&nbsp;<a href="https://www.microsoft.com/en-us/research/event/1st-annual-fusion-summit/">Fusion Summit event page</a>, or connect with us by email at&nbsp;<a href="mailto:FusionResearch@microsoft.com">FusionResearch@microsoft.com</a>.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-fusion-summit-explores-how-ai-can-accelerate-fusion-research/">Microsoft Fusion Summit explores how AI can accelerate fusion research</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Abstracts: Societal AI with Xing Xie</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/abstracts-societal-ai-with-xing-xie/</link>
 		
@@ -32,11 +418,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-societal-ai-with-xing-xie/">Abstracts: Societal AI with Xing Xie</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Xing Xie illustrated headshot" class="wp-image-1138272" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Xing Xie illustrated headshot" class="wp-image-1138272" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=145025711&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=145025711&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -287,7 +673,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/societal-ai-building-human-centered-ai-systems/">Societal AI: Building human-centered AI systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1.jpg" alt="Societal AI surrounded by a circle with two directional arrows in the center of a rectangle with Computer Science and a computer icon on the left with a directional arrow pointing to Social Science on the right with two avatar icons." class="wp-image-1136604" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1.jpg" alt="Societal AI surrounded by a circle with two directional arrows in the center of a rectangle with Computer Science and a computer icon on the left with a directional arrow pointing to Social Science on the right with two avatar icons." class="wp-image-1136604" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Societal-AI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -2288,7 +2674,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115763">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -2297,20 +2683,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" aria-label="AIOpsLab: Building AI agents for autonomous clouds" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/AIOps-Lab-BlogHeroFeature-1400x788-1.png" alt="White outline illustrations for AIOps on a blue and green gradient background." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+									<h2 class="h4">AIOpsLab: Building AI agents for autonomous clouds</h2>
 				
-								<p class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+								<p class="large">AIOpsLab is an open-source framework designed to evaluate and improve AI agents for cloud operations, offering standardized, scalable benchmarks for real-world testing, enhancing cloud system reliability.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
 							Read more						</a>
 					</div>
 				</div>
@@ -3962,30 +4348,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085514">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: blog post</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MRF-24_WebImage_1400x788.png" alt="various abstract 3D shapes on a light blue background" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" aria-label="GraphRAG auto-tuning provides rapid adaptation to new domains" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/GraphRag-3-BlogHeroFeature-1400x788-1.png" alt="GraphRAG image on blue to green gradient" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">GraphRAG auto-tuning provides rapid adaptation to new domains</h2>
 				
-								<p class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p class="large">GraphRAG uses LLM-generated knowledge graphs to substantially improve complex Q&A over retrieval-augmented generation (RAG). Discover automatic tuning of GraphRAG for new datasets, making it more accurate and relevant.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://researchforum.microsoft.com/?OCID=msr_researchforum_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Watch on-demand" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/blog/graphrag-auto-tuning-provides-rapid-adaptation-to-new-domains/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="GraphRAG auto-tuning provides rapid adaptation to new domains" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4016,1621 +4402,6 @@
 
 <p>We thank Ruoyao Wang for their insightful discussion on building interactive debugging agents, Chris Templeman and Elaina Maffeo for their team coaching, Jessica Mastronardi and Rich Ciapala for their kind support in project management and resource allocation, and Peter Jansen for providing valuable feedback for the technical report.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/debug-gym-an-environment-for-ai-coding-tools-to-learn-how-to-debug-code-like-programmers/">Debug-gym: an environment for AI coding tools to learn how to debug code like programmers</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Research Focus: Week of April 7, 2025</title>
-		<link>https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-7-2025/</link>
-		
-		<dc:creator><![CDATA[Microsoft Research Team]]></dc:creator>
-		<pubDate>Wed, 09 Apr 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1136066</guid>
-
-					<description><![CDATA[<p>In this issue: We introduce a new dataset designed to assist renewable energy infrastructure planners, a new method for denoising MRI imagery, and an AI tool for analyzing distant galaxies. Check out our latest research and other updates. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-7-2025/">Research Focus: Week of April 7, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<p class="has-text-align-center"><strong>In this issue:</strong></p>
-
-
-
-<p>We introduce a new dataset designed to assist renewable energy infrastructure planners, a new method for denoising MRI imagery, and an AI tool for analyzing distant galaxies. Check out our latest research and other updates.&nbsp;</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus -- Week of April 7" class="wp-image-1136071" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/RF59-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-e734c6e9609233ab051742bb3beeed63" id="new-research">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="global-renewables-watch-a-temporal-dataset-of-solar-and-wind-energy-derived-from-satellite-imagery">Global Renewables Watch: A Temporal Dataset of Solar and Wind Energy Derived from Satellite Imagery</h3>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="899" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-scaled.jpg" alt="A 2-panel figure. The left panel shows a global map with the distribution of 86,410 solar PV installations points and 375,197 onshore windmills points detected by our models in 2024 Q2. The right panel shows satellite imagery with annotated solar and wind installations over the village of Farmsum in the Dutch province of Groningen. " class="wp-image-1136208" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-300x105.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-1024x360.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-768x270.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-1536x540.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-2048x719.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Global-Renewables-Watch-FIG1-1-240x84.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<p>Siting renewable energy infrastructure requires careful consideration of the potential impact on ecosystems, cultural and historical resources, agriculture, and scenic landscapes. To help policymakers, researchers, and other stakeholders assess strategies for deployment, researchers from Microsoft, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.org/en-us/" target="_blank" rel="noreferrer noopener">The Nature Conservancy<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.planet.com/" target="_blank" rel="noreferrer noopener">Planet<span class="sr-only"> (opens in new tab)</span></a> present a comprehensive global temporal dataset of commercial solar photovoltaic (PV) farms and onshore wind turbines.</p>
-
-
-
-<p>The researchers built the dataset by training deep learning-based segmentation models on high-resolution satellite imagery and then deploying them on over 13 trillion pixels of images covering the world. The final spatial dataset includes 375,197 individual wind turbines and 86,410 solar photovoltaic installations. For each detected feature, they estimate the construction date and the preceding land use type, and aggregate their findings to the country level, along with estimates of total power capacity.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-14 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--17"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/global-renewables-watch-a-temporal-dataset-of-solar-and-wind-energy-derived-from-satellite-imagery/">Read the paper</a></div>
-</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-9a2357e04d6b68359937ec2fcc67b1a5" id="new-research-1">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="snraware-improved-deep-learning-mri-denoising-with-snr-unit-training-and-g-factor-map-augmentation">SNRAware: Improved Deep Learning MRI Denoising with SNR Unit Training and G-factor Map Augmentation</h3>
-
-
-
-<p>This research proposes a new training method, SNRAware, to improve the ability of deep learning models to denoise—or remove unwanted random variations—from MRI images. MRI images can suffer from high levels of noise when scanning is accelerated with parallel imaging or when data are acquired using lower cost, low-field MRI systems. &nbsp;</p>
-
-
-
-<p>The researchers tested SNRAware on 14 different models, including ones based on transformer and convolutional architectures. The proposed training scheme improved the performance of all the tested models. This broad applicability means that the method is flexible and can be applied to different kinds of models without redesigning them. The testing showed SNRAware significantly improves the quality and clinical utility of MRI images while preserving important diagnostic details.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1152" height="648" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/SNRAware.gif" alt="The movies correspond to the example in Figure 1b. The ground-truth clean 
-image is the single one on the left.  The first row are the noisy samples. The second 
-row are the SNR images. " class="wp-image-1136115"/></figure>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-15 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--18"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/snraware-improved-deep-learning-mri-denoising-with-snr-unit-training-and-g-factor-map-augmentation/">Read the paper</a></div>
-</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-8580525ca5a22a10ee7a4694b8f59445" id="new-research-2">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="can-ai-unlock-the-mysteries-of-the-universe">Can AI unlock the mysteries of the universe? </h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1200" height="627" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/galaxies_analysis-TWLIFB-1200x627-1.jpg" alt="An astronomer’s workflow involves using a space telescope to observe a large number galaxies. Astronomers identify “interesting” phenomena and attempt to explain them through a series of physical models." class="wp-image-1136077" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/galaxies_analysis-TWLIFB-1200x627-1.jpg 1200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/galaxies_analysis-TWLIFB-1200x627-1-300x157.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/galaxies_analysis-TWLIFB-1200x627-1-1024x535.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/galaxies_analysis-TWLIFB-1200x627-1-768x401.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/galaxies_analysis-TWLIFB-1200x627-1-240x125.jpg 240w" sizes="auto, (max-width: 1200px) 100vw, 1200px" /></figure>
-
-
-
-<p>Analyzing the physical properties of individual galaxies is a fundamental skill in astronomy. It requires a thorough understanding of galaxy formation theories and the ability to interpret vast amounts of observational data. However, even for seasoned astronomers, this process can be time-consuming and labor-intensive. To help astronomers accelerate this fundamental process, researchers from Microsoft and external colleagues introduce <a href="https://www.microsoft.com/en-us/research/publication/interpreting-multi-band-galaxy-observations-with-large-language-model-based-agents/">Mephisto,</a> research designed to analyze extremely distant galaxies observed by the James Webb Space Telescope (JWST).</p>
-
-
-
-<p>Mephisto analyzes photometric data from distant galaxies, proposing physical models and interacting with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cigale.lam.fr/" target="_blank" rel="noreferrer noopener">Code Investigating Galaxy Emission<span class="sr-only"> (opens in new tab)</span></a>, a commonly used galaxy spectral simulation program. Mephisto can detect discrepancies between models and observational data, identifies potential instrumental errors or limitations in the models, iteratively adjusts parameters, and generates multiple explanations for the observational data.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--19"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/articles/can-ai-unlock-the-mysteries-of-the-universe/">Read the article</a></div>
-</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-7f9ceb7f278a1e69211971cf8e80d961" id="applied-ai">APPLIED AI</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="japan-airlines-new-ai-app-will-make-it-easier-for-cabin-attendants-to-report-inflight-events-with-microsoft-s-phi-4-small-language-model">Japan Airlines’ new AI app will make it easier for cabin attendants to report inflight events with Microsoft’s Phi-4 small language model</h3>
-
-
-
-<p>Japan Airlines (JAL) is using technology developed by Microsoft Research to deploy an AI app that helps flight crews communicate more effectively with ground staff when something unexpected comes up during a flight.</p>
-
-
-
-<p>The JAL-AI Report is being developed using Microsoft’s Phi-4 small language model (SLM), which requires less computing power than the large language models (LLMs) most generative AI tools run on, so it can be used offline on a device for specific tasks.</p>
-
-
-
-<p>Cabin attendants who have tried it say it can slash the time for writing operation reports by up to two thirds, say, from one hour to 20 minutes, or from 30 minutes to 10 for simpler cases.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-17 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--20"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://news.microsoft.com/source/asia/features/japan-airlines-new-ai-app-will-make-it-easier-for-cabin-attendants-to-report-inflight-events-with-microsofts-phi-4-small-language-model/" target="_blank" rel="noreferrer noopener">Read the story</a></div>
-</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<div style="padding-bottom:64px; padding-top:64px" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner">
-			<div class="wp-block-msr-cards msr-cards msr-cards--default mt-4 has-text-align-left" data-bi-aN="microsoft-research-in-case-you-missed-it">
-	<div class="msr-cards__inner">
-					<div class="heading-wrapper">
-				<h2 class="mb-5 ">Microsoft Research | In case you missed it</h2>
-			</div>
-		
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
-	<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="AI weather forecast project eyes access through desktop computers"
-						href="https://www.ft.com/content/73492128-5822-4bb2-b953-64217eb303e4"
-					>
-						<span>AI weather forecast project eyes access through desktop computers</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>Financial Times | March 20, 2025</p><p>Aardvark Weather uses AI to deliver accurate forecasts in just minutes from a desktop computer. Developed by scientists at the University of Cambridge, with support from the Alan Turing Institute, Microsoft Research, and the European Centre for Medium-Range Weather Forecasts, this technology is tens of times faster than existing methods and requires only a fraction of the computing power.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="Director of Microsoft Research talks AI for science (what it really means)"
-						href="https://www.youtube.com/watch?v=rfyS_rLOKUc"
-					>
-						<span>Director of Microsoft Research talks AI for science (what it really means)</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>The Deep View | March 11, 2025</p><p>Chris Bishop, Director, AI for Science, Microsoft Research, discusses what AI is doing for science. This interview dives into how AI is accelerating discovery of new techniques and findings, the benefits of foundation models like Aurora, MatterGen’s capabilities, and AI’s impact on scientists.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="Microsoft’s Christopher Bishop: Scientific discovery is AI’s killer application"
-						href="https://archive.ph/I6K88#selection-1571.0-1571.79"
-					>
-						<span>Microsoft’s Christopher Bishop: Scientific discovery is AI’s killer application</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>Financial Times | April 3, 2025</p><p>Christopher Bishop runs Microsoft’s AI for Science research unit, which applies the powerful technology to the natural sciences. Bishop sees the mission of the lab, which was founded in 2022, as accelerating scientific discovery using the technology.</p><p>In this conversation with the Financial Times’ AI editor Madhumita Murgia, he explains why he believes scientific discovery will prove to be the single most important application of the technology.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="Innovation to Impact (ft. Dr M - DGTL Voices with Ed Marx)"
-						href="https://podcasts.apple.com/us/podcast/innovation-to-impact-ft-dr-matthew-lungren-dr-jonathan/id1552066046?i=1000698934775"
-					>
-						<span>Innovation to Impact (ft. Dr M &#8211; DGTL Voices with Ed Marx)</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>DGTL Voices with Ed Marx | March 12, 2025</p><p>Matthew Lungren, Chief Scientific Officer, Microsoft Health and Life Sciences, and Jonathan Carlson, Managing Director, Microsoft Health Futures, discuss AI&#8217;s transformative impact on radiology and the importance of collaboration in research and product development. They highlight how healthcare organizations can leverage Microsoft&#8217;s resources for innovation, emphasizing Microsoft&#8217;s progress in developing radiology-specific multimodal models and its broader work in healthcare.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="Tech Life - The doctor will see you now"
-						href="https://www.bbc.co.uk/sounds/play/w3ct5wnm"
-					>
-						<span>Tech Life &#8211; The doctor will see you now</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>BBC Sounds | March 4, 2025</p><p>An update from the live trials in Ghana of Microsoft Research&#8217;s Holoportation 3D telemedicine technology. BBC&#8217;s Tech Life speaks to lead researcher Spencer Fowers, as well as a patient and doctor benefiting from the portable kit.</p><p>Related video: <a href="https://newsroom.ap.org/editorial-photos-videos/detail?itemid=997c14f31e214dd1b9c7a09af8a79d27" target="_blank" rel="noreferrer noopener">3D telemedicine offers help to sick Ghanaians in remote locations</a></p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="Microsoft Unveils New AI Model to Edit Video Games"
-						href="https://spectrum.ieee.org/ai-video-games"
-					>
-						<span>Microsoft Unveils New AI Model to Edit Video Games</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>IEEE Spectrum | March 11, 2025</p><p>Lead researcher Katja Hoffman discusses Microsoft&#8217;s Muse, a transformer model with 1.6 billion parameters trained on 500,000 hours of player data that can generate gameplay examples from a single screenshot.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="National University of Singapore collaborates with Microsoft Research Asia to advance AI research and cultivate computing talent"
-						href="https://news.nus.edu.sg/nus-microsoft-research-asia-advance-ai-research-cultivate-computing-talent/"
-					>
-						<span>National University of Singapore collaborates with Microsoft Research Asia to advance AI research and cultivate computing talent</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>NUS News | April 2, 2025</p><p>The National University of Singapore (NUS) has signed a five-year collaboration agreement with Microsoft Research Asia for a Joint PhD Supervision Program, bringing together NUS&#8217;s academic and research excellence with Microsoft Research Asia’s global leadership in AI, computing research, and industrial applications to cultivate talent. As part of this collaboration, NUS and Microsoft Research Asia will nurture PhD students through the Industrial Postgraduate Program, supported by the Singapore Economic Development Board (EDB). This initiative will help to cultivate interdisciplinary, high-caliber tech professionals and drive the integration of AI technology across industries.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="How Microsoft made it through 50 years"
-						href="https://www.theverge.com/microsoft/643246/microsoft-50-business-model-cloud-ai"
-					>
-						<span>How Microsoft made it through 50 years</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>The Verge | April 4, 2025</p><p>A lot has changed since Microsoft was founded, but in many ways, the company’s core business model and ethos remain the same: make software that everyone needs and get it installed everywhere. Adapting to change, including the ongoing AI transformation, has always played an important role in the company&#8217;s success.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-</div>
-
-					<div class="justify-content-center text-center mb-4">
-				<a
-					href="https://www.microsoft.com/en-us/research/news-and-awards/"
-					class="btn btn-outline-primary glyph-append glyph-append-small glyph-append-chevron-right msr-cards__cta"
-					data-bi-cN="View more news and awards"
-					data-bi-type="button"
-				>
-					View more news and awards				</a>
-			</div>
-			</div>
-</div>		</div>
-	</div>
-
-	</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-april-7-2025/">Research Focus: Week of April 7, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Real-world healthcare AI development and deployment—at scale</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-real-world-healthcare-ai-development-and-deployment-at-scale/</link>
-		
-		<dc:creator><![CDATA[Peter Lee, Matthew Lungren, Seth Hain]]></dc:creator>
-		<pubDate>Thu, 03 Apr 2025 13:00:00 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1135527</guid>
-
-					<description><![CDATA[<p>Microsoft’s Dr. Matthew Lungren and Epic’s Seth Hain discuss the challenges and opportunities of leveraging generative AI for enhanced patient care and improved clinical documentation and recordkeeping at scale—plus what’s next for the technology in the field.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-real-world-healthcare-ai-development-and-deployment-at-scale/">Real-world healthcare AI development and deployment—at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1.jpg" alt="AI Revolution podcast | Episode 2 - Real-world healthcare AI development and deployment—at scale | outline illustration of Seth Hain, Peter Lee, Dr. Matthew Lungren" class="wp-image-1135817" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Episode2-Peter-Seth-Matt-AIRevolution_Hero_Feature_No_Text_1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=144098908&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Two years ago, OpenAI’s GPT-4 kick-started a new era in AI. In the months leading up to its public release, Peter Lee, president of Microsoft Research, cowrote a book full of optimism for the potential of advanced AI models to transform the world of healthcare. What has happened since? In this special podcast series, <em>The AI Revolution in Medicine, Revisited</em>, Lee revisits the book, exploring how patients, providers, and other medical professionals are experiencing and using generative AI today while examining what he and his coauthors got right—and what they didn’t foresee.&nbsp;</p>
-
-
-
-<p>In this episode, <a href="https://www.microsoft.com/en-us/research/people/mlungren/" target="_blank" rel="noreferrer noopener">Dr. Matthew Lungren<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/seth-hain-12760647/" target="_blank" rel="noreferrer noopener">Seth Hain<span class="sr-only"> (opens in new tab)</span></a>, leaders in the implementation of healthcare AI technologies and solutions at scale, join Lee to discuss the latest developments. Lungren, the chief scientific officer at Microsoft Health and Life Sciences, explores the creation and deployment of generative AI for automating clinical documentation and administrative tasks like clinical note-taking. Hain, the senior vice president of R&D at the healthcare software company Epic, focuses on the opportunities and challenges of integrating AI into electronic health records at global scale, highlighting AI-driven workflows, decision support, and Epic’s Cosmos project, which leverages aggregated healthcare data for research and clinical insights.&nbsp;</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h5" id="learn-more">Learn more:</h2>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/industry/blog/healthcare/2025/03/03/meet-microsoft-dragon-copilot-your-new-ai-assistant-for-clinical-workflow/?msockid=35739e94ab6c69d41b738b93aa076831" target="_blank" rel="noreferrer noopener">Meet Microsoft Dragon Copilot: Your new AI assistant for clinical workflow</a>&nbsp;<br>Microsoft Industry Blog | March 2025&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/industry/blog/healthcare/2024/10/10/unlocking-next-generation-ai-capabilities-with-healthcare-ai-models/" target="_blank" rel="noreferrer noopener">Unlocking next-generation AI capabilities with healthcare AI models</a>&nbsp;<br>Microsoft Industry Blog | October 2024&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/articles/multimodal-generative-ai-the-next-frontier-in-precision-health/" target="_blank" rel="noreferrer noopener">Multimodal Generative AI: the Next Frontier in Precision Health</a>&nbsp;<br>Microsoft Research Forum | March 2024&nbsp;</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/learning/an-introduction-to-how-generative-ai-will-transform-healthcare" target="_blank" rel="noreferrer noopener">An Introduction to How Generative AI Will Transform Healthcare with Dr. Matthew Lungren<span class="sr-only"> (opens in new tab)</span></a>&nbsp;<br>LinkedIn Learning&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/video/ai-for-precision-health/" target="_blank" rel="noreferrer noopener">AI for Precision Health</a>&nbsp;<br>Video | July 2023&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/chexnet-radiologist-level-pneumonia-detection-on-chest-x-rays-with-deep-learning/" target="_blank" rel="noreferrer noopener">CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning</a>&nbsp;<br>Publication | December 2017&nbsp;</p>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cosmos.epic.com/" target="_blank" rel="noreferrer noopener">Epic Cosmos<span class="sr-only"> (opens in new tab)</span></a>&nbsp;<br>Homepage</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/the-ai-revolution-in-medicine-gpt-4-and-beyond/" target="_blank" rel="noreferrer noopener">The AI Revolution in Medicine: GPT-4 and Beyond</a>&nbsp;<br>Book | April 2023</p>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[MUSIC] &nbsp;</p>
-
-
-
-<p>[BOOK PASSAGE]  &nbsp;</p>
-
-
-
-<p><strong>PETER LEE:</strong> “It&#8217;s hard to convey the huge complexity of today&#8217;s healthcare system. Processes and procedures, rules and regulations, and financial benefits and risks all interact, evolve, and grow into a giant edifice of paperwork that is well beyond the capability of any one human being to master. This is where the assistance of an AI like GPT-4 can be not only useful—but crucial.”&nbsp;&nbsp;&nbsp;</p>
-
-
-
-<p>[END OF BOOK PASSAGE] &nbsp;</p>
-
-
-
-<p>[THEME MUSIC] &nbsp;</p>
-
-
-
-<p>This is <em>The AI Revolution in Medicine, Revisited</em>. I’m your host, Peter Lee. &nbsp;</p>
-
-
-
-<p>Shortly after OpenAI&#8217;s GPT-4 was publicly released, Carey Goldberg, Dr. Zak Kohane, and I published <em>The AI Revolution in Medicine </em>to help educate the world of healthcare and medical research about the transformative impact this new generative AI technology could have. But because we wrote the book when GPT-4 was still a secret, we had to speculate. Now, two years later, what did we get right, and what did we get wrong?  &nbsp;</p>
-
-
-
-<p>In this series, we’ll talk to clinicians, patients, hospital administrators, and others to understand the reality of AI in the field and where we go from here.</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-21" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p>[THEME MUSIC FADES]&nbsp;</p>
-
-
-
-<p>The passage I read at the top there is from Chapter 7 of the book, “The Ultimate Paperwork Shredder.”&nbsp;&nbsp;</p>
-
-
-
-<p>Paperwork plays a particularly important role in healthcare. It helps convey treatment information that supports patient care, and it’s also used to help demonstrate that providers are meeting regulatory responsibilities, among other things. But if we’re being honest, it’s taxing—for everyone—and it’s a big contributor to the burnout our clinicians are experiencing today. Carey, Zak, and I identified this specific pain point as one of the best early avenues to pursue as far as putting generative AI to good work in the healthcare space. &nbsp;</p>
-
-
-
-<p>In this episode, I’m excited to welcome Dr. Matt Lungren and Seth Hain to talk about matching technological advancements in AI to clinical challenges, such as the paperwork crisis, to deliver solutions in the clinic and in the health system back office. &nbsp;</p>
-
-
-
-<p>Matt is the chief scientific officer for Microsoft Health and Life Sciences, where he focuses on translating cutting-edge technology, including generative AI and cloud services, into innovative healthcare applications. He&#8217;s a clinical interventional radiologist and a clinical machine learning researcher doing collaborative research and teaching as an adjunct professor at Stanford University. His scientific work has led to more than 200 publications, including work on new computer vision and natural language processing approaches for healthcare. &nbsp;</p>
-
-
-
-<p>Seth is senior vice president of research and development at Epic, a leading healthcare software company specializing in electronic health record systems, also known as <em>EHR</em>, as well as other solutions for connecting clinicians and patients. During his 19 years at Epic, Seth has worked on enhancing the core analytics and other technologies in Epic&#8217;s platforms as well as their applications across medicine,<strong> </strong>bringing together his graduate training in mathematics and his dedication to better health. &nbsp;</p>
-
-
-
-<p>I&#8217;ve had the pleasure of working closely with both Matt and Seth. Matt, as a colleague here at Microsoft, really focused on our health and life sciences business. And Seth, as a collaborator at Epic, as we embark on the questions of how to integrate and deploy generative AI into clinical applications at scale.  &nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p>Here&#8217;s my conversation with Dr. Matt Lungren: &nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Matt, welcome. It&#8217;s just great to have you here.&nbsp;</p>
-
-
-
-<p><strong>MATTHEW LUNGREN:</strong> Thanks so much, Peter. Appreciate being here.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So, I&#8217;d like to just start just talking about you. You know, I had mentioned your role as the chief scientific officer for Microsoft Health and Life Sciences. Of course, that&#8217;s just a title. So, what the heck is that? What is your job exactly? And, you know, what does a typical day at work look like for you?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN: </strong>So, really what you could boil my work down to is essentially cross collaboration, right. We have a very large company, lots of innovation happening all over the place, lots of partners that we work with and then obviously this sort of healthcare mission.</p>
-
-
-
-<p>And so, what innovations, what kind of advancements are happening that can actually solve clinical problems, right, and sort of kind of direct that. And we can go into some examples, you know, later. But then the other direction, too, is important, right. So, identifying problems that may benefit from a technologic application or solution and kind of translating that over into the, you know, pockets of innovation saying, “Hey, if you kind of tweaked it this way, this is something that would really help, you know, the clinical world.”&nbsp;&nbsp;</p>
-
-
-
-<p>And so, it&#8217;s really a bidirectional role. So, my day to day is … every day is a little different, to be honest with you. Some days it&#8217;s very much in the science and learning about new techniques. On the other side, though, it can be very much in the clinic, right. So, what are the pain points that we&#8217;re seeing? Where are the gaps in the solutions that we&#8217;ve already rolled out? And, you know, again, what can we do to make healthcare better broadly?&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So, you know, I think of you as a technologist, and, Matt, you and I actually are colleagues working together here at Microsoft. But you also do spend time in the clinic still, as well, is that right?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> You know, initially it was kind of a … very much a non-negotiable for me … in sort of taking an industry role. I think like a lot of, you know, physicians, you know, we&#8217;re torn with the idea of like, hey, I spent 20 years training. I love what I do, you know, with a lot of caveats there in terms of some of the administrative burden and some of the hassle sometimes. But for the most part, I love what I do, and there&#8217;s no greater feeling than using something that you trained years to do and actually see the impact on a human life. It&#8217;s unbelievable, right.&nbsp;&nbsp;</p>
-
-
-
-<p>So, I think part of me was just, like, I didn&#8217;t want to let that part of my identity go. And frankly, as I often say, to this day, I walk by a fax machine in our office <em>today</em>, like in 2025.&nbsp;&nbsp;</p>
-
-
-
-<p>So just to be extra clear, it really grounds me in, like, yes, I love the possibilities. I love thinking about what we can do. But also, I have a very stark understanding of the reality on the ground, both in terms of the technology but also the burnout, right. The challenges that we&#8217;re facing in taking care of patients has gotten, you know, much, much more difficult in the last few years, and, you know, I like to think it keeps my perspective, yeah.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>You know, I think some listeners to this podcast might be surprised that we have doctors on staff in technical roles at Microsoft. How do you explain that to people?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> [LAUGHS] Yeah, no, yeah, it is interesting. I would say that, you know, from, you know, the legacy Nuance <a href="#ftn_1">[1]</a> world, it wasn&#8217;t so far-fetched that you have physicians that were power users and eventually sort of, you know, became, “Hey, listen, I think this is a strategic direction; you should take it&#8221; or whatever. And certainly maybe in the last, I want to say, five years or so, I&#8217;ve seen more and more physicians who have, you know, taken the time, sometimes on their own, to learn some of the AI capabilities, learn some of the principles and concepts; and frankly, some are, you know, even coding solutions and leading companies.</p>
-
-
-
-<p>So, I do think that that has shifted a bit in terms of like, “Hey, doctor, this is your lane, and over here, you know, here&#8217;s a technical person.” And I think that&#8217;s fused quite a bit more.&nbsp;&nbsp;</p>
-
-
-
-<p>But yeah, it is an unusual thing, I think, in sort of how we&#8217;ve constructed what at least my group does. But again, I can&#8217;t see any other way around some of the challenges.&nbsp;&nbsp;</p>
-
-
-
-<p>I think, you know, an anecdote I’d like to tell you, when I was running the AIMI [Artificial Intelligence in Medicine and Imaging] Center, you know, we were bringing the medical school together with the computer science department, right, at Stanford. And I remember one day a student, you know, very smart, came into my office, you know, a clinical day or something, and he&#8217;s like, is there just, like, a book or something where I can just learn medicine? Because, like, I feel like there&#8217;s a lot of, like, translation you have to do for me.&nbsp;&nbsp;</p>
-
-
-
-<p>It really raised an important insight, which is that you can learn the, you know, medicine, so to speak. You know, go to med school; you know, take the test and all that. But it really … you don&#8217;t really understand the practice of medicine until you are doing that.&nbsp;&nbsp;</p>
-
-
-
-<p>And in fact, I even push it a step further to say after training those first two or three years of … <em>you</em> are the responsible person; you can turn around, and there&#8217;s no one there. Like, you are making a decision. Getting used to that and then having a healthy respect for that actually I think provides the most educational value of anything in healthcare.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>You know, I think what you&#8217;re saying is so important because as I reflect on my own journey. Of course, I&#8217;m a computer scientist. I don&#8217;t have medical training, although at this point, I feel confident that I could pass a Step 1 medical exam.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LUNGREN: </strong>I have no doubt. [LAUGHS]&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> But I think that the tech industry, because of people like you, have progressed tremendously in having a more sophisticated and nuanced understanding of what actually goes on in clinic and also what goes on in the boardrooms of healthcare delivery organizations. And of course, at the end of the day, I think that&#8217;s really been your role.&nbsp;&nbsp;</p>
-
-
-
-<p>So roughly speaking, your job as an executive at a big tech company has been to understand what the technology platforms need to be, particularly with respect to machine learning, AI, and cloud computing, to best support healthcare. And so maybe let&#8217;s start <em>pre</em>-GPT-4, <em>pre</em>-ChatGPT, and tell us a little bit, you know, about maybe some of your proudest moments in getting advanced technologies like AI into the clinic.&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> You know, when I first started, so remember, like you go all the way back to about 2013, right, my first faculty job, and, you know, we&#8217;re building a clinical program and I, you know, I had a lot of interest in public health and building large datasets for pop [population] health, etc. But I was doing a lot of that, you know, sort of labeling to get those insights manually, right. So, like, I was the person that you&#8217;d probably look at now and say, “What are you doing?” Right?&nbsp;&nbsp;</p>
-
-
-
-<p>So … but I had a complete random encounter with Andrew Ng, who I didn&#8217;t know at the time, at Stanford. And I, you know, went to one of the seminars that he was holding at the Gates building, and, you know, they were talking about their performance on ImageNet. You know, cat and dog and, you know, tree, bush, whatever. And I remember sitting in kind of the back, and I think I maybe had my scrubs on at the time and just kind of like, what? Like, why … like, this … we could use this in healthcare, you know. [LAUGHS]&nbsp;&nbsp;</p>
-
-
-
-<p>But for me, it was a big moment. And I was like, this is huge, right. And as you remember, the deep learning really kind of started to show its stuff with, you know, Fei-Fei Li&#8217;s ImageNet stuff.</p>
-
-
-
-<p>So anyway, we started the collaboration that actually became <strong>a NIDUS</strong>. And one of the first things we worked on, we just said, “Listen, one of the most common medical imaging examinations in the world is the chest x-ray.” Right? Two, three billion are done every year in the world, and so is that not a great place to start?</p>
-
-
-
-<p>And of course, we had a very democratizing kind of mission. As you know, Andrew has done a lot of work in that space, and I had similar ambitions. And so, we really started to focus on bringing the, you know, the sort of the clinical and the CS together and see what could be done.&nbsp;&nbsp;</p>
-
-
-
-<p>So, we did <a href="https://www.microsoft.com/en-us/research/publication/chexnet-radiologist-level-pneumonia-detection-on-chest-x-rays-with-deep-learning/" target="_blank" rel="noreferrer noopener">CheXNet</a>. And this is, remember this is around the time when, like, Geoffrey Hinton was saying things like we should stop training radiologists, and all this stuff was going on. [LAUGHTER] So there&#8217;s a lot of hype, and this is the narrow AI days just to remind the audience.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> How did you feel about that since you <em>are</em> a radiologist?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Well, it was so funny. So, Andrew is obviously very prolific on social media, and I was, who am I, right? So, I remember he tagged me. Well, first he said, “Matt, you need to get a Twitter account.” And I said OK. And he tagged me on the very first post of our, what we call, CheXNet that was kind of like the “Hello, World!” for this work.&nbsp;&nbsp;</p>
-
-
-
-<p>And I remember it was a clinical day. I had set my phone, as you do, outside the OR. I go in. Do my procedure. You know, hour or so, come back, my phone&#8217;s dead. I&#8217;m like, oh, that&#8217;s weird. Like I had a decent charge. So, you know, I plug it in. I turn it on. I had like hundreds of thousands of notifications because Andrew had tweeted out to his millions or whatever about CheXNet.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, then of course, as you point out, I go to RSNA that year, which is our large radiology conference, and that Geoffrey Hinton quote had come out. And everyone&#8217;s looking at me like, “What are you doing, Matt?” You know, like, are you coming after our specialty? I&#8217;m like, “No, no,” that&#8217;s, [LAUGHS] you know, it&#8217;s a way to interpret it, but you have to take a much longer horizon view, right.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, you know, we&#8217;re going to, just as an enticement for listeners to this podcast to listen to the very end, I&#8217;m going to pin you down toward the end on your assessment of whether Geoffrey Hinton will eventually be proven right or not. [LAUGHTER] But let&#8217;s take our time to get there.&nbsp;&nbsp;</p>
-
-
-
-<p>Now let&#8217;s go ahead and enter the generative AI era. When we were first exposed to what we now know of as GPT-4—this was before it was disclosed to the world—a small number of people at Microsoft and Microsoft Research were given access in order to do some technical assessment.&nbsp;&nbsp;</p>
-
-
-
-<p>And, Matt, you and I were involved very early on in trying to assess what might this technology mean for medicine.<strong> </strong>Tell us, you know, what was the first encounter with this new technology like for you?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> It was the weirdest thing, Peter. Like … I joined that summer, so the summer before, you know, the actual GPT came out. I had literally no idea what I was getting into.&nbsp;&nbsp;</p>
-
-
-
-<p>So, I started asking it questions, you know, kind of general stuff, right. Just, you know, I was like, oh, all right, it&#8217;s pretty good. And so, then I would sort of go a little deeper. And eventually I got to the point where I&#8217;m asking questions that, you know, maybe there&#8217;s three papers on it in my community, and remember I&#8217;m a sub-sub specialist, right, <em>pediatric interventional radiology</em>. And the things that we do in vascular malformations and, you know, rare cancers are really, really strange and not very commonly known.&nbsp;&nbsp;</p>
-
-
-
-<p>And I kind of walked away from that—first I said, can I have this thing, right? [LAUGHS]&nbsp;&nbsp;</p>
-
-
-
-<p>But then I, you know, I don&#8217;t want to sound dramatic, but I didn&#8217;t sleep that well, if I&#8217;m being honest, for the first few nights. Partially because I couldn&#8217;t tell anybody, except for the few that I knew were involved, and partially because I just couldn&#8217;t wrap my head around how we went from what I was doing in LSTMs [long short-term memory networks], right, which was state of the artish at the time for NLP [natural language processing].&nbsp;&nbsp;</p>
-
-
-
-<p>And all of a sudden, I have this thing that is broadly, you know, domain experts, you know, representations of knowledge that there&#8217;s no way you could think of it would be in distribution for a normal approach to this.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, I really struggled with it, honestly. Interpersonally, like, I would be like, uh, well, let&#8217;s not work on that. They&#8217;re like, why not? You were just excited about it last week. I&#8217;m like, I don&#8217;t know. I think that we could think of another approach later.<strong> </strong>[LAUGHS]&nbsp;&nbsp;</p>
-
-
-
-<p>And so yeah, when we were finally able to really look at some of the capabilities and really think clearly, it was really clear that we had a massive opportunity on our hands to impact healthcare in a way that was never possible before.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah, and at that time you were still a part of Nuance. Nuance, I think, was in the process of being acquired by Microsoft. Is that right?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> That’s right.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And so, of course, this was also a technology that would have profound and very direct implications for Nuance. How did you think about that?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Nuance, for those in the audience who don&#8217;t know, for 25 years was, sort of, <em>the</em> medical speech-to-text thing that all, you know, physicians used. But really the brass ring had always been … and I want to say going back to like 2013, 2014, Nuance had tried to figure out, OK, we see this pain point. Doctors are typing on their computers while they&#8217;re trying to talk to their patients, right.&nbsp;&nbsp;</p>
-
-
-
-<p>We should be able to figure out a way to get that ambient conversation turned into text that then, you know, accelerates the doctor … takes all the important information. That&#8217;s a really hard problem, right. You&#8217;re having a conversation with a patient about their knee pain, but you&#8217;re also talking about, you know, their cousin&#8217;s wedding and their next vacation and their dog is sick or whatever and all that gets recorded, right.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, then you have to have the intelligence/context to be able to tease out what&#8217;s important for a note. And then it has to be at the performance level that a physician who, again, 20 years of training and education plus a huge, huge amount of, you know, need to get through his cases efficiently, that&#8217;s a really difficult problem.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, for a long time, there was a human-in-the-loop aspect to doing this because you needed a human to say, “This transcript&#8217;s great, but here&#8217;s actually what needs to go on the note.” And that can&#8217;t scale, as you know.&nbsp;&nbsp;</p>
-
-
-
-<p>When the GPT-4, you know, model kind of, you know, showed what it was capable of, I think it was an immediate light bulb because there was no … you can ask any physician in your life, anyone in the audience, you know, what are your … what is the biggest pain point when you go to see your doctor? Like, “Oh, they don&#8217;t talk to me. They don&#8217;t look me in the eye. They&#8217;re rushing around trying to finish a note.”&nbsp;&nbsp;</p>
-
-
-
-<p>If we could get that off their plate, that&#8217;s a huge unlock, Peter. And I think that, again, as you know, it&#8217;s now led to so much more. But that was kind of the initial, I think, reaction.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>And so, maybe that gets us into our next set of questions, our next topic, which is about the book and all the predictions we made in the book. Because Carey, Zak, and I—actually we did make a prediction that this technology would have a huge impact on this problem of clinical note-taking.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, you&#8217;re just right in the middle of that. You&#8217;re directly hands-on creating, I think, what is probably the most popular early product for doing exactly that. So, were we right? Were we wrong? What else do we need to understand about this?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> No, you were right on. I think in the book, I think you called it like a paper shredder or something. I think you used a term like that. That&#8217;s exactly where the activity is right now and the opportunity.&nbsp;&nbsp;</p>
-
-
-
-<p>I&#8217;ve even taken that so far as to say that when folks are asking about what the technology is capable of doing, we say, well, listen, it&#8217;s going to save time before it saves lives. It&#8217;ll do both. But right now, it&#8217;s about saving time.&nbsp;&nbsp;</p>
-
-
-
-<p>It&#8217;s about peeling back the layers of the onion that if you, you know, put me in where I started medicine in 2003, and then fast-forward and showed me a day in the life of 2025, I would be shocked at what I was doing that <em>wasn&#8217;t</em> related to patient care, right. So, all of those layers that have been stacked up over the years, we can start finding ways to peel that back. And I think that&#8217;s exactly what we&#8217;re seeing.</p>
-
-
-
-<p>And to your point, I think you mentioned this, too, which is, well, sure, we can do this transcript, and we can turn a note, but then we can do other things, right. We can summarize that in the patient&#8217;s language or education level of choice. We can pend orders. We can eventually get to a place of decision support. So, “Hey, did you think about this diagnosis, doctor?” Like those kinds of things.&nbsp;&nbsp;</p>
-
-
-
-<p>And all those things, I think you highlighted beautifully, and again, it sounds like with, you know, a lot of, right, just kind of guesswork and prediction, but those things are actually happening every single day <em>right now</em>.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, so now, you know, in this episode, we&#8217;re really trying to understand, you know, where the technology industry is in delivering these kinds of things. And so from your perspective, you know, in the business that you&#8217;re helping to run here at Microsoft, you know, what are the things that are actually shipping as product versus things that clinicians are doing, let&#8217;s say, off label, just by using, say, ChatGPT on their personal mobile devices, and then what things aren&#8217;t happening?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Yeah. I&#8217;ll start with the shipping part because I think you, again, you know my background, right. Academic clinician, did a lot of research, hadn&#8217;t had a ton of <em>product</em> experience.&nbsp;&nbsp;</p>
-
-
-
-<p>In other words, like, you know, again, I&#8217;m happy to show you what benchmarks we beat or a new technique or, you know, get a grant to do all this, or even frankly, you know, talk about startups. But to actually have an audience that is accustomed to a certain level of performance for the solutions that they use, to be able to deliver something new at that same level of expectation, wow, that&#8217;s a big deal.&nbsp;&nbsp;</p>
-
-
-
-<p>And again, this is part of the learning by, you know, kind of being around this environment that we have, which is we have this, you know, incredibly focused, very experienced clinical product team, right.</p>
-
-
-
-<p>And then I think on the other side, to your point about the general-purpose aspect of this, it&#8217;s no secret now, right, that, you know, this is a useful technology in a lot of different medical applications. And let&#8217;s just say that there&#8217;s a lot of knowledge that can be used, particularly by the physician community. And I think the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://informatics.bmj.com/content/31/1/e101102" target="_blank" rel="noreferrer noopener">most recent survey I saw</a> was from the British Medical Journal, which said, hey, you know, which doctors are using … are you willing to tell us, you know, what you&#8217;re doing? And it turns out that folks are, what, 30% or so said that they were using it regularly in clinic <a href="#ftn_2">[2]</a>. And again, this is the general, this is the API or whatever off the shelf.</p>
-
-
-
-<p>And then frankly, when they ask what they&#8217;re using it for, tends to be things like, “Hey, differential, like, help me fill in my differential or suggest … ” and to me, I think what that created, at least—and you&#8217;re starting to see this trend really accelerate in the US especially—is, well, listen, we can&#8217;t have everybody pulling out their laptops and potentially exposing, you know, patient information by accident or something to a public API.&nbsp;&nbsp;</p>
-
-
-
-<p>We have to figure this out, and so brilliantly, I think NYU [New York University] was one of the first. Now I think there&#8217;s 30 plus institutions that said, listen, “OK, we know this is useful to the entire community in the healthcare space.” Right?<strong> </strong>We know the administrators and nurses and everybody thinks this is great.&nbsp;&nbsp;</p>
-
-
-
-<p>We can&#8217;t allow this sort of to be a very loosey-goosey approach to this, right, given this sort of environment. So, what we&#8217;ll do is we&#8217;ll set up a HIPAA-compliant instance to allow anyone in the community—you know, in the health system—to use the models, and then whatever, the newest model comes, it gets hosted, as well.&nbsp;&nbsp;</p>
-
-
-
-<p>And what&#8217;s cool about that—and that&#8217;s happened now a lot of places—is that at the high level … first of all, people get to use it and experiment and learn. But at the high level, they&#8217;re actually seeing what are the common use cases. Because you could ask 15 people and you might get super long lists, and it may not help you decide what to operationalize in your health system.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>But let me ask you about that. When you observe that, are there times when you think, “Oh, some specific use cases that we&#8217;re observing in that sort of organic way need to be taken into specialized applications and made into products?” Or is it best to keep these things sort of, you know, open-chat-interface types of general-purpose platform?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Honestly, it&#8217;s both, and that&#8217;s exactly what we&#8217;re seeing. I&#8217;m most familiar with Stanford, kind of, the work that Nigam Shah leads on this. But he, he basically, … you know, there&#8217;s a really great paper that is coming out in JAMA, but basically saying, “Here&#8217;s what our workforce is using it for. Here are the things in the literature that would suggest what would be popular.”&nbsp;&nbsp;</p>
-
-
-
-<p>And some of those line up, like helping with a clinical diagnosis or documentation, but some of them don&#8217;t. But for the most part, the stuff that flies to the top, those are opportunities to operationalize and productize, etc. And I think that&#8217;s exactly what we&#8217;re seeing.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So, let&#8217;s get into some of the specific predictions. We&#8217;ve, I think, beaten note-taking to death here. But there&#8217;s other kinds of paperwork, like filling out prior authorization request forms or referral letters, an after-visit note or summary to give instructions to patients, and so on. And these were all things that we were making guesses in our book might be happening. What&#8217;s the reality there?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> I&#8217;ve seen every single one of those. In fact, I&#8217;ve probably seen a dozen startups too, right, doing exactly those things. And, you know, we touched a little bit on translation into the actual clinic. And that&#8217;s actually another thing that I used to kind of underappreciate, which is that, listen, you can have a computer scientist and a physician or nurse or whatever, like, give the domain expertise, and you think you&#8217;re ready to build something.&nbsp;&nbsp;</p>
-
-
-
-<p>The health IT [LAUGHS] is another part of that Venn diagram that&#8217;s so incredibly critical, and then exactly how are you going to bring that into the system. That&#8217;s a whole new ballgame.&nbsp;</p>
-
-
-
-<p>And so I do want to do a callout because the collaboration that we have with Epic is monumental because here, you have the system of record that most physicians, at least in the US, use. And they&#8217;re going to use an interface and they&#8217;re going to have an understanding of, hey, we know these are pain points, and so I think there&#8217;s some really, really cool, you know, new innovations that are coming out of the relationship that we have with Epic. And certainly the audience may be familiar with those, that I think will start to knock off a lot of the things that you predicted in your book relatively soon.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>I think most of the listeners to this podcast will know what Epic is. But for those that are unfamiliar with the health industry, and especially the technology foundation, Epic is probably the largest provider of electronic health record systems. And, of course, in collaboration with you and your team, they&#8217;ve been integrating generative AI quite a bit. Are there specific uses that Epic is making and deploying that get you particularly excited?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> First of all, the ambient note generation, by the way, is integrated into Epic now. So like, you know, it&#8217;s not another screen, another thing for physicians. So that&#8217;s a huge, huge unlock in terms of the translation.</p>
-
-
-
-<p>But then Epic themselves, so they have, I guess, on the last roadmap that they talked [about], more than 60, but the one that&#8217;s kind of been used now is this inbox response.&nbsp;</p>
-
-
-
-<p>So again, maybe someone might not be familiar with, why is it such a big deal? Well, if you&#8217;re a physician, you already have, you know, 20 patients to see that day and you got all those notes to do, and then Jevons paradox, right. So if you give me better access to my doctor, well, maybe I won&#8217;t make an appointment. I&#8217;m just going to send him a note and this is kind of this inbox, right.&nbsp;&nbsp;</p>
-
-
-
-<p>So then at the end of my day, I got to get all my notes done. And then I got to go through all the inbox messages I&#8217;ve received from all of my patients and make sure that they&#8217;re not like having chest pain and they&#8217;re blowing it off or something.&nbsp;&nbsp;</p>
-
-
-
-<p>Now that&#8217;s a lot of work and the cold start problem of like, OK, I to respond to them. So Epic has leveraged this system to say, “Let me just draft a note for you,” understanding the context of, you know, what&#8217;s going on with the patient, etc. And you can edit that and sign it, right. So you can accelerate some of those … so that&#8217;s probably one I&#8217;m most excited about. But there&#8217;s so many right now.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Well, I think I need to let you actually state the name of the clinical note-taking product that you&#8217;re associated with. Would you like to do that? [LAUGHS]&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> [LAUGHS] Sure. Yeah, it&#8217;s called DAX Copilot <a href="#ftn_3">[3]</a>. And for the record, it is the fastest-growing copilot in the Microsoft ecosystem. We&#8217;re very proud of that. Five hundred institutions already are using it, and millions of notes have already been created with it. And the feedback has been tremendous.</p>
-
-
-
-<p><strong>LEE: </strong>So, you sort of referred to this a little bit, you know, this idea of AI being a second set of eyes. So, doctor makes some decisions in diagnosis or kind of working out potential treatments or medication decisions. And in the book, you know, we surmise that, well, AI might not replace the doctor doing those things. It could but might not. But AI could possibly reduce errors if doctors and nurses are making decisions by just looking at those decisions and just checking them out. Is that happening at all, and what do you see the future there?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Yeah, I would say, you know, that&#8217;s kind of the jagged edge of innovation, right, where sometimes the capability gets ahead of the ability to, you know, operationalize that. You know, part of that is just related to the systems. The evidence has been interesting on this. So, like, you know this, our colleague Eric Horvitz has been doing a lot of work in sort of looking at physician, physician with GPT-4, let&#8217;s say, and then GPT-4 alone for a whole variety of things. You know, we&#8217;ve been saying to the world for a long time, particularly in the narrow AI days, that AI plus human is better than either alone. We&#8217;re not really seeing that bear out really that well yet in some of the research.&nbsp;&nbsp;</p>
-
-
-
-<p>But it is a signal to me and to the use case you&#8217;re suggesting, which is that if we let this system, in the right way, kind of handle a lot of the safety-net aspects of what we do but then also potentially take on some of the things that maybe are not that challenging or at least somewhat simple.&nbsp;&nbsp;</p>
-
-
-
-<p>And of course, this is really an interesting use case in my world, in the vision world, which is that we know these models are multimodal, right. They can process images and text. And what does that look like for pathologists or radiologists, where we do have a certain percentage of the things we look at in a given day are normal, right? Or as close to normal as you can imagine. So is there a way to do that? And then also, by the way, have a safety net.&nbsp;&nbsp;</p>
-
-
-
-<p>And so I think that this is an extremely active area right now. I don&#8217;t think we&#8217;ve figured out exactly how to have the human and AI model interact in this space yet. But I know that there&#8217;s a lot of attempts at it right now.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, I think, you know, this idea of a true copilot, you know, a true collaborator, you know, I think is still something that&#8217;s coming. I think we&#8217;ve had a couple of decades of people being trained to think of computers as question-answering machines. Ask a question, get an answer. Provide a document, get a summary. And so on.&nbsp;&nbsp;</p>
-
-
-
-<p>But the idea that something might actually be this second set of eyes just assisting you all day continuously, I think, is a new mode of interaction. And we haven&#8217;t quite figured that out.&nbsp;&nbsp;</p>
-
-
-
-<p>Now, in preparation for this podcast, Matt, you said that you actually used AI to assist you in getting ready. [LAUGHS] Would you like to share what you learned by doing that?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Yeah, it&#8217;s very funny. So, like, you may have heard <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.oneusefulthing.org/p/detecting-the-secret-cyborgs" target="_blank" rel="noreferrer noopener">this term coined by Ethan Mollick called the “secret cyborg,”<span class="sr-only"> (opens in new tab)</span></a> which is sort of referring to the phenomena of folks using GPT, realizing it can actually help them a ton in all kinds of parts of their work, but not necessarily telling anybody that they&#8217;re using it, right.&nbsp;&nbsp;</p>
-
-
-
-<p>And so in a similar secret cyborgish way, I was like, “Well, listen, you know, I haven&#8217;t read your book in like a year. I recommend it to everybody. And [I need] just a refresher.” So what I did was I took your book, I put it into GPT-4, OK, and asked it to sort of talk about the predictions that you made.&nbsp;&nbsp;</p>
-
-
-
-<p>And then I took that and put it in the stronger reasoning model—in this case, the “deep research” that you may have just seen or heard of and the audience from OpenAI—and asked it to research all the current papers, you know, and blogs and whatever else and tell me like what was right, what was wrong in terms of the predictions. [LAUGHS]&nbsp;&nbsp;</p>
-
-
-
-<p>So it, actually, it was an incredible thing. It&#8217;s a, like, what, six or seven pages. It probably would have taken me two weeks, frankly, to do this amount of work.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>I&#8217;ll be looking forward to reading that in the New England Journal of Medicine shortly.&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> [LAUGHS] That&#8217;s right. Yeah, no, don&#8217;t, before this podcast comes out, I&#8217;ll submit it as an opinion piece. No. [LAUGHS] But, yeah, but I think on balance, incredibly insightful views. And I think part of that was, you know, your team that got together really had a lot of different angles on this. But, you know, and I think the only area that was, like, which I&#8217;ve observed as well, it&#8217;s just, man, this can do a lot for education.&nbsp;&nbsp;</p>
-
-
-
-<p>We haven&#8217;t seen … I don&#8217;t think we&#8217;re looking at this as a tutor. To your point, we&#8217;re kind of looking at it as a transactional in and out. But as we&#8217;ve seen in all kinds of data, both in low-, middle-income countries and even in Harvard, using this as a tutor can really accelerate your knowledge and in profound ways.&nbsp;&nbsp;</p>
-
-
-
-<p>And so that is probably one area where I think your prediction was maybe slightly even further ahead of the curve because I don&#8217;t think folks have really grokked that opportunity yet.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah, and for people who haven&#8217;t read the book, you know, the guess was that you might use this as a training aid if you&#8217;re an aspiring doctor. For example, you can ask GPT-4 to pretend to be a patient that presents a certain way and that you are the doctor that this patient has come to see. And so you have an interaction. And then when you say end of encounter, you ask GPT-4 to assess how well you did. And we thought that this might be a great training aid, and to your point, it seems not to have materialized.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> There&#8217;s some sparks. You know, with, like, communication, end-of-life conversations that no physician loves to have, right. It&#8217;s very, very hard to train someone in those. I&#8217;ve seen some work done, but you&#8217;re right. It&#8217;s not quite hit mainstream yet.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> On the subject of things that we missed, one thing that you&#8217;ve been very, very involved in in the last several months has been in shipping products that are multimodal. So that was something I think that we missed completely. What is the current state of affairs for multimodal, you know, healthcare AI, medical AI?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> Yeah, the way I like to explain it—and first of all, no fault to you, but this is not an area that, like, we were just so excited about the text use cases that I can&#8217;t fault you. But yeah, I mean, so if we look at healthcare, right, how we take care of patients today, as you know, the vast majority of the data in terms of just data itself is actually not in text, right. It&#8217;s going be in pathology and genomics and radiology, etc.&nbsp;&nbsp;</p>
-
-
-
-<p>And it seems like an opportunity here to watch this huge curve just goes straight up in the general reasoning and frankly medical competency and capabilities of the models that are coming and continue to come but then to see that it&#8217;s not as proficient for medical-specific imaging and video and, you know, other data types. And that gap is, kind of, what I describe as the multimodal medical AI gap.&nbsp;&nbsp;</p>
-
-
-
-<p>We&#8217;re probably in GPT-2 land, right, for this other modality types versus the, you know, we&#8217;re now at o3, who knows where we&#8217;re going to go. At least in our view, we can innovate in that space.&nbsp;&nbsp;</p>
-
-
-
-<p>How do we help bring those innovations to the broader community to close that gap and see some of these use cases really start to accelerate in the multimodal world?&nbsp;&nbsp;</p>
-
-
-
-<p>And I think we&#8217;ve taken a pretty good crack at that. A lot of that is credit to the innovative work. I mean, MSR [Microsoft Research] was two or three years ahead of everyone else on a lot of this. And so how do we package that up in a way that the community can actually access and use? And so, we took a lot of what your group had done in, let&#8217;s just say, radiology or pathology in particular, and say, “OK, well, let&#8217;s put this in an ecosystem of other models.” Other groups can participate in this, but let&#8217;s put it in a platform where maybe I&#8217;m really competent in radiology or pathology. How do I connect those things together? How do I bring the general reasoner knowledge into a multimodal use case?&nbsp;&nbsp;</p>
-
-
-
-<p>And I think that&#8217;s what we&#8217;ve done pretty well so far. We have a lot of work to do still, but this is very, very exciting. We&#8217;re seeing just such a ton of interest in building with the tools that we put out there.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, I think how rapidly that&#8217;s advancing has been a surprise to me. So I think we&#8217;re running short on time. So two last questions to wrap up this conversation. The first one is, as we think ahead on AI in medicine, what do you think will be the biggest changes or make the biggest differences two years from now, five years from now, 10 years from now?</p>
-
-
-
-<p><strong>LUNGREN:</strong> This is really tough. OK. I think the two-year timeframe, I think we will have some autonomous agent-based workflows for a lot of the &#8230; what I would call undifferentiated heavy lifting in healthcare.&nbsp;&nbsp;</p>
-
-
-
-<p>And this is happening in, you know, the pharmaceutical industry, the payer … every aspect is sort of looking at their operations at a macro level: where are these big bureaucratic processes that largely involve text and where can we shrink those down and really kind of unlock a lot of our workforce to do things that might be more meaningful to the business? I think that&#8217;s my safe one.&nbsp;&nbsp;</p>
-
-
-
-<p>Going five years out, you know, I have a really difficult time grappling with this seemingly shrinking timeline to AGI [artificial general intelligence] that we hear from people who I would respect and certainly know more than me. And in that world, I think there&#8217;s only been <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/abs/10.1056/AIp2400559" target="_blank" rel="noreferrer noopener">one paper that I&#8217;ve seen that has attempted to say, what does that mean in healthcare<span class="sr-only"> (opens in new tab)</span></a> when we have this?&nbsp;&nbsp;</p>
-
-
-
-<p>And the fact is, I actually don&#8217;t know. [LAUGHS] I wonder whether there&#8217;ll still be a gap in some modalities. Maybe there&#8217;ll be the ability to do new science, and all kinds of interesting things will come of that.&nbsp;&nbsp;</p>
-
-
-
-<p>But then if you go all the way to your 10-year, I do feel like we&#8217;re going to have systems that are acting autonomously in a variety of capacities, if I&#8217;m being honest.&nbsp;&nbsp;</p>
-
-
-
-<p>What I would like to see if I have any influence on some of this is, can we start to celebrate the closing of hospitals instead of opening them? Meaning that, can we actually start to address—at a personal, individual level—care? And maybe that&#8217;s outside the home, maybe that&#8217;s, you know, in a way that doesn&#8217;t have to use so many resources and, frankly, really be very reactive instead of proactive.&nbsp;&nbsp;</p>
-
-
-
-<p>I really want to see that. That&#8217;s been the vision of precision medicine for, geez, 20-plus years. I feel like we&#8217;re getting close to that being something we can really tackle.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So, we talked about Geoff Hinton and his famous prediction that we would soon not have human radiologists. And of course, maybe he got the date wrong. So, let&#8217;s reset the date to 2028. So, Matt, do you think Geoff is right or wrong?&nbsp;</p>
-
-
-
-<p><strong>LUNGREN:</strong> [LAUGHS] Yeah, so the way … I&#8217;m not going to dodge the question, but let me just answer this a different way.&nbsp;&nbsp;</p>
-
-
-
-<p>We have a clear line of sight to go from images to draft reports. That is unmistakable. And that&#8217;s now in 2025. How it will be implemented and what the implications of that will be, I think, will be heavily dependent on the health system or the incentive structure for where it&#8217;s deployed.&nbsp;&nbsp;</p>
-
-
-
-<p>So, if I&#8217;m trying to take a step back, back to my global health days, man, that can&#8217;t come fast enough. Because, you know, you have entire health systems, you know, in fact entire countries that have five, you know, medical imaging experts for the whole country, but they still need this to you know take care of patients.&nbsp;&nbsp;</p>
-
-
-
-<p>Zooming in on today&#8217;s crisis in the US, right, we have the burnout crisis just as much as the doctors who are seeing patients and write notes. We can&#8217;t keep up with the volume. In fact, we&#8217;re not training folks fast enough, so there is a push pull; there may be a flip to your point of autonomous reads across some segments of what we do.&nbsp;&nbsp;</p>
-
-
-
-<p>By 2028, I think that&#8217;s a reasonable expectation that we&#8217;ll have some form of that. Yes.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>I tend to agree, and I think things get reshaped, but it seems very likely that even far into the future we&#8217;ll have humans wanting to take care of other humans and be taken care of by humans.&nbsp;&nbsp;</p>
-
-
-
-<p>Matt, this has been a fantastic conversation, and, you know, I feel it&#8217;s always a personal privilege to have a chance to work with someone like you so keep it up.&nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p><strong>LUNGREN: </strong>Thank you so much, Peter. Thanks for having me.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I&#8217;m always so impressed when I talk to Matt, and I feel lucky that we get a chance to work together here at Microsoft. You know, one of the things that always strikes me whenever I talk to him is just how disruptive generative AI has been to a business like Nuance. Nuance has had clinical note-taking as part of their product portfolio for a long, long time. And so, you know, when generative AI comes along, it&#8217;s not only an opportunity for them, but also a threat because in a sense, it opens up the possibility of almost anyone being able to make clinical note-taking capabilities into products.&nbsp;&nbsp;</p>
-
-
-
-<p>It&#8217;s really interesting how Matt&#8217;s product, DAX Copilot, which since the time that we had our conversation has expanded into a full healthcare workflow product called <a href="https://www.microsoft.com/en-us/health-solutions/clinical-workflow/dragon-copilot">Dragon Copilot</a>, has really taken off in the marketplace and how many new competing AI products have also hit the market, and all in just two years, because of generative AI.&nbsp;&nbsp;</p>
-
-
-
-<p>The other thing, you know, that I always think about is just how important it is for these kinds of systems to work together and especially how they integrate into the electronic health record systems. This is something that Carey, Zak, and I didn&#8217;t really realize fully when we wrote our book. But you know, when you talk to both Matt and Seth, of course, we see how important it is to have that integration.&nbsp;&nbsp;</p>
-
-
-
-<p>Finally, what a great example of yet another person who is both a surgeon and a tech geek. [LAUGHS] People sometimes think of healthcare as moving very slowly when it comes to new technology, but people like Matt are actually making it happen much more quickly than most people might expect.&nbsp;&nbsp;</p>
-
-
-
-<p>Well, anyway, as I mentioned, we also had a chance to talk to Seth Hain, and so here&#8217;s my conversation with Seth:</p>
-
-
-
-<p><strong>LEE:</strong> Seth, thank you so much for joining.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>SETH HAIN:</strong> Well, Peter, it&#8217;s such an exciting time to sit down and talk about this topic. So much has changed in the last two years. Thanks for inviting me.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, in fact, I think in a way both of our lives have been upended in many ways by the emergence of AI. [LAUGHTER]&nbsp;&nbsp;</p>
-
-
-
-<p>The traditional listeners of the Microsoft Research Podcast, I think for the most part, aren&#8217;t steeped in the healthcare industry. And so maybe we can just start with two things. One is, what is Epic, really? And then two, what is your job? What does the senior vice president for R&D at Epic do every day?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Yeah, well, let&#8217;s start with that first question. So, what is Epic? Most people across the world experience Epic through something we call MyChart. They might use it to message their physician. They might use it to check the lab values after they&#8217;ve gotten a recent test. But it&#8217;s an app on their phone, right, for connecting in with their doctors and nurses and really making them part of the care team.&nbsp;&nbsp;</p>
-
-
-
-<p>But the software we create here at Epic goes beyond that. It&#8217;s what runs in the clinic, what runs at the bedside, in the back office to help facilitate those different pieces of care, from collecting vital information at the bedside to helping place orders if you&#8217;re coming in for an outpatient visit, maybe with a kiddo with an earache, and capturing that note and record of what happened during that encounter, all the way through back-office encounters, back-office information for interacting with payers as an example.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, we provide a suite of software that health systems and increasingly a broader set of the healthcare ecosystem, like payers and specialty diagnostic groups, use to connect with that patient at the center around their care.&nbsp;</p>
-
-
-
-<p>And my job is to help our applications across the company take advantage of those latest pieces of technology to help improve the efficiency of folks like clinicians in the exam room when you go in for a visit. We&#8217;ll get into, I imagine, some use cases like ambient conversations, capturing that conversation in the exam room to help drive some of that documentation.&nbsp;&nbsp;</p>
-
-
-
-<p>But then providing that platform for those teams to build those and then strategize around what to create next to help both the physicians be efficient and also the health systems. But then ultimately continuing to use those tools to advance the science of medicine.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right. You know, one thing that I explain to fellow technologists is that I think today health records are almost entirely digital. I think the last figures I saw is well over 99% of all health records are digital.&nbsp;&nbsp;</p>
-
-
-
-<p>But in the year 2001, fewer than 15% of health records were digital. They were literally in folders on paper in storerooms, and if you&#8217;re old enough, you might even remember seeing those storerooms.&nbsp;&nbsp;</p>
-
-
-
-<p>So, it&#8217;s been quite a journey. Epic and Epic&#8217;s competitors—though I think Epic is really the most important company—have really moved the entire infrastructure of record keeping and other communications in healthcare to a digital foundation.&nbsp;&nbsp;</p>
-
-
-
-<p>And I think one thing we&#8217;ll get into, of course, one of the issues that has really become, I think, a problem for doctors and nurses is the kind of clerical or paperwork, record-keeping, burden. And for that reason, Epic and Epic systems end up being a real focus of attention. And so, we&#8217;ll get into that in a bit here.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> And I think that hits, just to highlight it, on both sides. There is both the need to capture documentation; there&#8217;s also the challenge in reviewing it.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>The average medical record these days is somewhere between the length of <em>Fahrenheit 451</em> and <em>To Kill a Mockingbird</em>. [LAUGHTER] So there&#8217;s a fair amount of effort going in on that review side, as well.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah, indeed. So much to get into there. But I would like to talk about encounters with AI. So obviously, I think there are two eras here: before the emergence of ChatGPT and what we now call of as generative AI and afterwards. And so, let&#8217;s take the former.&nbsp;&nbsp;</p>
-
-
-
-<p>Of course, you&#8217;ve been thinking about machine learning and health data probably for decades. Do you have a memory of how you got into this? Why did you get an interest in data analytics and machine learning in the first place?&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>Well, my background, as you noted, is in mathematics before I came to Epic. And the sort of patterns and what could emerge were always part of what drove that. Having done development and kind of always been around computers all my life, it was a natural transition as I came here.&nbsp;&nbsp;</p>
-
-
-
-<p>And I started by really focusing on, how do we scale systems for the very largest organizations, making sure they are highly available and also highly responsive? Time is critical in these contexts in regards to rapidly getting information to doctors and nurses.&nbsp;&nbsp;</p>
-
-
-
-<p>And then really in the, say, in the 2010s, there started to be an emergence of capabilities from a storage and compute perspective where we could begin to build predictive analytics models. And these were models that were very focused, right. It predicted the likelihood somebody would show up for an appointment. It predicted the likelihood that somebody may fall during an inpatient stay, as an example.&nbsp;&nbsp;</p>
-
-
-
-<p>And I think a key learning during that time period was thinking through the full workflow. What information was available at that point in time, right? At the moment somebody walks into the ED [emergency department], you don&#8217;t have a full picture to predict the likelihood that they may deteriorate during an inpatient encounter.&nbsp;&nbsp;</p>
-
-
-
-<p>And in addition to what information was available was, what can you do about it? And a key part of that was how do we help get the right people in the right point in time at the bedside to make an assessment, right? It was a human-in-the-loop type of workflow where, for example, you would predict deterioration in advance and have a nurse come to the bedside or a physician come to the bedside to assess.&nbsp;&nbsp;</p>
-
-
-
-<p>And I think that combination of narrowly focused predictive models with an understanding that to have them make an impact you had to think through the full workflow of where a human would make a decision was a key piece.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Obviously there is a positive human impact. And so, for sure, part of the thought process for these kinds of capabilities comes from that.<strong>&nbsp;</strong>&nbsp;</p>
-
-
-
-<p>But Epic is also a business, and you have to worry about, you know, what are doctors and clinics and healthcare systems willing to buy. And so how do you balance those two things, and do those two things ever come into conflict as you&#8217;re imagining what kinds of new capabilities and features and products to create?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Two, sort of, two aspects I think really come to mind. First off, generally speaking, we see analytics and AI as a <em>part</em> of the application. So, in that sense, it&#8217;s not something we license separately. We think that those insights and those pieces of data are part of what makes the application meaningful and impactful.&nbsp;&nbsp;</p>
-
-
-
-<p>At the scale that many of these health systems operate and the number of patients that they care for, as well as having tens of thousands of users in the system daily, one needs to think about the compute overhead …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yes.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> … that these things cause. And so, in that regard, there is always a ROI assessment that is taking place to some degree around, what happens if this runs at full scale? And in a way, that really got accelerated as we went into the generative AI era.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right. OK. So, you mentioned generative AI. What was the first encounter, and what was that experience for you?</p>
-
-
-
-<p><strong>HAIN:</strong> So, in the winter of ’22 and into 2023, I started experimenting alongside you with what we at that time called DV3, or Davinci 3, and eventually became GPT-4. And immediately, a few things became obvious. The tool was highly general purpose. One was able to, in putting in a prompt, have it sort of convert into the framing and context of a particular clinical circumstance and reason around that context. But I think the other thing that started to come to bear in that context was there was a fair amount of latent knowledge inside of it that was very, very different than anything we&#8217;d seen before. And, you know, there&#8217;s some examples from the <a href="https://www.microsoft.com/en-us/research/publication/sparks-of-artificial-general-intelligence-early-experiments-with-gpt-4/?msockid=12da2addb70263b40f2e3f57b6c56288" target="_blank" rel="noreferrer noopener">Sparks of AGI paper from Microsoft Research</a>, where a series of objects end up getting stacked together in the optimal way to build height. Just given the list of objects, it seems to have a understanding of physical space that it intuited from the training processes we hadn&#8217;t seen anywhere. So that was an entirely new capability that programmers now had access to.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Well in fact, you know, I think that winter of 2022, and we&#8217;ll get into this, one of your projects that you&#8217;ve been running for quite a few years is something called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cosmos.epic.com/" target="_blank" rel="noreferrer noopener">Cosmos<span class="sr-only"> (opens in new tab)</span></a>, which I find exceptionally interesting. And I was motivated to understand whether this type of technology could have an impact there.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, I had to receive permission from both OpenAI and Microsoft to provide you with early access.&nbsp;&nbsp;</p>
-
-
-
-<p>When I did first show this technology to you, you must have had an emotional response, either skepticism or … I can&#8217;t imagine you just trusted, you know, trusted me to the extent of believing everything I was telling you.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> I think there&#8217;s always a question of, what is it actually, right? It&#8217;s often easy to create demos. It&#8217;s often easy to show things in a narrow circumstance. And it takes getting your hands on it and really spending your 10,000 hours digging in and probing it in different ways to see just how general purpose it was.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, the skepticism was really around, how applicable can this be broadly? And I think the second question—and we&#8217;re starting to see this play out now in some of the later models—was, is this just a language thing? Is it narrowly only focused on that? Or can we start to imagine other modalities really starting to factor into this? How will it impact basic sciences? Those sorts of things.</p>
-
-
-
-<p>On a personal note, I mean, I had, at that point, now they&#8217;re now 14 and 12, two kids that I wondered, what did this mean for them? What is the right thing for them to be studying? And so I remember sleepless nights on that topic, as well.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>OK, so now you get early access to this technology; you&#8217;re able to do some experimentation. I think one of the things that impressed me is just less than four months later at the major health tech industry conference, HIMSS, which also happened timing-wise to take place just after the public disclosure of GPT-4, Epic showed off some early prototype applications of generative AI. And so, describe what those were, and how did you choose what to try to do there?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Yeah, and we were at that point, we actually had the very first users live on that prototype, on that early version.&nbsp;&nbsp;</p>
-
-
-
-<p>And the key thing we&#8217;d focused on—we started this development in very, very late December, January of 2023—was a problem that its origins really were during the pandemic.&nbsp;&nbsp;</p>
-
-
-
-<p>So, during the pandemic, we started to see patients increasingly messaging their providers, nurses, and clinicians through MyChart, that patient portal I mentioned with about 190 million folks on it. And as you can imagine, that was a great opportunity in the context of COVID to limit the amount of direct contact between providers and patients while still getting their questions answered.&nbsp;&nbsp;</p>
-
-
-
-<p>But what we found as we came out of the pandemic was that folks preferred it regardless. And that messaging volume had stayed very, very high and was a time-consuming effort for folks.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, the first use case we came out with was a draft message in the context of the message from the patient and understanding of their medical history using that medical record that we talked about.&nbsp;&nbsp;</p>
-
-
-
-<p>And the nurse or physician using the tool had two options. They could either click to start with that draft and edit it and then hit send, or they could go back to the old workflow and start with a blank text box and write it from their own memory as they preferred.</p>
-
-
-
-<p>And so that was that very first use case. There were many more that we had started from a development perspective, but, yeah, we had that rolling out right in March of 2023 there with the first folks.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So, I know from our occasional discussions that some things worked very well. In fact, this is a real product now for Epic. And it seems to be really a very, very popular feature now. I know from talking to you that a lot of things have been harder. And so, I&#8217;d like to dive into that. As a developer, tech developer, you know, what&#8217;s been easy, what&#8217;s been hard, what&#8217;s in your mind still is left to do in terms of the development of AI?&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>Yeah. You know, the first thing that comes to mind sort of starting foundationally, and we hinted at this earlier in our conversation, was at that point in time, it was kind of per a message, rather compute-intensive to run these. And so, there were always trade-offs we were making in regards to how many pieces of information we would send into the model and how much would we request back out of it.&nbsp;&nbsp;</p>
-
-
-
-<p>The result of that was that while kind of theoretically or even from a research perspective, we could achieve certain outcomes that were quite advanced, one had to think about, where you make those trade-offs from a scalability perspective as you wanted to roll that out to lot of folks. So …&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Were you charging your customers more money for this feature?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Yeah, essentially the way that we handle that is there&#8217;s compute that&#8217;s required. As I mentioned, the feature is just part of our application. So, it&#8217;s just what they get with an upgrade.&nbsp;&nbsp;</p>
-
-
-
-<p>But that compute overhead is something that we needed to pass through to them. And so, it was something, particularly given both the staffing challenges, but also the margin pressures that health systems are feeling today, we wanted to be very cautious and careful about.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And let&#8217;s put that on the stack because I do want to get into, from the selling perspective, that challenge and how you perceive health systems as a customer making those trade-offs. But let&#8217;s continue on the technical side here.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Yeah. On the technical side, it was a consideration, right. We needed to be thoughtful about how we used them. But going up a layer in the stack, at that time, there&#8217;s a lot of conversation in the industry around something called RAG, or <em>retrieval-augmented generation</em>.&nbsp;&nbsp;</p>
-
-
-
-<p>And the idea was, could you pull the relevant bits, the relevant pieces of the chart, into that prompt, that information you shared with the generative AI model, to be able to increase the usefulness of the draft that was being created? And that approach ended up proving and continues to be to some degree, although the techniques have greatly improved, somewhat brittle, right. You have a general-purpose technology that is drafting the response.&nbsp;</p>
-
-
-
-<p>But in many ways, you needed to, for a variety of pragmatic reasons, have somewhat brittle capability in regards to what you pulled into that approach. It tended to be pretty static. And I think this becomes one of the things that, looking forward, as these models have gotten a lot more efficient, we are and will continue to improve upon because, as you get a richer and richer amount of information into the model, it does a better job of responding.&nbsp;&nbsp;</p>
-
-
-
-<p>I think the third thing, and I think this is going to be something we&#8217;re going to continue to work through as an industry, was helping users understand and adapt to these circumstances. So many folks when they hear AI think, it will just magically do everything perfectly.&nbsp;&nbsp;</p>
-
-
-
-<p>And particularly early on with some of those challenges we&#8217;re talking about, it doesn&#8217;t. You know, if it&#8217;s helpful 85% of the time, that&#8217;s great, but it&#8217;s not going to be 100% of the time. And it&#8217;s interesting as we started, we do something we call immersion, where we always make sure that developers are right there elbow to elbow with the users of the software.&nbsp;</p>
-
-
-
-<p>And one of the things that I realized through that experience with some of the very early organizations like UCSD [UC San Diego] or University of Wisconsin here in Madison was that even when I&#8217;m responding to an email or a physician is responding to one of these messages from a patient, depending on the patient and depending on the person, they respond differently.&nbsp;&nbsp;</p>
-
-
-
-<p>In that context, there&#8217;s opportunity to continue to mimic that behavior as we go forward more deeply. And so, you learn a lot about, kind of, human behavior as you&#8217;re putting these use cases out into the world.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So, you know, this increasing burden of electronic communications between doctors, nurses, and patients is centered in one part of Epic. I think that&#8217;s called your in-basket application, if I understand correctly.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> That&#8217;s correct.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> But that also creates, I think, a reputational risk and challenge for Epic because as doctors feel overburdened by this and they&#8217;re feeling burnt out—and as we know, that&#8217;s a big issue—then they point to, you know, “Oh, I&#8217;m just stuck in this Epic system.”&nbsp;&nbsp;</p>
-
-
-
-<p>And I think a lot of the dissatisfaction about the day-to-day working lives of doctors and nurses then focuses on Epic. And so, to what extent do you see technologies like generative AI as, you know, a solution to that or contributing either positively or negatively to this?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> You know, earlier I made the comment that in December, as we started to explore this technology, we realized there were a class of problems that now might have solutions that never did before.&nbsp;&nbsp;</p>
-
-
-
-<p>And as we&#8217;ve started to dig into those—and we now have about 150 different use cases that are under development, many of which are live across … we&#8217;ve got about 350 health systems using them—one of the things we&#8217;ve started to find is that physicians, nurses, and others start to react to saying it&#8217;s helping them move forward with their job.&nbsp;&nbsp;</p>
-
-
-
-<p>And examples of this, obviously the draft of the in-basket message response is one, but using ambient voice recognition as a kind of new input into the software so that when a patient and a physician sit down in the exam room, the physician can start a recording and that conversation then ends up getting translated or summarized, if you will, including using medical jargon, into the note in the framework that the physician would typically write.&nbsp;&nbsp;</p>
-
-
-
-<p>Another one of those circumstances where they then review it, don&#8217;t need to type it out from scratch, for example, …&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> … and can quickly move forward.&nbsp;&nbsp;</p>
-
-
-
-<p>I think looking forward, you know, you brought up Cosmos earlier. It&#8217;s a suite of applications, but at its core is a dataset of about 300 million de-identified patients. And so using generative AI, we built research tools on top of it. And I bring that up because it’s a precursor of how that type of deep analytics can be put into context at the point of care. That&#8217;s what we see this technology more deeply enabling in the future.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, when you are creating … so you said there are about 150 sort of integrations of generative AI going into different parts of Epic&#8217;s software products.&nbsp;&nbsp;</p>
-
-
-
-<p>When you are doing those developments and then you&#8217;re making a decision that something is going to get deployed, one thing that people might worry about is, well, these AI systems hallucinate. They have biases. There are unclear accountabilities, you know, maybe patient expectations.&nbsp;&nbsp;</p>
-
-
-
-<p>For example, if there&#8217;s a note drafted by AI that&#8217;s sent to a patient, does the patient have a right to know what was written by AI and what was written by the human doctor? So, can we run through how you have thought about those things?&nbsp;&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> I think one thing that is important context to set here for folks, and I think it’s often a point of confusion when I&#8217;m chatting with folks in public, is that their interaction with generative AI is typically through a chatbot, right. It&#8217;s something like ChatGPT or Bing or one of these other products where they&#8217;re essentially having a back-and-forth conversation.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Right.&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>And that is a dramatically different experience than how we think it makes sense to embed into an enterprise set of applications.&nbsp;&nbsp;</p>
-
-
-
-<p>So, an example use case may be in the back office, there are folks that are <em>coding</em> encounters. So, when a patient comes in, right, they have the conversation with the doctor, the doctor documents it, that encounter needs to be billed for, and those folks in the back-office associate to that encounter a series of codes that provide information about how that billing should occur.</p>
-
-
-
-<p>So, one of the things we did from a workflow perspective was add a selector pane to the screen that uses generative AI to suggest a likely code. Now, this suggestion runs the risk of hallucination. So, the question is, how do you build into the workflow additional checks that can help the user do that?&nbsp;&nbsp;</p>
-
-
-
-<p>And so in this context, we always include a citation back to the part of the medical record that justifies or supports that code. So quickly on hover, the user can see, does this make sense before selecting it? And it&#8217;s those types of workflow pieces that we think are critical to using this technology as an aid to helping people make decisions faster, right. It&#8217;s similar to drafting documentation that we talked about earlier.&nbsp;&nbsp;</p>
-
-
-
-<p>And it&#8217;s interesting because there&#8217;s a series of patterns that are … going back to the <em>AI Revolution</em> book you folks wrote two years ago. Some of these are really highlighted there, right. This idea of things like a universal translator is a common pattern that we ended up applying across the applications. And in my mind, translation, this may sound a little bit strange, but summarization is an example of translating a very long series of information in a medical record into the context that an ED physician might care about, where they have three or four minutes to quick review that very long chart.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, in that perspective, and back to your earlier comment, we added the summary into the workflow but always made sure that the full medical record was available to that user, as well. So, a lot of what we&#8217;ve done over the last couple of years has been to create a series of repeatable techniques in regards to both how to build the backend use cases, where to pull the information, feed it into the generative AI models.&nbsp;&nbsp;</p>
-
-
-
-<p>But then I think more importantly are the user experience design patterns to help mitigate those risks you talked about and to maintain consistency across the integrated suite of applications of how those are deployed.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> You might remember from our book, we had a whole chapter on reducing paperwork, and I think that&#8217;s been a lot of what we&#8217;ve been talking about. I want to get beyond that, but before transitioning, let&#8217;s get some numbers.&nbsp;&nbsp;</p>
-
-
-
-<p>So, you talked about messages drafted to patients, to be sent to patients. So, give a sense of the volume of what&#8217;s happening right now.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Oh, we are seeing across the 300 and, I think it&#8217;s, 48 health systems that are now using generative AI—and to be clear, we have about 500 health systems we have the privilege of working with, each with many, many hospitals—there are tens of thousands of physicians and nurses using the software. That includes drafting million-plus, for example, notes a month at this point, as well as helping to generate in a similar ballpark that number of responses to patients.&nbsp;&nbsp;</p>
-
-
-
-<p>The thing I&#8217;m increasingly excited about is the broader set of use cases that we&#8217;re seeing folks starting to deploy now. One of my favorites has been … it&#8217;s natural that as part of, for example, a radiology workflow, in studying that image, the radiologist made note that it would be worth double checking, say in six to eight months, that the patient have this area scanned of their chest. Something looks a little bit fishy there, but there&#8217;s not &#8230;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> There&#8217;s not a definitive finding yet.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> … there&#8217;s not a definitive finding at that point. Part of that workflow is that the patient&#8217;s physician place an order for that in the future. And so, we&#8217;re using generative AI to note that back to the physician. And with one click, allow them to place that order, helping that patient get better care.&nbsp;&nbsp;</p>
-
-
-
-<p>That&#8217;s one example of dozens of use cases that are now live, both to help improve the care patients are getting but also help the workforce. So going back to the translation-summarization example, a nurse at the end of their shift needs to write up a summary of that shift for the next nurse for each …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Right.&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>… each patient that they care for. Well, they&#8217;ve been documenting information in the chart over those eight or 12 hours, right.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yep, yep.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> So, we can use that information to quickly draft that end-of-shift note for the nurse. They can verify it with those citations we talked about and make any additions or edits that they need and then complete their end of day far more efficiently.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right. OK. So now let&#8217;s get to Cosmos, which has been one of these projects that I think has been your baby for many years and has been something that has had a profound impact on my thinking about possibilities. So first off, what is Cosmos?&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>Well, just as an aside, I appreciate the thoughtful comments. There is a whole team of folks here that are really driving these projects forward. And a large part of that has been, as you brought up, both Cosmos as a foundational capability but then beginning to integrate it into applications. And that&#8217;s what those folks spend time on.&nbsp;&nbsp;</p>
-
-
-
-<p>Cosmos is this effort across hundreds of health systems that we have the privilege of working with to build out a de-identified dataset with today—and it climbs every day—but 300 million unique patient records in it.&nbsp;&nbsp;</p>
-
-
-
-<p>And one of the interesting things about that structure is that, for example, if I end up in a hospital in Seattle and have that encounter documented at a health system in Seattle, I still—a <em>de-identified version of me</em>—still only shows up once in Cosmos, stitching together both my information from here in Madison, Wisconsin, where Epic is at, with that extra data from Seattle. The result is these 300 million unique longitudinal records that have a deep history associated with them.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>And just to be clear, a patient record might have hundreds or even thousands of individual, I guess what you would call, clinical records or elements.&nbsp;</p>
-
-
-
-<p><strong>HAIN: </strong>That&#8217;s exactly right. It&#8217;s the breadth of information from orders and allergies and blood pressures collected, for example, in an outpatient setting to cancer staging information that might have come through as part of an oncology visit. And it&#8217;s coming from a variety of sources. We exchange information about 10 million times a day between different health systems. And that full picture is available within Cosmos in that way of the patient.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So now why? Why Cosmos?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Why Cosmos? Well, the real ultimate aim is to put a deeply informed in-context perspective at the point of care. So, as a patient, if I&#8217;m in the exam room, it&#8217;s helpful for the physician and me to know what have similar patients like me experienced in this context. What was the result of that line of treatment, for example?&nbsp;</p>
-
-
-
-<p>Or as a doctor, if I&#8217;m looking and working through a relatively rare or strange case to me, I might be able to connect with—this as an example workflow we built called Look-Alikes—with another physician who has seen similar patients or within the workflow see a list of likely diagnoses based on patients that have been in a similar context. And so, the design of Cosmos is to put those insights into the point of care in the context of the patient.&nbsp;&nbsp;</p>
-
-
-
-<p>To facilitate those steps there, the first phase was building out a set of research tooling. So, we see dozens of papers a year being published by the health systems that we work with. Those that participate in Cosmos have access to it to do research on it. And so they use both a series of analytical and data science tools to do that analysis and then publish research. So, building up trust that way.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> The examples you gave are, like with Look-Alikes, it&#8217;s very easy, I think, for people outside of the healthcare world to imagine how that could be useful. So now why is GPT-4 or any generative AI relevant to this?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Well, so a couple of different pieces, right. Earlier we talked about—and I think this is the most important—how generative AI is able to cast things into a specific context. And so, in that way, we can use these tools to help both identify a cohort of patients similar to you when you&#8217;re in the exam room. And then also help present that information back in a way that relates to other research and understandings from medical literature to understand what are those likely outcomes.&nbsp;&nbsp;</p>
-
-
-
-<p>I think more broadly, these tools and generative AI techniques in the transformer architecture envision a deeper understanding of sequences of events, sequences of words. And that starts to open up broader questions about what can really be understood about patterns and sequences of events in a patient&#8217;s journey.&nbsp;&nbsp;</p>
-
-
-
-<p>Which if you didn&#8217;t know, the name Epic, just like a great long nation&#8217;s journey is told through an epic story, is a patient&#8217;s story. So that&#8217;s where it came from.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So, we&#8217;re running up against our time together. And I always like to end with a more provocative question.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Certainly.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And for you, I wanted to raise a question that I think we had asked ourselves in the very earliest days that we were sharing Davinci 3, what we now know of as GPT-4, with each other, which is, is there a world in the future because of AI where we don&#8217;t need electronic health records anymore? Is there a world in the future without EHR?&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> I think it depends on how you define EHR. I see a world coming where we need to manage a hybrid workforce, where there is a combination of humans and something folks are sometimes calling <em>agents</em> working in concert together to care for more and more of our … of the country and of the world. And there is and will need to be a series of tools to help orchestrate that hybrid workforce. And I think things like EHRs will transform into helping that operate … be operationally successful.&nbsp;&nbsp;</p>
-
-
-
-<p>But as a patient, I think there&#8217;s a very different opportunity that starts to be presented. And we&#8217;ve talked about kind of understanding things deeply in context. There&#8217;s also a real acceleration happening in science right now. And the possibility of bringing that second- and third-order effects of generative AI to the point of care, be that through the real-world evidence we were talking about with Cosmos or maybe personalized therapies that really are well matched to that individual. These generative AI techniques open the door for that, as well as the full lifecycle of managing that from a healthcare perspective all the way through monitoring after the fact.&nbsp;&nbsp;</p>
-
-
-
-<p>And so, I think we&#8217;ll still be recording people&#8217;s stories. Their stories are relevant to them, and they can help inform the bigger picture. But I think the real question is, how do you put those in a broader context? And these tools open the door for a lot more.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, that&#8217;s really a great vision for the future.&nbsp;&nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p>Seth, I always really learn so much talking to you, and thank you so much for this great chat.&nbsp;</p>
-
-
-
-<p><strong>HAIN:</strong> Thank you for inviting me.&nbsp;&nbsp;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I see Seth as someone on the very leading frontier of bringing generative AI to the clinic and into the healthcare back office and at the full scale of our massive healthcare system. It&#8217;s always impressive to me how thoughtful Seth has had to be about how to deploy generative AI into a clinical setting.&nbsp;&nbsp;</p>
-
-
-
-<p>And, you know, one thing that sticks out—and he made such a point of this—is, you know, generative AI in the clinical setting isn&#8217;t just a chatbot. They&#8217;ve had to really think of other ways that will guarantee that the human stays in the loop. And that&#8217;s of course exactly what Carey, Zak, and I had predicted in our book. In fact, we even had a full chapter of our book entitled “Trust but Verify,” which really spoke to the need in medicine to always have a human being directly involved in overseeing the process of healthcare delivery.&nbsp;</p>
-
-
-
-<p>One technical point that Carey, Zak, and I completely missed, on the other hand, in our book, was the idea of something that Seth brought up called RAG, which is <em>retrieval-augmented generation</em>. That&#8217;s the idea of giving AI access to a database of information and allowing it to use that database as it constructs its answers. And we heard from Seth how fundamental RAG is to a lot of the use cases that Epic is deploying.&nbsp;</p>
-
-
-
-<p>And finally, I continue to find Seth&#8217;s project called Cosmos to be a source of inspiration, and I&#8217;ve continued to urge every healthcare organization that has been collecting data to consider following a similar path.&nbsp;</p>
-
-
-
-<p>In our book, we spent a great deal of time focusing on the possibility that AI might be able to reduce or even eliminate a lot of the clerical drudgery that currently exists in the delivery of healthcare. We even had a chapter entitled “The Paperwork Shredder.” And we heard from both Matt and Seth that that has indeed been the early focus of their work.&nbsp;&nbsp;</p>
-
-
-
-<p>But we also saw in our book the possibility that AI could provide diagnoses, propose treatment options, be a second set of eyes to reduce medical errors, and in the research lab be a research assistant. And here in Epic’s Cosmos, we are seeing just the early glimpses that perhaps generative AI can actually provide new research possibilities in addition to assistance in clinical decision making and problem solving. On the other hand, that still seems to be for the most part in our future rather than something that&#8217;s happening at any scale today.&nbsp;</p>
-
-
-
-<p>But looking ahead to the future, we can still see the potential of AI helping connect healthcare delivery experiences to the advancement of medical knowledge. As Seth would say, the ability to connect bedside to the back office to the bench. That&#8217;s a pretty wonderful future that will take a lot of work and tech breakthroughs to make it real. But the fact that we now have a credible chance of making that dream happen for real, I think that&#8217;s pretty wonderful.&nbsp;</p>
-
-
-
-<p>[MUSIC TRANSITIONS TO THEME]&nbsp;</p>
-
-
-
-<p>I&#8217;d like to say thank you again to Matt and Seth for sharing their experiences and insights. And to our listeners, thank you for joining us. We have some really great conversations planned for the coming episodes, including a look at how patients are using generative AI for their own healthcare, as well as an episode on the laws, norms, and ethics developing around AI and health, and more. We hope you&#8217;ll continue to tune in.</p>
-
-
-
-<p>Until next time.</p>
-
-
-
-<p>[MUSIC FADES]&nbsp;</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-21"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p id="ftn_1">[1] A provider of conversational, ambient, and generative AI, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/2022/03/04/microsoft-completes-acquisition-of-nuance-ushering-in-new-era-of-outcomes-based-ai/?msockid=35739e94ab6c69d41b738b93aa076831" target="_blank" rel="noreferrer noopener">Nuance was acquired by Microsoft in March 2022<span class="sr-only"> (opens in new tab)</span></a>. Nuance solutions and capabilities are now part of Microsoft Cloud for Healthcare.</p>
-
-
-
-<p id="ftn_2">[2] According to the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://informatics.bmj.com/content/31/1/e101102" target="_blank" rel="noreferrer noopener">survey<span class="sr-only"> (opens in new tab)</span></a>, of the 20% of respondents who said they use generative AI in clinical practice, 29% reported using the technology for patient documentation and 28% said they use it for differential diagnosis.</p>
-
-
-
-<p id="ftn_3">[3] A month after the conversation was recorded, <a href="https://www.microsoft.com/en-us/health-solutions/clinical-workflow/dragon-copilot" target="_blank" rel="noreferrer noopener">Microsoft Dragon Copilot</a> was unveiled. Dragon Copilot combines and extends the capabilities of DAX Copilot and Dragon Medical One.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-end-mark"/>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--22"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-real-world-healthcare-ai-development-and-deployment-at-scale/">Real-world healthcare AI development and deployment—at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
