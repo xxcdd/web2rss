@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 09 May 2025 20:28:17 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 12 May 2025 15:20:13 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,152 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Predicting and explaining AI model performance: A new approach to evaluation</title>
+		<link>https://www.microsoft.com/en-us/research/blog/predicting-and-explaining-ai-model-performance-a-new-approach-to-evaluation/</link>
+		
+		<dc:creator><![CDATA[Lexin Zhou, Xing Xie]]></dc:creator>
+		<pubDate>Mon, 12 May 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138048</guid>
+
+					<description><![CDATA[<p>ADeLe, a new evaluation method, explains what AI systems are good at—and where they’re likely to fail. By breaking tasks into ability-based requirements, it has the potential to provide a clearer way to evaluate and predict AI model performance.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/predicting-and-explaining-ai-model-performance-a-new-approach-to-evaluation/">Predicting and explaining AI model performance: A new approach to evaluation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW.jpg" alt="The image shows a radar chart comparing the performance of different AI models across various metrics. The chart has a circular grid with labeled axes including VO, AS, CEc, CEe, CL, MCr, MCt, MCu, MS, QLI, QLqA, SNs, KNa, KNc, KNF, KNn, and AT. Different AI models are represented by various line styles: Babbage-002 (dotted line), Davinci-002 (dash-dotted line), GPT-3.5-Turbo (dashed line), GPT-4.0 (solid thin line), OpenAI ol-mini (solid thick line), and OpenAI o1 (solid bold line). There is a legend in the bottom left corner explaining the line styles for each model. The background transitions from blue on the left to green on the right." class="wp-image-1139061" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/ADeLe-BlogHeroFeature-1400x788-NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>With support from the <a href="https://www.microsoft.com/en-us/research/project/afmr-benchmarks-evaluation-and-measurement/" target="_blank" rel="noreferrer noopener">Accelerating Foundation Models Research</a> (AFMR) grant program, a team of researchers from Microsoft and collaborating institutions has developed an approach to evaluate AI models that predicts how they will perform on unfamiliar tasks and explain why, something current benchmarks struggle to do.</p>
+
+
+
+<p>In the paper, “<a href="https://www.microsoft.com/en-us/research/publication/general-scales-unlock-ai-evaluation-with-explanatory-and-predictive-power/">General Scales Unlock AI Evaluation with Explanatory and Predictive Power</a>,” they introduce a methodology that goes beyond measuring overall accuracy. It assesses the knowledge and cognitive abilities a task requires and evaluates them against the model&#8217;s capabilities.</p>
+
+
+
+<h2 class="wp-block-heading" id="adele-an-ability-based-approach-to-task-evaluation">ADeLe: An ability-based approach to task evaluation</h2>
+
+
+
+<p>The framework uses ADeLe (annotated-demand-levels), a technique that assesses how demanding a task is for an AI model by applying measurement scales for 18 types of cognitive and knowledge-based abilities. This difficulty rating is based on a <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-december-6-2023/">detailed rubric</a>, originally developed for human tasks and shown to work reliably when <a href="https://www.microsoft.com/en-us/research/publication/evaluating-general-purpose-ai-with-psychometrics/">applied by AI models</a>.</p>
+
+
+
+<p>By comparing what a task requires with what a model can do, ADeLe generates an <em>ability profile</em> that not only predicts performance but also explains why a model is likely to succeed or fail—linking outcomes to specific strengths or limitations.</p>
+
+
+
+<p>The 18 scales reflect core cognitive abilities (e.g., attention, reasoning), knowledge areas (e.g., natural or social sciences), and other task-related factors (e.g., prevalence of the task on the internet). Each task is rated from 0 to 5 based on how much it draws on a given ability. For example, a simple math question might score 1 on formal knowledge, while one requiring advanced expertise could score 5. Figure 1 illustrates how the full process works—from rating task requirements to generating ability profiles.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1426" height="1049" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1.png" alt="Figure 1: This diagram presents a framework for explaining and predicting AI performance on new tasks using cognitive demand profiles. The System Process (top) evaluates an AI system on the ADeLe Battery—tasks annotated with DeLeAn rubrics—to create an ability profile with each dimension representing what level of demand the model can reach. The Task Process (bottom) applies the same rubrics to new tasks, generating demand profiles from annotated inputs. An optional assessor model can be trained to robustly predict how well the AI system will perform on these new tasks by matching system abilities to task demands." class="wp-image-1138073" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1.png 1426w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1-300x221.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1-1024x753.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1-768x565.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig1-240x177.png 240w" sizes="(max-width: 1426px) 100vw, 1426px" /><figcaption class="wp-element-caption">Figure 1. Top: For each AI model, (1) run the new system on the ADeLe benchmark, and (2) extract its ability profile. Bottom: For each new task or benchmark, (A) apply 18 rubrics and (B) get demand histograms and profiles that explain what abilities the tasks require. Optionally, predict performance on the new tasks for any system based on the demand and ability profiles, or past performance data, of the systems.</figcaption></figure>
+
+
+
+<p>To develop this system, the team analyzed 16,000 examples spanning 63 tasks drawn from 20 AI benchmarks, creating a unified measurement approach that works across a wide range of tasks. The <a href="https://www.microsoft.com/en-us/research/publication/general-scales-unlock-ai-evaluation-with-explanatory-and-predictive-power/">paper</a> details how ratings across 18 general scales explain model success or failure and predict performance on new tasks in both familiar and unfamiliar settings.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluation-results">Evaluation results&nbsp;</h2>
+
+
+
+<p>Using ADeLe, the team evaluated 20 popular AI benchmarks and uncovered three key findings: 1) Current AI benchmarks have measurement limitations; 2) AI models show distinct patterns of strengths and weaknesses across different capabilities; and 3) ADeLe provides accurate predictions of whether AI systems will succeed or fail on a new task.&nbsp;</p>
+
+
+
+<p><strong>1. Revealing hidden flaws in AI testing methods</strong>&nbsp;</p>
+
+
+
+<p>Many popular AI tests either don&#8217;t measure what they claim or only cover a limited range of difficulty levels. For example, the Civil Service Examination benchmark is meant to test logical reasoning, but it also requires other abilities, like specialized knowledge and metacognition. Similarly, TimeQA, designed to test temporal reasoning, only includes medium-difficulty questions—missing both simple and complex challenges.&nbsp;</p>
+
+
+
+<p><strong>2. Creating detailed AI ability profiles</strong>&nbsp;</p>
+
+
+
+<p>Using the 0–5 rating for each ability, the team created comprehensive ability profiles of 15 LLMs. For each of the 18 abilities measured, they plotted “subject characteristic curves” to show how a model’s success rate changes with task difficulty.&nbsp;&nbsp;</p>
+
+
+
+<p>They then calculated a score for each ability—the difficulty level at which a model has a 50% chance of success—and used these results to generate radial plots showing each model’s strengths and weaknesses across the different scales and levels, illustrated in Figure 2.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1380" height="494" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig2.png" alt="Figure 2: The image consists of three radar charts showing ability profiles of 15 LLMs evaluated across 18 ability scales, ranged from 0 to infinity (the higher, the more capable the model is). Each chart has multiple axes labeled with various ability scales such as VO, AS, CEc, AT, CL, MCr, etc. The left chart shows ability for Babbage-002 (light red), Davinci-002 (orange), GPT-3.5-Turbo (red), GPT-4 (dark red), OpenAI o1-mini (gray), and OpenAI o1 (dark gray). The middle chart shows ability for LLaMA models: LLaMA-3.2-1B-Instruct (light blue), LLaMA-3.2-3B-Instruct (blue), LLaMA-3.2-11B-Instruct (dark blue), LLaMA-3.2-90B-Instruct (navy blue), and LLaMA-3.1-405B Instruct (very dark blue). The right chart shows ability for DeepSeek-R1-Dist-Qwen models: DeepSeek-R1-Dist-Qwen-1.5B (light green), DeepSeek-R1-Dist-Qwen-7B (green), DeepSeek-R1-Dist-Qwen-14B (dark green), DK-R1-Dist-Qwen-32B (very dark green). Each model's ability is represented by a colored polygon within the radar charts." class="wp-image-1138072" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig2.png 1380w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig2-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig2-1024x367.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig2-768x275.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/ADeLe_Fig2-240x86.png 240w" sizes="(max-width: 1380px) 100vw, 1380px" /><figcaption class="wp-element-caption">Figure 2. Ability profiles for the 15 LLMs evaluated. </figcaption></figure>
+
+
+
+<p>This analysis revealed the following:&nbsp;</p>
+
+
+
+<ul class="wp-block-list">
+<li>When measured against human performance, AI systems show different strengths and weaknesses across the 18 ability scales.&nbsp;</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li>Newer LLMs generally outperform older ones, though not consistently across all abilities.&nbsp;</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li>Knowledge-related performance depends heavily on model size and training methods.&nbsp;</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li>Reasoning models show clear gains over non-reasoning models in logical thinking, learning and abstraction, and social capabilities, such as inferring the mental states of their users.&nbsp;</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li>Increasing the size of general-purpose models after a given threshold only leads to small performance gains.&nbsp;</li>
+</ul>
+
+
+
+<p><strong>3. Predicting AI success and failure</strong>&nbsp;</p>
+
+
+
+<p>In addition to evaluation, the team created a practical prediction system based on demand-level measurements that forecasts whether a model will succeed on specific tasks, even unfamiliar ones.&nbsp;&nbsp;</p>
+
+
+
+<p>The system achieved approximately 88% accuracy in predicting the performance of popular models like GPT-4o and LLaMA-3.1-405B, outperforming traditional methods. This makes it possible to anticipate potential failures before deployment, adding the important step of reliability assessment for AI models.</p>
+
+
+
+<h2 class="wp-block-heading" id="looking-ahead">Looking ahead</h2>
+
+
+
+<p>ADeLe can be extended to multimodal and embodied AI systems, and it has the potential to serve as a standardized framework for AI research, policymaking, and security auditing.</p>
+
+
+
+<p>This technology marks a major step toward a science of AI evaluation, one that offers both clear explanations of system behavior and reliable predictions about performance. It aligns with the vision laid out in a previous <a href="https://www.microsoft.com/en-us/research/publication/evaluating-general-purpose-ai-with-psychometrics/" target="_blank" rel="noreferrer noopener">Microsoft position paper</a> on the promise of applying psychometrics to AI evaluation and a recent <a href="https://www.microsoft.com/en-us/research/project/societal-ai/white-paper/" target="_blank" rel="noreferrer noopener">Societal AI white paper</a> emphasizing the importance of AI evaluation.</p>
+
+
+
+<p>As general-purpose AI advances faster than traditional evaluation methods, this work lays a timely foundation for making AI assessments more rigorous, transparent, and ready for real-world deployment. The research team is working toward building a collaborative community to strengthen and expand this emerging field.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/predicting-and-explaining-ai-model-performance-a-new-approach-to-evaluation/">Predicting and explaining AI model performance: A new approach to evaluation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Abstracts: Heat Transfer and Deep Learning with Hongxia Hao and Bing Lv</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/</link>
 		
@@ -32,11 +178,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/">Abstracts: Heat Transfer and Deep Learning with Hongxia Hao and Bing Lv</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Hongxia Hao (left) and Bing Lv (right)." class="wp-image-1138528" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Hongxia Hao (left) and Bing Lv (right)." class="wp-image-1138528" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=145216634&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=145216634&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -323,7 +469,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus: May 07, 2025" class="wp-image-1138631" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus: May 07, 2025" class="wp-image-1138631" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
 
 
 
@@ -611,27 +757,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1061244">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/about-microsoft-research/" aria-label="About Microsoft Research" data-bi-cN="About Microsoft Research" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/07/About-page-promo_1066x600.jpg" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">About Microsoft Research</h2>
+									<h2 class="h4">What’s Your Story: Lex Story</h2>
 				
-								<p class="large">Advancing science and technology to benefit humanity</p>
+								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/about-microsoft-research/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="View our story" data-bi-cN="About Microsoft Research" target="_blank">
-							View our story						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2970,30 +3119,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085496">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-label="Eureka: Evaluating and understanding progress in AI" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg" alt="White icons representing the Eureka Experiment Pipeline -- PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing, EvalReporting -- on blue to green gradient background." />
+				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Eureka: Evaluating and understanding progress in AI</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p class="large">How can we rigorously evaluate and understand state-of-the-art progress in AI? Eureka is an open-source framework for standardizing evaluations of large foundation models, beyond single-score reporting and rankings. Learn more about the extended findings. </p>
+								<p class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-							Read more						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4311,239 +4460,6 @@
 <div class="wp-block-button is-style-outline is-style-outline--17"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/the-ai-revolution-in-medicine-revisited-empowering-patients-and-healthcare-consumers-in-the-age-of-generative-ai/">Empowering patients and healthcare consumers in the age of generative AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Engagement, user expertise, and satisfaction: Key insights from the Semantic Telemetry Project</title>
-		<link>https://www.microsoft.com/en-us/research/blog/engagement-user-expertise-and-satisfaction-key-insights-from-the-semantic-telemetry-project/</link>
-		
-		<dc:creator><![CDATA[Amber Hoak, Scott Counts, Kate Lytvynets, David Tittsworth, Siddharth Suri, Nirupama Chandrasekaran, Ben Cutler, Weiwei Yang]]></dc:creator>
-		<pubDate>Mon, 14 Apr 2025 19:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1136235</guid>
-
-					<description><![CDATA[<p>Semantic Telemetry Project data show that people who use AI for more professional and complex tasks are more likely to keep using the tool and to use it more often. Novice AI users engage in simpler tasks, but their usage is becoming more complex.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/engagement-user-expertise-and-satisfaction-key-insights-from-the-semantic-telemetry-project/">Engagement, user expertise, and satisfaction: Key insights from the Semantic Telemetry Project</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2100" height="1182" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1.jpg" alt="The image features four white icons on a gradient background that transitions from blue on the left to green on the right. The first icon is a network or molecule structure with interconnected nodes. The second icon is a light bulb, symbolizing an idea or innovation. The third icon is a checklist with three items and checkmarks next to each item. The fourth icon consists of two overlapping speech bubbles, representing communication or conversation." class="wp-image-1136384" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1.jpg 2100w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Semantic-Telemetry-2-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2100px) 100vw, 2100px" /></figure>
-
-
-
-<p>The <a href="https://www.microsoft.com/en-us/research/project/semantic-telemetry/" target="_blank" rel="noreferrer noopener">Semantic Telemetry Project</a> aims to better understand complex, turn-based human-AI interactions in Microsoft Copilot using a new data science approach.&nbsp;</p>
-
-
-
-<p>This understanding is crucial for recognizing how individuals utilize AI systems to address real-world tasks. It provides actionable insights, enhances key use cases, and identifies opportunities for system improvement.</p>
-
-
-
-<p>In a recent <a href="https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/?msockid=0f3bfc3f6f3464c71ab7e9906e196520">blog post</a>, we shared our approach for classifying chat log data using large language models (LLMs), which allows us to analyze these interactions at scale and in near real time. We also introduced two of our LLM-generated classifiers: Topics and Task Complexity.&nbsp;</p>
-
-
-
-<p>This blog post will examine how our suite of LLM-generated classifiers can serve as early indicators for user engagement and highlight how usage and satisfaction varies based on AI and user expertise.</p>
-
-
-
-<p><strong>The key findings from our research are:&nbsp;</strong></p>
-
-
-
-<ul class="wp-block-list">
-<li>When users engage in more professional, technical, and complex tasks, they are more likely to continue utilizing the tool and increase their level of interaction with it.&nbsp;</li>
-
-
-
-<li>Novice users currently engage in simpler tasks, but their work is gradually becoming more complex over time.&nbsp;</li>
-
-
-
-<li>More expert users are satisfied with AI responses only where AI expertise is on par with their own expertise on the topic, while novice users had low satisfaction rates regardless of AI expertise.&nbsp;</li>
-</ul>
-
-
-
-<p>Read on for more information on these findings. Note that all analyses were conducted on anonymous Copilot in Bing interactions containing no personal information.&nbsp;</p>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row has-background has-lighter-gray-background-color has-text-color has-black-color wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p><em>Classifiers mentioned in article:&nbsp;</em></p>
-
-
-
-<p><strong>Knowledge work classifier</strong>: Tasks that involve creating artifacts related to information work typically requiring creative and analytical thinking. Examples include strategic business planning, software design, and scientific research.&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/?msockid=0f3bfc3f6f3464c71ab7e9906e196520" target="_blank" rel="noreferrer noopener"><strong>Task complexity classifier</strong></a>: Assesses the cognitive complexity of a task if a user performs it without the use of AI. We group into two categories: <em>low complexity</em> and <em>high complexity</em>.&nbsp;</p>
-
-
-
-<p><strong>Topics classifier</strong>: A single label for the primary topic of the conversation.</p>
-
-
-
-<p><strong>User expertise: </strong>Labels the user’s expertise on the primary topic within the conversation as one of the following categories: Novice (no familiarity with the topic), Beginner (little prior knowledge or experience), Intermediate (some basic knowledge or familiarity with the topic), Proficient (can apply relevant concepts from conversation), and Expert (deep and comprehensive understanding of the topic).&nbsp;</p>
-
-
-
-<p><strong>AI expertise: </strong>Labels the AI agent expertise based on the same criteria as user expertise above.&nbsp;</p>
-
-
-
-<p><strong>User satisfaction: </strong>A 20-question satisfaction/dissatisfaction rubric that the LLM evaluates to create an aggregate score for overall user satisfaction.&nbsp;</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>		</div>
-	</div>
-
-	</div>
-
-
-
-<h2 class="wp-block-heading" id="what-keeps-bing-chat-users-engaged">What keeps Bing Chat users engaged?&nbsp;</h2>
-
-
-
-<p>We conducted a study of a random sample of 45,000 anonymous Bing Chat users during May 2024. The data was grouped into three cohorts based on user activity over the course of the month:&nbsp;</p>
-
-
-
-<ul class="wp-block-list">
-<li><em>Light </em>(1 active chat session per week)&nbsp;</li>
-
-
-
-<li><em>Medium</em> (2-3 active chat sessions per week)&nbsp;</li>
-
-
-
-<li><em>Heavy</em> (4+ active chat sessions per week)&nbsp;</li>
-</ul>
-
-
-
-<p><strong>The key finding is that </strong><strong><em>heavy users</em></strong><strong> are doing more professional, complex work.</strong>&nbsp;</p>
-
-
-
-<p>We utilized our <strong>knowledge work classifier</strong> to label the chat log data as relating to knowledge work tasks. What we found is knowledge work tasks were higher in all cohorts, with the highest percentage in <em>heavy users</em>.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2308" height="1429" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work.png" alt="Bar chart illustrating knowledge work distribution across three engagement cohorts: light, medium, and heavy. The chart shows that all three cohorts engage in more knowledge work compared to the 'Not knowledge work' and 'Both' categories, with heavy users performing the most knowledge work. " class="wp-image-1136247" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work.png 2308w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work-300x186.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work-1024x634.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work-768x476.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work-1536x951.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work-2048x1268.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_1_Engagement-Knowledge-Work-240x149.png 240w" sizes="auto, (max-width: 2308px) 100vw, 2308px" /><figcaption class="wp-element-caption"><em>Figure 1: Knowledge work based on engagement cohort</em></figcaption></figure>
-
-
-
-<p>Analyzing task complexity, we observed that users with higher engagement frequently perform the highest number of tasks with high complexity, while users with lower engagement performed more tasks with low complexity.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1798" height="1087" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity.png" alt="Bar chart illustrating task complexity distribution across three engagement cohorts: light, medium, and heavy. The chart shows all three cohorts perform more high complexity tasks than low complexity tasks, with heavy users performing the greatest number of high complexity tasks. " class="wp-image-1136248" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity.png 1798w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity-300x181.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity-1024x619.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity-768x464.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity-1536x929.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_2_Engagement-task-complexity-240x145.png 240w" sizes="auto, (max-width: 1798px) 100vw, 1798px" /><figcaption class="wp-element-caption"><em>Figure 2: High complexity and low complexity tasks by engagement cohort+</em>&nbsp;</figcaption></figure>
-
-
-
-<p>Looking at the overall data, we can filter on heavy users and see higher numbers of chats where the user was performing <em>knowledge work</em> tasks. Based on task complexity, we see that most <em>knowledge work </em>tasks seek to apply a solution to an existing problem, primarily within <em>programming and scripting</em>. This is in line with our top overall topic, <em>technology</em>, which we discussed in the previous post.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2161" height="1219" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view.png" alt="Tree diagram illustrating how heavy users are engaging with Bing Chat. The visual selects the most common use case for heavy users: knowledge work, “apply” complexity and related topics.  " class="wp-image-1136249" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view.png 2161w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-1024x578.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-768x433.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-1536x866.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-2048x1155.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_3_Engagement-heavy-users-tree-view-640x360.png 640w" sizes="auto, (max-width: 2161px) 100vw, 2161px" /><figcaption class="wp-element-caption"><em>Figure 3: Heavy users tree diagram</em>&nbsp;</figcaption></figure>
-
-
-
-<p>In contrast, <em>light users</em> tended to do more <em>low complexity </em>tasks (<a href="https://www.microsoft.com/en-us/research/blog/semantic-telemetry-understanding-how-users-interact-with-ai-systems/?msockid=061a2f481be2670621233a8a1a5866f2">“Remember”</a>),&nbsp;using Bing Chat like a traditional search engine and engaging more in topics like <em>business and finance </em>and <em>computers and electronics.</em></p>
-
-
-
-<figure class="wp-block-image aligncenter size-large"><img loading="lazy" decoding="async" width="1024" height="580" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-1024x580.png" alt="Tree diagram illustrating how light users are engaging with Bing Chat. The visual selects the most common use case for light users: knowledge work, “remember” complexity and related topics. " class="wp-image-1136250" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-1024x580.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-300x170.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-768x435.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-1536x870.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-2048x1161.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_4_Engagement-light-users-tree-view-240x136.png 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption"><em>Figure 4: Light users tree diagram</em>&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="novice-queries-are-becoming-more-complex">Novice queries are becoming more complex&nbsp;</h2>
-
-
-
-<p>We looked at Bing Chat data from January through August 2024 and we classified chats using our <strong>User Expertise</strong> classifier. When we looked at how the different user expertise groups were using the tool for professional tasks, we discovered that proficient and expert users tend to do more professional tasks with high complexity in topics like <em>programming and scripting, professional writing and editing</em>, <em>and physics and chemistry</em>.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1576" height="1135" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics.png" alt="Bar chart illustrating top topics for proficient and expert users with programming and scripting (18.3%), professional writing and editing (10.4%), and physics and chemistry (9.8%) as top three topics. " class="wp-image-1136251" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics.png 1576w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics-1024x737.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics-768x553.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics-1536x1106.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_5_Proficent-Expert-top-topics-240x173.png 240w" sizes="auto, (max-width: 1576px) 100vw, 1576px" /><figcaption class="wp-element-caption"><em>Figure 5: Top topics for proficient/expert users</em>&nbsp;</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1329" height="667" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_6_Proficent-expert-task-complexity.png" alt="Bar chart showing task complexity for proficient and expert users. The chart shows a greater number of high complexity chats than low complexity chats, with the highest percentage in categories “Understand” (30.8%) and “Apply” (29.3%). " class="wp-image-1136252" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_6_Proficent-expert-task-complexity.png 1329w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_6_Proficent-expert-task-complexity-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_6_Proficent-expert-task-complexity-1024x514.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_6_Proficent-expert-task-complexity-768x385.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_6_Proficent-expert-task-complexity-240x120.png 240w" sizes="auto, (max-width: 1329px) 100vw, 1329px" /><figcaption class="wp-element-caption"><em>Figure 6: Task complexity for proficient/expert</em>&nbsp;</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1882" height="1386" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics.png" alt="Bar chart illustrating top topics for novice users with business and finance (12.5%), education and learning (10.0%), and computers and electronics (9.8%) as top three topics. " class="wp-image-1136253" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics.png 1882w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics-300x221.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics-1024x754.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics-768x566.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics-1536x1131.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_7_Novice-top-topics-240x177.png 240w" sizes="auto, (max-width: 1882px) 100vw, 1882px" /><figcaption class="wp-element-caption"><em>Figure 7: Top topics for novices</em>&nbsp;</figcaption></figure>
-
-
-
-<p>In contrast, novice users engaged more in professional tasks relating to <em>business and finance</em> and <em>education and learning, </em>mainly using the tool to recall information.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1588" height="799" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity.png" alt="Bar chart showing task complexity for novice users. The chart shows a greater number of low complexity chats than high complexity chats, with the highest percentage in categories “Remember” (48.6%). " class="wp-image-1136254" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity.png 1588w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity-1024x515.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity-768x386.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity-1536x773.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_8_novice-task-complexity-240x121.png 240w" sizes="auto, (max-width: 1588px) 100vw, 1588px" /><figcaption class="wp-element-caption"><em>Figure 8: Task complexity for novices</em>&nbsp;</figcaption></figure>
-
-
-
-<p>However, novices are targeting increasingly more complex tasks over time. Over the eight-month period, we see the percentage of high complexity tasks rise from about 36% to 67%, revealing that novices are learning and adapting quickly (see Figure 9).&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-large"><img loading="lazy" decoding="async" width="1024" height="672" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice-1024x672.png" alt="Line chart showing weekly percentage of high complexity chats for novice users from January-August 2024. The line chart starts at 35.9% in January and ends at 67.2% in August.  " class="wp-image-1136255" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice-1024x672.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice-300x197.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice-768x504.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice-1536x1007.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice-240x157.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_9_weekly-high-complexity-novice.png 1807w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption"><em>Figure 9: High complexity for novices Jan-Aug 2024</em>&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-does-user-satisfaction-vary-according-to-expertise">How does user satisfaction vary according to expertise?&nbsp;</h2>
-
-
-
-<p>We classified both the user expertise and AI agent expertise for anonymous interactions in Copilot in Bing. We compared the level of user and AI agent expertise with our <strong>user satisfaction classifier</strong>.&nbsp;</p>
-
-
-
-<p><strong>The key takeaways are:</strong>&nbsp;</p>
-
-
-
-<ul class="wp-block-list">
-<li>Experts and proficient users are only satisfied with AI agents with similar expertise (expert/proficient).&nbsp;</li>
-
-
-
-<li>Novices are least satisfied, regardless of the expertise of the AI agent.&nbsp;</li>
-</ul>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2548" height="859" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI.png" alt="Table illustrating user satisfaction based on expertise level of user and agent. Each row if the table is the user expertise group (novice, beginner, intermediate, proficient, expert) and on the columns is AI expertise group (novice, beginner, intermediate, proficient, expert). The table illustrates that novice users are least satisfied overall and expert/proficient users are satisfied with AI expertise of proficient/expert.  " class="wp-image-1136256" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI.png 2548w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI-300x101.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI-1024x345.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI-768x259.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI-1536x518.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI-2048x690.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Figure_10_Sat-by-User-AI-240x81.png 240w" sizes="auto, (max-width: 2548px) 100vw, 2548px" /><figcaption class="wp-element-caption"><em>Figure 10: Copilot in Bing satisfaction intersection of AI expertise and User expertise (August-September 2024)</em>&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
-
-
-
-<p>Understanding these metrics is vital for grasping user behavior over time and relating it to real-world business indicators. Users are finding value from complex professional knowledge work tasks, and novices are quickly adapting to the tool and finding these high value use-cases. By analyzing user satisfaction in conjunction with expertise levels, we can tailor our tools to better meet the needs of different user groups. Ultimately, these insights can help improve user understanding across a variety of tasks.&nbsp;&nbsp;</p>
-
-
-
-<p>In our next post, we will examine the engineering processes involved in LLM-generated classification.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/engagement-user-expertise-and-satisfaction-key-insights-from-the-semantic-telemetry-project/">Engagement, user expertise, and satisfaction: Key insights from the Semantic Telemetry Project</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
