@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 21 May 2025 01:49:45 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 May 2025 01:49:05 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery is selected as a top 10 finalist for RSAC™ 2025 conference 20th annual innovation sandbox contest</title>
       <link>https://projectdiscovery.io/blog/rsac-2025-top-10-finalist</link>
@@ -106,15 +106,6 @@ Following our last release on Azure Cloud Security Config Review and Kubernetes 
 GCP is well-known for its powerful features and v</description>
     </item>
     <item>
-      <title>IngressNightmare: Unauth RCE in Ingress NGINX (CVE-2025-1974)</title>
-      <link>https://projectdiscovery.io/blog/ingressnightmare-unauth-rce-in-ingress-nginx</link>
-      <description>A critical vulnerability (CVE-2025-1974) was recently discovered in the Kubernetes Ingress-NGINX Controller that allows unauthenticated remote code execution (RCE) on the ingress controller pod.
-
-Originally discovered by the Wiz research team (Nir Ohfeld, Ronen Shustin, Sagi Tzadik, Hillai Ben-Sasson) in late 2024 and disclosed in March 2025, CVE-2025-1974 is part of a series of vulnerabilities collectively called IngressNightmare.
-
-If you’re specifically looking to use the IngressNightmare dete</description>
-    </item>
-    <item>
       <title>CrushFTP Authentication Bypass - CVE-2025-2825</title>
       <link>https://projectdiscovery.io/blog/crushftp-authentication-bypass</link>
       <description>Update (April 21, 2025):
@@ -133,9 +124,11 @@ As security researchers, we all know that familiar dance when blackbox testing w
 However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
     </item>
     <item>
-      <title>Securing the distributed perimeter: How Elastic scaled proactive detection with ProjectDiscovery Cloud</title>
-      <link>https://projectdiscovery.io/blog/how-elastic-scaled-proactive-detection-with-projectdiscovery-cloud</link>
-      <description>Before going all-in on ProjectDiscovery Cloud, Elastic had already embraced Nuclei, the open-source vulnerability scanner built for customization and speed, along with other ProjectDiscovery tools like naabu and httpx.</description>
+      <title>Authentication Bypass to RCE in Versa Concerto (0-Day)</title>
+      <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
+      <description>Introduction
+
+Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
     </item>
     <item>
       <title>GCP Cloud Configuration Review Templates - Nuclei Templates v10.2.0 🎉</title>
@@ -152,6 +145,15 @@ GCP is well-known for its powerful features and v</description>
       <description>Last week, ProjectDiscovery took home the title of Most Innovative Startup at the 2025 RSA Innovation Sandbox, the biggest stage in the world for security innovation. While much of this year’s buzz centered on securing AI, our win was a powerful signal: even as new frontiers emerge, foundational problems like vulnerability management remain unsolved. Security leaders are still spending millions on tools that generate noise instead of insight, and the industry is ready for a better way.
 
 Our COO,</description>
+    </item>
+    <item>
+      <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
+      <link>https://projectdiscovery.io/blog/ivanti-remote-code-execution</link>
+      <description>Introduction
+
+As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
+
+However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
     </item>
   </channel>
 </rss>
