@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 22 May 2025 19:50:57 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 27 May 2025 17:39:43 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,262 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>FrodoKEM: A conservative quantum-safe cryptographic algorithm</title>
+		<link>https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/</link>
+		
+		<dc:creator><![CDATA[Patrick Longa]]></dc:creator>
+		<pubDate>Tue, 27 May 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1139939</guid>
+
+					<description><![CDATA[<p>The recent advances in quantum computing offer many advantages—but also challenge current cryptographic strategies. Learn how FrodoKEM could help strengthen security, even in a future with powerful quantum computers.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/">FrodoKEM: A conservative quantum-safe cryptographic algorithm</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg" alt="The image features a gradient background transitioning from blue on the left to pink on the right. In the center, there are three white icons. On the left is a microchip icon that represents quantum computing, in the middle is a shield, and on the right is another microchip with a padlock symbol inside it." class="wp-image-1140055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>In this post, we describe FrodoKEM, a key encapsulation protocol that offers a simple design and provides strong security guarantees even in a future with powerful quantum computers.</p>
+
+
+
+<h2 class="wp-block-heading" id="the-quantum-threat-to-cryptography">The quantum threat to cryptography</h2>
+
+
+
+<p>For decades, modern cryptography has relied on mathematical problems that are practically impossible for classical computers to solve without a secret key. Cryptosystems like RSA, Diffie-Hellman key-exchange, and elliptic curve-based schemes—which rely on the hardness of the integer factorization and (elliptic curve) discrete logarithm problems—secure communications on the internet, banking transactions, and even national security systems. However, the emergence of<strong> </strong>quantum computing poses a significant threat to these cryptographic schemes.</p>
+
+
+
+<p>Quantum computers leverage the principles of quantum mechanics to perform certain calculations exponentially faster than classical computers. Their ability to solve complex problems, such as simulating molecular interactions, optimizing large-scale systems, and accelerating machine learning, is expected to have profound and beneficial implications for fields ranging from chemistry and material science to artificial intelligence.</p>
+
+
+
+<p>At the same time, quantum computing is poised to disrupt cryptography. In particular, Shor’s algorithm, a quantum algorithm developed in 1994, can efficiently factor large numbers and compute discrete logarithms—the very problems that underpin the security of RSA, Diffie-Hellman, and elliptic curve cryptography. This means that once large-scale, fault-tolerant quantum computers become available, public-key protocols based on RSA, ECC, and Diffie-Hellman will become insecure, breaking a sizable portion of the cryptographic backbone of today’s digital world. Recent advances in quantum computing, such as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/source/features/innovation/microsofts-majorana-1-chip-carves-new-path-for-quantum-computing/" target="_blank" rel="noreferrer noopener">Microsoft’s Majorana 1<span class="sr-only"> (opens in new tab)</span></a>, the first quantum processor powered by topological qubits, represent major steps toward practical quantum computing and underscore the urgency of transitioning to quantum-resistant cryptographic systems.</p>
+
+
+
+<p>To address this looming security crisis, cryptographers and government agencies have been working on post-quantum cryptography (PQC)—new cryptographic algorithms that can resist attacks from both classical and quantum computers.</p>
+
+
+
+<h2 class="wp-block-heading" id="the-nist-post-quantum-cryptography-standardization-effort">The NIST Post-Quantum Cryptography Standardization effort</h2>
+
+
+
+<p>In 2017, the U.S. National Institute of Standards and Technology (NIST) launched the <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization" target="_blank" rel="noreferrer noopener">Post-Quantum Cryptography Standardization project<span class="sr-only"> (opens in new tab)</span></a></strong> to evaluate and select cryptographic algorithms capable of withstanding quantum attacks. As part of this initiative, NIST sought proposals for two types of cryptographic primitives: key encapsulation mechanisms (KEMs)—which enable two parties to securely derive a shared key to establish an encrypted connection, similar to traditional key exchange schemes—and digital signature schemes.</p>
+
+
+
+<p>This initiative attracted submissions from cryptographers worldwide, and after multiple evaluation rounds, NIST selected CRYSTALS-Kyber, a KEM based on structured lattices, and standardized it as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://doi.org/10.6028/NIST.FIPS.203" target="_blank" rel="noreferrer noopener">ML-KEM<span class="sr-only"> (opens in new tab)</span></a>. Additionally, NIST selected three digital signature schemes: CRYSTALS-Dilithium, now called ML-DSA; SPHINCS<sup>+</sup>, now called SLH-DSA; and Falcon, now called FN-DSA.</p>
+
+
+
+<p>While ML-KEM provides great overall security and efficiency, some governments and cryptographic researchers advocate for the inclusion and standardization of alternative algorithms that minimize reliance on algebraic structure. Reducing algebraic structure might prevent potential vulnerabilities and, hence, can be considered a more conservative design choice. One such algorithm is <strong>FrodoKEM</strong>.</p>
+
+
+
+<h2 class="wp-block-heading" id="international-standardization-of-post-quantum-cryptography">International standardization of post-quantum cryptography</h2>
+
+
+
+<p>Beyond NIST, other international standardization bodies have been actively working on quantum-resistant cryptographic solutions. The <strong>International Organization for Standardization (ISO)</strong> is leading a global effort to standardize additional PQC algorithms. Notably, European government agencies—including <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=7" target="_blank" rel="noreferrer noopener">Germany’s BSI<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://publications.tno.nl/publication/34643386/fXcPVHsX/TNO-2024-pqc-en.pdf" target="_blank" rel="noreferrer noopener">the Netherlands’ NLNCSA and AIVD<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cyber.gouv.fr/en/publications/follow-position-paper-post-quantum-cryptography" target="_blank" rel="noreferrer noopener">France’s ANSSI<span class="sr-only"> (opens in new tab)</span></a>—have shown strong support for FrodoKEM, recognizing it as a conservative alternative to structured lattice-based schemes.</p>
+
+
+
+<p>As a result,<strong> FrodoKEM is undergoing standardization at ISO.</strong> Additionally, ISO is standardizing ML-KEM and a conservative code-based KEM called Classic McEliece. These three algorithms are planned for inclusion in ISO/IEC 18033-2:2006 as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.iso.org/standard/86890.html" target="_blank" rel="noreferrer noopener">Amendment 2<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="what-is-frodokem">What is FrodoKEM?</h2>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/project/frodokem/">FrodoKEM</a> is a key encapsulation mechanism (KEM) based on the <strong>Learning with Errors (LWE) problem</strong>, a cornerstone of lattice-based cryptography. Unlike structured lattice-based schemes such as ML-KEM, FrodoKEM is built on generic, unstructured lattices, i.e., it is based on the <em>plain </em>LWE problem.</p>
+
+
+
+<h3 class="wp-block-heading" id="why-unstructured-lattices">Why unstructured lattices?</h3>
+
+
+
+<p>Structured lattice-based schemes introduce additional algebraic properties that could potentially be exploited in future cryptanalytic attacks. By using unstructured lattices, FrodoKEM eliminates these concerns, making it a safer choice in the long run, albeit at the cost of larger key sizes and lower efficiency.</p>
+
+
+
+<p>It is important to emphasize that no particular cryptanalytic weaknesses are currently known for recommended parameterizations of structured lattice schemes in comparison to plain LWE. However, our current understanding of the security of these schemes could potentially change in the future with cryptanalytic advances.</p>
+
+
+
+<h2 class="wp-block-heading" id="lattices-and-the-learning-with-errors-lwe-problem">Lattices and the Learning with Errors (LWE) problem</h2>
+
+
+
+<p>Lattice-based cryptography relies on the mathematical structure of lattices, which are regular arrangements of points in multidimensional space. A lattice is defined as the set of all integer linear combinations of a set of basis vectors. The difficulty of certain computational problems on lattices, such as the Shortest Vector Problem (SVP) and the Learning with Errors (LWE) problem, forms the basis of lattice-based schemes.</p>
+
+
+
+<h3 class="wp-block-heading" id="the-learning-with-errors-lwe-problem">The Learning with Errors (LWE) problem</h3>
+
+
+
+<p>The LWE problem is a fundamental hard problem in lattice-based cryptography. It involves solving a system of linear equations where some small random error has been added to each equation, making it extremely difficult to recover the original secret values. This added error ensures that the problem remains computationally infeasible, even for quantum computers. Figure 1 below illustrates the LWE problem, specifically, the search version of the problem.</p>
+
+
+
+<p>As can be seen in Figure 1, for the setup of the problem we need a dimension \(n\) that defines the size of matrices, a modulus \(q\) that defines the value range of the matrix coefficients, and a certain error distribution \(\chi\) from which we sample \(\textit{“small”}\) matrices. We sample two matrices from \(\chi\), a small matrix \(\text{s}\) and an error matrix \(\text{e}\) (for simplicity in the explanation, we assume that both have only one column); sample an \(n \times n\) matrix \(\text{A}\) uniformly at random; and compute \(\text{b} = \text{A} \times \text{s} + \text{e}\). In the illustration, each matrix coefficient is represented by a colored square, and the “legend of coefficients” gives an idea of the size of the respective coefficients, e.g., orange squares represent the small coefficients of matrix \(\text{s}\)&nbsp;(small relative to the modulus \(q\)). Finally, given \(\text{A}\) and \(\text{b}\), the search LWE problem consists in finding \(\text{s}\). This problem is believed to be hard for suitably chosen parameters (e.g., for dimension \(n\) sufficiently large) and is used at the core of FrodoKEM.</p>
+
+
+
+<p>In comparison, the LWE variant used in ML-KEM—called Module-LWE (M-LWE)—has additional symmetries, adding mathematical structure that helps improve efficiency. In a setting similar to that of the search LWE problem above, the matrix \(\text{A}\) can be represented by just a single row of coefficients.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1810" height="965" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1.jpg" alt="Visualization of the (search) LWE problem." class="wp-image-1140135" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1.jpg 1810w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-300x160.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-1024x546.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-768x409.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-1536x819.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-710x380.jpg 710w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-240x128.jpg 240w" sizes="(max-width: 1810px) 100vw, 1810px" /><figcaption class="wp-element-caption"><strong>FIGURE 1:</strong> Visualization of the (search) LWE problem.</figcaption></figure>
+
+
+
+<p>LWE is conjectured to be quantum-resistant, and FrodoKEM’s security is directly tied to its hardness. In other words, cryptanalysts and quantum researchers have not been able to devise an efficient quantum algorithm capable of solving the LWE problem and, hence, FrodoKEM. In cryptography, absolute security can never be guaranteed; instead, confidence in a problem’s hardness comes from extensive scrutiny and its resilience against attacks over time.</p>
+
+
+
+<h2 class="wp-block-heading" id="how-frodokem-works">How FrodoKEM Works</h2>
+
+
+
+<p>FrodoKEM follows the standard paradigm of a KEM, which consists of three main operations—key generation, encapsulation, and decapsulation—performed interactively between a sender and a recipient with the goal of establishing a shared secret key:</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Key generation (KeyGen), computed by the recipient</strong>
+<ul class="wp-block-list">
+<li>Generates a public key and a secret key.</li>
+
+
+
+<li>The public key is sent to the sender, while the private key remains secret.</li>
+</ul>
+</li>
+
+
+
+<li><strong>Encapsulation (Encapsulate), computed by the sender</strong>
+<ul class="wp-block-list">
+<li>Generates a random session key.</li>
+
+
+
+<li>Encrypts the session key using the recipient&#8217;s public key to produce a ciphertext.</li>
+
+
+
+<li>Produces a shared key using the session key and the ciphertext.</li>
+
+
+
+<li>The ciphertext is sent to the recipient.</li>
+</ul>
+</li>
+
+
+
+<li><strong>Decapsulation (Decapsulate), computed by the recipient</strong>
+<ul class="wp-block-list">
+<li>Decrypts the ciphertext using their secret key to recover the original session key.</li>
+
+
+
+<li>Reproduces the shared key using the decrypted session key and the ciphertext.</li>
+</ul>
+</li>
+</ol>
+
+
+
+<p>The shared key generated by the sender and reconstructed by the recipient can then be used to establish secure symmetric-key encryption for further communication between the two parties.</p>
+
+
+
+<p>Figure 2 below shows a simplified view of the FrodoKEM protocol. As highlighted in red, FrodoKEM uses at its core LWE operations of the form “\(\text{b} = \text{A} \times \text{s} + \text{e}\)”, which are directly applied within the KEM paradigm.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1845" height="1055" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2.jpg" alt="Simplified overview of FrodoKEM." class="wp-image-1140137" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2.jpg 1845w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-300x172.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-1024x586.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-768x439.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-1536x878.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-240x137.jpg 240w" sizes="(max-width: 1845px) 100vw, 1845px" /><figcaption class="wp-element-caption"><strong>FIGURE 2:</strong> Simplified overview of FrodoKEM.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="performance-strong-security-has-a-cost">Performance: Strong security has a cost</h2>
+
+
+
+<p>Not relying on additional algebraic structure certainly comes at a cost for FrodoKEM in the form of increased protocol runtime and bandwidth. The table below compares the performance and key sizes corresponding to the FrodoKEM level 1 parameter set (variant called “FrodoKEM-640-AES”) and the respective parameter set of ML-KEM (variant called “ML-KEM-512”). These parameter sets are intended to match or exceed the brute force security of AES-128. As can be seen, the difference in speed and key sizes between FrodoKEM and ML-KEM is more than an order of magnitude. Nevertheless, the runtime of the FrodoKEM protocol remains reasonable for most applications. For example, on our benchmarking platform clocked at 3.2GHz, the measured runtimes are 0.97 ms, 1.9 ms, and 3.2 ms for security levels 1, 2, and 3, respectively.</p>
+
+
+
+<p>For security-sensitive applications, a more relevant comparison is with Classic McEliece, a post-quantum code-based scheme also considered for standardization. In this case, FrodoKEM offers several efficiency advantages. Classic McEliece’s public keys are significantly larger—well over an order of magnitude greater than FrodoKEM’s—and its key generation is substantially more computationally expensive. Nonetheless, Classic McEliece provides an advantage in certain static key-exchange scenarios, where its high key generation cost can be amortized across multiple key encapsulation executions.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2236" height="521" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3.jpg" alt="Comparison of key sizes and performance on an x86-64 processor for NIST level 1 parameter sets." class="wp-image-1140140" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3.jpg 2236w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-300x70.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-1024x239.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-768x179.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-1536x358.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-2048x477.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-240x56.jpg 240w" sizes="auto, (max-width: 2236px) 100vw, 2236px" /><figcaption class="wp-element-caption"><strong>TABLE 1:</strong> Comparison of key sizes and performance on an x86-64 processor for NIST level 1 parameter sets.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="a-holistic-design-made-with-security-in-mind">A holistic design made with security in mind</h2>
+
+
+
+<p>FrodoKEM&#8217;s design principles support security beyond its reliance on generic, unstructured lattices to minimize the attack surface of potential future cryptanalytic threats. Its parameters have been carefully chosen with additional security margins to withstand advancements in known attacks. Furthermore, FrodoKEM is designed with simplicity in mind—its internal operations are based on straightforward matrix-vector arithmetic using integer coefficients reduced modulo a power of two. These design decisions facilitate simple, compact and secure implementations that are also easier to maintain and to protect against side-channel attacks.</p>
+
+
+
+<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
+
+
+
+<p>After years of research and analysis, the next generation of post-quantum cryptographic algorithms has arrived. NIST has chosen strong PQC protocols that we believe will serve Microsoft and its customers well in many applications. For security-sensitive applications, FrodoKEM offers a secure yet practical approach for post-quantum cryptography. While its reliance on unstructured lattices results in larger key sizes and higher computational overhead compared to structured lattice-based alternatives, it provides strong security assurances against potential future attacks. Given the ongoing standardization efforts and its endorsement by multiple governmental agencies, FrodoKEM is well-positioned as a viable alternative for organizations seeking long-term cryptographic resilience in a post-quantum world.</p>
+
+
+
+<h2 class="wp-block-heading" id="further-reading">Further Reading</h2>
+
+
+
+<p>For those interested in learning more about FrodoKEM, post-quantum cryptography, and lattice-based cryptography, the following resources provide valuable insights:</p>
+
+
+
+<ul class="wp-block-list">
+<li>The official FrodoKEM website: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://frodokem.org/" target="_blank" rel="noreferrer noopener">https://frodokem.org/<span class="sr-only"> (opens in new tab)</span></a>, which contains, among several other resources, FrodoKEM’s specification document.</li>
+
+
+
+<li>The official FrodoKEM software library: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/Microsoft/PQCrypto-LWEKE" target="_blank" rel="noreferrer noopener">https://github.com/Microsoft/PQCrypto-LWEKE<span class="sr-only"> (opens in new tab)</span></a>, which contains reference and optimized implementations of FrodoKEM written in C and Python.</li>
+
+
+
+<li>NIST’s Post-Quantum Cryptography Project: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noreferrer noopener">https://csrc.nist.gov/projects/post-quantum-cryptography<span class="sr-only"> (opens in new tab)</span></a>.</li>
+
+
+
+<li>Microsoft’s blogpost on its transition plan for PQC: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/blog/microsoft-security-blog/microsofts-quantum-resistant-cryptography-is-here/4238780" target="_blank" rel="noreferrer noopener">https://techcommunity.microsoft.com/blog/microsoft-security-blog/microsofts-quantum-resistant-cryptography-is-here/4238780<span class="sr-only"> (opens in new tab)</span></a>.</li>
+
+
+
+<li>A comprehensive survey on lattice-based cryptography: Peikert, C. &#8220;A Decade of Lattice Cryptography.&#8221; Foundations and Trends in Theoretical Computer Science. (2016)</li>
+
+
+
+<li>A comprehensive tutorial on modern lattice-based schemes, including ML-KEM and ML-DSA: Lyubashevsky, V. &#8220;Basic Lattice Cryptography: The concepts behind Kyber (ML-KEM) and Dilithium (ML-DSA).&#8221; <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/1287" target="_blank" rel="noreferrer noopener">https://eprint.iacr.org/2024/1287<span class="sr-only"> (opens in new tab)</span></a>. (2024)</li>
+</ul>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/">FrodoKEM: A conservative quantum-safe cryptographic algorithm</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Abstracts: Zero-shot models in single-cell biology with Alex Lu</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/abstracts-zero-shot-models-in-single-cell-biology-with-alex-lu/</link>
 		
@@ -32,11 +288,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-zero-shot-models-in-single-cell-biology-with-alex-lu/">Abstracts: Zero-shot models in single-cell biology with Alex Lu</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshot of Alex Lu." class="wp-image-1139912" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshot of Alex Lu." class="wp-image-1139912" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/AlexLu-@Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=145655916&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=145655916&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -243,7 +499,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-aurora-with-megan-stanley-and-wessel-bruinsma/">Abstracts: Aurora with Megan Stanley and Wessel Bruinsma</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_.jpg" alt="Abstracts podcast | Aurora with Megan Stanley and Wessel Bruinsma" class="wp-image-1139936" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_.jpg" alt="Abstracts podcast | Aurora with Megan Stanley and Wessel Bruinsma" class="wp-image-1139936" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Aurora_Wessel-and-Megan_Abstracts_Hero_Feature_No_Text_1400x788_-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
@@ -2927,7 +3183,7 @@
 
 
 
-<p>New research on compound AI systems and causal verification of the Confidential Consortium Framework; release of Phi-4-reasoning; enriching tabular data with semantic structure, and more.</p>
+<p>New research on compound AI systems and causal verification of the Confidential Consortium Framework; release of Phi-4-reasoning;&nbsp;enriching tabular data with semantic structure, and more.</p>
 
 
 
@@ -2971,11 +3227,11 @@
 
 
 
-<p>This work presents a new, pragmatic verification technique that improves the trustworthiness of distributed systems like the Confidential Consortium Framework (CCF) and proves its effectiveness by catching critical bugs before deployment. Smart casual verification is a novel hybrid verification approach to validating CCF, an open-source platform for developing trustworthy and reliable cloud applications which underpins Microsoft’s Azure Confidential Ledger service. </p>
+<p>This work presents a new, pragmatic verification technique that improves the trustworthiness of distributed systems like the Confidential Consortium Framework (CCF) and proves its effectiveness by catching critical bugs before deployment. Smart casual verification is a novel hybrid verification approach to validating CCF, an open-source platform for developing trustworthy and reliable cloud applications which underpins Microsoft’s Azure Confidential Ledger service.&nbsp;</p>
 
 
 
-<p>The researchers apply smart casual verification to validate the correctness of CCF’s novel distributed protocols, focusing on its unique distributed consensus protocol and its custom client consistency model. This hybrid approach combines the rigor of formal specification and model checking with the pragmatism of automated testing, specifically binding the formal specification in TLA+ to the C++ implementation. While traditional formal methods are often one-off efforts by domain experts, the researchers have integrated smart casual verification into CCF’s continuous integration pipeline, allowing contributors to continuously validate CCF as it evolves. </p>
+<p>The researchers apply smart casual verification to validate the correctness of CCF’s novel distributed protocols, focusing on its unique distributed consensus protocol and its custom client consistency model. This hybrid approach combines the rigor of formal specification and model checking with the pragmatism of automated testing, specifically binding the formal specification in TLA+ to the C++ implementation. While traditional formal methods are often one-off efforts by domain experts, the researchers have integrated smart casual verification into CCF’s continuous integration pipeline, allowing contributors to continuously validate CCF as it evolves.&nbsp;</p>
 
 
 
@@ -2999,7 +3255,7 @@
 
 
 
-<p>Building on recent findings that reinforcement learning (RL) can further improve smaller models, the team developed <strong>Phi-4-reasoning-plus</strong>, which incorporates an additional outcome-based RL phase using verifiable math problems. This enhances the model’s ability to generate longer, more effective reasoning chains. </p>
+<p>Building on recent findings that reinforcement learning (RL) can further improve smaller models, the team developed <strong>Phi-4-reasoning-plus</strong>, which incorporates an additional outcome-based RL phase using verifiable math problems. This enhances the model’s ability to generate longer, more effective reasoning chains.&nbsp;</p>
 
 
 
@@ -3055,7 +3311,7 @@
 
 
 
-<p>This work introduces ARTIST (Agentic Reasoning and Tool Integration in Self-improving Transformers), a new paradigm for LLM reasoning that expands beyond traditional language-only inference. </p>
+<p>This work introduces ARTIST (Agentic Reasoning and Tool Integration in Self-improving Transformers), a new paradigm for LLM reasoning that expands beyond traditional language-only inference.&nbsp;</p>
 
 
 
@@ -3121,24 +3377,6 @@
 										<div class="card__description card__citation small">
 					<p>Quanta Magazine | April 30, 2025</p><p>Large language models are everywhere, igniting discovery, disruption and debate in whatever scientific community they touch. But the one they touched first — for better, worse and everything in between — was natural language processing. What did that impact feel like to the people experiencing it firsthand?</p><p>To tell that story, Quanta interviewed 19 NLP experts, including Kalika Bali, senior principal researcher at Microsoft Research. From researchers to students, tenured academics to startup founders, they describe a series of moments — dawning realizations, elated encounters and at least one “existential crisis” — that changed their world. And ours.</p>				</div>
 			
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-						
-					</div>
-	</div>
-</div>
-<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-						
 					</div>
 	</div>
 </div>
@@ -3219,7 +3457,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -3228,20 +3466,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">What’s Your Story: Lex Story</h2>
+									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
 				
-								<p class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
+								<p class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Listen now" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -3291,277 +3529,6 @@
 
 <p>Fusion is a scientific challenge unlike any other and could be key to sustainable energy in the future. We’re excited about the role AI can play in helping make that vision a reality. To learn more, visit the&nbsp;<a href="https://www.microsoft.com/en-us/research/event/1st-annual-fusion-summit/">Fusion Summit event page</a>, or connect with us by email at&nbsp;<a href="mailto:FusionResearch@microsoft.com">FusionResearch@microsoft.com</a>.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-fusion-summit-explores-how-ai-can-accelerate-fusion-research/">Microsoft Fusion Summit explores how AI can accelerate fusion research</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Abstracts: Societal AI with Xing Xie</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/abstracts-societal-ai-with-xing-xie/</link>
-		
-		<dc:creator><![CDATA[Gretchen Huizinga, Xing Xie]]></dc:creator>
-		<pubDate>Mon, 05 May 2025 16:01:00 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138012</guid>
-
-					<description><![CDATA[<p>New AI models aren’t just changing the world of research; they’re also poised to impact society. Xing Xie talks about Societal AI, a white paper that explores the changing landscape with an eye to future research and improved communication across disciplines.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-societal-ai-with-xing-xie/">Abstracts: Societal AI with Xing Xie</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Xing Xie illustrated headshot" class="wp-image-1138272" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/04/Xing-Xie_Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=145025711&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Members of the research community at Microsoft work continuously to advance their respective fields. Abstracts bring its audience to the cutting edge with them through short, compelling conversations about new and noteworthy achievements.&nbsp;</p>
-
-
-
-<p>In this episode, Partner Research Manager Xing Xie joins host Gretchen Huizinga to talk about his work on a white paper called <strong><em>Societal AI: Research Challenges and Opportunities</em></strong>. Part of a larger effort to understand the cultural impact of AI systems, this white paper is a result of a series of global conversations and collaborations on how AI systems interact with and influence human societies.&nbsp;</p>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/societal-ai-research-challenges-and-opportunities/?msockid=2cfa5553216661e801da407e204b60b4">Read the paper</a></div>
-</div>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h3 class="wp-block-heading" id="learn-more">Learn more: </h3>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/blog/societal-ai-building-human-centered-ai-systems/">Societal AI: Building human-centered AI systems</a><br>Microsoft Research Blog, May 2024</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>GRETCHEN</strong> <strong>HUIZINGA</strong>: Welcome to Abstracts, a Microsoft Research Podcast that puts the spotlight on world-class research in brief. I’m Gretchen Huizinga. In this series, members of the research community at Microsoft give us a quick snapshot – or a podcast abstract – of their new and noteworthy papers.&nbsp;</p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-
-
-<p>I&#8217;m here today with Xing Xie, a partner research manager at Microsoft Research and co-author of a white paper called <strong><em>Societal AI: Research Challenges and Opportunities</em></strong>. This white paper is a result of a series of global conversations and collaborations on how AI systems interact with and impact human societies. Xing Xie, great to have you back on the podcast. Welcome to Abstracts!&nbsp;</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p><strong>XING</strong> <strong>XIE</strong>: Thank you for having me.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: So let&#8217;s start with a brief overview of the background for this white paper on Societal AI. In just a few sentences, tell us how the idea came about and what key principles drove the work.&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: The idea for this white paper emerged in response to the shift we are witnessing in the AI landscape. Particularly since the release of ChatGPT in late 2022, these models didn&#8217;t just change the pace of AI research, they began reshaping our society, education, economy, and yeah, even the way we understand ourselves. At Microsoft Research Asia, we felt a strong urgency to better understand these changes. Over the past 30 months, we have been actively exploring this frontier in partnership with experts from psychology, sociology, law, and philosophy. This white paper serves three main purposes. First, to document what we have learned. Second, to guide future research directions. And last, to open up an effective communication channel with collaborators across different disciplines.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Research on responsible AI is a relatively new discipline and it&#8217;s profoundly multidisciplinary. So tell us about the work that you drew on as you convened this series of workshops and summer schools, research collaborations and interdisciplinary dialogues. What kinds of people did you bring to the table and for what reason?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Yeah. Responsible AI actually has been evolving within Microsoft for like about a decade. But with the rise of large language models, the scope and urgency of these challenges have grown exponentially. That&#8217;s why we have leaned heavily on interdisciplinary collaboration. For instance, in the Value Compass Project, we worked with philosophers to frame human values in a scientifically actionable way, something essential for aligning AI behavior. In our AI evaluation efforts, we drew from psychometrics to create more principled ways of assessing these systems. And with the sociologists, we have examined how AI affects education and social systems. This joint effort has been central to the work we share in this white paper.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: So white papers differ from typical research papers in that they don&#8217;t rely on a particular research methodology per se, but you did set, as a backdrop for your work, ten questions for consideration. So how did you decide on these questions and how or by what means did you attempt to answer them?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Rather than follow a traditional research methodology, we built this white paper around ten fundamental, foundational research questions. These came from extensive dialogue, not only with social scientists, but also computer scientists working at the technical front of AI. These questions span both directions. First, how AI impacts society, and second, how social science can help solve technical challenges like alignment and safety. They reflect a dynamic agenda that we hope to evolve continuously through real-world engagement and deeper collaboration.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Can you elaborate on… a little bit more on the questions that you chose to investigate as a group or groups in this?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Sure, I think I can use the Value Compass Project as one example. In that project, our main goal is to try to study how we can better align the value of AI models with our human values. Here, one fundamental question is how we define our own human values. There actually is a lot of debate and discussions on this. Fortunately, we see in philosophy and sociology actually they have studied this for years, like, for like hundreds of years. They have defined some, like, such as basic human value framework, they have defined like modern foundation theory. We can borrow those expertise. Actually, we have worked with sociology and philosophers, try to borrow these expertise and define a framework that could be usable for AI. Actually, we have worked on, like, developing some initial frameworks and evaluation methods for this.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: So one thing that you just said was to frame philosophical issues in a scientifically actionable way. How hard was that?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Yeah, it is actually not easy. I think that first of all, social scientists and AI researchers, we… usually we speak different languages.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Right!&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Our research is at a very different pace. So at the very beginning, I think we should find out what&#8217;s the best way to talk to each other. So we have workshops, have joint research projects, we have them visit us, and also, we have supervised some joint interns. So that’s all the ways we try to find some common ground to work together. More specifically for this value framework, we have tried to understand what&#8217;s the latest program from their source and also try how to adapt them to an AI context. So that&#8217;s, I mean, it&#8217;s not easy, but it&#8217;s like enjoyable and exciting journey!&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, yeah, yeah. And I want to push in on one other question that I thought was really interesting, which you asked, which was how can we ensure AI systems are safe, reliable, controllable, especially as they become more autonomous? I think this is a big question for a lot of people. What kind of framework did you use to look at that?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Yeah, there are many different aspects. I think alignment definitely is an aspect. That means how we can make sure we can have a way to truly and deeply embed our values into the AI model. Even after we define our value, we still need a way to make sure that it&#8217;s actually embedded in. And also evaluation I think is another topic. Even we have this AI…. looks safe and looks behavior good, but how we can evaluate that, how we can make sure it is actually doing the right thing. So we also have some collaboration with psychometrics people to define a more scientific evaluation framework for this purpose as well.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, I remember talking to you about your psychometrics in the previous podcast…&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Yeah!&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: …you were on and that was fascinating to me. And I hope… at some point I would love to have a bigger conversation on where you are now with that because I know it&#8217;s an evolving field.&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: It’s evolving!&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, amazing! Well, let&#8217;s get back to this paper. White papers aren&#8217;t designed to produce traditional research findings, as it were, but there are still many important outcomes. So what would you say the most important takeaways or contributions of this paper are?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: Yeah, the key takeaway, I believe, is AI is no longer just a technical tool. It&#8217;s becoming a social actor.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Mmm.&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: So it must be studied as a dynamic evolving system that intersects with human values, cognition, culture, and governance. So we argue that interdisciplinary collaboration is no longer optional. It&#8217;s essential. Social sciences offer tools to understand the complexity, bias, and trust, concepts that are critical for AI&#8217;s safe and equitable deployment. So the synergy between technical and social perspectives is what will help us move from reactive fixes to proactive design.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Let&#8217;s talk a little bit about the impact that a paper like this can have. And it’s more of a thought leadership piece, but who would you say will benefit most from the work that you&#8217;ve done in this white paper and why?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: We hope this work speaks to both AI and social science communities. For AI researchers, this white paper provides frameworks and real-world examples, like value evaluation systems and cross-cultural model training that can inspire new directions. And for social scientists, it opens doors to new tools and collaborative methods for studying human behavior, cognition, and institutions. And beyond academia, we believe policymakers and industry leaders can also benefit as the paper outlines practical governance questions and highlights emerging risks that demand timely attention.&nbsp;</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Finally, Xing, what would you say the outstanding challenges are for Societal AI, as you framed it, and how does this paper lay a foundation for future research agendas? Specifically, what kinds of research agendas might you see coming out of this foundational paper?&nbsp;</p>
-
-
-
-<p><strong>XIE</strong>: We believe this white paper is not a conclusion, it&#8217;s a starting point. While the ten research questions are a strong foundation, they also expose deeper challenges. For example, how do we build a truly interdisciplinary field? How can we reconcile the different timelines, methods, and cultures of AI and social science? And how do we nurture talents who can work fluently across those both domains? We hope this white paper encourages others to take on these questions with us. Whether you are researcher, student, policymaker, or technologist, there is a role for you in shaping AI that not only works but works for society. So yeah, I look forward to the conversation with everyone.&nbsp;</p>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Well, Xing Xie, it&#8217;s always fun to talk to you. Thanks for joining us today and to our listeners, thanks for tuning in. If you want to read this white paper, and I highly recommend that you do, you can find a link at aka.ms/Abstracts, or you can find a link in our show notes that will take you to the Microsoft Research website. See you next time on Abstracts!</p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-7"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<p>&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-societal-ai-with-xing-xie/">Abstracts: Societal AI with Xing Xie</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
