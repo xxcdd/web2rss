@@ -6,27 +6,7 @@
     <description>Latest posts from https://www.rapid7.com/blog/posts/. follow.is: feedId:71371191432910863+userId:71370844472670208</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Fri, 30 May 2025 01:46:56 +0000</lastBuildDate>
-    <item>
-      <title>Metasploit Wrap-Up 05/09/2025</title>
-      <link>https://www.rapid7.com/blog/post/2025/05/09/metasploit-wrap-up-05-09-2025/</link>
-      <description>New Toys and New Techniques
-This release features a new OPNSense login scanner, a module targeting the Sante
-PACS path traversal vulnerability, an additional method for stealing Network
-Access Account credentials via SMB to HTTP relay, and the Erlang/OTP SSH exploit
-everyone was excited about.
-
-New module content (4)
-Sante PACS Server Path Traversal (CVE-2025-2264)
-Authors: Michael Heinzl and Tenable
-Type: Auxiliary
-Pull request: #20124</description>
-    </item>
-    <item>
-      <title>Recognizing Excellence: Rapid7’s Kelly Hiscoe and Heather DeMartini Honored as CRN’s 2025 Women of the Channel</title>
-      <link>https://www.rapid7.com/blog/post/2025/05/12/recognizing-excellence-rapid7s-kelly-hiscoe-and-heather-demartini-honored-as-crns-2025-women-of-the-channel/</link>
-      <description>We are thrilled to announce that two outstanding Rapid7 team members, Kelly Hiscoe and Heather DeMartini, have been recognized as CRN's 2025 Women of the Channel.</description>
-    </item>
+    <lastBuildDate>Sat, 31 May 2025 01:47:06 +0000</lastBuildDate>
     <item>
       <title>Vendor-Agnostic Security: The Key To Smarter Risk Management</title>
       <link>https://www.rapid7.com/blog/post/2025/05/13/vendor-agnostic-security-the-key-to-smarter-risk-management/</link>
@@ -109,6 +89,22 @@ Gather Ticket Granting Service (TGS) tickets for Use</description>
       <title>CVE-2025-48045, CVE-2025-48046, CVE-2025-48047: MICI NetFax Server Product Vulnerabilities (NOT FIXED)</title>
       <link>https://www.rapid7.com/blog/post/2025/05/29/cve-2025-48045-cve-2025-48046-cve-2025-48047-mici-netfax-server-product-vulnerabilities-not-fixed/</link>
       <description>Over a penetration testing engagement, Rapid7 discovered 3 vulnerabilities in MICI Network Co., Ltd’s NetFax server allowing for an authenticated attack chain resulting in Remote Code Execution (RCE) against the device as the root user.</description>
+    </item>
+    <item>
+      <title>Seeing Is Securing: How Surface Command Expands MDR Visibility and Impact</title>
+      <link>https://www.rapid7.com/blog/post/2025/05/30/seeing-is-securing-how-surface-command-expands-mdr-visibility-and-impact/</link>
+      <description>To maximize the effectiveness of security operations, MDR must continually evolve. Today at Rapid7, that means integrating Surface Command — not as a dashboard or tool to manage, but as a behind-the-scenes capability that strengthens the service our customers rely on.</description>
+    </item>
+    <item>
+      <title>Metasploit Wrap-Up 05/30/2025</title>
+      <link>https://www.rapid7.com/blog/post/2025/05/30/metasploit-wrap-up-05-30-2025/</link>
+      <description>The internet is a series of Tube 
+Metasploit has supported SOCKS proxies for years now, being able to both act as
+both a client (by setting the Proxies datastore option) and a server (by running
+the auxiliary/server/socks_proxy module). While Metasploit has supported both
+SOCKS versions 4a and 5, there became some ambiguity in regards to how Domain
+Name System (DNS) requests are made by Metasploit through these versions. Both
+versions 4a and 5 notably enable clients to make connections to</description>
     </item>
   </channel>
 </rss>
