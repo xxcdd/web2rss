@@ -20,6 +20,204 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>BenchmarkQED: Automated benchmarking of RAG systems</title>
+		<link>https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/</link>
+		
+		<dc:creator><![CDATA[Darren Edge, Ha Trinh, Andres Morales Esquivel, Jonathan Larson]]></dc:creator>
+		<pubDate>Thu, 05 Jun 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1140429</guid>
+
+					<description><![CDATA[<p>BenchmarkQED is an open-source toolkit for benchmarking RAG systems using automated query generation, evaluation, and dataset prep. It shows that LazyGraphRAG outperforms standard methods, especially on complex, global queries.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/">BenchmarkQED: Automated benchmarking of RAG systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing how the dimensions of query source (data-driven vs activity-driven) and query scope (local vs global) create four query classes that span the local-to-global query spectrum: data-local, activity-local, data-global, and activity-global. " class="wp-image-1140721" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>One of the key&nbsp;use cases&nbsp;for generative AI&nbsp;involves answering questions over&nbsp;private datasets,&nbsp;with retrieval-augmented generation (RAG)&nbsp;as the&nbsp;go-to framework.&nbsp;As&nbsp;new RAG&nbsp;techniques&nbsp;emerge,&nbsp;there’s&nbsp;a growing&nbsp;need to benchmark&nbsp;their performance&nbsp;across&nbsp;diverse&nbsp;datasets&nbsp;and&nbsp;metrics.&nbsp;</p>
+
+
+
+<p>To meet this need,&nbsp;we’re&nbsp;introducing&nbsp;BenchmarkQED,&nbsp;a new suite of tools&nbsp;that&nbsp;automates&nbsp;RAG benchmarking at&nbsp;scale, available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/benchmark-qed" target="_blank" rel="noreferrer noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a>. It includes components for&nbsp;query generation, evaluation, and dataset preparation, each&nbsp;designed to support rigorous, reproducible&nbsp;testing.&nbsp;&nbsp;</p>
+
+
+
+<p>BenchmarkQED&nbsp;complements the RAG methods in our open-source&nbsp;GraphRAG&nbsp;library, enabling users to run a&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/from-local-to-global-a-graph-rag-approach-to-query-focused-summarization/" target="_blank" rel="noreferrer noopener">GraphRAG</a>-style evaluation across models, metrics, and datasets.&nbsp;GraphRAG&nbsp;uses a&nbsp;large&nbsp;language model (LLM)&nbsp;to generate and summarize entity-based knowledge graphs, producing more comprehensive and diverse answers than standard RAG for large-scale&nbsp;tasks.&nbsp;</p>
+
+
+
+<p>In this post, we walk through&nbsp;the core components of&nbsp;BenchmarkQED&nbsp;that&nbsp;contribute to the overall benchmarking process.&nbsp;We also share some of the latest benchmark results comparing our <a href="https://www.microsoft.com/en-us/research/blog/lazygraphrag-setting-a-new-standard-for-quality-and-cost/" target="_blank" rel="noreferrer noopener">LazyGraphRAG</a> system&nbsp;to&nbsp;competing methods,&nbsp;including&nbsp;a vector-based&nbsp;RAG with a 1M-token context window, where the leading&nbsp;LazyGraphRAG&nbsp;configuration&nbsp;showed&nbsp;significant win rates&nbsp;across all combinations of quality metrics&nbsp;and query classes.</p>
+
+
+
+<p>In the <a href="https://www.microsoft.com/en-us/research/publication/from-local-to-global-a-graph-rag-approach-to-query-focused-summarization/" target="_blank" rel="noreferrer noopener">paper</a>, we distinguish between <em>local queries</em>, where answers are found in a small number of text regions, and sometimes even a single region, and <em>global queries</em>, which require reasoning over large portions of or even the entire dataset. </p>
+
+
+
+<p>Conventional&nbsp;vector-based RAG&nbsp;excels at&nbsp;local queries because the&nbsp;regions&nbsp;containing&nbsp;the&nbsp;answer&nbsp;to the query&nbsp;resemble the&nbsp;query&nbsp;itself&nbsp;and can be retrieved&nbsp;as&nbsp;the&nbsp;nearest neighbor in the&nbsp;vector&nbsp;space&nbsp;of text embeddings.&nbsp;However, it struggles&nbsp;with&nbsp;global questions,&nbsp;such as, “What are the main themes of the dataset?” which&nbsp;require&nbsp;understanding&nbsp;dataset qualities not&nbsp;explicitly&nbsp;stated&nbsp;in&nbsp;the text.&nbsp;&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="autoq-automated-query-synthesis">AutoQ: Automated query synthesis</h2>
+
+
+
+<p>This limitation&nbsp;motivated&nbsp;the development of&nbsp;GraphRAG&nbsp;a system designed to&nbsp;answer&nbsp;global queries. GraphRAG&#8217;s evaluation&nbsp;requirements&nbsp;subsequently&nbsp;led to the creation of&nbsp;AutoQ, a method for synthesizing these global queries for any dataset.</p>
+
+
+
+<p>AutoQ extends this approach by generating synthetic queries across the spectrum of queries, from local to global. It defines four distinct classes based on the source and scope of the query (Figure 1, top) forming a logical progression along the spectrum (Figure 1, bottom).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="4026" height="2117" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4.png" alt="Diagram showing how the dimensions of query source (data-driven vs activity-driven) and query scope (local vs global) create four query classes that span the local-to-global query spectrum: data-local, activity-local, data-global, and activity-global. " class="wp-image-1140725" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4.png 4026w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4-300x158.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4-1024x538.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4-768x404.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4-1536x808.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4-2048x1077.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure1-4-240x126.png 240w" sizes="(max-width: 4026px) 100vw, 4026px" /><figcaption class="wp-element-caption">Figure 1. Construction of a 2&#215;2 design space for synthetic query generation with&nbsp;AutoQ, showing how the four resulting query classes map onto the local-global query spectrum.&nbsp;</figcaption></figure>
+
+
+
+<p>AutoQ&nbsp;can be configured to generate&nbsp;any number and distribution of synthetic queries&nbsp;along these&nbsp;classes, enabling consistent benchmarking&nbsp;across datasets without&nbsp;requiring user&nbsp;customization.&nbsp;Figure 2 shows the synthesis process and sample&nbsp;queries&nbsp;from each class, using&nbsp;an AP News dataset.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="4162" height="2117" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3.png" alt="Diagram showing the processes for synthesizing queries in each of the four classes. Each process involves steps like generating dataset summaries, personas, tasks, and candidate queries, followed by clustering candidate queries and selecting the final query set. The data-local example query is “Why are junior doctors in South Korea striking in February 2024?”. The activity-local example query is “What are the public health implications of the newly discovered Alaskapox virus in Alaska?”. The data-global example query is “Across the dataset, what are the key public health challenges and the measures being taken to address them?”. The activity-global example query is “Across the dataset, what are the main public health initiatives mentioned that target underserved communities?”." class="wp-image-1140728" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3.png 4162w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-1024x521.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-768x391.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-1536x781.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-2048x1042.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-240x122.png 240w" sizes="(max-width: 4162px) 100vw, 4162px" /><figcaption class="wp-element-caption">Figure 2. Synthesis process and example query for each of the&nbsp;four&nbsp;AutoQ&nbsp;query classes.&nbsp;</figcaption></figure>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115763">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" aria-label="AIOpsLab: Building AI agents for autonomous clouds" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/AIOps-Lab-BlogHeroFeature-1400x788-1.png" alt="White outline illustrations for AIOps on a blue and green gradient background." />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">AIOpsLab: Building AI agents for autonomous clouds</h2>
+				
+								<p class="large">AIOpsLab is an open-source framework designed to evaluate and improve AI agents for cloud operations, offering standardized, scalable benchmarks for real-world testing, enhancing cloud system reliability.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/blog/aiopslab-building-ai-agents-for-autonomous-clouds/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="AIOpsLab: Building AI agents for autonomous clouds" target="_blank">
+							Read more						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="autoe-automated-evaluation-framework">AutoE: Automated evaluation&nbsp;framework&nbsp;</h2>
+
+
+
+<p>Our evaluation of GraphRAG focused on analyzing key qualities of answers to global questions. The following qualities were used for the current evaluation:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Comprehensiveness</strong>:&nbsp;Does the&nbsp;answer&nbsp;address&nbsp;all&nbsp;relevant&nbsp;aspects&nbsp;of the question?&nbsp;</li>
+
+
+
+<li><strong>Diversity</strong>:&nbsp;Does it present&nbsp;varied perspectives&nbsp;or&nbsp;insights?&nbsp;</li>
+
+
+
+<li><strong>Empowerment</strong>:&nbsp;Does it&nbsp;help the reader understand and make informed judgments?&nbsp;</li>
+
+
+
+<li><strong>Relevance</strong>:&nbsp;Does&nbsp;it&nbsp;address what the question is specifically asking?&nbsp;&nbsp;</li>
+</ul>
+
+
+
+<p>The&nbsp;AutoE&nbsp;component&nbsp;scales&nbsp;evaluation of&nbsp;these qualities&nbsp;using the LLM-as-a-Judge method.&nbsp;It&nbsp;presents&nbsp;pairs of answers to an LLM, along with the query and target metric,&nbsp;in counterbalanced order.&nbsp;The&nbsp;model determines whether the first answer wins, loses, or ties with the second.&nbsp;Over&nbsp;a set of queries, whether&nbsp;from&nbsp;AutoQ&nbsp;or elsewhere, this&nbsp;produces&nbsp;win rates between&nbsp;competing&nbsp;methods. When&nbsp;ground truth&nbsp;is available, AutoE&nbsp;can also score answers on&nbsp;correctness, completeness, and&nbsp;related metrics.</p>
+
+
+
+<p>An illustrative&nbsp;evaluation&nbsp;is&nbsp;shown in Figure&nbsp;3.&nbsp;Using a dataset of&nbsp;1,397&nbsp;AP News&nbsp;articles&nbsp;on&nbsp;health and healthcare, AutoQ&nbsp;generated&nbsp;50 queries&nbsp;per&nbsp;class&nbsp;(200&nbsp;total).&nbsp;AutoE&nbsp;then&nbsp;compared&nbsp;LazyGraphRAG&nbsp;to&nbsp;a competing&nbsp;RAG method, running six&nbsp;trials&nbsp;per&nbsp;query&nbsp;across four&nbsp;metrics,&nbsp;using&nbsp;GPT-4.1 as a judge.</p>
+
+
+
+<p>These&nbsp;trial-level results were aggregated&nbsp;using metric-based win rates,&nbsp;where each trial is scored 1 for a win, 0.5 for a tie, and 0 for a loss,&nbsp;and then averaged to calculate the overall win rate for each RAG method.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1200" height="1000" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Figure3-4.png" alt="Bar charts with the y-axes representing win rates for LazyGraphRAG conditions. The x-axes contain a range of comparison conditions. Bars are clustered by LazyGraphRAG (LGR) condition and charts are faceted by query class. " class="wp-image-1140915" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Figure3-4.png 1200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Figure3-4-300x250.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Figure3-4-1024x853.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Figure3-4-768x640.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Figure3-4-216x180.png 216w" sizes="auto, (max-width: 1200px) 100vw, 1200px" /><figcaption class="wp-element-caption">Figure 3. Win rates of four&nbsp;LazyGraphRAG&nbsp;(LGR) configurations across methods, broken down by the&nbsp;AutoQ&nbsp;query class and averaged across&nbsp;AutoE’s&nbsp;four metrics: comprehensiveness, diversity, empowerment, and relevance.&nbsp;LazyGraphRAG&nbsp;outperforms&nbsp;comparison conditions&nbsp;where the bar&nbsp;is above&nbsp;50%.</figcaption></figure>
+
+
+
+<p>The four LazyGraphRAG conditions (LGR_b200_c200, LGR_b50_c200, LGR_b50_c600, LGR_b200_c200_mini) differ by query budget (b50, b200) and chunk size (c200, c600). All used GPT-4o mini for relevance tests and GPT-4o for query expansion (to five subqueries) and answer generation, except for LGR_b200_c200_mini, which used GPT-4o mini throughout.</p>
+
+
+
+<p>Comparison&nbsp;systems&nbsp;were&nbsp;GraphRAG&nbsp;(Local, Global, and Drift Search),&nbsp;Vector&nbsp;RAG&nbsp;with 8k-&nbsp;and 120k-token windows, and&nbsp;three&nbsp;published&nbsp;methods:&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/HKUDS/LightRAG" target="_blank" rel="noreferrer noopener">LightRAG<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/profintegra/raptor-rag" target="_blank" rel="noreferrer noopener">RAPTOR<span class="sr-only"> (opens in new tab)</span></a>, and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2503.02922" target="_blank" rel="noreferrer noopener">TREX<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;All&nbsp;methods&nbsp;were limited to the same 8k&nbsp;tokens&nbsp;for answer generation.&nbsp;GraphRAG&nbsp;Global Search&nbsp;used&nbsp;level 2&nbsp;of the community hierarchy.</p>
+
+
+
+<p>LazyGraphRAG outperformed every comparison condition using the same generative model (GPT-4o), winning all 96 comparisons, with all but one reaching statistical significance. The best overall performance came from the larger budget, smaller chunk size configuration (LGR_b200_c200). For DataLocal queries, the smaller budget (LGR_b50_c200) performed slightly better, likely because fewer chunks were relevant. For ActivityLocal queries, the larger chunk size (LGR_b50_c600) had a slight edge, likely because longer chunks provide a more coherent context.</p>
+
+
+
+<p>Competing methods performed relatively better on the query classes for which they were designed: GraphRAG Global for global queries, Vector RAG for local queries, and GraphRAG Drift Search, which combines both strategies, posed the strongest challenge overall.</p>
+
+
+
+<p>Increasing Vector RAG’s context window from 8k to 120k tokens did not improve its performance compared to LazyGraphRAG. This raised the question of how LazyGraphRAG would perform against Vector RAG with 1-million token context window containing most of the dataset.</p>
+
+
+
+<p>Figure 4 shows the follow-up experiment comparing LazyGraphRAG to Vector RAG using GPT-4.1 that enabled this comparison. Even against the 1M-token window, LazyGraphRAG achieved higher win rates across all comparisons, failing to reach significance only for the relevance of answers to DataLocal queries. These queries tend to benefit most from Vector RAG’s ranking of directly relevant chunks, making it hard for LazyGraphRAG to generate answers that have greater <em>relevance</em> to the query, even though these answers may be dramatically more comprehensive, diverse, and empowering overall.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1200" height="1000" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure4-1.png" alt="Bar charts with the y-axes representing win rates for LazyGraphRAG. The x-axes contain comparison conditions for vector-based RAG with 8 thousand, 120 thousand, and 1 million token context windows. Charts are faceted by query class and quality metric." class="wp-image-1140735" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure4-1.png 1200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure4-1-300x250.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure4-1-1024x853.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure4-1-768x640.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure4-1-216x180.png 216w" sizes="auto, (max-width: 1200px) 100vw, 1200px" /><figcaption class="wp-element-caption">Figure 4.&nbsp;Win rates of&nbsp;LazyGraphRAG&nbsp;(LGR)&nbsp;over Vector RAG&nbsp;across different&nbsp;context window sizes, broken down by the&nbsp;four&nbsp;AutoQ&nbsp;query classes&nbsp;and&nbsp;four&nbsp;AutoE&nbsp;metrics:&nbsp;comprehensiveness, diversity, empowerment, and relevance.&nbsp;Bars above 50%&nbsp;indicate&nbsp;that&nbsp;LazyGraphRAG&nbsp;outperformed&nbsp;the&nbsp;comparison&nbsp;condition.&nbsp;</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="autod-automated-data-sampling-and-summarization">AutoD: Automated data sampling and summarization</h2>
+
+
+
+<p>Text datasets have an underlying topical structure, but the depth, breadth, and connectivity of that structure can vary widely. This variability makes it difficult to evaluate RAG systems consistently, as results may reflect the idiosyncrasies of the dataset rather than the system’s general capabilities.</p>
+
+
+
+<p>The AutoD component addresses this by sampling datasets to meet a target specification, defined by the number of topic clusters (breadth) and the number of samples per cluster (depth). This creates consistency across datasets, enabling more meaningful comparisons, as structurally aligned datasets lead to comparable AutoQ queries, which in turn support consistent AutoE evaluations.</p>
+
+
+
+<p>AutoD also includes tools for summarizing input or output datasets in a way that reflects their topical coverage. These summaries play an important role in the AutoQ query synthesis process, but they can also be used more broadly, such as in prompts where context space is limited.</p>
+
+
+
+<h2 class="wp-block-heading" id="supporting-the-community-with-open-data-and-tools">Supporting the&nbsp;community with open data and tools&nbsp;</h2>
+
+
+
+<p>Since the release of the&nbsp;GraphRAG&nbsp;paper,&nbsp;we’ve&nbsp;received&nbsp;many requests&nbsp;to share the&nbsp;dataset of the&nbsp;<a href="https://www.microsoft.com/en-us/behind-the-tech" target="_blank" rel="noreferrer noopener"><em>Behind the Tech</em><span class="sr-only"> (opens in new tab)</span></a>&nbsp;podcast&nbsp;transcripts&nbsp;we used in our evaluation.&nbsp;An updated version of this dataset&nbsp;is now available in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/benchmark-qed" target="_blank" rel="noreferrer noopener">BenchmarkQED&nbsp;repository<span class="sr-only"> (opens in new tab)</span></a>, alongside&nbsp;the&nbsp;AP News dataset&nbsp;containing&nbsp;1,397&nbsp;health-related&nbsp;articles,&nbsp;licensed for open&nbsp;release.&nbsp;&nbsp;</p>
+
+
+
+<p>We hope these datasets, together with&nbsp;the&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/benchmark-qed" target="_blank" rel="noreferrer noopener">BenchmarkQED&nbsp;tools<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;help&nbsp;accelerate&nbsp;benchmark-driven&nbsp;development of&nbsp;RAG systems and&nbsp;AI question-answering.&nbsp;We invite the community to try them&nbsp;on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/benchmark-qed" target="_blank" rel="noreferrer noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/">BenchmarkQED: Automated benchmarking of RAG systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>What AI&#8217;s impact on individuals means for the health workforce and industry</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/what-ais-impact-on-individuals-means-for-the-health-workforce-and-industry/</link>
 		
@@ -32,11 +230,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/what-ais-impact-on-individuals-means-for-the-health-workforce-and-industry/">What AI&#8217;s impact on individuals means for the health workforce and industry</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Azeem Azhar, Peter Lee, and Ethan Mollick." class="wp-image-1140433" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1401px) 100vw, 1401px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Azeem Azhar, Peter Lee, and Ethan Mollick." class="wp-image-1140433" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Episode6-PeterEthanAzeem-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=145869951&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=145869951&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1181,7 +1379,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/">FrodoKEM: A conservative quantum-safe cryptographic algorithm</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg" alt="The image features a gradient background transitioning from blue on the left to pink on the right. In the center, there are three white icons. On the left is a microchip icon that represents quantum computing, in the middle is a shield, and on the right is another microchip with a padlock symbol inside it." class="wp-image-1140055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg" alt="The image features a gradient background transitioning from blue on the left to pink on the right. In the center, there are three white icons. On the left is a microchip icon that represents quantum computing, in the middle is a shield, and on the right is another microchip with a padlock symbol inside it." class="wp-image-1140055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -4310,242 +4508,6 @@
 	</div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/">Abstracts: Heat Transfer and Deep Learning with Hongxia Hao and Bing Lv</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Research Focus: Week of May 7, 2025</title>
-		<link>https://www.microsoft.com/en-us/research/blog/research-focus-week-of-may-7-2025/</link>
-		
-		<dc:creator><![CDATA[Microsoft Research Team]]></dc:creator>
-		<pubDate>Wed, 07 May 2025 23:25:04 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138612</guid>
-
-					<description><![CDATA[<p>In this issue: New research on compound AI systems and causal verification of the Confidential Consortium Framework; release of Phi-4-reasoning; enriching tabular data with semantic structure, and more.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-may-7-2025/">Research Focus: Week of May 7, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<p class="has-text-align-center"><strong>In this issue:</strong></p>
-
-
-
-<p>New research on compound AI systems and causal verification of the Confidential Consortium Framework; release of Phi-4-reasoning;&nbsp;enriching tabular data with semantic structure, and more.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1401" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg" alt="Research Focus: May 07, 2025" class="wp-image-1138631" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1.jpg 1401w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1401px) 100vw, 1401px" /></figure>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-e734c6e9609233ab051742bb3beeed63" id="new-research">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="towards-resource-efficient-compound-ai-systems"><a href="https://www.microsoft.com/en-us/research/publication/towards-resource-efficient-compound-ai-systems/">Towards Resource-Efficient Compound AI Systems</a></h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="421" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems.png" alt="Unlike the current state-of-the-art, our vision is fungible workflows with high-level descriptions, managed jointly by the Workflow Orchestrator and Cluster Manager. This allows higher resource multiplexing between independent workflows to improve efficiency." class="wp-image-1138633" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems-300x135.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems-768x345.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_AI-systems-240x108.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /></figure>
-
-
-
-<p>This research introduces Murakkab, a prototype system built on a declarative workflow that reimagines how compound AI systems are built and managed to significantly improve resource efficiency. Compound AI systems integrate multiple interacting components like language models, retrieval engines, and external tools. They are essential for addressing complex AI tasks. However, current implementations could benefit from greater efficiencies in resource utilization, with improvements to tight coupling between application logic and execution details, better connections between orchestration and resource management layers, and bridging gaps between efficiency and quality.</p>
-
-
-
-<p>Murakkab addresses critical inefficiencies in current AI architectures and offers a new approach that unifies workflow orchestration and cluster resource management for better performance and sustainability. In preliminary evaluations, it demonstrates speedups up to ∼ 3.4× in workflow completion times while delivering ∼ 4.5× higher energy efficiency, showing promise in optimizing resources and advancing AI system design.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-9a2357e04d6b68359937ec2fcc67b1a5" id="new-research-1">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="smart-casual-verification-of-the-confidential-consortium-framework"><a href="https://www.microsoft.com/en-us/research/publication/smart-casual-verification-of-ccfs-distributed-consensus-and-consistency-protocols/?msockid=3522c0e375a2640e0f72d5ce7493658c">Smart Casual Verification of the Confidential Consortium Framework</a></h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="624" height="364" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification.png" alt="Diagram showing the components of the verification architecture for CCF's consensus. The diagram is discussed in detail in the paper." class="wp-image-1138634" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification.png 624w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification-300x175.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification-480x280.png 480w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_casual-verification-240x140.png 240w" sizes="auto, (max-width: 624px) 100vw, 624px" /></figure>
-
-
-
-<p>This work presents a new, pragmatic verification technique that improves the trustworthiness of distributed systems like the Confidential Consortium Framework (CCF) and proves its effectiveness by catching critical bugs before deployment. Smart casual verification is a novel hybrid verification approach to validating CCF, an open-source platform for developing trustworthy and reliable cloud applications which underpins Microsoft’s Azure Confidential Ledger service.&nbsp;</p>
-
-
-
-<p>The researchers apply smart casual verification to validate the correctness of CCF’s novel distributed protocols, focusing on its unique distributed consensus protocol and its custom client consistency model. This hybrid approach combines the rigor of formal specification and model checking with the pragmatism of automated testing, specifically binding the formal specification in TLA+ to the C++ implementation. While traditional formal methods are often one-off efforts by domain experts, the researchers have integrated smart casual verification into CCF’s continuous integration pipeline, allowing contributors to continuously validate CCF as it evolves.&nbsp;</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-8580525ca5a22a10ee7a4694b8f59445" id="new-research-2">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="phi-4-reasoning-technical-report"><a href="https://www.microsoft.com/en-us/research/publication/phi-4-reasoning-technical-report/">Phi-4-reasoning Technical Report</a></h3>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1300" height="644" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning.png" alt="graphical user interface, text, application, email" class="wp-image-1138688" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning.png 1300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-1024x507.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-768x380.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Phi4reasoning-240x119.png 240w" sizes="auto, (max-width: 1300px) 100vw, 1300px" /></figure>
-
-
-
-<p>This report introduces <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/" target="_blank" rel="noreferrer noopener"><strong>Phi-4-reasoning</strong><span class="sr-only"> (opens in new tab)</span></a>, a 14-billion parameter model optimized for complex reasoning tasks. It is trained via supervised fine-tuning of Phi-4 using a carefully curated dataset of high-quality prompts and reasoning demonstrations generated by o3-mini. These prompts span diverse domains—including math, science, coding, and spatial reasoning—and are selected to challenge the base model near its capability boundaries.</p>
-
-
-
-<p>Building on recent findings that reinforcement learning (RL) can further improve smaller models, the team developed <strong>Phi-4-reasoning-plus</strong>, which incorporates an additional outcome-based RL phase using verifiable math problems. This enhances the model’s ability to generate longer, more effective reasoning chains.&nbsp;</p>
-
-
-
-<p>Despite its smaller size, the Phi-4-reasoning family outperforms significantly larger open-weight models such as DeepSeekR1-Distill-Llama-70B and approaches the performance of full-scale frontier models like DeepSeek R1. It excels in tasks requiring multi-step problem solving, logical inference, and goal-directed planning.</p>
-
-
-
-<p>The work highlights the combined value of supervised fine-tuning and reinforcement learning for building efficient, high-performing reasoning models. It also offers insights into training data design, methodology, and evaluation strategies. Phi-4-reasoning contributes to the growing class of reasoning-specialized language models and points toward more accessible, scalable AI for science, education, and technical domains.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-ffbc8879e59f0447803313cfcaec2fea" id="new-research-4">NEW RESEARCH</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="tecofes-text-column-featurization-using-semantic-analysis"><a href="https://www.microsoft.com/en-us/research/publication/tecofes-text-column-featurization-using-semantic-analysis/">TeCoFeS: Text Column Featurization using Semantic Analysis</a></h3>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="952" height="537" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61.png" alt="The workflow diagram illustrates the various steps in the TECOFES approach. Step 0 is the embedding computation module, which calculates embeddings for all rows of text, setting the foundation for subsequent steps. Step 2, the smart sampler, captures diverse samples and feeds them into the labeling module (step 3), which generates labels. These labels are then utilized by the Extend Mapping module (step 4) to map the remaining unlabeled data." class="wp-image-1138646" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61.png 952w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-768x433.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/tecofe_RF61-640x360.png 640w" sizes="auto, (max-width: 952px) 100vw, 952px" /></figure>
-
-
-
-<p>This research introduces a practical, cost-effective solution for enriching tabular data with semantic structure, making it more useful for downstream analysis and insights—which is especially valuable in business intelligence, data cleaning, and automated analytics workflows. This approach outperforms baseline models and naive LLM applications on converted text classification benchmarks.</p>
-
-
-
-<p>Extracting structured insights from free-text columns in tables—such as product reviews or user feedback—can be time-consuming and error-prone, especially when relying on traditional syntactic methods that often miss semantic meaning. This research introduces the semantic text column featurization problem, which aims to assign meaningful, context-aware labels to each entry in a text column.</p>
-
-
-
-<p>The authors propose a scalable, efficient method that combines the power of LLMs with text embeddings. Instead of labeling an entire column manually or applying LLMs to every cell—an expensive process—this new method intelligently samples a diverse subset of entries, uses an LLM to generate semantic labels for just that subset, and then propagates those labels to the rest of the column using embedding similarity.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-ebd4a57aaf54396b4191f2c1fad6c517" id="new-research-5">NEW RESEARCH</h2>
-
-
-
-<h2 class="wp-block-heading" id="agentic-reasoning-and-tool-integration-for-llms-via-reinforcement-learning"><a href="https://www.microsoft.com/en-us/research/publication/agentic-reasoning-and-tool-integration-for-llms-via-reinforcement-learning/">Agentic Reasoning and Tool Integration for LLMs via Reinforcement Learning</a></h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="154" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning.png" alt="diagram" class="wp-image-1138635" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning-300x49.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning-768x126.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/RF61_agentic-reasoning-240x39.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /></figure>
-
-
-
-<p>This work introduces ARTIST (Agentic Reasoning and Tool Integration in Self-improving Transformers), a new paradigm for LLM reasoning that expands beyond traditional language-only inference.&nbsp;</p>
-
-
-
-<p>While LLMs have made considerable strides in complex reasoning tasks, they remain limited by their reliance on static internal knowledge and text-only reasoning. Real-world problem solving often demands dynamic, multi-step reasoning, adaptive decision making, and the ability to interact with external tools and environments. In this research, ARTIST brings together agentic reasoning, reinforcement learning (RL), and tool integration, designed to enable LLMs to autonomously decide when and how to invoke internal tools within multi-turn reasoning chains. ARTIST leverages outcome-based reinforcement learning to learn robust strategies for tool use and environment interaction without requiring step-level supervision.</p>
-
-
-
-<p>Extensive experiments on mathematical reasoning and multi-turn function calling benchmarks show that ARTIST consistently outperforms state-of-the-art baselines, with up to <em>22%</em> absolute improvement over base models and strong gains on the most challenging tasks. Detailed studies show that agentic RL training leads to deeper reasoning, more effective tool use, and higher-quality solutions.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<h2 class="wp-block-heading h6 has-blue-color has-text-color has-link-color wp-elements-61c604b63ea2c27eb637663a9f89e42c" id="podcast">PODCAST</h2>
-
-
-
-<h3 class="wp-block-heading h2" id="materialism-podcast-mattergen"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=Ts1Lzc3T54I&list=PLL0SWcFqypClH6_BM-b1BggB7_qifpWgs&index=3">Materialism Podcast: MatterGen<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p>What if you could find materials with tailored properties without ever entering the lab? The Materialism Podcast, which is dedicated to exploring materials science and engineering, talks with Tian Xie from Microsoft Research to discuss MatterGen, an AI tool which accelerates materials science discovery. Tune in to hear a discussion of the new Azure AI Foundry, where MatterGen will interact with and support MatterSim, an advanced deep learning model designed to simulate the properties of materials across a wide range of elements, temperatures, and pressures.</p>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Episode 103: MatterGen" width="500" height="375" src="https://www.youtube-nocookie.com/embed/Ts1Lzc3T54I?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div></figure>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
-
-
-
-<div style="padding-bottom:64px; padding-top:64px" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner">
-			<div class="wp-block-msr-cards msr-cards msr-cards--default mt-4 has-text-align-left" data-bi-aN="in-the-news-highlights-of-recent-media-coverage-of-microsoft-research">
-	<div class="msr-cards__inner">
-					<div class="heading-wrapper">
-				<h2 class="mb-5 ">IN THE NEWS: Highlights of recent media coverage of Microsoft Research</h2>
-			</div>
-		
-		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
-	<div class="msr-cards__card msr-cards__card--default col">
-	<div class="card has-spectrum-border-top__hover material-card h-100 p-0" data-mount="click-group">
-
-		
-		<div class="card-body bg-white p-4 pt-3">
-							<h3 class="h5">
-					<a
-						class="text-decoration-none text-black"
-						data-bi-cN="When ChatGPT Broke an Entire Field: An Oral History"
-						href="https://www.quantamagazine.org/when-chatgpt-broke-an-entire-field-an-oral-history-20250430/"
-					>
-						<span>When ChatGPT Broke an Entire Field: An Oral History</span>&nbsp;<span class="glyph-prepend glyph-prepend-small glyph-prepend-chevron-right" aria-hidden="true"></span>
-					</a>
-				</h3>
-										<div class="card__description card__citation small">
-					<p>Quanta Magazine | April 30, 2025</p><p>Large language models are everywhere, igniting discovery, disruption and debate in whatever scientific community they touch. But the one they touched first — for better, worse and everything in between — was natural language processing. What did that impact feel like to the people experiencing it firsthand?</p><p>To tell that story, Quanta interviewed 19 NLP experts, including Kalika Bali, senior principal researcher at Microsoft Research. From researchers to students, tenured academics to startup founders, they describe a series of moments — dawning realizations, elated encounters and at least one “existential crisis” — that changed their world. And ours.</p>				</div>
-			
-					</div>
-	</div>
-</div>
-</div>
-
-					<div class="justify-content-center text-center mb-4">
-				<a
-					href="https://www.microsoft.com/en-us/research/news-and-awards/"
-					class="btn btn-outline-primary glyph-append glyph-append-small glyph-append-chevron-right msr-cards__cta"
-					data-bi-cN="View more news and awards"
-					data-bi-type="button"
-				>
-					View more news and awards				</a>
-			</div>
-			</div>
-</div>		</div>
-	</div>
-
-	</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/research-focus-week-of-may-7-2025/">Research Focus: Week of May 7, 2025</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
