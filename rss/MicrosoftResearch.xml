@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 06 Jun 2025 15:47:36 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 09 Jun 2025 20:11:43 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,158 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Rewriting SymCrypt in Rust to modernize Microsoft’s cryptographic library </title>
+		<link>https://www.microsoft.com/en-us/research/blog/rewriting-symcrypt-in-rust-to-modernize-microsofts-cryptographic-library/</link>
+		
+		<dc:creator><![CDATA[Jonathan Protzenko, Samuel Lee, Samreen Khadeer, Son Ho, Oleksii Oleksenko, Michael Naehrig, Cédric Fournet]]></dc:creator>
+		<pubDate>Tue, 10 Jun 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/rewriting-symcrypt-in-rust-to-modernize-microsofts-cryptographic-library/</guid>
+
+					<description><![CDATA[<p>We're rewriting parts of Microsoft's SymCrypt cryptographic library in Rust to improve memory safety and defend against side-channel attacks, enabling formal verification while maintaining backward compatibility via a Rust-to-C compiler.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/rewriting-symcrypt-in-rust-to-modernize-microsofts-cryptographic-library/">Rewriting SymCrypt in Rust to modernize Microsoft’s cryptographic library </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a gradient background that transitions from blue on the left to pink on the right. The first icon, on the left, is a microchip with a padlock in the center. The middle icon is a flowchart diagram with connected shapes. The third icon, on the right, consists of two angle brackets facing each other." class="wp-image-1141377" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/RewritingSymCrypt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Outdated coding practices and memory-unsafe languages like C are putting software, including cryptographic libraries, at risk. Fortunately, memory-safe languages like Rust, along with formal verification tools, are now mature enough to be used at scale, helping prevent issues like crashes, data corruption, flawed implementation, and side-channel attacks.</p>
+
+
+
+<p>To address these vulnerabilities and improve memory safety, we’re rewriting <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/SymCrypt" target="_blank" rel="noreferrer noopener">SymCrypt<span class="sr-only"> (opens in new tab)</span></a>—Microsoft’s open-source cryptographic library—in Rust. We’re also incorporating formal verification methods. SymCrypt is used in Windows, Azure Linux, Xbox, and other platforms.</p>
+
+
+
+<p>Currently, SymCrypt is primarily written in cross-platform C, with limited use of hardware-specific optimizations through intrinsics (compiler-provided low-level functions) and assembly language (direct processor instructions). It provides a wide range of algorithms, including AES-GCM, SHA, ECDSA, and the more recent post-quantum algorithms ML-KEM and ML-DSA.&nbsp;</p>
+
+
+
+<p>Formal verification will confirm that implementations behave as intended and don’t deviate from algorithm specifications, critical for preventing attacks. We’ll also analyze compiled code to detect side-channel leaks caused by timing or hardware-level behavior.</p>
+
+
+
+<h2 class="wp-block-heading" id="proving-rust-program-properties-with-aeneas">Proving Rust program properties with Aeneas</h2>
+
+
+
+<p>Program verification is the process of proving that a piece of code will always satisfy a given property, no matter the input. Rust’s type system profoundly improves the prospects for program verification by providing strong ownership guarantees, by construction, using a discipline known as “aliasing xor mutability”.</p>
+
+
+
+<p>For example, reasoning about C code often requires proving that two non-const pointers are live and non-overlapping, a property that can depend on external client code. In contrast, Rust’s type system guarantees this property for any two mutably borrowed references.</p>
+
+
+
+<p>As a result, new tools have emerged specifically for verifying Rust code. We chose <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aeneasverif.github.io/" target="_blank" rel="noreferrer noopener">Aeneas<span class="sr-only"> (opens in new tab)</span></a> because it helps provide a clean separation between code and proofs.</p>
+
+
+
+<p>Developed by Microsoft Azure Research in partnership with Inria, the French National Institute for Research in Digital Science and Technology, Aeneas connects to proof assistants like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://lean-lang.org/" target="_blank" rel="noreferrer noopener">Lean<span class="sr-only"> (opens in new tab)</span></a>, allowing us to draw on a large body of mathematical proofs—especially valuable given the mathematical nature of cryptographic algorithms—and benefit from Lean’s active user community.</p>
+
+
+
+<h2 class="wp-block-heading" id="compiling-rust-to-c-supports-backward-compatibility">Compiling Rust to C supports backward compatibility &nbsp;</h2>
+
+
+
+<p>We recognize that switching to Rust isn’t feasible for all use cases, so we’ll continue to support, extend, and certify C-based APIs as long as users need them. Users won’t see any changes, as Rust runs underneath the existing C APIs.</p>
+
+
+
+<p>Some users compile our C code directly and may rely on specific toolchains or compiler features that complicate the adoption of Rust code. To address this, we will use <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/AeneasVerif/eurydice/" target="_blank" rel="noreferrer noopener">Eurydice<span class="sr-only"> (opens in new tab)</span></a>, a Rust-to-C compiler developed by Microsoft Azure Research, to replace handwritten C code with C generated from formally verified Rust. <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/AeneasVerif/eurydice/" target="_blank" rel="noreferrer noopener">Eurydice<span class="sr-only"> (opens in new tab)</span></a> compiles directly from Rust’s MIR intermediate language, and the resulting C code will be checked into the SymCrypt repository alongside the original Rust source code.</p>
+
+
+
+<p>As more users adopt Rust, we&#8217;ll continue supporting this compilation path for those who build SymCrypt from source code but aren’t ready to use the Rust compiler. In the long term, we hope to transition users to either use precompiled SymCrypt binaries (via C or Rust APIs), or compile from source code in Rust, at which point the Rust-to-C compilation path will no longer be needed.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1044939">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">on-demand event</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/story/sep-2024-brief/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum Episode 4" data-bi-cN="Microsoft Research Forum Episode 4" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/RF4_Panel_1400x788.jpg" alt="Research Forum | Episode 4 Panel | John Langford, Hoifung Poon, Katja Hofmann, Jianwei Yang" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Forum Episode 4</h2>
+				
+								<p class="large">Learn about the latest multimodal AI models, advanced benchmarks for AI evaluation and model self-improvement, and an entirely new kind of computer for AI inference and hard optimization. </p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/sep-2024-brief/?OCID=msr_researchforum_MCR_Blog_Promo" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Watch on-demand" data-bi-cN="Microsoft Research Forum Episode 4" target="_blank">
+							Watch on-demand						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="timing-analysis-with-revizor">Timing analysis with Revizor&nbsp;</h2>
+
+
+
+<p>Even software that has been verified for functional correctness can remain vulnerable to low-level security threats, such as side channels caused by timing leaks or speculative execution. These threats operate at the hardware level and can leak private information, such as memory load addresses, branch targets, or division operands, even when the source code is provably correct.&nbsp;</p>
+
+
+
+<p>To address this, we’re extending <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/sca-fuzzer" target="_blank" rel="noreferrer noopener">Revizor<span class="sr-only"> (opens in new tab)</span></a>, a tool developed by Microsoft Azure Research, to more effectively analyze SymCrypt binaries. Revizor models microarchitectural leakage and uses fuzzing techniques to systematically uncover instructions that may expose private information through known hardware-level effects. &nbsp;</p>
+
+
+
+<p>Earlier cryptographic libraries relied on constant-time programming to avoid operations on secret data. However, recent research has shown that this alone is insufficient with today’s CPUs, where every new optimization may open a new side channel. </p>
+
+
+
+<p>By analyzing binary code for specific compilers and platforms, our extended Revizor tool enables deeper scrutiny of vulnerabilities that aren’t visible in the source code.</p>
+
+
+
+<h2 class="wp-block-heading" id="verified-rust-implementations-begin-with-ml-kem">Verified Rust implementations begin with ML-KEM</h2>
+
+
+
+<p>This long-term effort is in alignment with the Microsoft <a href="https://www.microsoft.com/en-us/trust-center/security/secure-future-initiative" target="_blank" rel="noreferrer noopener">Secure Future Initiative</a> and brings together experts across Microsoft, building on decades of Microsoft Research investment in program verification and security tooling.</p>
+
+
+
+<p>A preliminary version of ML-KEM in Rust is now available on the preview <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/SymCrypt/tree/feature/verifiedcrypto/lib/rust" target="_blank" rel="noreferrer noopener">feature/verifiedcrypto<span class="sr-only"> (opens in new tab)</span></a> branch of the SymCrypt repository. We encourage users to try the Rust build and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/SymCrypt/issues" target="_blank" rel="noreferrer noopener">share feedback<span class="sr-only"> (opens in new tab)</span></a>. Looking ahead, we plan to support direct use of the same cryptographic library in Rust without requiring C bindings.&nbsp;</p>
+
+
+
+<p>Over the coming months, we plan to rewrite, verify, and ship several algorithms in Rust as part of SymCrypt. As our investment in Rust deepens, we expect to gain new insights into how to best leverage the language for high-assurance cryptographic implementations with low-level optimizations.&nbsp;</p>
+
+
+
+<p>As performance is key to scalability and sustainability, we’re holding new implementations to a high bar using our benchmarking tools to match or exceed existing systems.</p>
+
+
+
+<h2 class="wp-block-heading" id="looking-forward">Looking forward&nbsp;</h2>
+
+
+
+<p>This is a pivotal moment for high-assurance software. Microsoft’s investment in Rust and formal verification presents a rare opportunity to advance one of our key libraries. We’re excited to scale this work and ultimately deliver an industrial-grade, Rust-based, FIPS-certified cryptographic library.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/rewriting-symcrypt-in-rust-to-modernize-microsofts-cryptographic-library/">Rewriting SymCrypt in Rust to modernize Microsoft’s cryptographic library </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>BenchmarkQED: Automated benchmarking of RAG systems</title>
 		<link>https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/</link>
 		
@@ -32,7 +184,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/benchmarkqed-automated-benchmarking-of-rag-systems/">BenchmarkQED: Automated benchmarking of RAG systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing how the dimensions of query source (data-driven vs activity-driven) and query scope (local vs global) create four query classes that span the local-to-global query spectrum: data-local, activity-local, data-global, and activity-global. " class="wp-image-1140721" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing how the dimensions of query source (data-driven vs activity-driven) and query scope (local vs global) create four query classes that span the local-to-global query spectrum: data-local, activity-local, data-global, and activity-global. " class="wp-image-1140721" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/BenchmarkQED-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -80,34 +232,34 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="4162" height="2117" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3.png" alt="Diagram showing the processes for synthesizing queries in each of the four classes. Each process involves steps like generating dataset summaries, personas, tasks, and candidate queries, followed by clustering candidate queries and selecting the final query set. The data-local example query is “Why are junior doctors in South Korea striking in February 2024?”. The activity-local example query is “What are the public health implications of the newly discovered Alaskapox virus in Alaska?”. The data-global example query is “Across the dataset, what are the key public health challenges and the measures being taken to address them?”. The activity-global example query is “Across the dataset, what are the main public health initiatives mentioned that target underserved communities?”." class="wp-image-1140728" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3.png 4162w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-1024x521.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-768x391.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-1536x781.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-2048x1042.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-240x122.png 240w" sizes="(max-width: 4162px) 100vw, 4162px" /><figcaption class="wp-element-caption">Figure 2. Synthesis process and example query for each of the&nbsp;four&nbsp;AutoQ&nbsp;query classes.&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="4162" height="2117" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3.png" alt="Diagram showing the processes for synthesizing queries in each of the four classes. Each process involves steps like generating dataset summaries, personas, tasks, and candidate queries, followed by clustering candidate queries and selecting the final query set. The data-local example query is “Why are junior doctors in South Korea striking in February 2024?”. The activity-local example query is “What are the public health implications of the newly discovered Alaskapox virus in Alaska?”. The data-global example query is “Across the dataset, what are the key public health challenges and the measures being taken to address them?”. The activity-global example query is “Across the dataset, what are the main public health initiatives mentioned that target underserved communities?”." class="wp-image-1140728" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3.png 4162w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-1024x521.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-768x391.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-1536x781.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-2048x1042.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure2-3-240x122.png 240w" sizes="auto, (max-width: 4162px) 100vw, 4162px" /><figcaption class="wp-element-caption">Figure 2. Synthesis process and example query for each of the&nbsp;four&nbsp;AutoQ&nbsp;query classes.&nbsp;</figcaption></figure>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115766">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research blog</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300" href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" aria-label="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1.png" alt="A diagram illustrating the joint optimization process of instructions and in-context examples in PromptWizard. The figure demonstrates how the framework iteratively refines both components, integrating feedback to enhance the overall prompt effectiveness and adaptability across tasks." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts</h2>
 				
-								<p class="large">Stay connected to the research community at Microsoft.</p>
+								<p class="large">PromptWizard from Microsoft Research is now open source. It is designed to automate and simplify AI prompt optimization, combining iterative LLM feedback with efficient exploration and refinement techniques to create highly effective prompts in minutes.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" class="btn btn-brand glyph-append glyph-append-chevron-right" aria-label="Read more" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
+							Read more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4225,289 +4377,6 @@
 
 <p>As general-purpose AI advances faster than traditional evaluation methods, this work lays a timely foundation for making AI assessments more rigorous, transparent, and ready for real-world deployment. The research team is working toward building a collaborative community to strengthen and expand this emerging field.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/predicting-and-explaining-ai-model-performance-a-new-approach-to-evaluation/">Predicting and explaining AI model performance: A new approach to evaluation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Abstracts: Heat Transfer and Deep Learning with Hongxia Hao and Bing Lv</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/</link>
-		
-		<dc:creator><![CDATA[Gretchen Huizinga, Hongxia Hao, Bing Lv]]></dc:creator>
-		<pubDate>Thu, 08 May 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138389</guid>
-
-					<description><![CDATA[<p>Silicon has long borne the burden of heat transfer in electronics, but in a post-Moore’s Law world, researchers like Hongxia Hao and Bing Lv are using AI to discover and design next-generation materials that exceed the limits of silicon’s thermal conductivity.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/">Abstracts: Heat Transfer and Deep Learning with Hongxia Hao and Bing Lv</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Hongxia Hao (left) and Bing Lv (right)." class="wp-image-1138528" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Hongxia-and-Bing_Abstracts_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=145216634&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Members of the research community at Microsoft work continuously to advance their respective fields. Abstracts bring its audience to the cutting edge with them through short, compelling conversations about new and noteworthy achievements.</p>
-
-
-
-<p>In this episode, senior researcher <a href="https://www.microsoft.com/en-us/research/people/hongxiahao/">Hongxia Hao<span class="sr-only"> (opens in new tab)</span></a>, and physics professor <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://profiles.utdallas.edu/blv" target="_blank" rel="noreferrer noopener">Bing Lv<span class="sr-only"> (opens in new tab)</span></a>, join host Gretchen Huizinga to talk about how they are using deep learning techniques to probe the upper limits of heat transfer in inorganic crystals, discover novel materials with exceptional thermal conductivity, and rewrite the rulebook for designing high-efficiency electronics and sustainable energy.</p>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/probing-the-limit-of-heat-transfer-in-inorganic-crystals-with-deep-learning/">Read the paper</a></div>
-</div>
-
-
-
-<div class="wp-block-group msr-pattern-link-list is-layout-flow wp-block-group-is-layout-flow">
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h5" id="learn-more-1">Learn more:</h2>
-
-
-
-<ul class="wp-block-list list-unstyled">
-<li><a href="https://www.microsoft.com/en-us/research/blog/mattersim-a-deep-learning-model-for-materials-under-real-world-conditions/">MatterSim: A deep-learning model for materials under real-world conditions</a><br>Microsoft Research Blog, May 2024</li>
-
-
-
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://personal.utdallas.edu/~blv/">Quantum Materials Research, University of Texas at Dallas<span class="sr-only"> (opens in new tab)</span></a><br>Research group page</li>
-</ul>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-</div>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>GRETCHEN</strong> <strong>HUIZINGA</strong>: Welcome to Abstracts, a Microsoft Research Podcast that puts the spotlight on world-class research in brief. I’m Gretchen Huizinga. In this series, members of the research community at Microsoft give us a quick snapshot – or a podcast abstract – of their new and noteworthy papers.</p>
-
-
-
-<p>[MUSIC FADES]&nbsp;</p>
-
-
-
-<p>Today I&#8217;m talking to two researchers, Hongxia Hao, a senior researcher at Microsoft Research AI for Science, and Bing Lv, an associate professor in physics at the University of Texas at Dallas. Hongxia and Bing are co-authors of a paper called <strong><em>Probing the Limit of Heat Transfer in Inorganic Crystals with Deep Learning</em></strong>. I&#8217;m excited to learn more about this! Hongxia and Bing, it&#8217;s great to have you both on Abstracts!</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p><strong>HONGXIA HAO</strong>: Nice to be here.</p>
-
-
-
-<p><strong>BING</strong> <strong>LV</strong>: Nice to be here, too.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: So Hongxia, let&#8217;s start with you and a brief overview of this paper. In just a few sentences. Tell us about the problem your research addresses and more importantly, why we should care about it.</p>
-
-
-
-<p><strong>HAO</strong>: Let me start with a very simple yet profound question. What&#8217;s the fastest the heat can travel through a solid material? This is not just an academic curiosity, but it&#8217;s a question that touched the bottom of how we build technologies around us. So from the moment when you tap your smartphone, and the moment where the laptop is turned on and functioning, heat is always flowing. So we&#8217;re trying to answer the question of a century-old mystery of the upper limit of heat transfer in solids. So we care about this not just because it&#8217;s a fundamental problem in physics and material science, but because solving it could really rewrite the rulebook for designing high-efficiency electronics and sustainable energy, etc. And nowadays, with very cutting-edge nanometer chips or very fancy technologies, we are packing more computing power into smaller space, but the faster and denser we build, the harder it becomes to remove the heat. So in many ways, thermal bottlenecks, not just transistor density, are now the ceiling of the Moore’s Law. And also the stakes are very enormous. We really wish to bring more thermal solutions by finding more high thermal conductor choices from the perspective of materials discovery with the help of AI.</p>
-
-
-
-<p><strong>LV</strong>: So I think one of the biggest things as Hongxia said, right? Thermal solutions will become, eventually become, a bottleneck for all type of heterogeneous integration of the materials. So from this perspective, so how people actually have been finding out previously, all the thermal was the last solution to solve. But now people actually more and more realize all these things have to be upfront. This co-design, all these things become very important. So I think what we are doing right now, integrated with AI, helping to identify the large space of the materials, identify fundamentally what will be the limit of this material, will become very important for the society.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Hmm. Yeah. Hongxia, did you have anything to add to that?</p>
-
-
-
-<p><strong>HAO</strong>: Yes, so previously many people are working on exploring these material science questions through experimental tradition and the past few decades people see a new trend using computational materials discovery. Like for example, we do the fundamental solving of the Schrödinger equation using Density Functional Theory [DFT]. Actually, this brings us a lot of opportunities. The question here is, as the theory is getting more and more developed, it’s too expensive for us to make it very large scale and to study tons of materials. Think about this. The bottleneck here, now, is not just about having a very good theory, it&#8217;s about the scale. So, this is where AI, specifically now we are using deep learning, comes into play.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Well, Hongxia, let&#8217;s stay with you for a minute and talk about methodology. How did you do this research and what was the methodology you employed?</p>
-
-
-
-<p><strong>HAO</strong>: So here we, for this question, we built a pipeline that spans the AI, the quantum mechanics, and computational brute-force with a blend of efficiency and accuracy. It begins with generating an enormous chemical and structure design space because this is inspired by Slack’s principle. We focus first on simple crystals, and there are the systems most likely to have low and harmonious state, fewer phononic scattering events, and therefore potentially have high thermal conductivities. But we didn&#8217;t stop here. We also included a huge pool of more complex and higher energy structures to ensure diversity and avoid bias. And for each candidate, we first run like a structure relaxation using MatterSim, which is a deep learning foundational model for material science for us to characterize the properties of materials. And we use that screen for dynamic stability. And now it&#8217;s about 200K structures past this filter. And then came another real challenge: calculating the thermal conductivity. We try to solve this problem using the Boltzmann transport equation and the three-phonon scattering process. The twist here is all of this was not done by traditional DFT solvers, but with our deep learning model, the MatterSim. It&#8217;s trained to predict energy, force, and stress. And we can get second- and third-order interatomic force constants directly from here, which can guarantee the accuracy of the solution. And finally, to validate the model&#8217;s predictions, we performed full DFT-based calculations on the top candidates that we found, some of which even include higher-order scattering mechanism, electron phonon coupling effect, etc. And this rigorous validation gave us confidence in the speed and accuracy trade-offs and revealed a spectrum of materials that had either previously been overlooked or were never before conceived.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: So Bing, let&#8217;s talk about your research findings. How did things work out for you on this project and what did you find?</p>
-
-
-
-<p><strong>LV</strong>: I think one of the biggest things for this paper is it creates a very large material base. Basically, you can say it&#8217;s a smart database which eventually will be made accessible to the public. I think that&#8217;s a big achievement because people who actually if they have to look into it, they actually can go search Microsoft database, finding out, oh, this material does have this type of thermal properties. This is actually, this database can send about 230,000 materials. And one of the things we confirm is the highest thermal conductivity material based on all the wisdom of Slack criteria, predicted diamond would have the highest thermal conductivity. We more or less really very solidly prove diamond, at this stage, will remain with the highest thermal conductivity. We have a lot of new materials, exotic materials, which some of them, Hongxia can elaborate a little bit more. So, which having all this very exotic combination of properties, thermal with other properties, which could actually provide a new insight for new physics development, new material development, and a new device perspective. All of this combined will have actually a very profound impact to society.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, Hongxia, go a little deeper on that because that was an interesting part of the paper when you talked about diamond still being the sort of “gold standard,” to mix metaphors! But you&#8217;ve also found some other materials that are remarkable compared to silicon.</p>
-
-
-
-<p><strong>HAO</strong>: Yeah, yeah. Among this search space, even though we didn&#8217;t find like something that&#8217;s higher than diamonds, but we do discover more than like twenty new materials with thermal conductivity exceeding that of silicon. And silicon is something like a benchmark for criteria that we think we want to compare with because it&#8217;s a backbone of modern electronics. More interestingly, I think, is the manganese vanadium. It shows some very interesting and surprising phenomena. Like it&#8217;s a metallic compound, but with very high lattice thermal connectivity. And this is the first time discovered by, like, through our search pattern, and it’s something that cannot be easily discovered without the hope with AI. And right now, think Bing can explain more on this, and show some interesting results.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, go ahead Bing.</p>
-
-
-
-<p><strong>LV</strong>: So this is actually very surprising to me as an experimentalist because of when Hongxia presented their theory work to me, this material, manganese vanadium it&#8217;s discovered back in 1938, almost 100 years ago, but there&#8217;s no more than twenty papers talking about this! A lot of them was on theory, okay, not even on experimental part. We actually did quite a bit of work on this. We actually are in the process; will characterize this and then moving forward even for the thermal conductivity measurements. So that will be hopefully, will be adding to the value of these things, showing you, Hey, AI does help to predict the materials could really generate the new materials with very good high thermal conductivity.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, so Bing, stay with you for a minute. I want you to talk about some kind of real-world applications of this. I know you alluded to a couple of things, but how is this work significant in that respect, and who might be most excited about it, aside from the two of you? [LAUGHS]</p>
-
-
-
-<p><strong>LV</strong>: So I think as I mentioned before, the first thing is this database. I believe that&#8217;s the first ever large material database regarding to the thermal conductivity. And it has, as I said, 230,000 materials with AI-predicted thermal connectivity. This will provide not only science but engineering with a vastly expanding catalog of candidate materials for the future roadmap of integration, material integration, and all these bottlenecks we are talking about, the thermal solution for the semiconductors or for even beyond the semiconductor integration, people actually can have a database to looking for. So these things, it will become very important, and I believe over a long time it will generate a very long impact for the research community, for the society development.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah. Hongxia, did you have anything to add to that one too?</p>
-
-
-
-<p><strong>HAO</strong>: Yeah, so this study reshapes how we think about limits. I like the sentence that the only way to discover the limits of possible is to go beyond them into the impossible. In this case, we tried, but we didn&#8217;t break the diamond limit. But we proved it even more rigorously than ever before. In doing so, we also uncovered some uncharted peaks in the thermal conductivity landscape. This would not happen without new AI capabilities for material science. I think in the long run, I believe researchers could benefit from using this AI design and shift their way on how to do materials research with AI.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, it&#8217;ll be interesting to see if anyone ever does break the diamond limit with the new tools that are available, but…</p>
-
-
-
-<p><strong>HAO</strong>: Yeah!</p>
-
-
-
-<p><strong>HUIZINGA</strong>: So this is the part of the abstracts podcast where I like to ask for sort of a golden nugget, a one sentence takeaway that listeners might get from this paper. If you had one Hongxia, what would it be? And then I&#8217;ll ask Bing to maybe give his.</p>
-
-
-
-<p><strong>HAO</strong>: Yes. AI is no longer just a tool. It&#8217;s becoming a critical partner for us in scientific discovery. So our work proved that the large-scale data-driven science can now approach long-standing and fundamental questions with very fresh eyes. When trained well, and guided with physical intuition, models like MatterSim can really realize a full in-silico characterization for materials and don&#8217;t just simulate some known materials, but really trying to imagine what nature hasn&#8217;t yet revealed. Our work points to a path forward, not just incrementally better materials, but entirely new class of high-performance compounds where we could never have guessed without AI.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah. Bing, what&#8217;s your one takeaway?</p>
-
-
-
-<p><strong>LV</strong>: I think I want to add a few things on top of Hongxia’s comments because I think Hongxia has very good critical words I would like to emphasize. When we train the AI well, if we guide the AI well, it could be very useful to become our partner. So I think all in all, our human being’s intellectual merit here is still going to play a significantly important role, okay? We are generating this AI, we should really train the AI, we should be using our human being intellectual merit to guide them to be useful for our human being society advancement. Now with all these AI tools, I think it&#8217;s a very golden time right now. Experimentalists could work very closely with like Hongxia, who’s a good theorist who has very good intellectual merits, and then we actually now incorporate with AI, then combine all pieces together, hopefully we’re really able to accelerating material discovery in a much faster pace than ever which the whole society will eventually get a benefit from it.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah. Well, as we close, Bing, I want you to go a little further and talk about what&#8217;s next then, research wise. What are the open questions or outstanding challenges that remain in this field and what&#8217;s on your research agenda to address them?</p>
-
-
-
-<p><strong>LV</strong>: So first of all, I think this paper is addressing primarily on these crystalline ordered inorganic bulk materials. And also with the condition we are targeting at ambient pressure, room temperature, because that&#8217;s normally how the instrument is working, right? But what if under extreme conditions? We want to go to space, right? There we’ll have extreme conditions, some very… sometimes very cold, sometimes very hot. We have some places with extremely probably quite high pressure. Or we have some conditions that are highly radioactive. So under that condition, there’s going to be a new database could be emerged. Can we do something beyond that? Another good important thing is we are targeting this paper on high thermal conductivity. What about extremely low thermal conductivity? Those will actually bring a very good challenge for theorists and also the machine learning approach. I think that&#8217;s something Hongxia probably is very excited to work on in that direction. I know since she’s ambitious, she wants to do something more than beyond what we actually achieved so far.</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Yeah, so Hongxia, how would you encapsulate what your dream research is next?</p>
-
-
-
-<p><strong>HAO</strong>: Yeah, so I think besides all of these exciting research directions, on my end, another direction is perhaps kind of exciting is we want to move from search to design. So right now we are kind of good at asking like what exists by just doing a forward prediction and brute force. But with generative AI, we can start asking what should exist? In the future, we can have an incorporation between forward prediction and backwards generative design to really tackle questions. If you have materials like you want to have desired like properties, how would you design the problems?</p>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>HUIZINGA</strong>: Well, it sounds like there&#8217;s a full plate of research agenda goodness going forward in this field, both with human brains and AI. So, Hongxia Hao and Bing Lv, thanks for joining us today. And to our listeners, thanks for tuning in. If you want to read this paper, you can find a link at aka.ms/Abstracts, or you can read a pre-print of it on arXiv. See you next time on Abstracts!</p>
-
-
-
-<p>[MUSIC FADES]&nbsp;</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-7"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/">Abstracts: Heat Transfer and Deep Learning with Hongxia Hao and Bing Lv</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
