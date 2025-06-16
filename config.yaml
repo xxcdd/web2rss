@@ -155,3 +155,12 @@ sites:
     description_css: div.ArticleList_content__cqKil
     link_css: 
     use_headless_browser: false
+
+  - name: devin.ai.blog
+    follow_desc: 
+    url: https://cognition.ai/blog/1
+    block_css: li.blog-post-list__list-item
+    title_css: h3
+    description_css: div.o-blog-preview__content
+    link_css: a
+    use_headless_browser: false
