@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 17 Jun 2025 16:21:38 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 18 Jun 2025 17:03:00 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,184 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>Breaking bonds, breaking ground: Advancing the accuracy of computational chemistry with deep learning</title>
+		<link>https://www.microsoft.com/en-us/research/blog/breaking-bonds-breaking-ground-advancing-the-accuracy-of-computational-chemistry-with-deep-learning/</link>
+		
+		<dc:creator><![CDATA[Rianne van den Berg, Jan Hermann, Christopher Bishop, Paola Gori Giorgi]]></dc:creator>
+		<pubDate>Wed, 18 Jun 2025 10:01:47 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1141626</guid>
+
+					<description><![CDATA[<p>Microsoft researchers achieved a breakthrough in the accuracy of DFT, a method for predicting the properties of molecules and materials, by using deep learning. This work can lead to better batteries, green fertilizers, precision drug discovery, and more.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/breaking-bonds-breaking-ground-advancing-the-accuracy-of-computational-chemistry-with-deep-learning/">Breaking bonds, breaking ground: Advancing the accuracy of computational chemistry with deep learning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: A dark blue, wavy surface with multiple colorful spheres placed on it. The spheres are in various colors including red, green, blue, yellow, purple, and orange. Each sphere is surrounded by small white particles that appear to be floating around them. The background is a gradient of dark teal to black." class="wp-image-1142136" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT-Blog-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>We are excited to share our first big milestone in solving a grand challenge that has hampered the predictive power of computational chemistry, biochemistry, and materials science for decades. By using a scalable deep-learning approach and generating an unprecedented quantity of diverse, highly accurate data, we have achieved a breakthrough in the accuracy of density functional theory (DFT), the workhorse method that thousands of scientists use every year to simulate matter at the atomistic level. Within the region of chemical space represented in our large training dataset, our model reaches the accuracy required to reliably predict experimental outcomes, as assessed on the well-known benchmark dataset <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://pubmed.ncbi.nlm.nih.gov/28675494/" target="_blank" rel="noreferrer noopener">W4-17<span class="sr-only"> (opens in new tab)</span></a>. This removes a fundamental barrier to shifting the balance of molecule and material design from being driven by laboratory experiments to being driven by computational simulations. The implications for accelerating scientific discovery are far reaching, spanning applications from drugs to batteries and green fertilizers.</p>
+
+
+
+<h2 class="wp-block-heading" id="what-is-dft">What is DFT?</h2>
+
+
+
+<p>Molecules and materials are made of atoms, which are held together by their electrons. These electrons act as a glue, determining the stability and properties of the chemical structure. Accurately computing the strength and properties of the electron glue is essential for predicting whether a chemical reaction will proceed, whether a candidate drug molecule will bind to its target protein, whether a material is suitable for carbon capture, or if a flow battery can be optimized for renewable energy storage. Unfortunately, a brute-force approach amounts to solving the many-electron Schrödinger equation, which requires computation that scales exponentially with the number of electrons. Considering that an atom has dozens of electrons, and that molecules and materials have large numbers of atoms, we could easily end up waiting the age of the universe to complete our computation unless we restrict our attention to small systems with only a few atoms.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="What is Density Functional Theory (DFT)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/wtB50-si1hI?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>DFT, introduced by Walter Kohn and collaborators in 1964-1965, was a true scientific breakthrough, earning Kohn the Nobel Prize in Chemistry in 1998. DFT provides an extraordinary reduction in the computational cost of calculating the electron glue in an exact manner, from exponential to cubic, making it possible to perform calculations of practical value within seconds to hours.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/articles/timeline-the-continuing-evolution-of-density-functional-theory/">DFT Timeline</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading" id="what-is-the-grand-challenge-in-dft">What is the grand challenge in DFT?&nbsp;</h2>
+
+
+
+<p>But there is a catch: the exact reformulation has a small but crucial term—the exchange-correlation (XC) functional—which Kohn proved is universal (i.e., the same for all molecules and materials), but for which no explicit expression is known. For 60 years, people have designed practical approximations for the XC functional. The magazine <em>Science</em> dubbed the gold rush to design better XC models the “<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.science.org/doi/10.1126/science.1077710" target="_blank" rel="noreferrer noopener">pursuit of the Divine Functional<span class="sr-only"> (opens in new tab)</span></a>”. With time, these approximations have grown into a zoo of hundreds of different XC functionals from which users must choose, often using experimental data as a guide. Owing to the uniquely favorable computational cost of DFT, existing functionals have enabled scientists to gain extremely useful insight into a huge variety of chemical problems. However, the limited accuracy and scope of current XC functionals mean that DFT is still mostly used to interpret experimental results rather than predict them.</p>
+
+
+
+<h2 class="wp-block-heading" id="why-is-it-important-to-increase-the-accuracy-of-dft">Why is it important to increase the accuracy of DFT?&nbsp;</h2>
+
+
+
+<p>We can contrast the present state of computational chemistry with the state of aircraft engineering and design. Thanks to predictive simulations, aeronautical engineers no longer need to build and test thousands of prototypes to identify one viable design. However, this is exactly what we currently must do in molecular and materials sciences. We send thousands of potential candidates to the lab, because the accuracy of the computational methods is not sufficient to <em>predict</em> the experiments. To make a significant shift in the balance from laboratory to <em>in silico</em> experiments, we need to remove the fundamental bottleneck of the insufficient accuracy of present XC functionals. This amounts to bringing the error of DFT calculations with respect to experiments within <em>chemical accuracy</em>, which is around 1 kcal/mol for most chemical processes. Present approximations typically have errors that are 3 to 30 times larger.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="DFT for drug and material discovery" width="500" height="281" src="https://www.youtube-nocookie.com/embed/ckXVse-XZMQ?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<h2 class="wp-block-heading" id="how-can-ai-make-a-difference">How can AI make a difference?&nbsp;</h2>
+
+
+
+<p>AI can transform how we model molecules and materials with DFT by learning the XC functional directly from highly accurate data. The goal is to learn how the XC functional captures the complex relationship between its input, the electron density, and its output, the XC energy. You can think of the density like a glue, with regions of space where there is a lot of it and other regions with less of it. Traditionally, researchers have built XC functional approximations using the concept of the so-called <em>Jacob’s ladder</em>: a hierarchy of increasingly complex, hand-designed descriptors of the electron density. Including density descriptors from higher rungs of this ladder aims to improve accuracy, but it comes at the price of increased computational cost. Even the few attempts that use machine learning have stayed within this traditional paradigm, thereby taking an approach that is akin to what people were doing in computer vision and speech recognition before the deep-learning era. Progress toward better accuracy has stagnated for at least two decades with this approach.&nbsp;</p>
+
+
+
+<p>Our project is driven by the intuition that a true deep learning approach—where relevant representations of the electron density are learned directly from data in a computationally scalable way—has the potential to revolutionize the accuracy of DFT, much like deep learning has transformed other fields.<strong> </strong>A significant challenge with going down this path, however, is that feature or representation learning is very data-hungry, and there is very little data around—too little to test this hypothesis reliably.</p>
+
+
+
+<h2 class="wp-block-heading" id="what-have-we-done-in-this-milestone">What have we done in this milestone?</h2>
+
+
+
+<p>The first step was generating data—a lot of it. This posed a major challenge, since the data must come from accurate solutions of the many-electron Schrödinger equation, which is precisely the prohibitively expensive problem that DFT is designed to replace. Fortunately, decades of progress in the scientific community have led to smarter, more efficient variants of brute-force methods, making it possible to compute reference data for <em>small</em> molecules at experimental accuracy. While these high-accuracy methods, also referred to as wavefunction methods, are far too costly for routine use in applications, we made a deliberate investment in them for this project. The reason? The upfront cost of generating high-quality training data is offset by the long-term benefit of enabling vast numbers of industrially relevant applications with cost effective DFT using the trained XC functional. Crucially, we rely on the ability of DFT—and our learned XC functional—to generalize from high-accuracy data for small systems to larger, more complex molecules.&nbsp;</p>
+
+
+
+<p>There are many different high-accuracy wavefunction methods, each tailored to different regions of chemical space. However, their use at scale is not well established, as they require extensive expertise—small methodological choices can significantly affect accuracy at the level that we target. We therefore joined forces with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.une.edu.au/staff-profiles/science-and-technology/amir-karton" target="_blank" rel="noreferrer noopener">Prof. Amir Karton<span class="sr-only"> (opens in new tab)</span></a> from the University of New England, Australia, a world-leading expert who developed widely recognized benchmark datasets for a fundamental thermochemical property: atomization energy—the energy required to break all bonds in a molecule and separate it into individual atoms. To create a training dataset of atomization energies at unprecedented scale, our team at Microsoft built a scalable pipeline to produce highly diverse molecular structures. Using these structures and substantial Azure compute resources via Microsoft’s <a href="https://www.microsoft.com/en-us/research/collaboration/accelerating-foundation-models-research/">Accelerating Foundation Models Research program<span class="sr-only"> (opens in new tab)</span></a>, Prof. Karton applied a high-accuracy wavefunction method to compute the corresponding energy labels. The result is a <a href="https://www.microsoft.com/en-us/research/publication/accurate-chemistry-collection-coupled-cluster-atomization-energies-for-broad-chemical-space/">dataset<span class="sr-only"> (opens in new tab)</span></a> two orders of magnitude larger than previous efforts. We are <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="http://aka.ms/MSR-ACC" target="_blank" rel="noreferrer noopener">releasing a large part of this dataset<span class="sr-only"> (opens in new tab)</span></a> to the scientific community.</p>
+
+
+
+<p>Data generation was only half of the challenge. We also needed to design a dedicated deep-learning architecture for the XC functional—one that is both computationally scalable and capable of learning meaningful representations from electron densities to accurately predict the XC energy. Our team of machine learning specialists, assisted by DFT experts, introduced a series of innovations that solve these and other challenges inherent to this complex learning problem. The result is <a href="https://www.microsoft.com/en-us/research/publication/accurate-and-scalable-exchange-correlation-with-deep-learning/"><strong>Skala</strong>, an XC functional that generalizes to unseen molecules, reaching the accuracy needed to predict experiments</a>. This demonstrates for the first time that deep learning can truly disrupt DFT: reaching experimental accuracy does not require the computationally expensive hand-designed features of Jacob’s ladder. Instead, we can retain the original computational complexity of DFT while allowing the XC functional to learn how to extract meaningful features and predict accurate energies.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="391" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT_combined-figure.png" alt="We compare the accuracy of Skala against the best existing functionals of varying computational cost. The prediction errors are evaluated on two well-known public benchmark datasets: the W4-17 dataset for atomization energies (y axis, mean absolute error) and the GMTKN55 dataset for general main-group chemistry (x axis, weighted total mean absolute deviation, or WTMAD-2 for short). Skala achieves near "chemical accuracy" (1 kcal/mol) on atomization energies. This is the accuracy required for predictive modeling of laboratory experiments, which, to date, no existing functional has reached. Skala works especially well on the “single reference” subset of this dataset, reaching a groundbreaking 0.85 kcal/mol. On the GMTKN55 dataset, Skala shows competitive accuracy to the best-performing hybrid functionals, at a lower cost." class="wp-image-1142366" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT_combined-figure.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT_combined-figure-300x84.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT_combined-figure-1024x286.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT_combined-figure-768x214.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/DFT_combined-figure-240x67.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">We compare the accuracy of Skala against the best existing functionals of varying computational cost. The prediction errors are evaluated on two well-known public benchmark datasets: the W4-17 dataset for atomization energies (y axis, mean absolute error) and the GMTKN55 dataset for general main-group chemistry (x axis, weighted total mean absolute deviation, or WTMAD-2 for short). Skala achieves near &#8220;chemical accuracy&#8221; (1 kcal/mol) on atomization energies. This is the accuracy required for predictive modeling of laboratory experiments, which, to date, no existing functional has reached. Skala works especially well on the “single reference” subset of this dataset, reaching a groundbreaking 0.85 kcal/mol. On the GMTKN55 dataset, Skala shows competitive accuracy to the best-performing hybrid functionals, at a lower cost.</figcaption></figure>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p>&#8220;<em>Skala is a new density functional for the exchange-correlation energy that employs meta-GGA ingredients plus D3 dispersion and machine-learned nonlocal features of the electron density. Some exact constraints were imposed, and some others “emerge” from the fitting to about 150,000 accurate energy differences for sp molecules and atoms. Skala achieves high, hybrid-like accuracy on a large and diverse data set of properties of main group molecules, which has no overlap with its training set. The computational cost of Skala is higher than that of the r2SCAN meta-GGA for small molecules, but about the same for systems with 1,000 or more occupied orbitals. Its cost seems to be only 10% of the cost of standard hybrids and 1% of the cost of local hybrids. Developed by a Microsoft team of density functional theorists and deep-learning experts, Skala could be the first machine-learned density functional to compete with existing functionals for wide use in computational chemistry, and a sign of things to come in that and related fields. Skala learned from big data and was taught by insightful human scientists.”</em></p>
+<cite><em>— John P. Perdew, Professor of Physics, School of Science and Engineering, Tulane University</em></cite></blockquote>
+
+
+
+<p>This first milestone was achieved for a challenging property in a specific region of chemical space—atomization energies of main group molecules—for which we generated our initial large batch of high-accuracy training data. Building on this foundation, we have started to expand our training dataset to cover a broader range of general chemistry, using our scalable in-house data generation pipeline. With the first small batch of training data beyond atomization energies, we have already extended the accuracy of our model, making it competitive with the best existing XC functionals across a wider spectrum of main group chemistry. This motivates us to continue growing our high-accuracy data generation campaign, engaging with external experts such as Prof. Amir Karton, who noted, “After years of benchmarking DFT methods against experimental accuracy, this is the first time I’ve witnessed such an unprecedented leap in the accuracy–cost trade-off. It is genuinely exciting to see how the creation of our new dataset has enabled these groundbreaking results — opening up a path for transformative advances across chemical, biochemical, and materials research.”</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Deep learning for DFT" width="500" height="281" src="https://www.youtube-nocookie.com/embed/Zzt3h10KLp4?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<h2 class="wp-block-heading" id="advancing-computational-chemistry-together">Advancing computational chemistry together</h2>
+
+
+
+<p>We are excited to work closely with the global computational chemistry community to accelerate progress for all and look forward to openly releasing our first XC functional in the near future.&nbsp;</p>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p>&#8220;<em>Density Functional Theory&nbsp;(DFT) and related technologies are a core Digital Chemistry technology supporting advancements in&nbsp;Merck’s&nbsp;diverse Life Science, Healthcare and Electronics businesses.&nbsp;However, the limitations of traditional DFT methods, which have persisted for the last 50 years, have hindered its full potential. Microsoft Research&#8217;s innovative approach to integrating deep learning represents a&nbsp;substantial leap, enhancing its accuracy, robustness, and scalability. We are&nbsp;looking forward&nbsp;to exploring&nbsp;how this can advance&nbsp;Digital Chemistry workflows&nbsp;and unlock new possibilities for the future, aligning with our commitment to developing advanced algorithms and technologies that propel scientific innovation at Merck.&#8221;</em></p>
+<cite><em>— Jan Gerit Brandenburg – Director for Digital Chemistry at Merck&nbsp;</em></cite></blockquote>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p>&#8220;<em>We are entering a golden age for predictive and realistic simulations: very accurate electronic-structure calculations provide vast amounts of consistent data that can be used to train novel machine-learning architectures, delivering the holy grail of precision and computational efficiency.&#8221;</em></p>
+<cite><em>— Professor Nicola Marzari, Chair of Theory and Simulation of Materials, EPFL and PSI</em></cite></blockquote>
+
+
+
+<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>We believe that our new functional can help unlock new opportunities for businesses and are eager to work together on real-world applications. <strong>Today, we are delighted to launch the DFT Research Early Access Program (DFT REAP) and welcome Flagship Pioneering as the first participant.</strong> This program is for companies and research labs to collaborate with us to accelerate innovation across many industries. To find out more about how to join this program please visit: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/DFT-REAP" target="_blank" rel="noreferrer noopener">https://aka.ms/DFT-REAP<span class="sr-only"> (opens in new tab)</span></a> </p>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p><em>“Microsoft’s effort to enhance the predictive power of computational chemistry reflects a bold but thoughtful step toward a simulation-first future. At Flagship, we believe that openly shared, foundational advances in science &#8211; like this leap forward in DFT accuracy &#8211; can serve as powerful enablers of innovation. These next-generation tools promise to accelerate discovery across a wide range of sectors, from therapeutics to materials science, by helping researchers navigate chemical and biological space with far greater precision and speed.”</em></p>
+<cite><em>— </em>Junaid Bajwa, M.D., Senior Partner at Flagship Pioneering and Science Partner at Pioneering Intelligence</cite></blockquote>
+
+
+
+<p>By making our work available to the scientific community, we hope to enable widespread testing and gather valuable feedback that will guide future improvements. For the first time, deep learning offers a clear and computationally scalable path to building an accurate, efficient, and broadly applicable model of the universal XC functional—one that could transform the computational design of molecules and materials.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://aka.ms/SkalaDFT">Skala Paper</a></div>
+
+
+
+<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://aka.ms/MSR-ACC-paper">Dataset Paper</a></div>
+
+
+
+<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="http://aka.ms/MSR-ACC" target="_blank" rel="noreferrer noopener">Dataset</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgement">Acknowledgement</h2>
+
+
+
+<p>This work is the product of a highly collaborative and interdisciplinary effort led by <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai-for-science/" target="_blank" rel="noreferrer noopener">Microsoft Research AI for Science</a>, in partnership with colleagues from Microsoft Research Accelerator,&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://quantum.microsoft.com/" target="_blank" rel="noreferrer noopener">Microsoft Quantum</a> and the&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.une.edu/" target="_blank" rel="noreferrer noopener">University of New England</a>. The full author list includes <a href="https://www.microsoft.com/en-us/research/people/giulialuise/" target="_blank" rel="noreferrer noopener">Giulia Luise</a>, <a href="https://www.microsoft.com/en-us/research/people/chinweihuang/" target="_blank" rel="noreferrer noopener">Chin-Wei Huang</a>, <a href="https://www.microsoft.com/en-us/research/people/thijsvogels/" target="_blank" rel="noreferrer noopener">Thijs Vogels</a><a href="https://www.microsoft.com/en-us/research/people/derkkooi/" target="_blank" rel="noreferrer noopener">, Derk P. Kooi</a>, <a href="https://www.microsoft.com/en-us/research/people/sehlert/" target="_blank" rel="noreferrer noopener">Sebastian Ehlert</a>, <a href="https://www.microsoft.com/en-us/research/people/slanius/" target="_blank" rel="noreferrer noopener">Stephanie Lanius</a>, Klaas J. H. Giesbertz, Amir Karton, <a href="https://www.microsoft.com/en-us/research/people/dgunceler/" target="_blank" rel="noreferrer noopener">Deniz Gunceler</a>, <a href="https://www.microsoft.com/en-us/research/people/meganstanley/" target="_blank" rel="noreferrer noopener">Megan Stanley</a>, <a href="https://www.microsoft.com/en-us/research/people/wbruinsma/" target="_blank" rel="noreferrer noopener">Wessel P. Bruinsma</a>, <a href="https://www.microsoft.com/en-us/research/people/victorgar/" target="_blank" rel="noreferrer noopener">Victor Garcia Satorras</a>, <a href="https://www.microsoft.com/en-us/research/people/marwinsegler/" target="_blank" rel="noreferrer noopener">Marwin Segler</a>, <a href="https://www.microsoft.com/en-us/research/people/kenjitak/" target="_blank" rel="noreferrer noopener">Kenji Takeda</a>, <a href="https://www.microsoft.com/en-us/research/people/hul/" target="_blank" rel="noreferrer noopener">Lin Huang</a>, <a href="https://www.microsoft.com/en-us/research/people/weixinran/" target="_blank" rel="noreferrer noopener">Xinran Wei</a>, <a href="https://www.microsoft.com/en-us/research/people/josegarri/" target="_blank" rel="noreferrer noopener">José Garrido Torres</a>, Albert Katbashev, Bálint Máté, Sékou-Oumar Kaba, Roberto Sordillo, Yingrong Chen, David B. Williams-Young, <a href="https://www.microsoft.com/en-us/research/people/cmbishop/" target="_blank" rel="noreferrer noopener">Christopher M. Bishop</a>, <a href="https://www.microsoft.com/en-us/research/people/janhermann/" target="_blank" rel="noreferrer noopener">Jan Hermann</a>, <a href="https://www.microsoft.com/en-us/research/people/rvandenberg/" target="_blank" rel="noreferrer noopener">Rianne van den Berg</a> and <a href="https://www.microsoft.com/en-us/research/people/pgorigiorgi/" target="_blank" rel="noreferrer noopener">Paola Gori Giorgi</a>.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/breaking-bonds-breaking-ground-advancing-the-accuracy-of-computational-chemistry-with-deep-learning/">Breaking bonds, breaking ground: Advancing the accuracy of computational chemistry with deep learning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>New methods boost reasoning in small and large language models</title>
 		<link>https://www.microsoft.com/en-us/research/blog/new-methods-boost-reasoning-in-small-and-large-language-models/</link>
 		
@@ -32,7 +210,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/new-methods-boost-reasoning-in-small-and-large-language-models/">New methods boost reasoning in small and large language models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1.jpg" alt="The image shows a diagram illustrating the relationship between mathematical statements in natural language and formal language. On the left, there is a blue box labeled "Mathematical statement in natural language." An arrow points from this box to a central section containing four smaller boxes arranged in two rows. The top row contains "Formalization" and "Informalization," while the bottom row contains "Symbolic Equivalence" and "Semantic Consistency." An arrow points from this central section to a purple box on the right labeled "Mathematical statement in formal language." The background of the image transitions from blue on the left to purple on the right." class="wp-image-1142121" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1.jpg" alt="The image shows a diagram illustrating the relationship between mathematical statements in natural language and formal language. On the left, there is a blue box labeled "Mathematical statement in natural language." An arrow points from this box to a central section containing four smaller boxes arranged in two rows. The top row contains "Formalization" and "Informalization," while the bottom row contains "Symbolic Equivalence" and "Semantic Consistency." An arrow points from this central section to a purple box on the right labeled "Mathematical statement in formal language." The background of the image transitions from blue on the left to purple on the right." class="wp-image-1142121" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/NewMethods-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -78,7 +256,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1049" height="322" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1.png" alt="Figure 1: A three-part diagram illustrating the rStar-Math framework. (a) Shows an MCTS-driven reasoning tree with Q-values and answer verification using PPM or Python; correct and incorrect steps are marked. (b) Depicts how Q-value filtering constructs per-step preference pairs from partial to full solutions. (c) Outlines four rounds of self-evolution, alternating between SLM and PPM improvements using terminal-guided and PPM-augmented MCTS." class="wp-image-1141894" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1.png 1049w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-300x92.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-1024x314.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-768x236.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-240x74.png 240w" sizes="(max-width: 1049px) 100vw, 1049px" /><figcaption class="wp-element-caption">Figure 1. The rStar-Math framework </figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1049" height="322" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1.png" alt="Figure 1: A three-part diagram illustrating the rStar-Math framework. (a) Shows an MCTS-driven reasoning tree with Q-values and answer verification using PPM or Python; correct and incorrect steps are marked. (b) Depicts how Q-value filtering constructs per-step preference pairs from partial to full solutions. (c) Outlines four rounds of self-evolution, alternating between SLM and PPM improvements using terminal-guided and PPM-augmented MCTS." class="wp-image-1141894" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1.png 1049w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-300x92.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-1024x314.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-768x236.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-1-240x74.png 240w" sizes="auto, (max-width: 1049px) 100vw, 1049px" /><figcaption class="wp-element-caption">Figure 1. The rStar-Math framework </figcaption></figure>
 
 
 
@@ -102,7 +280,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1295" height="426" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2.png" alt="Figure 2: A three-part diagram showing the LIPS framework for inequality proof generation. On the left, a current inequality problem is transformed into new inequality subproblems via tactic generation using symbolic-based and LLM-generated rewriting methods. In the center, these new goals are filtered and ranked using LLM and symbolic methods. On the right, a ranked sequence of inequalities forms a complete proof, applying named tactics like Cauchy-Schwarz, AM-GM, and LLM simplification, ending with the original inequality verified." class="wp-image-1141898" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2.png 1295w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-300x99.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-1024x337.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-768x253.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-240x79.png 240w" sizes="(max-width: 1295px) 100vw, 1295px" /><figcaption class="wp-element-caption">Figure 2. An overview of LIPS</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1295" height="426" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2.png" alt="Figure 2: A three-part diagram showing the LIPS framework for inequality proof generation. On the left, a current inequality problem is transformed into new inequality subproblems via tactic generation using symbolic-based and LLM-generated rewriting methods. In the center, these new goals are filtered and ranked using LLM and symbolic methods. On the right, a ranked sequence of inequalities forms a complete proof, applying named tactics like Cauchy-Schwarz, AM-GM, and LLM simplification, ending with the original inequality verified." class="wp-image-1141898" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2.png 1295w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-300x99.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-1024x337.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-768x253.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/enhancing-llm-reasoning-abilities-2-240x79.png 240w" sizes="auto, (max-width: 1295px) 100vw, 1295px" /><figcaption class="wp-element-caption">Figure 2. An overview of LIPS</figcaption></figure>
 
 
 
@@ -345,7 +523,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-5" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -899,7 +1077,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-1"
+				aria-controls="show-more-show-less-toggle-5"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -910,7 +1088,7 @@
 
 
 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/how-ai-is-reshaping-the-future-of-healthcare-and-medical-research/">How AI is reshaping the future of healthcare and medical research</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -987,30 +1165,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115766">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085526">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" aria-label="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/PromptWizard-BlogHeroFeature-1400x788-1.png" alt="A diagram illustrating the joint optimization process of instructions and in-context examples in PromptWizard. The figure demonstrates how the framework iteratively refines both components, integrating feedback to enhance the overall prompt effectiveness and adaptability across tasks." />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-label="What’s Your Story: Lex Story" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/08/Lex-Story_WYS_Hero_Feature_1400x788.jpg" alt="photo of Lex Story for the What's Your Story episode of the Microsoft Research podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts</h2>
+									<h2 class="h4">What’s Your Story: Lex Story</h2>
 				
-								<p id="promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts" class="large">PromptWizard from Microsoft Research is now open source. It is designed to automate and simplify AI prompt optimization, combining iterative LLM feedback with efficient exploration and refinement techniques to create highly effective prompts in minutes.</p>
+								<p id="whats-your-story-lex-story" class="large">Model maker and fabricator Lex Story helps bring research to life through prototyping. He discusses his take on failure; the encouragement and advice that has supported his pursuit of art and science; and the sabbatical that might inspire his next career move.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts/" aria-describedby="promptwizard-the-future-of-prompt-optimization-through-feedback-driven-self-evolving-prompts" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="PromptWizard: The future of prompt optimization through feedback-driven self-evolving prompts" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/whats-your-story-lex-story/" aria-describedby="whats-your-story-lex-story" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="What’s Your Story: Lex Story" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1135,30 +1313,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1115757">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1061244">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-label="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/NEWGinny-Madeleine-and-Robert_Ideas_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Ginny Badanes, Madeleine Daepp and Robert Ness" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/about-microsoft-research/" aria-label="About Microsoft Research" data-bi-cN="About Microsoft Research" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/07/About-page-promo_1066x600.jpg" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness</h2>
+									<h2 class="h4">About Microsoft Research</h2>
 				
-								<p id="ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness" class="large">As the “biggest election year in history” comes to an end, researchers Madeleine Daepp and Robert Osazuwa Ness and Democracy Forward GM Ginny Badanes discuss AI’s impact on democracy, including the tech’s use in Taiwan and India.</p>
+								<p id="about-microsoft-research" class="large">Advancing science and technology to benefit humanity</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast/ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness/" aria-describedby="ideas-ai-and-democracy-with-madeleine-daepp-and-robert-osazuwa-ness" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Ideas: AI and democracy with Madeleine Daepp and Robert Osazuwa Ness" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/about-microsoft-research/" aria-describedby="about-microsoft-research" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="About Microsoft Research" target="_blank">
+							View our story						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1426,7 +1601,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-3" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -2404,7 +2579,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-3"
+				aria-controls="show-more-show-less-toggle-7"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -2797,7 +2972,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-4" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-8" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -2871,7 +3046,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-4"
+				aria-controls="show-more-show-less-toggle-8"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -3024,7 +3199,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-5" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-9" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -3190,7 +3365,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-5"
+				aria-controls="show-more-show-less-toggle-9"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -3329,7 +3504,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-6" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-10" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -3715,7 +3890,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-6"
+				aria-controls="show-more-show-less-toggle-10"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -3723,270 +3898,6 @@
 	</div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/collaborators-healthcare-innovation-to-impact/">Collaborators: Healthcare Innovation to Impact</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Magentic-UI, an experimental human-centered web agent</title>
-		<link>https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/</link>
-		
-		<dc:creator><![CDATA[Hussein Mozannar, Gagan Bansal, Cheng Tan, Adam Fourney, Victor Dibia, Friederike Niedtner, Jack Gerrits, Jacob Alber, Jingya Chen, Griffin Bassman, Erkang (Eric) Zhu, Peter Chang, Ricky Loynd, Maya Murad, Rafah Hosn, Ece Kamar, Saleema Amershi]]></dc:creator>
-		<pubDate>Mon, 19 May 2025 16:00:11 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1138863</guid>
-
-					<description><![CDATA[<p>Magentic-UI, new from Microsoft Research, is an open-source research prototype of a human-centered AI agent, designed to work with people to complete complex, web-based tasks in real time over a web browser.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/">Magentic-UI, an experimental human-centered web agent</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1.jpg" alt="This figure denotes a human figure above a small monitor on the left and a gear on the right with arrows pointing to each." class="wp-image-1139340" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/MagenticUI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Modern productivity is rooted in the web—from searching for information and filling in forms to navigating dashboards. Yet, many of these tasks remain manual and repetitive. Today, we are introducing Magentic-UI, a new open-source research prototype of a <em>human-centered</em> agent that is meant to help researchers study open questions on human-in-the-loop approaches and oversight mechanisms for AI agents. This prototype <strong>collaborates with users on web-based tasks</strong> and operates in real time over a web browser. Unlike other computer use agents that aim for full autonomy, Magentic-UI offers a transparent and controllable experience for tasks that are <em>action-oriented </em>and<em> </em>require activities beyond just performing simple web searches.</p>
-
-
-
-<p>Magentic-UI builds on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/labs/projects/magentic-one" target="_blank" rel="noreferrer noopener">Magentic-One<span class="sr-only"> (opens in new tab)</span></a>, a powerful multi-agent team we released last year, and is powered by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/autogen" target="_blank" rel="noreferrer noopener">AutoGen<span class="sr-only"> (opens in new tab)</span></a>, our leading agent framework. It is available under MIT license at <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/Magentic-UI" target="_blank" rel="noreferrer noopener">https://github.com/microsoft/Magentic-UI<span class="sr-only"> (opens in new tab)</span></a> and on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/labs/projects/magentic-ui" target="_blank" rel="noreferrer noopener">Azure AI Foundry Labs<span class="sr-only"> (opens in new tab)</span></a>, the hub where developers, startups, and enterprises can explore groundbreaking innovations from Microsoft Research. Magentic-UI is integrated with Azure AI Foundry models and agents. Learn more about how to integrate Azure AI agents into the Magentic-UI multi-agent architecture by following this <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui/blob/main/samples/sample_azure_agent.py" target="_blank" rel="noreferrer noopener">code sample<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
-
-
-
-<p>Magentic-UI can perform tasks that require browsing the web, writing and executing Python and shell code, and understanding files. Its key features include:</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Collaborative planning with users (co-planning)</strong>. Magentic-UI allows users to directly modify its plan through a plan editor or by providing textual feedback before Magentic-UI executes any actions.&nbsp;</li>
-
-
-
-<li><strong>Collaborative execution with users (co-tasking)</strong>. Users can pause the system and give feedback in natural language or demonstrate it by directly taking control of the browser.</li>
-
-
-
-<li><strong>Safety with human-in-the-loop (action guards)</strong>. Magentic-UI seeks user approval before executing potentially irreversible actions, and the user can specify how often Magentic-UI needs approvals. Furthermore, Magentic-UI is sandboxed for the safe operation of tools such as browsers and code executors.</li>
-
-
-
-<li><strong>Safety with human-in-the-loop</strong>. Magentic-UI seeks user approval before executing potentially irreversible actions, and the user can specify how often Magentic-UI needs approvals. Furthermore, Magentic-UI is sandboxed for the safe operation of tools such as browsers and code executors.&nbsp;</li>
-
-
-
-<li><strong>Learning from experience (plan learning)</strong>. Magentic-UI can learn and save plans from previous interactions to improve task completion for future tasks.&nbsp;</li>
-</ol>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="A screenshot of Magentic-UI actively performing a task. The left side of the screen shows Magentic-UI stating its plan based on the following query "Find a suitable birthday figt for a 5 years old nephew in Seattle who loves bikes". On the right hand side the figure shows magentic-ui " href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot.png"><img loading="lazy" decoding="async" width="2322" height="1700" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot.png" alt="A screenshot of Magentic-UI actively performing a task. The left side of the screen shows Magentic-UI stating its plan based on the following query "Find a suitable birthday figt for a 5 years old nephew in Seattle who loves bikes". On the right hand side the figure shows magentic-ui 's progress to accomplish this user’s complex goal. The right side shows the browser Magentic-UI is controlling." class="wp-image-1139443" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot.png 2322w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-300x220.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-1024x750.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-768x562.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-1536x1125.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-2048x1499.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/landing-screenshot-240x176.png 240w" sizes="auto, (max-width: 2322px) 100vw, 2322px" /></a><figcaption class="wp-element-caption"><em>Figure 1: Screenshot of Magentic-UI actively performing a task. The left side of the screen shows Magentic-UI stating its plan and progress to accomplish a user’s complex goal. The right side shows the browser Magentic-UI is controlling.&nbsp;</em></figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-is-magentic-ui-human-centered">How is Magentic-UI human-centered?</h2>
-
-
-
-<p>While many web agents promise full autonomy, in practice users can be left unsure of what the agent can do, what it is currently doing, and whether they have enough control to intervene when something goes wrong or doesn’t occur as expected. By contrast, Magentic-UI considers user needs at every stage of interaction. We followed a human-centered design methodology in building Magentic-UI by prototyping and obtaining feedback from pilot users during its design.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="Co-planning - This figure describes how users can collaboratively plan with Magentic-UI. On the left hand side, users can accept the plan magentic-ui creates or re-create the plan. On the right hand side they can see the actions magnetic-ui is taking on the browser." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/coplanning.gif"><img loading="lazy" decoding="async" width="1440" height="1080" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/coplanning.gif" alt="Co-planning - This figure describes how users can collaboratively plan with Magentic-UI. On the left hand side, users can accept the plan magentic-ui creates or re-create the plan. On the right hand side they can see the actions magnetic-ui is taking on the browser." class="wp-image-1139454"/></a><figcaption class="wp-element-caption"><em>Figure 2: Co-planning &#8211; Users can collaboratively plan with Magentic-UI.</em></figcaption></figure>
-
-
-
-<p>For example, after a person specifies and before Magentic-UI even begins to execute, it creates a clear step-by-step plan that outlines what it would do to accomplish the task. People can collaborate with Magentic-UI to modify this plan and then give final approval for Magentic-UI to begin execution. This is crucial as users may have expectations of how the task should be completed; communicating that information could significantly improve agent <a href="https://www.microsoft.com/en-us/research/publication/navigating-rifts-in-human-llm-grounding-study-and-benchmark/">performance</a>. We call this feature co-planning.</p>
-
-
-
-<p>During execution, Magentic-UI shows in real time what specific actions it’s about to take. For example, whether it is about to click on a button or input a search query. It also shows in real time what it observed on the web pages it is visiting. Users can take control of the action at any point in time and give control back to the agent. We call this feature co-tasking.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="Co-tasking. This fiture shows how magentic-ui shows the plan it created to the user and allows the user to push a button to accept the plan or modify it." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/cotasking.gif"><img loading="lazy" decoding="async" width="1428" height="1080" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/cotasking.gif" alt="Co-tasking. This fiture shows how magentic-ui shows the plan it created to the user and allows the user to push a button to accept the plan or modify it." class="wp-image-1139456"/></a><figcaption class="wp-element-caption"><em>Figure 3: Co-tasking &#8211; Magentic-UI provides real-time updates about what it is about to do and what it already did, allowing users to collaboratively complete tasks with the agent.</em></figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="Action-guards. TOn the left hand side,this figure shous how Magentic-UI will ask users for permission using Approve or Reject buttons before executing actions that it deems consequential or important. On the right hand side the figure shows magentic-ui picking Crab Wonton from Thai Thani" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard.png"><img loading="lazy" decoding="async" width="1534" height="1148" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard.png" alt="Action-guards. TOn the left hand side,this figure shous how Magentic-UI will ask users for permission using Approve or Reject buttons before executing actions that it deems consequential or important. On the right hand side the figure shows magentic-ui picking Crab Wonton from Thai Thani's restaurant menu." class="wp-image-1139447" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard.png 1534w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard-300x225.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard-1024x766.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard-768x575.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magui-actionguard-240x180.png 240w" sizes="auto, (max-width: 1534px) 100vw, 1534px" /></a><figcaption class="wp-element-caption"><em>Figure 4: Action-guards – Magentic-UI will ask users for permission before executing actions that it deems consequential or important.&nbsp;</em></figcaption></figure>
-
-
-
-<p>Additionally, Magentic-UI asks for user permission before performing actions that are deemed irreversible, such as closing a tab or clicking a button with side effects. We call these “action guards”. The user can also configure Magentic-UI’s action guards to always ask for permission before performing any action. If the user deems an action risky (e.g., paying for an item), they can reject it.&nbsp;</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="This figure shows how magentic-ui learns a plan by allowing the users to click on a button entitled "Plan Learned"" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-1.png"><img loading="lazy" decoding="async" width="782" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-1.png" alt="This figure shows how magentic-ui learns a plan by allowing the users to click on a button entitled "Plan Learned"" class="wp-image-1139462" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-1.png 782w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-1-297x300.png 297w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-1-768x776.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-1-178x180.png 178w" sizes="auto, (max-width: 782px) 100vw, 782px" /></a></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-large"><a data-bi-bhvr="14"  data-bi-cn="This figure shows how users can see their saved plans and click on a button to either run that same plan or edit it before running it." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2.png"><img loading="lazy" decoding="async" width="1024" height="777" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2-1024x777.png" alt="This figure shows how users can see their saved plans and click on a button to either run that same plan or edit it before running it." class="wp-image-1139463" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2-1024x777.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2-300x228.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2-768x583.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2-237x180.png 237w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/plan-learning-2.png 1196w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></a></figure>
-</div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption"><em>Figure 5: Plan learning – Once a task is successfully completed, users can request Magentic-UI to learn a step-by-step plan from this experience.</em></figcaption></figure>
-
-
-
-<p>After execution, the user can ask Magentic-UI to reflect on the conversation and infer and save a step-by-step plan for future similar tasks. Users can view and modify saved plans for Magentic-UI to reuse in the future in a saved-plans gallery. In a future session, users can launch Magentic-UI with the saved plan to either execute the same task again, like checking the price of a specific flight, or use the plan as a guide to help complete similar tasks, such as checking the price of a different type of flight.&nbsp;</p>
-
-
-
-<p>Combined, these four features—co-planning, co-tasking, action guards, and plan learning—enable users to collaborate effectively with Magentic-UI.</p>
-
-
-
-<h2 class="wp-block-heading" id="architecture">Architecture</h2>
-
-
-
-<p>Magentic-UI’s underlying system is a team of specialized agents adapted from AutoGen’s <a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/?msockid=0d5953b355086cfe362446d0547f6d22" target="_blank" rel="noreferrer noopener">Magentic-One</a> system. The agents work together to create a modular system:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Orchestrator </strong>is the lead agent, powered by a large language model (LLM), that performs co-planning with the user, decides when to ask the user for feedback, and delegates sub-tasks to the remaining agents to complete.</li>
-
-
-
-<li><strong>WebSurfer </strong>is an LLM agent equipped with a web browser that it can control. Given a request by the Orchestrator, it can click, type, scroll, and visit pages in multiple rounds to complete the request from the Orchestrator.</li>
-
-
-
-<li><strong>Coder </strong>is an LLM agent equipped with a Docker code-execution container. It can write and execute Python and shell commands and provide a response back to the Orchestrator.</li>
-
-
-
-<li><strong>FileSurfer</strong> is an LLM agent equipped with a Docker code-execution container and file-conversion tools from the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/markitdown" target="_blank" rel="noreferrer noopener">MarkItDown<span class="sr-only"> (opens in new tab)</span></a> package. It can locate files in the directory controlled by Magentic-UI, convert files to markdown, and answer questions about them.</li>
-</ul>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="This figure shows a histogram. It" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui.png"><img loading="lazy" decoding="async" width="1723" height="1307" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui.png" alt="This figure shows a histogram. It's a comparison on the GAIA validation set of the accuracy of Magentic-One, Magentic-UI in autonomous mode, Magentic-UI with a simulated user powered by a smarter LLM than the MAGUI agents, Magentic-UI with a simulated user that has a\access to side information about the tasks, and human performance. This shows that human-in-the-loop can improve the accuracy of autonomous agents, bridging the gap to human performance at a fraction of the cost.  " class="wp-image-1139336" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui.png 1723w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui-300x228.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui-1024x777.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui-768x583.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui-1536x1165.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/magenticui-237x180.png 237w" sizes="auto, (max-width: 1723px) 100vw, 1723px" /></a><figcaption class="wp-element-caption"><em>Figure 6: System architecture diagram of Magentic-UI</em></figcaption></figure>
-
-
-
-<p>To interact with Magentic-UI, users can enter a text message and attach images. In response, Magentic-UI creates a natural-language step-by-step plan with which users can interact through a plan-editing interface. Users can add, delete, edit, regenerate steps, and write follow-up messages to iterate on the plan. While the user editing the plan adds an upfront cost to the interaction, it can potentially save a significant amount of time in the agent executing the plan and increase its chance at success.</p>
-
-
-
-<p>The plan is stored inside the Orchestrator and is used to execute the task. For each step of the plan, the Orchestrator determines which of the agents (WebSurfer, Coder, FileSurfer) or the user should complete the step. Once that decision is made, the Orchestrator sends a request to one of the agents or the user and waits for a response. After the response is received, the Orchestrator decides whether that step is complete. If it is, the Orchestrator moves on to the following step.</p>
-
-
-
-<p>Once all steps are completed, the Orchestrator generates a final answer that is presented to the user. If, while executing any of the steps, the Orchestrator decides that the plan is inadequate (for example, because a certain website is unreachable), the Orchestrator can replan with user permission and start executing a new plan.</p>
-
-
-
-<p>All intermediate progress steps are clearly displayed to the user. Furthermore, the user can pause the execution of the plan and send additional requests or feedback. The user can also configure through the interface whether agent actions (e.g., clicking a button) require approval.</p>
-
-
-
-<h2 class="wp-block-heading" id="evaluating-magentic-ui">Evaluating Magentic-UI</h2>
-
-
-
-<p>Magentic-UI innovates through its ability to integrate human feedback in its planning and execution of tasks. We performed a preliminary automated evaluation to showcase this ability on the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2311.12983" target="_blank" rel="noreferrer noopener">GAIA benchmark<span class="sr-only"> (opens in new tab)</span></a> for agents with a user-simulation experiment.</p>
-
-
-
-<h3 class="wp-block-heading" id="evaluation-with-simulated-users">Evaluation with simulated users</h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><a data-bi-bhvr="14"  data-bi-cn="This figure shows a box diagram to describe the architecture of Magentic-UI." href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Magentic_UI_Figure.png"><img loading="lazy" decoding="async" width="943" height="609" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Magentic_UI_Figure.png" alt="This figure shows a box diagram to describe the architecture of Magentic-UI." class="wp-image-1139273" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Magentic_UI_Figure.png 943w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Magentic_UI_Figure-300x194.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Magentic_UI_Figure-768x496.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Magentic_UI_Figure-240x155.png 240w" sizes="auto, (max-width: 943px) 100vw, 943px" /></a><figcaption class="wp-element-caption"><em>Figure 7: Comparison on the GAIA validation set of the accuracy of Magentic-One, Magentic-UI in autonomous mode, Magentic-UI with a simulated user powered by a smarter LLM than the MAGUI agents, Magentic-UI with a simulated user that has a\access to side information about the tasks, and human performance. This shows that human-in-the-loop can improve the accuracy of autonomous agents, bridging the gap to human performance at a fraction of the cost.</em></figcaption></figure>
-
-
-
-<p>GAIA is a benchmark for general AI assistants, with multimodal question-answer pairs that are challenging, requiring the agents to navigate the web, process files, and execute code. The traditional evaluation setup with GAIA assumes the system will autonomously complete the task and return an answer, which is compared to the ground-truth answer.&nbsp;</p>
-
-
-
-<p>To evaluate the human-in-the-loop capabilities of Magentic-UI, we transform GAIA into an <em>interactive benchmark </em>by introducing the concept of a simulated user. Simulated users provide value in two ways: by having specific expertise that the agent may not possess, and by providing guidance on how the task should be performed.</p>
-
-
-
-<p>We experiment with two types of simulated users to show the value of human-in-the-loop: (1) a simulated user that is more intelligent than the Magentic-UI agents and (2) a simulated user with the same intelligence as Magentic-UI agents but with additional information about the task. During co-planning, Magentic-UI takes feedback from this simulated user to improve its plan. During co-tasking, Magentic-UI can ask the (simulated) user for help when it gets stuck. Finally, if Magentic-UI does not provide a final answer, then the simulated user provides an answer instead. These experiments reflect a lower bound on the value of human feedback, since real users can step in at any time and offer any kind of input—not just when the system explicitly asks for help.</p>
-
-
-
-<p>The simulated user is an LLM without any tools, instructed to interact with Magentic-UI the way we expect a human would act. The&nbsp;first type of&nbsp;simulated user relies on OpenAI’s o4-mini, more performant at many tasks than the one powering the Magentic-UI agents (GPT-4o). For the second type of simulated user, we use GPT-4o for both the simulated user and the rest of the agents, but the user has access to <em>side information</em> about each task. Each task in GAIA has side information, which includes a human-written <em>plan</em> to solve the task. While this <em>plan</em> is not used as input in the traditional benchmark, in our <em>interactive</em> setting we provide this information to the second type of <em>simulated</em> user,which is powered by an LLM so that it can mimic a knowledgeable user. Importantly, we tuned our simulated user so as not to reveal the ground-truth answer directly as the answer is usually found inside the human written plan. Instead, it is prompted to guide Magentic-UI indirectly. We found that this tuning prevented the simulated user from inadvertently revealing the answer in all but 6% of tasks when Magentic-UI provides a final answer.&nbsp;</p>
-
-
-
-<p>On the validation subset of GAIA (162 tasks), we show the results of Magentic-One operating in autonomous mode, Magentic-UI operating in autonomous mode (without the simulated user), Magentic-UI with simulated user (1) (smarter model), Magentic-UI with simulated user (2) (side-information), and human performance. We first note that Magentic-UI in autonomous mode is within a margin of error of the performance of Magentic-One. Note that the same LLM (GPT-4o) is used for Magentic-UI and Magentic-One.</p>
-
-
-
-<p>Magentic-UI with the simulated user that has access to side information improves the accuracy of autonomous Magentic-UI by 71%, from a 30.3% task-completion rate to a 51.9% task-completion rate. Moreover, Magentic-UI only asks for help from the simulated user in 10% of tasks and relies on the simulated user for the final answer in 18% of tasks. And in those tasks where it does ask for help, it asks for help on average 1.1 times. Magentic-UI with the simulated user powered by a smarter model improves to 42.6% where Magentic-UI asks for help in only 4.3% of tasks, asking for help an average of 1.7 times in those tasks. This demonstrates the potential of even lightweight human feedback for improving performance (e.g., task completion) over autonomous agents working alone, especially at a fraction of the cost compared to people completing tasks entirely manually. </p>
-
-
-
-<h2 class="wp-block-heading" id="learning-and-reusing-plans">Learning and reusing plans</h2>
-
-
-
-<p>As described above, once Magentic-UI completes a task, users have the option for Magentic-UI to learn a plan based on the execution of the task. These plans are saved in a plan gallery, which users and Magentic-UI can access in the future.</p>
-
-
-
-<p>The user can select a plan from the plan gallery, which is displayed by clicking on the Saved Plans button. Alternatively, as a user enters a task that closely matches a previous task, the saved plan will be displayed even before the user is done typing. If no identical task is found, Magentic-UI can use <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/autogen/stable/reference/python/autogen_ext.experimental.task_centric_memory.html" target="_blank" rel="noreferrer noopener">AutoGen&#8217;s Task-Centric Memory<span class="sr-only"> (opens in new tab)</span></a> to retrieve plans for any similar tasks. Our preliminary evaluations show that this retrieval is highly accurate, and when recalling a saved plan can be around 3x faster than generating a new plan. Once a plan is recalled or generated, the user can always accept it, modify it, or ask Magentic-UI to modify it for the specific task at hand.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="safety-and-control">Safety and control</h2>
-
-
-
-<p>Magentic-UI can surf the live internet and execute code. With such capabilities, we need to ensure that Magentic-UI acts in a safe and secure manner. The following features, design decisions, and evaluations were made to ensure this:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Allow-list</strong>: Users can set a list of websites that Magentic-UI is allowed to access. If Magentic-UI needs to access a website outside of the allow-list, users must explicitly approve it through the interface</li>
-
-
-
-<li><strong>Anytime interruptions</strong>: At any point of Magentic-UI completing the task, the user can interrupt Magentic-UI and stop any pending code execution or web browsing.</li>
-
-
-
-<li><strong>Docker sandboxing</strong>: Magentic-UI controls a browser that is launched inside a Docker container with no credentials, which avoids risks with logged-in accounts and credentials. Moreover, any code execution is also performed inside a separate Docker container to avoid affecting the host environment in which Magentic-UI is running. This is illustrated in the system architecture of Magentic-UI (Figure 3).</li>
-
-
-
-<li><strong>Detection and approval of irreversible agent actions: </strong>Users can configure an action-approval policy (action guards) to determine which actions Magentic-UI can perform without user approval. In the extreme, users can specify that any action (e.g., any button click) needs explicit user approval. Users must press an “Accept” or “Deny” button for each action.</li>
-</ul>
-
-
-
-<p>In addition to the above design decisions, we performed a red-team evaluation of Magentic-UI on a set of internal scenarios, which we developed to challenge the security and safety of Magentic-UI. Such scenarios include cross-site prompt injection attacks, where web pages contain malicious instructions distinct from the user’s original intent (e.g., to execute risky code, access sensitive files, or perform actions on other websites). It also contains scenarios comparable to phishing, which try to trick Magentic-UI into entering sensitive information, or granting permissions on impostor sites (e.g., a synthetic website that asks Magentic-UI to log in and enter Google credentials to read an article). In our preliminary evaluations, we found that Magentic-UI either refuses to complete the requests, stops to ask the user, or, as a final safety measure, is eventually unable to complete the request due to Docker sandboxing. We have found that this layered approach is effective for thwarting these attacks.</p>
-
-
-
-<p>We have also released transparency notes, which can be found at: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui/blob/main/TRANSPARENCY_NOTE.md" target="_blank" rel="noreferrer noopener">https://github.com/microsoft/magentic-ui/blob/main/TRANSPARENCY_NOTE.md<span class="sr-only"> (opens in new tab)</span></a></p>
-
-
-
-<h2 class="wp-block-heading" id="open-research-questions">Open research questions&nbsp;</h2>
-
-
-
-<p>Magentic-UI provides a tool for researchers to study critical questions in agentic systems and particularly on human-agent interaction. In a previous <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2412.10380" target="_blank" rel="noreferrer noopener">report<span class="sr-only"> (opens in new tab)</span></a>, we outlined 12 questions for human-agent communication, and Magentic-UI provides a vehicle to study these questions in a realistic setting. A key question among these is how we enable humans to efficiently intervene and provide feedback to the agent while executing a task. Humans should not have to constantly watch the agent. Ideally, the agent should know when to reach out for help and provide the necessary context for the human to assist it. A second question is about safety. As agents interact with the live web, they may become prone to attacks from malicious actors. We need to study what necessary safeguards are needed to protect the human from side effects without adding a heavy burden on the human to verify every agent action. There are also many other questions surrounding security, personalization, and learning that Magentic-UI can help with studying.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
-
-
-
-<p>Magentic-UI is an open-source agent prototype that works with people to complete complex tasks that require multi-step planning and browser use. As agentic systems expand in the scope of tasks they can complete, Magentic-UI’s design enables better transparency into agent actions and enables human control to ensure safety and reliability. Moreover, by facilitating human intervention, we can improve performance while still reducing human cost in completing tasks on aggregate. Today we have released the first version of Magentic-UI. Looking ahead, we plan to continue developing it in the open with the goal of improving its capabilities and answering research questions on human-agent collaboration. We invite the research community to extend and reuse Magentic-UI for their scientific explorations and domains.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/">Magentic-UI, an experimental human-centered web agent</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
