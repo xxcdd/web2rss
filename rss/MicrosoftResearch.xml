@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 26 Jun 2025 16:08:27 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 30 Jun 2025 16:00:19 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,573 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.7.2</generator>
 	<item>
+		<title>AI Testing and Evaluation: Learnings from genome editing</title>
+		<link>https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-genome-editing/</link>
+		
+		<dc:creator><![CDATA[Kathleen Sullivan, Alta Charo, Daniel Kluttz]]></dc:creator>
+		<pubDate>Mon, 30 Jun 2025 16:00:17 +0000</pubDate>
+				<category><![CDATA[Microsoft Research Podcast]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1142130</guid>
+
+					<description><![CDATA[<p>Bioethics and law expert R. Alta Charo explores the value of regulating technologies at the application level and the role of coordinated oversight in genome editing, while Microsoft GM Daniel Kluttz reflects on Charo’s points, drawing parallels to AI governance.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-genome-editing/">AI Testing and Evaluation: Learnings from genome editing</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788.jpg" alt="illustration of R. Alta Charo, Kathleen Sullivan, and Daniel Kluttz for the Microsoft Research Podcast" class="wp-image-1142157" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+<div class="wp-block-msr-podcast-container my-4">
+	<iframe src="https://player.blubrry.com/?podcast_id=146599312&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+</div>
+
+
+
+<p>Generative AI presents a unique challenge and opportunity to reexamine governance practices for the responsible development, deployment, and use of AI. To advance thinking in this space, Microsoft has tapped into the experience and knowledge of experts across domains—from genome editing to cybersecurity—to investigate the role of testing and evaluation as a governance tool. <em><a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation: Learnings from Science and Industry</a>, </em>hosted by Microsoft Research’s <a href="https://www.microsoft.com/en-us/research/people/kasull/">Kathleen Sullivan</a>, explores what the technology industry and policymakers can learn from these fields and how that might help shape the course of AI development.</p>
+
+
+
+<p>In this episode, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://law.wisc.edu/profiles/racharo@wisc.edu">Alta Charo<span class="sr-only"> (opens in new tab)</span></a>, emerita professor of law and bioethics at the University of Wisconsin–Madison, joins Sullivan for a conversation on the evolving landscape of genome editing and its regulatory implications. Drawing on decades of experience in biotechnology policy, Charo emphasizes the importance of distinguishing between hazards and risks and describes the field&#8217;s approach to regulating <em>applications </em>of technology rather than the technology itself. The discussion also explores opportunities and challenges in biotech’s multi-agency oversight model and the role of international coordination. Later, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://www.linkedin.com/in/daniel-kluttz/">Daniel Kluttz<span class="sr-only"> (opens in new tab)</span></a>, a partner general manager in Microsoft&#8217;s Office of Responsible AI, joins Sullivan to discuss how insights from genome editing could inform more nuanced and robust governance frameworks for emerging technologies like AI.</p>
+
+
+
+<div class="wp-block-group msr-pattern-link-list is-layout-flow wp-block-group-is-layout-flow">
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 class="wp-block-heading h5" id="learn-more">Learn more:</h2>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/publication/learning-from-other-domains-to-advance-ai-evaluation-and-testing-governance-of-genome-edition-in-human-therapeutics-and-agricultural-applications/" target="_blank" rel="noreferrer noopener">Learning from other Domains to Advance AI Evaluation and Testing: Governance of Genome Edition in Human Therapeutics and Agricultural Applications</a><br>Case study | January 2025&nbsp;</p>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/blog/learning-from-other-domains-to-advance-ai-evaluation-and-testing/" target="_blank" rel="noreferrer noopener">Learning from other domains to advance AI evaluation and testing</a>&nbsp;<br>Microsoft Research Blog | June 2025&nbsp;</p>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/ai/responsible-ai?ef_id=_k_cb05d5950e4f117c457ebda628845b7f_k_&OCID=AIDcmm1o1fzy5i_SEM__k_cb05d5950e4f117c457ebda628845b7f_k_&msclkid=cb05d5950e4f117c457ebda628845b7f" target="_blank" rel="noreferrer noopener">Responsible AI: Ethical policies and practices | Microsoft AI</a>&nbsp;</p>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/focus-area/ai-and-microsoft-research/" target="_blank" rel="noreferrer noopener">AI and Microsoft Research</a>&nbsp;</p>
+</div>
+
+
+
+<div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
+	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
+		<h2 class="h5 subscribe-to-podcast__heading">
+			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
+		<ul class="subscribe-to-podcast__list list-unstyled">
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Email</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Android</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Spotify</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
+						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
+					</a>
+				</li>
+					</ul>
+	</div>
+</section>
+
+
+<div class="wp-block-msr-show-more">
+	<div class="bg-neutral-100 p-5">
+		<div class="show-more-show-less" data-mount="show-more-show-less">
+			<div>
+				<span>
+					
+
+<h2 class="wp-block-heading" id="transcript-1">Transcript</h2>
+
+
+
+<p>[MUSIC]</p>
+
+
+
+<p><strong>KATHLEEN SULLIVAN:</strong> Welcome to <em>AI Testing and Evaluation: Learnings from Science and Industry</em>. I&#8217;m your host, Kathleen Sullivan.</p>
+
+
+
+<p>As generative AI continues to advance, Microsoft has gathered a range of experts—from genome editing to cybersecurity—to share how their fields approach evaluation and risk assessment. Our goal is to learn from their successes and their stumbles to move the science and practice of AI testing forward. In this series, we&#8217;ll explore how these insights might help guide the future of AI development, deployment, and responsible use.</p>
+
+
+
+<p>[MUSIC ENDS]</p>
+
+
+
+<p>Today I&#8217;m excited to welcome R. Alta Charo, the Warren P. Knowles Professor Emerita of Law and Bioethics at the University of Wisconsin–Madison, to explore testing and risk assessment in genome editing.</p>
+
+
+
+<p>Professor Charo has been at the forefront of biotechnology policy and governance for decades, advising former President Obama&#8217;s transition team on issues of medical research and public health, as well as serving as a senior policy advisor at the Food and Drug Administration. She consults on gene therapy and genome editing for various companies and organizations and has held positions on a number of advisory committees, including for the National Academy of Sciences. Her committee work has spanned women&#8217;s health, stem cell research, genome editing, biosecurity, and more.</p>
+
+
+
+<p>After our conversation with Professor Charo, we&#8217;ll hear from Daniel Kluttz, a partner general manager in Microsoft&#8217;s Office of Responsible AI, about what these insights from biotech regulation could mean for AI governance and risk assessment and his team&#8217;s work governing sensitive AI uses and emerging technologies.</p>
+
+
+
+<p>Alta, thank you so much for being here today. I&#8217;m a follower of your work and have really been looking forward to our conversation.</p>
+
+
+
+				</span>
+				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+					
+
+
+
+<p><strong>ALTA CHARO:</strong> It&#8217;s my pleasure. Thanks for having me.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Alta, I&#8217;d love to begin by stepping back in time a bit before you became a leading figure in bioethics and legal policy. You&#8217;ve shared that your interest in science was really inspired by your brothers’ interest in the topic and that your upbringing really helped shape your perseverance and resilience. Can you talk to us about what put you on the path to law and policy?</p>
+
+
+
+<p><strong>CHARO:</strong> Well, I think it&#8217;s true that many of us are strongly influenced by our families and certainly my family had, kind of, a science-y, techy orientation. My father was a refugee, you know, escaping the Nazis, and when he finally was able to start working in the United States, he took advantage of the G.I. Bill to learn how to repair televisions and radios, which were really just coming in in the 1950s. So he was, kind of, technically oriented.</p>
+
+
+
+<p>My mother retrained from being a talented amateur artist to becoming a math teacher, and not surprisingly, both my brothers began to aim toward things like engineering and chemistry and physics. And our form of entertainment was to watch PBS or <em>Star Trek</em>. [LAUGHTER]</p>
+
+
+
+<p>And so the interest comes from that background coupled with, in the 1960s, this enormous surge of interest in the so-called nature-versus-nurture debate about the degree to which we are destined by our biology or shaped by our environments. It was a heady debate, and one that perfectly combined the two interests in politics and science.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> For listeners who are brand new to your field in genomic editing, can you give us what I&#8217;ll call a “90-second survey” of the space in perhaps plain language and why it&#8217;s important to have a framework for ensuring its responsible use.</p>
+
+
+
+<p><strong>CHARO:</strong> Well, you know, genome editing is both very old and very new. At base, what we&#8217;re talking about is a way to either delete sections of the <em>genome</em>, our collection of genes, or to add things or to alter what&#8217;s there. The goal is simply to be able to take what might not be healthy and make it healthy, whether it&#8217;s a plant, an animal, or a human.</p>
+
+
+
+<p>Many people have compared it to a word processor, where you can edit text by swapping things in and out. You could change the letter <em>g</em> to the letter <em>h</em> in every word, and in our genomes, you can do similar kinds of things.</p>
+
+
+
+<p>But because of this, we have a responsibility to make sure that whatever we change doesn&#8217;t become dangerous and that it doesn&#8217;t become socially disruptive. Now the earliest forms of genome editing were very inefficient, and so we didn&#8217;t worry that much. But with the advances that were spearheaded by people like Jennifer Doudna and Emmanuelle Charpentier, who won the Nobel Prize for their work in this area, genome editing has become much easier to do.</p>
+
+
+
+<p>It&#8217;s become more efficient. It doesn&#8217;t require as much sophisticated laboratory equipment. It&#8217;s moved from being something that only a few people can do to something that we&#8217;re going to be seeing in our junior high school biology labs. And that means you have to pay attention to who&#8217;s doing it, why are they doing it, what are they releasing, if anything, into the environment, what are they trying to sell, and is it honest and is it safe?</p>
+
+
+
+<p><strong>SULLIVAN:</strong> How would you describe the risks, and are there, you know, sort of, specifically inherent risks in the technology itself, or do those risks really emerge only when it&#8217;s applied in certain contexts, like CRISPR in agriculture or CRISPR for human therapies?</p>
+
+
+
+<p><strong>CHARO:</strong> Well, to answer that, I&#8217;m going to do something that may seem a little picky, even pedantic. [LAUGHTER] But I&#8217;m going to distinguish between hazards and risks. So there are certain intrinsic hazards. That is, there are things that can go wrong.</p>
+
+
+
+<p>You want to change one particular gene or one particular portion of a gene, and you might accidentally change something else, a so-called <em>off-target effect</em>. Or you might change something in a gene expecting a certain effect but not necessarily anticipating that there&#8217;s going to be an interaction between what you changed and what was there, a <em>gene-gene interaction</em>, that might have an unanticipated kind of result, a side effect essentially.</p>
+
+
+
+<p>So there are some intrinsic hazards, but risk is a hazard coupled with the probability that it&#8217;s going to actually create something harmful. And that really depends upon the application.</p>
+
+
+
+<p>If you are doing something that is making a change in a human being that is going to be a lifelong change, that enhances the significance of that hazard. It amplifies what I call the risk because if something goes wrong, then its consequences are greater.</p>
+
+
+
+<p>It may also be that in other settings, what you&#8217;re doing is going to have a much lower risk because you&#8217;re working with a more familiar substance, your predictive power is much greater, and it&#8217;s not going into a human or an animal or into the environment. So I think that you have to say that the risk <em>and</em> the benefits, by the way, all are going to depend upon the particular application.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah, I think on this point of application, there&#8217;s many players involved in that, right. Like, we often hear about this puzzle of who&#8217;s actually responsible for ensuring safety and a reasonable balance between risks and benefits or hazards and benefits, to quote you. Is it the scientists, the biotech companies, government agencies? And then if you could touch upon, as well, maybe how does the nature of genome editing risks … how do those responsibilities get divvied up?</p>
+
+
+
+<p><strong>CHARO:</strong> Well, in the 1980s, we had a very significant policy discussion about whether we should regulate the technology—no matter how it&#8217;s used or for whatever purpose—or if we should simply fold the technology in with all the other technologies that we currently have and regulate its applications the way we regulate applications generally. And we went for the second, the so-called <em>coordinated framework</em>.</p>
+
+
+
+<p>So what we have in the United States is a system in which if you use genome editing in purely laboratory-based work, then you will be regulated the way we regulate laboratories.</p>
+
+
+
+<p>There&#8217;s also, at most universities because of the way the government works with this, something called Institutional Biosafety Committees, <em>IBCs</em>. You want to do research that involves recombinant DNA and modern biotechnology, <em>including</em> genome editing but not limited to it, you have to go first to your IBC, and they look and see what you&#8217;re doing to decide if there&#8217;s a danger there that you have not anticipated that requires special attention.</p>
+
+
+
+<p>If what you&#8217;re doing is going to get released into the environment or it&#8217;s going to be used to change an animal that&#8217;s going to be in the environment, then there are agencies that oversee the safety of our environment, predominantly the Environmental Protection Agency and the U.S. Department of Agriculture.</p>
+
+
+
+<p>If you&#8217;re working with humans and you&#8217;re doing medical therapies, like you&#8217;re doing the gene therapies that just have been developed for things like sickle cell anemia, then you have to go through a very elaborate regulatory process that&#8217;s overseen by the Food and Drug Administration and also seen locally at the research stages overseen by institutional review boards that make sure the people who are being recruited into research understand what they&#8217;re getting into, that they&#8217;re the right people to be recruited, etc.</p>
+
+
+
+<p>So we do have this kind of Jenga game …</p>
+
+
+
+<p><strong>SULLIVAN:</strong> [LAUGHS] Yeah, sounds like it.</p>
+
+
+
+<p><strong>CHARO:</strong> … of regulatory agencies. And on top of all that, most of this involves professionals who&#8217;ve had to be licensed in some way. There may be state laws specifically on licensing. If you are dealing with things that might cross national borders, there may be international treaties and agreements that cover this.</p>
+
+
+
+<p>And, of course, the insurance industry plays a big part because they decide whether or not what you&#8217;re doing is safe enough to be insured. So all of these things come together in a way that is not at all easy to understand if you&#8217;re not, kind of, working in the field. But the bottom-line thing to remember, the way to really think about it is, we don&#8217;t regulate genome editing; we regulate the things that use genome editing.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah, that makes a lot of sense. Actually, maybe just following up a little bit on this notion of a variety of different, particularly like government agencies being involved. You know, in this multi-stakeholder model, where do you see gaps today that need to be filled, some of the pros and cons to keep in mind, and, you know, just as we think about distributing these systems at a global level, like, what are some of the considerations you are keeping in mind on that front?</p>
+
+
+
+<p><strong>CHARO:</strong> Well, certainly there are times where the way the statutes were written that govern the regulation of drugs or the regulation of foods did not anticipate this tremendous capacity we now have in the area of biotechnology generally or genome editing in particular. And so you can find that there are times where it feels a little bit ambiguous, and the agencies have to figure out how to apply their existing rules.</p>
+
+
+
+<p>So an example. If you&#8217;re going to make alterations in an animal, right, we have a system for regulating drugs, including veterinary drugs. But we didn&#8217;t have something that regulated genome editing of animals. But in a sense, genome editing of an animal is the same thing as using a veterinary drug. You&#8217;re trying to affect the animal&#8217;s physical constitution in some fashion.</p>
+
+
+
+<p>And it took a long time within the FDA to, sort of, work out how the regulation of veterinary drugs would apply if you think about the genetic construct that&#8217;s being used to alter the animal as the same thing as injecting a chemically based drug. And on that basis, they now know here&#8217;s the regulatory path—here are the tests you have to do; here are the permissions you have to do; here&#8217;s the surveillance you have to do after it goes on the market.</p>
+
+
+
+<p>Even there, sometimes, it was confusing. What happens when it&#8217;s not the kind of animal you&#8217;re thinking about when you think about animal drugs? Like, we think about pigs and dogs, but what about mosquitoes?</p>
+
+
+
+<p>Because there, you&#8217;re really thinking more about pests, and if you&#8217;re editing the mosquito so that it can&#8217;t, for example, transmit dengue fever, right, it feels more like a public health thing than it is a drug for the mosquito itself, and it, kind of, fell in between the agencies that possibly had jurisdiction. And it took a while for the USDA, the Department of Agriculture, and the Food and Drug Administration to work out an agreement about how they would share this responsibility. So you do get those kinds of areas in which you have at least ambiguity.</p>
+
+
+
+<p>We also have situations where frankly the fact that some things can move across national borders means you have to have a system for harmonizing or coordinating national rules. If you want to, for example, genetically engineer mosquitoes that can&#8217;t transmit dengue, mosquitoes have a tendency to fly. [LAUGHTER] And so &#8230; they can&#8217;t fly very far. That&#8217;s good. That actually makes it easier to control.</p>
+
+
+
+<p>But if you&#8217;re doing work that&#8217;s right near a border, then you have to be sure that the country next to you has the same rules for whether it&#8217;s permitted to do this and how to surveil what you&#8217;ve done in order to be sure that you got the results you wanted to get and no other results. And that also is an area where we have a lot of work to be done in terms of coordinating across government borders and harmonizing our rules.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah, I mean, you&#8217;ve touched on this a little bit, but there is such this striking balance between advancing technology, ensuring public safety, and sometimes, I think it feels just like you&#8217;re walking a tightrope where, you know, if we clamp down too hard, we&#8217;ll stifle innovation, and if we&#8217;re too lax, we risk some of these unintended consequences. And on a global scale like you just mentioned, as well. How has the field of genome editing found its balance?</p>
+
+
+
+<p><strong>CHARO:</strong> It&#8217;s still being worked out, frankly, but it&#8217;s finding its balance application by application. So in the United States, we have two very different approaches on regulation of things that are going to go into the market.</p>
+
+
+
+<p>Some things can&#8217;t be marketed until they&#8217;ve gotten an approval from the government. So you come up with a new drug, you can&#8217;t sell that until it&#8217;s gone through FDA approval.</p>
+
+
+
+<p>On the other hand, for most foods that are made up of familiar kinds of things, you can go on the market, and it&#8217;s only after they&#8217;re on the market that the FDA can act to withdraw it if a problem arises. So basically, we have either <em>pre</em>-market controls: you can&#8217;t go on without permission. Or <em>post</em>-market controls: we can take you off the market <em>if</em> a problem occurs.</p>
+
+
+
+<p>How do we decide which one is appropriate for a particular application? It&#8217;s based on our experience. New drugs typically are both less familiar than existing things on the market and also have a higher potential for injury if they, in fact, are not effective or they are, in fact, dangerous and toxic.</p>
+
+
+
+<p>If you have foods, even bioengineered foods, that are basically the same as foods that are already here, it can go on the market with notice but without a prior approval. But if you create something truly novel, then it has to go through a whole long process.</p>
+
+
+
+<p>And so that is the way that we make this balance. We look at the application area. And we&#8217;re just now seeing in the Department of Agriculture a new approach on some of the animal editing, again, to try and distinguish between things that are simply a more efficient way to make a familiar kind of animal variant and those things that are genuinely novel and to have a regulatory process that is more rigid the more unfamiliar it is and the more that we see a risk associated with it.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> I know we&#8217;re at the end of our time here and maybe just a quick kind of lightning-round of a question. For students, young scientists, lawyers, or maybe even entrepreneurs listening who are inspired by your work, what&#8217;s the single piece of advice you give them if they&#8217;re interested in policy, regulation, the ethical side of things in genomics or other fields?</p>
+
+
+
+<p><strong>CHARO:</strong> I&#8217;d say be a bio-optimist and read a lot of science fiction. Because it expands your imagination about what the world could be like. Is it going to be a world in which we&#8217;re now going to be growing our buildings instead of building them out of concrete?</p>
+
+
+
+<p>Is it going to be a world in which our plants will glow in the evening so we don&#8217;t need to be using batteries or electrical power from other sources but instead our environment is adapting to our needs?</p>
+
+
+
+<p>You know, expand your imagination with a sense of optimism about what could be and see ethics and regulation not as an obstacle but as a partner to bringing these things to fruition in a way that&#8217;s responsible and helpful to everyone.</p>
+
+
+
+<p>[TRANSITION MUSIC]</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Wonderful. Well, Alta, this has been just an absolute pleasure. So thank you.</p>
+
+
+
+<p><strong>CHARO:</strong> It was my pleasure. Thank you for having me.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Now, I&#8217;m happy to bring in Daniel Kluttz. As a partner general manager in Microsoft&#8217;s Office of Responsible AI, Daniel leads the group’s Sensitive Uses and Emerging Technologies program.</p>
+
+
+
+<p>Daniel, it&#8217;s great to have you here. Thanks for coming in.</p>
+
+
+
+<p><strong>DANIEL KLUTTZ:</strong> It&#8217;s great to be here, Kathleen.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah. So maybe before we unpack Alta Charo’s insights, I&#8217;d love to just understand the elevator pitch here. What exactly is [the] Sensitive Uses and Emerging Tech program, and what was the impetus for establishing it?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Yeah. So the Sensitive Uses and Emerging Technologies program sits within our Office of Responsible AI at Microsoft. And inherent in the name, there are two real core functions. There&#8217;s the sensitive uses and emerging technologies. What does that mean?</p>
+
+
+
+<p>Sensitive uses, think of that as Microsoft&#8217;s internal consulting and oversight function for our higher-risk, most impactful AI system deployments. And so my team is a team of multidisciplinary experts who engages in sort of a white-glove-treatment sort of way with product teams at Microsoft that are designing, building, and deploying these higher-risk AI systems, and where that sort of consulting journey culminates is in a set of bespoke requirements tailored to the use case of that given system that really implement and apply our more standardized, generalized requirements that apply across the board.</p>
+
+
+
+<p>Then the emerging technologies function of my team faces a little bit further out, trying to look around corners to see what new and novel and emerging risks are coming out of new AI technologies with the idea that we work with our researchers, our engineering partners, and, of course, product leaders across the company to understand where Microsoft is going with those emerging technologies, and we&#8217;re developing sort of rapid, quick-fire early-steer guidance that implements our policies ahead of that formal internal policymaking process, which can take a bit of time. So it&#8217;s designed to, sort of, both afford that innovation speed that we like to optimize for at Microsoft but also integrate our responsible AI commitments and our AI principles into emerging product development.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> That segues really nicely, actually, as we met with Professor Charo and she was, you know, talking about the field of genome editing and the governing at the application level. I&#8217;d love to just understand how similar or not is that to managing the risks of AI in our world?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Yeah. I mean, Professor Charo’s comments were music to my ears because, you know, where we make our bread and butter, so to speak, in our team is in applying to use cases. AI systems, especially in this era of generative AI, are almost inherently multi-use, dual use. And so what really matters is how you&#8217;re going to apply that more general-purpose technology. Who&#8217;s going to use it? In what domain is it going to be deployed? And then tailor that oversight to those use cases. Try to be risk proportionate.</p>
+
+
+
+<p>Professor Charo talked a little bit about this, but if it&#8217;s something that&#8217;s been done before and it&#8217;s just a new spin on an old thing, maybe we&#8217;re not so concerned about how closely we need to oversee and gate that application of that technology, whereas if it&#8217;s something new and novel or some new risk that might be posed by that technology, we take a little bit closer look and we are overseeing that in a more sort of high-touch way.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Maybe following up on that, I mean, how do you define sensitive use or maybe like high-impact application, and once that&#8217;s labeled, what happens? Like, what kind of steps kick in from there?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Yeah. So we have this Sensitive Uses program that&#8217;s been at Microsoft since 2019. I came to Microsoft in 2019 when we were starting this program in the Office of Responsible AI, and it had actually been incubated in Microsoft Research with our Aether community of colleagues who are experts in sociotechnical approaches to responsible AI, as well. Once we put it in the Office of Responsible AI, I came over. I came from academia. I was a researcher myself …</p>
+
+
+
+<p><strong>SULLIVAN:</strong> At Berkeley, right?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> At Berkeley. That&#8217;s right. Yep. Sociologist by training and a lawyer in a past life. [LAUGHTER] But that has helped sort of bridge those fields for me.</p>
+
+
+
+<p>But Sensitive Uses, we force all of our teams when they&#8217;re envisioning their system design to think about, could the reasonably foreseeable use or <em>misuse</em> of the system that they&#8217;re developing in practice result in three really major, sort of, risk types. One is, could that deployment result in a consequential impact on someone&#8217;s legal position or life opportunity? Another category we have is, could that foreseeable use or misuse result in significant psychological or physical injury or harm? And then the third really ties in with a longstanding commitment we&#8217;ve had to human rights at Microsoft. And so could that system in it&#8217;s reasonably foreseeable use or misuse result in human rights impacts and injurious consequences to folks along different dimensions of human rights? </p>
+
+
+
+<p>Once you decide, we have a process to reporting that project into my office, and we will triage that project, working with the product team, for example, and our Responsible AI Champs community, which are folks who are dispersed throughout the ecosystem at Microsoft and educated in our responsible AI program, and then determine, OK, is it in scope for our program? If it is, say, OK, we&#8217;re going to go along for that ride with you, and then we get into that whole sort of consulting arrangement that then culminates in this set of bespoke use-case-based requirements applying our AI principles.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> That&#8217;s super fascinating. What are some of the approaches in the governance of genome editing are you maybe seeing happening in AI governance or maybe just, like, bubbling up in conversations around it?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Yeah, I mean, I think we&#8217;ve learned a lot from fields like genome editing that Professor Charo talked about and others. And again, it gets back to this, sort of, risk-proportionate-based approach. It&#8217;s a balancing test. It&#8217;s a tradeoff of trying to, sort of, foster innovation and really look for the beneficial uses of these technologies. I appreciated her speaking about that. What are the intended uses of the system, right? And then getting to, OK, how do we balance trying to, again, foster that innovation in a very fast-moving space, a pretty complex space, and a very unsettled space contrasting to other, sort of, professional fields or technological fields that have a long history and are relatively settled from an oversight and regulatory standpoint? This one is <em>not</em>, and for good reason. It is still developing.</p>
+
+
+
+<p>And I think, you know, there are certain oversight and policy regimes that exist today that can be applied. Professor Charo talked about this, as well, where, you know, maybe you have certain policy and oversight regimes that, depending on how the application of that technology is applied, applies there versus some horizontal, overarching regulatory sort of framework. And I think that applies from an internal governance standpoint, as well.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah. It&#8217;s a great point. So what isn&#8217;t being explored from genome editing that, you know, maybe we think could be useful to AI governance, or as we think about the evolving frameworks …</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Yeah.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> … what maybe we should be taking into account from what Professor Charo shared with us?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> So one of the things I&#8217;ve thought about and took from Professor Charo’s discussion was she had just this amazing way of framing up how genome editing regulation is done. And she said, you know, we don&#8217;t regulate genome editing; we regulate the things that <em>use</em> genome editing. And while it&#8217;s not a one-to-one analogy with the AI space because we do have this sort of very general model level distinction versus application layer and even platform layer distinctions, I think it&#8217;s fair to say, you know, we don&#8217;t regulate AI applications writ large. We regulate the things that use AI in a very similar way. And that&#8217;s how we think of our internal policy and oversight process at Microsoft, as well.</p>
+
+
+
+<p>And maybe there are things that we regulated and oversaw internally at the first instance and the first time we saw it come through, and it graduates into more of a programmatic framework for how we manage that. So one good example of that is some of our higher-risk AI systems that we offer out of Azure at the platform level. When I say that, I mean APIs that you call that developers can then build their own applications on top of. We were really deep in evaluating and assessing mitigations on those platform systems in the first instance, but we also graduated them into what we call our Limited Access AI services program.</p>
+
+
+
+<p>And some of the things that Professor Charo discussed really resonated with me. You know, she had this moment where she was mentioning how, you know, you want to know who&#8217;s using your tools and how they&#8217;re being used. And it&#8217;s the same concepts. We want to have trust in our customers, we want to understand their use cases, and we want to apply technical controls that, sort of, force those use cases or give us signal post-deployment that use cases are being done in a way that may give us some level of concern, to reach out and understand what those use cases are.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah, you&#8217;re hitting on a great point. And I love this kind of layered approach that we&#8217;re taking and that Alta highlighted, as well. Maybe to double-click a little bit just on that post-market control and what we&#8217;re tracking, kind of, once things are out and being used by our customers. How do we take some of that deployment data and bring it back in to maybe even better inform upfront governance or just how we think about some of the frameworks that we&#8217;re operating in?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> It&#8217;s a great question. The number one thing is for us at Microsoft, we want to know the voice of our customer. We want our customers to talk to us. We don&#8217;t want to just understand telemetry and data. But it&#8217;s really getting out there and understanding from our customers and not <em>just</em> our customers. I would say our <em>stakeholders</em> is maybe a better term because that includes civil society organizations. It includes governments. It includes all of these non, sort of, customer actors that we care about and that we&#8217;re trying to sort of optimize for, as well. It includes end users of our enterprise customers. If we can gather data about how our products are being used and trying to understand maybe areas that we didn&#8217;t foresee how customers or users might be using those things, and then we can tune those systems to better align with what both customers and users want but also our own AI principles and policies and programs.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Daniel, before coming to Microsoft, you led social science research and sociotechnical applications of AI-driven tech at Berkeley. What do you think some of the biggest challenges are in defining and maybe even just, kind of, measuring at, like, a societal level some of the impacts of AI more broadly?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Measuring social phenomenon is a difficult thing. And one of the things that, as social scientists, you&#8217;re very interested in is scientifically observing and measuring social phenomena. Well, that sounds great. It sounds also very high level and jargony. What do we mean by that? You know, it&#8217;s very easy to say that you&#8217;re collecting data and you&#8217;re measuring, I don&#8217;t know, trust in AI, right? That&#8217;s a very fuzzy concept.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Right. Definitely.</p>
+
+
+
+<p><strong>KLUTTZ:</strong> It is a concept that we want to get to, but we have to unpack that, and we have to develop what we call <em>measurable constructs</em>. What are the things that we might observe that could give us an indication toward what is a very fuzzy and general concept. And there&#8217;s challenges with that everywhere. And I&#8217;m extremely fortunate to work at Microsoft with some of the world&#8217;s leading sociotechnical researchers and some of these folks who are thinking about—you know, very steeped in measurement theory, literally PhDs in these fields—how to both measure <em>and</em> allow for a scalable way to do that at a place the size of Microsoft. And that is trying to develop frameworks that are scalable and repeatable and put into our platform that then serves our product teams. Are we providing, as a platform, a service to those product teams that they can plug in and do their automated evaluations at scale as much as possible and then go back in over the top and do some of your more qualitative targeted testing and evaluations.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah, makes a lot of sense. Before we close out, if you&#8217;re game for it, maybe we do a quick lightning round. Just 30-second answers here. Favorite real-world sensitive use case you&#8217;ve ever reviewed.</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Oh gosh. Wow, this is where I get to be the social scientist.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> [LAUGHS] Yes.</p>
+
+
+
+<p><strong>KLUTTZ: </strong>It’s like, define <em>favorite</em>, Kathleen. [LAUGHS] Most <em>memorable</em>, most <em>painful</em>.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Let&#8217;s do most memorable.</p>
+
+
+
+<p><strong>KLUTTZ:</strong> We’ll do most memorable.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Yeah.</p>
+
+
+
+<p><strong>KLUTTZ:</strong> You know, I would say the most memorable project I worked on was when we rolled out the new Bing Chat, which is no longer called Bing Chat, because that was the first really big cross-company effort to deploy GPT-4, which was, you know, the next step up in AI innovation from our partners at OpenAI. And I really value working hand in hand with engineering teams and with researchers and that was us at our best and really sort of turbocharged the model that we have.<s></s></p>
+
+
+
+<p><strong>SULLIVAN:</strong> Wonderful. What&#8217;s one of the most overused phrases that you have in your AI governance meetings?</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Gosh. [LAUGHS] If I hear “We need to get aligned; we need to align on this more” …</p>
+
+
+
+<p><strong>SULLIVAN:</strong> [LAUGHS] Right.</p>
+
+
+
+<p><strong>KLUTTZ:</strong> But, you know, it&#8217;s said for a reason. And I think it sort of speaks to that clever nature. That&#8217;s one that comes to mind.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> That&#8217;s great. And then maybe, maybe last one. What are you most excited about in the next, I don&#8217;t know, let&#8217;s say three months? This world is moving so fast!</p>
+
+
+
+<p><strong>KLUTTZ:</strong> You know, the pace of innovation, as you just said, is just staggering. It is unbelievable. And sometimes it can feel overwhelming in my space. But what I am most excited about is how we are building up this Emerging … I mentioned this Emerging Technologies program in my team as a, sort of, formal program is relatively new. And I really enjoy being able to take a step back and think a little bit more about the future and a little bit more holistically. And I love working with engineering teams and sort of strategic visionaries who are thinking about what we&#8217;re doing a year from now or five years from now, or even 10 years from now, and I get to be a part of those conversations. And that really gives me energy and helps me … helps keep me grounded and not just dealing with the day to day, and, you know, various fire drills that you may run. It&#8217;s thinking strategically and having that foresight about what&#8217;s to come. And it&#8217;s exciting.</p>
+
+
+
+<p><strong>SULLIVAN:</strong> Great. Well, Daniel, just thanks so much for being here. I had such a wonderful discussion with you, and I think the thoughtfulness in our discussion today I hope resonates with our listeners. And again, thanks to Alta for setting the stage and sharing her really amazing, insightful thoughts here, as well. So thank you.</p>
+
+
+
+<p>[MUSIC]</p>
+
+
+
+<p><strong>KLUTTZ:</strong> Thank you, Kathleen. I appreciate it. It&#8217;s been fun.</p>
+
+
+
+<p><strong>SULLIVAN: </strong>And to our listeners, thanks for tuning in. You can find resources related to this podcast in the show notes. And if you want to learn more about how Microsoft approaches AI governance, you can visit microsoft.com/RAI.</p>
+
+
+
+<p>See you next time!&nbsp;</p>
+
+
+
+<p>[MUSIC FADES]</p>
+
+				</span>
+			</div>
+			<button
+				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
+				aria-expanded="false"
+				data-show-less-text="Show less"
+				type="button"
+				aria-controls="show-more-show-less-toggle-1"
+				aria-label="Show more content"
+				data-alternate-aria-label="Show less content">
+				Show more			</button>
+		</div>
+	</div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-genome-editing/">AI Testing and Evaluation: Learnings from genome editing</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>PadChest-GR: A bilingual grounded radiology reporting benchmark for chest X-rays</title>
 		<link>https://www.microsoft.com/en-us/research/blog/padchest-gr-a-bilingual-grounded-radiology-reporting-benchmark-for-chest-x-rays/</link>
 		
@@ -32,7 +599,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/padchest-gr-a-bilingual-grounded-radiology-reporting-benchmark-for-chest-x-rays/">PadChest-GR: A bilingual grounded radiology reporting benchmark for chest X-rays</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, resembles an X-ray of a ribcage enclosed in a square with rounded corners. The middle icon depicts a hierarchical structure with one circle at the top connected by lines to two smaller circles below it. The third icon, positioned on the right, shows the letters "N" and "A" separated by a diagonal line, with a tilde (~) above the "N"." class="wp-image-1142658" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, resembles an X-ray of a ribcage enclosed in a square with rounded corners. The middle icon depicts a hierarchical structure with one circle at the top connected by lines to two smaller circles below it. The third icon, positioned on the right, shows the letters "N" and "A" separated by a diagonal line, with a tilde (~) above the "N"." class="wp-image-1142658" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -52,7 +619,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1516" height="781" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example.png" alt="Figure 1: A chest X-ray overlaid with numbered bounding boxes, next to a matching list of structured radiological findings in Spanish and English. " class="wp-image-1142582" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example.png 1516w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-300x155.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-1024x528.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-768x396.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-240x124.png 240w" sizes="(max-width: 1516px) 100vw, 1516px" /><figcaption class="wp-element-caption">Figure 1. Example of a grounded report from PadChest-GR. The original free-text report in Spanish was <em>”Motivo de consulta: Preoperatorio. Rx PA tórax: Impresión diagnóstica: Ateromatosis aórtica calcificada. Engrosamiento pleural biapical. Atelectasia laminar basal izquierda. Elongación aórtica. Sin otros hallazgos radiológicos significativos.”</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1516" height="781" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example.png" alt="Figure 1: A chest X-ray overlaid with numbered bounding boxes, next to a matching list of structured radiological findings in Spanish and English. " class="wp-image-1142582" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example.png 1516w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-300x155.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-1024x528.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-768x396.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-240x124.png 240w" sizes="auto, (max-width: 1516px) 100vw, 1516px" /><figcaption class="wp-element-caption">Figure 1. Example of a grounded report from PadChest-GR. The original free-text report in Spanish was <em>”Motivo de consulta: Preoperatorio. Rx PA tórax: Impresión diagnóstica: Ateromatosis aórtica calcificada. Engrosamiento pleural biapical. Atelectasia laminar basal izquierda. Elongación aórtica. Sin otros hallazgos radiológicos significativos.”</em></figcaption></figure>
 
 
 
@@ -92,7 +659,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1752" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow.png" alt="Figure 2: A detailed block diagram illustrating the flow of data between various stages of AI processing and manual annotation. " class="wp-image-1142586" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow.png 1752w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-300x135.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-1024x462.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-768x346.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-1536x693.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-240x108.png 240w" sizes="(max-width: 1752px) 100vw, 1752px" /><figcaption class="wp-element-caption">Figure 2. Overview of the data curation pipeline.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1752" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow.png" alt="Figure 2: A detailed block diagram illustrating the flow of data between various stages of AI processing and manual annotation. " class="wp-image-1142586" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow.png 1752w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-300x135.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-1024x462.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-768x346.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-1536x693.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-240x108.png 240w" sizes="auto, (max-width: 1752px) 100vw, 1752px" /><figcaption class="wp-element-caption">Figure 2. Overview of the data curation pipeline.</figcaption></figure>
 
 
 
@@ -309,7 +876,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-2" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -483,7 +1050,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-1"
+				aria-controls="show-more-show-less-toggle-2"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -690,7 +1257,7 @@
 
 
 <div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-1 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/articles/timeline-the-continuing-evolution-of-density-functional-theory/">DFT Timeline</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/articles/timeline-the-continuing-evolution-of-density-functional-theory/">DFT Timeline</a></div>
 </div>
 
 
@@ -804,15 +1371,15 @@
 
 
 <div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-2 wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://aka.ms/SkalaDFT">Skala Paper</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://aka.ms/SkalaDFT">Skala Paper</a></div>
 
 
 
-<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://aka.ms/MSR-ACC-paper">Dataset Paper</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--5"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://aka.ms/MSR-ACC-paper">Dataset Paper</a></div>
 
 
 
-<div class="wp-block-button is-style-outline is-style-outline--5"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="http://aka.ms/MSR-ACC" target="_blank" rel="noreferrer noopener">Dataset</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="http://aka.ms/MSR-ACC" target="_blank" rel="noreferrer noopener">Dataset</a></div>
 </div>
 
 
@@ -1154,7 +1721,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-6" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -1708,7 +2275,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-6"
+				aria-controls="show-more-show-less-toggle-7"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -1719,7 +2286,7 @@
 
 
 <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--7"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/how-ai-is-reshaping-the-future-of-healthcare-and-medical-research/">How AI is reshaping the future of healthcare and medical research</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -1796,30 +2363,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085496">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085520">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft research podcast</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-label="Eureka: Evaluating and understanding progress in AI" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg" alt="White icons representing the Eureka Experiment Pipeline -- PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing, EvalReporting -- on blue to green gradient background." />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-label="Collaborators: Silica in space with Richard Black and Dexter Greene" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/Richard-and-Dexter_Collaborators_Hero_Feature_No_Text_1400x788-1.jpg" alt="Headshots of Richard Black and Dexter Greene for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Eureka: Evaluating and understanding progress in AI</h2>
+									<h2 class="h4">Collaborators: Silica in space with Richard Black and Dexter Greene</h2>
 				
-								<p id="eureka-evaluating-and-understanding-progress-in-ai" class="large">How can we rigorously evaluate and understand state-of-the-art progress in AI? Eureka is an open-source framework for standardizing evaluations of large foundation models, beyond single-score reporting and rankings. Learn more about the extended findings. </p>
+								<p id="collaborators-silica-in-space-with-richard-black-and-dexter-greene" class="large">College freshman Dexter Greene and Microsoft research manager Richard Black discuss how technology that stores data in glass is supporting students as they expand earlier efforts to communicate what it means to be human to extraterrestrials.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-describedby="eureka-evaluating-and-understanding-progress-in-ai" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
-							Read more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast/collaborators-silica-in-space-with-richard-black-and-dexter-greene/" aria-describedby="collaborators-silica-in-space-with-richard-black-and-dexter-greene" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Collaborators: Silica in space with Richard Black and Dexter Greene" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1944,29 +2511,29 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1116360">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1085496">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research Blog</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Blog post</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-label="Research at Microsoft 2024: Meeting the challenge of a changing world" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/12/Year-in-review-2024_Stories_Hero_Feature-1400x788-1.jpg" alt="Research at Microsoft 2024 - Year in Review" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-label="Eureka: Evaluating and understanding progress in AI" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/09/NEWEureka-2024-BlogHeroFeature-1400x788-1-66e90c195464d.jpg" alt="White icons representing the Eureka Experiment Pipeline -- PromptProcessing, Inference, PromptProcessing, Inference, DataProcessing, EvalReporting -- on blue to green gradient background." />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Research at Microsoft 2024: Meeting the challenge of a changing world</h2>
+									<h2 class="h4">Eureka: Evaluating and understanding progress in AI</h2>
 				
-								<p id="research-at-microsoft-2024-meeting-the-challenge-of-a-changing-world" class="large">In this new AI era, technology is changing even faster than before, and the transition from research to reality, from concept to solution, now takes days or weeks rather than months or years.</p>
+								<p id="eureka-evaluating-and-understanding-progress-in-ai" class="large">How can we rigorously evaluate and understand state-of-the-art progress in AI? Eureka is an open-source framework for standardizing evaluations of large foundation models, beyond single-score reporting and rankings. Learn more about the extended findings. </p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/microsoft-research-2024-a-year-in-review/" aria-describedby="research-at-microsoft-2024-meeting-the-challenge-of-a-changing-world" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Research at Microsoft 2024: Meeting the challenge of a changing world" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/blog/eureka-evaluating-and-understanding-progress-in-ai/" aria-describedby="eureka-evaluating-and-understanding-progress-in-ai" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Eureka: Evaluating and understanding progress in AI" target="_blank">
 							Read more						</a>
 					</div>
 				</div>
@@ -2235,7 +2802,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-8" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-9" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -3213,7 +3780,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-8"
+				aria-controls="show-more-show-less-toggle-9"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -3221,262 +3788,6 @@
 	</div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/what-ais-impact-on-individuals-means-for-the-health-workforce-and-industry/">What AI&#8217;s impact on individuals means for the health workforce and industry</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>FrodoKEM: A conservative quantum-safe cryptographic algorithm</title>
-		<link>https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/</link>
-		
-		<dc:creator><![CDATA[Patrick Longa]]></dc:creator>
-		<pubDate>Tue, 27 May 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1139939</guid>
-
-					<description><![CDATA[<p>The recent advances in quantum computing offer many advantages—but also challenge current cryptographic strategies. Learn how FrodoKEM could help strengthen security, even in a future with powerful quantum computers.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/">FrodoKEM: A conservative quantum-safe cryptographic algorithm</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg" alt="The image features a gradient background transitioning from blue on the left to pink on the right. In the center, there are three white icons. On the left is a microchip icon that represents quantum computing, in the middle is a shield, and on the right is another microchip with a padlock symbol inside it." class="wp-image-1140055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/FrodoKEM-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>In this post, we describe FrodoKEM, a key encapsulation protocol that offers a simple design and provides strong security guarantees even in a future with powerful quantum computers.</p>
-
-
-
-<h2 class="wp-block-heading" id="the-quantum-threat-to-cryptography">The quantum threat to cryptography</h2>
-
-
-
-<p>For decades, modern cryptography has relied on mathematical problems that are practically impossible for classical computers to solve without a secret key. Cryptosystems like RSA, Diffie-Hellman key-exchange, and elliptic curve-based schemes—which rely on the hardness of the integer factorization and (elliptic curve) discrete logarithm problems—secure communications on the internet, banking transactions, and even national security systems. However, the emergence of<strong> </strong>quantum computing poses a significant threat to these cryptographic schemes.</p>
-
-
-
-<p>Quantum computers leverage the principles of quantum mechanics to perform certain calculations exponentially faster than classical computers. Their ability to solve complex problems, such as simulating molecular interactions, optimizing large-scale systems, and accelerating machine learning, is expected to have profound and beneficial implications for fields ranging from chemistry and material science to artificial intelligence.</p>
-
-
-
-<p>At the same time, quantum computing is poised to disrupt cryptography. In particular, Shor’s algorithm, a quantum algorithm developed in 1994, can efficiently factor large numbers and compute discrete logarithms—the very problems that underpin the security of RSA, Diffie-Hellman, and elliptic curve cryptography. This means that once large-scale, fault-tolerant quantum computers become available, public-key protocols based on RSA, ECC, and Diffie-Hellman will become insecure, breaking a sizable portion of the cryptographic backbone of today’s digital world. Recent advances in quantum computing, such as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/source/features/innovation/microsofts-majorana-1-chip-carves-new-path-for-quantum-computing/" target="_blank" rel="noreferrer noopener">Microsoft’s Majorana 1<span class="sr-only"> (opens in new tab)</span></a>, the first quantum processor powered by topological qubits, represent major steps toward practical quantum computing and underscore the urgency of transitioning to quantum-resistant cryptographic systems.</p>
-
-
-
-<p>To address this looming security crisis, cryptographers and government agencies have been working on post-quantum cryptography (PQC)—new cryptographic algorithms that can resist attacks from both classical and quantum computers.</p>
-
-
-
-<h2 class="wp-block-heading" id="the-nist-post-quantum-cryptography-standardization-effort">The NIST Post-Quantum Cryptography Standardization effort</h2>
-
-
-
-<p>In 2017, the U.S. National Institute of Standards and Technology (NIST) launched the <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization" target="_blank" rel="noreferrer noopener">Post-Quantum Cryptography Standardization project<span class="sr-only"> (opens in new tab)</span></a></strong> to evaluate and select cryptographic algorithms capable of withstanding quantum attacks. As part of this initiative, NIST sought proposals for two types of cryptographic primitives: key encapsulation mechanisms (KEMs)—which enable two parties to securely derive a shared key to establish an encrypted connection, similar to traditional key exchange schemes—and digital signature schemes.</p>
-
-
-
-<p>This initiative attracted submissions from cryptographers worldwide, and after multiple evaluation rounds, NIST selected CRYSTALS-Kyber, a KEM based on structured lattices, and standardized it as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://doi.org/10.6028/NIST.FIPS.203" target="_blank" rel="noreferrer noopener">ML-KEM<span class="sr-only"> (opens in new tab)</span></a>. Additionally, NIST selected three digital signature schemes: CRYSTALS-Dilithium, now called ML-DSA; SPHINCS<sup>+</sup>, now called SLH-DSA; and Falcon, now called FN-DSA.</p>
-
-
-
-<p>While ML-KEM provides great overall security and efficiency, some governments and cryptographic researchers advocate for the inclusion and standardization of alternative algorithms that minimize reliance on algebraic structure. Reducing algebraic structure might prevent potential vulnerabilities and, hence, can be considered a more conservative design choice. One such algorithm is <strong>FrodoKEM</strong>.</p>
-
-
-
-<h2 class="wp-block-heading" id="international-standardization-of-post-quantum-cryptography">International standardization of post-quantum cryptography</h2>
-
-
-
-<p>Beyond NIST, other international standardization bodies have been actively working on quantum-resistant cryptographic solutions. The <strong>International Organization for Standardization (ISO)</strong> is leading a global effort to standardize additional PQC algorithms. Notably, European government agencies—including <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=7" target="_blank" rel="noreferrer noopener">Germany’s BSI<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://publications.tno.nl/publication/34643386/fXcPVHsX/TNO-2024-pqc-en.pdf" target="_blank" rel="noreferrer noopener">the Netherlands’ NLNCSA and AIVD<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cyber.gouv.fr/en/publications/follow-position-paper-post-quantum-cryptography" target="_blank" rel="noreferrer noopener">France’s ANSSI<span class="sr-only"> (opens in new tab)</span></a>—have shown strong support for FrodoKEM, recognizing it as a conservative alternative to structured lattice-based schemes.</p>
-
-
-
-<p>As a result,<strong> FrodoKEM is undergoing standardization at ISO.</strong> Additionally, ISO is standardizing ML-KEM and a conservative code-based KEM called Classic McEliece. These three algorithms are planned for inclusion in ISO/IEC 18033-2:2006 as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.iso.org/standard/86890.html" target="_blank" rel="noreferrer noopener">Amendment 2<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="what-is-frodokem">What is FrodoKEM?</h2>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/project/frodokem/">FrodoKEM</a> is a key encapsulation mechanism (KEM) based on the <strong>Learning with Errors (LWE) problem</strong>, a cornerstone of lattice-based cryptography. Unlike structured lattice-based schemes such as ML-KEM, FrodoKEM is built on generic, unstructured lattices, i.e., it is based on the <em>plain </em>LWE problem.</p>
-
-
-
-<h3 class="wp-block-heading" id="why-unstructured-lattices">Why unstructured lattices?</h3>
-
-
-
-<p>Structured lattice-based schemes introduce additional algebraic properties that could potentially be exploited in future cryptanalytic attacks. By using unstructured lattices, FrodoKEM eliminates these concerns, making it a safer choice in the long run, albeit at the cost of larger key sizes and lower efficiency.</p>
-
-
-
-<p>It is important to emphasize that no particular cryptanalytic weaknesses are currently known for recommended parameterizations of structured lattice schemes in comparison to plain LWE. However, our current understanding of the security of these schemes could potentially change in the future with cryptanalytic advances.</p>
-
-
-
-<h2 class="wp-block-heading" id="lattices-and-the-learning-with-errors-lwe-problem">Lattices and the Learning with Errors (LWE) problem</h2>
-
-
-
-<p>Lattice-based cryptography relies on the mathematical structure of lattices, which are regular arrangements of points in multidimensional space. A lattice is defined as the set of all integer linear combinations of a set of basis vectors. The difficulty of certain computational problems on lattices, such as the Shortest Vector Problem (SVP) and the Learning with Errors (LWE) problem, forms the basis of lattice-based schemes.</p>
-
-
-
-<h3 class="wp-block-heading" id="the-learning-with-errors-lwe-problem">The Learning with Errors (LWE) problem</h3>
-
-
-
-<p>The LWE problem is a fundamental hard problem in lattice-based cryptography. It involves solving a system of linear equations where some small random error has been added to each equation, making it extremely difficult to recover the original secret values. This added error ensures that the problem remains computationally infeasible, even for quantum computers. Figure 1 below illustrates the LWE problem, specifically, the search version of the problem.</p>
-
-
-
-<p>As can be seen in Figure 1, for the setup of the problem we need a dimension \(n\) that defines the size of matrices, a modulus \(q\) that defines the value range of the matrix coefficients, and a certain error distribution \(\chi\) from which we sample \(\textit{“small”}\) matrices. We sample two matrices from \(\chi\), a small matrix \(\text{s}\) and an error matrix \(\text{e}\) (for simplicity in the explanation, we assume that both have only one column); sample an \(n \times n\) matrix \(\text{A}\) uniformly at random; and compute \(\text{b} = \text{A} \times \text{s} + \text{e}\). In the illustration, each matrix coefficient is represented by a colored square, and the “legend of coefficients” gives an idea of the size of the respective coefficients, e.g., orange squares represent the small coefficients of matrix \(\text{s}\)&nbsp;(small relative to the modulus \(q\)). Finally, given \(\text{A}\) and \(\text{b}\), the search LWE problem consists in finding \(\text{s}\). This problem is believed to be hard for suitably chosen parameters (e.g., for dimension \(n\) sufficiently large) and is used at the core of FrodoKEM.</p>
-
-
-
-<p>In comparison, the LWE variant used in ML-KEM—called Module-LWE (M-LWE)—has additional symmetries, adding mathematical structure that helps improve efficiency. In a setting similar to that of the search LWE problem above, the matrix \(\text{A}\) can be represented by just a single row of coefficients.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1810" height="965" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1.jpg" alt="Visualization of the (search) LWE problem." class="wp-image-1140135" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1.jpg 1810w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-300x160.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-1024x546.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-768x409.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-1536x819.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-710x380.jpg 710w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-1-240x128.jpg 240w" sizes="auto, (max-width: 1810px) 100vw, 1810px" /><figcaption class="wp-element-caption"><strong>FIGURE 1:</strong> Visualization of the (search) LWE problem.</figcaption></figure>
-
-
-
-<p>LWE is conjectured to be quantum-resistant, and FrodoKEM’s security is directly tied to its hardness. In other words, cryptanalysts and quantum researchers have not been able to devise an efficient quantum algorithm capable of solving the LWE problem and, hence, FrodoKEM. In cryptography, absolute security can never be guaranteed; instead, confidence in a problem’s hardness comes from extensive scrutiny and its resilience against attacks over time.</p>
-
-
-
-<h2 class="wp-block-heading" id="how-frodokem-works">How FrodoKEM Works</h2>
-
-
-
-<p>FrodoKEM follows the standard paradigm of a KEM, which consists of three main operations—key generation, encapsulation, and decapsulation—performed interactively between a sender and a recipient with the goal of establishing a shared secret key:</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Key generation (KeyGen), computed by the recipient</strong>
-<ul class="wp-block-list">
-<li>Generates a public key and a secret key.</li>
-
-
-
-<li>The public key is sent to the sender, while the private key remains secret.</li>
-</ul>
-</li>
-
-
-
-<li><strong>Encapsulation (Encapsulate), computed by the sender</strong>
-<ul class="wp-block-list">
-<li>Generates a random session key.</li>
-
-
-
-<li>Encrypts the session key using the recipient&#8217;s public key to produce a ciphertext.</li>
-
-
-
-<li>Produces a shared key using the session key and the ciphertext.</li>
-
-
-
-<li>The ciphertext is sent to the recipient.</li>
-</ul>
-</li>
-
-
-
-<li><strong>Decapsulation (Decapsulate), computed by the recipient</strong>
-<ul class="wp-block-list">
-<li>Decrypts the ciphertext using their secret key to recover the original session key.</li>
-
-
-
-<li>Reproduces the shared key using the decrypted session key and the ciphertext.</li>
-</ul>
-</li>
-</ol>
-
-
-
-<p>The shared key generated by the sender and reconstructed by the recipient can then be used to establish secure symmetric-key encryption for further communication between the two parties.</p>
-
-
-
-<p>Figure 2 below shows a simplified view of the FrodoKEM protocol. As highlighted in red, FrodoKEM uses at its core LWE operations of the form “\(\text{b} = \text{A} \times \text{s} + \text{e}\)”, which are directly applied within the KEM paradigm.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1845" height="1055" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2.jpg" alt="Simplified overview of FrodoKEM." class="wp-image-1140137" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2.jpg 1845w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-300x172.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-1024x586.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-768x439.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-1536x878.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-2-240x137.jpg 240w" sizes="auto, (max-width: 1845px) 100vw, 1845px" /><figcaption class="wp-element-caption"><strong>FIGURE 2:</strong> Simplified overview of FrodoKEM.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="performance-strong-security-has-a-cost">Performance: Strong security has a cost</h2>
-
-
-
-<p>Not relying on additional algebraic structure certainly comes at a cost for FrodoKEM in the form of increased protocol runtime and bandwidth. The table below compares the performance and key sizes corresponding to the FrodoKEM level 1 parameter set (variant called “FrodoKEM-640-AES”) and the respective parameter set of ML-KEM (variant called “ML-KEM-512”). These parameter sets are intended to match or exceed the brute force security of AES-128. As can be seen, the difference in speed and key sizes between FrodoKEM and ML-KEM is more than an order of magnitude. Nevertheless, the runtime of the FrodoKEM protocol remains reasonable for most applications. For example, on our benchmarking platform clocked at 3.2GHz, the measured runtimes are 0.97 ms, 1.9 ms, and 3.2 ms for security levels 1, 2, and 3, respectively.</p>
-
-
-
-<p>For security-sensitive applications, a more relevant comparison is with Classic McEliece, a post-quantum code-based scheme also considered for standardization. In this case, FrodoKEM offers several efficiency advantages. Classic McEliece’s public keys are significantly larger—well over an order of magnitude greater than FrodoKEM’s—and its key generation is substantially more computationally expensive. Nonetheless, Classic McEliece provides an advantage in certain static key-exchange scenarios, where its high key generation cost can be amortized across multiple key encapsulation executions.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2236" height="521" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3.jpg" alt="Comparison of key sizes and performance on an x86-64 processor for NIST level 1 parameter sets." class="wp-image-1140140" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3.jpg 2236w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-300x70.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-1024x239.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-768x179.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-1536x358.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-2048x477.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Figure-3-240x56.jpg 240w" sizes="auto, (max-width: 2236px) 100vw, 2236px" /><figcaption class="wp-element-caption"><strong>TABLE 1:</strong> Comparison of key sizes and performance on an x86-64 processor for NIST level 1 parameter sets.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="a-holistic-design-made-with-security-in-mind">A holistic design made with security in mind</h2>
-
-
-
-<p>FrodoKEM&#8217;s design principles support security beyond its reliance on generic, unstructured lattices to minimize the attack surface of potential future cryptanalytic threats. Its parameters have been carefully chosen with additional security margins to withstand advancements in known attacks. Furthermore, FrodoKEM is designed with simplicity in mind—its internal operations are based on straightforward matrix-vector arithmetic using integer coefficients reduced modulo a power of two. These design decisions facilitate simple, compact and secure implementations that are also easier to maintain and to protect against side-channel attacks.</p>
-
-
-
-<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
-
-
-
-<p>After years of research and analysis, the next generation of post-quantum cryptographic algorithms has arrived. NIST has chosen strong PQC protocols that we believe will serve Microsoft and its customers well in many applications. For security-sensitive applications, FrodoKEM offers a secure yet practical approach for post-quantum cryptography. While its reliance on unstructured lattices results in larger key sizes and higher computational overhead compared to structured lattice-based alternatives, it provides strong security assurances against potential future attacks. Given the ongoing standardization efforts and its endorsement by multiple governmental agencies, FrodoKEM is well-positioned as a viable alternative for organizations seeking long-term cryptographic resilience in a post-quantum world.</p>
-
-
-
-<h2 class="wp-block-heading" id="further-reading">Further Reading</h2>
-
-
-
-<p>For those interested in learning more about FrodoKEM, post-quantum cryptography, and lattice-based cryptography, the following resources provide valuable insights:</p>
-
-
-
-<ul class="wp-block-list">
-<li>The official FrodoKEM website: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://frodokem.org/" target="_blank" rel="noreferrer noopener">https://frodokem.org/<span class="sr-only"> (opens in new tab)</span></a>, which contains, among several other resources, FrodoKEM’s specification document.</li>
-
-
-
-<li>The official FrodoKEM software library: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/Microsoft/PQCrypto-LWEKE" target="_blank" rel="noreferrer noopener">https://github.com/Microsoft/PQCrypto-LWEKE<span class="sr-only"> (opens in new tab)</span></a>, which contains reference and optimized implementations of FrodoKEM written in C and Python.</li>
-
-
-
-<li>NIST’s Post-Quantum Cryptography Project: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noreferrer noopener">https://csrc.nist.gov/projects/post-quantum-cryptography<span class="sr-only"> (opens in new tab)</span></a>.</li>
-
-
-
-<li>Microsoft’s blogpost on its transition plan for PQC: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/blog/microsoft-security-blog/microsofts-quantum-resistant-cryptography-is-here/4238780" target="_blank" rel="noreferrer noopener">https://techcommunity.microsoft.com/blog/microsoft-security-blog/microsofts-quantum-resistant-cryptography-is-here/4238780<span class="sr-only"> (opens in new tab)</span></a>.</li>
-
-
-
-<li>A comprehensive survey on lattice-based cryptography: Peikert, C. &#8220;A Decade of Lattice Cryptography.&#8221; Foundations and Trends in Theoretical Computer Science. (2016)</li>
-
-
-
-<li>A comprehensive tutorial on modern lattice-based schemes, including ML-KEM and ML-DSA: Lyubashevsky, V. &#8220;Basic Lattice Cryptography: The concepts behind Kyber (ML-KEM) and Dilithium (ML-DSA).&#8221; <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/1287" target="_blank" rel="noreferrer noopener">https://eprint.iacr.org/2024/1287<span class="sr-only"> (opens in new tab)</span></a>. (2024)</li>
-</ul>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/frodokem-a-conservative-quantum-safe-cryptographic-algorithm/">FrodoKEM: A conservative quantum-safe cryptographic algorithm</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
