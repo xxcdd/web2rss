@@ -20,11 +20,6 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml)
 
-## XbowBlog
-- 原网址：https://xbow.com/blog/
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml)
-
 ## deeplearning
 - 原网址：https://www.deeplearning.ai/the-batch/
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/deeplearning.xml
@@ -54,6 +49,11 @@
 - 原网址：https://www.lycee.ai/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/lycee.ai.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/lycee.ai.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/lycee.ai.xml)
+
+## AnthropicEngineering
+- 原网址：https://www.anthropic.com/engineering
+- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicEngineering.xml
+- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicEngineering.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicEngineering.xml)
 
 ## devin.ai.blog
 - 原网址：https://cognition.ai/blog/1
