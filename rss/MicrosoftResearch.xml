@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 31 Jul 2025 15:57:42 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 05 Aug 2025 20:37:33 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,523 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>Project Ire autonomously identifies malware at scale</title>
+		<link>https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/</link>
+		
+		<dc:creator><![CDATA[Brian Caswell, Dustin Fraze, Sarah Smith, Rodrigo Racanicci, Tim Middleton-Sally, Shelby Hayes, Stanley He, Katy Smith, Bhakta Pradhan, Mike Walker]]></dc:creator>
+		<pubDate>Tue, 05 Aug 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1145100</guid>
+
+					<description><![CDATA[<p>Designed to classify software without context, Project Ire replicates the gold standard in malware analysis through reverse engineering. It streamlines a complex, expert-driven process, making large-scale malware detection faster &#038; more consistent.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/">Project Ire autonomously identifies malware at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1.jpg" alt="Stylized digital illustration of a multi-layered circuit board. A glowing blue microchip sits at the top center, with intricate circuitry radiating outward. Beneath it, four stacked layers transition in color from blue to orange, each featuring circuit-like patterns. Smaller rectangular and circular components are connected around the layers, all set against a dark background with scattered geometric shapes." class="wp-image-1145541" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Today, we are excited to introduce an autonomous AI agent that can analyze and classify software without assistance, a step forward in cybersecurity and malware detection. The prototype, <a href="https://www.microsoft.com/en-us/research/project/project-ire/">Project Ire</a>, automates what is considered the gold standard in malware classification: fully reverse engineering a software file without any clues about its origin or purpose. It uses decompilers and other tools, reviews their output, and determines whether the software is malicious or benign.</p>
+
+
+
+<p>Project Ire&nbsp;emerged&nbsp;from a collaboration&nbsp;between&nbsp;Microsoft Research, Microsoft Defender Research, and Microsoft Discovery & Quantum, bringing together security&nbsp;expertise, operational knowledge, data from global malware telemetry, and AI research. It is built on the same collaborative and agentic foundation behind&nbsp;<a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/#:~:text=Get%20started%20today%20by%20using%20Azure%20HPC%20and%20Azure%20AI%20Foundry%20infrastructure.&text=Microsoft%20Discovery%20is%20built%20on,make%20any%20adjustments%20as%20needed." target="_blank" rel="noreferrer noopener">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;The system&nbsp;uses advanced language models and a suite of callable reverse engineering and binary analysis tools to drive investigation and adjudication.</p>
+
+
+
+<p>As of this writing, Project Ire has achieved a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noreferrer noopener">precision<span class="sr-only"> (opens in new tab)</span></a> of 0.98 and a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noreferrer noopener">recall<span class="sr-only"> (opens in new tab)</span></a> of 0.83 using public datasets of Windows drivers. It was the first reverse engineer at Microsoft, human or machine, to author a conviction case—a detection strong enough to justify automatic blocking—for a specific advanced persistent threat (APT) malware sample, which has since been identified and blocked by Microsoft Defender.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="malware-classification-at-a-global-scale">Malware classification at a global scale</h2>
+
+
+
+<p>Microsoft’s Defender platform scans more than <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://news.microsoft.com/apac/2020/03/17/windows-10-powering-the-world-with-one-billion-monthly-active-devices/">one billion monthly<span class="sr-only"> (opens in new tab)</span></a> active devices through the company’s Defender suite of products, which routinely require manual review of software by experts.</p>
+
+
+
+<p>This kind of work is challenging. Analysts often face error and alert fatigue, and there’s no easy way to compare and standardize how different people review and classify threats over time. For both of these reasons, today&#8217;s overloaded experts are vulnerable to <a href="https://www.microsoft.com/en-us/security/blog/2020/08/31/microsoft-security-cultivate-diverse-cybersecurity-team/" target="_blank" rel="noreferrer noopener">burnout</a>, a well-documented issue in the field.</p>
+
+
+
+<p>Unlike other AI applications in security, malware classification lacks a computable <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.blackhat.com/us-25/briefings/schedule/#ai-agents-for-offsec-with-zero-false-positives-46559" target="_blank" rel="noreferrer noopener">validator<span class="sr-only"> (opens in new tab)</span></a>. The AI must make judgment calls without definitive validation beyond expert review. Many behaviors found in software, like reverse engineering protections, don’t clearly indicate whether a sample is malicious or benign.&nbsp;</p>
+
+
+
+<p>This ambiguity requires analysts to investigate each sample incrementally, building enough evidence to determine whether it’s malicious or benign despite opposition from adaptive, active adversaries. This&nbsp;has long made it difficult to automate and scale what is inherently a complex and expensive process.</p>
+
+
+
+<h2 class="wp-block-heading" id="technical-foundation">Technical foundation</h2>
+
+
+
+<p>Project Ire attempts to address these challenges by acting as an autonomous system that uses specialized tools to reverse engineer software. The system’s architecture allows for reasoning at multiple levels, from low-level binary analysis to control flow reconstruction and high-level interpretation of code behavior.</p>
+
+
+
+<p>Its tool-use API enables the system to update its understanding of a file using a wide range of reverse engineering tools, including Microsoft memory analysis sandboxes based on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/freta/intro" target="_blank" rel="noreferrer noopener">Project Freta<span class="sr-only"> (opens in new tab)</span></a>, custom and open-source tools, documentation search, and multiple decompilers.&nbsp;&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="reaching-a-verdict">Reaching a verdict&nbsp;</h2>
+
+
+
+<p>The evaluation process begins with a triage, where automated reverse engineering tools identify the file type, its structure, and potential areas of interest. From there, the system reconstructs the software’s control flow graph using frameworks such as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://angr.io/" target="_blank" rel="noreferrer noopener">angr<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/NationalSecurityAgency/ghidra" target="_blank" rel="noreferrer noopener">Ghidra<span class="sr-only"> (opens in new tab)</span></a>, building a graph that forms the backbone of Project Ire’s memory model and guides the rest of the analysis.&nbsp;&nbsp;</p>
+
+
+
+<p>Through iterative function analysis, the LLM calls specialized tools through an API to identify and summarize key functions. Each result feeds into a “chain of evidence,” a detailed, auditable trail that shows how the system reached its conclusion. This traceable evidence log supports secondary review by security teams and helps refine the system in cases of misclassification.&nbsp;&nbsp;</p>
+
+
+
+<p>To verify its findings, Project Ire can invoke a validator tool that cross-checks claims in the report against the chain of evidence. This tool draws on expert statements from malware reverse engineers on the Project Ire team. Drawing on this evidence and its internal model, the system creates a final report and classifies the sample as malicious or benign.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+		
+
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Azure AI Foundry Labs</h2>
+				
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="preliminary-testing-shows-promise">Preliminary testing shows promise&nbsp;</h2>
+
+
+
+<p>Two early evaluations tested Project Ire’s effectiveness as an autonomous malware classifier. In the first, we assessed Project Ire on a dataset of publicly accessible Windows drivers, some known to be malicious, others benign. Malicious samples came from the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/magicsword-io/LOLDrivers/blob/e2e48f15a0885e8b2ad2fb81255089845f5c183c/detections/hashes/samples_malicious.sha256" target="_blank" rel="noreferrer noopener"><em>Living off the Land Drivers</em><span class="sr-only"> (opens in new tab)</span></a> database, which includes a collection of Windows drivers used by attackers to bypass security controls, while known benign drivers were sourced from Windows Update.&nbsp;</p>
+
+
+
+<p>This classifier performed well, correctly identifying 90% of all files and flagging only 2% of benign files as threats. It achieved a precision of 0.98 and a recall of 0.83. This low false-positive rate suggests clear potential for deployment in security operations, alongside expert reverse engineering reviews.&nbsp;</p>
+
+
+
+<p>For each file it analyzes, Project Ire generates a report that includes an evidence section, summaries of all examined code functions, and other technical artifacts.&nbsp;&nbsp;</p>
+
+
+
+<p>Figures 1 and 2 present reports for two successful malware classification cases generated during testing. The first involves a kernel-level rootkit, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62" target="_blank" rel="noreferrer noopener"><em>Trojan:Win64/Rootkit.EH!MTB</em><span class="sr-only"> (opens in new tab)</span></a>. The system identified several key features, including jump-hooking, process termination, and web-based command and control. It then correctly flagged the sample as malicious.</p>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Figure 1 Analysis</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f8f8; }
+    .code-block {
+      background: #23272e;
+      color: #e6e6e6;
+      font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
+      font-size: 1em;
+      padding: 24px 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      border: 1px solid #444;
+      margin: 40px auto;
+      max-width: 900px;
+      line-height: 1.7;
+      word-break: break-word;
+    }
+    .code-block p {
+      margin: 0 0 18px 0;
+      text-indent: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="code-block">
+    <p>The binary contains a function named &#8216;MonitorAndTerminateExplorerThread_16f64&#8217; that runs an infinite loop waiting on synchronization objects and terminates system threads upon certain conditions. It queries system or process information, iterates over processes comparing their names case-insensitively to &#8216;Explorer.exe&#8217;, and manipulates registry values related to &#8216;Explorer.exe&#8217;. This function appears to monitor and potentially terminate or manipulate the &#8216;Explorer.exe&#8217; process, a critical Windows shell process. Such behavior is suspicious and consistent with malware that aims to disrupt or control system processes.</p>
+    <p>Another function, &#8216;HttpGetRequestAndResponse_174a4&#8217;, performs HTTP GET requests by parsing URLs, resolving hostnames, opening sockets, sending requests, and reading responses. This network communication capability could be leveraged for command and control or data exfiltration, common in malware.</p>
+    <p>The binary also includes a function &#8216;PatchProcessEntryPointWithHook_12b5c&#8217; that patches the entry point of a process by writing a hook or trampoline that redirects execution to a specified address. This technique is commonly used for process injection or hooking, allowing malware to alter process behavior or inject malicious code.</p>
+    <p>Other functions related to sending IOCTL requests to device drivers were identified, but their maliciousness could not be conclusively determined without additional context.</p>
+    <p>Overall, the binary exhibits multiple indicators of malicious behavior, including process manipulation, network communication, and code injection techniques, suggesting it is likely malware designed to interfere with system processes and communicate with remote servers.</p>
+  </div>
+</body>
+</html>
+<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Figure 1. Project Ire report, sample with SHA256: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62" target="_blank" rel="noreferrer noopener">86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62<span class="sr-only"> (opens in new tab)</span></a></figcaption></figure>
+
+
+
+<p>The second sample, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a" target="_blank" rel="noreferrer noopener"><em>HackTool:Win64/KillAV!MTB</em><span class="sr-only"> (opens in new tab)</span></a>, was designed to disable antivirus software. Project Ire correctly identified the code that locates and disables antivirus programs, providing evidence that the file was malicious.&nbsp;&nbsp;</p>
+
+
+
+<p>In one section of the code, however, the system misidentified a function as anti-debugging behavior. To maintain accuracy, the system used the validator tool to flag the claim as unsupported. The issue was later resolved by updating decompiler rules, but this example illustrates how Project Ire navigates uncertainty during analysis. Figure 2 shows the corresponding report.&nbsp;</p>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Figure 2 Analysis</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f8f8; }
+    .code-block {
+      background: #23272e;
+      color: #e6e6e6;
+      font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
+      font-size: 1em;
+      padding: 24px 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      border: 1px solid #444;
+      margin: 40px auto;
+      max-width: 900px;
+      line-height: 1.7;
+      word-break: break-word;
+    }
+    .code-block p {
+      margin: 0 0 18px 0;
+      text-indent: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="code-block">
+    <p>The binary contains several functions indicative of malicious intent. The function register_and_log_known_processes_140001000 logs and registers process names associated with antivirus and security software, such as &#8216;avp.exe&#8217;, &#8216;avpui.exe&#8217;, and &#8216;360Tray.exe&#8217;. It calls another function, TerminateProcessesByNameSubstring_1400010f4, which enumerates system processes and terminates those whose names contain specified substrings. This behavior is typical of malware attempting to disable or evade security software by killing their processes.</p>
+    <p>Another function, check_and_handle_special_state_14000502c, performs checks on a global variable and triggers software interrupts if certain conditions are not met. While the exact purpose of these interrupts (int 0x29 and int 0x3) is unclear, they could represent an anti-debug or anti-analysis mechanism to detect or interfere with debugging or tampering attempts. However, this assumption could not be fully validated against expert statements.</p>
+    <p>Other functions include initialization routines and simple logging wrappers, but the core malicious behavior centers on process termination targeting security software. This indicates the binary is designed to compromise system security by disabling protective processes, a hallmark of malware such as trojans or rootkits.</p>
+  </div>
+</body>
+</html>
+<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Figure 2. Project Ire report, sample with SHA256: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a" target="_blank" rel="noreferrer noopener">b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a<span class="sr-only"> (opens in new tab)</span></a></figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="real-world-evaluation-with-microsoft-defender">Real-world evaluation with Microsoft Defender&nbsp;</h2>
+
+
+
+<p>The more demanding test involved nearly 4,000 “hard-target” files not classified by automated systems and slated for manual review by expert reverse engineers.</p>
+
+
+
+<p>In this real-world scenario, Project Ire operated fully autonomously on files created after the language models’ training cutoff, files that no other automated tools at Microsoft could classify at the time.</p>
+
+
+
+<p>The system achieved a high precision score of 0.89, meaning nearly 9 out of 10 files flagged malicious were correctly identified as malicious. Recall was 0.26, indicating that under these challenging conditions, the system detected roughly a quarter of all actual malware.</p>
+
+
+
+<p>The system correctly identified many of the malicious files, with few false alarms, just a 4% false positive rate. While overall performance was moderate, this combination of accuracy and a low error rate suggests real potential for future deployment.</p>
+
+
+
+<h2 class="wp-block-heading" id="looking-ahead">Looking ahead&nbsp;</h2>
+
+
+
+<p>Based on these early successes, the Project Ire prototype will be leveraged inside Microsoft’s Defender organization as <em>Binary Analyzer</em> for threat detection and software classification.</p>
+
+
+
+<p>Our goal is to scale the system’s speed and accuracy so that it can correctly classify files from any source, even on first encounter. Ultimately, our vision is to detect novel malware directly <a href="https://www.microsoft.com/en-us/research/blog/toward-trusted-sensing-for-the-cloud-introducing-project-freta/?lang=fr_ca">in memory,</a> at scale.</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements&nbsp;</h2>
+
+
+
+<p>Project Ire acknowledges the following additional developers that contributed to the results in this publication: Dayenne de Souza, Raghav Pande, Ryan Terry, Shauharda Khadka, and Bob Fleck for their independent review of the system.</p>
+
+
+
+<p>The system incorporates multiple tools, including the&nbsp;angr&nbsp;framework developed by&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://emotionlabs.io/" target="_blank" rel="noreferrer noopener">Emotion Labs<span class="sr-only"> (opens in new tab)</span></a>. Microsoft has collaborated extensively with Emotion Labs, a pioneer in cyber autonomy, throughout the development of Project Ire, and thanks them for the innovations and insights that contributed to the successes reported here.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/">Project Ire autonomously identifies malware at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</title>
+		<link>https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/</link>
+		
+		<dc:creator><![CDATA[Dasha Metropolitansky]]></dc:creator>
+		<pubDate>Tue, 05 Aug 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1145803</guid>
+
+					<description><![CDATA[<p>VeriTrail, new from Microsoft Research, can detect AI-generated content that is not supported by the source text, trace the provenance of content from final output back to the source, and locate where errors were likely introduced.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/">VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: Two white icons on a blue-to-green gradient background—one showing a central figure linked to others, representing a network, and the other depicting lines connecting to a document, symbolizing data flow." class="wp-image-1145818" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/video/veritrail-detect-hallucination-and-trace-provenance-in-ai-workflows/">Watch VeriTrail Explainer</a></div>
+</div>
+
+
+
+<p>Many applications of language models (LMs) involve generating content based on source material, such as answering questions, summarizing information, and drafting documents. A critical challenge for these applications is that LMs may produce content that is not supported by the source text – a phenomenon known as “closed-domain hallucination.”<a id="_ftnref1" href="#_ftn1"><sup>1</sup></a></p>
+
+
+
+<p>Existing methods for detecting closed-domain hallucination typically compare a given LM output to the source text, implicitly assuming that there is only a single output to evaluate. However, applications of LMs increasingly involve processes with multiple generative steps: LMs generate intermediate outputs that serve as inputs to subsequent steps and culminate in a final output. Many agentic workflows follow this paradigm (e.g., each agent is responsible for a specific document or sub-task, and their outputs are synthesized into a final response). &nbsp;</p>
+
+
+
+<p>In our paper “<a href="https://www.microsoft.com/en-us/research/publication/veritrail-closed-domain-hallucination-detection-with-traceability/" target="_blank" rel="noreferrer noopener">VeriTrail: Closed-Domain Hallucination Detection with Traceability</a>,” we argue that, given the complexity of processes with multiple generative steps, detecting hallucination in the final output is necessary but not sufficient. We also need <strong>traceability</strong>, which has two components:&nbsp;</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Provenance: </strong>if the final output is supported by the source text, we should be able to trace its path through the intermediate outputs to the source.&nbsp;</li>
+
+
+
+<li><strong>Error Localization: </strong>if the final output is not supported by the source text, we should be able to trace where the error was likely introduced.</li>
+</ol>
+
+
+
+<p>Our paper presents VeriTrail, the first closed-domain hallucination detection method designed to provide traceability for processes with any number of generative steps. We also demonstrate that VeriTrail outperforms baseline methods commonly used for hallucination detection. In this blog post, we provide an overview of VeriTrail’s design and performance.<a id="_ftnref2" href="#_ftn2"><sup>2</sup></a></p>
+
+
+
+<h2 class="wp-block-heading" id="veritrail-s-hallucination-detection-process">VeriTrail’s hallucination detection process</h2>
+
+
+
+<p>A key idea leveraged by VeriTrail is that a wide range of generative processes can be represented as a <strong>directed acyclic graph (DAG)</strong>. Each <strong>node </strong>in the DAG represents a piece of text (i.e., source material, an intermediate output, or the final output) and each <strong>edge </strong>from node A to node B indicates that A was used as an input to produce B. Each node is assigned a unique ID, as well as a <strong>stage</strong> reflecting its position in the generative process. &nbsp;</p>
+
+
+
+<p>An example of a process with multiple generative steps is <a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG</a>. A DAG representing a GraphRAG run is illustrated in Figure 1, where the boxes and arrows correspond to nodes and edges, respectively.<a id="_ftnref3" href="#_ftn3"><sup>3</sup></a></p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="881" height="542" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg" alt="A GraphRAG run is depicted as a directed acyclic graph. The Stage 1 nodes represent source text chunks. Each Stage 1 node has an edge pointing to a Stage 2 node, which corresponds to an entity or a relationship. Entity 3 was extracted from two source text chunks, so its descriptions are summarized. The summarized entity description forms a Stage 3 node. The Stage 2 and 3 nodes have edges pointing to Stage 4 nodes, which represent community reports. The Stage 4 nodes have edges pointing to Stage 5 nodes, which correspond to map-level answers. The Stage 5 nodes each have an edge pointing to the terminal node, which represents the final answer. The terminal node is the only node in Stage 6." class="wp-image-1145841" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg 881w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-300x185.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-768x472.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-240x148.jpg 240w" sizes="(max-width: 881px) 100vw, 881px" /><figcaption class="wp-element-caption">Figure 1: GraphRAG splits the source text into chunks (Stage 1). For each chunk, an LM extracts entities and relationships (the latter are denoted by “⭤ “), along with short descriptions (Stage 2). If an entity or a relationship was extracted from multiple chunks, an LM summarizes the descriptions (Stage 3). A knowledge graph is constructed from the final set of entities and relationships, and a community detection algorithm, such as Leiden clustering, groups entities into communities. For each community, an LM generates a “community report” that summarizes the entities and relationships (Stage 4). To answer a user’s question, an LM generates “map-level answers” based on groups of community reports (Stage 5), then synthesizes them into a final answer (Stage 6).</figcaption></figure>
+
+
+
+<p>VeriTrail takes as input a DAG representing a completed generative process and aims to determine whether the final output is fully supported by the source text. It begins by extracting claims (i.e., self-contained, verifiable statements) from the final output using <a href="https://www.microsoft.com/en-us/research/blog/claimify-extracting-high-quality-claims-from-language-model-outputs/" target="_blank" rel="noreferrer noopener">Claimify</a>. VeriTrail verifies claims in the reverse order of the generative process: it starts from the final output and moves toward the source text. Each claim is verified separately. Below, we include two case studies that illustrate how VeriTrail works, using the DAG from Figure 1. </p>
+
+
+
+<h3 class="wp-block-heading" id="case-study-1-a-fully-supported-claim">Case study 1: A “Fully Supported” claim</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1280" height="720" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2.jpg" alt="An example of VeriTrail's claim verification process where the claim is found “Fully Supported.” A claim extracted from the terminal node, Node 17, is “Legislative efforts have been made to address the high cost of diabetes-related supplies in the US.” In Iteration 1, VeriTrail checks Nodes 15 and 16, which are the source nodes of the terminal node. The sentence “The general assembly in North Carolina is considering legislation to set a cap on insulin prices, which indicates that high insulin prices are a contributing factor to the high cost of diabetes-related supplies in the US” is selected as evidence from Node 15. The tentative verdict is “Fully Supported.” In Iteration 2, VeriTrail checks Nodes 12 and 13, which are the source nodes of Node 15. The sentence “The General Assembly in North Carolina is considering legislation to set a cap on insulin prices” is selected as evidence from Node 13. The verdict remains “Fully Supported.” In Iteration 3, VeriTrail checks Nodes 4, 5, and 11, which are the source nodes of Node 13. The sentence “The General Assembly is the legislative body in North Carolina considering legislation to cap insulin prices” is selected as evidence from Node 4. The verdict is still “Fully Supported.” In Iteration 4, VeriTrail checks Node 1, which is the source node of Node 4. The selected evidence is “‘There’s actually legislation in North Carolina at the General Assembly to set a cap on insulin…’ Stein said.” The corresponding verdict is “Fully Supported.” Since Node 1 represents a raw text chunk, it does not have any source nodes to check. Therefore, verification terminates and the “Fully Supported” verdict is deemed final." class="wp-image-1145843" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-960x540.jpg 960w" sizes="auto, (max-width: 1280px) 100vw, 1280px" /><figcaption class="wp-element-caption">Figure 2: Left: GraphRAG as a DAG. Right: VeriTrail’s hallucination detection process for a “Fully Supported” claim.</figcaption></figure>
+
+
+
+<p>Figure 2 shows an example of a claim that VeriTrail determined was not hallucinated: </p>
+
+
+
+<ul class="wp-block-list">
+<li>In Iteration 1, VeriTrail identified the nodes that were used as inputs for the final answer: Nodes 15 and 16. Each identified node was split into sentences, and each sentence was programmatically assigned a unique ID.
+<ul class="wp-block-list">
+<li>An LM then performed <strong>Evidence Selection</strong>, selecting all sentence IDs that strongly implied the truth or falsehood of the claim. The LM also generated a summary of the selected sentences (not shown in Figure 2). In this example, a sentence was selected from Node 15.</li>
+
+
+
+<li>Next, an LM performed <strong>Verdict Generation</strong>. If no sentences had been selected in the Evidence Selection step, the claim would have been assigned a “Not Fully Supported” verdict. Instead, an LM was prompted to classify the claim as “Fully Supported,” “Not Fully Supported,” or “Inconclusive” based on the evidence. In this case, the verdict was “Fully Supported.”</li>
+</ul>
+</li>
+
+
+
+<li>Since the verdict in Iteration 1 was “Fully Supported,” VeriTrail proceeded to Iteration 2. It considered the nodes from which at least one sentence was selected in the latest Evidence Selection step (Node 15) and identified their input nodes (Nodes 12 and 13). VeriTrail repeated Evidence Selection and Verdict Generation for the identified nodes. Once again, the verdict was “Fully Supported.” This process – identifying candidate nodes, performing Evidence Selection and Verdict Generation – was repeated in Iteration 3, where the verdict was still “Fully Supported,” and likewise in Iteration 4. </li>
+
+
+
+<li>In Iteration 4, a single source text chunk was verified. Since the source text, by definition, does not have any inputs, verification terminated and the verdict was deemed final.</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading" id="case-study-2-a-not-fully-supported-claim">Case study 2: A “Not Fully Supported” claim</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1280" height="515" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3.jpg" alt="An example of VeriTrail's claim verification process where the claim is found “Not Fully Supported.” We assume that the maximum number of consecutive “Not Fully Supported” verdicts was set to 2. A claim extracted from the terminal node, Node 17, is “Challenges related to electric vehicle battery repairability contribute to sluggish retail auto sales in China.” In Iteration 1, VeriTrail checks Nodes 15 and 16, which are the source nodes of the terminal node. Two sentences are selected as evidence. The first sentence is “Challenges with electric vehicle (EV) battery disposal and repair may also contribute to the sluggishness in retail auto sales.” The second sentence is “Junkyards are accumulating discarded EV battery packs, while collision shops face limitations in repairing EV battery packs, which could affect consumer confidence and demand.” These sentences are both from Node 15. The tentative verdict is “Not Fully Supported.” In Iteration 2, VeriTrail checks Nodes 12, 13, and 14. Nodes 12 and 13 are the source nodes of Node 15. Node 14 is the source node of Node 16, which was checked in Iteration 1. The sentence “The electric vehicle market in China is influenced by challenges associated with EV battery disposal and repair” is selected as evidence from Node 12. The verdict remains “Not Fully Supported.” Since two consecutive “Not Fully Supported” verdicts have been reached, which was the maximum, verification terminates and the final verdict is “Not Fully Supported.”" class="wp-image-1145842" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-300x121.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-1024x412.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-768x309.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-240x97.jpg 240w" sizes="auto, (max-width: 1280px) 100vw, 1280px" /><figcaption class="wp-element-caption">Figure 3: Left: GraphRAG as a DAG. Right: VeriTrail’s hallucination detection process for a “Not Fully Supported” claim, where the maximum number of consecutive “Not Fully Supported” verdicts was set to 2. </figcaption></figure>
+
+
+
+<p>Figure 3 provides an example of a claim where VeriTrail identified hallucination:</p>
+
+
+
+<ul class="wp-block-list">
+<li>In Iteration 1, VeriTrail identified the nodes used as inputs for the final answer: Nodes 15 and 16. After Evidence Selection and Verdict Generation, the verdict was “Not Fully Supported.” Users can configure the maximum number of consecutive “Not Fully Supported” verdicts permitted. If the maximum had been set to 1, verification would have terminated here, and the verdict would have been deemed final. Let’s assume the maximum was set to 2, meaning that VeriTrail had to perform at least one more iteration.</li>
+
+
+
+<li>Even though evidence was selected only from Node 15 in Iteration 1, VeriTrail checked the input nodes for both Node 15 and Node 16 (i.e., Nodes 12, 13, and 14) in Iteration 2. Recall that in Case Study 1 where the verdict was “Fully Supported,” VeriTrail only checked the input nodes for Node 15. Why was the “Not Fully Supported” claim handled differently? If the Evidence Selection step overlooked relevant evidence, the “Not Fully Supported” verdict might be incorrect. In this case, continuing verification based solely on the selected evidence (i.e., Node 15) would propagate the mistake, defeating the purpose of repeated verification.</li>
+
+
+
+<li>In Iteration 2, Evidence Selection and Verdict Generation were repeated for Nodes 12, 13, and 14. Once again, the verdict was “Not Fully Supported.” Since this was the second consecutive “Not Fully Supported” verdict, verification terminated and the verdict was deemed final.</li>
+</ul>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="providing-traceability">Providing traceability</h2>
+
+
+
+<p>In addition to assigning a final “Fully Supported,” “Not Fully Supported,” or “Inconclusive” verdict to each claim, VeriTrail returns (a) all Verdict Generation results and (b) an evidence trail composed of all Evidence Selection results: the selected sentences, their corresponding node IDs, and the generated summaries. Collectively, these outputs provide traceability:&nbsp;</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Provenance: </strong>For “Fully Supported” and “Inconclusive” claims, the evidence trail traces a path from the source material to the final output, helping users understand how the output may have been derived. For example, in Case Study 1, the evidence trail consists of Sentence 8 from Node 15, Sentence 11 from Node 13, Sentence 26 from Node 4, and Sentence 79 from Node 1.</li>
+
+
+
+<li><strong>Error Localization: </strong>For “Not Fully Supported” claims, VeriTrail uses the Verdict Generation results to identify the stage(s) of the process where the unsupported content was likely introduced. For instance, in Case Study 2, where none of the verified intermediate outputs supported the claim, VeriTrail would indicate that the hallucination occurred in the final answer (Stage 6). Error stage identification helps users address hallucinations and understand where in the process they are most likely to occur.&nbsp;</li>
+</ol>
+
+
+
+<p>The evidence trail also helps users verify the verdict: instead of reading through all nodes – which may be infeasible for processes that generate large amounts of text – users can simply review the evidence sentences and summaries. </p>
+
+
+
+<h2 class="wp-block-heading" id="key-design-features">Key design features</h2>
+
+
+
+<p>VeriTrail’s design prioritizes reliability, efficiency, scalability, and user agency. Notable features include: </p>
+
+
+
+<ul class="wp-block-list">
+<li>During Evidence Selection (introduced in Case Study 1), the sentence IDs returned by the LM are checked against the programmatically assigned IDs. If a returned ID does not match an assigned ID, it is discarded; otherwise, it is mapped to its corresponding sentence. This approach <strong>guarantees that the sentences included in the evidence trail are not hallucinated</strong>.</li>
+
+
+
+<li>After a claim is assigned an interim “Fully Supported” or “Inconclusive” verdict (as in Case Study 1), VeriTrail verifies the input nodes of only the nodes from which evidence was previously selected – not all possible input nodes. By progressively narrowing the search space, VeriTrail limits the number of nodes the LM must evaluate. In particular, since VeriTrail starts from the final output and moves toward the source text, it tends to verify a smaller proportion of nodes as it approaches the source text. Nodes closer to the source text tend to be larger (e.g., a book chapter should be larger than its summary), so verifying fewer of them helps <strong>reduce computational cost</strong>.</li>
+
+
+
+<li>VeriTrail is designed to <strong>handle input graphs with any number of nodes</strong>, regardless of whether they fit in a single prompt. Users can specify an input size limit per prompt. For Evidence Selection, inputs that exceed the limit are split across multiple prompts. If the resulting evidence exceeds the input size limit for Verdict Generation, VeriTrail reruns Evidence Selection to compress the evidence further. Users can configure the maximum number of Evidence Selection reruns.  </li>
+
+
+
+<li>The configurable maximum number of consecutive “Not Fully Supported” verdicts (introduced in Case Study 2) allows the user to find their desired <strong>balance between computational cost and how conservative VeriTrail is in flagging hallucinations</strong>. A lower maximum reduces cost by limiting the number of checks. A higher maximum increases confidence that a flagged claim is truly hallucinated since it requires repeated confirmation of the “Not Fully Supported” verdict. </li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="evaluating-veritrail-s-performance">Evaluating VeriTrail’s performance</h2>
+
+
+
+<p>We tested VeriTrail on two datasets covering distinct generative processes (hierarchical summarization<a id="_ftnref4" href="#_ftn4"><sup>4</sup></a> and GraphRAG), tasks (summarization and question-answering), and types of source material (fiction novels and news articles). For the source material, we focused on long documents and large collections of documents (i.e., >100K tokens), where hallucination detection is especially challenging and processes with multiple generative steps are typically most valuable. The resulting DAGs were much more complex than the examples provided above (e.g., in one of the datasets, the average number of nodes was 114,368).</p>
+
+
+
+<p>We compared VeriTrail to three types of baseline methods commonly used for closed-domain hallucination detection: Natural Language Inference models (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2023.acl-long.634/" target="_blank" rel="noreferrer noopener">AlignScore</a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.eacl-long.102/" target="_blank" rel="noreferrer noopener">INFUSE</a>); Retrieval-Augmented Generation; and long-context models (Gemini 1.5 Pro and GPT-4.1 mini). Across both datasets and all language models tested, VeriTrail outperformed the baseline methods in detecting hallucination.<a id="_ftnref5" href="#_ftn5"><sup>5</sup></a></p>
+
+
+
+<p>Most importantly, VeriTrail traces claims through intermediate outputs – unlike the baseline methods, which directly compare the final output to the source material. As a result, it can identify where hallucinated content was likely introduced and how faithful content may have been derived from the source. By providing traceability, VeriTrail brings transparency to generative processes, helping users understand, verify, debug, and, ultimately, trust their outputs. &nbsp;</p>
+
+
+
+<p>For an in-depth discussion of VeriTrail, please see our paper “<a href="https://www.microsoft.com/en-us/research/publication/veritrail-closed-domain-hallucination-detection-with-traceability/" target="_blank" rel="noreferrer noopener">VeriTrail: Closed-Domain Hallucination Detection with Traceability.</a>”</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<p><a id="_ftn1" href="#_ftnref1"><sup>1</sup><span class="sr-only"> (opens in new tab)</span></a> The term “closed-domain hallucination” was introduced by OpenAI in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noreferrer noopener">GPT-4 Technical Report<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<p><sup><a id="_ftn2" href="#_ftnref2">2</a></sup> VeriTrail is currently used for research purposes only and is not available commercially.</p>
+
+
+
+<p><sup><a id="_ftn3" href="#_ftnref3">3</a></sup> We focus on GraphRAG’s global search method.</p>
+
+
+
+<p><sup><a id="_ftn4" href="#_ftnref4">4<span class="sr-only"> (opens in new tab)</span></a></sup> In hierarchical summarization, an LM summarizes each source text chunk individually, then the resulting summaries are repeatedly grouped and summarized until a final summary is produced (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2109.10862" target="_blank" rel="noreferrer noopener">Wu et al., 2021<span class="sr-only"> (opens in new tab)</span></a>; <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2310.00785" target="_blank" rel="noreferrer noopener">Chang et al., 2023<span class="sr-only"> (opens in new tab)</span></a>).</p>
+
+
+
+<p><sup><a id="_ftn5" href="#_ftnref5">5</a></sup> The only exception was the mistral-large-2411 model, where VeriTrail had the highest balanced accuracy, but not the highest macro F1 score.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/">VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Navigating medical education in the era of generative AI</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/navigating-medical-education-in-the-era-of-generative-ai/</link>
 		
@@ -32,11 +549,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/navigating-medical-education-in-the-era-of-generative-ai/">Navigating medical education in the era of generative AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution | Illustrated headshots of Daniel Chen, Peter Lee, and Dr. Morgan Cheatham" class="wp-image-1145642" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="AI Revolution | Illustrated headshots of Daniel Chen, Peter Lee, and Dr. Morgan Cheatham" class="wp-image-1145642" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Episode9-PeterMorganDaniel-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=147270100&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=147270100&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1479,7 +1996,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="960" height="540" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1.jpg" alt="photo of Xinxing Xu standing against a gray background" class="wp-image-1145600" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-640x360.jpg 640w" sizes="(max-width: 960px) 100vw, 960px" /><figcaption class="wp-element-caption">Xinxing Xu, Principal Researcher, Microsoft Research Asia – Singapore</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="960" height="540" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1.jpg" alt="photo of Xinxing Xu standing against a gray background" class="wp-image-1145600" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-640x360.jpg 640w" sizes="auto, (max-width: 960px) 100vw, 960px" /><figcaption class="wp-element-caption">Xinxing Xu, Principal Researcher, Microsoft Research Asia – Singapore</figcaption></figure>
 
 
 
@@ -1503,30 +2020,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1837,7 +2354,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1846,20 +2363,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -2384,30 +2901,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -5591,739 +6108,6 @@
 <div class="wp-block-button is-style-outline is-style-outline--10"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-pharmaceuticals-and-medical-devices/">AI Testing and Evaluation: Learnings from pharmaceuticals and medical devices</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>AI Testing and Evaluation: Learnings from genome editing</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-genome-editing/</link>
-		
-		<dc:creator><![CDATA[Kathleen Sullivan, Alta Charo, Daniel Kluttz]]></dc:creator>
-		<pubDate>Mon, 30 Jun 2025 16:00:17 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1142130</guid>
-
-					<description><![CDATA[<p>Bioethics and law expert R. Alta Charo explores the value of regulating technologies at the application level and the role of coordinated oversight in genome editing, while Microsoft GM Daniel Kluttz reflects on Charo’s points, drawing parallels to AI governance.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-genome-editing/">AI Testing and Evaluation: Learnings from genome editing</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788.jpg" alt="illustration of R. Alta Charo, Kathleen Sullivan, and Daniel Kluttz for the Microsoft Research Podcast" class="wp-image-1142157" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP1-AI-TE_Hero_Feature_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=146599312&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Generative AI presents a unique challenge and opportunity to reexamine governance practices for the responsible development, deployment, and use of AI. To advance thinking in this space, Microsoft has tapped into the experience and knowledge of experts across domains—from genome editing to cybersecurity—to investigate the role of testing and evaluation as a governance tool. <em><a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation: Learnings from Science and Industry</a>, </em>hosted by Microsoft Research’s <a href="https://www.microsoft.com/en-us/research/people/kasull/">Kathleen Sullivan</a>, explores what the technology industry and policymakers can learn from these fields and how that might help shape the course of AI development.</p>
-
-
-
-<p>In this episode, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://law.wisc.edu/profiles/racharo@wisc.edu">Alta Charo<span class="sr-only"> (opens in new tab)</span></a>, emerita professor of law and bioethics at the University of Wisconsin–Madison, joins Sullivan for a conversation on the evolving landscape of genome editing and its regulatory implications. Drawing on decades of experience in biotechnology policy, Charo emphasizes the importance of distinguishing between hazards and risks and describes the field&#8217;s approach to regulating <em>applications </em>of technology rather than the technology itself. The discussion also explores opportunities and challenges in biotech’s multi-agency oversight model and the role of international coordination. Later, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://www.linkedin.com/in/daniel-kluttz/">Daniel Kluttz<span class="sr-only"> (opens in new tab)</span></a>, a partner general manager in Microsoft&#8217;s Office of Responsible AI, joins Sullivan to discuss how insights from genome editing could inform more nuanced and robust governance frameworks for emerging technologies like AI.</p>
-
-
-
-<div class="wp-block-group msr-pattern-link-list is-layout-flow wp-block-group-is-layout-flow">
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h5" id="learn-more">Learn more:</h2>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/learning-from-other-domains-to-advance-ai-evaluation-and-testing-governance-of-genome-edition-in-human-therapeutics-and-agricultural-applications/" target="_blank" rel="noreferrer noopener">Learning from other Domains to Advance AI Evaluation and Testing: Governance of Genome Edition in Human Therapeutics and Agricultural Applications</a><br>Case study | January 2025&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/blog/learning-from-other-domains-to-advance-ai-evaluation-and-testing/" target="_blank" rel="noreferrer noopener">Learning from other domains to advance AI evaluation and testing</a>&nbsp;<br>Microsoft Research Blog | June 2025&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/ai/responsible-ai?ef_id=_k_cb05d5950e4f117c457ebda628845b7f_k_&OCID=AIDcmm1o1fzy5i_SEM__k_cb05d5950e4f117c457ebda628845b7f_k_&msclkid=cb05d5950e4f117c457ebda628845b7f" target="_blank" rel="noreferrer noopener">Responsible AI: Ethical policies and practices | Microsoft AI</a>&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/focus-area/ai-and-microsoft-research/" target="_blank" rel="noreferrer noopener">AI and Microsoft Research</a>&nbsp;</p>
-</div>
-
-
-
-<div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript-1">Transcript</h2>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>KATHLEEN SULLIVAN:</strong> Welcome to <em>AI Testing and Evaluation: Learnings from Science and Industry</em>. I&#8217;m your host, Kathleen Sullivan.</p>
-
-
-
-<p>As generative AI continues to advance, Microsoft has gathered a range of experts—from genome editing to cybersecurity—to share how their fields approach evaluation and risk assessment. Our goal is to learn from their successes and their stumbles to move the science and practice of AI testing forward. In this series, we&#8217;ll explore how these insights might help guide the future of AI development, deployment, and responsible use.</p>
-
-
-
-<p>[MUSIC ENDS]</p>
-
-
-
-<p>Today I&#8217;m excited to welcome R. Alta Charo, the Warren P. Knowles Professor Emerita of Law and Bioethics at the University of Wisconsin–Madison, to explore testing and risk assessment in genome editing.</p>
-
-
-
-<p>Professor Charo has been at the forefront of biotechnology policy and governance for decades, advising former President Obama&#8217;s transition team on issues of medical research and public health, as well as serving as a senior policy advisor at the Food and Drug Administration. She consults on gene therapy and genome editing for various companies and organizations and has held positions on a number of advisory committees, including for the National Academy of Sciences. Her committee work has spanned women&#8217;s health, stem cell research, genome editing, biosecurity, and more.</p>
-
-
-
-<p>After our conversation with Professor Charo, we&#8217;ll hear from Daniel Kluttz, a partner general manager in Microsoft&#8217;s Office of Responsible AI, about what these insights from biotech regulation could mean for AI governance and risk assessment and his team&#8217;s work governing sensitive AI uses and emerging technologies.</p>
-
-
-
-<p>Alta, thank you so much for being here today. I&#8217;m a follower of your work and have really been looking forward to our conversation.</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-11" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p><strong>ALTA CHARO:</strong> It&#8217;s my pleasure. Thanks for having me.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Alta, I&#8217;d love to begin by stepping back in time a bit before you became a leading figure in bioethics and legal policy. You&#8217;ve shared that your interest in science was really inspired by your brothers’ interest in the topic and that your upbringing really helped shape your perseverance and resilience. Can you talk to us about what put you on the path to law and policy?</p>
-
-
-
-<p><strong>CHARO:</strong> Well, I think it&#8217;s true that many of us are strongly influenced by our families and certainly my family had, kind of, a science-y, techy orientation. My father was a refugee, you know, escaping the Nazis, and when he finally was able to start working in the United States, he took advantage of the G.I. Bill to learn how to repair televisions and radios, which were really just coming in in the 1950s. So he was, kind of, technically oriented.</p>
-
-
-
-<p>My mother retrained from being a talented amateur artist to becoming a math teacher, and not surprisingly, both my brothers began to aim toward things like engineering and chemistry and physics. And our form of entertainment was to watch PBS or <em>Star Trek</em>. [LAUGHTER]</p>
-
-
-
-<p>And so the interest comes from that background coupled with, in the 1960s, this enormous surge of interest in the so-called nature-versus-nurture debate about the degree to which we are destined by our biology or shaped by our environments. It was a heady debate, and one that perfectly combined the two interests in politics and science.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> For listeners who are brand new to your field in genomic editing, can you give us what I&#8217;ll call a “90-second survey” of the space in perhaps plain language and why it&#8217;s important to have a framework for ensuring its responsible use.</p>
-
-
-
-<p><strong>CHARO:</strong> Well, you know, genome editing is both very old and very new. At base, what we&#8217;re talking about is a way to either delete sections of the <em>genome</em>, our collection of genes, or to add things or to alter what&#8217;s there. The goal is simply to be able to take what might not be healthy and make it healthy, whether it&#8217;s a plant, an animal, or a human.</p>
-
-
-
-<p>Many people have compared it to a word processor, where you can edit text by swapping things in and out. You could change the letter <em>g</em> to the letter <em>h</em> in every word, and in our genomes, you can do similar kinds of things.</p>
-
-
-
-<p>But because of this, we have a responsibility to make sure that whatever we change doesn&#8217;t become dangerous and that it doesn&#8217;t become socially disruptive. Now the earliest forms of genome editing were very inefficient, and so we didn&#8217;t worry that much. But with the advances that were spearheaded by people like Jennifer Doudna and Emmanuelle Charpentier, who won the Nobel Prize for their work in this area, genome editing has become much easier to do.</p>
-
-
-
-<p>It&#8217;s become more efficient. It doesn&#8217;t require as much sophisticated laboratory equipment. It&#8217;s moved from being something that only a few people can do to something that we&#8217;re going to be seeing in our junior high school biology labs. And that means you have to pay attention to who&#8217;s doing it, why are they doing it, what are they releasing, if anything, into the environment, what are they trying to sell, and is it honest and is it safe?</p>
-
-
-
-<p><strong>SULLIVAN:</strong> How would you describe the risks, and are there, you know, sort of, specifically inherent risks in the technology itself, or do those risks really emerge only when it&#8217;s applied in certain contexts, like CRISPR in agriculture or CRISPR for human therapies?</p>
-
-
-
-<p><strong>CHARO:</strong> Well, to answer that, I&#8217;m going to do something that may seem a little picky, even pedantic. [LAUGHTER] But I&#8217;m going to distinguish between hazards and risks. So there are certain intrinsic hazards. That is, there are things that can go wrong.</p>
-
-
-
-<p>You want to change one particular gene or one particular portion of a gene, and you might accidentally change something else, a so-called <em>off-target effect</em>. Or you might change something in a gene expecting a certain effect but not necessarily anticipating that there&#8217;s going to be an interaction between what you changed and what was there, a <em>gene-gene interaction</em>, that might have an unanticipated kind of result, a side effect essentially.</p>
-
-
-
-<p>So there are some intrinsic hazards, but risk is a hazard coupled with the probability that it&#8217;s going to actually create something harmful. And that really depends upon the application.</p>
-
-
-
-<p>If you are doing something that is making a change in a human being that is going to be a lifelong change, that enhances the significance of that hazard. It amplifies what I call the risk because if something goes wrong, then its consequences are greater.</p>
-
-
-
-<p>It may also be that in other settings, what you&#8217;re doing is going to have a much lower risk because you&#8217;re working with a more familiar substance, your predictive power is much greater, and it&#8217;s not going into a human or an animal or into the environment. So I think that you have to say that the risk <em>and</em> the benefits, by the way, all are going to depend upon the particular application.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah, I think on this point of application, there&#8217;s many players involved in that, right. Like, we often hear about this puzzle of who&#8217;s actually responsible for ensuring safety and a reasonable balance between risks and benefits or hazards and benefits, to quote you. Is it the scientists, the biotech companies, government agencies? And then if you could touch upon, as well, maybe how does the nature of genome editing risks … how do those responsibilities get divvied up?</p>
-
-
-
-<p><strong>CHARO:</strong> Well, in the 1980s, we had a very significant policy discussion about whether we should regulate the technology—no matter how it&#8217;s used or for whatever purpose—or if we should simply fold the technology in with all the other technologies that we currently have and regulate its applications the way we regulate applications generally. And we went for the second, the so-called <em>coordinated framework</em>.</p>
-
-
-
-<p>So what we have in the United States is a system in which if you use genome editing in purely laboratory-based work, then you will be regulated the way we regulate laboratories.</p>
-
-
-
-<p>There&#8217;s also, at most universities because of the way the government works with this, something called Institutional Biosafety Committees, <em>IBCs</em>. You want to do research that involves recombinant DNA and modern biotechnology, <em>including</em> genome editing but not limited to it, you have to go first to your IBC, and they look and see what you&#8217;re doing to decide if there&#8217;s a danger there that you have not anticipated that requires special attention.</p>
-
-
-
-<p>If what you&#8217;re doing is going to get released into the environment or it&#8217;s going to be used to change an animal that&#8217;s going to be in the environment, then there are agencies that oversee the safety of our environment, predominantly the Environmental Protection Agency and the U.S. Department of Agriculture.</p>
-
-
-
-<p>If you&#8217;re working with humans and you&#8217;re doing medical therapies, like you&#8217;re doing the gene therapies that just have been developed for things like sickle cell anemia, then you have to go through a very elaborate regulatory process that&#8217;s overseen by the Food and Drug Administration and also seen locally at the research stages overseen by institutional review boards that make sure the people who are being recruited into research understand what they&#8217;re getting into, that they&#8217;re the right people to be recruited, etc.</p>
-
-
-
-<p>So we do have this kind of Jenga game …</p>
-
-
-
-<p><strong>SULLIVAN:</strong> [LAUGHS] Yeah, sounds like it.</p>
-
-
-
-<p><strong>CHARO:</strong> … of regulatory agencies. And on top of all that, most of this involves professionals who&#8217;ve had to be licensed in some way. There may be state laws specifically on licensing. If you are dealing with things that might cross national borders, there may be international treaties and agreements that cover this.</p>
-
-
-
-<p>And, of course, the insurance industry plays a big part because they decide whether or not what you&#8217;re doing is safe enough to be insured. So all of these things come together in a way that is not at all easy to understand if you&#8217;re not, kind of, working in the field. But the bottom-line thing to remember, the way to really think about it is, we don&#8217;t regulate genome editing; we regulate the things that use genome editing.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah, that makes a lot of sense. Actually, maybe just following up a little bit on this notion of a variety of different, particularly like government agencies being involved. You know, in this multi-stakeholder model, where do you see gaps today that need to be filled, some of the pros and cons to keep in mind, and, you know, just as we think about distributing these systems at a global level, like, what are some of the considerations you are keeping in mind on that front?</p>
-
-
-
-<p><strong>CHARO:</strong> Well, certainly there are times where the way the statutes were written that govern the regulation of drugs or the regulation of foods did not anticipate this tremendous capacity we now have in the area of biotechnology generally or genome editing in particular. And so you can find that there are times where it feels a little bit ambiguous, and the agencies have to figure out how to apply their existing rules.</p>
-
-
-
-<p>So an example. If you&#8217;re going to make alterations in an animal, right, we have a system for regulating drugs, including veterinary drugs. But we didn&#8217;t have something that regulated genome editing of animals. But in a sense, genome editing of an animal is the same thing as using a veterinary drug. You&#8217;re trying to affect the animal&#8217;s physical constitution in some fashion.</p>
-
-
-
-<p>And it took a long time within the FDA to, sort of, work out how the regulation of veterinary drugs would apply if you think about the genetic construct that&#8217;s being used to alter the animal as the same thing as injecting a chemically based drug. And on that basis, they now know here&#8217;s the regulatory path—here are the tests you have to do; here are the permissions you have to do; here&#8217;s the surveillance you have to do after it goes on the market.</p>
-
-
-
-<p>Even there, sometimes, it was confusing. What happens when it&#8217;s not the kind of animal you&#8217;re thinking about when you think about animal drugs? Like, we think about pigs and dogs, but what about mosquitoes?</p>
-
-
-
-<p>Because there, you&#8217;re really thinking more about pests, and if you&#8217;re editing the mosquito so that it can&#8217;t, for example, transmit dengue fever, right, it feels more like a public health thing than it is a drug for the mosquito itself, and it, kind of, fell in between the agencies that possibly had jurisdiction. And it took a while for the USDA, the Department of Agriculture, and the Food and Drug Administration to work out an agreement about how they would share this responsibility. So you do get those kinds of areas in which you have at least ambiguity.</p>
-
-
-
-<p>We also have situations where frankly the fact that some things can move across national borders means you have to have a system for harmonizing or coordinating national rules. If you want to, for example, genetically engineer mosquitoes that can&#8217;t transmit dengue, mosquitoes have a tendency to fly. [LAUGHTER] And so &#8230; they can&#8217;t fly very far. That&#8217;s good. That actually makes it easier to control.</p>
-
-
-
-<p>But if you&#8217;re doing work that&#8217;s right near a border, then you have to be sure that the country next to you has the same rules for whether it&#8217;s permitted to do this and how to surveil what you&#8217;ve done in order to be sure that you got the results you wanted to get and no other results. And that also is an area where we have a lot of work to be done in terms of coordinating across government borders and harmonizing our rules.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah, I mean, you&#8217;ve touched on this a little bit, but there is such this striking balance between advancing technology, ensuring public safety, and sometimes, I think it feels just like you&#8217;re walking a tightrope where, you know, if we clamp down too hard, we&#8217;ll stifle innovation, and if we&#8217;re too lax, we risk some of these unintended consequences. And on a global scale like you just mentioned, as well. How has the field of genome editing found its balance?</p>
-
-
-
-<p><strong>CHARO:</strong> It&#8217;s still being worked out, frankly, but it&#8217;s finding its balance application by application. So in the United States, we have two very different approaches on regulation of things that are going to go into the market.</p>
-
-
-
-<p>Some things can&#8217;t be marketed until they&#8217;ve gotten an approval from the government. So you come up with a new drug, you can&#8217;t sell that until it&#8217;s gone through FDA approval.</p>
-
-
-
-<p>On the other hand, for most foods that are made up of familiar kinds of things, you can go on the market, and it&#8217;s only after they&#8217;re on the market that the FDA can act to withdraw it if a problem arises. So basically, we have either <em>pre</em>-market controls: you can&#8217;t go on without permission. Or <em>post</em>-market controls: we can take you off the market <em>if</em> a problem occurs.</p>
-
-
-
-<p>How do we decide which one is appropriate for a particular application? It&#8217;s based on our experience. New drugs typically are both less familiar than existing things on the market and also have a higher potential for injury if they, in fact, are not effective or they are, in fact, dangerous and toxic.</p>
-
-
-
-<p>If you have foods, even bioengineered foods, that are basically the same as foods that are already here, it can go on the market with notice but without a prior approval. But if you create something truly novel, then it has to go through a whole long process.</p>
-
-
-
-<p>And so that is the way that we make this balance. We look at the application area. And we&#8217;re just now seeing in the Department of Agriculture a new approach on some of the animal editing, again, to try and distinguish between things that are simply a more efficient way to make a familiar kind of animal variant and those things that are genuinely novel and to have a regulatory process that is more rigid the more unfamiliar it is and the more that we see a risk associated with it.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> I know we&#8217;re at the end of our time here and maybe just a quick kind of lightning-round of a question. For students, young scientists, lawyers, or maybe even entrepreneurs listening who are inspired by your work, what&#8217;s the single piece of advice you give them if they&#8217;re interested in policy, regulation, the ethical side of things in genomics or other fields?</p>
-
-
-
-<p><strong>CHARO:</strong> I&#8217;d say be a bio-optimist and read a lot of science fiction. Because it expands your imagination about what the world could be like. Is it going to be a world in which we&#8217;re now going to be growing our buildings instead of building them out of concrete?</p>
-
-
-
-<p>Is it going to be a world in which our plants will glow in the evening so we don&#8217;t need to be using batteries or electrical power from other sources but instead our environment is adapting to our needs?</p>
-
-
-
-<p>You know, expand your imagination with a sense of optimism about what could be and see ethics and regulation not as an obstacle but as a partner to bringing these things to fruition in a way that&#8217;s responsible and helpful to everyone.</p>
-
-
-
-<p>[TRANSITION MUSIC]</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Wonderful. Well, Alta, this has been just an absolute pleasure. So thank you.</p>
-
-
-
-<p><strong>CHARO:</strong> It was my pleasure. Thank you for having me.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Now, I&#8217;m happy to bring in Daniel Kluttz. As a partner general manager in Microsoft&#8217;s Office of Responsible AI, Daniel leads the group’s Sensitive Uses and Emerging Technologies program.</p>
-
-
-
-<p>Daniel, it&#8217;s great to have you here. Thanks for coming in.</p>
-
-
-
-<p><strong>DANIEL KLUTTZ:</strong> It&#8217;s great to be here, Kathleen.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah. So maybe before we unpack Alta Charo’s insights, I&#8217;d love to just understand the elevator pitch here. What exactly is [the] Sensitive Uses and Emerging Tech program, and what was the impetus for establishing it?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Yeah. So the Sensitive Uses and Emerging Technologies program sits within our Office of Responsible AI at Microsoft. And inherent in the name, there are two real core functions. There&#8217;s the sensitive uses and emerging technologies. What does that mean?</p>
-
-
-
-<p>Sensitive uses, think of that as Microsoft&#8217;s internal consulting and oversight function for our higher-risk, most impactful AI system deployments. And so my team is a team of multidisciplinary experts who engages in sort of a white-glove-treatment sort of way with product teams at Microsoft that are designing, building, and deploying these higher-risk AI systems, and where that sort of consulting journey culminates is in a set of bespoke requirements tailored to the use case of that given system that really implement and apply our more standardized, generalized requirements that apply across the board.</p>
-
-
-
-<p>Then the emerging technologies function of my team faces a little bit further out, trying to look around corners to see what new and novel and emerging risks are coming out of new AI technologies with the idea that we work with our researchers, our engineering partners, and, of course, product leaders across the company to understand where Microsoft is going with those emerging technologies, and we&#8217;re developing sort of rapid, quick-fire early-steer guidance that implements our policies ahead of that formal internal policymaking process, which can take a bit of time. So it&#8217;s designed to, sort of, both afford that innovation speed that we like to optimize for at Microsoft but also integrate our responsible AI commitments and our AI principles into emerging product development.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> That segues really nicely, actually, as we met with Professor Charo and she was, you know, talking about the field of genome editing and the governing at the application level. I&#8217;d love to just understand how similar or not is that to managing the risks of AI in our world?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Yeah. I mean, Professor Charo’s comments were music to my ears because, you know, where we make our bread and butter, so to speak, in our team is in applying to use cases. AI systems, especially in this era of generative AI, are almost inherently multi-use, dual use. And so what really matters is how you&#8217;re going to apply that more general-purpose technology. Who&#8217;s going to use it? In what domain is it going to be deployed? And then tailor that oversight to those use cases. Try to be risk proportionate.</p>
-
-
-
-<p>Professor Charo talked a little bit about this, but if it&#8217;s something that&#8217;s been done before and it&#8217;s just a new spin on an old thing, maybe we&#8217;re not so concerned about how closely we need to oversee and gate that application of that technology, whereas if it&#8217;s something new and novel or some new risk that might be posed by that technology, we take a little bit closer look and we are overseeing that in a more sort of high-touch way.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Maybe following up on that, I mean, how do you define sensitive use or maybe like high-impact application, and once that&#8217;s labeled, what happens? Like, what kind of steps kick in from there?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Yeah. So we have this Sensitive Uses program that&#8217;s been at Microsoft since 2019. I came to Microsoft in 2019 when we were starting this program in the Office of Responsible AI, and it had actually been incubated in Microsoft Research with our Aether community of colleagues who are experts in sociotechnical approaches to responsible AI, as well. Once we put it in the Office of Responsible AI, I came over. I came from academia. I was a researcher myself …</p>
-
-
-
-<p><strong>SULLIVAN:</strong> At Berkeley, right?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> At Berkeley. That&#8217;s right. Yep. Sociologist by training and a lawyer in a past life. [LAUGHTER] But that has helped sort of bridge those fields for me.</p>
-
-
-
-<p>But Sensitive Uses, we force all of our teams when they&#8217;re envisioning their system design to think about, could the reasonably foreseeable use or <em>misuse</em> of the system that they&#8217;re developing in practice result in three really major, sort of, risk types. One is, could that deployment result in a consequential impact on someone&#8217;s legal position or life opportunity? Another category we have is, could that foreseeable use or misuse result in significant psychological or physical injury or harm? And then the third really ties in with a longstanding commitment we&#8217;ve had to human rights at Microsoft. And so could that system in it&#8217;s reasonably foreseeable use or misuse result in human rights impacts and injurious consequences to folks along different dimensions of human rights? </p>
-
-
-
-<p>Once you decide, we have a process to reporting that project into my office, and we will triage that project, working with the product team, for example, and our Responsible AI Champs community, which are folks who are dispersed throughout the ecosystem at Microsoft and educated in our responsible AI program, and then determine, OK, is it in scope for our program? If it is, say, OK, we&#8217;re going to go along for that ride with you, and then we get into that whole sort of consulting arrangement that then culminates in this set of bespoke use-case-based requirements applying our AI principles.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> That&#8217;s super fascinating. What are some of the approaches in the governance of genome editing are you maybe seeing happening in AI governance or maybe just, like, bubbling up in conversations around it?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Yeah, I mean, I think we&#8217;ve learned a lot from fields like genome editing that Professor Charo talked about and others. And again, it gets back to this, sort of, risk-proportionate-based approach. It&#8217;s a balancing test. It&#8217;s a tradeoff of trying to, sort of, foster innovation and really look for the beneficial uses of these technologies. I appreciated her speaking about that. What are the intended uses of the system, right? And then getting to, OK, how do we balance trying to, again, foster that innovation in a very fast-moving space, a pretty complex space, and a very unsettled space contrasting to other, sort of, professional fields or technological fields that have a long history and are relatively settled from an oversight and regulatory standpoint? This one is <em>not</em>, and for good reason. It is still developing.</p>
-
-
-
-<p>And I think, you know, there are certain oversight and policy regimes that exist today that can be applied. Professor Charo talked about this, as well, where, you know, maybe you have certain policy and oversight regimes that, depending on how the application of that technology is applied, applies there versus some horizontal, overarching regulatory sort of framework. And I think that applies from an internal governance standpoint, as well.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah. It&#8217;s a great point. So what isn&#8217;t being explored from genome editing that, you know, maybe we think could be useful to AI governance, or as we think about the evolving frameworks …</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Yeah.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> … what maybe we should be taking into account from what Professor Charo shared with us?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> So one of the things I&#8217;ve thought about and took from Professor Charo’s discussion was she had just this amazing way of framing up how genome editing regulation is done. And she said, you know, we don&#8217;t regulate genome editing; we regulate the things that <em>use</em> genome editing. And while it&#8217;s not a one-to-one analogy with the AI space because we do have this sort of very general model level distinction versus application layer and even platform layer distinctions, I think it&#8217;s fair to say, you know, we don&#8217;t regulate AI applications writ large. We regulate the things that use AI in a very similar way. And that&#8217;s how we think of our internal policy and oversight process at Microsoft, as well.</p>
-
-
-
-<p>And maybe there are things that we regulated and oversaw internally at the first instance and the first time we saw it come through, and it graduates into more of a programmatic framework for how we manage that. So one good example of that is some of our higher-risk AI systems that we offer out of Azure at the platform level. When I say that, I mean APIs that you call that developers can then build their own applications on top of. We were really deep in evaluating and assessing mitigations on those platform systems in the first instance, but we also graduated them into what we call our Limited Access AI services program.</p>
-
-
-
-<p>And some of the things that Professor Charo discussed really resonated with me. You know, she had this moment where she was mentioning how, you know, you want to know who&#8217;s using your tools and how they&#8217;re being used. And it&#8217;s the same concepts. We want to have trust in our customers, we want to understand their use cases, and we want to apply technical controls that, sort of, force those use cases or give us signal post-deployment that use cases are being done in a way that may give us some level of concern, to reach out and understand what those use cases are.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah, you&#8217;re hitting on a great point. And I love this kind of layered approach that we&#8217;re taking and that Alta highlighted, as well. Maybe to double-click a little bit just on that post-market control and what we&#8217;re tracking, kind of, once things are out and being used by our customers. How do we take some of that deployment data and bring it back in to maybe even better inform upfront governance or just how we think about some of the frameworks that we&#8217;re operating in?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> It&#8217;s a great question. The number one thing is for us at Microsoft, we want to know the voice of our customer. We want our customers to talk to us. We don&#8217;t want to just understand telemetry and data. But it&#8217;s really getting out there and understanding from our customers and not <em>just</em> our customers. I would say our <em>stakeholders</em> is maybe a better term because that includes civil society organizations. It includes governments. It includes all of these non, sort of, customer actors that we care about and that we&#8217;re trying to sort of optimize for, as well. It includes end users of our enterprise customers. If we can gather data about how our products are being used and trying to understand maybe areas that we didn&#8217;t foresee how customers or users might be using those things, and then we can tune those systems to better align with what both customers and users want but also our own AI principles and policies and programs.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Daniel, before coming to Microsoft, you led social science research and sociotechnical applications of AI-driven tech at Berkeley. What do you think some of the biggest challenges are in defining and maybe even just, kind of, measuring at, like, a societal level some of the impacts of AI more broadly?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Measuring social phenomenon is a difficult thing. And one of the things that, as social scientists, you&#8217;re very interested in is scientifically observing and measuring social phenomena. Well, that sounds great. It sounds also very high level and jargony. What do we mean by that? You know, it&#8217;s very easy to say that you&#8217;re collecting data and you&#8217;re measuring, I don&#8217;t know, trust in AI, right? That&#8217;s a very fuzzy concept.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Right. Definitely.</p>
-
-
-
-<p><strong>KLUTTZ:</strong> It is a concept that we want to get to, but we have to unpack that, and we have to develop what we call <em>measurable constructs</em>. What are the things that we might observe that could give us an indication toward what is a very fuzzy and general concept. And there&#8217;s challenges with that everywhere. And I&#8217;m extremely fortunate to work at Microsoft with some of the world&#8217;s leading sociotechnical researchers and some of these folks who are thinking about—you know, very steeped in measurement theory, literally PhDs in these fields—how to both measure <em>and</em> allow for a scalable way to do that at a place the size of Microsoft. And that is trying to develop frameworks that are scalable and repeatable and put into our platform that then serves our product teams. Are we providing, as a platform, a service to those product teams that they can plug in and do their automated evaluations at scale as much as possible and then go back in over the top and do some of your more qualitative targeted testing and evaluations.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah, makes a lot of sense. Before we close out, if you&#8217;re game for it, maybe we do a quick lightning round. Just 30-second answers here. Favorite real-world sensitive use case you&#8217;ve ever reviewed.</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Oh gosh. Wow, this is where I get to be the social scientist.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> [LAUGHS] Yes.</p>
-
-
-
-<p><strong>KLUTTZ: </strong>It’s like, define <em>favorite</em>, Kathleen. [LAUGHS] Most <em>memorable</em>, most <em>painful</em>.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Let&#8217;s do most memorable.</p>
-
-
-
-<p><strong>KLUTTZ:</strong> We’ll do most memorable.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah.</p>
-
-
-
-<p><strong>KLUTTZ:</strong> You know, I would say the most memorable project I worked on was when we rolled out the new Bing Chat, which is no longer called Bing Chat, because that was the first really big cross-company effort to deploy GPT-4, which was, you know, the next step up in AI innovation from our partners at OpenAI. And I really value working hand in hand with engineering teams and with researchers and that was us at our best and really sort of turbocharged the model that we have.<s></s></p>
-
-
-
-<p><strong>SULLIVAN:</strong> Wonderful. What&#8217;s one of the most overused phrases that you have in your AI governance meetings?</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Gosh. [LAUGHS] If I hear “We need to get aligned; we need to align on this more” …</p>
-
-
-
-<p><strong>SULLIVAN:</strong> [LAUGHS] Right.</p>
-
-
-
-<p><strong>KLUTTZ:</strong> But, you know, it&#8217;s said for a reason. And I think it sort of speaks to that clever nature. That&#8217;s one that comes to mind.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> That&#8217;s great. And then maybe, maybe last one. What are you most excited about in the next, I don&#8217;t know, let&#8217;s say three months? This world is moving so fast!</p>
-
-
-
-<p><strong>KLUTTZ:</strong> You know, the pace of innovation, as you just said, is just staggering. It is unbelievable. And sometimes it can feel overwhelming in my space. But what I am most excited about is how we are building up this Emerging … I mentioned this Emerging Technologies program in my team as a, sort of, formal program is relatively new. And I really enjoy being able to take a step back and think a little bit more about the future and a little bit more holistically. And I love working with engineering teams and sort of strategic visionaries who are thinking about what we&#8217;re doing a year from now or five years from now, or even 10 years from now, and I get to be a part of those conversations. And that really gives me energy and helps me … helps keep me grounded and not just dealing with the day to day, and, you know, various fire drills that you may run. It&#8217;s thinking strategically and having that foresight about what&#8217;s to come. And it&#8217;s exciting.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Great. Well, Daniel, just thanks so much for being here. I had such a wonderful discussion with you, and I think the thoughtfulness in our discussion today I hope resonates with our listeners. And again, thanks to Alta for setting the stage and sharing her really amazing, insightful thoughts here, as well. So thank you.</p>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>KLUTTZ:</strong> Thank you, Kathleen. I appreciate it. It&#8217;s been fun.</p>
-
-
-
-<p><strong>SULLIVAN: </strong>And to our listeners, thanks for tuning in. You can find resources related to this podcast in the show notes. And if you want to learn more about how Microsoft approaches AI governance, you can visit microsoft.com/RAI.</p>
-
-
-
-<p>See you next time!&nbsp;</p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-11"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--12"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation podcast series</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-genome-editing/">AI Testing and Evaluation: Learnings from genome editing</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>PadChest-GR: A bilingual grounded radiology reporting benchmark for chest X-rays</title>
-		<link>https://www.microsoft.com/en-us/research/blog/padchest-gr-a-bilingual-grounded-radiology-reporting-benchmark-for-chest-x-rays/</link>
-		
-		<dc:creator><![CDATA[Daniel Coelho de Castro, Javier Alvarez-Valle]]></dc:creator>
-		<pubDate>Thu, 26 Jun 2025 16:08:25 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1142540</guid>
-
-					<description><![CDATA[<p>The world’s first multimodal, bilingual radiology dataset could reshape the way radiologists and AI systems make sense of X-rays. PadChest-GR, developed by the University of Alicante with Microsoft Research, has the potential to advance research across the field for years to come.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/padchest-gr-a-bilingual-grounded-radiology-reporting-benchmark-for-chest-x-rays/">PadChest-GR: A bilingual grounded radiology reporting benchmark for chest X-rays</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: The image features three white icons on a gradient background transitioning from blue on the left to green on the right. The first icon, located on the left, resembles an X-ray of a ribcage enclosed in a square with rounded corners. The middle icon depicts a hierarchical structure with one circle at the top connected by lines to two smaller circles below it. The third icon, positioned on the right, shows the letters "N" and "A" separated by a diagonal line, with a tilde (~) above the "N"." class="wp-image-1142658" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/PadChest-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>In our ever-evolving journey to enhance healthcare through technology, we’re announcing a unique new benchmark for grounded radiology report generation—<strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIdbp2401120" target="_blank" rel="noreferrer noopener">PadChest-GR<span class="sr-only"> (opens in new tab)</span></a></strong>. The world’s first multimodal, bilingual sentence-level radiology report dataset, developed&nbsp;by the University of Alicante with Microsoft Research, University Hospital Sant Joan d’Alacant and MedBravo, is set to redefine how AI and radiologists interpret radiological images. Our work demonstrates how collaboration between humans and AI can create powerful feedback loops—where new datasets drive better AI models, and those models, in turn, inspire richer datasets. We&#8217;re excited to share this progress in NEJM AI, highlighting both the clinical relevance and research excellence of this initiative.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="a-new-frontier-in-radiology-report-generation">A new frontier in radiology report generation&nbsp;</h2>
-
-
-
-<p>It is estimated that over half of people visiting hospitals have radiology scans that must be interpreted by a clinical professional. Traditional radiology reports often condense multiple findings into unstructured narratives. In contrast, grounded radiology reporting demands that each finding be described and localized individually.</p>
-
-
-
-<p>This can mitigate the risk of AI fabrications and enable new interactive capabilities that enhance clinical and patient interpretability. PadChest-GR is the first bilingual dataset to address this need with 4,555 chest X-ray studies complete with Spanish and English sentence-level descriptions and precise spatial (bounding box) annotations for both positive and negative findings. It is the first public benchmark that enables us to evaluate generation of fully grounded radiology reports in chest X-rays.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1516" height="781" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example.png" alt="Figure 1: A chest X-ray overlaid with numbered bounding boxes, next to a matching list of structured radiological findings in Spanish and English. " class="wp-image-1142582" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example.png 1516w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-300x155.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-1024x528.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-768x396.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/grounded_report_example-240x124.png 240w" sizes="auto, (max-width: 1516px) 100vw, 1516px" /><figcaption class="wp-element-caption">Figure 1. Example of a grounded report from PadChest-GR. The original free-text report in Spanish was <em>”Motivo de consulta: Preoperatorio. Rx PA tórax: Impresión diagnóstica: Ateromatosis aórtica calcificada. Engrosamiento pleural biapical. Atelectasia laminar basal izquierda. Elongación aórtica. Sin otros hallazgos radiológicos significativos.”</em></figcaption></figure>
-
-
-
-<p>This benchmark isn’t standing alone—it plays a critical role in powering our state-of-the-art multimodal report generation model, <strong>MAIRA-2</strong>. Leveraging the detailed annotations of PadChest-GR, MAIRA-2 represents our commitment to building more interpretable and clinically useful AI systems. You can explore our work on MAIRA-2 on our <a href="https://www.microsoft.com/en-us/research/project/project-maira/">project web page</a>, including recent user research conducted with <a href="https://www.microsoft.com/en-us/research/publication/multimodal-healthcare-ai-identifying-and-designing-clinically-relevant-vision-language-applications-for-radiology/" target="_blank" rel="noreferrer noopener">clinicians in healthcare settings</a>.</p>
-
-
-
-<p>PadChest-GR is a testament to the power of collaboration. Aurelia Bustos at MedBravo and Antonio Pertusa at the University of Alicante published the original&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://bimcv.cipf.es/bimcv-projects/padchest/" target="_blank" rel="noreferrer noopener">PadChest dataset<span class="sr-only"> (opens in new tab)</span></a> in 2020,&nbsp;with the help of Jose María Salinas from Hospital San Juan de Alicante and María de la Iglesia Vayá from the Center of Excellence in Biomedical Imaging at the Ministry of Health in Valencia, Spain. We started to look at PadChest and were deeply impressed by the scale, depth, and diversity of the data.</p>
-
-
-
-<p>As we worked more closely with the dataset, we realized the opportunity to develop this for grounded radiology reporting research and worked with the team at the University of Alicante to determine how to approach this together. Our complementary expertise was a nice fit. At Microsoft Research, our mission is to push the boundaries of medical AI through innovative, data-driven solutions. The University of Alicante, with its deep clinical expertise, provided critical insights that greatly enriched the dataset’s relevance and utility. The result of this collaboration is the PadChest-GR dataset.</p>
-
-
-
-<p>A significant enabler of our annotation process was <strong>Centaur Labs</strong>. The team of senior and junior radiologists from the University Hospital Sant Joan d’Alacant, coordinated by Joaquin Galant,&nbsp;used this HIPAA-compliant labeling platform to&nbsp;perform rigorous study-level quality control and bounding box annotations. The annotation protocol implemented ensured that each annotation was accurate and consistent, forming the backbone of a dataset designed for the next generation of grounded radiology report generation models.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="accelerating-padchest-gr-dataset-annotation-with-ai">Accelerating PadChest-GR dataset annotation with AI&nbsp;</h2>
-
-
-
-<p>Our approach integrates advanced large language models with comprehensive manual annotation:&nbsp;</p>
-
-
-
-<p><strong>Data Selection & Processing:</strong> Leveraging <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" target="_blank" rel="noreferrer noopener">Microsoft Azure OpenAI Service<span class="sr-only"> (opens in new tab)</span></a> with GPT-4, we extracted sentences describing individual positive and negative findings from raw radiology reports, translated them from Spanish to English, and linked each sentence to the existing expert labels from PadChest. This was done for a selected subset of the full PadChest dataset, carefully curated to reflect a realistic distribution of clinically relevant findings.&nbsp;</p>
-
-
-
-<p><strong>Manual Quality Control & Annotation:</strong> The processed studies underwent meticulous quality checks on the Centaur Labs platform by radiologist from Hospital San Juan de Alicante. Each positive finding was then annotated with bounding boxes to capture critical spatial information.&nbsp;</p>
-
-
-
-<p><strong>Standardization & Integration:</strong> All annotations were harmonized into coherent grounded reports, preserving the structure and context of the original findings while enhancing interpretability.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1752" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow.png" alt="Figure 2: A detailed block diagram illustrating the flow of data between various stages of AI processing and manual annotation. " class="wp-image-1142586" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow.png 1752w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-300x135.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-1024x462.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-768x346.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-1536x693.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/dataflow-240x108.png 240w" sizes="auto, (max-width: 1752px) 100vw, 1752px" /><figcaption class="wp-element-caption">Figure 2. Overview of the data curation pipeline.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="impact-and-future-directions">Impact and future directions&nbsp;</h2>
-
-
-
-<p>PadChest-GR not only sets a new benchmark for grounded radiology reporting, but also serves as the foundation for our MAIRA-2 model, which already showcases the potential of highly interpretable <a href="https://www.microsoft.com/en-us/industry/blog/healthcare/2025/05/19/developing-next-generation-cancer-care-management-with-multi-agent-orchestration/" target="_blank" rel="noreferrer noopener">AI in clinical settings</a>. While we developed PadChest-GR to help train and validate our own models, we believe the research community will greatly benefit from this dataset for many years to come. We look forward to seeing the broader research community build on this—improving grounded reporting AI models and using PadChest-GR as a standard for evaluation. We believe that by fostering open collaboration and sharing our resources, we can accelerate progress in medical imaging AI and ultimately improve patient care together with the community.</p>
-
-
-
-<p>The collaboration between Microsoft Research and the University of Alicante highlights the transformative power of working together across disciplines. With our publication in NEJM-AI and the integral role of PadChest-GR in the development of <a href="https://www.microsoft.com/en-us/research/publication/maira-2-grounded-radiology-report-generation/" target="_blank" rel="noreferrer noopener">MAIRA-2<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/radfact" target="_blank" rel="noreferrer noopener">RadFact<span class="sr-only"> (opens in new tab)</span></a>, we are excited about the future of AI-empowered radiology. We invite researchers and industry experts to explore PadChest-GR and MAIRA-2, contribute innovative ideas, and join us in advancing the field of grounded radiology reporting.&nbsp;</p>
-
-
-
-<p>Papers already using PadChest-GR:</p>
-
-
-
-<ul class="wp-block-list">
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Farxiv.org%2Fabs%2F2406.04449&data=05%7C02%7Cv-ammelfi%40microsoft.com%7C3a510e2a628c41f431e608ddb23acd37%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638862687830178131%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=BI0coh1EYtLPEme8ygYDgaY8OLiLxA7kJj0dj3KXvNM%3D&reserved=0">[2406.04449] MAIRA-2: Grounded Radiology Report Generation<span class="sr-only"> (opens in new tab)</span></a></li>
-
-
-
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Farxiv.org%2Fabs%2F2502.03333&data=05%7C02%7Cv-ammelfi%40microsoft.com%7C3a510e2a628c41f431e608ddb23acd37%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638862687830198918%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=udnptjC4kQA22qIDmTCwoSJI4ol%2Fp95%2FOsidJdZ4CWc%3D&reserved=0">RadVLM: A Multitask Conversational Vision-Language Model for Radiology<span class="sr-only"> (opens in new tab)</span></a></li>
-
-
-
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Farxiv.org%2Fabs%2F2503.03278&data=05%7C02%7Cv-ammelfi%40microsoft.com%7C3a510e2a628c41f431e608ddb23acd37%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638862687830212221%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=taRcdqfs7Dis0FxmUDJDAr7DGmggLDyf9et2pYu0mm8%3D&reserved=0">Enhancing Abnormality Grounding for Vision Language Models with Knowledge Descriptions<span class="sr-only"> (opens in new tab)</span></a></li>
-
-
-
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fopenreview.net%2Fforum%3Fid%3D0Jn1d4gYRS&data=05%7C02%7Cv-ammelfi%40microsoft.com%7C3a510e2a628c41f431e608ddb23acd37%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638862687830225142%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=QcvL%2FgUDBqxkr5Zxtx9PwSLZsYwEKWdoGaC9LHKxr7Q%3D&reserved=0">Visual Prompt Engineering for Vision Language Models in Radiology<span class="sr-only"> (opens in new tab)</span></a></li>
-</ul>
-
-
-
-<p>For further details or to download PadChest-GR, please visit the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://bimcv.cipf.es/bimcv-projects/padchest-gr/" target="_blank" rel="noreferrer noopener">BIMCV PadChest-GR Project<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
-
-
-
-<p>Models in the Azure Foundry that can do Grounded Reporting:&nbsp;</p>
-
-
-
-<ul class="wp-block-list">
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fai-foundry%2Fhow-to%2Fhealthcare-ai%2Fdeploy-cxrreportgen&data=05%7C02%7Cv-ammelfi%40microsoft.com%7C3a510e2a628c41f431e608ddb23acd37%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638862687830239988%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=dvRiCJL5l9vOk89pdPgmjPBVOtiHIzK5DZ7uhGbRk0Q%3D&reserved=0">How to deploy and use CXRReportGen healthcare AI model with Azure AI Foundry &#8211; Azure AI Foundry | Microsoft Learn<span class="sr-only"> (opens in new tab)</span></a></li>
-
-
-
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fhealth-bot%2Fcopilot%2Forchestrator&data=05%7C02%7Cv-ammelfi%40microsoft.com%7C3a510e2a628c41f431e608ddb23acd37%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638862687830255286%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=t3r8%2BHHR1KvoLZi4YnI44DYT855MbYZisNc4f5f1OTg%3D&reserved=0">Healthcare Orchestrator &#8211; Healthcare agent service | Microsoft Learn<span class="sr-only"> (opens in new tab)</span></a></li>
-</ul>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgement">Acknowledgement</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Authors: <a href="https://www.microsoft.com/en-us/research/people/dacoelh/">Daniel C. Castro<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=Bustos,+A" target="_blank" rel="noreferrer noopener">Aurelia Bustos<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/shbannur/">Shruthi Bannur<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/sthyland/">Stephanie L. Hyland<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/kenzabouzid/">Kenza Bouzid<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=Wetscherek,+M+T" target="_blank" rel="noreferrer noopener">Maria Teodora Wetscherek<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=S%C3%A1nchez-Valverde,+M+D" target="_blank" rel="noreferrer noopener">Maria Dolores Sánchez-Valverde<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=Jaques-P%C3%A9rez,+L" target="_blank" rel="noreferrer noopener">Lara Jaques-Pérez<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=P%C3%A9rez-Rodr%C3%ADguez,+L" target="_blank" rel="noreferrer noopener">Lourdes Pérez-Rodríguez<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/kenjitak/" target="_blank" rel="noreferrer noopener">Kenji Takeda<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=Salinas,+J+M" target="_blank" rel="noreferrer noopener">José María Salinas<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/jaalvare/">Javier Alvarez-Valle<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=Herrero,+J+G" target="_blank" rel="noreferrer noopener">Joaquín Galant Herrero<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/search/cs?searchtype=author&query=Pertusa,+A" target="_blank" rel="noreferrer noopener">Antonio Pertusa<span class="sr-only"> (opens in new tab)</span></a>&nbsp;</li>
-</ul>
-
-
-
-<ul class="wp-block-list">
-<li>MSR Health Futures UK: <a href="https://www.microsoft.com/en-us/research/people/hamurfet/">Hannah Richardson</a>, <a href="https://www.microsoft.com/en-us/research/people/vsalvatelli/">Valentina Salvatelli</a>, <a href="https://www.microsoft.com/en-us/research/people/harssharma/">Harshita Sharma</a>, <a href="https://www.microsoft.com/en-us/research/people/sbondtaylor/">Sam Bond-Taylor</a>, <a href="https://www.microsoft.com/en-us/research/people/maxilse/">Max Ilse</a>, <a href="https://www.microsoft.com/en-us/research/people/fperezgarcia/">Fernando Perez-Garcia</a>, <a href="https://www.microsoft.com/en-us/research/people/antonsc/">Anton Schwaighofer</a>, <a href="https://www.microsoft.com/en-us/research/people/carlson/">Jonathan Carlson</a> </li>
-</ul>
-
-
-
-<ul class="wp-block-list">
-<li>MSR Flow: <a href="https://www.microsoft.com/en-us/research/people/kenjitak/">Kenji Takeda</a>, <a href="https://www.microsoft.com/en-us/research/people/evelynev/">Evelyn Viegas</a>, <a href="https://www.microsoft.com/en-us/research/people/allorens/">Ashley Llorens</a></li>
-</ul>
-
-
-
-<ul class="wp-block-list">
-<li>HLS: <a href="https://www.microsoft.com/en-us/research/people/mlungren/">Matthew Lungren</a>, <a href="https://www.microsoft.com/en-us/research/people/naiteeks/">Naiteek Sangani</a>, <a href="https://www.microsoft.com/en-us/research/people/shreyjain/">Shrey Jain</a>, <a href="https://www.microsoft.com/en-us/research/people/itarapov/">Ivan Tarapov</a>, <a href="https://www.microsoft.com/en-us/research/people/wguyman/">Will Guyman</a>, Mert Oez, Chris Burt, David Ardman</li>
-</ul>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/padchest-gr-a-bilingual-grounded-radiology-reporting-benchmark-for-chest-x-rays/">PadChest-GR: A bilingual grounded radiology reporting benchmark for chest X-rays</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
