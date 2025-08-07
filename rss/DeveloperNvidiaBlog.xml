@@ -6,71 +6,36 @@
     <description>Latest posts from https://developer.nvidia.com/zh-cn/blog/recent-posts/. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 06 Aug 2025 02:03:49 +0000</lastBuildDate>
-    <item>
-      <title>大规模特征工程：利用 NVIDIA CUDA-X 数据科学优化半导体制造的机器学习模型</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/feature-engineering-at-scale-optimizing-ml-models-in-semiconductor-manufacturing-with-nvidia-cudax-data-science/</link>
-      <description>2025年 7月 17日大规模特征工程：利用 NVIDIA CUDA-X 数据科学优化半导体制造的机器学习模型在上一篇博文中，我们介绍了芯片制造和运营中的预测建模设置，重点介绍了数据集不平衡等常见挑战，以及对更细致的评估指标的需求。2 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 NVIDIA 安全配方保护代理式 AI 系统</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/safeguard-agentic-ai-systems-with-the-nvidia-safety-recipe/</link>
-      <description>2025年 7月 17日使用 NVIDIA 安全配方保护代理式 AI 系统随着大语言模型 (LLM) 驱动更多能够执行自主操作、工具使用和推理的代理式系统，企业被其灵活性和低推理成本所吸引。2 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 Ansible 和 Git 实现 NVIDIA Air 网络设计自动化</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/automating-network-design-in-nvidia-air-with-ansible-and-git/</link>
-      <description>2025年 7月 18日使用 Ansible 和 Git 实现 NVIDIA Air 网络设计自动化NVIDIA Air 的核心是实现自动化。您可以对网络的每个部分进行编码和版本控制，并将其设置为自动触发。这包括创建拓扑、2 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 JAX 和 XLA 优化推理工作负载的低延迟通信</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/optimizing-for-low-latency-communication-in-inference-workloads-with-jax-and-xla/</link>
-      <description>2025年 7月 18日使用 JAX 和 XLA 优化推理工作负载的低延迟通信在生产环境中使用大语言模型 (LLM) 进行推理需要满足严格的延迟限制。此过程的关键阶段是 LLM 解码，2 MIN READ</description>
-    </item>
-    <item>
-      <title>3 个 pandas 工作流在大型数据集上严重变慢，直到启用了 GPU 加速</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/3-pandas-workflows-that-slowed-to-a-crawl-on-large-datasets-until-we-turned-on-gpus/</link>
-      <description>2025年 7月 18日3 个 pandas 工作流在大型数据集上严重变慢，直到启用了 GPU 加速如果您使用 pandas，您可能已经撞到了墙壁。正是在这个时刻，您值得信赖的工作流程在处理较小的数据集时表现出色，在处理大型数据集时陷入停顿。1 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 NVIDIA  Nsight Systems 分析 Ray 负载（verl）的性能</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/nvidia-nsight-systems-ray-verl/</link>
-      <description>2025年 7月 21日使用 NVIDIA  Nsight Systems 分析 Ray 负载（verl）的性能在大语言模型的强化学习训练过程中，GPU 性能优化至关重要。随着模型规模不断扩大，2 MIN READ</description>
-    </item>
-    <item>
-      <title>传统 RAG 与代理 RAG——AI 智能体如何通过动态知识实现更高智能</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/traditional-rag-vs-agentic-rag-why-ai-agents-need-dynamic-knowledge-to-get-smarter/</link>
-      <description>2025年 7月 21日传统 RAG 与代理 RAG——AI 智能体如何通过动态知识实现更高智能是否曾依赖不知道新高速公路旁路或道路突然关闭的旧 GPS？它可能会让您到达目的地，但不是最有效或最准确的方式。1 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 NVIDIA NeMo 在一个周末内训练一个具备推理能力的 LLM</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/train-a-reasoning-capable-llm-in-one-weekend-with-nvidia-nemo/</link>
-      <description>2025年 7月 22日使用 NVIDIA NeMo 在一个周末内训练一个具备推理能力的 LLM您是否曾想构建自己的推理模型，但认为它过于复杂或需要大量资源？再想想。借助 NVIDIA 强大的工具和数据集，4 MIN READ</description>
-    </item>
-    <item>
-      <title>了解 NCCL 调优以加速 GPU 之间的通信</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/understanding-nccl-tuning-to-accelerate-gpu-to-gpu-communication/</link>
-      <description>2025年 7月 22日了解 NCCL 调优以加速 GPU 之间的通信NVIDIA 集合通信库 (NCCL) 对于 AI 工作负载中的快速 GPU 到 GPU 通信至关重要，可使用各种优化和调优来提升性能。但是，3 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 NVIDIA Warp 和高斯抛物线法构建机器人心理模型</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/building-robotic-mental-models-with-nvidia-warp-and-gaussian-splatting/</link>
-      <description>2025年 7月 22日使用 NVIDIA Warp 和高斯抛物线法构建机器人心理模型本文将探讨构建物理世界的动态数字表示的光明方向，这一主题在近期研究中日益受到关注。我们引入了一种在机器人环境中构建数字孪生的方法，1 MIN READ</description>
-    </item>
-    <item>
-      <title>PDF 数据提取方法及其在信息检索中的应用</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/approaches-to-pdf-data-extraction-for-information-retrieval/</link>
-      <description>2025年 7月 23日PDF 数据提取方法及其在信息检索中的应用PDF 是共享财务报告、研究论文、技术文档和营销材料等信息的常用文件格式之一。然而，在构建有效的检索增强生成 (RAG) 系统时，4 MIN READ</description>
-    </item>
-    <item>
-      <title>在 Azure 上使用 Apache Spark 和 NVIDIA AI 进行无服务器分布式数据处理</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/serverless-distributed-data-processing-with-apache-spark-and-nvidia-ai-on-azure/</link>
-      <description>2025年 7月 23日在 Azure 上使用 Apache Spark 和 NVIDIA AI 进行无服务器分布式数据处理将大量文本库转换为数字表示 (称为嵌入) 的过程对于生成式 AI 至关重要。从语义搜索和推荐引擎到检索增强生成 (RAG) ，2 MIN READ</description>
-    </item>
+    <lastBuildDate>Thu, 07 Aug 2025 02:04:19 +0000</lastBuildDate>
     <item>
       <title>NVIDIA TensorRT-LLM 支持腾讯混元最新大语言模型 Hunyuan-A13B 推理加速</title>
       <link>https://developer.nvidia.com/zh-cn/blog/nvidia-tensorrt-llm-tencent-hunyuan-a13b/</link>
       <description>2025年 7月 27日NVIDIA TensorRT-LLM 支持腾讯混元最新大语言模型 Hunyuan-A13B 推理加速腾讯混元 (Hunyuan) 最新大语言模型 Hunyuan-A13B 今日发布，NVIDIA TensorRT-LLM 作为全球领先的…1 MIN READ</description>
+    </item>
+    <item>
+      <title>为 AI 模型带来可验证的信任：NGC 中的模型签名</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/bringing-verifiable-trust-to-ai-models-model-signing-in-ngc/</link>
+      <description>2025年 7月 28日为 AI 模型带来可验证的信任：NGC 中的模型签名AI 正在进入一个新时代，在这个时代，智能体可以推理、计划和采取行动。这些代理系统与 API、工具乃至物理环境进行动态交互，2 MIN READ</description>
+    </item>
+    <item>
+      <title>新的 GB300 NVL72 功能如何为 AI 提供稳定的动力</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/how-new-gb300-nvl72-features-provide-steady-power-for-ai/</link>
+      <description>2025年 7月 28日新的 GB300 NVL72 功能如何为 AI 提供稳定的动力电网的设计目的是支持相对稳定的负载，例如照明、家用电器和以恒定功率运行的工业机器。但如今的数据中心，尤其是运行 AI 工作负载的数据中心，2 MIN READ</description>
+    </item>
+    <item>
+      <title>FourCastNet 3 借助可扩展的几何机器学习实现快速准确的大型集成天气预报</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/fourcastnet-3-enables-fast-and-accurate-large-ensemble-weather-forecasting-with-scalable-geometric-ml/</link>
+      <description>2025年 7月 29日FourCastNet 3 借助可扩展的几何机器学习实现快速准确的大型集成天气预报FourCastNet3 (FCN3) 是 NVIDIA Earth-2 的最新 AI 全球天气预报系统。3 MIN READ</description>
+    </item>
+    <item>
+      <title>使用 NVIDIA Omniverse 构建 CAD 到 USD 工作流</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/building-cad-to-usd-workflows-with-nvidia-omniverse/</link>
+      <description>2025年 7月 29日使用 NVIDIA Omniverse 构建 CAD 到 USD 工作流在应用程序之间传输 3D 数据一直是一项挑战，尤其是原生计算机辅助设计 (CAD) 文件等专有格式。5 MIN READ</description>
+    </item>
+    <item>
+      <title>使用 VLM 和 NVIDIA NeMo Retriever Parse 将复杂文档转化为可用数据</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/turn-complex-documents-into-usable-data-with-vlm-nvidia-nemo-retriever-parse/</link>
+      <description>2025年 7月 29日使用 VLM 和 NVIDIA NeMo Retriever Parse 将复杂文档转化为可用数据企业在研究报告、业务合同、财务报表和技术手册等文档中生成并存储大量非结构化数据。传统的光学字符识别 (OCR) 技术难以处理复杂的布局、3 MIN READ</description>
     </item>
     <item>
       <title>使用全新 NVIDIA Llama Nemotron Super v1.5 构建更加准确、高效的 AI 智能体</title>
@@ -81,6 +46,41 @@
       <title>大语言模型上车，软硬结合是关键</title>
       <link>https://developer.nvidia.com/zh-cn/blog/llm-drive-hardware-software/</link>
       <description>2025年 7月 30日大语言模型上车，软硬结合是关键随着汽车行业的飞速发展，当乘用车从交通工具向智能移动终端不断进化，舱驾智能化水平已成为衡量整车厂竞争力的核心标尺，3 MIN READ</description>
+    </item>
+    <item>
+      <title>使用 CI/CD 自动化网络配置和部署</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/using-ci-cd-to-automate-network-configuration-and-deployment/</link>
+      <description>2025年 7月 30日使用 CI/CD 自动化网络配置和部署持续集成和持续交付/部署 (CI/CD) 是一套现代软件开发实践，用于更可靠、更频繁地交付代码更改。虽然 CI/CD 在软件领域得到广泛采用，1 MIN READ</description>
+    </item>
+    <item>
+      <title>保护代理式 AI：语义提示注入如何绕过 AI 护栏</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/securing-agentic-ai-how-semantic-prompt-injections-bypass-ai-guardrails/</link>
+      <description>2025年 7月 31日保护代理式 AI：语义提示注入如何绕过 AI 护栏自 LLM 部署之初，攻击者就通过操纵输入来让大语言模型以意想不到的方式运行，从而对 AI 系统造成威胁。1 MIN READ</description>
+    </item>
+    <item>
+      <title>7 种可即时加速 Python 数据科学工作流程的插入式替代方案</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/7-drop-in-replacements-to-instantly-speed-up-your-python-data-science-workflows/</link>
+      <description>2025年 8月 1日7 种可即时加速 Python 数据科学工作流程的插入式替代方案您已经经历过。您编写了完美的 Python 脚本，在示例 CSV 上对其进行了测试，一切都很完美。但是，2 MIN READ</description>
+    </item>
+    <item>
+      <title>通过训练后量化优化 LLM 的性能和准确性</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/optimizing-llms-for-performance-and-accuracy-with-post-training-quantization/</link>
+      <description>2025年 8月 1日通过训练后量化优化 LLM 的性能和准确性量化是开发者的核心工具，旨在以最小的开销来提高推理性能。通过以可控的方式降低模型精度，无需重新训练，该技术可显著降低延迟、4 MIN READ</description>
+    </item>
+    <item>
+      <title>GPU 架构支持导航：面向 NVIDIA CUDA 开发者的指南</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/navigating-gpu-architecture-support-a-guide-for-nvidia-cuda-developers/</link>
+      <description>2025年 8月 4日GPU 架构支持导航：面向 NVIDIA CUDA 开发者的指南如果您最近使用 NVIDIA CUDA 编译器 (NVCC) 开发 NVIDIA GPU 应用，您可能会遇到以下警告消息： 这究竟意味着什么，1 MIN READ</description>
+    </item>
+    <item>
+      <title>NVIDIA CUDA-Q 0.12 扩展了用于开发硬件性能量子应用的工具集</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/nvidia-cuda-q-0-12-expands-toolset-for-developing-hardware-performant-quantum-applications/</link>
+      <description>2025年 8月 4日NVIDIA CUDA-Q 0.12 扩展了用于开发硬件性能量子应用的工具集NVIDIA CUDA-Q 0.12 引入了新的仿真工具，可加速研究人员开发量子应用和设计高性能量子硬件。 借助新的 API，2 MIN READ</description>
+    </item>
+    <item>
+      <title>如何使用 NVIDIA Llama Nemotron 模型通过推理增强 RAG 工作流</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/how-to-enhance-rag-pipelines-with-reasoning-using-nvidia-llama-nemotron-models/</link>
+      <description>2025年 8月 4日如何使用 NVIDIA Llama Nemotron 模型通过推理增强 RAG 工作流检索增强生成 (RAG) 系统面临的一大挑战是处理缺乏明确清晰度或带有隐含意图的用户查询。用户通常会以不准确的方式来表达问题。例如，4 MIN READ</description>
     </item>
     <item>
       <title>CUDA 专业提示：通过矢量化内存访问提高性能</title>

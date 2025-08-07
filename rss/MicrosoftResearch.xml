@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 05 Aug 2025 20:37:33 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 06 Aug 2025 14:16:58 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,114 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>Self-adaptive reasoning for science</title>
+		<link>https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/</link>
+		
+		<dc:creator><![CDATA[Newman Cheng, Gordon Broadbent, Steven Truitt, William Chappell]]></dc:creator>
+		<pubDate>Wed, 06 Aug 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1145083</guid>
+
+					<description><![CDATA[<p>Microsoft is pioneering a vision for a self-adapting AI system that can adapt to the dynamic nature of scientific discovery, promoting deeper, more refined reasoning in complex scientific domains.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/">Self-adaptive reasoning for science</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg" alt="A gradient background transitioning from blue to pink with three white icons: a DNA double helix, a light bulb with rays, and a stylized path with arrows and nodes." class="wp-image-1146704" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<h2 class="wp-block-heading" id="unlocking-self-adaptive-cognitive-behavior-that-is-more-controllable-and-explainable-than-reasoning-models-in-challenging-scientific-domains">Unlocking self-adaptive cognitive behavior that is more controllable and explainable than reasoning models in challenging scientific domains</h2>
+
+
+
+<p>Long-running LLM agents equipped with strong reasoning, planning, and execution skills have the potential to transform scientific discovery with high-impact advancements, such as developing new materials or pharmaceuticals. As these agents become more autonomous, ensuring effective human oversight and clear accountability becomes increasingly important, presenting challenges that must be addressed to unlock their full transformative power. Today’s approaches to long-term reasoning are established during the post-training phase, prior to end-user deployment and typically by the model provider. As a result, the expected actions of these agents are pre-baked by the model developer, offering little to no control from the end user.</p>
+
+
+
+<p>At Microsoft, we are pioneering a vision for a continually steerable virtual scientist. In line with this vision, we created the ability to have a non-reasoning model develop thought patterns that allow for control and customizability by scientists. Our approach, a cognitive loop via in-situ optimization (CLIO), does not rely on reinforcement learning post-training to develop reasoning patterns yet still yields equivalent performance as demonstrated through our evaluation on Humanity’s Last Exam (HLE). Notably, we increased OpenAI GPT-4.1’s base model accuracy on text-only biology and medicine from <strong>8.55%</strong> to <strong>22.37%</strong>, an absolute increase of<strong> 13.82%</strong> (<strong>161.64% </strong>relative), surpassing o3 (high). This demonstrates that an optimization-based, self-adaptive AI system developed without further post-training can rival post-trained models in domains where adaptability, explainability, and control matter most.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1911" height="1070" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated.png" alt="Bar chart that represents the Head-to-head comparison of OpenAI’s GPT-4.1 with CLIO, o3, and GPT-4.1 with no tools on HLE biology and medicine questions" class="wp-image-1146748" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated.png 1911w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-300x168.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-1024x573.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-768x430.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-1536x860.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-240x134.png 240w" sizes="(max-width: 1911px) 100vw, 1911px" /><figcaption class="wp-element-caption">Figure 1. Head-to-head comparison of OpenAI’s GPT-4.1 with CLIO, o3, and GPT-4.1 with no tools on HLE biology and medicine questions</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="in-situ-optimization-with-internal-self-reflection-to-enable-self-adaptive-reasoning">In-situ optimization with internal self-reflection to enable self-adaptive reasoning</h3>
+
+
+
+<p>Model development has advanced from using reinforcement learning human feedback (RLHF) for answer alignment to external grading in reinforcement learning (RLVR). Recent approaches show promise in the utilization of intrinsic rewards for training reasoning models (RLIR). Traditionally, these reasoning processes are learned during the post-training process before any user interaction. While today’s reasoning models require additional data in the training phase and limit user control during the reasoning generation process, CLIO’s approach enables users to steer reasoning from scratch without additional data. Rather, CLIO generates its own necessary data by creating reflection loops at runtime. These reflection loops are utilized for a wide array of activities that CLIO self-defines, encompassing idea exploration, memory management, and behavior control. Most interesting is CLIO’s ability to leverage prior inferences to adjust future behaviors, handling uncertainties and raising flags for correction when necessary. Through this open architecture approach to reasoning, we alleviate the necessity for further model post-training to achieve desired reasoning behavior. Performing novel scientific discoveries often has no prior established patterns for reasoning, much less a large enough corpus of high-quality data to train on.&nbsp;</p>
+
+
+
+<p>CLIO reasons by continuously reflecting on progress, generating hypotheses, and evaluating multiple discovery strategies. For the HLE test, CLIO was specifically steered to follow the scientific method as a guiding framework. Our research shows that equipping language models with self-adapting reasoning enhances their problem-solving ability. It provides a net benefit in quality for science questions, as well as providing exposure and control to the end user.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1169" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-scaled.png" alt="Figure 2. CLIO can raise key areas of uncertainty within its self-formulated reasoning process, balancing multiple different viewpoints using graph structures." class="wp-image-1146740" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-300x137.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-1024x468.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-768x351.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-1536x702.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-2048x935.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-240x110.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. CLIO can raise key areas of uncertainty within its self-formulated reasoning process, balancing multiple different viewpoints using graph structures.</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="control-over-uncertainty-building-trust-in-ai">Control over uncertainty: Building trust in AI&nbsp;</h3>
+
+
+
+<p>Orchestrated reasoning systems like CLIO are valuable for scientific discovery, as they provide features beyond accuracy alone. Capabilities such as explaining the outcomes of internal reasoning are standard in the scientific field and are present in current reasoning model approaches. However, elements like displaying complete work, including final outcomes, internal thought processes, and uncertainty thresholds to support reproducibility or correction, as well as indicating uncertainty, are not yet universally implemented. Current models and systems do not have this same innate humility.&nbsp; Rather, we are left with models that produce confident results, whether correct or incorrect. When correct, it is valuable. When incorrect, it is dangerous to the scientific process. Hence, understanding a model or system’s uncertainty is a crucial aspect that we have developed natively into CLIO.</p>
+
+
+
+<p>On the other end of the spectrum, orchestrated reasoning systems tend to oversaturate the user by raising too many flags. We enable prompt-free control knobs within CLIO to set thresholds for raising uncertainty flags. This allows CLIO to flag uncertainty for itself and the end user at the proper point in time. This also enables scientists to revisit CLIO’s reasoning path with critiques, edit beliefs during the reasoning process, and re-execute them from the desired point in time. Ultimately, this builds a foundational level of trust with scientists to use them in a scientifically defensible and rigorous way.&nbsp;</p>
+
+
+
+<h3 class="wp-block-heading" id="how-does-clio-perform">How does&nbsp;CLIO&nbsp;perform?&nbsp;</h3>
+
+
+
+<p>We evaluate CLIO against text-based biology and medicine questions from HLE. For this domain, we demonstrate a <strong>61.98%</strong> relative increase or an <strong>8.56%</strong> net increase<strong> </strong>in accuracy over OpenAI’s o3 and substantially outperform base completion models like OpenAI’s GPT-4.1, while enabling the requisite explainability and control. This technique applies to all models, showing similar increases in OpenAI’s GPT-4o model, which we observe performs poorly on HLE-level questions. On average, GPT-4.1 is not considered competent for HLE scale questions (<9%), and GPT-4o is natively at less than 2%. By utilizing CLIO, we bring these to near state-of-the-art performance against top reasoning models. CLIO&#8217;s recursive nature enables the system to think broader and more deeply, ensuring coverage of the question when answered. In GPT-4.1, we see an increase of 5.92% in accuracy for overall performance using just the cognitive loop recursion. To think more deeply, we allow CLIO to ensemble different evolutions and intelligently choose from the best approach using <a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG</a>. This extension of the cognition pattern provides a further 7.90% over a non-ensembled approach. &nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1915" height="1074" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3.png" alt="Waterfall chart that demonstrates the impact of thinking effort on CLIO’s effectiveness." class="wp-image-1146714" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3.png 1915w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-300x168.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-1024x574.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-768x431.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-1536x861.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-640x360.png 640w" sizes="auto, (max-width: 1915px) 100vw, 1915px" /><figcaption class="wp-element-caption">Figure 3. The impact of thinking effort on CLIO’s effectiveness.</figcaption></figure>
+
+
+
+<p>Furthermore, CLIO’s design offers different knobs of control, for example, how much time to think and which technique to utilize for a given problem. In Figure 3, we demonstrate these knobs of control and their increase on GPT-4.1 and GPT-4o&#8217;s performance. In this case, we analyze performance for a subset of biomedical questions, those focused on immunology. CLIO increases GPT-4o&#8217;s base performance to be at par with the best reasoning models for immunology questions. We observe a <strong>13.60%</strong> improvement over the base model, GPT-4o. This result shows CLIO to be model agnostic, similar to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.ai/new/the-path-to-medical-superintelligence/" target="_blank" rel="noreferrer noopener">Microsoft AI Diagnostic Orchestrator&#8217;s (MAI-DxO)<span class="sr-only"> (opens in new tab)</span></a>&#8216;s approach and corresponding performance boost.&nbsp;</p>
+
+
+
+<h3 class="wp-block-heading" id="implications-for-science-and-trustworthy-discovery">Implications for science and trustworthy discovery</h3>
+
+
+
+<p>The future of scientific discovery demands more than reasoning over knowledge and raw computational power alone. Here, we demonstrate how CLIO not only increases model performance but establishes new layers of control for scientists. In our upcoming work, we will demonstrate how CLIO increases tool utility for highly valuable scientific questions in the drug discovery space which requires precise tools designed for the language of science. While our experiments focus on scientific discovery, we believe CLIO can apply in a domain-agnostic fashion. Experts tackling problems in domains such as financial analysis, engineering, and legal services could potentially benefit from AI systems with a transparent, steerable reasoning approach. Ultimately, we envision CLIO as an enduring control-layer in hybrid AI stacks that combine traditional completion and reasoning models, with external memory systems, and advanced tool calling. These continuous checks and balances that CLIO enables will continue to remain valuable even as components within the AI stacks evolve. This combination of intelligent and steerable scientific decision making and tool optimization is the basis of the recently announced <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/?msockid=394581ce06c567df2171946b073d6601" target="_blank" rel="noreferrer noopener">Microsoft Discovery platform<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<p>At Microsoft, we’re committed to advancing AI research that earns the trust of scientists, empowering them to discover new frontiers of knowledge. Our work is a testament to what’s possible when we blend innovation with trustworthiness and a human-centered vision for the future of AI-assisted scientific discovery. We invite the research and scientific community to join us in shaping that future.</p>
+
+
+
+<p><strong>Further information:</strong></p>
+
+
+
+<p>To learn more details about our approach, please read our <a href="https://www.microsoft.com/en-us/research/publication/cognitive-loop-via-in-situ-optimization-self-adaptive-reasoning-for-science/">pre-print paper</a> published alongside this blog. We are in the process of submitting this work for external peer review and encourage partners to explore the utilization of CLIO in Microsoft Discovery. To learn more about Microsoft’s research on this or contact our team, please reach out to <a href="mailto:discoverylabs@microsoft.com" target="_blank" rel="noreferrer noopener">discoverylabs@microsoft.com</a>. </p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>We are grateful for Jason Zander and Nadia Karim’s support. We extend our thanks to colleagues both inside and outside Microsoft Discovery and Quantum for sharing their insights and feedback, including Allen Stewart, Yasser Asmi, David Marvin, Harsha Nori, Scott Lundberg, and Phil Waymouth.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/">Self-adaptive reasoning for science</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Project Ire autonomously identifies malware at scale</title>
 		<link>https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/</link>
 		
@@ -32,7 +140,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/">Project Ire autonomously identifies malware at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1.jpg" alt="Stylized digital illustration of a multi-layered circuit board. A glowing blue microchip sits at the top center, with intricate circuitry radiating outward. Beneath it, four stacked layers transition in color from blue to orange, each featuring circuit-like patterns. Smaller rectangular and circular components are connected around the layers, all set against a dark background with scattered geometric shapes." class="wp-image-1145541" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1.jpg" alt="Stylized digital illustration of a multi-layered circuit board. A glowing blue microchip sits at the top center, with intricate circuitry radiating outward. Beneath it, four stacked layers transition in color from blue to orange, each featuring circuit-like patterns. Smaller rectangular and circular components are connected around the layers, all set against a dark background with scattered geometric shapes." class="wp-image-1145541" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/IreSocial-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -293,7 +401,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/">VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: Two white icons on a blue-to-green gradient background—one showing a central figure linked to others, representing a network, and the other depicting lines connecting to a document, symbolizing data flow." class="wp-image-1145818" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: Two white icons on a blue-to-green gradient background—one showing a central figure linked to others, representing a network, and the other depicting lines connecting to a document, symbolizing data flow." class="wp-image-1145818" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -341,7 +449,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="881" height="542" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg" alt="A GraphRAG run is depicted as a directed acyclic graph. The Stage 1 nodes represent source text chunks. Each Stage 1 node has an edge pointing to a Stage 2 node, which corresponds to an entity or a relationship. Entity 3 was extracted from two source text chunks, so its descriptions are summarized. The summarized entity description forms a Stage 3 node. The Stage 2 and 3 nodes have edges pointing to Stage 4 nodes, which represent community reports. The Stage 4 nodes have edges pointing to Stage 5 nodes, which correspond to map-level answers. The Stage 5 nodes each have an edge pointing to the terminal node, which represents the final answer. The terminal node is the only node in Stage 6." class="wp-image-1145841" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg 881w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-300x185.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-768x472.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-240x148.jpg 240w" sizes="(max-width: 881px) 100vw, 881px" /><figcaption class="wp-element-caption">Figure 1: GraphRAG splits the source text into chunks (Stage 1). For each chunk, an LM extracts entities and relationships (the latter are denoted by “⭤ “), along with short descriptions (Stage 2). If an entity or a relationship was extracted from multiple chunks, an LM summarizes the descriptions (Stage 3). A knowledge graph is constructed from the final set of entities and relationships, and a community detection algorithm, such as Leiden clustering, groups entities into communities. For each community, an LM generates a “community report” that summarizes the entities and relationships (Stage 4). To answer a user’s question, an LM generates “map-level answers” based on groups of community reports (Stage 5), then synthesizes them into a final answer (Stage 6).</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="881" height="542" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg" alt="A GraphRAG run is depicted as a directed acyclic graph. The Stage 1 nodes represent source text chunks. Each Stage 1 node has an edge pointing to a Stage 2 node, which corresponds to an entity or a relationship. Entity 3 was extracted from two source text chunks, so its descriptions are summarized. The summarized entity description forms a Stage 3 node. The Stage 2 and 3 nodes have edges pointing to Stage 4 nodes, which represent community reports. The Stage 4 nodes have edges pointing to Stage 5 nodes, which correspond to map-level answers. The Stage 5 nodes each have an edge pointing to the terminal node, which represents the final answer. The terminal node is the only node in Stage 6." class="wp-image-1145841" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg 881w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-300x185.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-768x472.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-240x148.jpg 240w" sizes="auto, (max-width: 881px) 100vw, 881px" /><figcaption class="wp-element-caption">Figure 1: GraphRAG splits the source text into chunks (Stage 1). For each chunk, an LM extracts entities and relationships (the latter are denoted by “⭤ “), along with short descriptions (Stage 2). If an entity or a relationship was extracted from multiple chunks, an LM summarizes the descriptions (Stage 3). A knowledge graph is constructed from the final set of entities and relationships, and a community detection algorithm, such as Leiden clustering, groups entities into communities. For each community, an LM generates a “community report” that summarizes the entities and relationships (Stage 4). To answer a user’s question, an LM generates “map-level answers” based on groups of community reports (Stage 5), then synthesizes them into a final answer (Stage 6).</figcaption></figure>
 
 
 
@@ -409,30 +517,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2020,30 +2128,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2354,30 +2462,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2901,30 +3009,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -5425,689 +5530,6 @@
 <div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/how-ai-will-accelerate-biomedical-research-and-discovery/">How AI will accelerate biomedical research and discovery</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>AI Testing and Evaluation: Learnings from pharmaceuticals and medical devices</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-pharmaceuticals-and-medical-devices/</link>
-		
-		<dc:creator><![CDATA[Kathleen Sullivan, Daniel Carpenter, Timo Minssen, Chad Atalla]]></dc:creator>
-		<pubDate>Mon, 07 Jul 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1143099</guid>
-
-					<description><![CDATA[<p>Professors Daniel Carpenter and Timo Minssen explore evolving pharma and medical device regulation, including the role of clinical trials, while Microsoft applied scientist Chad Atalla shares where AI governance stakeholders might find inspiration in the fields.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-pharmaceuticals-and-medical-devices/">AI Testing and Evaluation: Learnings from pharmaceuticals and medical devices</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788.jpg" alt="Illustrated headshots of Daniel Carpented, Timo Minssen, Chad Atalla, and Kathleen Sullivan." class="wp-image-1143327" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=146743491&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Generative AI presents a unique challenge and opportunity to reexamine governance practices for the responsible development, deployment, and use of AI. To advance thinking in this space, Microsoft has tapped into the experience and knowledge of experts across domains—from genome editing to cybersecurity—to investigate the role of testing and evaluation as a governance tool. <em><a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation: Learnings from Science and Industry</a></em>, hosted by Microsoft Research’s <a href="https://www.microsoft.com/en-us/research/people/kasull/">Kathleen Sullivan</a>, explores what the technology industry and policymakers can learn from these fields and how that might help shape the course of AI development.</p>
-
-
-
-<p>In this episode, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dcarpenter.scholar.harvard.edu/" target="_blank" rel="noreferrer noopener">Daniel Carpenter</a>, the Allie S. Freed Professor of Government and chair of the department of government at Harvard University, explains how the US Food and Drug Administration’s rigorous, multi-phase drug approval process serves as a gatekeeper that builds public trust and scientific credibility, while <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://researchprofiles.ku.dk/en/persons/timo-minssen" target="_blank" rel="noreferrer noopener">Timo Minssen</a>, professor of law and founding director of the Center for Advanced Studies in Bioscience Innovation Law at the University of Copenhagen, explores the evolving regulatory landscape of medical devices with a focus on the challenges of balancing innovation with public safety. Later, Microsoft’s <a href="https://www.microsoft.com/en-us/research/people/chatalla/">Chad Atalla</a>, an applied scientist in responsible AI, discusses the sociotechnical nature of AI models and systems, their team’s work building an evaluation framework inspired by social science, and where AI researchers, developers, and policymakers might find inspiration from the approach to governance and testing in pharmaceuticals and medical devices.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h4" id="learn-more">Learn more:</h2>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/learning-from-other-domains-to-advance-ai-evaluation-and-testing-the-history-and-evolution-of-testing-in-pharmaceutical-regulation/" target="_blank" rel="noreferrer noopener">Learning from other Domains to Advance AI Evaluation and Testing: The History and Evolution of Testing in Pharmaceutical Regulation</a><br>Case study | January 2025&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/learning-from-other-domains-to-advance-ai-evaluation-and-testing-medical-device-testing-regulatory-requirements-evolution-and-lessons-for-ai-governance/" target="_blank" rel="noreferrer noopener">Learning from other Domains to Advance AI Evaluation and Testing: Medical Device Testing: Regulatory Requirements, Evolution and Lessons for AI Governance</a><br>Case study | January 2025&nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/blog/learning-from-other-domains-to-advance-ai-evaluation-and-testing/">Learning from other domains to advance AI evaluation and testing</a>&nbsp;<br>Microsoft Research Blog | June 2025  &nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/evaluating-generative-ai-systems-is-a-social-science-measurement-challenge/" target="_blank" rel="noreferrer noopener">Evaluating Generative AI Systems is a Social Science Measurement Challenge</a>&nbsp;<br>Publication&nbsp;|&nbsp;November 2024 &nbsp;</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/group/stac-sociotechnical-alignment-center/?msockid=35739e94ab6c69d41b738b93aa076831" target="_blank" rel="noreferrer noopener">STAC: Sociotechnical Alignment Center</a> </p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/ai/responsible-ai?msockid=35739e94ab6c69d41b738b93aa076831" target="_blank" rel="noreferrer noopener">Responsible AI: Ethical policies and practices | Microsoft AI</a></p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/focus-area/ai-and-microsoft-research/">AI and Microsoft Research </a></p>
-
-
-
-<div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>KATHLEEN SULLIVAN</strong>: Welcome to <em>AI Testing and Evaluation: Learnings from Science and Industry</em>. I&#8217;m your host, Kathleen Sullivan.</p>
-
-
-
-<p>As generative AI continues to advance, Microsoft has gathered a range of experts—from genome editing to cybersecurity—to share how their fields approach evaluation and risk assessment. Our goal is to learn from their successes and their stumbles to move the science and practice of AI testing forward. In this series, we&#8217;ll explore how these insights might help guide the future of AI development, deployment, and responsible use.</p>
-
-
-
-<p>[MUSIC ENDS]</p>
-
-
-
-<p><strong>SULLIVAN</strong>: Today, I&#8217;m excited to welcome Dan Carpenter and Timo Minssen to the podcast to explore testing and risk assessment in the areas of pharmaceuticals and medical devices, respectively.</p>
-
-
-
-<p>Dan Carpenter is chair of the Department of Government at Harvard University. His research spans the sphere of social and political science, from petitioning in democratic society to regulation and government organizations. His recent work includes the FDA Project, which examines pharmaceutical regulation in the United States.</p>
-
-
-
-<p>Timo is a professor of law at the University of Copenhagen, where he is also director of the Center for Advanced Studies in Bioscience Innovation Law. He specializes in legal aspects of biomedical innovation, including intellectual property law and regulatory law. He&#8217;s exercised his expertise as an advisor to such organizations as the World Health Organization and the European Commission.</p>
-
-
-
-<p>And after our conversations, we&#8217;ll talk to Microsoft&#8217;s Chad Atalla, an applied scientist in responsible AI, about how we should think about these insights in the context of AI.</p>
-
-
-
-<p>Daniel, it&#8217;s a pleasure to welcome you to the podcast. I&#8217;m just so appreciative of you being here. Thanks for joining us today.</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-9" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p><strong>DANIEL CARPENTER:</strong>&nbsp;Thanks for having me.&nbsp;</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Dan, before we dissect policy,&nbsp;let&#8217;s&nbsp;rewind the tape to your&nbsp;origin&nbsp;story. Can you take us to the moment that you first became fascinated with regulators rather than, say, politicians? Was there a spark that pulled you toward the FDA story?&nbsp;</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;At one point during graduate school, I was studying a combination of American politics and political theory, and I did a summer interning at the Department of Housing and Urban Development. And I began to think, why don&#8217;t people study these administrators more and the rules they make, the, you know,&nbsp;inefficiencies, the efficiencies?&nbsp;Really more&nbsp;from,&nbsp;kind of,&nbsp;a descriptive standpoint, less from a normative standpoint.&nbsp;And I was reading a lot that summer about the Food and Drug Administration and some of the decisions it was making on AIDS drugs. That was&nbsp;a,&nbsp;sort of,&nbsp;a major, &#8230;</p>
-
-
-
-<p><strong>SULLIVAN: </strong>Right.&nbsp;</p>
-
-
-
-<p><strong>CARPENTER:</strong> &#8230; sort of, you know,&nbsp;moment in the news, in the global news as well as the national news during, I would say, what?&nbsp;The late&nbsp;’80s, early&nbsp;’90s? And&nbsp;so&nbsp;I began to&nbsp;look&nbsp;into&nbsp;that.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;So now that we know what pulled you in,&nbsp;let’s&nbsp;zoom out for our listeners. Give us&nbsp;the&nbsp;whirlwind tour. I think most of us know pharma involves years of trials, but&nbsp;what’s&nbsp;the part we&nbsp;don’t&nbsp;know?</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;So&nbsp;I think when most businesses develop a product, they all go through some phases of research and development and testing. And I think&nbsp;what&#8217;s&nbsp;different about the FDA is,&nbsp;sort of,&nbsp;two-&nbsp;or three-fold.</p>
-
-
-
-<p>First, a lot of those tests are much more stringently specified and regulated by the government, and second, one of the reasons for that is that the FDA imposes not simply safety requirements upon drugs&nbsp;in particular but&nbsp;also efficacy requirements. The FDA wants you to prove not simply that&nbsp;it&#8217;s&nbsp;safe and non-toxic&nbsp;but also that&nbsp;it&#8217;s&nbsp;effective.&nbsp;And the final thing,&nbsp;I think, that&nbsp;makes the FDA different is that it stands as what I would call the&nbsp;“veto player”&nbsp;over R&D [research and development] to the marketplace.&nbsp;The FDA&nbsp;basically has,&nbsp;sort of,&nbsp;this control over entry&nbsp;to&nbsp;the marketplace.</p>
-
-
-
-<p>And&nbsp;so&nbsp;what that involves is usually first, a set of human trials where people who have no disease take it. And&nbsp;you&#8217;re&nbsp;only looking&nbsp;for&nbsp;toxicity generally. Then&nbsp;there&#8217;s&nbsp;a set of Phase 2 trials, where they look more at safety and a little bit at efficacy, and&nbsp;you&#8217;re&nbsp;now examining people who have the disease that the drug claims to treat. And&nbsp;you&#8217;re&nbsp;also basically comparing people who get the drug,&nbsp;often&nbsp;with those who do not.</p>
-
-
-
-<p>And then finally, Phase 3 involves a much more direct and large-scale attack, if you will, or assessment of efficacy, and&nbsp;that&#8217;s&nbsp;where you get the sort of large randomized clinical trials that are&nbsp;very expensive&nbsp;for pharmaceutical companies, biomedical companies to launch, to execute, to analyze. And those are often the sort of core evidence base for the decisions that the FDA makes about&nbsp;whether or not&nbsp;to approve a new drug for marketing in the United States.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Are there&nbsp;differences in how that process has, you know, changed through other countries and&nbsp;maybe just&nbsp;how&nbsp;that&#8217;s&nbsp;evolved as&nbsp;you&#8217;ve&nbsp;seen it play out?&nbsp;</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;Yeah, for a long time, I would say that the United States had&nbsp;probably the&nbsp;most&nbsp;stringent regime&nbsp;of regulation for biopharmaceutical products until,&nbsp;I would say,&nbsp;about the 1990s and early 2000s. It used to be the case that a number of other countries, especially in Europe but around the world, basically waited for the FDA to mandate tests on a drug and only after the drug was approved in the United States would they deem it approvable and marketable in their own countries. And then after the formation of the European Union and the creation of the European Medicines Agency, gradually the European Medicines Agency began to get a bit more stringent.&nbsp;&nbsp;</p>
-
-
-
-<p>But, you know,&nbsp;over the long run,&nbsp;there&#8217;s&nbsp;been a&nbsp;lot of,&nbsp;sort&nbsp;of,&nbsp;heterogeneity, a lot of variation over time and space, in the way that the FDA has approached these problems. And&nbsp;I&#8217;d&nbsp;say in the last 20 years, it&#8217;s begun to partially deregulate, namely,&nbsp;you know,&nbsp;trying to find all sorts of mechanisms or pathways for really innovative&nbsp;drugs for deadly diseases without a lot of treatments to&nbsp;basically get&nbsp;through the process at lower cost.&nbsp;For many people,&nbsp;that has not been sufficient.&nbsp;They&#8217;re&nbsp;concerned about the cost of the system.&nbsp;Of course, then the agency also gets criticized by those&nbsp;who believe&nbsp;it&#8217;s&nbsp;too lax. It is&nbsp;potentially letting&nbsp;ineffective and unsafe therapies on the market.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;In your view, when does the structured model genuinely safeguard patients and where do you think it&nbsp;maybe slows&nbsp;or&nbsp;limits&nbsp;innovation?</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;So&nbsp;I think&nbsp;the worry&nbsp;is that if you approach pharmaceutical approval as a world where only things can go wrong,&nbsp;then&nbsp;you&#8217;re&nbsp;really at a risk of limiting innovation. And even if you end up letting a lot of things through, if by your regulations you end up basically slowing down the development process or making it very, very costly, then there&#8217;s just a whole bunch of drugs that either come to market too slowly or they come to market not at all because&nbsp;they just aren&#8217;t worth the kind of cost-benefit or, sort of, profit analysis of the firm.&nbsp;You know, so&nbsp;that&#8217;s&nbsp;been a concern.&nbsp;And I think&nbsp;it&#8217;s&nbsp;been one of the reasons that the Food and Drug Administration as well as other world regulators have begun to&nbsp;basically try&nbsp;to smooth the process and accelerate the process at the margins.</p>
-
-
-
-<p>The other thing is that&nbsp;they&#8217;ve&nbsp;started to&nbsp;basically make&nbsp;approvals&nbsp;on the basis of&nbsp;what are called&nbsp;<em>surrogate endpoints</em>. So the idea is that a cancer drug, we really want to know whether that drug saves lives, but if we wait to see whose lives are saved or prolonged by that drug, we might miss the opportunity to make judgments on the basis of, well, are we detecting tumors in the bloodstream? Or can we measure the size of those tumors&nbsp;in, say, a&nbsp;solid cancer? And then the further question is, is the size of the tumor&nbsp;basically a&nbsp;really good&nbsp;correlate&nbsp;or predictor of whether people will die or&nbsp;not, right?&nbsp;Generally, the&nbsp;FDA tends to be less stringent when&nbsp;you&#8217;ve&nbsp;got, you know, a remarkably innovative new&nbsp;therapy&nbsp;and the disease being treated is one that just&nbsp;doesn&#8217;t&nbsp;have a lot of available treatments,&nbsp;right.</p>
-
-
-
-<p>The one thing that people often think about when&nbsp;they&#8217;re&nbsp;thinking about pharmaceutical regulation is they often contrast,&nbsp;kind of,&nbsp;speed versus safety &#8230;</p>
-
-
-
-<p><strong>SULLIVAN:&nbsp;</strong>Right.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>CARPENTER:&nbsp;</strong>&#8230; right. And&nbsp;that&#8217;s&nbsp;useful as a tradeoff,&nbsp;but I often try to remind people that&nbsp;it&#8217;s&nbsp;not simply&nbsp;about whether the drug gets out&nbsp;there&nbsp;and&nbsp;it&#8217;s&nbsp;unsafe. You know, you and I as patients and even doctors have&nbsp;a hard time&nbsp;knowing whether something works and whether it should be prescribed. And the evidence for knowing whether something works&nbsp;isn&#8217;t&nbsp;just, well,&nbsp;you&nbsp;know, Sally took&nbsp;it&nbsp;or Dan took it or Kathleen took it, and they&nbsp;seem to get&nbsp;better or they&nbsp;didn&#8217;t&nbsp;seem to get better.&nbsp;&nbsp;</p>
-
-
-
-<p>The really rigorous evidence comes from randomized clinical trials.&nbsp;And I think&nbsp;it&#8217;s&nbsp;fair to say that if you didn&#8217;t&nbsp;have the FDA there as a veto player, you&nbsp;wouldn&#8217;t&nbsp;get as many randomized clinical&nbsp;trials&nbsp;and the evidence&nbsp;probably&nbsp;wouldn&#8217;t&nbsp;be as rigorous for whether these things work. And as I like to put it,&nbsp;basically there&#8217;s&nbsp;a whole ecology of expectations and beliefs around the biopharmaceutical industry in the United States and globally,&nbsp;and to some extent,&nbsp;it&#8217;s&nbsp;undergirded by&nbsp;all of&nbsp;these tests that happen.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>SULLIVAN:&nbsp;</strong>Right.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>CARPENTER:&nbsp;</strong>And in part, that means&nbsp;it&#8217;s&nbsp;undergirded by regulation. Would there still be a market without regulation? Yes. But it would be a market in which people had far less information in and confidence about the drugs that are being taken. And&nbsp;so&nbsp;I think&nbsp;it&#8217;s&nbsp;important to recognize that kind of confidence-boosting potential of, kind of, a scientific regulation base.&nbsp;</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Actually, if we could&nbsp;double-click&nbsp;on that for a minute, I&#8217;d love to hear your perspective on, <em>testing&nbsp;has been completed;&nbsp;there&#8217;s results</em>.&nbsp;Can you walk us through how those results actually shape the next steps and decisions of a particular drug and just,&nbsp;like,&nbsp;how regulators actually think about using that data to influence really what happens next with it?</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;Right.&nbsp;So&nbsp;it&#8217;s&nbsp;important to understand that every drug is approved for&nbsp;what&#8217;s called&nbsp;an <em>indication</em>. It can have a first primary&nbsp;indication, which is the main disease that it treats, and then others can be added as more evidence is shown. But a drug is not something that just kind of exists out there in the ether.&nbsp;It has to have the right form of administration.&nbsp;Maybe it&nbsp;should be injected.&nbsp;Maybe it&nbsp;should be <em>ingested</em>.&nbsp;Maybe it&nbsp;should&nbsp;be administered only at a clinic&nbsp;because it needs to be&nbsp;kind of administered&nbsp;in just the right way. As doctors will tell you, dosage is everything, right.&nbsp;&nbsp;</p>
-
-
-
-<p>And&nbsp;so&nbsp;one of the reasons that you want those trials is not simply a, you know, yes or no answer about whether the drug works,&nbsp;right.&nbsp;It&#8217;s&nbsp;not simply if-then.&nbsp;It&#8217;s&nbsp;literally what&nbsp;goes into what you might call the dose response curve.&nbsp;You know, how much of this drug do we need to&nbsp;basically, you know,&nbsp;get the benefit? At what point does that fall off significantly that we can&nbsp;basically say, we can stop there? All that evidence comes from&nbsp;trials. And&nbsp;that&#8217;s&nbsp;the kind of evidence that is&nbsp;required&nbsp;on the basis of&nbsp;regulation.&nbsp;&nbsp;</p>
-
-
-
-<p>Because&nbsp;it&#8217;s&nbsp;not simply a drug&nbsp;that&#8217;s&nbsp;approved.&nbsp;It&#8217;s&nbsp;a drug and a&nbsp;<em>frequency</em>&nbsp;of administration. It&#8217;s&nbsp;a&nbsp;<em>method</em> of administration.&nbsp;And&nbsp;so&nbsp;the drug&nbsp;isn&#8217;t&nbsp;just,&nbsp;there&#8217;s&nbsp;something to be taken off the shelf and popped into your mouth. I mean, sometimes&nbsp;that&#8217;s&nbsp;what happens, but even then,&nbsp;we want to know what the dosage is,&nbsp;right.&nbsp;We want to know what to look for in terms of side effects, things like that.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Going back to that point, I&nbsp;mean,&nbsp;it sounds like&nbsp;we&#8217;re&nbsp;making a lot of progress from a regulation perspective&nbsp;in, you know, sort of speed and getting things approved but doing it in a&nbsp;really balanced&nbsp;way. I mean, any other kind of closing thoughts on the tradeoffs there or where&nbsp;you&#8217;re&nbsp;seeing that going?</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;I think&nbsp;you&#8217;re&nbsp;going to see some move in the coming years—there&#8217;s&nbsp;already been some of it—to say, do we always need a&nbsp;really large&nbsp;Phase 3 clinical trial? And to what degree do we need the, like, you&nbsp;know,&nbsp;all the i&#8217;s dotted and the t&#8217;s crossed or a really,&nbsp;really large&nbsp;sample size?&nbsp;And&nbsp;I&#8217;m&nbsp;open to innovation there.&nbsp;I&#8217;m&nbsp;also open to the idea that we consider, again, things like accelerated approvals or pathways for looking at&nbsp;different kinds&nbsp;of surrogate endpoints.&nbsp;I do think, once we do that, then we also have to have some degree of follow-up.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;So&nbsp;I know&nbsp;we&#8217;re&nbsp;getting&nbsp;close to&nbsp;out of time, but&nbsp;maybe just&nbsp;a quick rapid fire if&nbsp;you’re&nbsp;open to it. Biggest myth about clinical trials?</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;Well, some people tend to think that the FDA performs them.&nbsp;You know,&nbsp;it&#8217;s&nbsp;companies that do it. And the only other thing I would say is the company that does a lot of the testing and even the innovating is not always the company that takes the drug to market, and it tells you something about how powerful regulation is in our system, in our world,&nbsp;that you often need a company that has dealt with the FDA quite a bit and knows all the regulations and knows how to dot the i&#8217;s and cross the t&#8217;s in order to get a drug across the finish line.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;If you had a magic wand,&nbsp;what&#8217;s&nbsp;the one thing&nbsp;you&#8217;d&nbsp;change in regulation today?</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;I would like people to think a little bit less about just speed versus safety and,&nbsp;again, more about this basic issue of confidence. I think&nbsp;it&#8217;s&nbsp;fundamental to everything that happens in markets but especially in biopharmaceuticals.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Such a great point.&nbsp;This has been really fun.&nbsp;Just thanks so much for being here today. We&#8217;re really excited to share your thoughts&nbsp;out to&nbsp;our listeners. Thanks.</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p><strong>CARPENTER:</strong>&nbsp;Likewise.&nbsp;</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Now&nbsp;to&nbsp;the world of medical devices,&nbsp;I&#8217;m&nbsp;joined by Professor Timo&nbsp;Minssen. Professor Minssen, it&#8217;s&nbsp;great to have you here. Thank you for joining us today.&nbsp;</p>
-
-
-
-<p><strong>TIMO&nbsp;MINSSEN:</strong>&nbsp;Yeah, thank you very much,&nbsp;it&#8217;s&nbsp;a pleasure.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Before getting into the regulatory world of medical devices, tell our audience a bit about your personal journey or your origin story, as&nbsp;we&#8217;re&nbsp;asking our guests. How did you land in regulation, and what&#8217;s kept you hooked in this space?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;So&nbsp;I started out as a patent expert in the biomedical area, starting with my PhD thesis on patenting biologics in Europe and in the US.&nbsp;So&nbsp;during that time, I was mostly interested in patent and trade secret questions.&nbsp;But at the same time, I also developed and taught courses in regulatory law and held talks on regulating advanced medical therapy medicinal products.&nbsp;I&nbsp;then&nbsp;started to lead large research projects on legal challenges in a wide variety of health and life science innovation frontiers. I also started to focus increasingly on AI-enabled medical devices and software as a medical device, resulting in several academic articles in this area&nbsp;and also&nbsp;in the regulatory area and a book on the future of medical device regulation.&nbsp;&nbsp;</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Yeah,&nbsp;what&#8217;s&nbsp;kept you hooked in&nbsp;the space?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;It&#8217;s&nbsp;just incredibly exciting,&nbsp;in particular right&nbsp;now with everything that is going on, you know, in the software arena, in the marriage between AI and medical devices. And this is really challenging not only societies but also regulators and authorities in Europe and in the US.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Yeah,&nbsp;it&#8217;s&nbsp;a super exciting time to be in this space. You know, we talked to Daniel a little earlier and, you know, I think&nbsp;similar to&nbsp;pharmaceuticals, people have a general sense of what we mean when we say medical devices, but most listeners may&nbsp;picture&nbsp;like a stethoscope or a hip implant. The word &#8220;medical device&#8221;&nbsp;reaches&nbsp;much wider. Can you give us a quick, kind of, range from perhaps&nbsp;very simple&nbsp;to even, I don&#8217;t know, sci-fi and then your 90-second tour of how risk assessment works and why a framework is essential?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;Let me start out by saying that&nbsp;the WHO [World Health Organization] estimates that today there are approximately 2 million different kinds of medical devices on the world market, and as of the FDA&#8217;s latest update that I&#8217;m aware of, the FDA has authorized more than 1,000 AI-, machine learning-enabled medical devices, and that number is rising rapidly.</p>
-
-
-
-<p>So in that context, I think it is important to understand that medical devices can be any instrument, apparatus, implement, machine, appliance, implant, reagent for in vitro use, software, material, or other similar or related articles that are&nbsp;<em>intended</em>&nbsp;by the manufacturer to be used alone or in combination for a medical purpose. And the spectrum of what constitutes a medical device can&nbsp;thus&nbsp;range from very simple devices such as tongue depressors, contact lenses, and thermometers to more complex devices such as blood pressure monitors, insulin pumps, MRI machines, implantable pacemakers, and even software as a medical device or AI-enabled monitors or drug device combinations, as well.</p>
-
-
-
-<p>So&nbsp;talking about regulation,&nbsp;I think&nbsp;it&nbsp;is also&nbsp;very important&nbsp;to stress that medical devices are used in many diverse situations by&nbsp;very different&nbsp;stakeholders. And testing&nbsp;has to&nbsp;take this variety into consideration, and it is intrinsically tied to regulatory requirements across various&nbsp;jurisdictions.</p>
-
-
-
-<p>During the pre-market phase, medical testing&nbsp;establishes&nbsp;baseline safety and effectiveness metrics through bench testing, performance standards, and clinical studies. And post-market testing ensures that real-world data informs ongoing compliance and safety improvements. So testing is indispensable in translating technological innovation into safe and effective medical devices. And while&nbsp;particular details&nbsp;of pre-market and post-market review procedures may slightly differ among countries, most developed&nbsp;jurisdictions regulate medical devices similarly to the US or European models. </p>
-
-
-
-<p>So&nbsp;most&nbsp;jurisdictions&nbsp;with medical device regulation classify devices based on their risk profile, intended use, indications for use, technological characteristics,&nbsp;and the regulatory controls necessary to provide a reasonable assurance of safety and effectiveness.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;So medical devices face a pretty prescriptive multi-level testing path before they hit the market. From your vantage point, what are some of the downsides of that system and when does it make the most sense?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;One primary drawback is, of course, the lengthy and expensive approval process. High-risk devices, for example, often undergo years of clinical trials,&nbsp;which can cost millions of dollars, and this can create a significant barrier for startups and small companies with limited resources.&nbsp;And even for moderate-risk devices, the regulatory burden can slow product development and time to the market.</p>
-
-
-
-<p>And the approach can also limit flexibility. Prescriptive requirements may not accommodate emerging innovations like digital therapeutics or AI-based diagnostics in&nbsp;a feasible&nbsp;way. And in such cases, the framework can unintentionally [stiffen]&nbsp;innovation by discouraging creative solutions or iterative improvements, which as matter of fact can also&nbsp;<em>put</em>&nbsp;patients&nbsp;at risk when you&nbsp;don&#8217;t&nbsp;use&nbsp;new technologies and AI.&nbsp;And&nbsp;additionally, the same level of scrutiny may be applied to low-risk devices, where&nbsp;the extensive testing and documentation may also be disproportionate to the actual patient risk.</p>
-
-
-
-<p>However, the prescriptive model is highly&nbsp;appropriate where&nbsp;we have high testing standards for high-risk medical devices, in my view, particularly those that are life-sustaining, implanted, or involve new materials or mechanisms.</p>
-
-
-
-<p>I also wanted to say that I think that these higher compliance thresholds can be OK and necessary if you have a system where authorities and stakeholders also have the capacity and funding to enforce, monitor, and achieve compliance with such rules in a feasible, time-effective, and straightforward manner. And this, of course, requires resources, novel solutions,&nbsp;and investments.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;A range of tests are undertaken across the life cycle of medical devices.&nbsp;How do these testing requirements vary across&nbsp;different stages&nbsp;of development and across various applications?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;Yes,&nbsp;that&#8217;s&nbsp;a good question.&nbsp;So&nbsp;I think first it&nbsp;is important to realize that testing is conducted by various entities, including manufacturers, independent third-party laboratories, and regulatory agencies. And it occurs throughout the device&nbsp;life&nbsp;cycle, beginning with iterative testing during the research and development stage, advancing to pre-market evaluations, and continuing into post-market monitoring. And the outcomes of&nbsp;these tests directly&nbsp;impact&nbsp;regulatory approvals, market access, and device design refinements, as well.&nbsp;So&nbsp;the testing results are typically shared with regulatory authorities and in some cases with healthcare providers and the broader public to enhance transparency and trust.</p>
-
-
-
-<p>So&nbsp;if you talk about the&nbsp;different phases&nbsp;that play a role here … so&nbsp;let&#8217;s&nbsp;turn to the pre-market phase, where manufacturers must&nbsp;demonstrate&nbsp;that the device is conformed to safety and performance benchmarks defined by regulatory authorities. Pre-market evaluations include functional bench testing, biocompatibility, for example, assessments and software validation, all of which are integral components of a manufacturer&#8217;s submission.&nbsp;</p>
-
-
-
-<p>But, yes, but, testing also, and we touched already up on that, extends into the post-market phase, where it continues to ensure device safety and efficacy, and post-market surveillance relies on testing to&nbsp;monitor real-world performance and&nbsp;identify&nbsp;emerging risks on the post-market phase. By integrating real-world evidence into ongoing assessments, manufacturers can address unforeseen issues, update devices as needed, and&nbsp;maintain compliance with evolving regulatory expectations. And&nbsp;I think this&nbsp;is particularly important in this new generation of medical devices that are AI-enabled or machine-learning enabled.</p>
-
-
-
-<p>I think we have to understand that in this AI-enabled medical devices field, you know, the devices and the algorithms that are working with&nbsp;them, they&nbsp;can improve in the lifetime of a product.&nbsp;So actually, not&nbsp;only you could assess them and make sure that they&nbsp;maintain&nbsp;safe,&nbsp;you&nbsp;could also sometimes lower the risk category by finding evidence that these devices are&nbsp;actually becoming&nbsp;more precise and safer.&nbsp;So&nbsp;it can both, you know, heighten the risk&nbsp;category&nbsp;or lower the risk category, and&nbsp;that&#8217;s&nbsp;why&nbsp;this continuous testing is so important.</p>
-
-
-
-<p><strong>SULLIVAN:&nbsp;</strong>Given what you just said, how should regulators handle a device whose algorithm keeps updating itself after approval?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;Well, it&nbsp;has to&nbsp;be an iterative process that is&nbsp;feasible&nbsp;and straightforward and that is based on a very efficient, both time efficient and performance efficient, communication between the regulatory authorities and the medical device developers, right. We need to have&nbsp;the sensors&nbsp;in place that spot potential changes, and we need to have&nbsp;the mechanisms&nbsp;in place that allow us to quickly react to these changes both regulatory wise&nbsp;and also&nbsp;in&nbsp;the&nbsp;technological way. </p>
-
-
-
-<p>So&nbsp;I think communication&nbsp;is important,&nbsp;and we need to have&nbsp;the pathways&nbsp;and&nbsp;the feedback&nbsp;loops in the regulation that quickly allow us to&nbsp;monitor&nbsp;these self-learning algorithms and devices.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;It sounds like&nbsp;it&#8217;s&nbsp;just …&nbsp;there&#8217;s&nbsp;such a delicate balance between advancing technology and really ensuring public safety. You know, if we clamp down too hard, we stifle that innovation. You already touched upon this a bit. But if&nbsp;we&#8217;re&nbsp;too lax, we risk unintended consequences. And&nbsp;I&#8217;d&nbsp;just love to hear how you think the field is balancing that and any learnings you can share.</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;So&nbsp;this is&nbsp;very true, and&nbsp;you just touched upon a very central question also in our research and our writing. And this is also the&nbsp;reason why&nbsp;medical device regulation is so fascinating and continues to evolve in response to rapid advancements in technologies, particularly dual technologies&nbsp;regarding&nbsp;digital health, artificial intelligence, for example, and personalized medicine.</p>
-
-
-
-<p>And finding the balance is tricky because also [a] related major future challenge relates to the increasing regulatory jungle and the complex interplay between evolving regulatory landscapes that regulate AI more generally.</p>
-
-
-
-<p>We really need to make sure that the regulatory authorities that deal with this, that need to find the right balance to promote innovation and mitigate and prevent risks, need to have the&nbsp;capacity&nbsp;to do this.&nbsp;So&nbsp;this requires investments, and it also requires new ways to regulate this technology more flexibly, for example through regulatory sandboxes and so on.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Could you just expand upon that a bit and double-click on what it is&nbsp;you&#8217;re&nbsp;seeing there? What excites you about&nbsp;what&#8217;s&nbsp;happening in that space?</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;Yes, well, the research of my group at the Center for Advanced Studies in Bioscience Innovation Law is&nbsp;very broad. I mean, we are looking into gene editing technologies. We are looking into new biologics. We are looking into medical&nbsp;devices,&nbsp;as well, obviously, but also other technologies&nbsp;in advanced medical computing.</p>
-
-
-
-<p>And what we see across the line here is that there is an increasing demand for having more adaptive and flexible regulatory frameworks in these&nbsp;new technologies,&nbsp;in particular when&nbsp;they have new uses, regulations that are focusing more on the product rather than the process. And I have recently&nbsp;written&nbsp;a report, for example,&nbsp;for&nbsp;emerging biotechnologies and&nbsp;bio-solutions&nbsp;for the EU commission. And even in that area, regulatory sandboxes are increasingly important, increasingly considered.</p>
-
-
-
-<p>So&nbsp;this idea of regulatory sandboxes has been developing originally in the financial sector, and it is now penetrating into&nbsp;other sectors, including synthetic biology, emerging biotechnologies, gene editing, AI, quantum technology, as&nbsp;well. This is&nbsp;basically creating&nbsp;an environment where actors can test&nbsp;new ideas&nbsp;in close collaboration and under the oversight of regulatory authorities.</p>
-
-
-
-<p>But&nbsp;to implement&nbsp;this in the AI sector now also leads us to&nbsp;a&nbsp;lot of questions and challenges. For example, you need to have the&nbsp;capacities&nbsp;of authorities that are governing and&nbsp;monitoring&nbsp;and deciding&nbsp;on these regulatory sandboxes. There are issues relating to competition law, for example, which&nbsp;you&nbsp;call antitrust law in the US, because the question is, who can enter the sandbox and how may they compete after they exit the sandbox? And there are many questions relating to, how&nbsp;should we&nbsp;work with these sandboxes and how&nbsp;should we&nbsp;implement these sandboxes?</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Well, Timo, it has just been such a pleasure to speak with you today.</p>
-
-
-
-<p><strong>MINSSEN:</strong>&nbsp;Yes, thank you very much.&nbsp;</p>
-
-
-
-<p>And now&nbsp;I&#8217;m&nbsp;happy to introduce Chad Atalla.</p>
-
-
-
-<p>Chad&nbsp;is&nbsp;senior applied scientist&nbsp;in&nbsp;Microsoft Research&nbsp;New York City&#8217;s&nbsp;Sociotechnical Alignment Center, where they contribute to foundational responsible AI research and practical responsible AI solutions for teams across Microsoft.</p>
-
-
-
-<p>Chad, welcome!</p>
-
-
-
-<p><strong>CHAD ATALLA:</strong>&nbsp;Thank you.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;So&nbsp;we&#8217;ll&nbsp;kick off with a couple questions just to dive right in.&nbsp;So&nbsp;tell me a little bit more about the&nbsp;Sociotechnical Alignment Center,&nbsp;or&nbsp;<em>STAC</em>? I know it was founded in&nbsp;2022.&nbsp;I&#8217;d&nbsp;love to just learn a little bit more about what the group does, how&nbsp;you&#8217;re&nbsp;thinking about evaluating AI, and&nbsp;maybe just&nbsp;give us a sense of some of the projects&nbsp;you&#8217;re&nbsp;working on.</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;Yeah, absolutely. The name is quite a mouthful.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;It is!&nbsp;[LAUGHS]&nbsp;</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;So&nbsp;let&#8217;s&nbsp;start by breaking that down and seeing what that means.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Great.</p>
-
-
-
-<p><strong>ATALLA:</strong> So modern AI systems are sociotechnical systems, meaning that the social and technical aspects are deeply intertwined. And&nbsp;we&#8217;re interested in aligning the behaviors of these sociotechnical&nbsp;systems with some values.&nbsp;Those could be societal values;&nbsp;they could be regulatory values, organizational values, etc. And to make this alignment happen, we need the ability to evaluate the systems.</p>
-
-
-
-<p>So&nbsp;my team is broadly working on an evaluation framework that acknowledges the sociotechnical nature of the technology and the often-abstract nature of the concepts&nbsp;we&#8217;re&nbsp;actually interested&nbsp;in evaluating. As you noted,&nbsp;it&#8217;s&nbsp;an applied science team, so we split our time between some fundamental research and time to bridge the work into real products across the company. And I also want to note that to power this sort of work, we have an interdisciplinary team drawing upon the social sciences, linguistics, statistics, and,&nbsp;of course, computer science.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Well,&nbsp;I&#8217;m&nbsp;eager to get into our takeaways from the conversation with&nbsp;both Daniel&nbsp;and Timo. But&nbsp;maybe just&nbsp;to double-click on this for a minute, can you talk a bit about some of the overarching goals of the AI evaluations that you noted?&nbsp;</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;So&nbsp;evaluation is really the act of making valuative judgments based on some evidence, and in the case of AI evaluation, that evidence might be from tests or measurements, right.&nbsp;And the goal of why&nbsp;we&#8217;re doing this in the first place is to make decisions and claims most often.</p>
-
-
-
-<p>So&nbsp;perhaps I&nbsp;am going to make a claim about a model that&nbsp;I&#8217;m&nbsp;producing, and I want to say that&nbsp;it&#8217;s&nbsp;better than this other model. Or we are asking whether a certain product is safe to ship.&nbsp;All of these decisions need to be informed by good evaluation and therefore good measurement or testing.&nbsp;And&nbsp;I&#8217;ll&nbsp;also note that in&nbsp;the regulatory conversation, <em>risk</em>&nbsp;is often what we want to evaluate. So that is a goal in and of itself. And&nbsp;I&#8217;ll&nbsp;touch more on that later.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;I read a recent&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/evaluating-generative-ai-systems-is-a-social-science-measurement-challenge/" target="_blank" rel="noreferrer noopener">paper that you had put out with some of our colleagues from Microsoft Research, from the University of Michigan, and Stanford</a>, and you were arguing that evaluating generative AI is&nbsp;<em>the</em>&nbsp;social-science measurement challenge.&nbsp;Maybe for&nbsp;those who&nbsp;haven&#8217;t&nbsp;read the paper, what does this mean? And can you tell us a little bit more about what motivated you and your coauthors?&nbsp;</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;So the measurement tasks involved in evaluating generative AI systems are often abstract and contested. So that means they cannot be directly measured and must instead [be] indirectly measured via other observable phenomena. So this is very different than the older machine learning paradigm, where, let&#8217;s say, for example, I had a system that took a picture of a traffic light and told you whether it was green, yellow, or red at a given time.&nbsp;</p>
-
-
-
-<p>If we wanted to evaluate that system, the task is much simpler. But with the modern generative AI systems that are also general purpose, they have open-ended output, and language in a whole chat or multiple paragraphs being outputted can have a lot of different properties. And as I noted, these are general-purpose systems, so we don&#8217;t know exactly what task they&#8217;re supposed to be carrying out.</p>
-
-
-
-<p>So&nbsp;then the question becomes, if I want to make some decision or claim—maybe I&nbsp;want to make a claim that this system has human-level reasoning capabilities—well, what does that mean? Do I have the same impression of what that means as you do? And how do we know whether the downstream, you know, measurements and tests that&nbsp;I&#8217;m&nbsp;conducting&nbsp;actually will&nbsp;support my notion of what it means to have human-level reasoning,&nbsp;right?&nbsp;Difficult questions. But luckily, social scientists have been dealing with these exact sorts of challenges for multiple decades in fields like education, political science, and psychometrics. So&nbsp;we&#8217;re&nbsp;really&nbsp;attempting&nbsp;to avoid reinventing the wheel here and trying to learn from their past methodologies.</p>
-
-
-
-<p>And so the rest of the paper goes on to delve into&nbsp;a four-level framework, a measurement framework, that&#8217;s grounded in the measurement theory from the quantitative social sciences that takes us all the way from these abstract and contested concepts through processes to get much clearer and eventually reach reliable and valid measurements that can power our evaluations.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;I love that. I mean,&nbsp;that&#8217;s&nbsp;the whole point of this podcast,&nbsp;too,&nbsp;right.&nbsp;Is&nbsp;to really&nbsp;build&nbsp;on those other learnings and frameworks that&nbsp;we&#8217;re&nbsp;taking from industries that have been thinking about this for much longer.&nbsp;Maybe from&nbsp;your vantage point, what are some of the biggest day-to-day hurdles in building solid AI evaluations&nbsp;and,&nbsp;I&nbsp;don&#8217;t&nbsp;know, do we need more shared standards? Are there&nbsp;bespoke methods? Are those&nbsp;the way to go? I would love&nbsp;to just&nbsp;hear your thoughts on that.</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;So&nbsp;let&#8217;s&nbsp;talk about some of those practical challenges. And I want to briefly go back to what I mentioned about risk before, all right.&nbsp;Oftentimes,&nbsp;some of the regulatory environment&nbsp;is requiring practitioners to measure the&nbsp;<em>risk</em>&nbsp;involved in deploying one of their models or AI systems. Now, risk is importantly a&nbsp;concept that includes both event and impact,&nbsp;right.&nbsp;So&nbsp;there&#8217;s&nbsp;the probability of some event occurring. For the case of AI evaluation,&nbsp;perhaps this&nbsp;is us seeing a certain AI behavior&nbsp;exhibited. Then there&#8217;s also the severity of the&nbsp;<em>impacts</em>,&nbsp;and this is a complex chain of effects in the real world that&nbsp;happen&nbsp;to people, organizations, systems, etc., and&nbsp;it&#8217;s&nbsp;a lot more challenging to&nbsp;observe&nbsp;the impacts,&nbsp;right.</p>
-
-
-
-<p>So&nbsp;if we&#8217;re saying that we need to measure risk, we have to measure both the event and the&nbsp;impacts. But realistically, right now, the field is not doing&nbsp;a very good&nbsp;job of&nbsp;actually measuring&nbsp;the impacts. This requires vastly different techniques and methodologies where if I just wanted to measure something about the event itself, I can, you know, do that in a technical sandbox&nbsp;environment&nbsp;and&nbsp;perhaps have&nbsp;some automated methods to detect whether a certain AI behavior is being&nbsp;exhibited. But if I want to measure the impacts? Now,&nbsp;we&#8217;re&nbsp;in the realm of needing to have real people involved, and&nbsp;perhaps a&nbsp;longitudinal study where you have interviews, questionnaires, and more qualitative evidence-gathering techniques to&nbsp;truly understand&nbsp;the long-term impacts. So&nbsp;that&#8217;s&nbsp;a significant challenge.</p>
-
-
-
-<p>Another is that, you know,&nbsp;let&#8217;s&nbsp;say we forget about the impacts for&nbsp;now&nbsp;and we focus on the event side of things. Still, we need datasets, we need&nbsp;annotations,&nbsp;and we need&nbsp;metrics to make this whole thing work. When I say we need datasets, if I want to test whether my system has good mathematical reasoning, what questions should I ask? What are my set of inputs that are relevant? And then when I get&nbsp;the&nbsp;response from the system, how do I annotate them? How do I know if it was a good response that&nbsp;<em>did</em> demonstrate mathematical reasoning or if it was a mediocre response? And then once I have an annotation of&nbsp;all of these outputs from the AI system, how do I aggregate those all up into a single informative number?</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Earlier in this episode, we heard Daniel and&nbsp;Timo walk&nbsp;through the regulatory frameworks in pharma and medical devices.&nbsp;I&#8217;d&nbsp;be curious what pieces of those mature systems are already showing up or at least may&nbsp;be bubbling up in AI governance.</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;Great question. You know, Timo was talking about the pre-market and post-market testing difference. Of course, this is similarly important in the AI evaluation space. But again, these have different methodologies and serve different purposes.</p>
-
-
-
-<p>So&nbsp;within the pre-deployment phase, we&nbsp;don&#8217;t&nbsp;have evidence of how people are going to use the system. And when we have these general-purpose AI systems,&nbsp;to understand what the risks are, we really need to have a sense of what might happen and how they might be used.&nbsp;So&nbsp;there are&nbsp;significant challenges there where I think we can learn from other fields and how they do pre-market testing. And the difference in that pre- versus post-market testing also ties to testing at&nbsp;different stages&nbsp;in the life cycle.</p>
-
-
-
-<p>For AI systems, we already see some regulations saying you need to start with the base model and do some evaluation of the base model, some basic attributes, some core attributes,&nbsp;of that base model before you start putting it into any real products. But once we have a product in mind, we have a user base in mind, we have a specific task—like maybe we&#8217;re going to integrate this model into Outlook and it&#8217;s going to help you write&nbsp;emails—now we suddenly have a much crisper picture of how the system will interact with the world around it. And again, at that stage, we need to think about another round of evaluation.</p>
-
-
-
-<p>Another part that jumped out to me in what they were saying about pharmaceuticals is that sometimes approvals can be based on surrogate endpoints.&nbsp;So&nbsp;this is like&nbsp;we&#8217;re&nbsp;choosing some&nbsp;heuristic.&nbsp;Instead of measuring the long-term impact, which is what we&nbsp;actually care&nbsp;about,&nbsp;perhaps we&nbsp;have a proxy that we&nbsp;feel like&nbsp;is a good enough indicator of what that long-term impact might look like.&nbsp;&nbsp;</p>
-
-
-
-<p>This is occurring in the AI evaluation space right now and is often perhaps even the default here since&nbsp;we&#8217;re not seeing that many studies of the long-term impact itself. We are seeing, instead, folks constructing these heuristics or proxies and saying if I see this behavior happen,&nbsp;I&#8217;m&nbsp;going to&nbsp;<em>assume</em>&nbsp;that it&nbsp;indicates&nbsp;this sort of impact will happen downstream. And&nbsp;that&#8217;s&nbsp;great.&nbsp;It&#8217;s&nbsp;one of the techniques that was used to speed up and reduce the barrier to innovation in&nbsp;the other&nbsp;fields. And I think&nbsp;it&#8217;s&nbsp;great that we are applying that in the AI evaluation space. But&nbsp;special care&nbsp;is,&nbsp;of course, needed to ensure that those heuristics and proxies you&#8217;re&nbsp;using are reasonable indicators of the greater outcome&nbsp;you&#8217;re&nbsp;looking for.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;What are some of the promising ideas from&nbsp;maybe pharma&nbsp;or med device regulation that maybe haven&#8217;t&nbsp;made it to AI testing yet and&nbsp;maybe should? And where would you urge technologists, policymakers,&nbsp;and researchers to focus their energy next?</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;Well, one of the key things that jumped out to me in the discussion about pharmaceuticals was driving home the emphasis that there&nbsp;is&nbsp;a&nbsp;<em>holistic</em>&nbsp;focus on safety&nbsp;<em>and</em>&nbsp;efficacy. These go hand in hand&nbsp;and decisions must be made while considering both pieces of the picture. I would like to see that further emphasized in the AI evaluation space.</p>
-
-
-
-<p>Often,&nbsp;we&nbsp;are seeing&nbsp;evaluations of risk being separated from evaluations of&nbsp;performance or quality&nbsp;or efficacy, but these two pieces of the puzzle really are not enough for us to make informed decisions independently.&nbsp;And that ties back into my desire to really also see us measuring the impacts.</p>
-
-
-
-<p>So&nbsp;we see Phase 3 trials as something that occurs in the medical devices and pharmaceuticals field. That&#8217;s not something that we are doing an equivalent of in the AI evaluation space at this time.&nbsp;These are really&nbsp;cost intensive. They can last years and really involve careful monitoring of that holistic picture of safety and efficacy. And realistically, we are not going to be able to put that on the critical path to getting specific individual AI models or AI systems vetted before they&nbsp;go out&nbsp;into the world. However, I would love to see a world in which this sort of work is prioritized&nbsp;and funded or&nbsp;required. Think of how, with&nbsp;social media, it took quite a long time for us to understand that there are some long-term negative impacts on mental health, and we have the opportunity now, while the AI wave is still building,&nbsp;to start prioritizing and funding this sort of work. Let it run in the background and as soon as possible develop a good understanding of the subtle, long-term effects.</p>
-
-
-
-<p>More broadly, I would love to see us focus on reliability and validity of the evaluations&nbsp;we&#8217;re&nbsp;conducting because trust in these decisions and claims is important. If we&nbsp;don&#8217;t&nbsp;focus on building reliable, valid, and trustworthy evaluations,&nbsp;we&#8217;re&nbsp;just going to continue to be flooded by a bunch of competing, conflicting, and&nbsp;largely meaningless&nbsp;AI evaluations.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;In a number of the discussions we&#8217;ve had on this podcast, we talked about how it&#8217;s not just one entity that really needs to ensure safety across the board,&nbsp;and I’d&nbsp;just love to hear from you how you think about some of those ecosystem collaborations, and you know, from across &#8230; where we think about ourselves as more of a platform company or places that these AI models are being deployed more at the application level. Tell me a little bit about how you think about,&nbsp;sort&nbsp;of, stakeholders in that mix and where responsibility lies across the board.</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;It&#8217;s&nbsp;interesting. In this age of general-purpose AI technologies,&nbsp;we&#8217;re&nbsp;often&nbsp;seeing&nbsp;one company or organization&nbsp;being responsible for&nbsp;building the foundational model. And then many, many other people will take that model and build it into specific products that are designed for specific tasks and contexts.</p>
-
-
-
-<p>Of course,&nbsp;in that, we already see that there is&nbsp;a responsibility&nbsp;of the owners of that foundational model to do some testing of the central model before they distribute it broadly. And then again, there is responsibility of all of the downstream individuals digesting that and turning it into products to consider the specific contexts that they are deploying into and how that may affect the risks we&#8217;re concerned with or the types of quality and safety and performance we need to evaluate.</p>
-
-
-
-<p>Again, because that field of risks we may be concerned with is so broad, some of them also require an immense amount of&nbsp;expertise.&nbsp;Let&#8217;s&nbsp;think about whether AI systems can enable people to create dangerous chemicals or dangerous weapons at home. It&#8217;s not that every AI practitioner is going to have the knowledge to evaluate this, so in some of those cases, we really need third-party experts, people who are experts in chemistry, biology, etc., to come in and evaluate certain systems and models for those specific risks,&nbsp;as well.</p>
-
-
-
-<p>So&nbsp;I think there&nbsp;are many reasons why multiple stakeholders need to be involved, partly from who owns what and&nbsp;is responsible for&nbsp;what and partly from the perspective of who has the&nbsp;expertise&nbsp;to meaningfully construct the evaluations that we need.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Well, Chad, this has just been great to connect, and in a few of our discussions,&nbsp;we&#8217;ve&nbsp;done a bit of a lightning round, so&nbsp;I&#8217;d&nbsp;love to just hear your&nbsp;30-second responses to a few of these questions. Perhaps&nbsp;favorite&nbsp;evaluation&nbsp;you&#8217;ve&nbsp;run so far this year?&nbsp;</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;So&nbsp;I&#8217;ve&nbsp;been involved in trying to evaluate some language models for whether they&nbsp;<em>infer</em>&nbsp;sensitive attributes about people. So&nbsp;perhaps&nbsp;you&#8217;re&nbsp;chatting with a&nbsp;chatbot,&nbsp;and it infers your religion or sexuality based on things&nbsp;you&#8217;re&nbsp;saying or how you sound,&nbsp;right.&nbsp;And in working to evaluate this, we&nbsp;encounter&nbsp;a lot of interesting questions. Or,&nbsp;like,&nbsp;what is a sensitive attribute? What makes these attributes sensitive, and what are the differences that make it inappropriate for an AI system to infer these things about a person? Whereas realistically, whenever I meet a person on the street, my&nbsp;brain is&nbsp;immediately&nbsp;forming&nbsp;first impressions and some assumptions about these people.&nbsp;So&nbsp;it&#8217;s&nbsp;a very interesting&nbsp;and thought-provoking evaluation to conduct and think about the norms that we place upon&nbsp;<em>people</em>&nbsp;interacting with other people and the norms we place upon&nbsp;<em>AI systems</em>&nbsp;interacting with other people.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;That’s&nbsp;fascinating!&nbsp;I&#8217;d&nbsp;love to hear the AI&nbsp;buzzword&nbsp;you&#8217;d&nbsp;retire tomorrow.&nbsp;[LAUGHTER]</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;I would love to see the term “bias” being&nbsp;used less when referring to fairness-related issues and systems. Bias happens to be a highly overloaded term in statistics and machine learning and has a lot of technical meanings and just&nbsp;fails to&nbsp;perfectly capture what we mean in the AI risk sense.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;And last one. One metric&nbsp;we&#8217;re&nbsp;not tracking enough.</p>
-
-
-
-<p><strong>ATALLA:</strong>&nbsp;I would say <em>over-blocking</em>, and this comes into that connection between the holistic picture of safety and efficacy. It&#8217;s too easy to produce systems that throw safety to the wind and focus purely on utility or achieving some goal, but simultaneously, the other side of the picture is possible, where we can clamp down too hard and reduce the utility of our systems and block even benign and useful outputs just because they border on something sensitive.&nbsp;So&nbsp;it&#8217;s&nbsp;important for us to track that over-blocking and actively track that tradeoff between safety and efficacy.</p>
-
-
-
-<p><strong>SULLIVAN:</strong>&nbsp;Yeah, we talk a lot about this on the podcast,&nbsp;too,&nbsp;of how do you both make things safe but also ensure innovation can&nbsp;thrive,&nbsp;and&nbsp;I think you&nbsp;hit the nail on the head with that last piece.</p>
-
-
-
-<p>[MUSIC]&nbsp;</p>
-
-
-
-<p>Well, Chad, this was&nbsp;really terrific. Thanks for joining us and thanks for your work and your&nbsp;perspectives. And another big thanks to Daniel and Timo for setting the stage earlier in the podcast.</p>
-
-
-
-<p>And to our listeners, thanks for tuning in. You can find resources related to this podcast in the show notes. And if you want to learn more about how Microsoft approaches AI governance, you can visit <a href="https://www.microsoft.com/RAI" target="_blank" rel="noreferrer noopener">microsoft.com/RAI</a>. </p>
-
-
-
-<p>See you next time! </p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-9"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--10"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation podcast series</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-pharmaceuticals-and-medical-devices/">AI Testing and Evaluation: Learnings from pharmaceuticals and medical devices</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
