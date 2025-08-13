@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 07 Aug 2025 14:31:30 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 12 Aug 2025 20:09:23 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,23 +20,202 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>Dion: the distributed orthonormal update revolution is here</title>
+		<link>https://www.microsoft.com/en-us/research/blog/dion-the-distributed-orthonormal-update-revolution-is-here/</link>
+		
+		<dc:creator><![CDATA[Kwangjun Ahn, John Langford]]></dc:creator>
+		<pubDate>Tue, 12 Aug 2025 20:09:21 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1146334</guid>
+
+					<description><![CDATA[<p>Dion is a new AI model optimization method that boosts scalability and performance over existing leading methods by orthonormalizing only a top rank subset of singular vectors, enabling more efficient training of large models such as LLaMA-3 with reduced overhead.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/dion-the-distributed-orthonormal-update-revolution-is-here/">Dion: the distributed orthonormal update revolution is here</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-scaled.jpg" alt="Three white icons on a gradient background transitioning from blue to green. From left to right: a network of interconnected nodes, a speedometer with the needle pointing right, and a flowchart with squares and a diamond shape." class="wp-image-1147793" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion-BlogHeroFeature-1400x788_New-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<p>Training AI models requires choosing an optimizer and for nearly a decade, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1412.6980" target="_blank" rel="noreferrer noopener">Adam(<span class="sr-only"> (opens in new tab)</span></a>&#8211;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1711.05101" target="_blank" rel="noreferrer noopener">W)<span class="sr-only"> (opens in new tab)</span></a> has been the optimizer of choice. Given that durability and success, it was fair to doubt that any further improvement was possible. And yet, last December, a new optimizer called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://kellerjordan.github.io/posts/muon/" target="_blank" rel="noreferrer noopener">Muon<span class="sr-only"> (opens in new tab)</span></a> showed serious promise by powering a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/KellerJordan/modded-nanogpt/tree/master" target="_blank" rel="noreferrer noopener">nanoGPT speedrun<span class="sr-only"> (opens in new tab)</span></a>. This proved out, with multiple AI labs (e.g., <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2502.16982" target="_blank" rel="noreferrer noopener">Kimi-AI<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2505.02222" target="_blank" rel="noreferrer noopener">Essential-AI<span class="sr-only"> (opens in new tab)</span></a>) reporting 2x scale improvements and the release of the 1T parameter <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://moonshotai.github.io/Kimi-K2/" target="_blank" rel="noreferrer noopener">Kimi K2<span class="sr-only"> (opens in new tab)</span></a> model.&nbsp;Restated: you can train a model to similar performance with half as many GPUs.</p>
+
+
+
+<p>There’s one fly in the ointment: Muon requires large matrix multiplications in the optimizer, which requires heavy communication in large models at the scale where <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2304.11277" target="_blank" rel="noreferrer noopener">FSDP</a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noreferrer noopener">TP</a> parallelization becomes desirable.&nbsp;Going back to the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jeremybernste.in/writing/deriving-muon" target="_blank" rel="noreferrer noopener">inspiration for Muon,</a> the key idea is an orthonormal update, which sparked the search&nbsp;for more scalable alternative linear algebras realizing the same goal. That’s exactly what <a href="https://www.microsoft.com/en-us/research/publication/dion-distributed-orthonormalized-updates/" target="_blank" rel="noreferrer noopener">Dion</a> is. We have open-sourced this new optimizer to enable anyone to train large models more efficiently at scale. &nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="what-s-an-orthonormal-update">What’s an orthonormal update?</h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1422" height="515" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure1_Dion.png" alt="Illustration of matrix parameters" class="wp-image-1146808" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure1_Dion.png 1422w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure1_Dion-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure1_Dion-1024x371.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure1_Dion-768x278.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure1_Dion-240x87.png 240w" sizes="(max-width: 1422px) 100vw, 1422px" /><figcaption class="wp-element-caption">Figure1. Illustration of matrix parameters</figcaption></figure>
+
+
+
+<p>At the core of Transformers, a set of input activations is multiplied by a learned weight matrix to produce a new set of output activations. When the weight matrix is updated during training, the resulting change in the output activations generally depends on the direction of the input activations. As a result, the learning rate must be chosen conservatively to accommodate the input direction that induces the largest change. Orthonormalized updates alter this behavior by (approximately) making the change in output activations invariant to the direction of the input. This is achieved by enforcing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Orthonormality" target="_blank" rel="noreferrer noopener">orthonormality<span class="sr-only"> (opens in new tab)</span></a> on the update matrix, thereby equalizing its effect across all input directions.</p>
+
+
+
+<h2 class="wp-block-heading" id="what-is-dion">What is Dion?</h2>
+
+
+
+<p>While Muon has shown strong empirical results, scaling it to very large models poses challenges. As reported by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.essential.ai/blog/infra" target="_blank" rel="noreferrer noopener">Essential AI<span class="sr-only"> (opens in new tab)</span></a>, applying Muon to large architectures like LLaMA-3 becomes <em>compute-bound</em>—and potentially <em>communication-bound</em>—due to the cost of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://docs.modula.systems/algorithms/newton-schulz/" target="_blank" rel="noreferrer noopener">Newton–Schulz orthonormalization steps<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1685" height="857" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion.png" alt="Pseudocode of the centralized version of Dion" class="wp-image-1146810" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion.png 1685w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion-1024x521.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion-768x391.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion-1536x781.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure2_Dion-240x122.png 240w" sizes="(max-width: 1685px) 100vw, 1685px" /><figcaption class="wp-element-caption">Figure 2. Pseudocode of the centralized version of Dion</figcaption></figure>
+
+
+
+<p>This is where <strong>Dion</strong> enters. At a high level, Dion introduces a new axis for scalability: the <strong>rank</strong>. Specifically, for a given rank r, Dion orthonormalizes only the top r of the singular vector space, reducing communication and compute overhead while preserving performance.&nbsp;Empirically, we observe that the necessary rank for good performance grows much more slowly than the number of parameters in larger models.</p>
+
+
+
+<div class="annotations " data-bi-aN="margin-callout">
+	<article class="annotations__list card depth-16 bg-body p-4 annotations__list--right">
+		<div class="annotations__list-item">
+						<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Download</span>
+			<a href="https://github.com/microsoft/dion/" target="_blank" class="annotations__link font-weight-semibold text-decoration-none" data-bi-type="annotated-link" aria-label="Dion optimizer" data-bi-aN="margin-callout" data-bi-cN="Dion optimizer">
+				Dion optimizer&nbsp;<span class="glyph-append glyph-append-share glyph-append-xsmall"></span>
+			</a>
+					</div>
+	</article>
+</div>
+
+
+
+<p>Dion implements orthonormalization using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1905.13727" target="_blank" rel="noreferrer noopener"><em>amortized power iteration</em><span class="sr-only"> (opens in new tab)</span></a><em>.&nbsp;</em>Power iteration typically pulls out the largest singular value by repeated matrix multiplication.&nbsp;By amortizing this process over optimization steps—applied to the slowly-evolving momentum matrix—we reduce the cost to just two matrix multiplications per step. Incorporating a QR decomposition allows us to extract an approximate orthonormal basis spanning the top singular directions, rather than just the leading one.&nbsp;This amortized power iteration is fully compatible with standard distributed training techniques such as <strong>FSDP</strong> and <strong>tensor parallelism</strong>.&nbsp;Here, we show a simple centralized version, but the technique works for more complex forms of parallelization as presented in the paper. In other words, we can orthogonalize a matrix <em>without ever seeing a full row or column of it</em>.&nbsp;</p>
+
+
+
+<p>Low-rank approximation would ordinarily introduce error, but Dion overcomes this through an error feedback mechanism. This keeps the residual of low rank approximation in the momentum matrix so that any systematic gradient structure not initially captured accumulates to eventually be applied in a future update.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="how-does-it-work">How does it work?</h2>
+
+
+
+<p>Something very strange happened in our experiments. Usually, adding an extra constraint on the way an algorithm works can be expected to <em>decrease</em> overall performance. And indeed, at the 120M parameter scale of the speedrun, we see Dion’s update taking more time than Muon, while not yielding any significant gains. But at larger scales, we observed a different trend: Dion began to outperform Muon.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="699" height="414" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure-3_Dion.png" alt="Wall-clock time speedup of Dion for 3B model training" class="wp-image-1146815" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure-3_Dion.png 699w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure-3_Dion-300x178.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure-3_Dion-240x142.png 240w" sizes="auto, (max-width: 699px) 100vw, 699px" /><figcaption class="wp-element-caption">Figure 3. Wall-clock time speedup of Dion for 3B model training</figcaption></figure>
+
+
+
+<p>Why would adding a constraint <em>improve</em> the update rule? The answer lies in what the constraint enforces. Dion achieves a much closer approximation to true orthonormalization than Muon. This precision, initially subtle, becomes increasingly important as the number of singular vectors grows. Over increasing model scale and training steps, this small advantage accumulates—leading to a measurable improvement in performance.</p>
+
+
+
+<p>This edge further grows with batch size—with larger batches the update quality tends to degrade, but notably more slowly with Dion than Muon (and Muon is already a significant improvement over AdamW).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="786" height="637" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure4_Dion.png" alt="Scaling of Dion across different batch sizes" class="wp-image-1146818" style="width:596px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure4_Dion.png 786w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure4_Dion-300x243.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure4_Dion-768x622.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure4_Dion-222x180.png 222w" sizes="auto, (max-width: 786px) 100vw, 786px" /><figcaption class="wp-element-caption">Figure 4. Scaling of Dion across different batch sizes</figcaption></figure>
+
+
+
+<p>Here you can see how the number of steps to reach a pretraining loss compared to AdamW varies as batch size grows with full rank and ¼ rank Dion (in orange) and Muon (in blue).&nbsp;&nbsp;&nbsp;</p>
+
+
+
+<p>In our experiments, these benefits extend to various post-training regimes as well.</p>
+
+
+
+<p>We also experimented with rank, discovering empirically that larger models tolerate smaller rank well.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1893" height="511" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion.png" alt="Low-rank Dion across different model sizes" class="wp-image-1146821" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion.png 1893w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion-300x81.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion-1024x276.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion-768x207.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion-1536x415.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Figure5_Dion-240x65.png 240w" sizes="auto, (max-width: 1893px) 100vw, 1893px" /><figcaption class="wp-element-caption">Figure 5. Low-rank Dion across different model sizes</figcaption></figure>
+
+
+
+<p>Projecting this trend out to the scale of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2407.21783" target="_blank" rel="noreferrer noopener">LLaMA-3<span class="sr-only"> (opens in new tab)</span></a> 405B parameter models suggests that Dion is fully effective even with <strong>rank fractions as low as 1/16 or 1/64</strong> for large dense models like LLaMA-3.&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+
+
+<p>Using hardware timings of the individual update steps suggests a story that looks this:</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1075" height="645" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion_FIG6.png" alt="Estimated wall-clock time of each optimizer step for Llama 3 405B. Lower is better. Muon is highlighted in orange as our baseline, next to Dion with varying rank fractions. Suggested rank fractions for a 405B parameter model are shown in blue. Using Dion with rank fraction 1/16 or lower offers an order-of-magnitude speedup over Muon." class="wp-image-1147684" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion_FIG6.png 1075w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion_FIG6-300x180.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion_FIG6-1024x614.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion_FIG6-768x461.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Dion_FIG6-240x144.png 240w" sizes="auto, (max-width: 1075px) 100vw, 1075px" /><figcaption class="wp-element-caption">Figure 6. Estimated wall-clock time of each optimizer step for Llama 3 405B. Lower is better. Muon is highlighted in orange as our baseline, next to Dion with varying rank fractions. Suggested rank fractions for a 405B parameter model are shown in blue. Using Dion with rank fraction 1/16 or lower offers an order-of-magnitude speedup over Muon.</figcaption></figure>
+
+
+
+<p>We’ve open-sourced a PyTorch FSDP2 + Tensor Parallel (TP) implementation of <strong>Dion</strong>, available via a simple pip install. Our goal is to make faster training with Dion accessible to everyone. As a bonus, the repository also includes a PyTorch FSDP2 implementation of <strong>Muon.</strong></p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/dion/">Dion optimizer</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>We thank Riashat Islam and Pratyusha Sharma for their helpful feedback on the writing and presentation.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/dion-the-distributed-orthonormal-update-revolution-is-here/">Dion: the distributed orthonormal update revolution is here</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Reimagining healthcare delivery and public health with AI</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/reimagining-healthcare-delivery-and-public-health-with-ai/</link>
 		
 		<dc:creator><![CDATA[Peter Lee, Dr. Umair Shah, Dr. Gianrico Farrugia]]></dc:creator>
 		<pubDate>Thu, 07 Aug 2025 16:00:00 +0000</pubDate>
 				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false"></guid>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/podcast/reimagining-healthcare-delivery-and-public-health-with-ai/</guid>
 
 					<description><![CDATA[<p>Former Washington State Secretary of Health Dr. Umair Shah and Mayo Clinic CEO Dr. Gianrico Farrugia explore how healthcare leaders are approaching AI when it comes to public health, care delivery, the healthcare-research connection, and the patient experience.</p>
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/reimagining-healthcare-delivery-and-public-health-with-ai/">Reimagining healthcare delivery and public health with AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Peter Lee, Umair Shah, Gianrico Farrugia" class="wp-image-1147485" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Peter Lee, Umair Shah, Gianrico Farrugia" class="wp-image-1147485" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode10-PeterUmairGianrico-AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=147585250&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=147585250&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1415,7 +1594,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/">Self-adaptive reasoning for science</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg" alt="A gradient background transitioning from blue to pink with three white icons: a DNA double helix, a light bulb with rays, and a stylized path with arrows and nodes." class="wp-image-1146704" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg" alt="A gradient background transitioning from blue to pink with three white icons: a DNA double helix, a light bulb with rays, and a stylized path with arrows and nodes." class="wp-image-1146704" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -1587,30 +1766,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1903,27 +2082,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3845,7 +4027,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -3854,20 +4036,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -4455,541 +4637,6 @@
 
 <p>We see CollabLLM as a step in that direction, training models to engage in meaningful multi-turn interactions, ask clarifying questions, and adapt to context. In doing so, we can build systems designed to work <em>with</em> people—not around them.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/collabllm-teaching-llms-to-collaborate-with-users/">CollabLLM: Teaching LLMs to collaborate with users</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>AI Testing and Evaluation: Learnings from cybersecurity</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-cybersecurity/</link>
-		
-		<dc:creator><![CDATA[Kathleen Sullivan, Ciaran Martin, Tori Westerhoff]]></dc:creator>
-		<pubDate>Mon, 14 Jul 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-cybersecurity/</guid>
-
-					<description><![CDATA[<p>Drawing on his previous work as the UK’s cybersecurity chief, Professor Ciaran Martin explores differentiated standards and public-private partnerships in cybersecurity, and Microsoft’s Tori Westerhoff examines the insights through an AI red-teaming lens.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-cybersecurity/">AI Testing and Evaluation: Learnings from cybersecurity</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1.jpg" alt="Illustrated images of Kathleen Sullivan, Ciaran Martin, and Tori Westerhoff for the Microsoft Research podcast" class="wp-image-1144391" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/EP3-AI-TE_Hero_Feature_1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=146975694&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>Generative AI presents a unique challenge and opportunity to reexamine governance practices for the responsible development, deployment, and use of AI. To advance thinking in this space, Microsoft has tapped into the experience and knowledge of experts across domains—from genome editing to cybersecurity—to investigate the role of testing and evaluation as a governance tool.&nbsp;<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/"><em>AI Testing and Evaluation: Learnings from Science and Industry</em></a>,&nbsp;hosted by Microsoft Research’s&nbsp;<a href="https://www.microsoft.com/en-us/research/people/kasull/">Kathleen Sullivan</a>, explores what the technology industry and policymakers can learn from these fields and how that might help shape the course of AI development.</p>
-
-
-
-<p>In this episode, Sullivan speaks with Professor <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bsg.ox.ac.uk/people/ciaran-martin" target="_blank" rel="noreferrer noopener">Ciaran Martin<span class="sr-only"> (opens in new tab)</span></a> of the University of Oxford about risk assessment and testing in the field of cybersecurity. They explore the importance of differentiated standards for organizations of varying sizes, the role of public-private partnerships, and the opportunity to embed security into emerging technologies from the outset. Later, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.victoriawesterhoff.com/" target="_blank" rel="noreferrer noopener">Tori Westerhoff<span class="sr-only"> (opens in new tab)</span></a>, a principal director on the Microsoft AI Red Team, joins Sullivan to talk about identifying vulnerabilities in AI products and services. Westerhoff describes AI security in terms she’s heard cybersecurity professionals use for their work—a team sport—and points to cybersecurity’s establishment of a shared language and understanding of risk as a model for AI security.</p>
-
-
-
-<div class="wp-block-group msr-pattern-link-list is-layout-flow wp-block-group-is-layout-flow">
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h5" id="learn-more-1">Learn more:</h2>
-
-
-
-<ul class="wp-block-list list-unstyled">
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview/">Introducing AI Red Teaming Agent: Accelerate your AI safety and security journey with Azure AI Foundry<span class="sr-only"> (opens in new tab)</span></a><br>Azure AI Foundry Blog | April 2025</li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/research/publication/lessons-from-red-teaming-100-generative-ai-products/">Lessons From Red Teaming 100 Generative AI Products</a><br>Publication | January 2025</li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/research/blog/learning-from-other-domains-to-advance-ai-evaluation-and-testing/">Learning from other domains to advance AI evaluation and testing</a><br>Microsoft Research Blog | June 2025</li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/ai/responsible-ai?ef_id=_k_cb05d5950e4f117c457ebda628845b7f_k_&OCID=AIDcmm1o1fzy5i_SEM__k_cb05d5950e4f117c457ebda628845b7f_k_&msclkid=cb05d5950e4f117c457ebda628845b7f" target="_blank" rel="noreferrer noopener">Responsible AI: Ethical policies and practices | Microsoft AI</a></li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/research/focus-area/ai-and-microsoft-research/" target="_blank" rel="noreferrer noopener">AI and Microsoft Research</a></li>
-</ul>
-</div>
-
-
-
-<div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>KATHLEEN SULLIVAN: </strong>Welcome to <em>AI Testing and Evaluation: Learnings from Science and Industry</em>. I&#8217;m your host, Kathleen Sullivan.</p>
-
-
-
-<p>As generative AI continues to advance, Microsoft has gathered a range of experts—from genome editing to cybersecurity—to share how their fields approach evaluation and risk assessment. Our goal is to learn from their successes and their stumbles to move the science and practice of AI testing forward. In this series, we&#8217;ll explore how these insights might help guide the future of AI development, deployment, and responsible use.</p>
-
-
-
-<p>[MUSIC ENDS]</p>
-
-
-
-<p>Today, I&#8217;m excited to welcome Ciaran Martin to the podcast to explore testing and risk assessment in cybersecurity. Ciaran is a professor of practice in the management of public organizations at the University of Oxford. He had previously founded and served as chief executive of the National Cyber Security Centre within the UK&#8217;s intelligence, security, and cyber agency.</p>
-
-
-
-<p>And after our conversation, we&#8217;ll talk to Microsoft&#8217;s Tori Westerhoff, a principal director on Microsoft’s AI Red Team, about how we should think about these insights in the context of AI.</p>
-
-
-
-<p>Hi, Ciaran. Thank you so much for being here today.</p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-7" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p><strong>CIARAN MARTIN:</strong> Well, thanks so much for inviting me. It’s great to be here.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Ciaran, before we get into some regulatory specifics, it&#8217;d be great to hear a little bit more about your origin story, and just take us to that day—who tapped you on the shoulder and said, “Ciaran, we need you to run a national cyber center! Do you fancy building one?”</p>
-
-
-
-<p><strong>MARTIN:</strong> You could argue that I owe my job to Edward Snowden. Not an obvious thing to say. So the National Cyber Security Centre, which didn&#8217;t exist at the time—I was invited to join the British government&#8217;s cybersecurity effort in a leadership role—is now a subset of GCHQ. That&#8217;s the digital intelligence agency. The equivalent in the US obviously is the NSA [National Security Agency]. It had been convulsed by the Snowden disclosures. It was an unprecedented challenge.</p>
-
-
-
-<p>I was a 17-year career government fixer with some national security experience. So I was asked to go out and help with the policy response, the media response, the legal response. But I said, look, any crisis, even one as big as this, is over one way or the other in six months. What should I do long term? And they said, well, we were thinking of asking you to try to help transform our cybersecurity mission. So the National Cyber Security Centre was born, and I was very proud to lead it, and all in all, I did it for seven years from startup to handing it on to somebody else.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> I mean, it&#8217;s incredible. And just building on that, people spend a significant portion of their lives online now with a variety of devices, and maybe for listeners who are newer to cybersecurity, could you give us the 90-second lightning talk? Kind of, what does risk assessment and testing look like in this space?</p>
-
-
-
-<p><strong>MARTIN:</strong> Well, risk assessment and testing, I think, are two different things. You can&#8217;t defend everything. If you defend everything, you&#8217;re defending nothing. So broadly speaking, organizations face three threats. One is complete disruption of their systems. So just imagine not being able to access your system. The second is data protection, and that could be sensitive customer information. It could be intellectual property. And the third is, of course, you could be at risk of just straightforward being stolen from. I mean, you don&#8217;t want any of them to happen, but you have to have a hierarchy of harm.</p>
-
-
-
-<p><strong>SULLIVAN: </strong>Yes.</p>
-
-
-
-<p><strong>MARTIN: </strong>So that&#8217;s your risk assessment.</p>
-
-
-
-<p>The testing side, I think, is slightly different. One of the paradoxes, I think, of cybersecurity is for such a scientific, data-rich subject, the sort of metrics about what works are very, very hard to come by. So you&#8217;ve got boards and corporate leadership and senior governmental structures, and they say, “Look, how do I run this organization safely and securely?” And a cybersecurity chief within the organization will say, “Well, we could get this capability in.” Well, the classic question for a leadership team to ask is, well, what risk and harm will this reduce, by how much, and what&#8217;s the cost-benefit analysis? And we find that <em>really</em> hard.</p>
-
-
-
-<p>So that&#8217;s really where testing and assurance comes in. And also as technology changes so fast, we have to figure out, well, if we&#8217;re worried about post-quantum cryptography, for example, what standards does it have to meet? How do you assess whether it&#8217;s meeting those standards? So it&#8217;s a huge issue in cybersecurity and one that we&#8217;re always very conscious of. It’s really hard.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Given the scope of cybersecurity, are there any differences in testing, let&#8217;s say, for maybe a small business versus a critical infrastructure operator? Are there any, sort of, metrics we can look at in terms of distinguishing risk or assessment?</p>
-
-
-
-<p><strong>MARTIN:</strong> There have to be. One of the reasons I think why we have to be is that no small business can be expected to take on a hostile nation-state that&#8217;s well equipped. You have to be realistic.</p>
-
-
-
-<p>If you look at government guidance, certainly in the UK 15 years ago on cybersecurity, you were telling small businesses that are living hand to mouth, week by week, trying to make payments at the end of each month, we were telling them they needed sort of nation-state-level cyber defenses. That was never going to happen, even if they could afford it, which they couldn&#8217;t. So you have to have some differentiation. So again, you&#8217;ve got assessment frameworks and so forth where you have to meet higher standards. So there absolutely has to be that distinction. Otherwise, you end up in a crazy world of crippling small businesses with just unmanageable requirements which they&#8217;re never going to meet.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> It&#8217;s such a great point. You touched on this a little bit earlier, as well, but just cybersecurity governance operates in a fast-moving technology and threat environment. How have testing standards evolved, and where do new technical standards usually originate?</p>
-
-
-
-<p><strong>MARTIN:</strong> I keep saying this is very difficult, and it is. [LAUGHTER] So I think there are two challenges. One is actually about the balance, and this applies to the technology of today as well as the technology of tomorrow. This is about, how do you make sure things are good enough without crowding out new entrants? You want people to be innovative and dynamic. You want disruptors in this business.</p>
-
-
-
-<p>But if you say to them, “Look, well, you have to meet these 14 impossibly high technical standards before you can even sell to anybody or sell to the government,” whatever, then you&#8217;ve got a problem. And I think we&#8217;ve wrestled with that, and there&#8217;s no perfect answer. You just have to try and go to … find the sweet spot between two ends of a spectrum. And that&#8217;s going to evolve.</p>
-
-
-
-<p>The second point, which in some respects if you&#8217;ve got the right capabilities is slightly <em>easier</em> but still a big call, is around, you know, those newer and evolving technologies. And here, having, you know, been a bit sort of gloomy and pessimistic, here I think is actually an opportunity. So one of the things we always say in cybersecurity is that the internet was built and developed without security in mind. And that was kind of true in the ’90s and the noughties, as we call them over here.</p>
-
-
-
-<p>But I think as you move into things like post-quantum computing, applied use of AI, and so on, you can actually set the standards at the beginning. And that&#8217;s really good because it&#8217;s saying to people that these are the things that are going to matter in the post-quantum age. Here&#8217;s the outline of the standards you&#8217;re going to have to meet; start looking at them. So there&#8217;s an opportunity actually to make technology safer by design, by getting ahead of it. And I think that&#8217;s the era we&#8217;re in now.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> That makes a lot of sense. Just building on that, do businesses and the public trust these standards? And I guess, which standard do you wish the world would just adopt already, and what&#8217;s the real reason they haven&#8217;t?</p>
-
-
-
-<p><strong>MARTIN:</strong> Well, again, where do you start? I mean, most members of the public quite rightly haven&#8217;t heard of any of these standards. I think public trust and public capital in any society matters. But I think it is important that these things are credible.</p>
-
-
-
-<p>And there&#8217;s quite a lot of convergence between, you know, the top-level frameworks. And obviously in the US, you know, the NIST [National Institute of Standards and Technology] framework is the one that&#8217;s most popular for cybersecurity, but it bears quite a strong resemblance to the international one, ISO[/IEC] 27001, and there are others, as well. But fundamentally, they boil down to kind of five things. Do a risk assessment; work out what your crown jewels are. Protect your perimeter as best you can. Those are the first two.</p>
-
-
-
-<p>The third one then is when your perimeter&#8217;s breached, be able to detect it more times than not. And when you can&#8217;t do that, you go to the fourth one, which is, can you mitigate it? And when all else fails, how quickly can you recover and manage it? I mean, all the standards are expressed in way more technical language than that, but fundamentally, if everybody adopted those five things and operated them in a simple way, you wouldn&#8217;t eliminate the harm, but you would reduce it quite substantially.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Which policy initiatives are most promising for incentivizing companies to undertake, you know, these cybersecurity testing parameters that you’ve just outlined? Governments, including the UK, have used carrots and sticks, but what do you think will actually move the needle?</p>
-
-
-
-<p><strong>MARTIN:</strong> I think there are two answers to that, and it comes back to your split between smaller businesses and critically important businesses. In the critically important services, I think it&#8217;s easier because most industries are looking for a level playing field. In other words, they realize there have to be rules and they want to apply them to everyone.</p>
-
-
-
-<p>We had a fascinating experience when I was in government back in around 2018 where the telecom sector, they came to us and they said, we&#8217;ve got a very good cooperative relationship with the British government, but it needs to be put on a proper legal footing because you&#8217;re just asking us nicely to do expensive things. And in a regulated sector, if you actually put in some rules—and please develop them jointly with us; that&#8217;s the crucial part—then that will help because it means that we&#8217;re not going to our boards and saying, or our shareholders, and saying that we should do this, and they&#8217;re saying, “Well, do you have to do it? Are our competitors doing it?” And if the answer to that is, yes, we have to, and, yes, our competitors are doing it, then it tends to be OK.</p>
-
-
-
-<p>The harder nut to crack is the smaller business. And I think there&#8217;s a real mystery here: why has nobody cracked a really good and easy solution for small business? We need to be careful about this because, you know, you can&#8217;t throttle small businesses with onerous regulation. At the same time, we&#8217;re not brilliant, I think, in any part of the world at using the normal corporate governance rules to try and get people to figure out how to do cybersecurity.</p>
-
-
-
-<p>There are initiatives there that are not the sort of pretty heavy stick that you might have to take to a critical function, but they could help. But that is a hard nut to crack. And I look around the world, and, you know, I think if this was easy, somebody would have figured it out by now. I think most of the developed economies around the world really struggle with cybersecurity for smaller businesses.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Yeah, it&#8217;s a great point. Actually building on one of the comments you made on the role of, kind of, government, how do you see the role of private-public partnerships scaling and strengthening, you know, robust cybersecurity testing?</p>
-
-
-
-<p><strong>MARTIN:</strong> I think they&#8217;re crucial, but they have to be practical. I&#8217;ve got a slight, sort of, high horse on this, if you don&#8217;t mind, Kathleen. It&#8217;s sort of … [LAUGHS]</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Of course.</p>
-
-
-
-<p><strong>MARTIN:</strong> I think that there are two types of public-private partnership. One involves committees saying that we should strengthen partnerships and we should all work together and collaborate and share stuff. And we tried that for a very long time, and it didn&#8217;t get us very far. There are other types.</p>
-
-
-
-<p>We had some at the National Cyber Security Centre where we paid companies to do spectacularly good technical work that the market wouldn&#8217;t provide. So I think it&#8217;s sort of partnership with a purpose. I think sometimes, and I understand the human instinct to do this, particularly in governments and big business, they think you need to get around a table and work out some grand strategy to fix everything, and the scale of the … not just the problem but the scale of the whole technology is just too big to do that.</p>
-
-
-
-<p>So pick a bit of the problem. Find some ways of doing it. Don&#8217;t over-lawyer it. [LAUGHTER] I think sometimes people get very nervous. <em>Oh, well, is this our role? You know, should we be doing this, that, and the other?</em> Well, you know, sometimes certainly in this country, you think, well, who&#8217;s actually going to sue you over this, you know? So I wouldn&#8217;t over-programmatize it. Just get stuck practically into solving some problems.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> I love that. Actually, [it] made me think, are there any surprising allies that you&#8217;ve gained—you know, maybe someone who you never expected to be a cybersecurity champion—through your work?</p>
-
-
-
-<p><strong>MARTIN:</strong> Ooh! That&#8217;s a … that&#8217;s a… what a question! To give you a slightly disappointing answer, but it relates to your previous question. In the early part of my career, I was working in institutions like the UK Treasury long before I was in cybersecurity, and the treasury and the British civil service in general, but the treasury in particular sort of trained you to believe that the private sector was amoral, not <em>immoral</em>, <em>amoral</em>. It just didn&#8217;t have values. It just had bottom line, and, you know, its job essentially was to provide employment and revenue then for the government to spend on good things that people cared about. And when I got into cybersecurity and people said, look, you need to develop relations with this cybersecurity company, often in the US, actually. I thought, well, what&#8217;s in it for them?</p>
-
-
-
-<p>And, sure, sometimes you were paying them for specific services, but other times, there was a real public spiritedness about this. There was a realization that if you tried to delineate public-private boundaries, that it wouldn&#8217;t really work. It was a shared risk. And you could analyze where the boundaries fell or you could actually go on and do something about it together. So I was genuinely surprised at the allyship from the cybersecurity sector. Absolutely, I really, really was. And I think it&#8217;s a really positive part of certainly the UK cybersecurity ecosystem.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Wonderful. Well, we&#8217;re coming to the end of our time here, but is there any maybe last thoughts or perhaps requests you have for our listeners today?</p>
-
-
-
-<p><strong>MARTIN:</strong> I think that standards, assurance, and testing <em>really</em> matter, but it&#8217;s a bit like the discussion we&#8217;re having over AI. Get all these things to take you 80, 90% of the way and then really apply your judgment. There&#8217;s been some bad regulation under the auspices of standards and assurance. First of all, it’s, have you done this assessment? Have you done that? Have you looked at this? Well, fine. And you can tick that box, but what does it actually mean when you do it? What bits that you know in your heart of hearts are really important to the defense of your organization that may not be covered by this and just go and do those anyway. Because sure it helps, but it&#8217;s not everything.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> No. Great, great closing sentiment. Well, Ciaran, thank you for joining us today. This has been just a super fun conversation and really insightful. Just really enjoyed the conversation. Thank you.</p>
-
-
-
-<p><strong>MARTIN:</strong> My pleasure, Kathleen, thank you.</p>
-
-
-
-<p>[TRANSITION MUSIC]</p>
-
-
-
-<p><strong>SULLIVAN: </strong>Now, I&#8217;m happy to introduce Tori Westerhoff. As a principal director on the Microsoft AI Red Team, Tori leads all AI security and safety red team operations, as well as dangerous capability testing, to directly inform C-suite decision-makers.</p>
-
-
-
-<p>So, Tori, welcome!</p>
-
-
-
-<p><strong>TORI WESTERHOFF: </strong>Thanks. I am so excited to be here.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> I&#8217;d love to just start a little bit more learning about your background. You&#8217;ve worn some very intriguing hats. I mean, cognitive neuroscience grad from Yale, national security consultant, strategist in augmented and virtual reality … how do those experiences help shape the way you lead the Microsoft AI Red Team?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I always joke this is the only role I think will always combine the entire patchwork LinkedIn résumé. [LAUGHS]</p>
-
-
-
-<p>I think I use those experiences to help me understand the really broad approach that AI Red Team—artist also known as <em>AIRT</em>; I&#8217;m sure I&#8217;ll slip into our acronym—how we frame up the broad security implications of AI. So I think the cognitive neuroscience element really helped me initially approach AI hacking, right. There&#8217;s a lot of social engineering and manipulation within chat interfaces that are enabled by AI. And also, kind of, this, like, metaphor for understanding how to find soft spots in the way that you see human heuristics show up, too. And so I think that was actually my personal “in” to getting hooked into AI red teaming generally.</p>
-
-
-
-<p>But my experience in national security and I&#8217;d also say working through the AR/VR/metaverse space at the time where I was in it helped me balance both how our impact is framed, how we&#8217;re thinking about critical industries, how we&#8217;re really trying to push our understanding of where security of AI can help people the most. And also do it in a really breakneck speed in an industry that&#8217;s evolving all of the time, that&#8217;s really pushing you to always be at the bleeding edge of your understanding. So I draw a lot of the energy and the mission criticality and the speed from those experiences as we&#8217;re shaping up how we approach it.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Can you just give us a quick rundown? What does the Red Team do? What actually, kind of, is involved on a day-to-day basis? And then as we think about, you know, our engagements with large enterprises and companies, how do we work alongside some of those companies in terms of testing?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> The way I see our team is almost like an indicator light that works really part and parcel with product development. So the way we&#8217;ve organized our expert red teaming efforts is that we work with product development before anything ships out to anyone who can use it. And our job is to act as expert AI manipulators, AI hackers. And we are supposed to take the theories and methods and new research and harness it to find examples of vulnerabilities or soft spots in products to enable product teams to harden those soft spots before anything actually reaches someone who wants to use it.</p>
-
-
-
-<p>So if we&#8217;re the indicator light, we are also not the full workup, right. I see that as measurement and evals. And we also are not the mechanic, which is that product development team that&#8217;s creating mitigations. It&#8217;s platform-security folks who are creating mitigations at scale. And there&#8217;s a really great throughput of insights from those groups back into our area where we love to inform about them, but we also love to add on to, how do we break the next thing, right? So it&#8217;s a continuous cycle.</p>
-
-
-
-<p>And part of that is just being really creative and thinking outside of a traditional cybersecurity box. And part of that is also really thinking about how we pull in research—we have a research function within our AI Red Team—and how we automate and scale. This year, we&#8217;ve pulled a lot of those assets and insights into the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview/">Azure [AI] Foundry AI Red Teaming Agent<span class="sr-only"> (opens in new tab)</span></a>. And so folks can now access a lot of our mechanisms through that. So you can get a little taste of what we do day to day in the AI Red Teaming Agent.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> You recently—actually, with your team—published <a href="https://www.microsoft.com/en-us/research/publication/lessons-from-red-teaming-100-generative-ai-products/">a report that outlined lessons from testing over a hundred generative AI products</a>. But could you share a bit about what you learned? What were some of the important lessons? Where do you see opportunities to improve the state of red teaming as a method for probing AI safety?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I think the most important takeaway from those lessons is that AI security is truly a team sport. You&#8217;ll hear cybersecurity folks say that a lot. And part of the rationale there is that the defense in depth and integrating and a view towards AI security through the entire development of AI systems is really the way that we&#8217;re going to approach this with intentionality and responsibility.</p>
-
-
-
-<p>So in our space, we really focus on novel harm categories. We are pushing bleeding edge, and we also are pushing iterative and, like, contextually based red teaming in product dev. So outside of those hundred that we&#8217;ve done, there&#8217;s a community [LAUGHS] through the entire, again, multistage life cycle of a product that is really trying to push the cost of attacking those AI systems higher and higher with all of the expertise they bring. So we may be, like, the experts in AI hacking in that line, but there are also so many partners in the Microsoft ecosystem who are thinking about their market context or they really, really know the people who love their products. How are <em>they</em> using it?</p>
-
-
-
-<p>And then when you bubble out, you also have industry and government who are working together to push towards the most secure AI implementation <em>for</em> <em>people</em>, right? And I think our team in particular, we feel really grateful to be part of the big AI safety and security ecosystem at Microsoft and also to be able to contribute to the industry writ large. <s></s></p>
-
-
-
-<p><strong>SULLIVAN:</strong> As you know, we had a chance to speak with Professor Ciaran Martin from the University of Oxford about the cybersecurity industry and governance there. What are some of the ideas and tools from that space that are surfacing in how we think about approaching red teaming and AI governance broadly?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> Yeah, I think it&#8217;s such a broad set of perspectives to bring in, in the AI instance. Something that I&#8217;ve noticed interjecting into security at the AI junction, right, is that cybersecurity has so many decades of experience of working through how to build trustworthy computing, for example, or bring an entire industry to bear in that way. And I think that AI security and safety can learn a lot of lessons of how to bring clarity and transparency across the industry to push universal understanding of where the threats really are.</p>
-
-
-
-<p>So frameworks coming out of NIST, coming out of MITRE that help us have a universal language that inform governance, I think, are really important because it brings clarity irrespective of where you are looking into AI security, irrespective of your company size, what you&#8217;re working on. It means you all understand, “Hey, we are really worried about this fundamental impact.” And I think cybersecurity has done a really good job of driving towards impact as their organizational vector. And I am starting to see that in the AI space, too, where we&#8217;re trying to really clarify terms and threats.&nbsp;And you see it in updates of those frameworks, as well, that I really love.</p>
-
-
-
-<p>So I think that the innovation is in transparency to folks who are really innovating and doing the work so we all have a shared language, and from that, it really creates communal goals across security instead of a lot of people being worried about the same thing and talking about it in a different way.</p>
-
-
-
-<p><strong>SULLIVAN: </strong>Mm-hmm.<strong> </strong>In the cybersecurity context, Ciaran really stressed matching risk frameworks to an organization&#8217;s role <em>and</em> scale. Microsoft plays many roles, including building models and shipping applications. How does your red teaming approach shift across those layers?&nbsp;</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I love this question also because I love it as part of our work. So one of the most fascinating things about working on this team has been the diversity of the technology that we end up red teaming and testing. And it feels like we&#8217;re in the crucible in that way. Because we see AI applied to so many different architectures, tech stacks, individual features, models, you name it.</p>
-
-
-
-<p>Part of my answer is that we still care about the highest-impact things. And so irrespective of the iteration, which <em>is</em> really fascinating and I love, I still think that our team drives to say, “OK, what is that critical vulnerability that is going to affect people in the largest ways, and can we battle test to see if that can occur?”</p>
-
-
-
-<p>So in some ways, the task is always the same. I think in the ways that we change our testing, we customize a lot to the access to systems and data and also people&#8217;s trust almost as different variables that could affect the impact, right.</p>
-
-
-
-<p>So a good example is if we&#8217;re thinking through agentic frameworks that have access to functions and tools and preferential ability to act on data, it&#8217;s really different to spaces where that action may not be feasible, right. And so I think the tailoring of the way to get to that impact is hyper-custom every time we start an engagement. And part of it is very thesis driven and almost mechanizing <em>empathy</em>.</p>
-
-
-
-<p>You almost need to really focus on how people could use, or misuse, in such a way that you can emulate it before to a really great signal to product development, to say this is truly what people could do and we want to deliver the highest-impact scenarios so you can solve for those and also solve the underlying patterns, actually, that could contribute to maybe that one piece of evidence but also all the related pieces of evidence. So singular drive but like hyper-, hyper-customization to what that piece of tech could do and has access to.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> What are some of the unexplored testing approaches or considerations from cybersecurity that you think we should encourage AI technologists, policymakers, and other stakeholders to focus on? <strong></strong></p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I do love that AI humbles us each and every day with new capabilities and the potential for new capabilities. It&#8217;s not just saying, “Hey, there&#8217;s one test that we want to try,” but more, “Hey, can we create a methodology that we feel really, really solid about so that when we are asked a question we haven&#8217;t even thought of, we feel confident that we have the resources and the system?”</p>
-
-
-
-<p>So part of me is really intrigued by the process that we&#8217;re asked to make without knowing what those capabilities are really going to bring. And then I think tactically, AIRT is really pushing on how we create new research methodologies. How are we investing in, kind of, these longer-term iterations of red teaming? So we&#8217;re really excited about pushing out those insights in an experimental and longer-term way.</p>
-
-
-
-<p>I think another element is a little bit of that evolution of how industry standards and frameworks are updating to the AI moment and really articulating where AI is either furthering adversarial ability to create those harms or threats or identifying where AI has a net new harm. And I think that demystifies a little bit about what we talked about in terms of the lessons learned, that fundamentally, a lot of the things that we talk about <em>are</em> traditional security vulnerabilities, and we are standing on kind of that cybersecurity shoulder. And I&#8217;m starting to see those updates translate in spaces that are already considered trustworthy and kind of the basis on which not only cybersecurity folks build their work but also business decision-makers make decisions on those frameworks.</p>
-
-
-
-<p>So to me, integration of AI into those frameworks by those same standards means that we&#8217;re evolving security to include AI. We aren&#8217;t creating an entirely new industry of AI security and that, I think, really helps anchor people in the really solid foundation that we have in cybersecurity anyways.</p>
-
-
-
-<p>I think there&#8217;s also some work around how the cyber, like, defenses will actually benefit from AI. So we think a lot about threats because that&#8217;s our job. But the other side of cybersecurity is offense. And I&#8217;m seeing a ton of people come out with frameworks and methodologies, especially in the research space, on how defensive networks are going to be benefited from things like agentic systems.</p>
-
-
-
-<p>Generally speaking, I think the best practice is to realize that we&#8217;re fundamentally still talking about the same impacts, and we can use the same avenues, conversations, and frameworks. We just really want them to be crisply updated with that understanding of AI applications.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> How do you think about bringing others into the fold there? I think those standards and frameworks are often informed by technologists. But I&#8217;d love for you to expand [that to] policymakers or other kind of stakeholders in our ecosystem, even, you know, end consumers of these products. Like, how do we communicate some of this to them in a way that resonates and it has an impactful meaning?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I&#8217;ve found the AI security-safety space to be one of the more collaborative. I actually think the fact that I&#8217;m talking to you today is probably evidence that a ton of people are bringing in perspectives that don&#8217;t only come from a long-term cybersecurity view. And I see that as a trend in how AI is being approached opposed to how those areas were moving earlier. So I think that speed and the idea of conversations and not always having the perfect answer but really trying to be transparent with what everyone does know is kind of a communal energy in the communities, at least, where we&#8217;re playing. [LAUGHS] So I am pretty biased but at least the spaces where we are.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> No, I think we&#8217;re seeing that across the board. I mean, I&#8217;d echo [that] sitting in research, as well, like, that ability to have impact now and at speed to getting the amazing technology and models that we&#8217;re creating into the hands of our customers and partners and ecosystem is just underscored.</p>
-
-
-
-<p>So on the note of speed, let&#8217;s shift gears a little bit to just a quick lightning round. I&#8217;d love to get maybe some quick thoughts from you, just 30-second answers here. I&#8217;ll start with one.</p>
-
-
-
-<p>Which headline-grabbing AI threat do you think is mostly hot air?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I think we should pay attention to it all. I&#8217;m a red team lead. I love a good question to see if we can find an answer in real life. So no hot air, just questions.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Is there some sort of maybe new tool that you can&#8217;t wait to sneak into the red team arsenal?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> I think there are really interesting methodologies that break our understanding of cybersecurity by looking at the intersection between different layers of AI and how you can manipulate AI-to-AI interaction, especially now when we&#8217;re looking at agentic systems. So I would say a method, not a tool.</p>
-
-
-
-<p><strong>SULLIVAN:</strong> So maybe ending on a little bit of a lighter note, do you have a go-to snack during an all-night red teaming session?</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> Always coffee. I would love it to be a protein smoothie, but honestly, it is probably Trader Joe&#8217;s elote chips. Like the whole bag. [LAUGHTER] It’s going to get me through. I&#8217;m going to not love that I did it.</p>
-
-
-
-<p>[MUSIC]</p>
-
-
-
-<p><strong>SULLIVAN:</strong> Amazing. Well, Tori, thanks so much for joining us today, and just a huge thanks also to Ciaran for his insights, as well.</p>
-
-
-
-<p><strong>WESTERHOFF:</strong> Thank you so much for having me. This was a joy.</p>
-
-
-
-<p><strong>SULLIVAN: </strong>And to our listeners, thanks for tuning in. You can find resources related to this podcast in the show notes. And if you want to learn more about how Microsoft approaches AI governance, you can visit <a href="https://www.microsoft.com/en-us/ai/responsible-ai">microsoft.com/RAI</a>.</p>
-
-
-
-<p>See you next time! </p>
-
-
-
-<p>[MUSIC FADES]</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-7"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/">AI Testing and Evaluation podcast series</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ai-testing-and-evaluation-learnings-from-cybersecurity/">AI Testing and Evaluation: Learnings from cybersecurity</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
