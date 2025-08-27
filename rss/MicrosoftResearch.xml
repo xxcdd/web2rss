@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 21 Aug 2025 15:44:00 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 22 Aug 2025 13:14:19 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,227 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>Crescent library brings privacy to digital identity systems</title>
+		<link>https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/</link>
+		
+		<dc:creator><![CDATA[Christian Paquin, Greg Zaverucha]]></dc:creator>
+		<pubDate>Tue, 26 Aug 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1148317</guid>
+
+					<description><![CDATA[<p>Crescent helps make digital IDs private by preventing tracking across uses while letting users only disclose what’s necessary from their credentials.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/">Crescent library brings privacy to digital identity systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a computer chip, padlock icon, an avatar icon" class="wp-image-1148394" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Digital identities, the electronic credentials embedded in phone wallets, workplace logins, and other apps, are becoming ubiquitous. While they offer unprecedented convenience, they also create new privacy risks, particularly around tracking and surveillance.&nbsp;</p>
+
+
+
+<p>One of these risks is <em>linkability, </em>the ability to associate one or more uses of a credential to a specific person. Currently, when people use their mobile driver&#8217;s license or log into various apps, hidden identifiers can link these separate activities together, building detailed profiles of user behavior.&nbsp;&nbsp;</p>
+
+
+
+<p>To address this, we have released <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/2013" target="_blank" rel="noreferrer noopener">Crescent<span class="sr-only"> (opens in new tab)</span></a>, a cryptographic library that adds <em>unlinkability </em>to widely used identity formats, protecting privacy. These include JSON Web Tokens (the authentication standard behind many app logins) and mobile driver&#8217;s licenses. Crescent also works without requiring the organizations that issue these credentials to update their systems. &nbsp;</p>
+
+
+
+<p>The protection goes beyond existing privacy features. Some digital identity systems already offer <em>selective disclosure</em>, allowing users to share only specific pieces of information in each interaction. &nbsp;</p>
+
+
+
+<p>But even with selective disclosure, credentials can still be linked through serial numbers, cryptographic signatures, or embedded identifiers. Crescent&#8217;s unlinkability feature is designed to prevent anything in the credential, beyond what a user explicitly chooses to reveal, from being used to connect their separate digital interactions.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="400" height="242" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png" alt="Figure 1: Unlinkability between a credential issuance and presentation" class="wp-image-1148323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png 400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-300x182.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-240x145.png 240w" sizes="(max-width: 400px) 100vw, 400px" /><figcaption class="wp-element-caption">Figure 1: Unlinkability between a credential issuance and presentation</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="two-paths-to-unlinkability">Two paths to unlinkability&nbsp;</h2>
+
+
+
+<p>To understand how Crescent works, it helps to examine the two main approaches researchers have developed for adding unlinkability to identity systems:&nbsp;</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Specialized cryptographic signature schemes</strong>. These schemes can provide unlinkability but require extensive changes to existing infrastructure. New algorithms must be standardized, implemented, and integrated into software and hardware platforms. For example, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html" target="_blank" rel="noreferrer noopener">BBS<span class="sr-only"> (opens in new tab)</span></a> signature scheme is currently being standardized by the Internet Engineering Task Force (IETF), but even after completion, adoption may be slow.&nbsp;&nbsp;&nbsp;</li>
+</ol>
+
+
+
+<ol start="2" class="wp-block-list">
+<li><strong>Zero-knowledge proofs with existing credentials</strong>. This approach, used by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials" target="_blank" rel="noreferrer noopener">Crescent<span class="sr-only"> (opens in new tab)</span></a>, allows users to prove specific facts about their credentials without revealing the underlying data that could enable tracking. For example, someone could prove they hold a valid driver&#8217;s license and live in a particular ZIP code without exposing any other personal information or identifiers that could link this interaction to future ones.&nbsp;</li>
+</ol>
+
+
+
+<p>Zero-knowledge proofs have become more practical since they were first developed 40 years ago but they are not as efficient as the cryptographic algorithms used in today’s credentials. Crescent addresses this computational challenge through preprocessing, performing the most complex calculations once in advance so that later proof generation is quick and efficient for mobile devices.&nbsp;</p>
+
+
+
+<p>Beyond unlinkability, Crescent supports selective disclosure, allowing users to prove specific facts without revealing unnecessary details. For example, it can confirm that a credential is valid and unexpired without disclosing the exact expiration date, which might otherwise serve as a unique identifier. These privacy protections work even when credentials are stored in a phone&#8217;s secure hardware, which keeps them tied to the device and prevents unauthorized access.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+		
+
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Azure AI Foundry Labs</h2>
+				
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="behind-the-cryptographic-curtain">Behind the cryptographic curtain&nbsp;</h2>
+
+
+
+<p>At its core, Crescent uses a sophisticated form of cryptographic proof called a zero-knowledge SNARK (Zero-Knowledge Succinct Noninteractive Argument of Knowledge). This method allows one party to prove possession of information or credentials without revealing the underlying data itself.&nbsp;</p>
+
+
+
+<p>Crescent specifically uses the Groth16 proof system, one of the first practical implementations of this technology. What makes Groth16 particularly useful is that its proofs are small in size, quick to verify, and can be shared in a single step without back-and-forth communication between the user and verifier.&nbsp;</p>
+
+
+
+<p>The system works by first establishing shared cryptographic parameters based on a credential template. Multiple organizations issuing similar credentials, such as different state motor vehicle departments issuing mobile driver&#8217;s licenses, can use the same parameters as long as they follow compatible data formats and security standards.&nbsp;</p>
+
+
+
+<p>The mathematical rules that define what each proof will verify are written using specialized programming tools that convert them into a Rank-1 Constraint System (R1CS), a mathematical framework that describes exactly what needs to be proven about a credential.&nbsp;</p>
+
+
+
+<p>To make the system fast enough for real-world use, Crescent splits the proof generation into two distinct stages:&nbsp;</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Prepare stage</strong>. This step runs once and generates cryptographic values that can be stored on the user&#8217;s device for repeated use.&nbsp;</li>
+</ol>
+
+
+
+<ol start="2" class="wp-block-list">
+<li><strong>Show stage</strong>. When a user needs to present their credential, this quicker step takes the stored values and randomizes them to prevent any connection to previous presentations. It also creates a compact cryptographic summary that reveals only the specific information needed for that particular interaction.&nbsp;</li>
+</ol>
+
+
+
+<p>Figures 2 and 3 illustrate this credential-proving workflow and the division between the prepare and show steps.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="453" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline.png" alt="Figure 2: Crescent’s credential-proving workflow includes a compilation of a circuit to R1CS, followed by the prepare and show steps. The output zero-knowledge proof is sent to the verifier." class="wp-image-1148322" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-300x97.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-1024x331.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-768x249.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-240x78.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2: Crescent’s credential-proving workflow includes a compilation of a circuit to R1CS, followed by the prepare and show steps. The output zero-knowledge proof is sent to the verifier. </figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="443" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview.png" alt="Figure 3: The Crescent presentation steps show the division between prepare and show steps." class="wp-image-1148321" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-300x95.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-1024x324.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-768x243.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-240x76.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 3: The Crescent presentation steps show the division between prepare and show steps.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="a-sample-application">A sample application&nbsp;</h2>
+
+
+
+<p>To demonstrate how Crescent works, we created a sample application covering two real-world scenarios: verifying employment and proving age for online access. The application includes sample code for setting up fictional issuers and verifiers as Rust servers, along with a browser-extension wallet for the user. The step numbers correspond to the steps in Figure 4.&nbsp;</p>
+
+
+
+<h3 class="wp-block-heading" id="setup">Setup&nbsp;</h3>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>A Crescent service pre-generates the zero-knowledge parameters for creating and verifying proofs from JSON Web Tokens and mobile driver’s licenses.&nbsp;</li>
+</ol>
+
+
+
+<ol start="2" class="wp-block-list">
+<li>The user obtains a mobile driver’s license from their Department of Motor Vehicles.&nbsp;</li>
+</ol>
+
+
+
+<ol start="3" class="wp-block-list">
+<li>The user obtains a proof-of-employment JSON Web Token from their employer, Contoso.&nbsp;</li>
+</ol>
+
+
+
+<ol start="4" class="wp-block-list">
+<li>These credentials and their private keys are stored in the Crescent wallet.&nbsp;</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading" id="scenarios">Scenarios&nbsp;</h3>
+
+
+
+<ol start="5" class="wp-block-list">
+<li><strong>Employment verification</strong>: The user presents their JSON Web Token to Fabrikam, an online health clinic, to prove they are employed at Contoso and eligible for workplace benefits. Fabrikam learns that the user works at Contoso but not the user&#8217;s identity, while Contoso remains unaware of the interaction.&nbsp;</li>
+</ol>
+
+
+
+<ol start="6" class="wp-block-list">
+<li><strong>Age verification</strong>:<strong> </strong>The user presents their mobile driver’s license to a social network, proving they are over 18. The proof confirms eligibility without revealing their age or identity.&nbsp;</li>
+</ol>
+
+
+
+<p>Across both scenarios, Crescent ensures that credential presentations remain unlinkable, preventing any party from connecting them to the user.&nbsp;</p>
+
+
+
+<p>For simplicity, the sample defines its own issuance and presentation protocol, but it could be integrated into higher-level identity frameworks such as OpenID/OAuth, Verifiable Credentials, or the mobile driver’s license ecosystem.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="502" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch.png" alt="Figure 4. The sample architecture, from credential issuance to presentation." class="wp-image-1148404" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch.png 800w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch-300x188.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch-768x482.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch-240x151.png 240w" sizes="auto, (max-width: 800px) 100vw, 800px" /><figcaption class="wp-element-caption">Figure 4. The sample architecture, from credential issuance to presentation.</figcaption></figure>
+
+
+
+<p>To learn more about the project, visit the Crescent project <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials/" target="_blank" rel="noreferrer noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a> page, or check out our recent presentations given at the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/live/gnB76DQI1GE?t=3475s" target="_blank" rel="noreferrer noopener">Real-Word Crypto 2025<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=9IT659uUXfs&t=13361s" target="_blank" rel="noreferrer noopener">North Sec 2025<span class="sr-only"> (opens in new tab)</span></a> conferences. </p>
+
+
+
+<p></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/">Crescent library brings privacy to digital identity systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Applicability vs. job displacement: further notes on our recent research on AI and occupations</title>
 		<link>https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/</link>
 		
@@ -32,7 +253,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/">Applicability vs. job displacement: further notes on our recent research on AI and occupations</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a gradient background transitioning from blue to green. From left to right: a network structure with connected circles, an upward-trending line graph with bars and an arrow, and a checklist with horizontal lines and checkmarks." class="wp-image-1148296" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a gradient background transitioning from blue to green. From left to right: a network structure with connected circles, an upward-trending line graph with bars and an arrow, and a checklist with horizontal lines and checkmarks." class="wp-image-1148296" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/WhatOurPaperSays-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -124,11 +345,11 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/podcast/coauthor-roundtable-reflecting-on-healthcare-economics-biomedical-research-and-medical-education/">Coauthor roundtable: Reflecting on healthcare economics, biomedical research, and medical education</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Carey Goldberg, Peter Lee, and Dr. Isaac Kohane." class="wp-image-1148279" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Carey Goldberg, Peter Lee, and Dr. Isaac Kohane." class="wp-image-1148279" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=147919496&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=147919496&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1555,30 +1776,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1690,30 +1911,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3363,27 +3584,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3676,30 +3900,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -5241,184 +5465,6 @@
 <div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/navigating-medical-education-in-the-era-of-generative-ai/">Navigating medical education in the era of generative AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Xinxing Xu bridges AI research and real-world impact at Microsoft Research Asia &#8211; Singapore</title>
-		<link>https://www.microsoft.com/en-us/research/blog/xinxing-xu-bridges-ai-research-and-real-world-impact-at-microsoft-research-asia-singapore/</link>
-		
-		<dc:creator><![CDATA[Xinxing Xu]]></dc:creator>
-		<pubDate>Thu, 24 Jul 2025 01:30:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1145385</guid>
-
-					<description><![CDATA[<p>Xinxing Xu is helping shape the work of Microsoft Research Asia – Singapore by turning advanced AI research into real-world solutions. Learn how he collaborates across sectors and disciplines to drive responsible innovation throughout Southeast Asia.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/xinxing-xu-bridges-ai-research-and-real-world-impact-at-microsoft-research-asia-singapore/">Xinxing Xu bridges AI research and real-world impact at Microsoft Research Asia &#8211; Singapore</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<p>AI has made remarkable progress in recent years, but turning experimental models into tools that work in the real world is still a major challenge. Bridging this gap between innovation and application has shaped the career of Xinxing Xu, principal researcher at <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://news.microsoft.com/source/asia/2025/07/24/microsoft-research-asia-launches-singapore-lab-to-drive-ai-innovation-industrial-transformation-and-talent-development/?msockid=3b78cf39416866772e40db2040e7673b">Microsoft Research Asia – Singapore<span class="sr-only"> (opens in new tab)</span></a>, and underpins the mission of the lab’s newly established presence in the region.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="960" height="540" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1.jpg" alt="photo of Xinxing Xu standing against a gray background" class="wp-image-1145600" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-Xu-1-1-640x360.jpg 640w" sizes="auto, (max-width: 960px) 100vw, 960px" /><figcaption class="wp-element-caption">Xinxing Xu, Principal Researcher, Microsoft Research Asia – Singapore</figcaption></figure>
-
-
-
-<p>“Innovative algorithms can only demonstrate their true value when tested with real-world data and in actual scenarios, where they can be continuously optimized through iteration,” he says.</p>
-
-
-
-<p>Xu’s commitment to balancing algorithmic innovation with practical application has shaped his entire career. During his PhD studies at Nanyang Technological University, Singapore, Xu focused on emerging technologies like multiple kernel learning methods and multimodal machine learning. Today he’s applying these techniques to real-world use cases like image recognition and video classification.</p>
-
-
-
-<p>After completing his doctorate, he joined the Institute of High Performance Computing at Singapore’s Agency for Science, Technology and Research (A*STAR), where he worked on interdisciplinary projects ranging from medical image recognition to AI systems for detecting defects on facade of buildings. These experiences broadened his perspective and deepened his passion for translating AI into real-world impact.</p>
-
-
-
-<p>In 2024, Xu joined Microsoft Research Asia where he began a new chapter focused on bridging between academic research and real-world AI applications.</p>
-
-
-
-<p>“Microsoft Research Asia is committed to integrating scientific exploration with real-world applications, which creates a unique research environment,” Xu says. “It brings together top talent and resources, and Microsoft&#8217;s engineering and product ecosystem strongly supports turning research into impactful technology. The lab’s open and inclusive culture encourages innovation with broader societal impact. It reflects the approach to research I’ve always hoped to contribute to.”</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Forum</h2>
-				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="bringing-cross-domain-expertise-to-ai-s-real-world-frontiers">Bringing cross-domain expertise to AI’s real-world frontiers</h2>
-
-
-
-<p>As a key hub in Microsoft Research’s network across Asia, the Singapore lab is guided by a three-part mission: to drive industry-transforming AI deployment, pursue fundamental breakthroughs in the field, and promote responsible, socially beneficial applications of the technology.</p>
-
-
-
-<p>To reach these goals, Xu and his colleagues are working closely with local collaborators, combining cross-disciplinary expertise to tackle complex, real-world challenges.</p>
-
-
-
-<p>To deliver on that mission, Xinxing Xu and his colleagues are working closely with local collaborators, drawing on cross-disciplinary expertise to solve real-world problems. One key focus is healthcare, where Xu leads a collaboration with Singapore’s SingHealth to explore how AI can support precision medicine. By combining SingHealth’s clinical data with advanced AI models, the team aims to deliver more personalized analyses and sharper diagnostic tools—laying the groundwork for improved patient outcomes.&nbsp;</p>
-
-
-
-<p>Beyond healthcare, the team is also targeting key sectors like finance and logistics. By developing domain-specific foundation models and AI agents, they aim to support smarter decision-making and accelerate digital transformation across industries. “Singapore has a strong foundation in these sectors,” Xu notes, “making it an ideal environment for technology validation and iteration.”</p>
-
-
-
-<p>The team is also partnering with leading academic institutions, including the National University of Singapore (NUS) and Nanyang Technological University, Singapore (NTU Singapore), to advance the field of spatial intelligence. Their goal is to develop embodied intelligence systems capable of carrying out complex tasks in smart environments.</p>
-
-
-
-<p>As AI becomes more deeply embedded in everyday life, researchers at the Singapore lab are also increasingly focused on what they call “societal AI”—building AI systems that are culturally relevant and trustworthy within Southeast Asia’s unique cultural and social contexts. In collaboration with global colleagues, they’re helping to advance a more culturally grounded and responsible approach to AI research in the region.</p>
-
-
-
-<h2 class="wp-block-heading" id="microsoft-research-asia-singapore-expanding-global-reach-connecting-regional-innovation">Microsoft Research Asia – Singapore: Expanding global reach, connecting regional innovation&nbsp;</h2>
-
-
-
-<p>Realizing AI’s full potential requires more than technical breakthroughs. It also depends on collaboration—across industries, academia, and policy. Only through this intersection of forces can AI move beyond the lab to deliver meaningful societal value.&nbsp;</p>
-
-
-
-<p>Singapore’s strengths in science, engineering, and digital governance make it an ideal setting for this kind of work. Its collaborative culture, robust infrastructure, international talent pool, and strong policy support for science and technology make it fertile ground for interdisciplinary research.&nbsp;</p>
-
-
-
-<p>This is why Microsoft Research Asia continues to collaborate closely with Singapore’s top universities, research institutions, and industry partners. These partnerships support joint research, talent development, and technical exchange. Building on this foundation, Microsoft Research Asia – Singapore will further deepen its collaboration with NUS, NTU Singapore, and Singapore Management University (SMU) to advance both fundamental and applied research, while equipping the next generation of researchers with real-world experience. In addition, Microsoft Research Asia is fostering academic exchange and strengthening the research ecosystem through summer schools and joint workshops with NUS, NTU Singapore, and SMU.&nbsp;</p>
-
-
-
-<p>The launch of the Singapore lab further marks an important step in expanding the company’s global research footprint, serving as a bridge between regional innovation and Microsoft’s global ecosystem. Through its integrated lab network, Microsoft Research fosters the sharing of technologies, methods, and real-world insights, creating a virtuous cycle of innovation.</p>
-
-
-
-<p>“We aim to build a research hub in Singapore that is globally connected and deeply rooted in the local ecosystem,” Xu says. “Many breakthroughs come from interdisciplinary and cross-regional collaboration. By breaking boundaries—across disciplines, industries, and geographies—we can drive research that has lasting impact.”</p>
-
-
-
-<p>As AI becomes more deeply woven into industry and everyday life, Xu believes that meaningful research must be closely connected to regional development and social well-being. “Microsoft Research Asia – Singapore is a future-facing lab,” he says. “While we push technological frontiers, we’re equally committed to the responsibility of technology—ensuring AI can help address society’s most pressing challenges.”</p>
-
-
-
-<p>In a world shaped by global challenges, Xu sees collaboration and innovation as essential to real progress. With Singapore as a launchpad, he and his team are working to extend AI’s impact and value across Southeast Asia and beyond.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1024" height="768" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-with-colleagues.jpg" alt="Xingxing Xu (center) with colleagues at Microsoft Research Asia - Singapore " class="wp-image-1145598" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-with-colleagues.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-with-colleagues-300x225.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-with-colleagues-768x576.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-with-colleagues-80x60.jpg 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/Xinxing-with-colleagues-240x180.jpg 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Xingxing Xu (center) with colleagues at Microsoft Research Asia &#8211; Singapore&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="three-essential-strengths-for-the-next-generation-of-ai-researchers">Three essential strengths for the next generation of AI researchers</h2>
-
-
-
-<p>AI’s progress depends not only on technical breakthroughs but also on the growth and dedication of talent. At Microsoft Research Asia, there is a strong belief that bringing research into the real world requires more than technical coordination—it depends on unlocking the full creativity and potential of researchers.</p>
-
-
-
-<p>In Singapore—a regional innovation hub that connects Southeast Asia—Xu and his colleagues are working to push AI beyond the lab and into fields like healthcare, finance, and manufacturing. For young researchers hoping to shape the future of AI, this is a uniquely powerful stage.</p>
-
-
-
-<p>To help guide the next generation, Xu shares three pieces of advice:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Build a strong foundation</strong> – “Core knowledge in machine learning, linear algebra, and probability and statistics is the bedrock of AI research,” Xu says. “A solid theoretical base is essential to remain competitive in a rapidly evolving field. Even today’s hottest trends in generative AI rely on longstanding principles of optimization and model architecture design.” While code generation tools are on the rise, Xu emphasizes that mathematical fundamentals remain essential for understanding and innovating in AI.</li>
-
-
-
-<li><strong>Understand real-world applications</strong> – Technical skills alone aren’t enough. Xu encourages young researchers to deeply engage with the problems they’re trying to solve. Only by tightly integrating technology with its context can researchers create truly valuable solutions.<br><br>“In healthcare, for example, researchers may need to follow doctors in clinics to gain a true understanding of clinical workflows. That context helps identify the best entry points for AI deployment. Framing research problems around real-world needs is often more impactful than just tuning model parameters,” Xu says.</li>
-
-
-
-<li><strong>Develop interdisciplinary thinking</strong> – Cross-disciplinary collaboration is becoming essential to AI innovation. Xu advises young researchers to learn how to work with experts from other fields to explore new directions together. “These kinds of interactions often spark fresh, creative ideas,” he says.<br><br>Maintaining curiosity is just as important. “Being open to new technologies and fields is what enables researchers to continually break new ground and produce original results.”</li>
-</ul>
-
-
-
-<p>Xu extends an open invitation to aspiring researchers from all backgrounds to join Microsoft Research Asia – Singapore. “We offer a unique platform that blends cutting-edge research with real-world impact,” he says. “It’s a place where you can work on the frontiers of AI—and see how your work can help transform industries and improve lives.”</p>
-
-
-
-<p>To learn more about current openings at the Singapore lab, please visit our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jobs.careers.microsoft.com/global/en/job/1849717/Senior-Researcher" target="_blank" rel="noreferrer noopener">careers page<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/xinxing-xu-bridges-ai-research-and-real-world-impact-at-microsoft-research-asia-singapore/">Xinxing Xu bridges AI research and real-world impact at Microsoft Research Asia &#8211; Singapore</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
