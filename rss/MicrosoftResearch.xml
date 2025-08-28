@@ -44,7 +44,7 @@
 
 
 
-<p>To address this, we have released <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/2013" target="_blank" rel="noreferrer noopener">Crescent<span class="sr-only"> (opens in new tab)</span></a>, a cryptographic library that adds <em>unlinkability </em>to widely used identity formats, protecting privacy. These include JSON Web Tokens (the authentication standard behind many app logins) and mobile driver&#8217;s licenses. Crescent also works without requiring the organizations that issue these credentials to update their systems. &nbsp;</p>
+<p>To address this, we have released <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/2013" target="_blank" rel="noopener noreferrer">Crescent<span class="sr-only"> (opens in new tab)</span></a>, a cryptographic library that adds <em>unlinkability </em>to widely used identity formats, protecting privacy. These include JSON Web Tokens (the authentication standard behind many app logins) and mobile driver&#8217;s licenses. Crescent also works without requiring the organizations that issue these credentials to update their systems. &nbsp;</p>
 
 
 
@@ -69,13 +69,13 @@
 
 
 <ol start="1" class="wp-block-list">
-<li><strong>Specialized cryptographic signature schemes</strong>. These schemes can provide unlinkability but require extensive changes to existing infrastructure. New algorithms must be standardized, implemented, and integrated into software and hardware platforms. For example, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html" target="_blank" rel="noreferrer noopener">BBS<span class="sr-only"> (opens in new tab)</span></a> signature scheme is currently being standardized by the Internet Engineering Task Force (IETF), but even after completion, adoption may be slow.&nbsp;&nbsp;&nbsp;</li>
+<li><strong>Specialized cryptographic signature schemes</strong>. These schemes can provide unlinkability but require extensive changes to existing infrastructure. New algorithms must be standardized, implemented, and integrated into software and hardware platforms. For example, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html" target="_blank" rel="noopener noreferrer">BBS<span class="sr-only"> (opens in new tab)</span></a> signature scheme is currently being standardized by the Internet Engineering Task Force (IETF), but even after completion, adoption may be slow.&nbsp;&nbsp;&nbsp;</li>
 </ol>
 
 
 
 <ol start="2" class="wp-block-list">
-<li><strong>Zero-knowledge proofs with existing credentials</strong>. This approach, used by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials" target="_blank" rel="noreferrer noopener">Crescent<span class="sr-only"> (opens in new tab)</span></a>, allows users to prove specific facts about their credentials without revealing the underlying data that could enable tracking. For example, someone could prove they hold a valid driver&#8217;s license and live in a particular ZIP code without exposing any other personal information or identifiers that could link this interaction to future ones.&nbsp;</li>
+<li><strong>Zero-knowledge proofs with existing credentials</strong>. This approach, used by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials" target="_blank" rel="noopener noreferrer">Crescent<span class="sr-only"> (opens in new tab)</span></a>, allows users to prove specific facts about their credentials without revealing the underlying data that could enable tracking. For example, someone could prove they hold a valid driver&#8217;s license and live in a particular ZIP code without exposing any other personal information or identifiers that could link this interaction to future ones.&nbsp;</li>
 </ol>
 
 
@@ -88,27 +88,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -229,7 +232,7 @@
 
 
 
-<p>To learn more about the project, visit the Crescent project <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials/" target="_blank" rel="noreferrer noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a> page, or check out our recent presentations given at the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/live/gnB76DQI1GE?t=3475s" target="_blank" rel="noreferrer noopener">Real-Word Crypto 2025<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=9IT659uUXfs&t=13361s" target="_blank" rel="noreferrer noopener">North Sec 2025<span class="sr-only"> (opens in new tab)</span></a> conferences. </p>
+<p>To learn more about the project, visit the Crescent project <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> page, or check out our recent presentations given at the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/live/gnB76DQI1GE?t=3475s" target="_blank" rel="noopener noreferrer">Real-Word Crypto 2025<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=9IT659uUXfs&t=13361s" target="_blank" rel="noopener noreferrer">North Sec 2025<span class="sr-only"> (opens in new tab)</span></a> conferences. </p>
 
 
 
@@ -273,7 +276,7 @@
 
 
 
-<p>We set out to better understand how people are using AI, <strong>highlighting where AI might be useful in different occupations</strong>. To do this, we analyzed how people currently use generative AI—specifically Microsoft Bing Copilot (now Microsoft Copilot)—to assist with tasks. We then compared these sets of tasks against the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.onetcenter.org/overview.html" target="_blank" rel="noreferrer noopener">O*NET database<span class="sr-only"> (opens in new tab)</span></a>, a widely used occupational classification system, to understand potential applicability to various occupations.</p>
+<p>We set out to better understand how people are using AI, <strong>highlighting where AI might be useful in different occupations</strong>. To do this, we analyzed how people currently use generative AI—specifically Microsoft Bing Copilot (now Microsoft Copilot)—to assist with tasks. We then compared these sets of tasks against the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.onetcenter.org/overview.html" target="_blank" rel="noopener noreferrer">O*NET database<span class="sr-only"> (opens in new tab)</span></a>, a widely used occupational classification system, to understand potential applicability to various occupations.</p>
 
 
 
@@ -325,7 +328,7 @@
 
 
 
-<p>For more information from Microsoft on the future of work and AI skilling, check out Microsoft’s Annual&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/annual-work-trend-index-2025/" target="_blank" rel="noreferrer noopener">Work Trend Index<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://blogs.microsoft.com/on-the-issues/2025/07/09/elevate/" target="_blank" rel="noreferrer noopener">Microsoft Elevate<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
+<p>For more information from Microsoft on the future of work and AI skilling, check out Microsoft’s Annual&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/annual-work-trend-index-2025/" target="_blank" rel="noopener noreferrer">Work Trend Index<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://blogs.microsoft.com/on-the-issues/2025/07/09/elevate/" target="_blank" rel="noopener noreferrer">Microsoft Elevate<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/">Applicability vs. job displacement: further notes on our recent research on AI and occupations</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
@@ -358,7 +361,7 @@
 
 
 
-<p>In this series finale, Lee welcomes back coauthors <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.careygoldberg.net/" target="_blank" rel="noreferrer noopener">Carey Goldberg<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dbmi.hms.harvard.edu/people/isaac-kohane" target="_blank" rel="noreferrer noopener">Dr. Zak Kohane<span class="sr-only"> (opens in new tab)</span></a> to discuss how their predictions stack up against key takeaways from guests in the second half of the series: experts on AI’s economic and societal impact; technologists on the cutting edge; leaders in AI-driven medicine; next-generation physicians; and heads of healthcare organizations. Lee, Goldberg, and Kohane explore thinking innovatively about existing healthcare processes, including the structure of care teams and the role of specialties, to take advantage of AI opportunities and consider what clinicians and patients might need these new AI tools to be to feel empowered when it comes to giving and receiving the best healthcare. They close the episode with their hopes for the future of AI in health.</p>
+<p>In this series finale, Lee welcomes back coauthors <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.careygoldberg.net/" target="_blank" rel="noopener noreferrer">Carey Goldberg<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dbmi.hms.harvard.edu/people/isaac-kohane" target="_blank" rel="noopener noreferrer">Dr. Zak Kohane<span class="sr-only"> (opens in new tab)</span></a> to discuss how their predictions stack up against key takeaways from guests in the second half of the series: experts on AI’s economic and societal impact; technologists on the cutting edge; leaders in AI-driven medicine; next-generation physicians; and heads of healthcare organizations. Lee, Goldberg, and Kohane explore thinking innovatively about existing healthcare processes, including the structure of care teams and the role of specialties, to take advantage of AI opportunities and consider what clinicians and patients might need these new AI tools to be to feel empowered when it comes to giving and receiving the best healthcare. They close the episode with their hopes for the future of AI in health.</p>
 
 
 
@@ -655,7 +658,7 @@
 
 
 
-<p>You know, I remember we [<em>The New England Journal of Medicine AI</em>] published a paper of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400296" target="_blank" rel="noreferrer noopener">someone who was able to use AI to increase the throughput of their emergency room<span class="sr-only"> (opens in new tab)</span></a> by actually more appropriately having the truly sick people in the sick queue, in the triage queue, for urgent care.&nbsp;</p>
+<p>You know, I remember we [<em>The New England Journal of Medicine AI</em>] published a paper of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400296" target="_blank" rel="noopener noreferrer">someone who was able to use AI to increase the throughput of their emergency room<span class="sr-only"> (opens in new tab)</span></a> by actually more appropriately having the truly sick people in the sick queue, in the triage queue, for urgent care.&nbsp;</p>
 
 
 
@@ -839,7 +842,7 @@
 
 
 
-<p>And yet when we measure things, we measure things much more than we think we are doing. So for example, we [<em>NEJM AI</em>] just published a paper where echocardiograms were being done. And it turns out those ultrasound waves just happen to also permeate the liver. And <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400948" target="_blank" rel="noreferrer noopener">you can actually diagnose on the way with AI all the liver disease<span class="sr-only"> (opens in new tab)</span></a> that is in—and treatable liver disease—that&#8217;s in those patients.&nbsp;</p>
+<p>And yet when we measure things, we measure things much more than we think we are doing. So for example, we [<em>NEJM AI</em>] just published a paper where echocardiograms were being done. And it turns out those ultrasound waves just happen to also permeate the liver. And <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400948" target="_blank" rel="noopener noreferrer">you can actually diagnose on the way with AI all the liver disease<span class="sr-only"> (opens in new tab)</span></a> that is in—and treatable liver disease—that&#8217;s in those patients.&nbsp;</p>
 
 
 
@@ -851,7 +854,7 @@
 
 
 
-<p>And so in my mind, the truly revolutionary thing to do is to go back to 1994 with Pete Szolovits, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dspace.mit.edu/bitstream/handle/1721.1/149765/MIT-LCS-TR-604.pdf?sequence=1" target="_blank" rel="noreferrer noopener">Guardian Angel Project<span class="sr-only"> (opens in new tab)</span></a>. What I think you need is a process. And the process is the quarterback. And the quarterback has only one job: take care of the patient.&nbsp;</p>
+<p>And so in my mind, the truly revolutionary thing to do is to go back to 1994 with Pete Szolovits, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dspace.mit.edu/bitstream/handle/1721.1/149765/MIT-LCS-TR-604.pdf?sequence=1" target="_blank" rel="noopener noreferrer">Guardian Angel Project<span class="sr-only"> (opens in new tab)</span></a>. What I think you need is a process. And the process is the quarterback. And the quarterback has only one job: take care of the patient.&nbsp;</p>
 
 
 
@@ -931,7 +934,7 @@
 
 
 
-<p><strong>GOLDBERG: </strong>Yeah. It also reminded me of the piece <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.wbur.org/news/2017/06/16/managing-mom-weight-algorithm" target="_blank" rel="noreferrer noopener">Zak wrote about his mother<span class="sr-only"> (opens in new tab)</span></a> at one point when she was managing congestive heart failure and she needed to watch her weight very carefully to see her fluid status. And absolutely, there&#8217;s no … I see no reason whatsoever why that couldn&#8217;t be done with AI right now. Actually, although back then, Zak, you were writing that it takes much more than an AI [LAUGHS] to manage such a thing, right?&nbsp;</p>
+<p><strong>GOLDBERG: </strong>Yeah. It also reminded me of the piece <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.wbur.org/news/2017/06/16/managing-mom-weight-algorithm" target="_blank" rel="noopener noreferrer">Zak wrote about his mother<span class="sr-only"> (opens in new tab)</span></a> at one point when she was managing congestive heart failure and she needed to watch her weight very carefully to see her fluid status. And absolutely, there&#8217;s no … I see no reason whatsoever why that couldn&#8217;t be done with AI right now. Actually, although back then, Zak, you were writing that it takes much more than an AI [LAUGHS] to manage such a thing, right?&nbsp;</p>
 
 
 
@@ -1119,7 +1122,7 @@
 
 
 
-<p><strong>GOLDBERG: </strong>I mean, I just have this emotional reaction, which is that I love the idea of AI marching into biomedical science and everything from getting to the virtual cell eventually to, Zak, I think it was a colleague of yours who recently published about &#8230; it was a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41591-025-03832-2" target="_blank" rel="noreferrer noopener">new medication that had been sort of discovered by AI<span class="sr-only"> (opens in new tab)</span></a>, and it was actually testing out up to the phase II level or something, right?</p>
+<p><strong>GOLDBERG: </strong>I mean, I just have this emotional reaction, which is that I love the idea of AI marching into biomedical science and everything from getting to the virtual cell eventually to, Zak, I think it was a colleague of yours who recently published about &#8230; it was a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41591-025-03832-2" target="_blank" rel="noopener noreferrer">new medication that had been sort of discovered by AI<span class="sr-only"> (opens in new tab)</span></a>, and it was actually testing out up to the phase II level or something, right?</p>
 
 
 
@@ -1223,7 +1226,7 @@
 
 
 
-<p><strong>GOLDBERG: </strong>Yes. Recently, I believe it was a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bigtechnology.com/p/microsoft-ai-ceo-mustafa-suleyman-c45" target="_blank" rel="noreferrer noopener">Big Technology interview<span class="sr-only"> (opens in new tab)</span></a>, and the reporter asked Mustafa Suleyman, “So you guys are seeing 50 million queries, medical queries, a day [to Copilot and Bing]. You know, how&#8217;s that going?” And I think I am a bit surprised that we&#8217;re not seeing more stories of <em>all</em> types. Both here&#8217;s how it helped me and also here was maybe, you know, a suggestion that was not optimal.&nbsp;</p>
+<p><strong>GOLDBERG: </strong>Yes. Recently, I believe it was a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bigtechnology.com/p/microsoft-ai-ceo-mustafa-suleyman-c45" target="_blank" rel="noopener noreferrer">Big Technology interview<span class="sr-only"> (opens in new tab)</span></a>, and the reporter asked Mustafa Suleyman, “So you guys are seeing 50 million queries, medical queries, a day [to Copilot and Bing]. You know, how&#8217;s that going?” And I think I am a bit surprised that we&#8217;re not seeing more stories of <em>all</em> types. Both here&#8217;s how it helped me and also here was maybe, you know, a suggestion that was not optimal.&nbsp;</p>
 
 
 
@@ -1239,7 +1242,7 @@
 
 
 
-<p><strong>GOLDBERG: </strong>Write a book, maybe. I mean, we have <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://patientsuseai.substack.com/" target="_blank" rel="noreferrer noopener">Patients Use AI<span class="sr-only"> (opens in new tab)</span></a>, which is a wonderful blog by Dave deBronkart, the patient advocate.&nbsp;</p>
+<p><strong>GOLDBERG: </strong>Write a book, maybe. I mean, we have <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://patientsuseai.substack.com/" target="_blank" rel="noopener noreferrer">Patients Use AI<span class="sr-only"> (opens in new tab)</span></a>, which is a wonderful blog by Dave deBronkart, the patient advocate.&nbsp;</p>
 
 
 
@@ -1319,7 +1322,7 @@
 
 
 
-<p><strong>KOHANE:</strong> So I think sometimes you really need to drink your own hallucinogens to actually succeed. Because remember, when the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.genome.gov/human-genome-project" target="_blank" rel="noreferrer noopener">Human Genome Project<span class="sr-only"> (opens in new tab)</span></a> was launched, we didn&#8217;t know how to sequence at scale.&nbsp;</p>
+<p><strong>KOHANE:</strong> So I think sometimes you really need to drink your own hallucinogens to actually succeed. Because remember, when the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.genome.gov/human-genome-project" target="_blank" rel="noopener noreferrer">Human Genome Project<span class="sr-only"> (opens in new tab)</span></a> was launched, we didn&#8217;t know how to sequence at scale.&nbsp;</p>
 
 
 
@@ -1675,7 +1678,7 @@
 
 
 
-<p>And, last but not least, to our listeners, thank you for joining us. We hope you enjoyed it and learned as much as we did. If you want to go back and catch up on any episodes you may have missed or to listen to any again, you can visit <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://aka.ms/airevolutionpodcast">aka.ms/AIrevolutionPodcast<span class="sr-only"> (opens in new tab)</span></a>.</p>
+<p>And, last but not least, to our listeners, thank you for joining us. We hope you enjoyed it and learned as much as we did. If you want to go back and catch up on any episodes you may have missed or to listen to any again, you can visit <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/airevolutionpodcast">aka.ms/AIrevolutionPodcast<span class="sr-only"> (opens in new tab)</span></a>.</p>
 
 
 
@@ -1776,30 +1779,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1854,11 +1857,11 @@
 
 
 
-<p>Training AI models requires choosing an optimizer and for nearly a decade, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1412.6980" target="_blank" rel="noreferrer noopener">Adam(<span class="sr-only"> (opens in new tab)</span></a>&#8211;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1711.05101" target="_blank" rel="noreferrer noopener">W)<span class="sr-only"> (opens in new tab)</span></a> has been the optimizer of choice. Given that durability and success, it was fair to doubt that any further improvement was possible. And yet, last December, a new optimizer called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://kellerjordan.github.io/posts/muon/" target="_blank" rel="noreferrer noopener">Muon<span class="sr-only"> (opens in new tab)</span></a> showed serious promise by powering a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/KellerJordan/modded-nanogpt/tree/master" target="_blank" rel="noreferrer noopener">nanoGPT speedrun<span class="sr-only"> (opens in new tab)</span></a>. This proved out, with multiple AI labs (e.g., <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2502.16982" target="_blank" rel="noreferrer noopener">Kimi-AI<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2505.02222" target="_blank" rel="noreferrer noopener">Essential-AI<span class="sr-only"> (opens in new tab)</span></a>) reporting 2x scale improvements and the release of the 1T parameter <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://moonshotai.github.io/Kimi-K2/" target="_blank" rel="noreferrer noopener">Kimi K2<span class="sr-only"> (opens in new tab)</span></a> model.&nbsp;Restated: you can train a model to similar performance with half as many GPUs.</p>
+<p>Training AI models requires choosing an optimizer and for nearly a decade, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1412.6980" target="_blank" rel="noopener noreferrer">Adam(<span class="sr-only"> (opens in new tab)</span></a>&#8211;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1711.05101" target="_blank" rel="noopener noreferrer">W)<span class="sr-only"> (opens in new tab)</span></a> has been the optimizer of choice. Given that durability and success, it was fair to doubt that any further improvement was possible. And yet, last December, a new optimizer called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://kellerjordan.github.io/posts/muon/" target="_blank" rel="noopener noreferrer">Muon<span class="sr-only"> (opens in new tab)</span></a> showed serious promise by powering a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/KellerJordan/modded-nanogpt/tree/master" target="_blank" rel="noopener noreferrer">nanoGPT speedrun<span class="sr-only"> (opens in new tab)</span></a>. This proved out, with multiple AI labs (e.g., <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2502.16982" target="_blank" rel="noopener noreferrer">Kimi-AI<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2505.02222" target="_blank" rel="noopener noreferrer">Essential-AI<span class="sr-only"> (opens in new tab)</span></a>) reporting 2x scale improvements and the release of the 1T parameter <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://moonshotai.github.io/Kimi-K2/" target="_blank" rel="noopener noreferrer">Kimi K2<span class="sr-only"> (opens in new tab)</span></a> model.&nbsp;Restated: you can train a model to similar performance with half as many GPUs.</p>
 
 
 
-<p>There’s one fly in the ointment: Muon requires large matrix multiplications in the optimizer, which requires heavy communication in large models at the scale where <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2304.11277" target="_blank" rel="noreferrer noopener">FSDP</a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noreferrer noopener">TP</a> parallelization becomes desirable.&nbsp;Going back to the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jeremybernste.in/writing/deriving-muon" target="_blank" rel="noreferrer noopener">inspiration for Muon,</a> the key idea is an orthonormal update, which sparked the search&nbsp;for more scalable alternative linear algebras realizing the same goal. That’s exactly what <a href="https://www.microsoft.com/en-us/research/publication/dion-distributed-orthonormalized-updates/" target="_blank" rel="noreferrer noopener">Dion</a> is. We have open-sourced this new optimizer to enable anyone to train large models more efficiently at scale. &nbsp;</p>
+<p>There’s one fly in the ointment: Muon requires large matrix multiplications in the optimizer, which requires heavy communication in large models at the scale where <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2304.11277" target="_blank" rel="noopener noreferrer">FSDP<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noopener noreferrer">TP<span class="sr-only"> (opens in new tab)</span></a> parallelization becomes desirable.&nbsp;Going back to the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://jeremybernste.in/writing/deriving-muon" target="_blank" rel="noopener noreferrer">inspiration for Muon,<span class="sr-only"> (opens in new tab)</span></a> the key idea is an orthonormal update, which sparked the search&nbsp;for more scalable alternative linear algebras realizing the same goal. That’s exactly what <a href="https://www.microsoft.com/en-us/research/publication/dion-distributed-orthonormalized-updates/" target="_blank" rel="noreferrer noopener">Dion</a> is. We have open-sourced this new optimizer to enable anyone to train large models more efficiently at scale. &nbsp;</p>
 
 
 
@@ -1870,7 +1873,7 @@
 
 
 
-<p>At the core of Transformers, a set of input activations is multiplied by a learned weight matrix to produce a new set of output activations. When the weight matrix is updated during training, the resulting change in the output activations generally depends on the direction of the input activations. As a result, the learning rate must be chosen conservatively to accommodate the input direction that induces the largest change. Orthonormalized updates alter this behavior by (approximately) making the change in output activations invariant to the direction of the input. This is achieved by enforcing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Orthonormality" target="_blank" rel="noreferrer noopener">orthonormality<span class="sr-only"> (opens in new tab)</span></a> on the update matrix, thereby equalizing its effect across all input directions.</p>
+<p>At the core of Transformers, a set of input activations is multiplied by a learned weight matrix to produce a new set of output activations. When the weight matrix is updated during training, the resulting change in the output activations generally depends on the direction of the input activations. As a result, the learning rate must be chosen conservatively to accommodate the input direction that induces the largest change. Orthonormalized updates alter this behavior by (approximately) making the change in output activations invariant to the direction of the input. This is achieved by enforcing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Orthonormality" target="_blank" rel="noopener noreferrer">orthonormality<span class="sr-only"> (opens in new tab)</span></a> on the update matrix, thereby equalizing its effect across all input directions.</p>
 
 
 
@@ -1878,7 +1881,7 @@
 
 
 
-<p>While Muon has shown strong empirical results, scaling it to very large models poses challenges. As reported by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.essential.ai/blog/infra" target="_blank" rel="noreferrer noopener">Essential AI<span class="sr-only"> (opens in new tab)</span></a>, applying Muon to large architectures like LLaMA-3 becomes <em>compute-bound</em>—and potentially <em>communication-bound</em>—due to the cost of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://docs.modula.systems/algorithms/newton-schulz/" target="_blank" rel="noreferrer noopener">Newton–Schulz orthonormalization steps<span class="sr-only"> (opens in new tab)</span></a>.</p>
+<p>While Muon has shown strong empirical results, scaling it to very large models poses challenges. As reported by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.essential.ai/blog/infra" target="_blank" rel="noopener noreferrer">Essential AI<span class="sr-only"> (opens in new tab)</span></a>, applying Muon to large architectures like LLaMA-3 becomes <em>compute-bound</em>—and potentially <em>communication-bound</em>—due to the cost of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://docs.modula.systems/algorithms/newton-schulz/" target="_blank" rel="noopener noreferrer">Newton–Schulz orthonormalization steps<span class="sr-only"> (opens in new tab)</span></a>.</p>
 
 
 
@@ -1903,7 +1906,7 @@
 
 
 
-<p>Dion implements orthonormalization using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1905.13727" target="_blank" rel="noreferrer noopener"><em>amortized power iteration</em><span class="sr-only"> (opens in new tab)</span></a><em>.&nbsp;</em>Power iteration typically pulls out the largest singular value by repeated matrix multiplication.&nbsp;By amortizing this process over optimization steps—applied to the slowly-evolving momentum matrix—we reduce the cost to just two matrix multiplications per step. Incorporating a QR decomposition allows us to extract an approximate orthonormal basis spanning the top singular directions, rather than just the leading one.&nbsp;This amortized power iteration is fully compatible with standard distributed training techniques such as <strong>FSDP</strong> and <strong>tensor parallelism</strong>.&nbsp;Here, we show a simple centralized version, but the technique works for more complex forms of parallelization as presented in the paper. In other words, we can orthogonalize a matrix <em>without ever seeing a full row or column of it</em>.&nbsp;</p>
+<p>Dion implements orthonormalization using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1905.13727" target="_blank" rel="noopener noreferrer"><em>amortized power iteration</em><span class="sr-only"> (opens in new tab)</span></a><em>.&nbsp;</em>Power iteration typically pulls out the largest singular value by repeated matrix multiplication.&nbsp;By amortizing this process over optimization steps—applied to the slowly-evolving momentum matrix—we reduce the cost to just two matrix multiplications per step. Incorporating a QR decomposition allows us to extract an approximate orthonormal basis spanning the top singular directions, rather than just the leading one.&nbsp;This amortized power iteration is fully compatible with standard distributed training techniques such as <strong>FSDP</strong> and <strong>tensor parallelism</strong>.&nbsp;Here, we show a simple centralized version, but the technique works for more complex forms of parallelization as presented in the paper. In other words, we can orthogonalize a matrix <em>without ever seeing a full row or column of it</em>.&nbsp;</p>
 
 
 
@@ -1911,30 +1914,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1983,7 +1983,7 @@
 
 
 
-<p>Projecting this trend out to the scale of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2407.21783" target="_blank" rel="noreferrer noopener">LLaMA-3<span class="sr-only"> (opens in new tab)</span></a> 405B parameter models suggests that Dion is fully effective even with <strong>rank fractions as low as 1/16 or 1/64</strong> for large dense models like LLaMA-3.&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>Projecting this trend out to the scale of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2407.21783" target="_blank" rel="noopener noreferrer">LLaMA-3<span class="sr-only"> (opens in new tab)</span></a> 405B parameter models suggests that Dion is fully effective even with <strong>rank fractions as low as 1/16 or 1/64</strong> for large dense models like LLaMA-3.&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 
 
@@ -2042,7 +2042,7 @@
 
 
 
-<p>In this episode, healthcare leaders <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/umair-a-shah-md-mph/" target="_blank" rel="noreferrer noopener">Dr. Umair Shah<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://www.mayoclinic.org/content/dam/media/global/documents/trustees/bios/gianrico-farrugia.pdf">Dr. Gianrico Farrugia<span class="sr-only"> (opens in new tab)</span></a> join Lee to discuss AI’s impact on the business of public health and healthcare delivery, the healthcare-research connection, and the patient experience. Shah, a healthcare strategic consultant and former state secretary of health, explores the role of public health in the larger ecosystem and why it might not get the attention it needs or deserves and how AI could be leveraged to assist in data analysis, to help better engage with people on matters of public health, and to help narrow gaps between care delivery and public health responses during health emergencies. Farrugia, president and CEO of Mayo Clinic, traces AI’s path from predictive to generative and discusses how that progress has helped usher in a new healthcare architecture for Mayo Clinic and its partners, one powered by the goal of longer, healthier lives for patients, and how AI is also changing Mayo Clinic’s research and the education it provides, including the offering of masters and PhDs in AI and other emerging technologies.&nbsp;</p>
+<p>In this episode, healthcare leaders <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/umair-a-shah-md-mph/" target="_blank" rel="noopener noreferrer">Dr. Umair Shah<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.mayoclinic.org/content/dam/media/global/documents/trustees/bios/gianrico-farrugia.pdf">Dr. Gianrico Farrugia<span class="sr-only"> (opens in new tab)</span></a> join Lee to discuss AI’s impact on the business of public health and healthcare delivery, the healthcare-research connection, and the patient experience. Shah, a healthcare strategic consultant and former state secretary of health, explores the role of public health in the larger ecosystem and why it might not get the attention it needs or deserves and how AI could be leveraged to assist in data analysis, to help better engage with people on matters of public health, and to help narrow gaps between care delivery and public health responses during health emergencies. Farrugia, president and CEO of Mayo Clinic, traces AI’s path from predictive to generative and discusses how that progress has helped usher in a new healthcare architecture for Mayo Clinic and its partners, one powered by the goal of longer, healthier lives for patients, and how AI is also changing Mayo Clinic’s research and the education it provides, including the offering of masters and PhDs in AI and other emerging technologies.&nbsp;</p>
 
 
 
@@ -2056,19 +2056,19 @@
 
 
 <ul class="wp-block-list list-unstyled">
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rickshawhealth.com/" target="_blank" rel="noreferrer noopener">Rickshaw Health<span class="sr-only"> (opens in new tab)</span></a> (Shah)&nbsp;<br>Homepage</li>
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rickshawhealth.com/" target="_blank" rel="noopener noreferrer">Rickshaw Health<span class="sr-only"> (opens in new tab)</span></a> (Shah)&nbsp;<br>Homepage</li>
 
 
 
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://doh.wa.gov/emergencies/covid-19/covid-19-after-action-report" target="_blank" rel="noreferrer noopener">COVID-19 After-Action Report<span class="sr-only"> (opens in new tab)</span></a> (Shah)&nbsp;<br>Washington State Department of Health | March 2024</li>
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://doh.wa.gov/emergencies/covid-19/covid-19-after-action-report" target="_blank" rel="noopener noreferrer">COVID-19 After-Action Report<span class="sr-only"> (opens in new tab)</span></a> (Shah)&nbsp;<br>Washington State Department of Health | March 2024</li>
 
 
 
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.mayoclinicplatform.org/" target="_blank" rel="noreferrer noopener">Mayo Clinic Platform<span class="sr-only"> (opens in new tab)</span></a> (Farrugia)&nbsp;<br>Homepage</li>
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.mayoclinicplatform.org/" target="_blank" rel="noopener noreferrer">Mayo Clinic Platform<span class="sr-only"> (opens in new tab)</span></a> (Farrugia)&nbsp;<br>Homepage</li>
 
 
 
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2501.05409" target="_blank" rel="noreferrer noopener">Atlas: A Novel Pathology Foundation Model by Mayo Clinic, Charité, and Aignostics<span class="sr-only"> (opens in new tab)</span></a> (Farrugia)&nbsp;<br>Publication | January 2025</li>
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2501.05409" target="_blank" rel="noopener noreferrer">Atlas: A Novel Pathology Foundation Model by Mayo Clinic, Charité, and Aignostics<span class="sr-only"> (opens in new tab)</span></a> (Farrugia)&nbsp;<br>Publication | January 2025</li>
 
 
 
@@ -2263,7 +2263,7 @@
 
 
 
-<p>And I launched <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rickshawhealth.com/" target="_blank" rel="noreferrer noopener">Rickshaw Health<span class="sr-only"> (opens in new tab)</span></a> and the notion that, as you know, Peter, rickshaws are oftentimes known across the globe as these modes of transport that reliably get you through ever-changing streets and traffic patterns and all sorts of ecosystems that are evolving at all times. And they get you to the other side and they get you also with a sense of exhilaration. Like when I took my boys to Karachi, and we were—you know, they jumped in a rickshaw and the, you know, open air [LAUGHTER] and they felt this incredible excitement.&nbsp;</p>
+<p>And I launched <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rickshawhealth.com/" target="_blank" rel="noopener noreferrer">Rickshaw Health<span class="sr-only"> (opens in new tab)</span></a> and the notion that, as you know, Peter, rickshaws are oftentimes known across the globe as these modes of transport that reliably get you through ever-changing streets and traffic patterns and all sorts of ecosystems that are evolving at all times. And they get you to the other side and they get you also with a sense of exhilaration. Like when I took my boys to Karachi, and we were—you know, they jumped in a rickshaw and the, you know, open air [LAUGHTER] and they felt this incredible excitement.&nbsp;</p>
 
 
 
@@ -3019,7 +3019,7 @@
 
 
 
-<p><strong>LEE:</strong> Yeah. When did this idea of a data platform, what you now call the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.mayoclinicplatform.org/" target="_blank" rel="noreferrer noopener">Mayo Clinic Platform<span class="sr-only"> (opens in new tab)</span></a>—by the way, I refer to this as <em>MCP</em>, …&nbsp;</p>
+<p><strong>LEE:</strong> Yeah. When did this idea of a data platform, what you now call the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.mayoclinicplatform.org/" target="_blank" rel="noopener noreferrer">Mayo Clinic Platform<span class="sr-only"> (opens in new tab)</span></a>—by the way, I refer to this as <em>MCP</em>, …&nbsp;</p>
 
 
 
@@ -3067,7 +3067,7 @@
 
 
 
-<p><strong>LEE:</strong> And so I know a very good colleague and friend of mine, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.mayoclinicplatform.org/our-team/john-d-halamka-md-ms/" target="_blank" rel="noreferrer noopener">John Halamka<span class="sr-only"> (opens in new tab)</span></a>, you ended up hiring. I thought he was a very interesting choice because he is, of course, in terms of technology, quite deep and very expert, but he&#8217;s, I think, first and foremost, a doctor. And so I assume you must have had to decide what type of person you would bring in and what kinds of people you would bring in to try to create such a thing. What was your thinking around the choice of someone like John?&nbsp;</p>
+<p><strong>LEE:</strong> And so I know a very good colleague and friend of mine, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.mayoclinicplatform.org/our-team/john-d-halamka-md-ms/" target="_blank" rel="noopener noreferrer">John Halamka<span class="sr-only"> (opens in new tab)</span></a>, you ended up hiring. I thought he was a very interesting choice because he is, of course, in terms of technology, quite deep and very expert, but he&#8217;s, I think, first and foremost, a doctor. And so I assume you must have had to decide what type of person you would bring in and what kinds of people you would bring in to try to create such a thing. What was your thinking around the choice of someone like John?&nbsp;</p>
 
 
 
@@ -3143,7 +3143,7 @@
 
 
 
-<p><strong>FARRUGIA:</strong> If healthcare was perfect, we would wait. Healthcare is not perfect by any means, therefore let&#8217;s run and embrace AI. And, sort of, that mentality was part of who we were because at the same time, we were also saying the other thing, that we need to be the ones to lead validation. We need to be the ones that set the rules. We need to be participating in the creation of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.chai.org/" target="_blank" rel="noreferrer noopener">CHAI [Coalition for Health AI]<span class="sr-only"> (opens in new tab)</span></a>. We need to be participating as the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://nam.edu/">[National] Academy of Medicine<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
+<p><strong>FARRUGIA:</strong> If healthcare was perfect, we would wait. Healthcare is not perfect by any means, therefore let&#8217;s run and embrace AI. And, sort of, that mentality was part of who we were because at the same time, we were also saying the other thing, that we need to be the ones to lead validation. We need to be the ones that set the rules. We need to be participating in the creation of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.chai.org/" target="_blank" rel="noopener noreferrer">CHAI [Coalition for Health AI]<span class="sr-only"> (opens in new tab)</span></a>. We need to be participating as the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://nam.edu/">[National] Academy of Medicine<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
 
 
 
@@ -3239,7 +3239,7 @@
 
 
 
-<p><strong>FARRUGIA:</strong> And so really we have made a massive push to digitize pathology not just for us but for others. But talking about ourselves, we started by saying, it has to be very cheap to digitize. So we worked and created a company with partners called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.pramana.ai/" target="_blank" rel="noreferrer noopener">Pramana<span class="sr-only"> (opens in new tab)</span></a> that allows us to digitize slides relatively cheaply using AI algorithms that can take away the dirt, the fingerprint. And so we end up with 21 million of our slides digitized, and that gives you now a massive opportunity. Worked with another company called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.aignostics.com/" target="_blank" rel="noreferrer noopener">Aignostics<span class="sr-only"> (opens in new tab)</span></a> to create a, what we call, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2501.05409" target="_blank" rel="noreferrer noopener">Atlas<span class="sr-only"> (opens in new tab)</span></a>, which is an LLM that allows us to then build upon it.&nbsp;</p>
+<p><strong>FARRUGIA:</strong> And so really we have made a massive push to digitize pathology not just for us but for others. But talking about ourselves, we started by saying, it has to be very cheap to digitize. So we worked and created a company with partners called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.pramana.ai/" target="_blank" rel="noopener noreferrer">Pramana<span class="sr-only"> (opens in new tab)</span></a> that allows us to digitize slides relatively cheaply using AI algorithms that can take away the dirt, the fingerprint. And so we end up with 21 million of our slides digitized, and that gives you now a massive opportunity. Worked with another company called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.aignostics.com/" target="_blank" rel="noopener noreferrer">Aignostics<span class="sr-only"> (opens in new tab)</span></a> to create a, what we call, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2501.05409" target="_blank" rel="noopener noreferrer">Atlas<span class="sr-only"> (opens in new tab)</span></a>, which is an LLM that allows us to then build upon it.&nbsp;</p>
 
 
 
@@ -3472,7 +3472,7 @@
 
 
 
-<p>Furthermore, CLIO’s design offers different knobs of control, for example, how much time to think and which technique to utilize for a given problem. In Figure 3, we demonstrate these knobs of control and their increase on GPT-4.1 and GPT-4o&#8217;s performance. In this case, we analyze performance for a subset of biomedical questions, those focused on immunology. CLIO increases GPT-4o&#8217;s base performance to be at par with the best reasoning models for immunology questions. We observe a <strong>13.60%</strong> improvement over the base model, GPT-4o. This result shows CLIO to be model agnostic, similar to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.ai/new/the-path-to-medical-superintelligence/" target="_blank" rel="noreferrer noopener">Microsoft AI Diagnostic Orchestrator&#8217;s (MAI-DxO)<span class="sr-only"> (opens in new tab)</span></a>&#8216;s approach and corresponding performance boost.&nbsp;</p>
+<p>Furthermore, CLIO’s design offers different knobs of control, for example, how much time to think and which technique to utilize for a given problem. In Figure 3, we demonstrate these knobs of control and their increase on GPT-4.1 and GPT-4o&#8217;s performance. In this case, we analyze performance for a subset of biomedical questions, those focused on immunology. CLIO increases GPT-4o&#8217;s base performance to be at par with the best reasoning models for immunology questions. We observe a <strong>13.60%</strong> improvement over the base model, GPT-4o. This result shows CLIO to be model agnostic, similar to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.ai/new/the-path-to-medical-superintelligence/" target="_blank" rel="noopener noreferrer">Microsoft AI Diagnostic Orchestrator&#8217;s (MAI-DxO)<span class="sr-only"> (opens in new tab)</span></a>&#8216;s approach and corresponding performance boost.&nbsp;</p>
 
 
 
@@ -3480,7 +3480,7 @@
 
 
 
-<p>The future of scientific discovery demands more than reasoning over knowledge and raw computational power alone. Here, we demonstrate how CLIO not only increases model performance but establishes new layers of control for scientists. In our upcoming work, we will demonstrate how CLIO increases tool utility for highly valuable scientific questions in the drug discovery space which requires precise tools designed for the language of science. While our experiments focus on scientific discovery, we believe CLIO can apply in a domain-agnostic fashion. Experts tackling problems in domains such as financial analysis, engineering, and legal services could potentially benefit from AI systems with a transparent, steerable reasoning approach. Ultimately, we envision CLIO as an enduring control-layer in hybrid AI stacks that combine traditional completion and reasoning models, with external memory systems, and advanced tool calling. These continuous checks and balances that CLIO enables will continue to remain valuable even as components within the AI stacks evolve. This combination of intelligent and steerable scientific decision making and tool optimization is the basis of the recently announced <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/?msockid=394581ce06c567df2171946b073d6601" target="_blank" rel="noreferrer noopener">Microsoft Discovery platform<span class="sr-only"> (opens in new tab)</span></a>.</p>
+<p>The future of scientific discovery demands more than reasoning over knowledge and raw computational power alone. Here, we demonstrate how CLIO not only increases model performance but establishes new layers of control for scientists. In our upcoming work, we will demonstrate how CLIO increases tool utility for highly valuable scientific questions in the drug discovery space which requires precise tools designed for the language of science. While our experiments focus on scientific discovery, we believe CLIO can apply in a domain-agnostic fashion. Experts tackling problems in domains such as financial analysis, engineering, and legal services could potentially benefit from AI systems with a transparent, steerable reasoning approach. Ultimately, we envision CLIO as an enduring control-layer in hybrid AI stacks that combine traditional completion and reasoning models, with external memory systems, and advanced tool calling. These continuous checks and balances that CLIO enables will continue to remain valuable even as components within the AI stacks evolve. This combination of intelligent and steerable scientific decision making and tool optimization is the basis of the recently announced <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/?msockid=394581ce06c567df2171946b073d6601" target="_blank" rel="noopener noreferrer">Microsoft Discovery platform<span class="sr-only"> (opens in new tab)</span></a>.</p>
 
 
 
@@ -3528,11 +3528,11 @@
 
 
 
-<p>Project Ire&nbsp;emerged&nbsp;from a collaboration&nbsp;between&nbsp;Microsoft Research, Microsoft Defender Research, and Microsoft Discovery & Quantum, bringing together security&nbsp;expertise, operational knowledge, data from global malware telemetry, and AI research. It is built on the same collaborative and agentic foundation behind&nbsp;<a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/#:~:text=Get%20started%20today%20by%20using%20Azure%20HPC%20and%20Azure%20AI%20Foundry%20infrastructure.&text=Microsoft%20Discovery%20is%20built%20on,make%20any%20adjustments%20as%20needed." target="_blank" rel="noreferrer noopener">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;The system&nbsp;uses advanced language models and a suite of callable reverse engineering and binary analysis tools to drive investigation and adjudication.</p>
+<p>Project Ire&nbsp;emerged&nbsp;from a collaboration&nbsp;between&nbsp;Microsoft Research, Microsoft Defender Research, and Microsoft Discovery & Quantum, bringing together security&nbsp;expertise, operational knowledge, data from global malware telemetry, and AI research. It is built on the same collaborative and agentic foundation behind&nbsp;<a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG</a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/#:~:text=Get%20started%20today%20by%20using%20Azure%20HPC%20and%20Azure%20AI%20Foundry%20infrastructure.&text=Microsoft%20Discovery%20is%20built%20on,make%20any%20adjustments%20as%20needed." target="_blank" rel="noopener noreferrer">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;The system&nbsp;uses advanced language models and a suite of callable reverse engineering and binary analysis tools to drive investigation and adjudication.</p>
 
 
 
-<p>As of this writing, Project Ire has achieved a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noreferrer noopener">precision<span class="sr-only"> (opens in new tab)</span></a> of 0.98 and a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noreferrer noopener">recall<span class="sr-only"> (opens in new tab)</span></a> of 0.83 using public datasets of Windows drivers. It was the first reverse engineer at Microsoft, human or machine, to author a conviction case—a detection strong enough to justify automatic blocking—for a specific advanced persistent threat (APT) malware sample, which has since been identified and blocked by Microsoft Defender.&nbsp;</p>
+<p>As of this writing, Project Ire has achieved a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noopener noreferrer">precision<span class="sr-only"> (opens in new tab)</span></a> of 0.98 and a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank" rel="noopener noreferrer">recall<span class="sr-only"> (opens in new tab)</span></a> of 0.83 using public datasets of Windows drivers. It was the first reverse engineer at Microsoft, human or machine, to author a conviction case—a detection strong enough to justify automatic blocking—for a specific advanced persistent threat (APT) malware sample, which has since been identified and blocked by Microsoft Defender.&nbsp;</p>
 
 
 
@@ -3540,7 +3540,7 @@
 
 
 
-<p>Microsoft’s Defender platform scans more than <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" target="_blank" href="https://news.microsoft.com/apac/2020/03/17/windows-10-powering-the-world-with-one-billion-monthly-active-devices/">one billion monthly<span class="sr-only"> (opens in new tab)</span></a> active devices through the company’s Defender suite of products, which routinely require manual review of software by experts.</p>
+<p>Microsoft’s Defender platform scans more than <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://news.microsoft.com/apac/2020/03/17/windows-10-powering-the-world-with-one-billion-monthly-active-devices/">one billion monthly<span class="sr-only"> (opens in new tab)</span></a> active devices through the company’s Defender suite of products, which routinely require manual review of software by experts.</p>
 
 
 
@@ -3548,7 +3548,7 @@
 
 
 
-<p>Unlike other AI applications in security, malware classification lacks a computable <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.blackhat.com/us-25/briefings/schedule/#ai-agents-for-offsec-with-zero-false-positives-46559" target="_blank" rel="noreferrer noopener">validator<span class="sr-only"> (opens in new tab)</span></a>. The AI must make judgment calls without definitive validation beyond expert review. Many behaviors found in software, like reverse engineering protections, don’t clearly indicate whether a sample is malicious or benign.&nbsp;</p>
+<p>Unlike other AI applications in security, malware classification lacks a computable <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.blackhat.com/us-25/briefings/schedule/#ai-agents-for-offsec-with-zero-false-positives-46559" target="_blank" rel="noopener noreferrer">validator<span class="sr-only"> (opens in new tab)</span></a>. The AI must make judgment calls without definitive validation beyond expert review. Many behaviors found in software, like reverse engineering protections, don’t clearly indicate whether a sample is malicious or benign.&nbsp;</p>
 
 
 
@@ -3564,7 +3564,7 @@
 
 
 
-<p>Its tool-use API enables the system to update its understanding of a file using a wide range of reverse engineering tools, including Microsoft memory analysis sandboxes based on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/freta/intro" target="_blank" rel="noreferrer noopener">Project Freta<span class="sr-only"> (opens in new tab)</span></a>, custom and open-source tools, documentation search, and multiple decompilers.&nbsp;&nbsp;</p>
+<p>Its tool-use API enables the system to update its understanding of a file using a wide range of reverse engineering tools, including Microsoft memory analysis sandboxes based on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/freta/intro" target="_blank" rel="noopener noreferrer">Project Freta<span class="sr-only"> (opens in new tab)</span></a>, custom and open-source tools, documentation search, and multiple decompilers.&nbsp;&nbsp;</p>
 
 
 
@@ -3572,7 +3572,7 @@
 
 
 
-<p>The evaluation process begins with a triage, where automated reverse engineering tools identify the file type, its structure, and potential areas of interest. From there, the system reconstructs the software’s control flow graph using frameworks such as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://angr.io/" target="_blank" rel="noreferrer noopener">angr<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/NationalSecurityAgency/ghidra" target="_blank" rel="noreferrer noopener">Ghidra<span class="sr-only"> (opens in new tab)</span></a>, building a graph that forms the backbone of Project Ire’s memory model and guides the rest of the analysis.&nbsp;&nbsp;</p>
+<p>The evaluation process begins with a triage, where automated reverse engineering tools identify the file type, its structure, and potential areas of interest. From there, the system reconstructs the software’s control flow graph using frameworks such as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://angr.io/" target="_blank" rel="noopener noreferrer">angr<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/NationalSecurityAgency/ghidra" target="_blank" rel="noopener noreferrer">Ghidra<span class="sr-only"> (opens in new tab)</span></a>, building a graph that forms the backbone of Project Ire’s memory model and guides the rest of the analysis.&nbsp;&nbsp;</p>
 
 
 
@@ -3584,30 +3584,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3620,7 +3620,7 @@
 
 
 
-<p>Two early evaluations tested Project Ire’s effectiveness as an autonomous malware classifier. In the first, we assessed Project Ire on a dataset of publicly accessible Windows drivers, some known to be malicious, others benign. Malicious samples came from the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/magicsword-io/LOLDrivers/blob/e2e48f15a0885e8b2ad2fb81255089845f5c183c/detections/hashes/samples_malicious.sha256" target="_blank" rel="noreferrer noopener"><em>Living off the Land Drivers</em><span class="sr-only"> (opens in new tab)</span></a> database, which includes a collection of Windows drivers used by attackers to bypass security controls, while known benign drivers were sourced from Windows Update.&nbsp;</p>
+<p>Two early evaluations tested Project Ire’s effectiveness as an autonomous malware classifier. In the first, we assessed Project Ire on a dataset of publicly accessible Windows drivers, some known to be malicious, others benign. Malicious samples came from the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/magicsword-io/LOLDrivers/blob/e2e48f15a0885e8b2ad2fb81255089845f5c183c/detections/hashes/samples_malicious.sha256" target="_blank" rel="noopener noreferrer"><em>Living off the Land Drivers</em><span class="sr-only"> (opens in new tab)</span></a> database, which includes a collection of Windows drivers used by attackers to bypass security controls, while known benign drivers were sourced from Windows Update.&nbsp;</p>
 
 
 
@@ -3632,7 +3632,7 @@
 
 
 
-<p>Figures 1 and 2 present reports for two successful malware classification cases generated during testing. The first involves a kernel-level rootkit, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62" target="_blank" rel="noreferrer noopener"><em>Trojan:Win64/Rootkit.EH!MTB</em><span class="sr-only"> (opens in new tab)</span></a>. The system identified several key features, including jump-hooking, process termination, and web-based command and control. It then correctly flagged the sample as malicious.</p>
+<p>Figures 1 and 2 present reports for two successful malware classification cases generated during testing. The first involves a kernel-level rootkit, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62" target="_blank" rel="noopener noreferrer"><em>Trojan:Win64/Rootkit.EH!MTB</em><span class="sr-only"> (opens in new tab)</span></a>. The system identified several key features, including jump-hooking, process termination, and web-based command and control. It then correctly flagged the sample as malicious.</p>
 
 
 
@@ -3673,11 +3673,11 @@
   </div>
 </body>
 </html>
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Figure 1. Project Ire report, sample with SHA256: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62" target="_blank" rel="noreferrer noopener">86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62<span class="sr-only"> (opens in new tab)</span></a></figcaption></figure>
+<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Figure 1. Project Ire report, sample with SHA256: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62" target="_blank" rel="noopener noreferrer">86047bb1969d1db455493955fd450d18c62a3f36294d0a6c3732c88dfbcc4f62<span class="sr-only"> (opens in new tab)</span></a></figcaption></figure>
 
 
 
-<p>The second sample, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a" target="_blank" rel="noreferrer noopener"><em>HackTool:Win64/KillAV!MTB</em><span class="sr-only"> (opens in new tab)</span></a>, was designed to disable antivirus software. Project Ire correctly identified the code that locates and disables antivirus programs, providing evidence that the file was malicious.&nbsp;&nbsp;</p>
+<p>The second sample, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a" target="_blank" rel="noopener noreferrer"><em>HackTool:Win64/KillAV!MTB</em><span class="sr-only"> (opens in new tab)</span></a>, was designed to disable antivirus software. Project Ire correctly identified the code that locates and disables antivirus programs, providing evidence that the file was malicious.&nbsp;&nbsp;</p>
 
 
 
@@ -3720,7 +3720,7 @@
   </div>
 </body>
 </html>
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Figure 2. Project Ire report, sample with SHA256: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a" target="_blank" rel="noreferrer noopener">b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a<span class="sr-only"> (opens in new tab)</span></a></figcaption></figure>
+<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">Figure 2. Project Ire report, sample with SHA256: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a" target="_blank" rel="noopener noreferrer">b6cb163089f665c05d607a465f1b6272cdd5c949772ab9ce7227120cf61f971a<span class="sr-only"> (opens in new tab)</span></a></figcaption></figure>
 
 
 
@@ -3764,7 +3764,7 @@
 
 
 
-<p>The system incorporates multiple tools, including the&nbsp;angr&nbsp;framework developed by&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://emotionlabs.io/" target="_blank" rel="noreferrer noopener">Emotion Labs<span class="sr-only"> (opens in new tab)</span></a>. Microsoft has collaborated extensively with Emotion Labs, a pioneer in cyber autonomy, throughout the development of Project Ire, and thanks them for the innovations and insights that contributed to the successes reported here.&nbsp;</p>
+<p>The system incorporates multiple tools, including the&nbsp;angr&nbsp;framework developed by&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://emotionlabs.io/" target="_blank" rel="noopener noreferrer">Emotion Labs<span class="sr-only"> (opens in new tab)</span></a>. Microsoft has collaborated extensively with Emotion Labs, a pioneer in cyber autonomy, throughout the development of Project Ire, and thanks them for the innovations and insights that contributed to the successes reported here.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/">Project Ire autonomously identifies malware at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
@@ -3900,30 +3900,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3988,7 +3985,7 @@
 
 
 
-<p>We compared VeriTrail to three types of baseline methods commonly used for closed-domain hallucination detection: Natural Language Inference models (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2023.acl-long.634/" target="_blank" rel="noreferrer noopener">AlignScore</a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.eacl-long.102/" target="_blank" rel="noreferrer noopener">INFUSE</a>); Retrieval-Augmented Generation; and long-context models (Gemini 1.5 Pro and GPT-4.1 mini). Across both datasets and all language models tested, VeriTrail outperformed the baseline methods in detecting hallucination.<a id="_ftnref5" href="#_ftn5"><sup>5</sup></a></p>
+<p>We compared VeriTrail to three types of baseline methods commonly used for closed-domain hallucination detection: Natural Language Inference models (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2023.acl-long.634/" target="_blank" rel="noopener noreferrer">AlignScore<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.eacl-long.102/" target="_blank" rel="noopener noreferrer">INFUSE<span class="sr-only"> (opens in new tab)</span></a>); Retrieval-Augmented Generation; and long-context models (Gemini 1.5 Pro and GPT-4.1 mini). Across both datasets and all language models tested, VeriTrail outperformed the baseline methods in detecting hallucination.<a id="_ftnref5" href="#_ftn5"><sup>5</sup></a></p>
 
 
 
@@ -4004,7 +4001,7 @@
 
 
 
-<p><a id="_ftn1" href="#_ftnref1"><sup>1</sup><span class="sr-only"> (opens in new tab)</span></a> The term “closed-domain hallucination” was introduced by OpenAI in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noreferrer noopener">GPT-4 Technical Report<span class="sr-only"> (opens in new tab)</span></a>.</p>
+<p><a id="_ftn1" href="#_ftnref1"><sup>1</sup></a> The term “closed-domain hallucination” was introduced by OpenAI in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener noreferrer">GPT-4 Technical Report<span class="sr-only"> (opens in new tab)</span></a>.</p>
 
 
 
@@ -4016,7 +4013,7 @@
 
 
 
-<p><sup><a id="_ftn4" href="#_ftnref4">4<span class="sr-only"> (opens in new tab)</span></a></sup> In hierarchical summarization, an LM summarizes each source text chunk individually, then the resulting summaries are repeatedly grouped and summarized until a final summary is produced (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2109.10862" target="_blank" rel="noreferrer noopener">Wu et al., 2021<span class="sr-only"> (opens in new tab)</span></a>; <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2310.00785" target="_blank" rel="noreferrer noopener">Chang et al., 2023<span class="sr-only"> (opens in new tab)</span></a>).</p>
+<p><sup><a id="_ftn4" href="#_ftnref4">4</a></sup> In hierarchical summarization, an LM summarizes each source text chunk individually, then the resulting summaries are repeatedly grouped and summarized until a final summary is produced (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2109.10862" target="_blank" rel="noopener noreferrer">Wu et al., 2021<span class="sr-only"> (opens in new tab)</span></a>; <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2310.00785" target="_blank" rel="noopener noreferrer">Chang et al., 2023<span class="sr-only"> (opens in new tab)</span></a>).</p>
 
 
 
@@ -4053,7 +4050,7 @@
 
 
 
-<p>In this episode, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/morgancheatham/" target="_blank" rel="noreferrer noopener">Dr. Morgan Cheatham<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/dxchen99/" target="_blank" rel="noreferrer noopener">Daniel Chen<span class="sr-only"> (opens in new tab)</span></a>, two rising physicians and experts in both medicine and technology, join Lee to explore how generative AI is reshaping medical education. Cheatham, a partner and head of healthcare and life sciences at Breyer Capital and a resident physician at Boston Children’s Hospital, discusses how AI is changing how clinicians acquire and apply medical knowledge at the point of care, emphasizing the need for training and curriculum changes to help ensure AI is used responsibly and that clinicians are equipped to maximize its potential. Chen, a medical student at the Kaiser Permanente Bernard J. Tyson School of Medicine, shares how he and his peers use AI tools as study aids, clinical tutors, and second opinions and reflects on the risks of overreliance and the importance of preserving critical thinking.</p>
+<p>In this episode, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/morgancheatham/" target="_blank" rel="noopener noreferrer">Dr. Morgan Cheatham<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/dxchen99/" target="_blank" rel="noopener noreferrer">Daniel Chen<span class="sr-only"> (opens in new tab)</span></a>, two rising physicians and experts in both medicine and technology, join Lee to explore how generative AI is reshaping medical education. Cheatham, a partner and head of healthcare and life sciences at Breyer Capital and a resident physician at Boston Children’s Hospital, discusses how AI is changing how clinicians acquire and apply medical knowledge at the point of care, emphasizing the need for training and curriculum changes to help ensure AI is used responsibly and that clinicians are equipped to maximize its potential. Chen, a medical student at the Kaiser Permanente Bernard J. Tyson School of Medicine, shares how he and his peers use AI tools as study aids, clinical tutors, and second opinions and reflects on the risks of overreliance and the importance of preserving critical thinking.</p>
 
 
 
@@ -4065,11 +4062,11 @@
 
 
 
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://pubmed.ncbi.nlm.nih.gov/40375359/" target="_blank" rel="noreferrer noopener">Perspectives on the Current and Future State of Artificial Intelligence in Medical Genetics<span class="sr-only"> (opens in new tab)</span></a>&nbsp;(Cheatham)<br>Publication | May 2025</p>
+<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://pubmed.ncbi.nlm.nih.gov/40375359/" target="_blank" rel="noopener noreferrer">Perspectives on the Current and Future State of Artificial Intelligence in Medical Genetics<span class="sr-only"> (opens in new tab)</span></a>&nbsp;(Cheatham)<br>Publication | May 2025</p>
 
 
 
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000198" target="_blank" rel="noreferrer noopener">Performance of ChatGPT on USMLE: Potential for AI-assisted medical education using large language models<span class="sr-only"> (opens in new tab)</span></a> (Cheatham)&nbsp;<br>Publication | February 2023&nbsp;</p>
+<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000198" target="_blank" rel="noopener noreferrer">Performance of ChatGPT on USMLE: Potential for AI-assisted medical education using large language models<span class="sr-only"> (opens in new tab)</span></a> (Cheatham)&nbsp;<br>Publication | February 2023&nbsp;</p>
 
 
 
@@ -4322,7 +4319,7 @@
 
 
 
-<p><strong>CHEATHAM:</strong> … for this large board exam. And I was fortunate to partner, actually, with one of our portfolio company CEOs who is a physician—he is an MD/PhD—to work on the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000198" target="_blank" rel="noreferrer noopener">first paper that showed that ChatGPT could pass the US Medical Licensing Exam<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;&nbsp;</p>
+<p><strong>CHEATHAM:</strong> … for this large board exam. And I was fortunate to partner, actually, with one of our portfolio company CEOs who is a physician—he is an MD/PhD—to work on the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000198" target="_blank" rel="noopener noreferrer">first paper that showed that ChatGPT could pass the US Medical Licensing Exam<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;&nbsp;</p>
 
 
 
@@ -4450,7 +4447,7 @@
 
 
 
-<p><strong>CHEATHAM:</strong> I&#8217;ve been pleasantly surprised talking with my colleagues about AI in clinical settings, how curious people are and how curious they&#8217;ve been over the last two years. I think, oftentimes, we say, oh, you know, this technology really is stratified by age and the younger clinicians are using it more and the older physicians are ignoring it. And, you know, maybe that&#8217;s true in some regards, but I&#8217;ve seen, you know, many, you know, senior attendings pulling up Perplexity, GPT, more recently <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.openevidence.com/" target="_blank" rel="noreferrer noopener">OpenEvidence<span class="sr-only"> (opens in new tab)</span></a>, which has been a really essential tool for me personally at the point of care, to come up with the best decisions for our patients.&nbsp;&nbsp;</p>
+<p><strong>CHEATHAM:</strong> I&#8217;ve been pleasantly surprised talking with my colleagues about AI in clinical settings, how curious people are and how curious they&#8217;ve been over the last two years. I think, oftentimes, we say, oh, you know, this technology really is stratified by age and the younger clinicians are using it more and the older physicians are ignoring it. And, you know, maybe that&#8217;s true in some regards, but I&#8217;ve seen, you know, many, you know, senior attendings pulling up Perplexity, GPT, more recently <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.openevidence.com/" target="_blank" rel="noopener noreferrer">OpenEvidence<span class="sr-only"> (opens in new tab)</span></a>, which has been a really essential tool for me personally at the point of care, to come up with the best decisions for our patients.&nbsp;&nbsp;</p>
 
 
 
@@ -4582,7 +4579,7 @@
 
 
 
-<p><strong>LEE: </strong>So LCME for our listeners is, I think it stands for the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://lcme.org/" target="_blank" rel="noreferrer noopener">Liaison Committee on Medical Education<span class="sr-only"> (opens in new tab)</span></a>. It&#8217;s basically the accrediting body for US medical schools, and it&#8217;s very high stakes. It&#8217;s very, very rigorous, which I think is a good thing, but it&#8217;s also a bit of a straitjacket.&nbsp;&nbsp;</p>
+<p><strong>LEE: </strong>So LCME for our listeners is, I think it stands for the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://lcme.org/" target="_blank" rel="noopener noreferrer">Liaison Committee on Medical Education<span class="sr-only"> (opens in new tab)</span></a>. It&#8217;s basically the accrediting body for US medical schools, and it&#8217;s very high stakes. It&#8217;s very, very rigorous, which I think is a good thing, but it&#8217;s also a bit of a straitjacket.&nbsp;&nbsp;</p>
 
 
 
@@ -4954,7 +4951,7 @@
 
 
 
-<p><strong>CHEN: </strong>Yeah, I think into the context of medicine, right, we fear a lot about the hallucinations that these models might have. And it&#8217;s something I&#8217;m always checking for. When I talk with peers about this, we find it most helpful when the model gives us a source linking it back. I think the gold standard nowadays in medicine is using something called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://learn.uptodate.com/ind_uptodate_brand/brand?utm_source=bing&utm_medium=cpc&utm_campaign=IND_UpToDate_Brand&utm_content=&utm_term=uptodate&msclkid=f6f6c2868b5316eb7278aa06862897fd" target="_blank" rel="noreferrer noopener">UpToDate<span class="sr-only"> (opens in new tab)</span></a> that&#8217;s written by clinicians, for clinicians.&nbsp;</p>
+<p><strong>CHEN: </strong>Yeah, I think into the context of medicine, right, we fear a lot about the hallucinations that these models might have. And it&#8217;s something I&#8217;m always checking for. When I talk with peers about this, we find it most helpful when the model gives us a source linking it back. I think the gold standard nowadays in medicine is using something called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://learn.uptodate.com/ind_uptodate_brand/brand?utm_source=bing&utm_medium=cpc&utm_campaign=IND_UpToDate_Brand&utm_content=&utm_term=uptodate&msclkid=f6f6c2868b5316eb7278aa06862897fd" target="_blank" rel="noopener noreferrer">UpToDate<span class="sr-only"> (opens in new tab)</span></a> that&#8217;s written by clinicians, for clinicians.&nbsp;</p>
 
 
 
