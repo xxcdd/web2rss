@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 03 Sep 2025 01:38:14 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Sep 2025 01:38:56 +0000</lastBuildDate>
     <item>
       <title>April 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/april-2025-newsletter</link>
@@ -70,13 +70,6 @@ Last month we talked about bug bounty etiquette and how to be a good bug bounty 
       <description>Before going all-in on ProjectDiscovery Cloud, Elastic had already embraced Nuclei, the open-source vulnerability scanner built for customization and speed, along with other ProjectDiscovery tools like naabu and httpx.</description>
     </item>
     <item>
-      <title>Nuclei v3.2 Release with Authenticated Scanning, Advanced Fuzzing &amp; more</title>
-      <link>https://projectdiscovery.io/blog/nuclei-3-2</link>
-      <description>We're thrilled to announce the launch of Nuclei v3.2.0. This latest version introduces a host of new features, enhancements, and bug fixes, significantly elevating the Nuclei engine's performance and capabilities. Notably, the inclusion of authentication support and advanced fuzzing support positions this release as a pivotal milestone, further building upon the foundation laid by version 3.0.0.
-
-In this blog, and a number of upcoming feature spotlights, you'll learn a lot more about all that nu</description>
-    </item>
-    <item>
       <title>Enhancing Asset Discovery: ProjectDiscovery Cloud Platform (v0.8.8)</title>
       <link>https://projectdiscovery.io/blog/pdcp-0-8-8</link>
       <description>We're excited to announce the release of version 0.8.8 of the ProjectDiscovery Cloud Platform. This update brings significant enhancements to our asset discovery capabilities, introduces new features for Basic Tier (Free) users, and resolves several critical issues. Our primary focus remains on improving the visibility and analysis of discovered assets and refining the insights available to our users.
@@ -98,6 +91,11 @@ Key Features in v0.8.9
 Asset Inventory and Technologies
 
 The new interface for cataloging and organizing all assets along with their associated technologies in one place represents a significant advancement in asset management. Now, rega</description>
+    </item>
+    <item>
+      <title>The Coverage Lie: Why Current Vulnerability Scanners Fail to Stop Breaches</title>
+      <link>https://projectdiscovery.io/blog/why-current-vuln-scanners-fail-to-stop-breaches</link>
+      <description>First-generation scanners drown teams in noise. Only 6% of CVEs are ever exploited, yet attackers weaponize them in hours. ProjectDiscovery, the RSA Sandbox winner, delivers runtime validation and detections within hours so you can act fast, cut false positives, and close real risk.</description>
     </item>
     <item>
       <title>Effortless Passive Detection Using Global Matchers in Nuclei</title>
@@ -148,15 +146,6 @@ However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 ,
 Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
     </item>
     <item>
-      <title>GCP Cloud Configuration Review Templates - Nuclei Templates v10.2.0 🎉</title>
-      <link>https://projectdiscovery.io/blog/gcp-cloud-configuration-review-templates-nuclei-templates-v10-2-0</link>
-      <description>We’re excited to tell you about Nuclei Templates release v10.2.0! This new version includes newly added GCP Config Review templates. In this blog post, we’ll discuss automating Google Cloud misconfiguration review, creating custom GCP checks, and sharing results on the PDCP Cloud for review.
-
-Following our last release on Azure Cloud Security Config Review and Kubernetes Cluster Security, we decided to expand our coverage to include GCP as well.
-
-GCP is well-known for its powerful features and v</description>
-    </item>
-    <item>
       <title>Solving Vulnerability Management: ProjectDiscovery’s RSA Innovation Sandbox Win</title>
       <link>https://projectdiscovery.io/blog/solving-vulnerability-management-projectdiscovery-rsa-innovation-sandbox-win</link>
       <description>Last week, ProjectDiscovery took home the title of Most Innovative Startup at the 2025 RSA Innovation Sandbox, the biggest stage in the world for security innovation. While much of this year’s buzz centered on securing AI, our win was a powerful signal: even as new frontiers emerge, foundational problems like vulnerability management remain unsolved. Security leaders are still spending millions on tools that generate noise instead of insight, and the industry is ready for a better way.
@@ -171,6 +160,13 @@ Our COO,</description>
 As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
 
 However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
+    </item>
+    <item>
+      <title>Authentication Bypass to RCE in Versa Concerto</title>
+      <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
+      <description>Introduction
+
+Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
     </item>
   </channel>
 </rss>
