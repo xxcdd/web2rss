@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 22 Aug 2025 13:14:19 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 04 Sep 2025 13:19:48 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -88,30 +88,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1731,7 +1728,7 @@
 
 
 
-<p>A new research framework helps AI agents explore three-dimensional spaces they can’t directly detect. Called <a href="https://www.microsoft.com/en-us/research/publication/mindjourney-test-time-scaling-with-world-models-for-spatial-reasoning/" target="_blank" rel="noreferrer noopener">MindJourney</a>, the approach addresses a key limitation in vision-language models (VLMs), which give AI agents their ability to interpret and describe visual scenes.  </p>
+<p>A new research framework helps AI agents explore three-dimensional spaces they can’t directly detect. Called <a href="https://www.microsoft.com/en-us/research/publication/mindjourney-test-time-scaling-with-world-models-for-spatial-reasoning/" target="_blank" rel="noreferrer noopener">MindJourney</a>, the approach addresses a key limitation in vision-language models (VLMs), which give AI agents their ability to interpret and describe visual scenes.&nbsp;&nbsp;</p>
 
 
 
@@ -1747,7 +1744,7 @@
 
 
 
-<p>To perform this type of spatial navigation,&nbsp;MindJourney&nbsp;uses a&nbsp;<em>world model</em>—in this case,&nbsp;a video generation system trained on a large collection of videos captured from a single moving viewpoint, showing actions such as going forward and turning left of right, much like a 3D cinematographer. From this, it learns to predict how a new scene would appear from different perspectives.</p>
+<p>To perform this type of spatial navigation, MindJourney uses a <em>world model</em>—in this case, a video generation system trained on a large collection of videos captured from a single moving viewpoint, showing actions such as going forward and turning left or right, much like a 3D cinematographer. From this, it learns to predict how a new scene would appear from different perspectives.</p>
 
 
 
@@ -1767,7 +1764,7 @@
 
 
 
-<p>To make its search through a simulated space both effective and efficient, MindJourney uses a <em>spatial beam search</em>—an algorithm that prioritizes the most promising paths. It works within a fixed number of steps, each representing a movement. By balancing breadth with depth, spatial beam search enables MindJourney to gather strong supporting evidence. This process is illustrated in Figure 2.</p>
+<p>To make its search through&nbsp;a simulated&nbsp;space both effective and efficient,&nbsp;MindJourney&nbsp;uses a <em>spatial beam search</em>—an&nbsp;algorithm that prioritizes the most promising paths. It works within a fixed number of steps, each representing a movement. By balancing breadth with depth, spatial beam search enables&nbsp;MindJourney&nbsp;to gather strong supporting evidence.&nbsp;This process is illustrated in Figure 2.</p>
 
 
 
@@ -1775,31 +1772,34 @@
 
 
 
-<p class="has-text-align-left">By iterating through simulation, evaluation, and integration, MindJourney can reason about spatial relationships far beyond what any single 2D image can convey, all without the need for additional training. On the Spatial Aptitude Training (SAT) benchmark, it improved the accuracy of VLMs by 8% over their baseline performance.</p>
+<p class="has-text-align-left">By iterating through&nbsp;simulation,&nbsp;evaluation, and integration,&nbsp;MindJourney&nbsp;can reason about spatial relationships far beyond what any single 2D image can convey, all without the need for additional training.&nbsp;On&nbsp;the&nbsp;Spatial Aptitude Training (SAT)&nbsp;benchmark,&nbsp;it improved the accuracy of&nbsp;VLMs&nbsp;by&nbsp;8%&nbsp;over&nbsp;their&nbsp;baseline&nbsp;performance.</p>
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1822,7 +1822,7 @@
 
 
 
-<p>It also demonstrates that pretrained VLMs and trainable world models can work together in 3D without retraining either one—pointing toward general-purpose agents capable of interpreting and acting in real-world environments. This opens the way to possible applications in autonomous robotics, smart home technologies, and accessibility tools for people with visual impairments. </p>
+<p>It also demonstrates that pretrained VLMs and trainable world models can work together in 3D without retraining either one—pointing toward general-purpose agents capable of&nbsp;interpreting&nbsp;and acting in real-world environments. This opens the way to&nbsp;possible&nbsp;applications in autonomous robotics, smart home technologies, and accessibility tools for people with visual impairments.&nbsp;</p>
 
 
 
@@ -1911,30 +1911,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3584,27 +3584,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3897,7 +3900,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -3906,20 +3909,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
