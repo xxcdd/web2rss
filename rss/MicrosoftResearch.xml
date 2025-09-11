@@ -20,6 +20,199 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>RenderFormer: How neural networks are reshaping 3D rendering</title>
+		<link>https://www.microsoft.com/en-us/research/blog/renderformer-how-neural-networks-are-reshaping-3d-rendering/</link>
+		
+		<dc:creator><![CDATA[Yue Dong]]></dc:creator>
+		<pubDate>Wed, 10 Sep 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1149051</guid>
+
+					<description><![CDATA[<p> RenderFormer, from Microsoft Research, is the first model to show that a neural network can learn a complete graphics rendering pipeline. It’s designed to support full-featured 3D rendering using only machine learning—no traditional graphics computation required. </p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/renderformer-how-neural-networks-are-reshaping-3d-rendering/">RenderFormer: How neural networks are reshaping 3D rendering</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a gradient background transitioning from blue to green. From left to right: network node icon, lightbulb-shaped icon with a path tool icon in the center; a monitor icon showing a web browser icon" class="wp-image-1149127" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>3D rendering—the process of converting three-dimensional models into two-dimensional images—is a foundational technology in computer graphics, widely used across gaming, film, virtual reality, and architectural visualization. Traditionally, this process has depended on physics-based techniques like ray tracing and rasterization, which simulate light behavior through mathematical formulas and expert-designed models.</p>
+
+
+
+<p>Now, thanks to advances in AI, especially neural networks, researchers are beginning to replace these conventional approaches with machine learning (ML). This shift is giving rise to a new field known as neural rendering.</p>
+
+
+
+<p>Neural rendering combines deep learning with traditional graphics techniques, allowing models to simulate complex light transport without explicitly modeling physical optics. This approach offers significant advantages: it eliminates the need for handcrafted rules, supports end-to-end training, and can be optimized for specific tasks. Yet, most current neural rendering methods rely on 2D image inputs, lack support for raw 3D geometry and material data, and often require retraining for each new scene—limiting their generalizability.</p>
+
+
+
+<h2 class="wp-block-heading" id="renderformer-toward-a-general-purpose-neural-rendering-model">RenderFormer: Toward a general-purpose neural rendering model</h2>
+
+
+
+<p>To overcome these limitations, researchers at Microsoft Research have developed RenderFormer, a new neural architecture designed to support full-featured 3D rendering using only ML—no traditional graphics computation required. RenderFormer is the first model to demonstrate that a neural network can learn a complete graphics rendering pipeline, including support for arbitrary 3D scenes and global illumination, without relying on ray tracing or rasterization. <a href="https://www.microsoft.com/en-us/research/publication/renderformer-transformer-based-neural-rendering-of-triangle-meshes-with-global-illumination/">This work</a> has been accepted at SIGGRAPH 2025 and is <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/renderformer" target="_blank" rel="noopener noreferrer">open-sourced on GitHub<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="architecture-overview">Architecture overview</h2>
+
+
+
+<p>As shown in Figure 1, RenderFormer represents the entire 3D scene using triangle tokens—each one encoding spatial position, surface normal, and physical material properties such as diffuse color, specular color, and roughness. Lighting is also modeled as triangle tokens, with emission values indicating intensity.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2419" height="1008" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1.png" alt="Figure 1: The figure illustrates the architecture of RenderFormer. It includes a Triangle Mesh Scene with a 3D rabbit model inside a colored cube, a Camera Ray Map grid, a View Independent Transformer (12 layers of Self-Attention and Feed Forward Network), a View Dependent Transformer (6 layers with Cross-Attention and Self-Attention), and a DPT Decoder. Scene attributes—Vertex Normal, Reflectance (Diffuse, Specular, Roughness), Emission, and Position—are embedded into Triangle Tokens via Linear + Norm operations. These tokens and Ray Bundle Tokens (from the Camera Ray Map) are processed by the respective transformers and decoded to produce a rendered image of a glossy rabbit in a colored room." class="wp-image-1149133" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1.png 2419w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-1024x427.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-768x320.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-1536x640.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-2048x853.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-240x100.png 240w" sizes="(max-width: 2419px) 100vw, 2419px" /><figcaption class="wp-element-caption">Figure 1. Architecture of RenderFormer</figcaption></figure>
+
+
+
+<p>To describe the viewing direction, the model uses ray bundle tokens derived from a ray map—each pixel in the output image corresponds to one of these rays. To improve computational efficiency, pixels are grouped into rectangular blocks, with all rays in a block processed together.</p>
+
+
+
+<p>The model outputs a set of tokens that are decoded into image pixels, completing the rendering process entirely within the neural network.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="dual-branch-design-for-view-independent-and-view-dependent-effects">Dual-branch design for view-independent and view-dependent effects</h2>
+
+
+
+<p>The RenderFormer architecture is built around two transformers: one for view-independent features and another for view-dependent ones.</p>
+
+
+
+<ul class="wp-block-list">
+<li>The <strong>view-independent transformer</strong> captures scene information unrelated to viewpoint, such as shadowing and diffuse light transport, using self-attention between triangle tokens.</li>
+
+
+
+<li>The <strong>view-dependent transformer</strong> models effects like visibility, reflections, and specular highlights through cross-attention between triangle and ray bundle tokens.</li>
+</ul>
+
+
+
+<p>Additional image-space effects, such as anti-aliasing and screen-space reflections, are handled via self-attention among ray bundle tokens.</p>
+
+
+
+<p>To validate the architecture, the team conducted ablation studies and visual analyses, confirming the importance of each component in the rendering pipeline.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="963" height="509" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1.png" alt="Table 1: A table comparing the performance of different network variants in an ablation study. The columns are labeled Variant, PSNR (↑), SSIM (↑), LPIPS (↓), and FLIP (↓). Variants include configurations such as "full view-dependent stage," "w/o DPT," "w/o self-attention," and "w/o DPT & w/o self-attention." Each variant is associated with numerical values for the four metrics, showing how removing or altering components affects performance. The full view-dependent stage achieves the highest PSNR and SSIM and lowest LPIPS and FLIP, indicating optimal performance. Additional rows explore configurations involving camera space and world space view-dependent stages with various token and layer setups." class="wp-image-1149129" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1.png 963w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1-300x159.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1-768x406.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1-240x127.png 240w" sizes="(max-width: 963px) 100vw, 963px" /><figcaption class="wp-element-caption">Table 1. Ablation study analyzing the impact of different components and attention mechanisms on the final performance of the trained network. </figcaption></figure>
+
+
+
+<p>To test the capabilities of the view-independent transformer, researchers trained a decoder to produce diffuse-only renderings. The results, shown in Figure 2, demonstrate that the model can accurately simulate shadows and other indirect lighting effects.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="943" height="240" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2.png" alt="Figure 2: The figure displays four 3D-rendered objects showcasing view-independent rendering effects. From left to right: a purple teapot on a green surface, a blue rectangular object on a red surface, an upside-down table casting shadows on a green surface, and a green apple-like object on a blue surface. Each object features diffuse lighting and coarse shadow effects, with distinct highlights and shadows produced by directional light sources." class="wp-image-1149132" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2.png 943w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2-300x76.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2-768x195.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2-240x61.png 240w" sizes="auto, (max-width: 943px) 100vw, 943px" /><figcaption class="wp-element-caption">Figure 2. View-independent rendering effects decoded directly from the view-independent transformer, including diffuse lighting and coarse shadow effects. </figcaption></figure>
+
+
+
+<p>The view-dependent transformer was evaluated through attention visualizations. For example, in Figure 3, the attention map reveals a pixel on a teapot attending to its surface triangle and to a nearby wall—capturing the effect of specular reflection. These visualizations also show how material changes influence the sharpness and intensity of reflections.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="947" height="620" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3.png" alt="Figure 3: The figure contains six panels arranged in two rows and three columns. The top row displays a teapot in a room with red and green walls under three different roughness values: 0.3, 0.7, and 0.99 (left to right). The bottom row shows the corresponding attention outputs for each roughness setting, featuring the teapot silhouette against a dark background with distinct light patterns that vary with roughness." class="wp-image-1149131" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3.png 947w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3-300x196.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3-768x503.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3-240x157.png 240w" sizes="auto, (max-width: 947px) 100vw, 947px" /><figcaption class="wp-element-caption">Figure 3. Visualization of attention outputs</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="training-methodology-and-dataset-design">Training methodology and dataset design</h2>
+
+
+
+<p>RenderFormer was trained using the Objaverse dataset, a collection of more than 800,000 annotated 3D objects that is designed to advance research in 3D modeling, computer vision, and related fields. The researchers designed four scene templates, populating each with 1–3 randomly selected objects and materials. Scenes were rendered in high dynamic range (HDR) using Blender’s Cycles renderer, under varied lighting conditions and camera angles.</p>
+
+
+
+<p>The base model, consisting of 205 million parameters, was trained in two phases using the AdamW optimizer:</p>
+
+
+
+<ul class="wp-block-list">
+<li>500,000 steps at 256×256 resolution with up to 1,536 triangles</li>
+
+
+
+<li>100,000 steps at 512×512 resolution with up to 4,096 triangles</li>
+</ul>
+
+
+
+<p>The model supports arbitrary triangle-based input and generalizes well to complex real-world scenes. As shown in Figure 4, it accurately reproduces shadows, diffuse shading, and specular highlights.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="805" height="805" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4.jpg" alt="Figure 4: The figure presents a 3×3 grid of diverse 3D scenes rendered by RenderFormer. In the top row, the first scene shows a room with red, green, and white walls containing two rectangular prisms; the second features a metallic tree-like structure in a blue-walled room with a reflective floor; and the third depicts a red animal figure, a black abstract shape, and a multi-faceted sphere in a purple container on a yellow surface. The middle row includes three constant width bodies (black, red, and blue) floating above a colorful checkered floor; a green shader ball with a square cavity inside a gray-walled room; and crystal-like structures in green, purple, and red on a reflective surface. The bottom row showcases a low-poly fox near a pink tree emitting particles on grassy terrain; a golden horse statue beside a heart-shaped object split into red and grey halves on a reflective surface; and a wicker basket, a banana and a bottle placed on a white platform." class="wp-image-1149130" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4.jpg 805w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-300x300.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-150x150.jpg 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-768x768.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-180x180.jpg 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-360x360.jpg 360w" sizes="auto, (max-width: 805px) 100vw, 805px" /><figcaption class="wp-element-caption">Figure 4. Rendered results of different 3D scenes generated by RenderFormer </figcaption></figure>
+
+
+
+<p>RenderFormer can also generate continuous video by rendering individual frames, thanks to its ability to model viewpoint changes and scene dynamics.</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_animate.mp4"></video><figcaption class="wp-element-caption">3D animation sequence rendered by RenderFormer </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="looking-ahead-opportunities-and-challenges">Looking ahead: Opportunities and challenges</h2>
+
+
+
+<p>RenderFormer represents a significant step forward for neural rendering. It demonstrates that deep learning can replicate and potentially replace the traditional rendering pipeline, supporting arbitrary 3D inputs and realistic global illumination—all without any hand-coded graphics computations.</p>
+
+
+
+<p>However, key challenges remain. Scaling to larger and more complex scenes with intricate geometry, advanced materials, and diverse lighting conditions will require further research. Still, the transformer-based architecture provides a solid foundation for future integration with broader AI systems, including video generation, image synthesis, robotics, and embodied AI. </p>
+
+
+
+<p>Researchers hope that RenderFormer will serve as a building block for future breakthroughs in both graphics and AI, opening new possibilities for visual computing and intelligent environments.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/renderformer-how-neural-networks-are-reshaping-3d-rendering/">RenderFormer: How neural networks are reshaping 3D rendering</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_animate.mp4" length="58187117" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>Breaking the networking wall in AI infrastructure </title>
 		<link>https://www.microsoft.com/en-us/research/blog/breaking-the-networking-wall-in-ai-infrastructure/</link>
 		
@@ -32,7 +225,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/breaking-the-networking-wall-in-ai-infrastructure/">Breaking the networking wall in AI infrastructure </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1.jpg" alt="Two white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a set of gears; an icon representing three connected nodes each containing a user icon." class="wp-image-1148762" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1.jpg" alt="Two white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a set of gears; an icon representing three connected nodes each containing a user icon." class="wp-image-1148762" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -118,7 +311,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/">Crescent library brings privacy to digital identity systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a computer chip, padlock icon, an avatar icon" class="wp-image-1148394" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a computer chip, padlock icon, an avatar icon" class="wp-image-1148394" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -142,7 +335,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="400" height="242" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png" alt="Figure 1: Unlinkability between a credential issuance and presentation" class="wp-image-1148323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png 400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-300x182.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-240x145.png 240w" sizes="(max-width: 400px) 100vw, 400px" /><figcaption class="wp-element-caption">Figure 1: Unlinkability between a credential issuance and presentation</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="400" height="242" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png" alt="Figure 1: Unlinkability between a credential issuance and presentation" class="wp-image-1148323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png 400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-300x182.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-240x145.png 240w" sizes="auto, (max-width: 400px) 100vw, 400px" /><figcaption class="wp-element-caption">Figure 1: Unlinkability between a credential issuance and presentation</figcaption></figure>
 
 
 
@@ -174,30 +367,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3670,30 +3863,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3852,262 +4042,6 @@
 
 <p>The system incorporates multiple tools, including the&nbsp;angr&nbsp;framework developed by&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://emotionlabs.io/" target="_blank" rel="noopener noreferrer">Emotion Labs<span class="sr-only"> (opens in new tab)</span></a>. Microsoft has collaborated extensively with Emotion Labs, a pioneer in cyber autonomy, throughout the development of Project Ire, and thanks them for the innovations and insights that contributed to the successes reported here.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-ire-autonomously-identifies-malware-at-scale/">Project Ire autonomously identifies malware at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</title>
-		<link>https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/</link>
-		
-		<dc:creator><![CDATA[Dasha Metropolitansky]]></dc:creator>
-		<pubDate>Tue, 05 Aug 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1145803</guid>
-
-					<description><![CDATA[<p>VeriTrail, new from Microsoft Research, can detect AI-generated content that is not supported by the source text, trace the provenance of content from final output back to the source, and locate where errors were likely introduced.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/">VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg" alt="Alt text: Two white icons on a blue-to-green gradient background—one showing a central figure linked to others, representing a network, and the other depicting lines connecting to a document, symbolizing data flow." class="wp-image-1145818" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/video/veritrail-detect-hallucination-and-trace-provenance-in-ai-workflows/">Watch VeriTrail Explainer</a></div>
-</div>
-
-
-
-<p>Many applications of language models (LMs) involve generating content based on source material, such as answering questions, summarizing information, and drafting documents. A critical challenge for these applications is that LMs may produce content that is not supported by the source text – a phenomenon known as “closed-domain hallucination.”<a id="_ftnref1" href="#_ftn1"><sup>1</sup></a></p>
-
-
-
-<p>Existing methods for detecting closed-domain hallucination typically compare a given LM output to the source text, implicitly assuming that there is only a single output to evaluate. However, applications of LMs increasingly involve processes with multiple generative steps: LMs generate intermediate outputs that serve as inputs to subsequent steps and culminate in a final output. Many agentic workflows follow this paradigm (e.g., each agent is responsible for a specific document or sub-task, and their outputs are synthesized into a final response). &nbsp;</p>
-
-
-
-<p>In our paper “<a href="https://www.microsoft.com/en-us/research/publication/veritrail-closed-domain-hallucination-detection-with-traceability/" target="_blank" rel="noreferrer noopener">VeriTrail: Closed-Domain Hallucination Detection with Traceability</a>,” we argue that, given the complexity of processes with multiple generative steps, detecting hallucination in the final output is necessary but not sufficient. We also need <strong>traceability</strong>, which has two components:&nbsp;</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Provenance: </strong>if the final output is supported by the source text, we should be able to trace its path through the intermediate outputs to the source.&nbsp;</li>
-
-
-
-<li><strong>Error Localization: </strong>if the final output is not supported by the source text, we should be able to trace where the error was likely introduced.</li>
-</ol>
-
-
-
-<p>Our paper presents VeriTrail, the first closed-domain hallucination detection method designed to provide traceability for processes with any number of generative steps. We also demonstrate that VeriTrail outperforms baseline methods commonly used for hallucination detection. In this blog post, we provide an overview of VeriTrail’s design and performance.<a id="_ftnref2" href="#_ftn2"><sup>2</sup></a></p>
-
-
-
-<h2 class="wp-block-heading" id="veritrail-s-hallucination-detection-process">VeriTrail’s hallucination detection process</h2>
-
-
-
-<p>A key idea leveraged by VeriTrail is that a wide range of generative processes can be represented as a <strong>directed acyclic graph (DAG)</strong>. Each <strong>node </strong>in the DAG represents a piece of text (i.e., source material, an intermediate output, or the final output) and each <strong>edge </strong>from node A to node B indicates that A was used as an input to produce B. Each node is assigned a unique ID, as well as a <strong>stage</strong> reflecting its position in the generative process. &nbsp;</p>
-
-
-
-<p>An example of a process with multiple generative steps is <a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG</a>. A DAG representing a GraphRAG run is illustrated in Figure 1, where the boxes and arrows correspond to nodes and edges, respectively.<a id="_ftnref3" href="#_ftn3"><sup>3</sup></a></p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="881" height="542" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg" alt="A GraphRAG run is depicted as a directed acyclic graph. The Stage 1 nodes represent source text chunks. Each Stage 1 node has an edge pointing to a Stage 2 node, which corresponds to an entity or a relationship. Entity 3 was extracted from two source text chunks, so its descriptions are summarized. The summarized entity description forms a Stage 3 node. The Stage 2 and 3 nodes have edges pointing to Stage 4 nodes, which represent community reports. The Stage 4 nodes have edges pointing to Stage 5 nodes, which correspond to map-level answers. The Stage 5 nodes each have an edge pointing to the terminal node, which represents the final answer. The terminal node is the only node in Stage 6." class="wp-image-1145841" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1.jpg 881w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-300x185.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-768x472.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-1-240x148.jpg 240w" sizes="auto, (max-width: 881px) 100vw, 881px" /><figcaption class="wp-element-caption">Figure 1: GraphRAG splits the source text into chunks (Stage 1). For each chunk, an LM extracts entities and relationships (the latter are denoted by “⭤ “), along with short descriptions (Stage 2). If an entity or a relationship was extracted from multiple chunks, an LM summarizes the descriptions (Stage 3). A knowledge graph is constructed from the final set of entities and relationships, and a community detection algorithm, such as Leiden clustering, groups entities into communities. For each community, an LM generates a “community report” that summarizes the entities and relationships (Stage 4). To answer a user’s question, an LM generates “map-level answers” based on groups of community reports (Stage 5), then synthesizes them into a final answer (Stage 6).</figcaption></figure>
-
-
-
-<p>VeriTrail takes as input a DAG representing a completed generative process and aims to determine whether the final output is fully supported by the source text. It begins by extracting claims (i.e., self-contained, verifiable statements) from the final output using <a href="https://www.microsoft.com/en-us/research/blog/claimify-extracting-high-quality-claims-from-language-model-outputs/" target="_blank" rel="noreferrer noopener">Claimify</a>. VeriTrail verifies claims in the reverse order of the generative process: it starts from the final output and moves toward the source text. Each claim is verified separately. Below, we include two case studies that illustrate how VeriTrail works, using the DAG from Figure 1. </p>
-
-
-
-<h3 class="wp-block-heading" id="case-study-1-a-fully-supported-claim">Case study 1: A “Fully Supported” claim</h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1280" height="720" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2.jpg" alt="An example of VeriTrail's claim verification process where the claim is found “Fully Supported.” A claim extracted from the terminal node, Node 17, is “Legislative efforts have been made to address the high cost of diabetes-related supplies in the US.” In Iteration 1, VeriTrail checks Nodes 15 and 16, which are the source nodes of the terminal node. The sentence “The general assembly in North Carolina is considering legislation to set a cap on insulin prices, which indicates that high insulin prices are a contributing factor to the high cost of diabetes-related supplies in the US” is selected as evidence from Node 15. The tentative verdict is “Fully Supported.” In Iteration 2, VeriTrail checks Nodes 12 and 13, which are the source nodes of Node 15. The sentence “The General Assembly in North Carolina is considering legislation to set a cap on insulin prices” is selected as evidence from Node 13. The verdict remains “Fully Supported.” In Iteration 3, VeriTrail checks Nodes 4, 5, and 11, which are the source nodes of Node 13. The sentence “The General Assembly is the legislative body in North Carolina considering legislation to cap insulin prices” is selected as evidence from Node 4. The verdict is still “Fully Supported.” In Iteration 4, VeriTrail checks Node 1, which is the source node of Node 4. The selected evidence is “‘There’s actually legislation in North Carolina at the General Assembly to set a cap on insulin…’ Stein said.” The corresponding verdict is “Fully Supported.” Since Node 1 represents a raw text chunk, it does not have any source nodes to check. Therefore, verification terminates and the “Fully Supported” verdict is deemed final." class="wp-image-1145843" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VeriTrail-blog-figure-2-960x540.jpg 960w" sizes="auto, (max-width: 1280px) 100vw, 1280px" /><figcaption class="wp-element-caption">Figure 2: Left: GraphRAG as a DAG. Right: VeriTrail’s hallucination detection process for a “Fully Supported” claim.</figcaption></figure>
-
-
-
-<p>Figure 2 shows an example of a claim that VeriTrail determined was not hallucinated: </p>
-
-
-
-<ul class="wp-block-list">
-<li>In Iteration 1, VeriTrail identified the nodes that were used as inputs for the final answer: Nodes 15 and 16. Each identified node was split into sentences, and each sentence was programmatically assigned a unique ID.
-<ul class="wp-block-list">
-<li>An LM then performed <strong>Evidence Selection</strong>, selecting all sentence IDs that strongly implied the truth or falsehood of the claim. The LM also generated a summary of the selected sentences (not shown in Figure 2). In this example, a sentence was selected from Node 15.</li>
-
-
-
-<li>Next, an LM performed <strong>Verdict Generation</strong>. If no sentences had been selected in the Evidence Selection step, the claim would have been assigned a “Not Fully Supported” verdict. Instead, an LM was prompted to classify the claim as “Fully Supported,” “Not Fully Supported,” or “Inconclusive” based on the evidence. In this case, the verdict was “Fully Supported.”</li>
-</ul>
-</li>
-
-
-
-<li>Since the verdict in Iteration 1 was “Fully Supported,” VeriTrail proceeded to Iteration 2. It considered the nodes from which at least one sentence was selected in the latest Evidence Selection step (Node 15) and identified their input nodes (Nodes 12 and 13). VeriTrail repeated Evidence Selection and Verdict Generation for the identified nodes. Once again, the verdict was “Fully Supported.” This process – identifying candidate nodes, performing Evidence Selection and Verdict Generation – was repeated in Iteration 3, where the verdict was still “Fully Supported,” and likewise in Iteration 4. </li>
-
-
-
-<li>In Iteration 4, a single source text chunk was verified. Since the source text, by definition, does not have any inputs, verification terminated and the verdict was deemed final.</li>
-</ul>
-
-
-
-<h3 class="wp-block-heading" id="case-study-2-a-not-fully-supported-claim">Case study 2: A “Not Fully Supported” claim</h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1280" height="515" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3.jpg" alt="An example of VeriTrail's claim verification process where the claim is found “Not Fully Supported.” We assume that the maximum number of consecutive “Not Fully Supported” verdicts was set to 2. A claim extracted from the terminal node, Node 17, is “Challenges related to electric vehicle battery repairability contribute to sluggish retail auto sales in China.” In Iteration 1, VeriTrail checks Nodes 15 and 16, which are the source nodes of the terminal node. Two sentences are selected as evidence. The first sentence is “Challenges with electric vehicle (EV) battery disposal and repair may also contribute to the sluggishness in retail auto sales.” The second sentence is “Junkyards are accumulating discarded EV battery packs, while collision shops face limitations in repairing EV battery packs, which could affect consumer confidence and demand.” These sentences are both from Node 15. The tentative verdict is “Not Fully Supported.” In Iteration 2, VeriTrail checks Nodes 12, 13, and 14. Nodes 12 and 13 are the source nodes of Node 15. Node 14 is the source node of Node 16, which was checked in Iteration 1. The sentence “The electric vehicle market in China is influenced by challenges associated with EV battery disposal and repair” is selected as evidence from Node 12. The verdict remains “Not Fully Supported.” Since two consecutive “Not Fully Supported” verdicts have been reached, which was the maximum, verification terminates and the final verdict is “Not Fully Supported.”" class="wp-image-1145842" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-300x121.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-1024x412.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-768x309.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/VerTrail-blog-figure-3-240x97.jpg 240w" sizes="auto, (max-width: 1280px) 100vw, 1280px" /><figcaption class="wp-element-caption">Figure 3: Left: GraphRAG as a DAG. Right: VeriTrail’s hallucination detection process for a “Not Fully Supported” claim, where the maximum number of consecutive “Not Fully Supported” verdicts was set to 2. </figcaption></figure>
-
-
-
-<p>Figure 3 provides an example of a claim where VeriTrail identified hallucination:</p>
-
-
-
-<ul class="wp-block-list">
-<li>In Iteration 1, VeriTrail identified the nodes used as inputs for the final answer: Nodes 15 and 16. After Evidence Selection and Verdict Generation, the verdict was “Not Fully Supported.” Users can configure the maximum number of consecutive “Not Fully Supported” verdicts permitted. If the maximum had been set to 1, verification would have terminated here, and the verdict would have been deemed final. Let’s assume the maximum was set to 2, meaning that VeriTrail had to perform at least one more iteration.</li>
-
-
-
-<li>Even though evidence was selected only from Node 15 in Iteration 1, VeriTrail checked the input nodes for both Node 15 and Node 16 (i.e., Nodes 12, 13, and 14) in Iteration 2. Recall that in Case Study 1 where the verdict was “Fully Supported,” VeriTrail only checked the input nodes for Node 15. Why was the “Not Fully Supported” claim handled differently? If the Evidence Selection step overlooked relevant evidence, the “Not Fully Supported” verdict might be incorrect. In this case, continuing verification based solely on the selected evidence (i.e., Node 15) would propagate the mistake, defeating the purpose of repeated verification.</li>
-
-
-
-<li>In Iteration 2, Evidence Selection and Verdict Generation were repeated for Nodes 12, 13, and 14. Once again, the verdict was “Not Fully Supported.” Since this was the second consecutive “Not Fully Supported” verdict, verification terminated and the verdict was deemed final.</li>
-</ul>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
-				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="providing-traceability">Providing traceability</h2>
-
-
-
-<p>In addition to assigning a final “Fully Supported,” “Not Fully Supported,” or “Inconclusive” verdict to each claim, VeriTrail returns (a) all Verdict Generation results and (b) an evidence trail composed of all Evidence Selection results: the selected sentences, their corresponding node IDs, and the generated summaries. Collectively, these outputs provide traceability:&nbsp;</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Provenance: </strong>For “Fully Supported” and “Inconclusive” claims, the evidence trail traces a path from the source material to the final output, helping users understand how the output may have been derived. For example, in Case Study 1, the evidence trail consists of Sentence 8 from Node 15, Sentence 11 from Node 13, Sentence 26 from Node 4, and Sentence 79 from Node 1.</li>
-
-
-
-<li><strong>Error Localization: </strong>For “Not Fully Supported” claims, VeriTrail uses the Verdict Generation results to identify the stage(s) of the process where the unsupported content was likely introduced. For instance, in Case Study 2, where none of the verified intermediate outputs supported the claim, VeriTrail would indicate that the hallucination occurred in the final answer (Stage 6). Error stage identification helps users address hallucinations and understand where in the process they are most likely to occur.&nbsp;</li>
-</ol>
-
-
-
-<p>The evidence trail also helps users verify the verdict: instead of reading through all nodes – which may be infeasible for processes that generate large amounts of text – users can simply review the evidence sentences and summaries. </p>
-
-
-
-<h2 class="wp-block-heading" id="key-design-features">Key design features</h2>
-
-
-
-<p>VeriTrail’s design prioritizes reliability, efficiency, scalability, and user agency. Notable features include: </p>
-
-
-
-<ul class="wp-block-list">
-<li>During Evidence Selection (introduced in Case Study 1), the sentence IDs returned by the LM are checked against the programmatically assigned IDs. If a returned ID does not match an assigned ID, it is discarded; otherwise, it is mapped to its corresponding sentence. This approach <strong>guarantees that the sentences included in the evidence trail are not hallucinated</strong>.</li>
-
-
-
-<li>After a claim is assigned an interim “Fully Supported” or “Inconclusive” verdict (as in Case Study 1), VeriTrail verifies the input nodes of only the nodes from which evidence was previously selected – not all possible input nodes. By progressively narrowing the search space, VeriTrail limits the number of nodes the LM must evaluate. In particular, since VeriTrail starts from the final output and moves toward the source text, it tends to verify a smaller proportion of nodes as it approaches the source text. Nodes closer to the source text tend to be larger (e.g., a book chapter should be larger than its summary), so verifying fewer of them helps <strong>reduce computational cost</strong>.</li>
-
-
-
-<li>VeriTrail is designed to <strong>handle input graphs with any number of nodes</strong>, regardless of whether they fit in a single prompt. Users can specify an input size limit per prompt. For Evidence Selection, inputs that exceed the limit are split across multiple prompts. If the resulting evidence exceeds the input size limit for Verdict Generation, VeriTrail reruns Evidence Selection to compress the evidence further. Users can configure the maximum number of Evidence Selection reruns.  </li>
-
-
-
-<li>The configurable maximum number of consecutive “Not Fully Supported” verdicts (introduced in Case Study 2) allows the user to find their desired <strong>balance between computational cost and how conservative VeriTrail is in flagging hallucinations</strong>. A lower maximum reduces cost by limiting the number of checks. A higher maximum increases confidence that a flagged claim is truly hallucinated since it requires repeated confirmation of the “Not Fully Supported” verdict. </li>
-</ul>
-
-
-
-<h2 class="wp-block-heading" id="evaluating-veritrail-s-performance">Evaluating VeriTrail’s performance</h2>
-
-
-
-<p>We tested VeriTrail on two datasets covering distinct generative processes (hierarchical summarization<a id="_ftnref4" href="#_ftn4"><sup>4</sup></a> and GraphRAG), tasks (summarization and question-answering), and types of source material (fiction novels and news articles). For the source material, we focused on long documents and large collections of documents (i.e., >100K tokens), where hallucination detection is especially challenging and processes with multiple generative steps are typically most valuable. The resulting DAGs were much more complex than the examples provided above (e.g., in one of the datasets, the average number of nodes was 114,368).</p>
-
-
-
-<p>We compared VeriTrail to three types of baseline methods commonly used for closed-domain hallucination detection: Natural Language Inference models (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2023.acl-long.634/" target="_blank" rel="noopener noreferrer">AlignScore<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aclanthology.org/2024.eacl-long.102/" target="_blank" rel="noopener noreferrer">INFUSE<span class="sr-only"> (opens in new tab)</span></a>); Retrieval-Augmented Generation; and long-context models (Gemini 1.5 Pro and GPT-4.1 mini). Across both datasets and all language models tested, VeriTrail outperformed the baseline methods in detecting hallucination.<a id="_ftnref5" href="#_ftn5"><sup>5</sup></a></p>
-
-
-
-<p>Most importantly, VeriTrail traces claims through intermediate outputs – unlike the baseline methods, which directly compare the final output to the source material. As a result, it can identify where hallucinated content was likely introduced and how faithful content may have been derived from the source. By providing traceability, VeriTrail brings transparency to generative processes, helping users understand, verify, debug, and, ultimately, trust their outputs. &nbsp;</p>
-
-
-
-<p>For an in-depth discussion of VeriTrail, please see our paper “<a href="https://www.microsoft.com/en-us/research/publication/veritrail-closed-domain-hallucination-detection-with-traceability/" target="_blank" rel="noreferrer noopener">VeriTrail: Closed-Domain Hallucination Detection with Traceability.</a>”</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p><a id="_ftn1" href="#_ftnref1"><sup>1</sup></a> The term “closed-domain hallucination” was introduced by OpenAI in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener noreferrer">GPT-4 Technical Report<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p><sup><a id="_ftn2" href="#_ftnref2">2</a></sup> VeriTrail is currently used for research purposes only and is not available commercially.</p>
-
-
-
-<p><sup><a id="_ftn3" href="#_ftnref3">3</a></sup> We focus on GraphRAG’s global search method.</p>
-
-
-
-<p><sup><a id="_ftn4" href="#_ftnref4">4</a></sup> In hierarchical summarization, an LM summarizes each source text chunk individually, then the resulting summaries are repeatedly grouped and summarized until a final summary is produced (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2109.10862" target="_blank" rel="noopener noreferrer">Wu et al., 2021<span class="sr-only"> (opens in new tab)</span></a>; <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2310.00785" target="_blank" rel="noopener noreferrer">Chang et al., 2023<span class="sr-only"> (opens in new tab)</span></a>).</p>
-
-
-
-<p><sup><a id="_ftn5" href="#_ftnref5">5</a></sup> The only exception was the mistral-large-2411 model, where VeriTrail had the highest balanced accuracy, but not the highest macro F1 score.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/veritrail-detecting-hallucination-and-tracing-provenance-in-multi-step-ai-workflows/">VeriTrail: Detecting hallucination and tracing provenance in multi-step AI workflows</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
