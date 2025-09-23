@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 19 Sep 2025 15:38:07 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 22 Sep 2025 14:47:57 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,200 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.2</generator>
 	<item>
+		<title>Using AI to assist in rare disease diagnosis</title>
+		<link>https://www.microsoft.com/en-us/research/blog/using-ai-to-assist-in-rare-disease-diagnosis/</link>
+		
+		<dc:creator><![CDATA[Mandi Hall, Ashley Conard]]></dc:creator>
+		<pubDate>Mon, 22 Sep 2025 14:17:03 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1142402</guid>
+
+					<description><![CDATA[<p>New research from Microsoft, Drexel, and the Broad explores how generative AI could support genetic professionals in rare disease diagnosis.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/using-ai-to-assist-in-rare-disease-diagnosis/">Using AI to assist in rare disease diagnosis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1.jpg" alt="Icons representing individual and group connections to a central computer monitor with a globe, symbolizing online connectivity, set against a gradient background transitioning from blue to pink." class="wp-image-1143080" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/AItoAssistDiagnosis-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>In the promising and rapidly evolving field of genetic analysis, the ability to accurately interpret whole genome sequencing data is crucial for diagnosing and improving outcomes for people with rare genetic diseases. Yet despite technological advancements, genetic professionals face steep challenges in managing and synthesizing the vast amounts of data required for these analyses. Fewer than 50% of&nbsp;initial&nbsp;cases yield a diagnosis, and while reanalysis can lead to new findings, the process remains&nbsp;time-consuming and complex.&nbsp;</p>
+
+
+
+<p>To better understand and address these challenges, Microsoft Research—in collaboration with Drexel University and the Broad Institute​​—conducted a comprehensive study titled <em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dl.acm.org/doi/10.1145/3756326" target="_blank" rel="noopener noreferrer">AI-Enhanced Sensemaking: Exploring the Design of a Generative AI-Based Assistant to Support Genetic Professionals<span class="sr-only"> (opens in new tab)</span></a>.</em> The study was recently published in a special edition of <em>ACM Transactions on Interactive Intelligent Systems</em> journal focused on generative AI.  </p>
+
+
+
+<p>The study focused on integrating generative AI to support the complex, time-intensive, and information-dense sensemaking tasks inherent in whole genome sequencing analysis. Through detailed empirical research and collaborative design sessions with experts in the field, we identified key obstacles genetic professionals face and proposed AI-driven solutions to enhance their workflows.&nbsp;​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​We&nbsp;developed strategies for how generative AI can help synthesize biomedical data, enabling AI-expert collaboration to increase the diagnoses of previously unsolved rare diseases—ultimately aiming to improve patients’ quality of life and life expectancy.</p>
+
+
+
+<h2 class="wp-block-heading" id="whole-genome-sequencing-in-rare-disease-diagnosis">Whole genome sequencing in rare disease diagnosis</h2>
+
+
+
+<p>Rare diseases affect up to half a billion people globally and obtaining a diagnosis can take multiple years. These diagnoses often involve specialist consultations, laboratory tests, imaging studies, and invasive procedures. Whole genome sequencing is used to identify genetic variants responsible for these diseases by comparing a patient’s DNA sequence to reference genomes.&nbsp;​​Genetic professionals use bioinformatics tools such as&nbsp;<em>seqr,&nbsp;</em>an open-source, web-based tool for rare disease case analysis and project management to assist them in filtering and prioritizing&nbsp; > 1 million variants to determine their potential role in disease.&nbsp;A critical component of&nbsp;their&nbsp;work is sensemaking: the process of searching, filtering, and synthesizing data to build, refine, and present models from complex sets of gene and variant information.&nbsp;&nbsp;</p>
+
+
+
+<p>​​The multi-step sequencing process​​​&nbsp;typically takes three to 12 weeks and requires extensive amounts of evidence and time to synthesize and aggregate information&nbsp;​​to understand the gene and variant effects for the patient.&nbsp;If a patient&#8217;s case goes unsolved, their whole genome sequencing data is set aside until enough time has passed to warrant a reanalysis​​. This creates a backlog of patient cases​​. The ability to easily&nbsp;identify&nbsp;when new scientific evidence&nbsp;emerges&nbsp;and when to reanalyze an unsolved patient case is key to shortening the time patients suffer with an unknown rare disease diagnosis.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="the-promise-of-ai-systems-to-assist-with-complex-human-tasks">The promise of AI systems to assist with complex human tasks</h2>
+
+
+
+<p>Approximately 87% of AI systems never reach deployment&nbsp;​simply because they solve​​​&nbsp;the wrong problems.&nbsp;​​Understanding the AI support desired by different types of professionals, their current workflows, and AI capabilities is critical to successful AI system deployment and use. Matching technology capabilities with user tasks is particularly challenging in AI design because AI models can generate numerous outputs, and their capabilities can be unclear.&nbsp;​To design an effective​​​&nbsp;AI-based system​, one needs to identify​&nbsp;​​tasks AI can support,&nbsp;​​determine​​​​​​&nbsp;the appropriate level of AI involvement, and&nbsp;​​design​​​​​​&nbsp;user-AI interactions. This necessitates considering how humans interact with technology and how&nbsp;​​AI&nbsp;can best be incorporated into workflows and tools.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Newsletter</h2>
+				
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="study-objectives-and-co-designing-a-genetic-ai-assistant">Study objectives and co-designing a genetic AI assistant</h2>
+
+
+
+<p>Our study aimed to understand the current challenges and needs of genetic professionals performing whole genome sequencing analyses and explore the tasks where they want an AI assistant to support them in their work. The first phase of our study involved interviews with 17 genetics professionals to better understand their workflows, tools, and challenges. They included genetic analysts directly involved in interpreting data, as well as other roles participating in whole genome sequencing. In the second phase of our study, we conducted co-design sessions with study participants on how an AI assistant could support their workflows. We then developed a prototype of an AI assistant, which was further tested and refined with study participants in follow-up design walk-through sessions.</p>
+
+
+
+<h2 class="wp-block-heading" id="identifying-challenges-in-whole-genome-sequencing-analysis">Identifying challenges in whole genome sequencing analysis</h2>
+
+
+
+<p>Through our in-depth interviews with genetic professionals, our study uncovered three critical challenges in whole genome sequencing analysis:</p>
+
+
+
+<ol class="wp-block-list">
+<li><em>Information Overload</em>: Genetic analysts need to gather and synthesize vast amounts of data from multiple sources. This task is incredibly time-consuming and prone to human error.</li>
+
+
+
+<li><em>Collaborative Sharing</em>: Sharing findings with others in the field can be cumbersome and inefficient, often relying on outdated methods that slow the collaborative analysis process.</li>
+
+
+
+<li><em>Prioritizing Reanalysis</em>: Given the continuous influx of new scientific discoveries, prioritizing unsolved cases to reanalyze is a daunting challenge. Analysts need a systematic approach to identify cases that might benefit most from reanalysis.</li>
+</ol>
+
+
+
+<p>Genetic professionals highlighted the time-consuming nature of gathering and synthesizing information about genes and variants from different data sources. Other genetic professionals may have insights into certain genes and variants, but sharing and interpreting information with others for collaborative sensemaking requires significant time and effort. Although new scientific findings could affect unsolved cases through reanalysis, prioritizing cases based on new findings was challenging given the number of unsolved cases and limited time of genetic professionals.</p>
+
+
+
+<h2 class="wp-block-heading" id="co-designing-with-experts-and-ai-human-sensemaking-tasks">Co-designing with experts and AI-human sensemaking tasks</h2>
+
+
+
+<p>Our study participants prioritized two potential tasks of an AI assistant. The first task was flagging cases for reanalysis based on new scientific findings. The assistant would alert analysts to unsolved cases that could benefit from new research, providing relevant updates drawn from recent publications. The second task focused on aggregating and synthesizing information about genes and variants from the scientific literature. This feature would compile essential information from numerous scientific papers about genes and variants, presenting it in a user-friendly format and saving analysts significant time and effort. Participants emphasized the need to balance selectivity with comprehensiveness in the evidence they review. They also envisioned collaborating with other genetic professionals to interpret, edit, and verify artifacts generated by the AI assistant.</p>
+
+
+
+<p>Genetic professionals require both broad and focused evidence at different stages of their workflow. The AI assistant prototypes were designed to allow flexible filtering and thorough evidence aggregation, ensuring users can delve into comprehensive data or selectively focus on pertinent details. The prototypes included features for collaborative sensemaking, enabling users to interpret, edit, and verify AI-generated information collectively. This&nbsp;​​approach not only&nbsp;​underscores​​​&nbsp;the trustworthiness of AI outputs, but also facilitates shared understanding and decision-making among genetic professionals.</p>
+
+
+
+<h2 class="wp-block-heading" id="design-implications-for-expert-ai-sensemaking">Design implications for expert-AI sensemaking</h2>
+
+
+
+<p>In the&nbsp;shifting frontiers of genome sequence analysis,&nbsp;leveraging generative AI to enhance sensemaking offers intriguing possibilities​​. The task of staying&nbsp;​​current​​​​​​, synthesizing information from diverse sources, and making informed decisions&nbsp;​​is challenging​​​​​​.&nbsp;&nbsp;</p>
+
+
+
+<p>Our study participants emphasized the hurdles in integrating data from multiple sources without losing critical components, documenting decision rationales, and fostering collaborative environments. Generative AI models, with their advanced capabilities, have started to address these challenges by automatically generating interactive artifacts to support sensemaking. However, the effectiveness of such systems hinges on careful design considerations,&nbsp;​​particularly in how they facilitate distributed sensemaking, support both initial and ongoing sensemaking, and combine evidence from multiple modalities. We next discuss three design considerations for using generative AI models to support sensemaking.</p>
+
+
+
+<h2 class="wp-block-heading" id="distributed-expert-ai-sensemaking-design">Distributed expert-AI sensemaking design</h2>
+
+
+
+<p>Generative AI models can create artifacts that aid an individual user&#8217;s sensemaking process; however, the true potential lies in sharing these artifacts among users to foster collective understanding and efficiency. Participants in our study emphasized the importance of explainability, feedback, and trust when interacting with AI-generated content.&nbsp;​​​​​​​​​​Trust is gained by​​​​​​&nbsp;viewing portions of artifacts marked as correct by other users, or observing edits made to AI-generated information​​.&nbsp;​​Some​​​​​​&nbsp;users​, however,​&nbsp;cautioned against over-reliance on AI, which could obscure underlying inaccuracies. Thus, design strategies should ensure that any corrections are clearly marked&nbsp;​​and annotated​​​​​​. Furthermore, to enhance distributed sensemaking, visibility of others&#8217; notes and context-specific synthesis through AI can streamline the process​​.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="initial-expert-ai-sensemaking-and-re-sensemaking-design">Initial expert-AI sensemaking and re-sensemaking design</h2>
+
+
+
+<p>In our fast-paced, information-driven world,&nbsp;​​it is essential to understand a situation both&nbsp;initially&nbsp;and again when new information arises.​​&nbsp;​​Sensemaking is inherently temporal, reflecting and shaping our understanding of time as we revisit tasks to reevaluate past decisions or incorporate new information. Generative AI plays a pivotal role here by transforming static data into dynamic artifacts that evolve, offering a comprehensive view of past rationales. Such AI-generated artifacts provide continuity, allowing users—both&nbsp;original decision-makers or new individuals—to access the rationale behind decisions made in earlier task instances. By continuously editing and updating these artifacts, generative AI highlights new information since the last review, supporting ongoing understanding and decision-making.&nbsp;Moreover, AI systems enhance&nbsp;​​transparency​​​​​​&nbsp;by summarizing previous notes and questions, offering insights into earlier thought processes and facilitating a deeper understanding of how conclusions were drawn. This reflective capability not only can reinforce initial sensemaking efforts but also equips users with the clarity needed for informed re-sensemaking as new data emerges.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="combining-evidence-from-multiple-modalities-to-enhance-ai-expert-sensemaking">Combining evidence from multiple modalities to enhance AI-expert sensemaking</h2>
+
+
+
+<p>​​​The​​​​​​&nbsp;ability to combine evidence from multiple modalities is essential for effective sensemaking. Users often need to integrate diverse types of data—text, images, spatial coordinates, and more—into a coherent narrative to make informed decisions. Consider the case of search and rescue operations, where workers must rapidly synthesize information from texts, photographs, and GPS data to strategize their efforts. Recent advancements in multimodal generative AI models have empowered users by incorporating and synthesizing these varied inputs into a unified, comprehensive view. For instance, a participant in our study illustrated this capability by using a generative AI model to merge text from scientific publications with a visual gene structure depiction. This integration&nbsp;​​could create​​​​​​&nbsp;an image that contextualizes an individual&#8217;s genetic variant within the&nbsp;​​context​​​​​​&nbsp;of documented variants. Such advanced synthesis enables users to capture complex relationships and insights briefly, streamlining decision-making and expanding the potential for innovative solutions across diverse fields.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="sensemaking-process-with-ai-assistant">Sensemaking Process with AI Assistant</h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="952" height="481" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/FIG1_Mandi-Hall.png" alt="Figure: Sensemaking process when interpreting variants with the introduction of prototype AI assistant. Gray boxes represent sensemaking activities which are currently performed by an analyst but are human-in-the-loop processes with involvement of our prototype AI assistant. Non-gray boxes represent activities reserved for analyst completion without assistance by our AI assistant prototype. Within the foraging searching and synthesizing processes, examples of data sources and data types for each, respectively, are connected by dotted lines." class="wp-image-1142535" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/FIG1_Mandi-Hall.png 952w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/FIG1_Mandi-Hall-300x152.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/FIG1_Mandi-Hall-768x388.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/FIG1_Mandi-Hall-240x121.png 240w" sizes="(max-width: 952px) 100vw, 952px" /><figcaption class="wp-element-caption">Figure: Sensemaking process when interpreting variants with the introduction of prototype AI assistant. Gray boxes represent sensemaking activities which are currently performed by an analyst but are human-in-the-loop processes with involvement of our prototype AI assistant. Non-gray boxes represent activities reserved for analyst completion without assistance by our AI assistant prototype. Within the foraging searching and synthesizing processes, examples of data sources and data types for each, respectively, are connected by dotted lines.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
+
+
+
+<p>We explored the potential of generative AI&nbsp;to support​​ genetic professionals​&nbsp;​in diagnosing rare diseases​​. By designing an AI-based assistant, we aim to streamline whole genome sequencing analysis, helping professionals diagnose rare genetic diseases more efficiently. Our study unfolded in two key phases:&nbsp;​pinpointing​​​&nbsp;existing challenges in analysis, and design ideation, where we crafted a prototype AI assistant. This tool is designed to boost diagnostic yield and cut down diagnosis time by flagging cases for reanalysis and synthesizing crucial gene and variant data. Despite valuable findings, more research is needed​​. Future research will involve testing the AI assistant in real-time, task-based user testing with genetic professionals to assess the AI&#8217;s impact on their workflow. The promise of AI advancements lies in solving the right user problems and building the appropriate solutions, achieved through collaboration among model developers, domain experts, system designers, and HCI researchers. By fostering these collaborations, we aim to develop robust, personalized AI assistants tailored to specific domains.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="join-the-conversation">Join the conversation</h2>
+
+
+
+<p>Join us as we continue to explore the transformative potential of generative AI in genetic analysis, and please read the full text publication&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dl.acm.org/doi/10.1145/3756326" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>. Follow us on social media, share this post with your network, and let us know your thoughts on how AI can transform genetic research. If interested in our other related research work, check out&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.biorxiv.org/content/10.1101/2025.03.10.642480v1" target="_blank" rel="noopener noreferrer">Evidence Aggregator: AI reasoning applied to rare disease diagnosis.<span class="sr-only"> (opens in new tab)</span></a>&nbsp;&nbsp;</p>
+
+
+
+<p></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/using-ai-to-assist-in-rare-disease-diagnosis/">Using AI to assist in rare disease diagnosis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Tool-space interference in the MCP era: Designing for agent compatibility at scale</title>
 		<link>https://www.microsoft.com/en-us/research/blog/tool-space-interference-in-the-mcp-era-designing-for-agent-compatibility-at-scale/</link>
 		
@@ -32,7 +226,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/tool-space-interference-in-the-mcp-era-designing-for-agent-compatibility-at-scale/">Tool-space interference in the MCP era: Designing for agent compatibility at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three white icons on a gradient background transitioning from blue to purple to pink. From left to right: a globe with a magnifying glass representing internet search, a central circle connected to smaller circles symbolizing network connectivity, and a checklist with two checkmarks and one empty box indicating task management." class="wp-image-1149369" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three white icons on a gradient background transitioning from blue to purple to pink. From left to right: a globe with a magnifying glass representing internet search, a central circle connected to smaller circles symbolizing network connectivity, and a checklist with two checkmarks and one empty box indicating task management." class="wp-image-1149369" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -60,7 +254,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="1021" height="410" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image.png" alt="Diagram depicting Magentic-One's multi-agentic architecture. An Orchestrator agent has access to 4 specialized sub-agents: a Coder agent that can write code and reason to sol solve tasks, a Computer Terminal Agent that can execute code written by the Coder agent, a WebSurfer agent that browse the internet (navigate pages, fill forms, etc), and a FileSurfer agent that can navigate files (e.g. PDFs, PPTx, etc). The diagram is annotated to show that for any incoming git-related task, the Orchestrator agent has to decide at evert orchestration step whether to access Git CLI via ComputerTerminal, visit Github site via WebSurfer, or directly access Github’s MCP server." class="wp-image-1149211" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image.png 1021w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-768x308.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-240x96.png 240w" sizes="(max-width: 1021px) 100vw, 1021px" /><figcaption class="wp-element-caption">Figure 1: We can extend&nbsp;Magentic-One by adding an agent that equips the GitHub MCP server. However, on every turn involving a git-related task, the orchestrator will need to decide between messaging the Computer Terminal agent (with access to the git command line interface), WebSurfer agent (with access to github.com), and the agent with the GitHub MCP server. This overlap raises the possibility that they will interfere with one another.&nbsp;&nbsp;</figcaption></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1021" height="410" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image.png" alt="Diagram depicting Magentic-One's multi-agentic architecture. An Orchestrator agent has access to 4 specialized sub-agents: a Coder agent that can write code and reason to sol solve tasks, a Computer Terminal Agent that can execute code written by the Coder agent, a WebSurfer agent that browse the internet (navigate pages, fill forms, etc), and a FileSurfer agent that can navigate files (e.g. PDFs, PPTx, etc). The diagram is annotated to show that for any incoming git-related task, the Orchestrator agent has to decide at evert orchestration step whether to access Git CLI via ComputerTerminal, visit Github site via WebSurfer, or directly access Github’s MCP server." class="wp-image-1149211" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image.png 1021w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-768x308.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-240x96.png 240w" sizes="auto, (max-width: 1021px) 100vw, 1021px" /><figcaption class="wp-element-caption">Figure 1: We can extend&nbsp;Magentic-One by adding an agent that equips the GitHub MCP server. However, on every turn involving a git-related task, the orchestrator will need to decide between messaging the Computer Terminal agent (with access to the git command line interface), WebSurfer agent (with access to github.com), and the agent with the GitHub MCP server. This overlap raises the possibility that they will interfere with one another.&nbsp;&nbsp;</figcaption></figure>
 
 
 
@@ -112,7 +306,7 @@
 
 
 
-<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="1024" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1024x1024.png" alt="chart" class="wp-image-1149361" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-2048x2048.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-360x360.png 360w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Figure 2: The number of tools listed by each catalogued server directly after initialization. Note: servers can change the tools they list at any time, but only 226 servers in our catalog declare this capability.</figcaption></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="1024" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1024x1024.png" alt="chart" class="wp-image-1149361" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-2048x2048.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-360x360.png 360w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Figure 2: The number of tools listed by each catalogued server directly after initialization. Note: servers can change the tools they list at any time, but only 226 servers in our catalog declare this capability.</figcaption></figure>
 
 
 
@@ -300,30 +494,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -591,30 +785,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2282,30 +2476,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2417,30 +2611,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3900,114 +4094,6 @@
 
 <p></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/reimagining-healthcare-delivery-and-public-health-with-ai/">Reimagining healthcare delivery and public health with AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Self-adaptive reasoning for science</title>
-		<link>https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/</link>
-		
-		<dc:creator><![CDATA[Newman Cheng, Gordon Broadbent, Steven Truitt, William Chappell]]></dc:creator>
-		<pubDate>Wed, 06 Aug 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1145083</guid>
-
-					<description><![CDATA[<p>Microsoft is pioneering a vision for a self-adapting AI system that can adapt to the dynamic nature of scientific discovery, promoting deeper, more refined reasoning in complex scientific domains.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/">Self-adaptive reasoning for science</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg" alt="A gradient background transitioning from blue to pink with three white icons: a DNA double helix, a light bulb with rays, and a stylized path with arrows and nodes." class="wp-image-1146704" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<h2 class="wp-block-heading" id="unlocking-self-adaptive-cognitive-behavior-that-is-more-controllable-and-explainable-than-reasoning-models-in-challenging-scientific-domains">Unlocking self-adaptive cognitive behavior that is more controllable and explainable than reasoning models in challenging scientific domains</h2>
-
-
-
-<p>Long-running LLM agents equipped with strong reasoning, planning, and execution skills have the potential to transform scientific discovery with high-impact advancements, such as developing new materials or pharmaceuticals. As these agents become more autonomous, ensuring effective human oversight and clear accountability becomes increasingly important, presenting challenges that must be addressed to unlock their full transformative power. Today’s approaches to long-term reasoning are established during the post-training phase, prior to end-user deployment and typically by the model provider. As a result, the expected actions of these agents are pre-baked by the model developer, offering little to no control from the end user.</p>
-
-
-
-<p>At Microsoft, we are pioneering a vision for a continually steerable virtual scientist. In line with this vision, we created the ability to have a non-reasoning model develop thought patterns that allow for control and customizability by scientists. Our approach, a cognitive loop via in-situ optimization (CLIO), does not rely on reinforcement learning post-training to develop reasoning patterns yet still yields equivalent performance as demonstrated through our evaluation on Humanity’s Last Exam (HLE). Notably, we increased OpenAI GPT-4.1’s base model accuracy on text-only biology and medicine from <strong>8.55%</strong> to <strong>22.37%</strong>, an absolute increase of<strong> 13.82%</strong> (<strong>161.64% </strong>relative), surpassing o3 (high). This demonstrates that an optimization-based, self-adaptive AI system developed without further post-training can rival post-trained models in domains where adaptability, explainability, and control matter most.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1911" height="1070" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated.png" alt="Bar chart that represents the Head-to-head comparison of OpenAI’s GPT-4.1 with CLIO, o3, and GPT-4.1 with no tools on HLE biology and medicine questions" class="wp-image-1146748" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated.png 1911w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-300x168.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-1024x573.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-768x430.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-1536x860.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Figure-1_Updated-240x134.png 240w" sizes="auto, (max-width: 1911px) 100vw, 1911px" /><figcaption class="wp-element-caption">Figure 1. Head-to-head comparison of OpenAI’s GPT-4.1 with CLIO, o3, and GPT-4.1 with no tools on HLE biology and medicine questions</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="in-situ-optimization-with-internal-self-reflection-to-enable-self-adaptive-reasoning">In-situ optimization with internal self-reflection to enable self-adaptive reasoning</h3>
-
-
-
-<p>Model development has advanced from using reinforcement learning human feedback (RLHF) for answer alignment to external grading in reinforcement learning (RLVR). Recent approaches show promise in the utilization of intrinsic rewards for training reasoning models (RLIR). Traditionally, these reasoning processes are learned during the post-training process before any user interaction. While today’s reasoning models require additional data in the training phase and limit user control during the reasoning generation process, CLIO’s approach enables users to steer reasoning from scratch without additional data. Rather, CLIO generates its own necessary data by creating reflection loops at runtime. These reflection loops are utilized for a wide array of activities that CLIO self-defines, encompassing idea exploration, memory management, and behavior control. Most interesting is CLIO’s ability to leverage prior inferences to adjust future behaviors, handling uncertainties and raising flags for correction when necessary. Through this open architecture approach to reasoning, we alleviate the necessity for further model post-training to achieve desired reasoning behavior. Performing novel scientific discoveries often has no prior established patterns for reasoning, much less a large enough corpus of high-quality data to train on.&nbsp;</p>
-
-
-
-<p>CLIO reasons by continuously reflecting on progress, generating hypotheses, and evaluating multiple discovery strategies. For the HLE test, CLIO was specifically steered to follow the scientific method as a guiding framework. Our research shows that equipping language models with self-adapting reasoning enhances their problem-solving ability. It provides a net benefit in quality for science questions, as well as providing exposure and control to the end user.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1169" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-scaled.png" alt="Figure 2. CLIO can raise key areas of uncertainty within its self-formulated reasoning process, balancing multiple different viewpoints using graph structures." class="wp-image-1146740" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-300x137.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-1024x468.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-768x351.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-1536x702.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-2048x935.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_FIG2-2-240x110.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. CLIO can raise key areas of uncertainty within its self-formulated reasoning process, balancing multiple different viewpoints using graph structures.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="control-over-uncertainty-building-trust-in-ai">Control over uncertainty: Building trust in AI&nbsp;</h3>
-
-
-
-<p>Orchestrated reasoning systems like CLIO are valuable for scientific discovery, as they provide features beyond accuracy alone. Capabilities such as explaining the outcomes of internal reasoning are standard in the scientific field and are present in current reasoning model approaches. However, elements like displaying complete work, including final outcomes, internal thought processes, and uncertainty thresholds to support reproducibility or correction, as well as indicating uncertainty, are not yet universally implemented. Current models and systems do not have this same innate humility.&nbsp; Rather, we are left with models that produce confident results, whether correct or incorrect. When correct, it is valuable. When incorrect, it is dangerous to the scientific process. Hence, understanding a model or system’s uncertainty is a crucial aspect that we have developed natively into CLIO.</p>
-
-
-
-<p>On the other end of the spectrum, orchestrated reasoning systems tend to oversaturate the user by raising too many flags. We enable prompt-free control knobs within CLIO to set thresholds for raising uncertainty flags. This allows CLIO to flag uncertainty for itself and the end user at the proper point in time. This also enables scientists to revisit CLIO’s reasoning path with critiques, edit beliefs during the reasoning process, and re-execute them from the desired point in time. Ultimately, this builds a foundational level of trust with scientists to use them in a scientifically defensible and rigorous way.&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="how-does-clio-perform">How does&nbsp;CLIO&nbsp;perform?&nbsp;</h3>
-
-
-
-<p>We evaluate CLIO against text-based biology and medicine questions from HLE. For this domain, we demonstrate a <strong>61.98%</strong> relative increase or an <strong>8.56%</strong> net increase<strong> </strong>in accuracy over OpenAI’s o3 and substantially outperform base completion models like OpenAI’s GPT-4.1, while enabling the requisite explainability and control. This technique applies to all models, showing similar increases in OpenAI’s GPT-4o model, which we observe performs poorly on HLE-level questions. On average, GPT-4.1 is not considered competent for HLE scale questions (<9%), and GPT-4o is natively at less than 2%. By utilizing CLIO, we bring these to near state-of-the-art performance against top reasoning models. CLIO&#8217;s recursive nature enables the system to think broader and more deeply, ensuring coverage of the question when answered. In GPT-4.1, we see an increase of 5.92% in accuracy for overall performance using just the cognitive loop recursion. To think more deeply, we allow CLIO to ensemble different evolutions and intelligently choose from the best approach using <a href="https://www.microsoft.com/en-us/research/project/graphrag/" target="_blank" rel="noreferrer noopener">GraphRAG</a>. This extension of the cognition pattern provides a further 7.90% over a non-ensembled approach. &nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1915" height="1074" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3.png" alt="Waterfall chart that demonstrates the impact of thinking effort on CLIO’s effectiveness." class="wp-image-1146714" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3.png 1915w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-300x168.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-1024x574.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-768x431.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-1536x861.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MDQ_Fig3-640x360.png 640w" sizes="auto, (max-width: 1915px) 100vw, 1915px" /><figcaption class="wp-element-caption">Figure 3. The impact of thinking effort on CLIO’s effectiveness.</figcaption></figure>
-
-
-
-<p>Furthermore, CLIO’s design offers different knobs of control, for example, how much time to think and which technique to utilize for a given problem. In Figure 3, we demonstrate these knobs of control and their increase on GPT-4.1 and GPT-4o&#8217;s performance. In this case, we analyze performance for a subset of biomedical questions, those focused on immunology. CLIO increases GPT-4o&#8217;s base performance to be at par with the best reasoning models for immunology questions. We observe a <strong>13.60%</strong> improvement over the base model, GPT-4o. This result shows CLIO to be model agnostic, similar to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.ai/new/the-path-to-medical-superintelligence/" target="_blank" rel="noopener noreferrer">Microsoft AI Diagnostic Orchestrator&#8217;s (MAI-DxO)<span class="sr-only"> (opens in new tab)</span></a>&#8216;s approach and corresponding performance boost.&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="implications-for-science-and-trustworthy-discovery">Implications for science and trustworthy discovery</h3>
-
-
-
-<p>The future of scientific discovery demands more than reasoning over knowledge and raw computational power alone. Here, we demonstrate how CLIO not only increases model performance but establishes new layers of control for scientists. In our upcoming work, we will demonstrate how CLIO increases tool utility for highly valuable scientific questions in the drug discovery space which requires precise tools designed for the language of science. While our experiments focus on scientific discovery, we believe CLIO can apply in a domain-agnostic fashion. Experts tackling problems in domains such as financial analysis, engineering, and legal services could potentially benefit from AI systems with a transparent, steerable reasoning approach. Ultimately, we envision CLIO as an enduring control-layer in hybrid AI stacks that combine traditional completion and reasoning models, with external memory systems, and advanced tool calling. These continuous checks and balances that CLIO enables will continue to remain valuable even as components within the AI stacks evolve. This combination of intelligent and steerable scientific decision making and tool optimization is the basis of the recently announced <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/blog/transforming-rd-with-agentic-ai-introducing-microsoft-discovery/?msockid=394581ce06c567df2171946b073d6601" target="_blank" rel="noopener noreferrer">Microsoft Discovery platform<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>At Microsoft, we’re committed to advancing AI research that earns the trust of scientists, empowering them to discover new frontiers of knowledge. Our work is a testament to what’s possible when we blend innovation with trustworthiness and a human-centered vision for the future of AI-assisted scientific discovery. We invite the research and scientific community to join us in shaping that future.</p>
-
-
-
-<p><strong>Further information:</strong></p>
-
-
-
-<p>To learn more details about our approach, please read our <a href="https://www.microsoft.com/en-us/research/publication/cognitive-loop-via-in-situ-optimization-self-adaptive-reasoning-for-science/">pre-print paper</a> published alongside this blog. We are in the process of submitting this work for external peer review and encourage partners to explore the utilization of CLIO in Microsoft Discovery. To learn more about Microsoft’s research on this or contact our team, please reach out to <a href="mailto:discoverylabs@microsoft.com" target="_blank" rel="noreferrer noopener">discoverylabs@microsoft.com</a>. </p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p>We are grateful for Jason Zander and Nadia Karim’s support. We extend our thanks to colleagues both inside and outside Microsoft Discovery and Quantum for sharing their insights and feedback, including Allen Stewart, Yasser Asmi, David Marvin, Harsha Nori, Scott Lundberg, and Phil Waymouth.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/self-adaptive-reasoning-for-science/">Self-adaptive reasoning for science</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
