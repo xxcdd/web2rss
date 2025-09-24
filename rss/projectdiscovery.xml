@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 23 Sep 2025 01:40:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Sep 2025 01:41:41 +0000</lastBuildDate>
     <item>
       <title>April 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/april-2025-newsletter</link>
@@ -121,13 +121,29 @@ GCP is well-known for its powerful features and v</description>
       <description>Discover the highlights from Nuclei Templates v10.2.1 and v10.2.2 releases: 106 new templates, 57 CVEs covered (including 10 actively exploited KEVs), first-time contributions, a new template bounty program, and key improvements to reduce false positives and negatives.</description>
     </item>
     <item>
-      <title>CrushFTP Authentication Bypass - CVE-2025-2825</title>
-      <link>https://projectdiscovery.io/blog/crushftp-authentication-bypass</link>
-      <description>Update (April 21, 2025):
+      <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
+      <link>https://projectdiscovery.io/blog/ivanti-remote-code-execution</link>
+      <description>Introduction
 
-The CVE originally referenced in this blog post CVE-2025-2825 has been rejected by NIST. The vulnerability is now officially tracked as CVE-2025-31161. All technical details and the impact discussed in this post remain accurate and apply to the updated CVE. This change is also reflected in the corresponding Nuclei template update.
+As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
 
-Enterprise file transfer solutions are critical infrastructure for many organizations, facilitating secure data exchange between systems and</description>
+However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
+    </item>
+    <item>
+      <title>Authentication Bypass to RCE in Versa Concerto</title>
+      <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
+      <description>Introduction
+
+Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
+    </item>
+    <item>
+      <title>Remote Code Execution in DELMIA Apriso</title>
+      <link>https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso</link>
+      <description>Introduction
+
+DELMIA Apriso is a manufacturing execution and operations orchestration platform used by large manufacturers, service providers, and critical infrastructure operators. Because the product exposes multiple integration points (SOAP, file uploads, provisioning feeds) that are often reachable from internal networks, we performed a focused black-box assessment to surface integration and surface-area weaknesses.
+
+Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
     </item>
     <item>
       <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
@@ -146,27 +162,9 @@ However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 ,
 Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
     </item>
     <item>
-      <title>Solving Vulnerability Management: ProjectDiscovery’s RSA Innovation Sandbox Win</title>
-      <link>https://projectdiscovery.io/blog/solving-vulnerability-management-projectdiscovery-rsa-innovation-sandbox-win</link>
-      <description>Last week, ProjectDiscovery took home the title of Most Innovative Startup at the 2025 RSA Innovation Sandbox, the biggest stage in the world for security innovation. While much of this year’s buzz centered on securing AI, our win was a powerful signal: even as new frontiers emerge, foundational problems like vulnerability management remain unsolved. Security leaders are still spending millions on tools that generate noise instead of insight, and the industry is ready for a better way.
-
-Our COO,</description>
-    </item>
-    <item>
-      <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
-      <link>https://projectdiscovery.io/blog/ivanti-remote-code-execution</link>
-      <description>Introduction
-
-As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
-
-However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
-    </item>
-    <item>
-      <title>Authentication Bypass to RCE in Versa Concerto</title>
-      <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
-      <description>Introduction
-
-Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
+      <title>The Coverage Lie: Why Current Vulnerability Scanners Fail to Stop Breaches</title>
+      <link>https://projectdiscovery.io/blog/why-current-vuln-scanners-fail-to-stop-breaches</link>
+      <description>First-generation scanners drown teams in noise. Only 6% of CVEs are ever exploited, yet attackers weaponize them in hours. ProjectDiscovery, the RSA Sandbox winner, delivers runtime validation and detections within hours so you can act fast, cut false positives, and close real risk.</description>
     </item>
   </channel>
 </rss>
