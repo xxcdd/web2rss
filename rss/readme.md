@@ -35,11 +35,6 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml)
 
-## VulnersBlog
-- 原网址：https://vulners.com/blog/
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/VulnersBlog.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/VulnersBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/VulnersBlog.xml)
-
 ## projectdiscovery
 - 原网址：https://projectdiscovery.io/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/projectdiscovery.xml
