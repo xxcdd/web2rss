@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 08 Oct 2025 01:40:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Oct 2025 01:41:29 +0000</lastBuildDate>
     <item>
       <title>April 2025 Newsletter</title>
       <link>https://projectdiscovery.io/blog/april-2025-newsletter</link>
@@ -70,16 +70,6 @@ Last month we talked about bug bounty etiquette and how to be a good bug bounty 
       <description>Before going all-in on ProjectDiscovery Cloud, Elastic had already embraced Nuclei, the open-source vulnerability scanner built for customization and speed, along with other ProjectDiscovery tools like naabu and httpx.</description>
     </item>
     <item>
-      <title>Enhancing Asset Discovery: ProjectDiscovery Cloud Platform (v0.8.8)</title>
-      <link>https://projectdiscovery.io/blog/pdcp-0-8-8</link>
-      <description>We're excited to announce the release of version 0.8.8 of the ProjectDiscovery Cloud Platform. This update brings significant enhancements to our asset discovery capabilities, introduces new features for Basic Tier (Free) users, and resolves several critical issues. Our primary focus remains on improving the visibility and analysis of discovered assets and refining the insights available to our users.
-
-
-Empowering Basic Tier (Free) Users
-
-Our mission at ProjectDiscovery is to make advanced secur</description>
-    </item>
-    <item>
       <title>Advancing Asset Management - PDCP v0.8.9</title>
       <link>https://projectdiscovery.io/blog/advancing-asset-management-pdcp-v0-8-9-2</link>
       <description>We're excited to announce the release of version 0.8.9 of the ProjectDiscovery Cloud Platform. This update introduces significant enhancements to our asset management capabilities, focusing on asset inventory, AI-powered search, and improved user experience.
@@ -96,6 +86,11 @@ The new interface for cataloging and organizing all assets along with their asso
       <title>The Coverage Lie: Why Current Vulnerability Scanners Fail to Stop Breaches</title>
       <link>https://projectdiscovery.io/blog/why-current-vuln-scanners-fail-to-stop-breaches</link>
       <description>First-generation scanners drown teams in noise. Only 6% of CVEs are ever exploited, yet attackers weaponize them in hours. ProjectDiscovery, the RSA Sandbox winner, delivers runtime validation and detections within hours so you can act fast, cut false positives, and close real risk.</description>
+    </item>
+    <item>
+      <title>From Detection to Validation: Fixing Broken Vulnerability Workflows</title>
+      <link>https://projectdiscovery.io/blog/from-detection-to-validation-fixing-broken-vulnerability-workflows</link>
+      <description>By going beyond version checks, you’ll reduce noise, speed up critical fixes, and keep engineering smiling.</description>
     </item>
     <item>
       <title>Effortless Passive Detection Using Global Matchers in Nuclei</title>
@@ -146,15 +141,6 @@ DELMIA Apriso is a manufacturing execution and operations orchestration platform
 Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
     </item>
     <item>
-      <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
-      <link>https://projectdiscovery.io/blog/ivanti-remote-code-execution</link>
-      <description>Introduction
-
-As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
-
-However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
-    </item>
-    <item>
       <title>Authentication Bypass to RCE in Versa Concerto</title>
       <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
       <description>Introduction
@@ -165,6 +151,15 @@ Versa Concerto is a widely used network security and SD-WAN orchestration platfo
       <title>The Coverage Lie: Why Current Vulnerability Scanners Fail to Stop Breaches</title>
       <link>https://projectdiscovery.io/blog/why-current-vuln-scanners-fail-to-stop-breaches</link>
       <description>First-generation scanners drown teams in noise. Only 6% of CVEs are ever exploited, yet attackers weaponize them in hours. ProjectDiscovery, the RSA Sandbox winner, delivers runtime validation and detections within hours so you can act fast, cut false positives, and close real risk.</description>
+    </item>
+    <item>
+      <title>Remote Code Execution in DELMIA Apriso</title>
+      <link>https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso</link>
+      <description>Introduction
+
+DELMIA Apriso is a manufacturing execution and operations orchestration platform used by large manufacturers, service providers, and critical infrastructure operators. Because the product exposes multiple integration points (SOAP, file uploads, provisioning feeds) that are often reachable from internal networks, we performed a focused black-box assessment to surface integration and surface-area weaknesses.
+
+Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
     </item>
   </channel>
 </rss>
