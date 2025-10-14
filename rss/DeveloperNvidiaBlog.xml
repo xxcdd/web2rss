@@ -6,22 +6,7 @@
     <description>Latest posts from https://developer.nvidia.com/zh-cn/blog/recent-posts/. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 13 Oct 2025 01:47:52 +0000</lastBuildDate>
-    <item>
-      <title>如何使用 NVIDIA Dynamo 减少 KV 缓存瓶颈</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/how-to-reduce-kv-cache-bottlenecks-with-nvidia-dynamo/</link>
-      <description>2025年 9月 18日如何使用 NVIDIA Dynamo 减少 KV 缓存瓶颈随着 AI 模型变得更大、更复杂，推理，即模型生成响应的过程，正成为一项重大挑战。像 GPT-OSS 和 DeepSeek-R1…4 MIN READ</description>
-    </item>
-    <item>
-      <title>在没有超级计算机的情况下在几分钟内预测极端天气事件</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/predict-extreme-weather-events-in-minutes-without-a-supercomputer/</link>
-      <description>2025年 9月 19日在没有超级计算机的情况下在几分钟内预测极端天气事件NVIDIA 的科学家与劳伦斯伯克利国家实验室（伯克利实验室）合作，推出了一款名为 Huge Ensembles（HENS）的机器学习工具，1 MIN READ</description>
-    </item>
-    <item>
-      <title>扩展 TensorRT-LLM 中的专家并行度：大规模 EP 的设计与实现</title>
-      <link>https://developer.nvidia.com/zh-cn/blog/scaling-expert-parallelism-in-tensorrt-llm-design-and-implementation-of-large-scale-ep/</link>
-      <description>2025年 9月 22日扩展 TensorRT-LLM 中的专家并行度：大规模 EP 的设计与实现DeepSeek-V3 / R1 等模型采用大规模细粒度混合专家模型 (MoE) 架构，大幅提升了开源模型的质量。10 MIN READ</description>
-    </item>
+    <lastBuildDate>Tue, 14 Oct 2025 01:41:45 +0000</lastBuildDate>
     <item>
       <title>DeepSeek R1 MTP 在 TensorRT-LLM 中的实现与优化</title>
       <link>https://developer.nvidia.com/zh-cn/blog/implementation-and-optimization-of-deepseek-r1-mtp-in-tensorrt-llm/</link>
@@ -78,14 +63,29 @@
       <description>2025年 9月 25日使用 CUDA-X 数据科学加速 GPU 模型训练的方法在之前关于 AI 在制造和运营中应用的博文中，我们探讨了供应链所面临的独特数据挑战，并介绍了智能特征工程如何显著提升模型性能。2 MIN READ</description>
     </item>
     <item>
+      <title>在 NVIDIA Isaac Lab 2.3 中使用全身控制和增强遥操作，简化机器人学习</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/streamline-robot-learning-with-whole-body-control-and-enhanced-teleoperation-in-nvidia-isaac-lab-2-3/</link>
+      <description>2025年 9月 29日在 NVIDIA Isaac Lab 2.3 中使用全身控制和增强遥操作，简化机器人学习基于真实世界演示训练机器人策略，不仅成本高、速度慢，还容易出现过拟合问题，进而限制其在不同任务与环境中的泛化能力。3 MIN READ</description>
+    </item>
+    <item>
       <title>借助 NVIDIA Isaac Lab 和 Newton 训练四足机器人运动策略并对布料操作进行仿真</title>
       <link>https://developer.nvidia.com/zh-cn/blog/train-a-quadruped-locomotion-policy-and-simulate-cloth-manipulation-with-nvidia-isaac-lab-and-newton/</link>
       <description>2025年 9月 29日借助 NVIDIA Isaac Lab 和 Newton 训练四足机器人运动策略并对布料操作进行仿真物理在机器人仿真中发挥着至关重要的作用，它为机器人在真实环境中的行为及交互提供了精准的虚拟呈现基础。借助仿真器，研究人员和工程师能够以安全、3 MIN READ</description>
     </item>
     <item>
+      <title>利用 Newton 引擎的神经动力学推进机器人技术的发展</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/advancing-robotics-development-with-neural-dynamics-in-newton/</link>
+      <description>2025年 9月 29日利用 Newton 引擎的神经动力学推进机器人技术的发展现代机器人技术对动力学的需求，已超出经典解析动力学的能力范畴。经典解析动力学存在接触简化、运动学环路省略及模型不可微等问题，2 MIN READ</description>
+    </item>
+    <item>
       <title>探索在大模型训练中使用 Megatron-Core 训练框架提高显存使用效率</title>
       <link>https://developer.nvidia.com/zh-cn/blog/explore-using-the-megatron-core-training-framework-to-improve-gpu-memory-efficiency-in-large-model-training/</link>
       <description>2025年 10月 11日探索在大模型训练中使用 Megatron-Core 训练框架提高显存使用效率在大模型训练中，显存（GPU Memory）始终是最稀缺的资源之一。随着模型规模迈入百亿、千亿甚至万亿参数级别，如何在有限显存中“塞下”…3 MIN READ</description>
+    </item>
+    <item>
+      <title>使用 NVIDIA Dynamo 部署 72B 模型提升 PD 分离性能</title>
+      <link>https://developer.nvidia.com/zh-cn/blog/deploying-a-72b-model-using-nvidia-dynamo-to-improve-pd-separation-performance/</link>
+      <description>2025年 10月 13日使用 NVIDIA Dynamo 部署 72B 模型提升 PD 分离性能在生产环境部署大模型推理服务时，技术团队往往会遇到诸多挑战，例如缺乏成熟的 PD 分离方案、自动扩缩容机制不够灵活、缺乏动态路由，2 MIN READ</description>
     </item>
   </channel>
 </rss>
