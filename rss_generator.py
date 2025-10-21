@@ -41,6 +41,22 @@ def fetch_blog_posts(config):
         driver = create_webdriver(proxy)
         driver.get(config['url'])
         time_module.sleep(3)
+        
+        # 滚动到页面底部以加载所有内容
+        last_height = driver.execute_script("return document.body.scrollHeight")
+        while True:
+            # 滚动到页面底部
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            
+            # 等待新内容加载
+            time_module.sleep(2)
+            
+            # 计算新的滚动高度
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                break
+            last_height = new_height
+        
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         driver.quit()
     else:
