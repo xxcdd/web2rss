@@ -38,37 +38,54 @@ def fetch_blog_posts(config):
     proxy = config.get('proxy')  # 获取代理设置
 
     if config['use_headless_browser']:
+        print(f"Using headless browser to fetch {config['url']}")
         driver = create_webdriver(proxy)
         driver.get(config['url'])
+        print("Initial page load complete, waiting 3 seconds...")
         time_module.sleep(3)
         
         # 滚动到页面底部以加载所有内容
+        print("Starting scroll to bottom process...")
         last_height = driver.execute_script("return document.body.scrollHeight")
+        scroll_count = 0
         while True:
             # 滚动到页面底部
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            print(f"Scroll iteration {scroll_count+1}, scrolled to {last_height}")
             
             # 等待新内容加载
             time_module.sleep(2)
             
             # 计算新的滚动高度
             new_height = driver.execute_script("return document.body.scrollHeight")
+            print(f"New page height: {new_height}")
             if new_height == last_height:
+                print("Reached bottom of page, no more content to load")
                 break
             last_height = new_height
+            scroll_count += 1
+            if scroll_count > 50:  # 防止无限滚动
+                print("Maximum scroll iterations reached, stopping")
+                break
         
+        print("Page scrolling complete, getting page source...")
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         driver.quit()
+        print("Headless browser closed")
     else:
+        print(f"Using requests to fetch {config['url']}")
         proxies = {'http': proxy, 'https': proxy} if proxy else None
         response = requests.get(config['url'], proxies=proxies)
+        print(f"Response status code: {response.status_code}")
         soup = BeautifulSoup(response.content, 'html.parser')
 
     # 基于文本块选择器获取所有相关块
     blocks = soup.select(config['block_css'])
+    print(f"Found {len(blocks)} blocks matching selector '{config['block_css']}'")
 
     posts = []
-    for block in blocks:
+    for i, block in enumerate(blocks):
+        print(f"Processing block {i+1}/{len(blocks)}")
         title = block.select_one(config['title_css'])
         description = block.select_one(config['description_css']) if config['description_css'] else block
         link = block.select_one(config['link_css']) if config['link_css'] else block
@@ -85,13 +102,18 @@ def fetch_blog_posts(config):
                     extra_info.append("N/A")  # 用默认值填充缺失信息
 
         if title and description and link:
-            posts.append({
+            post_data = {
                 'title': title.get_text(strip=True),
                 'description': description.get_text(strip=True),
                 'link': link['href'] if link['href'].startswith('http') else urljoin(config['url'], link['href']),
                 'extra_info': extra_info
-            })
+            }
+            posts.append(post_data)
+            print(f"Successfully parsed post: {post_data['title']}")
+        else:
+            print(f"Skipped block {i+1} due to missing data - Title: {bool(title)}, Description: {bool(description)}, Link: {bool(link)}")
 
+    print(f"Total posts extracted: {len(posts)}")
     return posts
 
 def generate_rss(posts, site):
