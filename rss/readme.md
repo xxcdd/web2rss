@@ -20,6 +20,11 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml)
 
+## XbowBlog
+- 原网址：https://xbow.com/blog/
+- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml
+- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml)
+
 ## PrefectBlog
 - 原网址：https://www.prefect.io/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/PrefectBlog.xml
@@ -30,6 +35,11 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml)
 
+## AnthropicResearch
+- 原网址：https://www.anthropic.com/research
+- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicResearch.xml
+- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicResearch.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicResearch.xml)
+
 ## projectdiscovery
 - 原网址：https://projectdiscovery.io/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/projectdiscovery.xml
@@ -39,6 +49,11 @@
 - 原网址：https://www.lycee.ai/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/lycee.ai.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/lycee.ai.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/lycee.ai.xml)
+
+## enkryptai
+- 原网址：https://www.enkryptai.com/company/blog
+- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/enkryptai.xml
+- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/enkryptai.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/enkryptai.xml)
 
 ## AnthropicEngineering
 - 原网址：https://www.anthropic.com/engineering
