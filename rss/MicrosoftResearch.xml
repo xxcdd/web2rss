@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 08 Oct 2025 03:18:44 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 21 Oct 2025 15:41:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,172 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>Tell me when: Building agents that can wait, monitor, and act</title>
+		<link>https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/</link>
+		
+		<dc:creator><![CDATA[Hussein Mozannar, Matheus Kunzler Maldaner, Maya Murad, Jingya Chen, Gagan Bansal, Rafah Hosn, Adam Fourney]]></dc:creator>
+		<pubDate>Tue, 21 Oct 2025 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1152051</guid>
+
+					<description><![CDATA[<p>SentinelStep enables AI agents to handle monitoring tasks that run for hours or days, like watching for emails or tracking prices. It works by managing when agents should check and their context, avoiding wasted resources and missed updates.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/">Tell me when: Building agents that can wait, monitor, and act</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Workflow icons showing tasks, thinking, and time, linked to a person symbol on a gradient background." class="wp-image-1152522" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Modern&nbsp;LLM&nbsp;Agents&nbsp;can debug code, analyze spreadsheets, and book complex travel.&nbsp;Given those capabilities, it’s reasonable to assume that they could handle something simpler:&nbsp;waiting.&nbsp;Ask an agent to&nbsp;monitor&nbsp;your email for a colleague’s response or watch for a price drop over several days, and it will fail. Not because it&nbsp;can’t&nbsp;check email or scrape prices. It can do both. It fails&nbsp;because it&nbsp;doesn’t&nbsp;know&nbsp;<em>when</em>&nbsp;to check.&nbsp;Agents either&nbsp;give up after a few attempts or burn through their context window, checking obsessively. Neither&nbsp;work.&nbsp;</p>
+
+
+
+<p>This matters because monitoring tasks&nbsp;are&nbsp;everywhere. We track emails for specific information, watch news&nbsp;feeds for updates, and&nbsp;monitor&nbsp;prices for sales. Automating these tasks would save hours, but current&nbsp;agents&nbsp;aren’t&nbsp;built for patience.</p>
+
+
+
+<p>To address this, we are introducing&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui" target="_blank" rel="noopener noreferrer">SentinelStep<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;a&nbsp;mechanism&nbsp;that&nbsp;enables&nbsp;agents&nbsp;to complete long-running monitoring&nbsp;tasks.&nbsp;The&nbsp;approach is simple.&nbsp;SentinelStep&nbsp;wraps the agent in a workflow with dynamic&nbsp;polling&nbsp;and&nbsp;careful context&nbsp;management.&nbsp;This&nbsp;enables&nbsp;the&nbsp;agent&nbsp;to&nbsp;monitor&nbsp;conditions for&nbsp;hours&nbsp;or&nbsp;days&nbsp;without getting&nbsp;sidetracked.&nbsp;We&#8217;ve&nbsp;implemented&nbsp;SentinelStep&nbsp;in&nbsp;<a href="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/?msockid=16c285fb8306647b25f593b982ef6516" target="_blank" rel="noreferrer noopener">Magentic-UI</a>,&nbsp;our research&nbsp;prototype&nbsp;agentic system,&nbsp;to enable&nbsp;users&nbsp;to&nbsp;build agents for&nbsp;long-running&nbsp;tasks,&nbsp;whether they&nbsp;involve web&nbsp;browsing, coding, or external&nbsp;tools.&nbsp;</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="how-it-works">How it works</h2>
+
+
+
+<p>The core&nbsp;challenge is&nbsp;polling frequency. Poll too often,&nbsp;and&nbsp;tokens get&nbsp;wasted. Poll too infrequently, and the user’s notification gets delayed.&nbsp;SentinelStep&nbsp;makes&nbsp;an educated guess&nbsp;at&nbsp;the&nbsp;polling interval based on the task at hand—checking email gets different treatment&nbsp;than&nbsp;monitoring&nbsp;quarterly earnings—then dynamically adjusts&nbsp;based on&nbsp;observed&nbsp;behavior.&nbsp;</p>
+
+
+
+<p>There’s&nbsp;a second challenge: context overflow.&nbsp;Because monitoring tasks can run for days,&nbsp;context overflow&nbsp;becomes inevitable.&nbsp;SentinelStep&nbsp;handles&nbsp;this by saving the agent state after the first check, then&nbsp;using&nbsp;that state for each subsequent check.</p>
+
+
+
+<div class="wp-block-group is-layout-grid wp-container-core-group-is-layout-baef362d wp-block-group-is-layout-grid">
+<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Social-Media-Monitor-Final-demo.mp4"></video></figure>
+
+
+
+<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Repo-Milestone-Trigger-Final-demo.mp4"></video></figure>
+
+
+
+<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Price-Alert-Final-demo.mp4"></video></figure>
+
+
+
+<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Auto-Updating-Project-Dashboard-Final-demo.mp4"></video></figure>
+</div>
+
+
+
+<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">These demonstrations capture&nbsp;Magentic-UI with&nbsp;SentinelStep&nbsp;at work, completing a range of tasks in a timelapse sequence.&nbsp;</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="core-components">Core components</h3>
+
+
+
+<p>As&nbsp;the name&nbsp;suggests,&nbsp;SentinelStep&nbsp;consists of&nbsp;individual steps&nbsp;taken as part of&nbsp;an&nbsp;agent’s broader&nbsp;workflow.&nbsp;As illustrated in Figure 1, there are three main components:&nbsp;the&nbsp;actions necessary to collect information, the condition that determines&nbsp;when&nbsp;the task&nbsp;is complete,&nbsp;and the polling interval&nbsp;that&nbsp;determines&nbsp;timing.&nbsp;Once&nbsp;these components&nbsp;are&nbsp;identified, the&nbsp;system’s&nbsp;behavior is simple:&nbsp;every<em>&nbsp;[polling interval]&nbsp;</em>do<em>&nbsp;[actions]&nbsp;</em>until<em>&nbsp;[condition]&nbsp;</em>is satisfied<em>.</em>&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="704" height="250" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png" alt="Figure 1. SentinelSteps’s three main components in Magentic-UI’s co-planning interface. " class="wp-image-1152610" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png 704w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-240x85.png 240w" sizes="(max-width: 704px) 100vw, 704px" /><figcaption class="wp-element-caption">Figure&nbsp;1.&nbsp;SentinelSteps’s&nbsp;three main components&nbsp;in&nbsp;Magentic-UI’s&nbsp;co-planning interface.<em>&nbsp;</em></figcaption></figure>
+
+
+
+<p>These three components are defined and exposed in the co-planning interface of Magentic-UI. Given a user prompt, Magentic-UI proposes a complete multi-step plan, including pre-filled parameters for any monitoring steps. Users can accept the plan or adjust as needed.</p>
+
+
+
+<h3 class="wp-block-heading" id="processing">Processing</h3>
+
+
+
+<p>Once a run starts, Magentic-UI assigns the most appropriate agent from a team of agents to perform each action. This team includes agents capable of web surfing, code execution, and calling arbitrary MCP servers.</p>
+
+
+
+<p>When the workflow reaches a monitoring step, the flow is straightforward. The assigned agent collects the necessary information through the actions described in the plan. The Magentic-UI orchestrator then checks whether the condition is satisfied. If it is, the SentinelStep is complete, and the orchestrator moves to the next step. If not, the orchestrator determines the timestamp for the next check and resets the agent’s state to prevent context overflow.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
+
+
+
+<p>Evaluating&nbsp;monitoring tasks in real-world settings&nbsp;is&nbsp;nearly impossible.&nbsp;Consider a simple example: monitoring the Magentic-UI repository on GitHub&nbsp;until&nbsp;it reaches&nbsp;10,000 stars&nbsp;(a measure of how many people have bookmarked it). That event occurs only once and can’t be repeated.&nbsp;Most&nbsp;real-world monitoring tasks share this limitation, making systematic bench marking very challenging.</p>
+
+
+
+<p>In response, we&nbsp;are developing&nbsp;SentinelBench, a suite of synthetic&nbsp;web environments for evaluating monitoring tasks. These environments make experiments repeatable. SentinelBench&nbsp;currently&nbsp;supports&nbsp;28&nbsp;configurable scenarios, each&nbsp;allowing the user to schedule exactly when&nbsp;a&nbsp;target&nbsp;event&nbsp;should&nbsp;occur. It includes setups like GitHub Watcher, which&nbsp;simulates a repository accumulating stars over time;&nbsp;Teams Monitor, which models incoming messages, some&nbsp;urgent; and&nbsp;Flight Monitor, which&nbsp;replicates&nbsp;evolving&nbsp;flight-availability&nbsp;dynamics.&nbsp;</p>
+
+
+
+<p>Initial&nbsp;tests&nbsp;show clear benefits.&nbsp;As shown in&nbsp;Figure&nbsp;2, success rates&nbsp;remain&nbsp;high for short tasks (30&nbsp;sec&nbsp;and 1&nbsp;min) regardless of&nbsp;whether&nbsp;SentinelStep&nbsp;is&nbsp;used.&nbsp;For longer tasks,&nbsp;SentinelStep&nbsp;markedly&nbsp;improves reliability: at 1 hour, task reliability rises from 5.6% without&nbsp;SentinelStep&nbsp;to&nbsp;33.3% with&nbsp;it;&nbsp;and at 2 hours,&nbsp;it rises&nbsp;from 5.6% to 38.9%. These gains&nbsp;demonstrate&nbsp;that&nbsp;SentinelStep&nbsp;effectively addresses the challenge of maintaining performance over extended durations.<a id="_msocom_1"></a></p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="619" height="399" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png" alt="Figure 2. SentinelStep improves success rates on longer running tasks (1–2 hours) while maintaining comparable performance on shorter tasks.  " class="wp-image-1152612" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png 619w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-300x193.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-240x155.png 240w" sizes="(max-width: 619px) 100vw, 619px" /><figcaption class="wp-element-caption">Figure&nbsp;2.&nbsp;SentinelStep&nbsp;improves&nbsp;success rates&nbsp;on longer running tasks (1–2&nbsp;hours)&nbsp;while&nbsp;maintaining&nbsp;comparable performance&nbsp;on shorter tasks.&nbsp;&nbsp;</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="impact-and-availability">Impact and availability</h2>
+
+
+
+<p>SentinelStep is a first step toward practical, proactive, longer‑running agents. By embedding patience into plans, agents can responsibly monitor conditions and act when it matters—staying proactive without wasting resources. This lays the groundwork for always‑on assistants that stay efficient, respectful of limits, and aligned with user intent.</p>
+
+
+
+<p>We’ve open-sourced SentinelStep as part of Magentic-UI, available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> or via <code>pip install magnetic-ui</code>. As with any new technique, production deployment should be preceded through&nbsp;testing and validation&nbsp;for the specific use case.&nbsp;For&nbsp;guidance on&nbsp;intended use,&nbsp;privacy&nbsp;considerations,&nbsp;and safety&nbsp;guidelines,&nbsp;see&nbsp;the&nbsp;Magentic-UI&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui/blob/main/TRANSPARENCY_NOTE.md" target="_blank" rel="noopener noreferrer">Transparency&nbsp;Note.<span class="sr-only"> (opens in new tab)</span></a>&nbsp;</p>
+
+
+
+<p>Our goal is to&nbsp;make it easier to implement agents that can&nbsp;handle&nbsp;long-running&nbsp;monitoring&nbsp;tasks&nbsp;and&nbsp;lay&nbsp;the groundwork for&nbsp;systems that&nbsp;anticipate, adapt, and&nbsp;evolve&nbsp;to meet real-world needs.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/">Tell me when: Building agents that can wait, monitor, and act</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Social-Media-Monitor-Final-demo.mp4" length="5720457" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Repo-Milestone-Trigger-Final-demo.mp4" length="6357051" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Price-Alert-Final-demo.mp4" length="2694358" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Auto-Updating-Project-Dashboard-Final-demo.mp4" length="6699013" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>Ideas: More AI-resilient biosecurity with the Paraphrase Project</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/ideas-more-ai-resilient-biosecurity-with-the-paraphrase-project/</link>
 		
@@ -33,12 +199,12 @@
 ]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe title="Ideas: More AI-resilient biosecurity with the Paraphrase Project" width="500" height="281" src="https://www.youtube-nocookie.com/embed/xA9nvhX7e7A?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe loading="lazy" title="Ideas: More AI-resilient biosecurity with the Paraphrase Project" width="500" height="281" src="https://www.youtube-nocookie.com/embed/xA9nvhX7e7A?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=148928066&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=148928066&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -795,7 +961,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-ai-meets-biology-promise-risk-and-responsibility/">When AI Meets Biology: Promise, Risk, and Responsibility</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1920" height="1080" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04.png" alt="Paraphrase Project Protiens" class="wp-image-1151098" style="object-fit:cover" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04.png 1920w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-1536x864.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1920" height="1080" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04.png" alt="Paraphrase Project Protiens" class="wp-image-1151098" style="object-fit:cover" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04.png 1920w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MS-Paraphrase_Frame4-HeroStill_1920-1080_V04-1536x864.png 1536w" sizes="auto, (max-width: 1920px) 100vw, 1920px" /></figure>
 
 
 
@@ -987,27 +1153,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1410,30 +1579,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1701,30 +1870,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3322,132 +3488,6 @@
 <div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/coauthor-roundtable-reflecting-on-healthcare-economics-biomedical-research-and-medical-education/">Coauthor roundtable: Reflecting on healthcare economics, biomedical research, and medical education</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>MindJourney enables AI to explore simulated 3D worlds to improve spatial interpretation</title>
-		<link>https://www.microsoft.com/en-us/research/blog/mindjourney-enables-ai-to-explore-simulated-3d-worlds-to-improve-spatial-interpretation/</link>
-		
-		<dc:creator><![CDATA[Yuncong Yang, Reuben Tan, Swadheen Shukla, Jianfeng Gao]]></dc:creator>
-		<pubDate>Wed, 20 Aug 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1147961</guid>
-
-					<description><![CDATA[<p>MindJourney can enable AI to navigate and interpret 3D environments from limited visual input, potentially improving performance in navigation, planning, and safety-critical tasks.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/mindjourney-enables-ai-to-explore-simulated-3d-worlds-to-improve-spatial-interpretation/">MindJourney enables AI to explore simulated 3D worlds to improve spatial interpretation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a gradient background transitioning from blue to pink. From left to right: a network or molecule structure with a central circle and six surrounding nodes, a 3D cube, and an open laptop with an eye symbol above it." class="wp-image-1147994" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/ImprovingImagination-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>A new research framework helps AI agents explore three-dimensional spaces they can’t directly detect. Called <a href="https://www.microsoft.com/en-us/research/publication/mindjourney-test-time-scaling-with-world-models-for-spatial-reasoning/" target="_blank" rel="noreferrer noopener">MindJourney</a>, the approach addresses a key limitation in vision-language models (VLMs), which give AI agents their ability to interpret and describe visual scenes.&nbsp;&nbsp;</p>
-
-
-
-<p>While VLMs&nbsp;are strong&nbsp;at identifying objects in&nbsp;static&nbsp;images,&nbsp;they struggle to&nbsp;interpret&nbsp;the interactive 3D world behind 2D images.&nbsp;This&nbsp;gap shows up&nbsp;in spatial&nbsp;questions&nbsp;like&nbsp;“If I sit on the couch&nbsp;that is on my right&nbsp;and face the chairs, will the kitchen be to my right or left?”—tasks that require an agent to&nbsp;interpret&nbsp;its&nbsp;position and movement through space.&nbsp;</p>
-
-
-
-<p>People&nbsp;overcome this challenge by mentally exploring a space,&nbsp;imagining moving through it and combining those mental snapshots to work out where objects are.&nbsp;MindJourney&nbsp;applies the same process&nbsp;to&nbsp;AI agents,&nbsp;letting&nbsp;them roam a virtual&nbsp;space before answering spatial questions.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="how-mindjourney-navigates-3d-space">How&nbsp;MindJourney&nbsp;navigates 3D space</h2>
-
-
-
-<p>To perform this type of spatial navigation, MindJourney uses a <em>world model</em>—in this case, a video generation system trained on a large collection of videos captured from a single moving viewpoint, showing actions such as going forward and turning left or right, much like a 3D cinematographer. From this, it learns to predict how a new scene would appear from different perspectives.</p>
-
-
-
-<p>At inference time, the model can generate photo-realistic images of a scene based on possible movements from the agent’s current position. It generates multiple possible views of a scene while the VLM acts as a filter, selecting the constructed perspectives that are most likely to answer the user&#8217;s question.</p>
-
-
-
-<p>These are kept and expanded in the next iteration, while less promising paths are discarded. This process, shown in Figure 1, avoids the need to generate and evaluate thousands of possible movement sequences by focusing only on the most informative perspectives.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="854" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney-fig1.jpg" alt="Figure 1. Given a spatial reasoning query, MindJourney searches through the imagined 3D space using a world model and improves the VLM's spatial interpretation through generated observations when encountering a new  challenges. " class="wp-image-1147968" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney-fig1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney-fig1-300x183.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney-fig1-1024x625.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney-fig1-768x468.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney-fig1-240x146.jpg 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 1. Given a spatial reasoning query, MindJourney searches through the imagined 3D space using a world model and improves the VLM&#8217;s spatial interpretation through generated observations when encountering new challenges.<em>&nbsp;</em></figcaption></figure>
-
-
-
-<p>&nbsp;</p>
-
-
-
-<p>To make its search through&nbsp;a simulated&nbsp;space both effective and efficient,&nbsp;MindJourney&nbsp;uses a <em>spatial beam search</em>—an&nbsp;algorithm that prioritizes the most promising paths. It works within a fixed number of steps, each representing a movement. By balancing breadth with depth, spatial beam search enables&nbsp;MindJourney&nbsp;to gather strong supporting evidence.&nbsp;This process is illustrated in Figure 2.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788.jpg" alt="MindJourney pipeline diagram" class="wp-image-1147897" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MindJourney_pipeline_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. The MindJourney workflow starts with a spatial beam search for a set number of steps before answering the query. The world model interactively generates new observations, while a VLM interprets the generated images, guiding the search throughout the process.</figcaption></figure>
-
-
-
-<p class="has-text-align-left">By iterating through&nbsp;simulation,&nbsp;evaluation, and integration,&nbsp;MindJourney&nbsp;can reason about spatial relationships far beyond what any single 2D image can convey, all without the need for additional training.&nbsp;On&nbsp;the&nbsp;Spatial Aptitude Training (SAT)&nbsp;benchmark,&nbsp;it improved the accuracy of&nbsp;VLMs&nbsp;by&nbsp;8%&nbsp;over&nbsp;their&nbsp;baseline&nbsp;performance.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Forum</h2>
-				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="MindJourney: Test-Time Scaling with World Models for Spatial Reasoning" width="500" height="375" src="https://www.youtube-nocookie.com/embed/Z4-5NZmdV44?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div></figure>
-
-
-
-<h2 class="wp-block-heading" id="building-smarter-agents">Building&nbsp;smarter agents&nbsp;&nbsp;</h2>
-
-
-
-<p>MindJourney&nbsp;showed&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/mindjourney-test-time-scaling-with-world-models-for-spatial-reasoning/" target="_blank" rel="noreferrer noopener">strong performance</a>&nbsp;on multiple 3D spatial-reasoning benchmarks, and even advanced VLMs&nbsp;improved&nbsp;when paired with its imagination loop. This suggests that the spatial patterns that world models learn from raw images, combined with the symbolic&nbsp;capabilities&nbsp;of VLMs, create a more complete spatial capability&nbsp;for agents. Together, they enable agents to infer what lies beyond the visible frame and&nbsp;interpret&nbsp;the physical world&nbsp;more accurately.&nbsp;</p>
-
-
-
-<p>It also demonstrates that pretrained VLMs and trainable world models can work together in 3D without retraining either one—pointing toward general-purpose agents capable of&nbsp;interpreting&nbsp;and acting in real-world environments. This opens the way to&nbsp;possible&nbsp;applications in autonomous robotics, smart home technologies, and accessibility tools for people with visual impairments.&nbsp;</p>
-
-
-
-<p>By converting systems that simply describe static images into active agents that continually evaluate where to look next,&nbsp;MindJourney&nbsp;connects computer vision with planning. Because exploration occurs entirely within the model’s latent space—its internal representation of the scene—robots would be able to test multiple viewpoints before determining their next move,&nbsp;potentially&nbsp;reducing wear, energy use, and collision risk.&nbsp;</p>
-
-
-
-<p>Looking ahead, we plan to extend the framework to&nbsp;use&nbsp;world models that&nbsp;not only&nbsp;predict&nbsp;new viewpoints&nbsp;but also forecast&nbsp;how the scene might change over time.&nbsp;We envision&nbsp;MindJourney&nbsp;working&nbsp;alongside VLMs that interpret&nbsp;those predictions&nbsp;and use&nbsp;them to&nbsp;plan&nbsp;what to do&nbsp;next. This&nbsp;enhancement could enable&nbsp;agents&nbsp;more accurately&nbsp;interpret&nbsp;spatial relationships and physical dynamics, helping them to operate effectively&nbsp;in changing environments.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mindjourney-enables-ai-to-explore-simulated-3d-worlds-to-improve-spatial-interpretation/">MindJourney enables AI to explore simulated 3D worlds to improve spatial interpretation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
