@@ -19,12 +19,17 @@ def create_webdriver(proxy=None):
     chrome_options.add_argument("--disable-dev-shm-usage")  # 解决资源限制
     chrome_options.add_argument("--disable-gpu")  # 如果不需要 GPU 加速，禁用它
     chrome_options.add_argument("--window-size=1920x1080")  # 设置窗口大小
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")  # 禁用自动化控制特征
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")  # 设置用户代理
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])  # 隐藏自动化特征
+    chrome_options.add_experimental_option('useAutomationExtension', False)  # 禁用自动化扩展
     
     if proxy:
         chrome_options.add_argument(f'--proxy-server={proxy}')
 
     # 创建 Chrome 驱动
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")  # 隐藏 webdriver 特征
     return driver
 
 def load_config(config_path='config.yaml'):
@@ -40,38 +45,57 @@ def fetch_blog_posts(config):
     if config['use_headless_browser']:
         print(f"Using headless browser to fetch {config['url']}")
         driver = create_webdriver(proxy)
-        driver.get(config['url'])
-        print("Initial page load complete, waiting 3 seconds...")
-        time_module.sleep(3)
         
-        # 滚动到页面底部以加载所有内容
-        print("Starting scroll to bottom process...")
-        last_height = driver.execute_script("return document.body.scrollHeight")
-        scroll_count = 0
-        while True:
-            # 滚动到页面底部
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            print(f"Scroll iteration {scroll_count+1}, scrolled to {last_height}")
-            
-            # 等待新内容加载
-            time_module.sleep(2)
-            
-            # 计算新的滚动高度
-            new_height = driver.execute_script("return document.body.scrollHeight")
-            print(f"New page height: {new_height}")
-            if new_height == last_height:
-                print("Reached bottom of page, no more content to load")
-                break
-            last_height = new_height
-            scroll_count += 1
-            if scroll_count > 50:  # 防止无限滚动
-                print("Maximum scroll iterations reached, stopping")
-                break
-        
-        print("Page scrolling complete, getting page source...")
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-        driver.quit()
-        print("Headless browser closed")
+        # 添加重试机制
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                driver.get(config['url'])
+                print(f"Initial page load complete, waiting 5 seconds... (Attempt {attempt+1})")
+                time_module.sleep(5)  # 增加等待时间
+                
+                # 滚动到页面底部以加载所有内容
+                print("Starting scroll to bottom process...")
+                last_height = driver.execute_script("return document.body.scrollHeight")
+                scroll_count = 0
+                while True:
+                    # 滚动到页面底部
+                    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                    print(f"Scroll iteration {scroll_count+1}, scrolled to {last_height}")
+                    
+                    # 等待新内容加载
+                    time_module.sleep(3)  # 增加等待时间
+                    
+                    # 计算新的滚动高度
+                    new_height = driver.execute_script("return document.body.scrollHeight")
+                    print(f"New page height: {new_height}")
+                    if new_height == last_height:
+                        print("Reached bottom of page, no more content to load")
+                        break
+                    last_height = new_height
+                    scroll_count += 1
+                    if scroll_count > 50:  # 防止无限滚动
+                        print("Maximum scroll iterations reached, stopping")
+                        break
+                
+                # 最终等待，确保所有内容加载完成
+                print("Page scrolling complete, waiting 5 seconds for final content load...")
+                time_module.sleep(5)
+
+                soup = BeautifulSoup(driver.page_source, 'html.parser')
+                driver.quit()
+                print("Headless browser closed")
+                break  # 成功获取页面，跳出重试循环
+                
+            except Exception as e:
+                print(f"Attempt {attempt+1} failed: {e}")
+                if attempt < max_retries - 1:
+                    print("Retrying...")
+                    time_module.sleep(5)
+                else:
+                    print("Max retries reached. Raising exception.")
+                    driver.quit()
+                    raise e
     else:
         print(f"Using requests to fetch {config['url']}")
         proxies = {'http': proxy, 'https': proxy} if proxy else None
