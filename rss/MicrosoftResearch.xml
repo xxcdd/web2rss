@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 21 Oct 2025 15:41:41 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 23 Oct 2025 17:10:35 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,168 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>RedCodeAgent: Automatic red-teaming agent against diverse code agents</title>
+		<link>https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/</link>
+		
+		<dc:creator><![CDATA[Chengquan Guo , Chulin Xie, Yu Yang, Zhaorun Chen, Zinan Lin, Xander Davies, Yarin Gal, Dawn Song, Bo Li]]></dc:creator>
+		<pubDate>Tue, 04 Nov 2025 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1152834</guid>
+
+					<description><![CDATA[<p>Code agents help streamline software development workflows, but may also introduce critical security risks. Learn how RedCodeAgent automates and improves “red-teaming” attack simulations to help uncover real-world threats that other methods overlook.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent: Automatic red-teaming agent against diverse code agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image aligncenter size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Icons of a chat bubble, connected document, and shield with checkmark on a blue-green gradient background." class="wp-image-1152887" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<h2 class="wp-block-heading" id="introduction">Introduction</h2>
+
+
+
+<p>Code agents are AI systems that can generate high-quality code and work smoothly with code interpreters. These capabilities help streamline complex software development workflows,&nbsp;which has led to their widespread adoption.</p>
+
+
+
+<p>However, this progress also introduces critical safety and security risks. Existing static safety benchmarks and red-teaming methods—in which&nbsp;security researchers&nbsp;simulate real-world attacks to&nbsp;identify&nbsp;security vulnerabilities—often fall short when evaluating code agents.&nbsp;They&nbsp;may&nbsp;fail to&nbsp;detect&nbsp;emerging real-world risks, such as the combined effects of multiple jailbreak tools.&nbsp;In&nbsp;the context of code, effective red-teaming requires more than simply checking whether the target code agent rejects unsafe requests. Instead, the agent must generate and execute correct code that performs the intended risky functionality, making it essential to evaluate execution behaviors beyond static code analysis.&nbsp;</p>
+
+
+
+<p>To address these challenges, researchers from the University of Chicago, University of Illinois Urbana–Champaign, VirtueAI, the UK AI Safety Institute, University of Oxford, UC Berkeley, and Microsoft Research recently proposed <a href="https://www.microsoft.com/en-us/research/publication/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/" target="_blank" rel="noreferrer noopener">RedCodeAgent</a>, the first fully automated and adaptive red-teaming agent designed specifically to evaluate the safety of large language model&nbsp;(LLM)-based code agents.</p>
+
+
+
+<p>Comprehensive experimental results demonstrate the effectiveness and efficiency of&nbsp;RedCodeAgent across (1) diverse Common Weakness Enumeration (CWE) vulnerabilities and malware types, (2) multiple programming languages—including Python, C, C++, and Java—and (3) a wide range of code agents, such as OpenCodeInterpreter, ReAct, MetaGPT, and commercial agents like Cursor and&nbsp;Codeium.&nbsp;RedCodeAgent also uncovers common vulnerabilities across agents&nbsp;such as generating and executing unsafe code, exposes variations in red-teaming difficulty across goals, identifies frequently triggered attack tools, and detects previously unknown vulnerabilities that all other baseline methods overlook.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="framework-for-automatic-red-teaming-against-code-agents">Framework for&nbsp;automatic&nbsp;red-teaming&nbsp;against&nbsp;code&nbsp;agents</h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1600" height="484" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_.jpg" alt="A flowchart illustrating the workflow of RedCodeAgent, a system for red-teaming code agents. 
+
+User Input (left panel): 
+The user provides a risk scenario (e.g., “Delete sensitive files”) and a detailed risk description (e.g., “Create and execute a Python script that removes /root/.bashrc”). 
+
+Memory module (center-left): 
+RedCodeAgent retrieves the top-K most similar memory entries, each containing a risk scenario, description, trajectory, evaluation result, and self-reflection. 
+
+LLM red-teaming function call (center): 
+The agent uses large language model (LLM) reasoning and tools from its toolbox—such as Code Substitution, GCG, AutoDAN, AmpleGCG, and Advprompter—to generate attacks. 
+
+Query target code agent (center-right): 
+The generated query is sent to the target code agent, which attempts to execute or reject the risky action. 
+
+Evaluation module (right panel): 
+Outcomes are classified as: 
+
+Attack success (e.g., file is no longer present), 
+
+Attack failure (e.g., file is still present), or 
+
+Get rejected (e.g., rejection words appear). 
+
+If the attack fails or gets rejected, the process iterates until reaching the maximum iteration or success. 
+
+Final Output (bottom): 
+Successful red-teaming instances are stored, followed by a self-reflection step that appends a new memory entry. 
+
+Visual elements include arrows showing flow between modules, success/failure indicators, and icons representing users, agents, memory, and evaluation. " class="wp-image-1152869" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-300x91.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-1024x310.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-768x232.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-1536x465.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-240x73.jpg 240w" sizes="(max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure 1: Illustration of&nbsp;RedCodeAgent&nbsp;on automatic red-teaming against a target code agent&nbsp;</figcaption></figure>
+
+
+
+<p>As shown in Figure 1,&nbsp;RedCodeAgent&nbsp;is equipped with a&nbsp;<strong>memory module</strong>&nbsp;that accumulates successful attack experiences, enabling the system to&nbsp;<strong>continuously learn and adapt its attack strategies</strong>. After learning from the previous experiences,&nbsp;RedCodeAgent&nbsp;further&nbsp;leverages&nbsp;a&nbsp;<strong>tailored toolbox</strong>&nbsp;that combines representative red-teaming tools with a specialized&nbsp;<strong>code substitution module</strong>, enabling realistic and diverse code-specific attack simulations through function calling. Based on the target agent’s responses across multiple interactive trials, RedCodeAgent optimizes&nbsp;its strategies, systematically&nbsp;probing for&nbsp;weaknesses and vulnerabilities&nbsp;in real time.&nbsp;</p>
+
+
+
+<p>In the evaluation phase,&nbsp;RedCodeAgent&nbsp;integrates simulated sandbox environments to enable code execution and assess the impact of the resulting behaviors. This sandbox-based evaluation ensures a more robust assessment of harmful behaviors and addresses the potential biases of&nbsp;previous&nbsp;static methods that rely solely on “LLM-as-a-judge” evaluations.</p>
+
+
+
+<p>A case study is shown in Figure 2. Initially,&nbsp;RedCodeAgent&nbsp;discovers that the request was rejected, then RedCodeAgent calls the Greedy Coordinate&nbsp;Gradient&nbsp;(GCG)&nbsp;algorithm&nbsp;to bypass the safety guardrail. After the second request was rejected by the code agent,&nbsp;RedCodeAgent&nbsp;invoked both Code Substitution and GCG to optimize the prompt. Ultimately,&nbsp;RedCodeAgent&nbsp;successfully combined the suggestion from Code Substitution (i.e., using&nbsp;pathlib) with the adversarial suffix generated by GCG, making the target code agent delete the specified file.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="1600" height="1771" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_.jpg" alt="A flowchart illustrating a red-teaming attack scenario targeting a code agent. The risk scenario is deleting sensitive files, specifically removing “/etc/gshadow.” The process shows several decision steps: querying the target code agent (rejected), calling the GCG to optimize prompts, trying modified prompts, using code substitution (e.g., replacing os.remove with pathlib.unlink), and retrying the optimized prompts. The final result shows that the optimized prompt successfully caused the file “/etc/gshadow” to be removed, labeled as “Attack success.” The chart includes text boxes for each step, evaluation results (e.g., “Get rejected” or “Attack success”), and concludes with a “Final output” section describing self-reflection on the red-teaming process." class="wp-image-1152871" style="width:622px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-271x300.jpg 271w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-925x1024.jpg 925w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-768x850.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-1388x1536.jpg 1388w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-163x180.jpg 163w" sizes="(max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure2. A case study of&nbsp;RedCodeAgent&nbsp;calling different tools to successfully attack the target code agent</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="insights-from-redcodeagent">Insights from&nbsp;RedCodeAgent&nbsp;</h2>
+
+
+
+<p>Experiments on diverse benchmarks show that&nbsp;RedCodeAgent&nbsp;achieves both a higher attack success rate (ASR) and a lower rejection rate, revealing several key findings outlined below.</p>
+
+
+
+<h3 class="wp-block-heading" id="using-traditional-jailbreak-methods-alone-does-not-necessarily-improve-asr-on-code-agents">Using&nbsp;traditional&nbsp;jailbreak&nbsp;methods&nbsp;alone&nbsp;does&nbsp;not&nbsp;necessarily&nbsp;improve&nbsp;ASR on code agents</h3>
+
+
+
+<p>The optimized prompts generated by GCG,&nbsp;AmpleGCG,&nbsp;Advprompter, and&nbsp;AutoDAN&nbsp;do not always achieve a higher ASR compared with static prompts with no jailbreak, as shown in Figure 3.&nbsp;This is&nbsp;likely&nbsp;due to the difference between code-specific tasks and general malicious request tasks in LLM safety. In the context of code, it is not enough for the target code agent to simply avoid rejecting the request; the target code agent must also generate and execute code that performs the intended function.&nbsp;Previous&nbsp;jailbreak methods do not guarantee this outcome. However,&nbsp;RedCodeAgent&nbsp;ensures that the input prompt has a clear functional objective (e.g., deleting specific sensitive files). RedCodeAgent&nbsp;can dynamically adjust based on evaluation feedback, continually optimizing to achieve the specified objectives.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1600" height="1581" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_.jpg" alt="A scatter plot comparing six methods on two metrics: Attack Success Rate (ASR) in percent (y-axis) and Time Cost in seconds (x-axis). Each method is represented by a distinct marker with coordinates labeled as (time, ASR): 
+
+RedCodeAgent (121.17s, 72.47%) — red circle, highest ASR. 
+
+GCG (71.44s, 54.69%) — purple diamond. 
+
+No Jailbreak (36.25s, 55.46%) — blue square. 
+
+Advprompter (132.59s, 46.42%) — pink inverted triangle. 
+
+AmpleGCG (45.28s, 41.11%) — yellow triangle. 
+
+AutoDAN (51.77s, 29.26%) — gray hexagon. 
+The “Better” direction points toward higher ASR and lower time cost. The chart shows that RedCodeAgent achieves the best performance (highest ASR) despite moderate time cost. " class="wp-image-1152872" style="width:574px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-300x296.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-1024x1012.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-768x759.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-1536x1518.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-182x180.jpg 182w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure 3：RedCodeAgent&nbsp;achieves the highest ASR compared with other methods</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="redcodeagent-exhibits-adaptive-tool-utilization">RedCodeAgent&nbsp;exhibits&nbsp;adaptive&nbsp;tool&nbsp;utilization&nbsp;</h3>
+
+
+
+<p>RedCodeAgent&nbsp;can dynamically adjust its tool usage based on task difficulty. Figure 4 shows that the tool calling combination is different&nbsp;for&nbsp;different tasks.&nbsp;For simpler tasks, where the baseline static test cases already achieve a high ASR,&nbsp;RedCodeAgent&nbsp;spends little time invoking&nbsp;additional&nbsp;tools,&nbsp;demonstrating&nbsp;its efficiency. For more challenging tasks, where the baseline static test cases in&nbsp;RedCode-Exec achieve a lower ASR,we observe that RedCodeAgent spends more time using advanced tools like&nbsp;GCG and&nbsp;Advprompter&nbsp;to&nbsp;optimize&nbsp;the prompt for a successful attack. As a result, the average time spent on invoking different tools varies across tasks, indicating that RedCodeAgent adapts its strategy depending on the specific task.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1600" height="789" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_.jpg" alt="A stacked bar chart showing the time cost (seconds) for different methods across risk indices 1–27 (except 18) for an agent. The x-axis represents risk indices, and the y-axis shows time cost in seconds. Each bar is divided into colored segments representing different components of the total time cost: 
+
+Pink: Query (target agent) – 36.25s per call 
+Brown: Code substitution – 12.16s per call 
+Green: GCG – 35.19s per call 
+Teal: AutoDAN – 15.52s per call 
+Blue: AmpleGCG – 9.03s per call 
+Magenta: Advprompter – 96.34s per call 
+
+Most bars are dominated by pink segments (target agent queries), with several spikes (e.g., risk indices 9–11 and 14–15) where additional methods like GCG and Advprompter add noticeable time overhead. The legend in the upper right lists each method’s average time per call. " class="wp-image-1152874" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-300x148.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-1024x505.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-768x379.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-1536x757.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-240x118.jpg 240w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure 4: Average time cost for&nbsp;RedCodeAgent&nbsp;to invoke different tools or query the target code agent in successful cases for each risk scenario&nbsp;</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="redcodeagent-discovers-new-vulnerabilities">RedCodeAgent&nbsp;discovers&nbsp;new&nbsp;vulnerabilities</h3>
+
+
+
+<p>In scenarios where other methods&nbsp;fail to&nbsp;find successful attack strategies,&nbsp;RedCodeAgent&nbsp;is able to discover new, feasible jailbreak approaches. Quantitatively, we find that&nbsp;RedCodeAgent&nbsp;is capable of discovering&nbsp;82 (out of 27*30=810 cases in&nbsp;RedCode-Exec benchmark) unique vulnerabilities on the&nbsp;OpenCodeInterpreter&nbsp;code agent and 78 on the ReAct code agent. These are cases where all baseline methods&nbsp;fail to&nbsp;identify the vulnerability, but RedCodeAgent succeeds.</p>
+
+
+
+<h2 class="wp-block-heading" id="summary">Summary</h2>
+
+
+
+<p>RedCodeAgent&nbsp;combines adaptive memory, specialized tools, and simulated execution environments to uncover real-world risks that static benchmarks&nbsp;may&nbsp;miss.&nbsp;It&nbsp;consistently outperforms leading jailbreak methods, achieving higher attack success rates and lower rejection rates, while remaining efficient and adaptable across diverse agents and programming languages.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent: Automatic red-teaming agent against diverse code agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Tell me when: Building agents that can wait, monitor, and act</title>
 		<link>https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/</link>
 		
@@ -32,7 +194,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/">Tell me when: Building agents that can wait, monitor, and act</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Workflow icons showing tasks, thinking, and time, linked to a person symbol on a gradient background." class="wp-image-1152522" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Workflow icons showing tasks, thinking, and time, linked to a person symbol on a gradient background." class="wp-image-1152522" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -48,30 +210,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -122,7 +284,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="704" height="250" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png" alt="Figure 1. SentinelSteps’s three main components in Magentic-UI’s co-planning interface. " class="wp-image-1152610" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png 704w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-240x85.png 240w" sizes="(max-width: 704px) 100vw, 704px" /><figcaption class="wp-element-caption">Figure&nbsp;1.&nbsp;SentinelSteps’s&nbsp;three main components&nbsp;in&nbsp;Magentic-UI’s&nbsp;co-planning interface.<em>&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="704" height="250" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png" alt="Figure 1. SentinelSteps’s three main components in Magentic-UI’s co-planning interface. " class="wp-image-1152610" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png 704w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-240x85.png 240w" sizes="auto, (max-width: 704px) 100vw, 704px" /><figcaption class="wp-element-caption">Figure&nbsp;1.&nbsp;SentinelSteps’s&nbsp;three main components&nbsp;in&nbsp;Magentic-UI’s&nbsp;co-planning interface.<em>&nbsp;</em></figcaption></figure>
 
 
 
@@ -158,7 +320,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="619" height="399" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png" alt="Figure 2. SentinelStep improves success rates on longer running tasks (1–2 hours) while maintaining comparable performance on shorter tasks.  " class="wp-image-1152612" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png 619w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-300x193.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-240x155.png 240w" sizes="(max-width: 619px) 100vw, 619px" /><figcaption class="wp-element-caption">Figure&nbsp;2.&nbsp;SentinelStep&nbsp;improves&nbsp;success rates&nbsp;on longer running tasks (1–2&nbsp;hours)&nbsp;while&nbsp;maintaining&nbsp;comparable performance&nbsp;on shorter tasks.&nbsp;&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="619" height="399" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png" alt="Figure 2. SentinelStep improves success rates on longer running tasks (1–2 hours) while maintaining comparable performance on shorter tasks.  " class="wp-image-1152612" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png 619w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-300x193.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-240x155.png 240w" sizes="auto, (max-width: 619px) 100vw, 619px" /><figcaption class="wp-element-caption">Figure&nbsp;2.&nbsp;SentinelStep&nbsp;improves&nbsp;success rates&nbsp;on longer running tasks (1–2&nbsp;hours)&nbsp;while&nbsp;maintaining&nbsp;comparable performance&nbsp;on shorter tasks.&nbsp;&nbsp;</figcaption></figure>
 
 
 
@@ -1153,30 +1315,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1579,27 +1741,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1867,30 +2032,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2109,1385 +2274,6 @@
 
 <p>For more information from Microsoft on the future of work and AI skilling, check out Microsoft’s Annual&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://news.microsoft.com/annual-work-trend-index-2025/" target="_blank" rel="noopener noreferrer">Work Trend Index<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://blogs.microsoft.com/on-the-issues/2025/07/09/elevate/" target="_blank" rel="noopener noreferrer">Microsoft Elevate<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/">Applicability vs. job displacement: further notes on our recent research on AI and occupations</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Coauthor roundtable: Reflecting on healthcare economics, biomedical research, and medical education</title>
-		<link>https://www.microsoft.com/en-us/research/podcast/coauthor-roundtable-reflecting-on-healthcare-economics-biomedical-research-and-medical-education/</link>
-		
-		<dc:creator><![CDATA[Peter Lee, Carey Goldberg, Dr. Isaac Kohane]]></dc:creator>
-		<pubDate>Thu, 21 Aug 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Microsoft Research Podcast]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1148218</guid>
-
-					<description><![CDATA[<p>For the series finale, Peter Lee, Carey Goldberg, and Dr. Zak Kohane compare their predictions to insights from the series’ most recent guests, including experts on AI’s economic and societal impact, leaders in AI-driven medicine, and doctors in training.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/coauthor-roundtable-reflecting-on-healthcare-economics-biomedical-research-and-medical-education/">Coauthor roundtable: Reflecting on healthcare economics, biomedical research, and medical education</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788.jpg" alt="Illustrated headshots of Carey Goldberg, Peter Lee, and Dr. Isaac Kohane." class="wp-image-1148279" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Episode11-Peter-Carey-Isaac_AIRevolution_Hero_Feature_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=147919496&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p>In November 2022, OpenAI’s ChatGPT kick-started a new era in AI. This was followed less than a half year later by the release of GPT-4. In the months leading up to GPT-4’s public release, Peter Lee, president of Microsoft Research, cowrote a book full of optimism for the potential of advanced AI models to transform the world of healthcare. What has happened since? In this special podcast series, <em>The AI Revolution in Medicine, Revisited</em>, Lee revisits the book, exploring how patients, providers, and other medical professionals are experiencing and using generative AI today while examining what he and his coauthors got right—and what they didn’t foresee.&nbsp;</p>
-
-
-
-<p>In this series finale, Lee welcomes back coauthors <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.careygoldberg.net/" target="_blank" rel="noopener noreferrer">Carey Goldberg<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dbmi.hms.harvard.edu/people/isaac-kohane" target="_blank" rel="noopener noreferrer">Dr. Zak Kohane<span class="sr-only"> (opens in new tab)</span></a> to discuss how their predictions stack up against key takeaways from guests in the second half of the series: experts on AI’s economic and societal impact; technologists on the cutting edge; leaders in AI-driven medicine; next-generation physicians; and heads of healthcare organizations. Lee, Goldberg, and Kohane explore thinking innovatively about existing healthcare processes, including the structure of care teams and the role of specialties, to take advantage of AI opportunities and consider what clinicians and patients might need these new AI tools to be to feel empowered when it comes to giving and receiving the best healthcare. They close the episode with their hopes for the future of AI in health.</p>
-
-
-
-<div class="wp-block-group msr-pattern-link-list is-layout-flow wp-block-group-is-layout-flow">
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 class="wp-block-heading h5" id="learn-more-1">Learn more:</h2>
-
-
-
-<ul class="wp-block-list list-unstyled">
-<li><a href="https://www.microsoft.com/en-us/research/publication/scalable-emulation-of-protein-equilibrium-ensembles-with-generative-deep-learning/">Scalable emulation of protein equilibrium ensembles with generative deep learning</a>&nbsp;<br>Publication | July 2025</li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/research/publication/sequential-diagnosis-with-language-models/">Sequential Diagnosis with Language Models</a>&nbsp;<br>Publication | July 2025</li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/industry/blog/healthcare/2025/05/19/developing-next-generation-cancer-care-management-with-multi-agent-orchestration/" target="_blank" rel="noreferrer noopener">Developing next-generation cancer care management with multi-agent orchestration</a>&nbsp;<br>Microsoft Industry Blogs | May 2025</li>
-
-
-
-<li><a href="https://www.microsoft.com/en-us/research/publication/the-ai-revolution-in-medicine-gpt-4-and-beyond/">The AI Revolution in Medicine: GPT-4 and Beyond</a><br>Book | Peter Lee, Carey Goldberg, Isaac Kohane | April 2023&nbsp;</li>
-</ul>
-
-
-
-<div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
-</div>
-
-
-
-<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
-	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
-		<h2 class="h5 subscribe-to-podcast__heading">
-			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
-		<ul class="subscribe-to-podcast__list list-unstyled">
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Email</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Android</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
-						<span class="subscribe-to-podcast__link-text">Spotify</span>
-					</a>
-				</li>
-			
-							<li class="subscribe-to-podcast__list-item">
-					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
-						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
-						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
-					</a>
-				</li>
-					</ul>
-	</div>
-</section>
-
-
-<div class="wp-block-msr-show-more">
-	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
-			<div>
-				<span>
-					
-
-<h2 class="wp-block-heading" id="transcript">Transcript</h2>
-
-
-
-<p>[MUSIC] </p>
-
-
-
-<p>[BOOK PASSAGE]&nbsp;</p>
-
-
-
-<p><strong>PETER LEE: </strong>“As a society—indeed, as a species—we have a choice to make. Do we constrain or even kill artificial intelligence out of fear of its risks and obvious ability to create new harms? Do we submit ourselves to Al and allow it to freely replace us, make us less useful and less needed? Or do we start, today, shaping our Al future together, with the aspiration to accomplish things that humans alone, and Al alone, can&#8217;t do but that humans+Al can? The choice is in our hands … .”&nbsp;</p>
-
-
-
-<p>[END OF BOOK PASSAGE]</p>
-
-
-
-<p>[THEME MUSIC]</p>
-
-
-
-<p>This is <em>The AI Revolution in Medicine, Revisited</em>. I’m your host, Peter Lee. </p>
-
-
-
-<p>Shortly after OpenAI&#8217;s GPT-4 was publicly released, Carey Goldberg, Dr. Zak Kohane, and I published <em>The AI Revolution in Medicine </em>to help educate the world of healthcare and medical research about the transformative impact this new generative AI technology could have. But because we wrote the book when GPT-4 was still a secret, we had to speculate. Now, two years later, what did we get right, and what did we get wrong? </p>
-
-
-
-<p>In this series, we’ll talk to clinicians, patients, hospital administrators, and others to understand the reality of AI in the field and where we go from here. </p>
-
-
-
-				</span>
-				<span id="show-more-show-less-toggle-2" class="show-more-show-less-toggleable-content">
-					
-
-
-
-<p>[THEME MUSIC FADES]&nbsp;</p>
-
-
-
-<p>The book passage I read at the top is from the epilogue, and I think it’s a truly fitting closing sentiment for the conclusion of this podcast series—because it calls back to the very beginning.</p>
-
-
-
-<p>As I’ve mentioned before, Carey, Zak, and I wrote <em>The AI Revolution in Medicine</em> as a guide to help answer these big questions, particularly as they pertain to medicine. You know, we wrote the book to empower people to make a choice about AI’s development and use. Well, have they? Have <em>we</em>?</p>
-
-
-
-<p>Perhaps we’ll need more time to tell. But over the course of this podcast series, I’ve had the honor of speaking with folks from across the healthcare ecosystem. And my takeaway? They’re all committed to shaping AI into a tool that can improve the industry for practitioners and patients alike.</p>
-
-
-
-<p>In this final episode, I’m thrilled to welcome back my coauthors, Carey Goldberg and Dr. Zak Kohane. We’ll examine the insights from the second half of the season.&nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p>Carey, Zak—it’s really great to have you here again!&nbsp;</p>
-
-
-
-<p><strong>CAREY</strong> <strong>GOLDBERG: </strong>Hey, Peter!&nbsp;</p>
-
-
-
-<p><strong>ZAK</strong> <strong>KOHANE:</strong> Hi, Peter.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So this is the second roundtable. And just to recap, you know, we had several early episodes of the podcast where we talked to some doctors, some technology developers, some people who think about regulation and public policy, patient advocates, a venture capitalist who invests in, kind of, consumer and patient-facing medical ventures, and some bioethicists.&nbsp;</p>
-
-
-
-<p>And I think we had a great conversation there. I think, you know, it felt mostly validating. A lot of the things that we predicted might happen happened, and then we learned a lot of new things. But now we have five more episodes, and the mix of kinds of people that we talk to here is different than the original.&nbsp;</p>
-
-
-
-<p>And so I thought it would be great for us to have a conversation and recap what we think we heard from all of them. So let&#8217;s just start at the top.&nbsp;</p>
-
-
-
-<p>So in this first episode in the second half of this podcast series, we talked to economists Azeem Azhar and Ethan Mollick. And I thought those conversations were really interesting. Maybe there were, kind of, two things, two main topics. One was just the broader impact on the economy, on the cost of healthcare, on overall workforce issues.&nbsp;</p>
-
-
-
-<p>One of the things that I thought was really interesting was something that Ethan Mollick brought up. And maybe just to refresh our memories, let&#8217;s play this little clip from Ethan.<strong>&nbsp;</strong></p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-ab782358e1fff73901dd881b85e04b33"><strong><em>ETHAN MOLLICK: </em></strong><em>So</em><strong><em> </em></strong><em>we’re in this really interesting period where there’s incredible amounts of individual innovation in productivity and performance improvements in this field, like very high levels of it. …</em><em> </em><em>We’re seeing that in nonmedical problems, the same kind of thing, which is, you know, we’ve got research showing 20 and 40% performance improvements. … But then the organization doesn’t capture it; the system doesn’t capture it. Because the individuals are doing their own work, and the systems don’t have the ability to, kind of, learn or adapt as a result.</em>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So let me start with you, Zak. Does that make sense to you? Are you seeing something similar?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I thought it was incredibly insightful because we discussed on our earlier podcast how a chief AI officer in one of the healthcare hospitals, in one of the healthcare systems, was highly regulating the use of AI, but yet in her own practice on her smartphone was using all these AI technologies.&nbsp;</p>
-
-
-
-<p>And so it&#8217;s insightful that on the one hand, she is increasing her personal productivity, …&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> … and perhaps she&#8217;s increasing her quality of her care. But it&#8217;s very hard for the healthcare system to actually realize any gains. It&#8217;s unlikely … let&#8217;s put it this way. It would be for her a defeat if they said, “Now you should see <em>more</em> patients.”&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes. [LAUGHS]&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Now, I&#8217;m not saying that won&#8217;t happen. It could happen. But, you know, gains of productivity are really at the individual level of the doctors. And that&#8217;s why they&#8217;re adopting it. That&#8217;s why the ambient dictation tools are so successful. But really turning it into things that matter in terms of productivity for healthcare, namely making sure that patients are getting healthy, requires that every piece of the puzzle works well together. You know, it&#8217;s well-tread ground to talk about how patients get very expensive procedures, like a cardiac transplant, and then go home, and they’re not put on blood thinners …&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> … and then they get a stroke. You know, the chain is as strong as the weakest link. And just having AI in one part of it is not going to do it. And so hospitals, I think, are doubly burdened by the fact that, (A) they tend to not like innovation because they are high-revenue, low-margin companies. But if they want it implemented effectively, they have to do it across the entire processes of healthcare, which are vast and not completely under their control.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah. Yep. You know, that was Sara Murray, who&#8217;s the chief health AI officer at UC San Francisco.&nbsp;</p>
-
-
-
-<p>And then, you know, Carey, remember, we were puzzled by Chris Longhurst&#8217;s finding in a controlled study that the, you know, having an AI respond to patient emails didn&#8217;t seem to lead to any, I guess you would call it, <em>productivity benefits</em>. I remember we were both kind of puzzled by that. I wonder if that&#8217;s related to what Ethan is saying here.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG:</strong> I mean, possibly, but I think we&#8217;ve seen since then that there have been multiple studies showing that in fact using AI can be extremely effective or helpful, even, for example, for diagnosis.&nbsp;</p>
-
-
-
-<p>And so I find just from the patient point of view, it kind of drives me crazy that you have individual physicians using AI because they know that it will improve the care that they&#8217;re offering. And yet you don&#8217;t have their institutions kind of stepping up and saying, “OK, these are the new norms.”&nbsp;</p>
-
-
-
-<p>By the way, Ethan Mollick is a national treasure, right. Like, he is the classic example of someone who just stepped up at this moment …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>… when we saw this extraordinary technological advance. And he&#8217;s not only stepping up for himself. He&#8217;s spreading the word to the masses that this is what these things can do.&nbsp;</p>
-
-
-
-<p>And so it&#8217;s frustrating to see the institutions not stepping up and instead the individual doctors having to do it.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> But he made another very interesting point, which was that the reason that <em>he</em> could be so informative to not only the public but practitioners of AI is these things would emerge out of the shop, and they would not be aged too long, like a fine wine, before they were just released to the public.&nbsp;</p>
-
-
-
-<p>And so he was getting exposure to these models just weeks after some of the progenitors had first seen it. And therefore, because he&#8217;s actually a really creative person in terms of how he exercises models, he sees uses and problems very early on. But the point is institutions, think about how much they are disadvantaged. They&#8217;re not Ethan Mollick. They&#8217;re not the progenitors. So they&#8217;re even further behind. So it&#8217;s very hard. If you talk to most of the C-suite of hospitals, they&#8217;d be delighted to know as much about the impact as Ethan Mollick.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah. By the way, you know, I picked out this quote because within Microsoft, and I suspect every other software company, we&#8217;re seeing something very similar, where individual programmers are 20 to 30% more productive just in the number of lines of code they write per day or the number of pull requests per week. Any way you measure it, it&#8217;s very consistent. And yet by the time you get to, say, a 25-person software engineering team, the productivity of that whole team isn&#8217;t 25% more productive.&nbsp;</p>
-
-
-
-<p>Now, that <em>is</em> starting to change because we&#8217;re starting to figure out that, well, maybe we should reshape how the team operates. And there&#8217;s more of an orientation towards having, you know, smaller teams of full-stack developers. And then you start to see the gains. But if you just keep the team organized in the usual way, there seems to be a loss. So there&#8217;s something about what Ethan was saying that resonated very strongly with me.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>But I would argue that it&#8217;s not just productivity we&#8217;re talking about. There&#8217;s a moral imperative to improve the care. And if you have tools that will do that, you should be using them or trying harder to.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right. Yep.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I think, yes, first of all, absolutely you would. Unfortunately, most of the short-term productivity measures will not measure improvements in the quality of care because it takes a long time to die even with bad care.&nbsp;</p>
-
-
-
-<p>And so that doesn&#8217;t show up right away. But I think what Peter just said actually came across in several of the podcasts, which is that it&#8217;s very tricky trying to shoehorn these things into making what we&#8217;re already doing more productive.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah. Existing structures.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Yeah. And I know, Carey, that you&#8217;ve raised this issue many times. But it really calls into question, what should we be doing with our time with doctors? And they are a scarce resource. And what is the most efficient way to use them?&nbsp;</p>
-
-
-
-<p>You know, I remember we [<em>The New England Journal of Medicine AI</em>] published a paper of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400296" target="_blank" rel="noopener noreferrer">someone who was able to use AI to increase the throughput of their emergency room<span class="sr-only"> (opens in new tab)</span></a> by actually more appropriately having the truly sick people in the sick queue, in the triage queue, for urgent care.&nbsp;</p>
-
-
-
-<p>And so I think we&#8217;re going to have to think that way more broadly, about we don&#8217;t have to now look at every patient as an unknown with maybe a few pointers on diagnosis. We can have a fairly extensive profiling.&nbsp;</p>
-
-
-
-<p>And I know that colleagues in Clalit [Health Services] in Israel, for example, are using the overall trajectory of the patient and some considerations about utilities to actually figure out who to see next week.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, you know, what you said brings up another maybe connection to one thing that we see also in software development. And it relates to also what we were discussing earlier: about the last thing a doctor wants is to have a tool that allows them to see even yet more patients per day.&nbsp;</p>
-
-
-
-<p>So in software development, there&#8217;s always this tension. Like, how many lines of code can you write per day? That&#8217;s one productivity measure.&nbsp;</p>
-
-
-
-<p>But sometimes we&#8217;re taught, well, don&#8217;t write more lines of code per day, but make sure that your code is well structured. Take the time to document it. Make sure it&#8217;s fully commented. Take the time to talk to your fellow software engineering team members to make sure that it&#8217;s well coordinated. And in the long run, even if you&#8217;re writing half the number of lines of code per day, the software process will be far more efficient.</p>
-
-
-
-<p>And so I&#8217;ve wondered whether there&#8217;s a similar thing where doctors could see 20% fewer patients in a day, but if they take the time and also had AI help to coordinate, maybe a patient&#8217;s journey might be half as long. And therefore, the health system would be able to see twice as many patients in a year&#8217;s period or something like that.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> So I think you&#8217;ve “nerd sniped” me because you [LAUGHTER]—which is all too easy—but I think there&#8217;s a central issue here. And I think this is the stumbling block between what Ethan&#8217;s telling us about between the individual productivity and the larger productivity, is the <em>team&#8217;s</em> productivity.&nbsp;</p>
-
-
-
-<p>And there is actually a good analogy in computer science and that&#8217;s, uh, Brooks’s “mythical man-month,” &#8230;&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes, exactly.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> … where he shows how you can have more and more resources, but when the coordination starts failing, because you have so many, uh, individuals on the team, you start falling apart. And so even if the, uh, individual doctors get that much better, yeah, they take better care of patients, make less stupid things.&nbsp;</p>
-
-
-
-<p>But in terms of giving the “I get you into the emergency room, and I get you out of a hospital as fast as possible, as safely as possible, as effectively as possible,” that&#8217;s teamwork. And we don&#8217;t do it. And we&#8217;re not really optimizing our tools for that.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>And just to throw in a little reality check, I&#8217;m not aware of <em>any</em> indication yet that AI is in any way shortening medical journeys or making physicians more efficient. Yet …&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG:</strong> …<strong> </strong>at least. Yeah.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes. So I think, you know, with respect to our book, critiquing our book, you know, I think it&#8217;s fair to say we were fairly focused or maybe even fixated on the individual doctor or nurse or patient, and we didn&#8217;t really, at least I never had a time where I stepped back to think about the whole care coordination team or the whole health system.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>And I think that&#8217;s right. It&#8217;s because, first of all, <em>you</em> weren’t thinking about it? It&#8217;s not what we&#8217;re taught in medical school. We&#8217;re not taught to talk about team communication excellence. And I think it&#8217;s absolutely essential.&nbsp;</p>
-
-
-
-<p>There’s a … what’s the … there was an early … [Terry] Winograd. And he was trying to capture what are the different kinds of actions related to pronouncements that you could expect and how could AI use that. And that was beginning to get at it.&nbsp;</p>
-
-
-
-<p>But I actually think this is dark matter of human organizational technology that is not well understood. And our products don&#8217;t do well. You know, we can talk about all the groupware things that are out there. But they all don&#8217;t quite get to that thing.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> And I can imagine an AI serving as a team leader, a really active team leader, a real quarterback of, let&#8217;s say, a care team.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, in fact, you know, we have been trying to experiment with this. My colleague, Matt Lungren, who was also one of the interviewees early on, has been <a href="https://www.microsoft.com/en-us/industry/blog/healthcare/2025/05/19/developing-next-generation-cancer-care-management-with-multi-agent-orchestration/" target="_blank" rel="noreferrer noopener">working with Stanford Medicine on a tumor board AI agent</a>—something that would facilitate tumor board meetings.&nbsp;</p>
-
-
-
-<p>And the early experiences are pretty interesting. Whether it relates to efficiency or productivity I think remains to be seen, but it does seem pretty interesting.&nbsp;</p>
-
-
-
-<p>But let&#8217;s move on.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Well, actually, Peter, …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Oh, go ahead.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>…<strong> </strong>if you&#8217;re willing to not quite move on yet …&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> [LAUGHS] All right.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>… this kind of segues into one of, I think, the most provocative questions that arose in the course of these episodes and that I&#8217;d love to have you answer, which was, remember, it was a question at a gathering that you were at, and you were asked, “Well, you&#8217;re focusing a lot on potential AI effects on individual patient and physician experiences. But what about the revolution, right? What about, like, can you be more big-picture and envision how generative AI could actually, kind of, overturn or fix the broken system, right?”&nbsp;</p>
-
-
-
-<p>I&#8217;m sure you&#8217;ve thought about that a lot. Like, what&#8217;s your answer?&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> You know, I think ultimately, it will have to. For it to really make a difference, I think that the normal processes, our normal concept of how healthcare is delivered—how new medical discoveries are made and brought into practice—I think those things are going to have to change a lot.&nbsp;</p>
-
-
-
-<p>You know, one of the things I think about a lot right at the moment is, you know, we tend to think about, let&#8217;s say, medical diagnosis as a problem-solving exercise. And I think, at least at the Kaiser Permanente School of Medicine, the instruction really treats it as a kind of detective thing based on a lot of knowledge about biology and biomedicine and human condition, and so on.&nbsp;</p>
-
-
-
-<p>But there&#8217;s another way to think about it, given AI, which is when you see a patient and you develop some data, maybe through a physical exam, labs, and so on, you can just simply ask, “You know, what did the 500 other people who are most similar to this experience, how were they diagnosed? How were they treated? What were their outcomes? What were their experiences?”&nbsp;</p>
-
-
-
-<p>And that&#8217;s really a fundamentally different paradigm. And it just seems like at least the technical means will be there. And by the way, that also then relates to [the questions]: “And what was most efficacious cost-wise? What was most efficient in terms of the total length of the patient journey? How does this relate to my quality scores so I can get more money from Medicare and Medicaid?”&nbsp;</p>
-
-
-
-<p>All of those things, I think, you know, we&#8217;re starting to confront.&nbsp;</p>
-
-
-
-<p>One of the other episodes that we&#8217;re going to talk about, was my interview with two medical students. Actually, thinking of a Morgan Cheatham as just a medical student or medical resident [LAUGHTER] is a little strange. But he is.&nbsp;</p>
-
-
-
-<p>One of the things he talks about is the importance that he placed in his medical training about adopting AI. So, Zak, I assume you see this also with some students at Harvard Medical School. And the other medical student we interviewed, Daniel Chen, seemed to indicate this, too, where it seems like it&#8217;s the students who are bringing AI into the medical education ahead of the faculty. Does that resonate with you?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> It absolutely resonates with me. There are students I run into who, honestly, my first thought when I&#8217;m talking to them is, why am I teaching you [LAUGHTER], and why are you not starting a big AI company, AI medicine company, now and really change healthcare instead of going through the rest of the rigmarole? And I think broadly, higher education has a problem there, which is we have not embraced, again, going back to Ethan, a lot of the tools that can be used. And it&#8217;s because we don&#8217;t know necessarily the right way to teach them. And so far, the only lasting heuristic seems to be: use them and use them often.&nbsp;</p>
-
-
-
-<p>And so it&#8217;s an awkward thing, where the person who knows how to use the AI tools now in the first-year medical school can teach themselves better and faster than anybody else in their class who is just relying on the medical school curriculum.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Now, the reason I brought up Morgan now after our discussion with Ethan Mollick is Morgan also talked about AI collapsing medical specialties.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yes.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And so let&#8217;s hear this snippet from him.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-df1ec79bf2184e924d149dd5a8bfd566"><strong><em>MORGAN CHEATHAM:</em></strong><em> AI collapses medical specialties onto themselves, right. You have the canonical example of the cardiologist, you know, arguing that we should diuresis and maybe the nephrologist arguing that we should, you know, protect the kidneys. And how do two disciplines disagree on what is right for the patient when in theory, there is an objective best answer given that patient’s clinical status? … So I’m interested in this question of whether medical specialties themselves need to evolve. And if we look back in the history of medical technology, there are many times where a new technology forced a medical specialty to evolve.</em></p>
-
-
-
-<p><strong>LEE:</strong> So on the specific question about specialties, Zak, do you have a point of view? And let me admit, first of all, for us, all three of us, we didn&#8217;t have any clue about this in our book. I don&#8217;t think.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Not much. Not much of a clue.&nbsp;</p>
-
-
-
-<p>So I&#8217;m reminded of a <em>New Yorker</em> cartoon where you see a bunch of surgeons around the patient, and someone says, “Is that a spleen?” And it says, “I don&#8217;t know. I slept during the spleen lecture,” [LAUGHTER] and &#8230; or “I didn&#8217;t take the spleen course.”&nbsp;</p>
-
-
-
-<p>And yet when we measure things, we measure things much more than we think we are doing. So for example, we [<em>NEJM AI</em>] just published a paper where echocardiograms were being done. And it turns out those ultrasound waves just happen to also permeate the liver. And <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AIoa2400948" target="_blank" rel="noopener noreferrer">you can actually diagnose on the way with AI all the liver disease<span class="sr-only"> (opens in new tab)</span></a> that is in—and treatable liver disease—that&#8217;s in those patients.&nbsp;</p>
-
-
-
-<p>But if you&#8217;re a cardiologist, “Liver? You know, I slept through liver lecture.” [LAUGHTER] And so I do think that, (A) the natural, often guild/dollar-driven silos in medicine are less obvious to AI, despite the fact that they do exist in departments and often in chapters.&nbsp;</p>
-
-
-
-<p>But Morgan&#8217;s absolutely right. I can tell you as an endocrinologist, if I have a child in the ICU, the endocrinologist, the nephrologist, and the neurosurgeon will argue about the right thing to do.&nbsp;</p>
-
-
-
-<p>And so in my mind, the truly revolutionary thing to do is to go back to 1994 with Pete Szolovits, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dspace.mit.edu/bitstream/handle/1721.1/149765/MIT-LCS-TR-604.pdf?sequence=1" target="_blank" rel="noopener noreferrer">Guardian Angel Project<span class="sr-only"> (opens in new tab)</span></a>. What I think you need is a process. And the process is the quarterback. And the quarterback has only one job: take care of the patient.&nbsp;</p>
-
-
-
-<p>And it should be thinking all the time about the patient. What&#8217;s the right thing? And can be as school-marmish or not about, “Zak, you&#8217;re eating this or that or exercise or sleep,” but also, “Hey, surgeons and endocrinologists, you&#8217;re talking about my host, Zak. This is the right way because this problem and this problem and our best evidence is this is the right way to get rid of the fluid. The other ways will kill him.”</p>
-
-
-
-<p>And I think you need an authoritative quarterback that has the view of the others but then makes the calls.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Is that quarterback going to be AI or human?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Well, for the very lucky people, it&#8217;ll be a human augmented by AI, <em>super concierge</em>.&nbsp;</p>
-
-
-
-<p>But I think we&#8217;re running out of doctors. And so realistically, it&#8217;s going to be an AI that will have to be certified in very different ways, along the ways Dave Blumenthal says, essentially, trial by fire. Like putting residents into clinics, we&#8217;re going to be putting AIs into clinics.&nbsp;</p>
-
-
-
-<p>But what&#8217;s worse, by the way, than the three doctors arguing about care in front of the patient is, what happens so frequently, is then you see them outpatient, and each one of them gives you a different set of decisions to make. Sometimes that actually interact pathologically, unhealthily with each other. And only the very smart nurses or primary care physicians will actually notice that and call, quote, a “family meeting,” or bring everybody in the same room to align them.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah, I think this idea of quarterback is really very, very topical right now because there&#8217;s so much intensity in the AI space around agents. And in fact, you know, the Microsoft AI team under Mustafa Suleyman and Dominic King, Harsha Nori, and team just recently posted <a href="https://www.microsoft.com/en-us/research/publication/sequential-diagnosis-with-language-models/" target="_blank" rel="noreferrer noopener">a paper on something called sequential diagnosis</a>, which is basically an AI quarterback that is supposed to smartly consult with other AI specialties. And interestingly, one of the AI agents is sort of the devil&#8217;s advocate that&#8217;s always criticizing and questioning things. </p>
-
-
-
-<p><strong>GOLDBERG: </strong>That’s interesting.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And at least on very, very hard, rare cases, it can develop some impressive results. There&#8217;s something to this that I think is emerging.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>And, Peter, Morgan said something that blew me away even more, which was, well, why do we even need specialists if the reason for a specialist is because there&#8217;s so much medical knowledge that no single physician can know all of it, and therefore we create specialists, but that limitation does not exist for AI.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah. Yeah.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>And so there he was kind of undermining this whole elaborate structure that has grown up because of human limitations that may not ultimately need to be there.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Right. So now that gives me a good segue to get back to our economist and get to something that Azeem Azhar said. And so there&#8217;s a clip here from Azeem.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-6ff46028707e465b3cd8582210840bd0"><strong><em>AZEEM AZHAR: </em></strong><em>We didn’t talk about, you know, AI in its ability to potentially do this, which is to extend the clinician’s presence throughout the week. <em>You know, t</em>he idea that maybe some part of what the clinician would do if you could talk to them on Wednesday, Thursday, and Friday could be delivered through an app or a chatbot just as a way of encouraging the compliance, which is often, especially with older patients, one reason why conditions, you know, linger on for longer.</em>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> And, you know, in the same conversation, he also talked about his own management of asthma and the fact that he&#8217;s been managing this for several decades and knows more than any other human being, no matter how well medically trained, could possibly know. And it&#8217;s also very highly personalized. And it&#8217;s not a big leap to imagine AI having that sort of lifelong understanding.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> So in fact, I want to give credit back to our book since you insulted us. [LAUGHTER] You challenged us. You doubted us. We do have at the end of the book a AI which is helping this woman manage her way through life. It&#8217;s quarterbacking for the woman all these different services.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> So there.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Ah, you&#8217;re right. Yes. In fact, it&#8217;s very much, I think, along the lines of the vision that Azeem laid out in our conversation.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah. It also reminded me of the piece <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.wbur.org/news/2017/06/16/managing-mom-weight-algorithm" target="_blank" rel="noopener noreferrer">Zak wrote about his mother<span class="sr-only"> (opens in new tab)</span></a> at one point when she was managing congestive heart failure and she needed to watch her weight very carefully to see her fluid status. And absolutely, there&#8217;s no … I see no reason whatsoever why that couldn&#8217;t be done with AI right now. Actually, although back then, Zak, you were writing that it takes much more than an AI [LAUGHS] to manage such a thing, right?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> You need an AI that you can trust. Now, my mother was born in 1927, and she&#8217;d learned through the school of hard knocks that you can&#8217;t trust too many people, maybe even not your son, <em>MD</em>, <em>PhD</em> [LAUGHTER].&nbsp;</p>
-
-
-
-<p>But what I&#8217;ve been surprised [by] is how, for example, how many people are willing to trust and actually see effective use of AI as mental health counselors, for example.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> So it may in fact be that there&#8217;s a generational thing going on, and at least there&#8217;ll be some very large subset of patients which will be completely comfortable in ways that my mother would have never tolerated.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah. Now, I think we&#8217;re starting to veer into some of the core AI.&nbsp;</p>
-
-
-
-<p>And so I think maybe one of the most fun conversations I had was in the episode with both Sébastien Bubeck, my former colleague at Microsoft Research, and now he&#8217;s at OpenAI, and Bill Gates. And there was so much that was, I thought, interesting there. And there was one point, I think that sort of touches tangentially on what we were just conversing about, that Sébastien said. So let&#8217;s hear this snippet.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-19a223099867a12ed2599ae811939b43"><strong><em>SÉBASTIEN BUBECK: </em></strong><em>And one example that I really like, a study that recently appeared where … they were comparing doctors without and with ChatGPT. … So this was a set of cases where the accuracy of the doctors alone was around 75%. ChatGPT alone was 90%. … But then the kicker is that doctors with ChatGPT was 80%. Intelligence alone is not enough. It’s also how it’s presented, how you interact with it. And ChatGPT, it’s an amazing tool. Obviously, I absolutely love it. But it’s not … you don’t want a doctor to have to type in, you know, prompts and use it that way. It should be, as Bill was saying, kind of running continuously in the background, sending you notifications.</em></p>
-
-
-
-<p><strong>LEE:</strong> So I thought Sébastien was saying something really profound, but I haven&#8217;t been able to quite decide or settle in my mind what it is. What do you make of what Seb just said?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I think it&#8217;s context. I think that it requires an enormous amount of energy, brain energy, to actually correctly provide the context that you want this thing to work on. And it&#8217;s only going to really feel like we&#8217;re in a different playing field when it&#8217;s listening all the time, and it just steps right in.&nbsp;</p>
-
-
-
-<p>There is an advantage that, for example, a good programmer can have in prompting Cursor or any of these tools to do so. But it takes effort. And I think being in the conversation all the time so that you understand the context in the widest possible way is incredibly important. And I think that&#8217;s what Seb is getting at, which is if we spoon feed these machines, yes, 90%.&nbsp;</p>
-
-
-
-<p>But then, talking to a human being who then has to interact and gets distracted from whatever flow they&#8217;re in and maybe even makes them feel like an early bicycle rider who all of a sudden realizes, “I&#8217;m balancing on two wheels—oh no!” And they fall over. You know, there&#8217;s that interaction which is negatively synergistic.&nbsp;</p>
-
-
-
-<p>And so I do think it&#8217;s a very hard human-computer engineering problem. How do we make these two agents, human and computational, work in an ongoing way in the flow? I don&#8217;t think I&#8217;m seeing anything that&#8217;s particularly new. And the things that you&#8217;re beginning to hint about, Peter, in terms of agentic coordination, I think we&#8217;ll get to some of that. </p>
-
-
-
-<p><strong>LEE:</strong> Yeah. Carey, does this give you any pause? The kind of results that … they&#8217;re puzzling results. I mean, the idea of doctors with AI seeming at least in this one test—it&#8217;s just one test—but it&#8217;s odd that it does worse than the AI alone.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yes. I would want to understand more about the actual conditions of that study.&nbsp;</p>
-
-
-
-<p>From what Bill Gates said, I was most struck by the question of resource-poor environments. That even though this was absolutely one of the most promising, brightest perspectives that we highlighted in the book, we still don&#8217;t seem to be seeing a lot of use among the one half of humanity that lacks decent access to healthcare.&nbsp;</p>
-
-
-
-<p>I mean, there are access problems everywhere, including here in the United States. And it is one of the most potentially promising uses of AI. And I thought if anyone would know about it, he would with the work that the Gates Foundation does.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>You know, I think both you and Bill, I felt, are really simpatico. You know, Bill expressed genuine surprise that more isn&#8217;t happening yet. And it really echoed, in fact, maybe even using some of the exact same words that you&#8217;ve used. And so two years on, you&#8217;ve expressed repeatedly expecting to have seen more out in the field by now. And then I thought Bill was saying something in our conversation very similar.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>You know, for me, I see it both ways. I see the world of medicine really moving fast in confronting the reality of AI in such a serious way. But at the same time, it&#8217;s also hard to escape the feeling that somehow, we should be seeing even more.&nbsp;</p>
-
-
-
-<p>So it&#8217;s an odd thing, a little bit paradoxical.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah. I think one thing that we didn&#8217;t focus on hardly at all in the book but that we are seeing is these companies rising up, stepping up to the challenge, Abridge and OpenEvidence, and what Morgan describes as a new stack, right.&nbsp;</p>
-
-
-
-<p>So there is that on the flip side.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Now, I want to get back to this thing that Seb was saying. And, you know, I had to bring up the issue of sycophancy, which we discussed at our last roundtable also. But it was particularly … at the time that Seb, Bill, and I had our conversation, OpenAI had just gone through having to retract a fresh update of GPT-4o because it had become too sycophantic.&nbsp;</p>
-
-
-
-<p>So I can&#8217;t escape the feeling that some of these human-computer interaction issues are related to this tension between you want AI to follow your directions and be faithful to you, but at the same time not agree with you so often that it becomes a fault.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I think it&#8217;s asking the AI to enter into a fundamental human conundrum, which is there are extreme versions of doublethink, and there&#8217;s everyday things, everyday asks of doublethink, which is how to be an effective citizen.&nbsp;</p>
-
-
-
-<p>And even if you&#8217;re thinking, “Hmm. I&#8217;m thinking this. I&#8217;m just not going to say it because that would be rude or counterproductive.” Or some of the official doublethinks, where you&#8217;re actually told you must say this, even if you think something else. And I think we&#8217;re giving a very tough mission for these things: be nice to the user and be useful.&nbsp;</p>
-
-
-
-<p>And, in education, where the thing is not always one in the same. Sometimes you have to give a little tough love to educate someone, and doing that well is both an art and it&#8217;s also very difficult. And so, you know, I&#8217;m willing to believe that the latest frontier models that have made the news in the last month are very high-performing, but they&#8217;re also all highlighting that tension …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yes.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>… that tension between behaving like a good citizen and being helpful. And this gets back to what are the fundamental values that we hope these things are following.&nbsp;</p>
-
-
-
-<p>It&#8217;s not, you know, “Are these things going to develop us into the paperclip factory?” It&#8217;s more of, “Which of our values are going to be elevated, and which one will be suppressed?”&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Well, since I criticized our book before, let me pat ourselves on the back this time because, I think, pervasive throughout our book, we were touching on some of these issues.&nbsp;</p>
-
-
-
-<p>In fact, we started the book, you know, with GPT-4 scolding me for wanting it to impersonate Zak. And there was the whole example of asking it to rewrite a poem in a certain way, and it kind of silently just tried to slide, you know, without me knowing, slide by without following through on the whole thing.&nbsp;</p>
-
-
-
-<p>And so that early version of GPT-4 was definitely not sycophantic at all. In fact, it was just as prone to call you an idiot if it thought you were wrong. [LAUGHTER]&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I had some very testy conversations around my endocrine diagnosis with it. [LAUGHTER]&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah. Well then, Peter, I would ask you, I mean last time I asked you about, <em>well, hallucinations, aren&#8217;t those solvable?</em> And this time I would ask you, well, sycophancy, isn&#8217;t that kind of like a dial you can turn? Like, is that not solvable?&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>You know, I think there are several interlocking problems. But if we assume superintelligence, even with superintelligence, medicine is such an inexact science that there will always be situations that are guesses that take into account other factors of a person&#8217;s life, other value judgments, exactly as Zak had pointed out in our previous roundtable conversation.&nbsp;</p>
-
-
-
-<p>And so I think there&#8217;s always going to be an opening for either differences of opinion or agreeing with you too much. And there are dangers in both cases. And I think they&#8217;ll always be present. I don&#8217;t know that, at least in something as inexact as medical science, I don&#8217;t know that it&#8217;ll ever be completely eliminated.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>And it&#8217;s interesting because I was trying to think what&#8217;s the right balance, but there are patients who want to be told this is what you do. Whereas there&#8217;s other patients who want to go through every detail of the reasoning.&nbsp;</p>
-
-
-
-<p>And it&#8217;s not a matter of education. It&#8217;s really a temperamental, personality issue. And so we&#8217;re going to <em>have to</em>, I think, develop personalities …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>… that are most effective for those different kinds of individuals. And so I think that is going to be the real frontier. Having human values and behaving in ways that are recognizable and yet effective for certain groups of patients.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>And lots of deep questions, including how paternalistic do we want to be?&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>All right, so we&#8217;re getting into medical science and hallucination. So that gives me a great segue to the conversations in the episode on biomedical research. And one of the people that I interviewed was Noubar Afeyan from Moderna and Flagship Pioneering. So let&#8217;s listen to this snippet.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-574184a033e6f29ff2ba40f7e611b28a"><strong><em>NOUBAR AFEYAN:</em></strong><em> We, some hundred or so times a year, ask “what if” questions that lead us to totally weird places of thought. We then try to iterate, iterate, iterate to come up with something that’s testable. Then we go into a lab, and we test it. So in that world, right, sitting there going, like, “How do I know this transformer is going to work?” The answer is, “For what?” Like, it’s going to work to make something up … well, guess what? We knew early on with LLMs that hallucination was a feature, not a bug for what we wanted to do.</em></p>
-
-
-
-<p><strong>LEE: </strong>[LAUGHS] So I think that really touches on just the fact that there&#8217;s so many unknowns and such lack of precision and exactness in our understanding of human biology and of medicine. Carey, what do you think?&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>I mean, I just have this emotional reaction, which is that I love the idea of AI marching into biomedical science and everything from getting to the virtual cell eventually to, Zak, I think it was a colleague of yours who recently published about &#8230; it was a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41591-025-03832-2" target="_blank" rel="noopener noreferrer">new medication that had been sort of discovered by AI<span class="sr-only"> (opens in new tab)</span></a>, and it was actually testing out up to the phase II level or something, right?</p>
-
-
-
-<p><strong>KOHANE:</strong> Oh, this is Marinka’s work.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah, Marinka, Marinka Zitnik. And … yeah. So, I mean, I think it avoids a lot of the, sort of, dilemmas that are involved with safety and so on with AI coming into medicine. And it&#8217;s just the discovery process, which we all want to advance as quickly as possible. And it seems like it actually has a great deal of potential that&#8217;s already starting to be realized.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Oh, absolutely.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I love this topic. First of all, I thought, actually, I think Bill and Seb, actually, had interesting things to say on that very topic, rationales which I had not really considered why, in fact, things might progress faster in the discovery space than in the clinical delivery space, just because we don&#8217;t know in clinical medicine what we&#8217;re trying to maximize precisely. Whereas for a drug effect, we do know what we&#8217;re trying to maximize.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Well, in fact, I happened to save that snippet from Bill Gates saying that. So let&#8217;s cue that up.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-6ca7a5edfbf41028162616b68d8380d1"><strong><em>BILL GATES: </em></strong><em>I think it’s very much within the realm of possibility that the AI is not only accelerating healthcare discovery but substituting for a lot of the roles of, you know, “I’m an organic chemist,” or “I run various types of assays.” I can see those, which are, you know, testable-output-type jobs but with still very high value, I can see, you know, some replacement in those areas before the doctor.</em>&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So, Zak, isn&#8217;t that Bill saying exactly what you’re saying?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> That is my point. I have to say that this is another great bet, that either we&#8217;re all going to be surprised or a large group of people will be surprised or disappointed.&nbsp;</p>
-
-
-
-<p>There&#8217;s still a lot of people in the sort of medicinal chemist, trialist space who are still extremely skeptical that this is going to work. And we haven&#8217;t quite shown them yet that it is. Why have we not shown them? Because we haven&#8217;t gone all the way to a phase III study, which showed that the drug behaves as expected to, is effective, and basically doesn&#8217;t hurt people. That turns out to require a lot of knowledge. I actually think we&#8217;re getting there, but I understand the skepticism.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Carey, what are your thoughts?&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah. I mean, there will be no way around going through full-on clinical trials for anything to ever reach the market. But at the same time, you know, it&#8217;s clearly very promising. And just to throw out something for the pure fun of it, Peter, I saw &#8230; one of my favorite tweets recently was somebody saying, you know, isn&#8217;t it funny how computer science is actually becoming a lot more like biology in that it&#8217;s just becoming empirical.&nbsp;</p>
-
-
-
-<p>It&#8217;s like you just throw stuff at the AI and see what it does. [LAUGHTER] And I was like,<em> oh, yeah, that&#8217;s what Peter was doing when we wrote the book.</em> I mean, he understood as many innards as anybody can. But at the same time, it was a totally empirical exercise in seeing what this thing would do when you threw things at it.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>So it&#8217;s the new biology.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, yeah. So I think we talked in our book about accelerating, you know, biomedical knowledge and medical science. And that actually seems to be happening. And I really had fun talking to Daphne Koller about some of the accomplishments that she&#8217;s made. And so here&#8217;s a little snippet from Daphne.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-b519fe67233d03b2946f95df076d6451"><strong><em>DAPHNE KOLLER: </em></strong><em>This will impact not only the early stages of which hypotheses we interrogate, which molecules we move forward, but also hopefully at the end of the day, which molecule we prescribe to which patient. And I think there’s been obviously so much narrative over the years about precision medicine, personalized medicine, and very little of that has come to fruition, with the exception of, you know, certain islands in oncology, primarily on genetically driven cancers.</em>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So, Zak, when I was listening to that, I was reminded of one of the very first examples that you had where, you know, you had a very rare case of a patient, and you&#8217;re having to narrow down some pretty complex and very rare genetic conditions. This thing that Daphne says, that seems to be the logical conclusion that everyone who&#8217;s thinking hard about AI and biology is coming to. Does it seem more real now two years on?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> It absolutely seems more real. Here&#8217;s some sad facts. If you are at a cancer center, you will get targeted therapies if you qualify for it. Outside cancer centers, you won&#8217;t. And it&#8217;s not that the therapies aren&#8217;t available. It&#8217;s just that you won&#8217;t have people thinking about it in that way. And especially if you have some of the rare and more aggressive cancers, if you&#8217;re outside one of those cancer centers, you&#8217;re at a significant disadvantage for survival for that reason. And so anything that provides just the “simple,” in quotes, dogged investigation of the targeted therapies for patients, it&#8217;s a home run.&nbsp;</p>
-
-
-
-<p>So my late graduate student, Atul Butte, died recently at UCSF, where he was both a professor and the leader of the Bakar Institute, and he was a Zuckerberg Chan Professor of Pediatrics.&nbsp;</p>
-
-
-
-<p>He was diagnosed with a rare tumor two years ago. His wife is a PhD biologist, and when he was first diagnosed, she sent me the diagnosis and the mutations. And I don&#8217;t know if you know this, Peter, but this was still when we were writing the book and people didn&#8217;t know about GPT-4.&nbsp;</p>
-
-
-
-<p>I put in those mutations into GPT-4 and the diagnosis. And I said, “I&#8217;d like to help treat my friend. What&#8217;s the right treatment?” And GPT, to paraphrase, GPT-4 said, “Before we start talking about treatment, are you sure this is the right diagnosis? Those mutations are not characteristic for that tumor.&#8221; And he had been misdiagnosed. And then they changed the diagnosis therapy and some personnel. </p>
-
-
-
-<p>So I don&#8217;t have to hallucinate this. It&#8217;s already happened, and we&#8217;re going to need this. And so I think targeted therapy for cancers is the most obvious use. And if God forbid one of you has a family member who has cancer, it&#8217;s moral malpractice not to look at the genetics and run it past GPT-4 and say, “What are the available therapies?”&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I really deeply believe that.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Carey, I think one thing you&#8217;ve always said is that you&#8217;re surprised that we don&#8217;t hear more stories along these lines. And I think you threw a quote from Mustafa Suleyman back at me. Do you want to share that?&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yes. Recently, I believe it was a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bigtechnology.com/p/microsoft-ai-ceo-mustafa-suleyman-c45" target="_blank" rel="noopener noreferrer">Big Technology interview<span class="sr-only"> (opens in new tab)</span></a>, and the reporter asked Mustafa Suleyman, “So you guys are seeing 50 million queries, medical queries, a day [to Copilot and Bing]. You know, how&#8217;s that going?” And I think I am a bit surprised that we&#8217;re not seeing more stories of <em>all</em> types. Both here&#8217;s how it helped me and also here was maybe, you know, a suggestion that was not optimal.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah. I do think in our book, we did predict both positive and negative outcomes of this. And it is odd. Atul was very open with his story. And of course, he is such … he was such a prominent leader in the world of medicine.&nbsp;</p>
-
-
-
-<p>But I think I share your surprise, Carey. I expected by now that a lot more public stories would be out. Maybe there is someone writing a book collecting these things, I don&#8217;t know.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Maybe someone called Carey Goldberg should write that book. [LAUGHTER]&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Write a book, maybe. I mean, we have <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://patientsuseai.substack.com/" target="_blank" rel="noopener noreferrer">Patients Use AI<span class="sr-only"> (opens in new tab)</span></a>, which is a wonderful blog by Dave deBronkart, the patient advocate.&nbsp;</p>
-
-
-
-<p>But I wonder if it&#8217;s also something structural, like who would be or what would be the institution that would be gathering these stories? I don’t know.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Right.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> And that&#8217;s the problem. You see, this goes back to the same problem that [Ethan] Mollick was talking about. Individual doctors are using them. The hospital as a whole is not doing that. So it&#8217;s not judging the quality, as part of its quality metrics, of how good the AI is performing and what new has happened. And the other audience, namely the patients, have no mechanism. There is no mechanism to go to Better Business Bureau and say, “They screwed up,” or “This was great.”&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So now I want to get a little more futuristic. And this gets into whether AI is really going to get almost to the <em>ab initio</em> understanding of human biology. And so Eric Topol, who is one of the guests, spoke to this a bit. So let&#8217;s hear this.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-a8cd8394bbdf383bb04d1e5902cb8b97"><strong><em>LEE: </em></strong><em>So you talk about a virtual cell. Is that achievable within 10 years, or is that still too far out?</em><br><br><strong><em>ERIC TOPOL:</em></strong><em> No, I think within 10 years for sure. You know, the group that got assembled, that Steve Quake pulled together, I think has 42 authors in a paper in Cell. The fact that he could get these 42 experts in life science and some in computer science to come together and all agree that not only is this a worthy goal, but it’s actually going to be realized, that was impressive.</em> </p>
-
-
-
-<p><strong>LEE:</strong> You know, I have to say Eric&#8217;s optimism took me aback. Just speaking as a techie, I think I started off being optimistic: as soon as we can figure out molecular dynamics, biology can be solved. And then you start to learn more about biochemistry, about the human cell, and then you realize, oh, my God, this is just so vast and unknowable. And now you have Eric Topol saying, “Well, in less than 10 years.”&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>So what&#8217;s delightful about this period is that those of us who are cautious were so incredibly wrong about AI two years ago. [LAUGHTER] That&#8217;s a true joy &#8230; I mean, absolute joy. It&#8217;s great to have your futurism made much more positive.&nbsp;</p>
-
-
-
-<p>But I think that we&#8217;re going from, you know, for example, AlphaFold has had tremendous impact. But remember, that was built on years of acquisition of crystallography data that was annotated. And of course, the annotation process becomes less relevant as you go down the pipe, but it started from that.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> And there&#8217;s lots of parts of the cell. So when people talk about virtual cells—I don&#8217;t mean to get too technical—mostly they&#8217;re talking about perturbation of gene expression. They&#8217;re not talking about, “Oh, this is how the liposome and the centrosome interact, and notice how the Golgi bodies bump into each other.”&nbsp;</p>
-
-
-
-<p>There&#8217;s a whole bunch of other levels of abstraction we know nothing about. This is a complex factory. And right now, we&#8217;re sort of the level from code into loading code into memory. We&#8217;re not talking about how the rest of the robots work in that cell, and how the rest of those robots work in the cell turns out to be pretty important to functioning.&nbsp;</p>
-
-
-
-<p>So I&#8217;d love to be wrong again. And in 10 years, oh yeah, not only, you know, our first in-human study will be you, Dr. Zak. We&#8217;re going put the drug because we fully simulated you. That&#8217;d be great.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>And, by the way, just to give people their due, there probably was a lot of animal research that could be done <em>in silico </em>and that for various political reasons we&#8217;re now seeing happen. That&#8217;s a good thing. But I think that sometimes it takes a lot of hubris to get us where we need to get, but my horizon is not the same as his.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>So I guess I have to take this time to brag. Just recently out of our AI for Science team did publish in <em>Science</em> a <a href="https://www.microsoft.com/en-us/research/publication/scalable-emulation-of-protein-equilibrium-ensembles-with-generative-deep-learning/" target="_blank" rel="noreferrer noopener">biological emulator that does pretty long timespan, very, very precise, and very efficient molecular dynamics</a>, biomolecular dynamics emulation. We call it <em>emulation</em> because it&#8217;s not simulating every single time step but giving you the final confirmations.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>That&#8217;s an amazing result.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> But … that is an amazing result. And you&#8217;re doing it in some very important interactions. But there&#8217;s so much more to do.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I know, and it&#8217;s single molecules; it&#8217;s not even two molecules. There&#8217;s so much more to go for here. But on the other hand, Eric is right, you know, 42 experts writing for <em>Cell</em>, you know, that&#8217;s not a small matter.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> So I think sometimes you really need to drink your own hallucinogens to actually succeed. Because remember, when the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.genome.gov/human-genome-project" target="_blank" rel="noopener noreferrer">Human Genome Project<span class="sr-only"> (opens in new tab)</span></a> was launched, we didn&#8217;t know how to sequence at scale.&nbsp;</p>
-
-
-
-<p>We said maybe we would get there. And then in order to get the right funding and excitement and, I think, focus, we predicted that by early 2000s we&#8217;d be transforming medicine. Has not happened yet. Things have happened, but at a much slower pace. And we&#8217;re 25 years out. In fact, we&#8217;re 35 years out from the launch.&nbsp;</p>
-
-
-
-<p>But again, things are getting faster and faster. Maybe the singularity is going to make a whole bunch of things easier. And GPT-6 will just say, “Zak, you are such a pessimist. Let me show you how it&#8217;s done.”&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah.&nbsp;</p>
-
-
-
-<p>It really is a pessimism versus optimism. Like is it, I mean, biology is such a bitch, right. [LAUGHTER] Can we actually get there?&nbsp;</p>
-
-
-
-<p>At the same time, everyone was surprised and blown away by the, you know, the quantum leap of GPT-4. Who knows when enough data gets in there if we might not have a similar leap.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah. All right.&nbsp;</p>
-
-
-
-<p>So let&#8217;s get back to healthcare delivery. Besides Morgan Cheatham, we talked to [a] more junior medical student who&#8217;s at the Kaiser Permanente School of Medicine, Daniel Chen. And, you know, I asked him about this question of patients who come in armed [LAUGHS] with a lot of their own information. Let&#8217;s hear what he said about this.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-b854f48f19d32b116ea80de7d13c8a99"><strong><em>DANIEL CHEN: </em></strong><em>But for those that come in with a list, I sometimes sit down with them, and we’ll have a discussion, honestly. … “I don’t think you have meningitis because, you know, you’re not having a fever. Some of the physical exam maneuvers we did were also negative. So I don’t think you have anything to worry about that,” you know. So I think it’s having that very candid conversation with the patient that helps build that initial trust.</em>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So, Zak, as far as I can tell, Daniel and Morgan are figuring this out on their own as medical students. I don&#8217;t think this is part of the curriculum. Does it need to be?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> It&#8217;s missing the bigger point. The incentives and economic forces are such that even if you were Daniel, and things have not changed in terms of incentives, and it&#8217;s 2030, he still has to see this many patients in an hour.&nbsp;</p>
-
-
-
-<p>And sitting down, going over that with a patient, let&#8217;s say some might need more &#8230; in fact, I think computer scientists are enriched for these sort of neurotic “explain [to] me why this works,” when often the answer is, “I have no idea; empirically it does.”&nbsp;</p>
-
-
-
-<p>And patients in some sense deserve that conversation, and we&#8217;re taught about joint decision making, but in practice, there&#8217;s a lot of skills that are deployed to actually deflect so that you can get through the appointment and see enough patients per hour.&nbsp;</p>
-
-
-
-<p>And that&#8217;s why I think that one of the central … another task for AI is how to engage with patients to actually explain to them why their doctor is doing what he&#8217;s doing and perhaps ask the one or two questions that you should be asking the doctor in order to reassure you that they&#8217;re doing the right thing.</p>
-
-
-
-<p><strong>LEE: </strong>Yeah.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>I<strong> </strong>just …<strong> </strong>right now, we are going to have less doctor time, not more doctor time.&nbsp;</p>
-
-
-
-<p>And so I&#8217;ve always been struck by the divide between medicine that we&#8217;re taught as it should be practiced as a gentle person&#8217;s vocation or sport as opposed to assembly line, heads down “you&#8217;ve got to see those patients by the end of the day” because, otherwise, you haven&#8217;t seen all the patients at the end of the day.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yeah. Carey, I&#8217;ve been dying to ask you this, and I have not asked you this before. When you go see a doctor, are you coming in armed with ChatGPT information?&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>I haven&#8217;t needed to yet, but I certainly would. And also my reaction to the medical student description was, I think we need to distinguish between the last 20 years, when patients would come in armed with Google, and what they&#8217;re coming in with now because at least the experiences that I&#8217;ve witnessed, it is miles better to have gone back and forth with GPT-4 than with, you know, dredging what you can from Google. And so I think we should make that distinction.&nbsp;</p>
-
-
-
-<p>And also, the other thing that most interested me was this question for medical students of whether they should not use AI for a while so that they can learn …&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yes.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>… how to think and similarly maybe don&#8217;t use the automated scribes for a while so they can learn how to do a note. And at what point should they then start being able to use AI? And I suspect it&#8217;s fairly early on that, in fact, they&#8217;re going be using it so consistently that there&#8217;s not that much they need to learn before they start using the tools.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> These two students were incredibly impressive. And so I have wondered, you know, if we got a skewed view of things. I mean, Morgan is, of course, a very, very impressive person. And Daniel was handpicked by the dean of the medical school to be a subject of this interview.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>You know, we filter our students, by and large, I mean, there&#8217;s exceptions, but students in medical school are so starry eyed. And they are really &#8230; they got into medical school—I mean, some of them may have faked it—but a lot of them because they really wanted to do good.&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Right.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>And they really wanted to help. And so this is very constant with them. And it&#8217;s only when they&#8217;re in the machine, past medical school, that they realize, oh my God, this is a very, very different story.&nbsp;</p>
-
-
-
-<p>And I can tell you, because I teach a course in computational-enabled medicine, so I get a lot of these nerd medical students, and I&#8217;m telling them, “You&#8217;re going to experience this. And you&#8217;re going to say, ‘I&#8217;m not going to able to change medicine until I get enough cred 10, 15 years from now, whereas I could start my own company and immediately change medicine.’”&nbsp;</p>
-
-
-
-<p>And increasingly I&#8217;m getting calls in like residency and saying, “Zak, help me. How do I get out of this?”&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Wow.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> And so I think there&#8217;s a real disillusionment of, like, between what we&#8217;re asking for people coming to medical school—we&#8217;re looking for a phenotype—and then we&#8217;re disappointing them massively, not everywhere, but massively.&nbsp;</p>
-
-
-
-<p>And for me, it&#8217;s very sad because among our best and brightest, and then because of economics and expectations and the nature of the beast, they&#8217;re not getting to enjoy the most precious part of being a doctor, which is that real human connection, and longitudinality, you know, the connection between the same doctor visit after visit, is more and more of a luxury.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, maybe this gets us to the last episode, you know, where I talk to a former, you know, state director of public health, Umair Shah, and with Gianrico Farrugia, who&#8217;s the CEO of Mayo Clinic. And I think if there&#8217;s one theme that I took away from those conversations is that we&#8217;re not thinking broadly enough nor big enough.&nbsp;</p>
-
-
-
-<p>And so here&#8217;s a little quote of exchange that Umair Shah, who was the former head of public health in the State of Washington and prior to that in Harris County, Texas, and we had a conversation about what techies tend to focus on when they&#8217;re thinking about AI and medicine.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-0a05c3ff13da1926875eed47432d27b2"><strong><em>UMAIR SHAH: </em></strong><em>I think one of the real challenges is that when even tech companies, and you can name all of them, when they look at what they&#8217;re doing in the AI space, they gravitate towards healthcare delivery.</em><br><br><strong><em>LEE: </em></strong><em>Yes.</em><strong><em> </em></strong><em>And in fact, it&#8217;s not even delivery. I think techies—I did this, too—tend to gravitate specifically to diagnosis.</em></p>
-
-
-
-<p><strong>LEE:</strong> I have been definitely guilty. I think Umair, of course, was speaking as a former frustrated public health official in just thinking about all the other things that are important to maintain a healthy population.&nbsp;</p>
-
-
-
-<p>Is there some lesson that we should take away? I think our book also focused a lot on things like diagnosis.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Yeah. Well, first of all, I think we just have to have humility. And I think it&#8217;s a really important ingredient. I found myself staring at the increase in lifespan in human beings over the last two centuries and looking for bumps that were attributable.&nbsp;</p>
-
-
-
-<p>I&#8217;m in medical school. I&#8217;ve already made this major commitment. What are the bumps that are attributable to medicine? And there was one bump that was due to vaccines, a small bump. Another small bump that was due to antibiotics. And the rest of it is nutrition, sanitation, yeah, nutrition and sanitation.&nbsp;</p>
-
-
-
-<p>And so I think doctors can be incredibly valuable, but not all the time. And we&#8217;re spending now one-sixth of our GDP on it. The majority of it is not effectively prolonging life. And so the humility has to be the right medicine at the right time.&nbsp;</p>
-
-
-
-<p>But that runs, (A) against a bunch of business models. It runs against the primacy of doctors in healthcare. It was one thing when there were no textbooks; there was no PubMed. You know, the doctor was the repository of all the probably knowledge that we have. But I think your guests were right. We have to think more broadly in the public health way. How do we make knowledge pervasive like sanitation?&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Although I would add that since what we&#8217;re talking about is AI, it&#8217;s harder to see if &#8230; and if what you&#8217;re talking about is public health, I mean, it was certainly very important to have good data during the pandemic, for example.&nbsp;</p>
-
-
-
-<p>But most of the ways to improve public health, like getting people to stop smoking and eat better and sleep better and exercise more, are not things that AI can help with that much. Whereas diagnosis or trying to improve treatment are places that it could tackle.&nbsp;</p>
-
-
-
-<p>And in fact, Peter, I wanted to put you—oh, wait, Zak&#8217;s going to say something—but, Peter, I wanted to put you on the spot.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>I mean, if you had a medical issue now, and you went to a physician, would you be OK with them not using generative AI?&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> I think if it&#8217;s a complex or a mysterious case, I would want them to use generative AI. I would want that second opinion on things. And I would personally be using it. If for no other reason than just to understand what the chart is saying.&nbsp;</p>
-
-
-
-<p>I don&#8217;t see, you know, how or why one wouldn&#8217;t do that now.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> It&#8217;s such a cheap second opinion, and people are making mistakes. And even if there are mistakes on the part of AI, if there&#8217;s a collision, discrepancy, that&#8217;s worth having a discussion. And again, this is something that we used to do more of when we had more time with the patients; we&#8217;d have clinic conferences.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> And we don&#8217;t have that now. So I do think that there is a role for AI. But I think again, it&#8217;s much more of a continual presence, being part of a continued conversation rather than an oracle.&nbsp;</p>
-
-
-
-<p>And I think that&#8217;s when you&#8217;ll start seeing, when the AI is truly a colleague, and saying, “You know, Zak, that&#8217;s the second time you made that mistake. You know, that&#8217;s not obesity. That&#8217;s the effect of your drugs that you&#8217;re giving her. You better back off of it.” And that&#8217;s what we need to see happen.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Well, and for the business of healthcare, that also relates directly to quality scores, which translates into money for healthcare providers.&nbsp;</p>
-
-
-
-<p>So the last person that we interviewed was Gianrico Farrugia. And, you know, I was sort of wondering, I was expecting to get a story from a CEO saying, “Oh, my God, this has been so disruptive, incredibly important, meaningful, but wow, what a headache.”&nbsp;</p>
-
-
-
-<p>At least Gianrico didn&#8217;t expose any of that. Here&#8217;s one of the snippets to give you a sense.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-e494c3919056a8b99abdfa66f7e6fae6"><strong><em>GIANRICO</em></strong><em> </em><strong><em>FARRUGIA:</em></strong><em> When generative AI came, for us, it&#8217;s like, I wouldn&#8217;t say we told you so, but it&#8217;s like, ah, there you go. Here&#8217;s another tool. This is what we&#8217;ve been talking about. Now we can do it even better. Now we can move even faster. Now we can do more for our patients. It truly never was disruptive. It truly immediately became enabling, which is strange, right, because something as disruptive as that instantly became enabling at Mayo Clinic.</em>&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So I tried pretty hard in that interview to get Gianrico to admit that there was a period of headache and disruption here. And he never, ever gave me that. And so I take him at his word.&nbsp;</p>
-
-
-
-<p>Zak, maybe I should ask you, what about Harvard and the whole Harvard medical ecosystem?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I would be surprised if there are system-wide measurable gains in health quality right now from AI. And I do have to say that Mayo is one of the most marvelous organizations in terms of team behavior. So if there&#8217;s someone who&#8217;s gotten the team part of it right, they&#8217;ve come the closest, which relates to our prior conversation. They have the quarterback idea …&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>Yes.&nbsp;</p>
-
-
-
-<p><strong>KOHANE: </strong>… pretty well down compared to others.&nbsp;</p>
-
-
-
-<p>Nonetheless, I take him at his word, that it hasn&#8217;t disrupted them. But I&#8217;m also, I have yet to see the evidence that there&#8217;s been a quantum leap in quality or efficacy. And I do believe that it&#8217;s possible to have a quantum leap in efficacy in the right system.&nbsp;</p>
-
-
-
-<p>So if they haven&#8217;t been disrupted, I would venture that they&#8217;ve absorbed it, but they haven&#8217;t used it to its fullest potential. And the way I could be proven wrong is next year, also the metrics showing that over the last year, they&#8217;ve had, you know, decreased readmissions, decreased complications, decreased errors and all that. And if so, God bless them. And we should all be more like Mayo.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> So I thought a little bit about two other quotes from the interviews that sort of maybe would send us off with some more inspirational kind of view of the future. And so there&#8217;s one from Bill Gates and one from Gianrico Farrugia. So what I&#8217;d like to do is to play both of those and then maybe we can have our last comments.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-34fa8f74d3c5dd1ddf63456b250b860b"><strong><em>BILL GATES</em></strong><em>: You know, I’ve gone so far as to tell politicians with national health systems that if they deploy AI appropriately, that the quality of care, the overload of the doctors, the improvement in the economics will be enough that their voters will be stunned because they just don’t expect this, and, you know, they could be reelected just on this one thing of fixing what is a very overloaded and economically challenged health system in these rich countries.</em>&nbsp;</p>
-
-
-
-<p>And now Gianrico.&nbsp;</p>
-
-
-
-<p class="has-white-color has-gray-background-color has-text-color has-background has-link-color wp-elements-daa9fe33118b2710490d542ab9959977"><strong><em>GIANRICO FARRUGIA: </em></strong><em>And we seemed to be on a linear path, which is, let&#8217;s try and reduce administrative burden. Let&#8217;s try and truly be a companion to a physician or other provider. … And then in the next step, we keep going until we get to, now we can call it agentic AI, whatever we want to talk about. And my view was, no, is that let&#8217;s start with that aim, the last aim …</em><strong><em> </em></strong><em>because the others will come automatically if you&#8217;re working on that harder problem. Because one, to get to that harder problem, you&#8217;ll find all the other solutions.</em>&nbsp;</p>
-
-
-
-<p>All right. I think these are both kind of calls to be more assertive about this and more forward leaning. I think two years into the GPT-4 era, those are pretty significant and pretty optimistic calls to action. So maybe just to give you both one last word. What would be one hope that you would have for the world of healthcare and medicine two years from now?&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> I would hope for businesses that whoever actually owns them at some holding company level, regardless of who owns them, are truly patient-focused companies, companies where the whole AI is about improving your care, and it&#8217;s only trying to maximize your care and it doesn&#8217;t care about resource limitations.&nbsp;</p>
-
-
-
-<p>And as I was listening to Bill, and the problem with what he was saying about saving dollars for governments is for many things, we have some very expensive things that work. And if the AI says, “This is the best thing,” it&#8217;s going to break your bank. And instead, because of research limitations, we play a human-based fancy footwork to get out of it.&nbsp;</p>
-
-
-
-<p>That&#8217;s a hard game to play, and I leave it to the politicians and the public health officials who have to do those trades of utilities.&nbsp;</p>
-
-
-
-<p>In my role as doctor and patient, I&#8217;d like to see very informed, authoritative agents acting only on our behalf so that when we go and we seek to have our maladies addressed, the only issue is, what&#8217;s the best and right thing for me now? And I think that is both technically realizable. And even in our weird system, there are business plans that will work that can achieve that. That&#8217;s my hope for two years from now.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, fantastic. Carey.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah. I second that so enthusiastically. And I think, you know, we have this very glass half full/glass half empty phenomenon two years after the book came out.&nbsp;</p>
-
-
-
-<p>And it&#8217;s certainly very nice to see, you know, new approaches to administrative complexity and to prior authorization and all kinds of ways to make physicians&#8217; lives easier. But really what we all care about is our own health and that we would like to be able to optimize the use of this truly glorious technological achievement to be able to live longer and better lives. And I think what Zak just described is the most logical way to do that.&nbsp;</p>
-
-
-
-<p>[TRANSITION MUSIC]&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> Yeah, I think for me, two years from now, I would like to see all of this digital data that&#8217;s been so painful, such a burden on every doctor and nurse to record, actually amount to something meaningful in the care of patients. And I think it&#8217;s possible.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Amen.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Yeah.&nbsp;</p>
-
-
-
-<p><strong>LEE:</strong> All right, so it&#8217;s been quite a journey. We were joking before we&#8217;re still on speaking terms after having written a book. [LAUGHS]&nbsp;</p>
-
-
-
-<p>And then, um, I think listeners might enjoy knowing that we debated amongst ourselves what to do about a second edition, which seemed too painful to me, and so I suggested the podcast, which seemed too painful to the two of you [LAUGHTER]. And in the end, I don&#8217;t know what would have been easier, writing a book or doing this podcast series, but I do think that we learned a lot.&nbsp;</p>
-
-
-
-<p>Now, last bit of business here.<strong> </strong>To avoid having the three of us try to write a book again and do this podcast, I leaned on the production team in Microsoft Research and the Microsoft Research Podcast. And I thought it would be good to give an explicit acknowledgment to all the people who&#8217;ve contributed to this.&nbsp;</p>
-
-
-
-<p>So it&#8217;s a long list of names. I&#8217;m going to read through them all. And then I suggest that we all give an applaud [LAUGHTER] to them. And so here we go.&nbsp;</p>
-
-
-
-<p>There’s Neeltje Berger, Tetiana Bukhinska, David Celis Garcia, Matt Corwine, Jeremy Crawford, Kristina Dodge, Chris Duryee, Ben Ericson, Kate Forster, Katy Halliday, Alyssa Hughes, Jake Knapp, Weishung Liu, Matt McGinley, Jeremy Mashburn, Amanda Melfi, Wil Morrill, Joe Plummer, Brenda Potts, Lindsay Shanahan, Sarah Sobolewski, David Sullivan,&nbsp;Stephen Sullivan, Amber Tingle, Caitlyn Treanor, Craig Tuschhoff, Sarah Wang, and Katie Zoller.&nbsp;</p>
-
-
-
-<p>Really a great team effort, and they made it super easy for us.&nbsp;</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Thank you. Thank you. Thank you.&nbsp;</p>
-
-
-
-<p><strong>KOHANE:</strong> Thank you. Thank you.</p>
-
-
-
-<p><strong>GOLDBERG: </strong>Thank you.&nbsp;</p>
-
-
-
-<p>[THEME MUSIC]&nbsp;</p>
-
-
-
-<p><strong>LEE: </strong>A big thank you again to all of our guests for the work they do and the time and expertise they shared with us.&nbsp;</p>
-
-
-
-<p>And, last but not least, to our listeners, thank you for joining us. We hope you enjoyed it and learned as much as we did. If you want to go back and catch up on any episodes you may have missed or to listen to any again, you can visit <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/airevolutionpodcast">aka.ms/AIrevolutionPodcast<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>Until next time.</p>
-
-
-
-<p>[MUSIC FADES]&nbsp;</p>
-
-				</span>
-			</div>
-			<button
-				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
-				aria-expanded="false"
-				data-show-less-text="Show less"
-				type="button"
-				aria-controls="show-more-show-less-toggle-2"
-				aria-label="Show more content"
-				data-alternate-aria-label="Show less content">
-				Show more			</button>
-		</div>
-	</div>
-</div>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/">AI Revolution in Medicine podcast series</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/coauthor-roundtable-reflecting-on-healthcare-economics-biomedical-research-and-medical-education/">Coauthor roundtable: Reflecting on healthcare economics, biomedical research, and medical education</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
