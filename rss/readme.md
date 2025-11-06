@@ -70,8 +70,3 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/devin.ai.blog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/devin.ai.blog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/devin.ai.blog.xml)
 
-## manus.blog
-- 原网址：https://manus.im/zh-cn/blog
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/manus.blog.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/manus.blog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/manus.blog.xml)
-
