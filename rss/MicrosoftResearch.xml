@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 05 Nov 2025 14:07:59 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 05 Nov 2025 16:31:51 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,164 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</title>
+		<link>https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/</link>
+		
+		<dc:creator><![CDATA[Industry  Innovation Center]]></dc:creator>
+		<pubDate>Thu, 06 Nov 2025 13:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1154225</guid>
+
+					<description><![CDATA[<p>A collaboration between Signify and Microsoft Research shows how PIKE-RAG improves enterprise knowledge systems, delivering a 12% increase in accuracy and faster, more reliable answers.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/">When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows a person in front of a screen with another person, the third is a magnifying glass" class="wp-image-1154222" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>As a world leader in connected LED lighting products, systems, and services, Signify (formerly Philips Lighting) serves not only everyday consumers but also a large number of professional users who have stringent requirements for technical specifications and engineering compatibility. Faced with thousands of product models, complex component parameters, and technical documentation spanning multiple versions, delivering accurate, professional answers efficiently has become a core challenge for Signify’s knowledge management system.</p>
+
+
+
+<p>To address this challenge, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.signify.com" target="_blank" rel="noopener noreferrer">Signify<span class="sr-only"> (opens in new tab)</span></a> collaborated with <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a> on a proof-of-concept (PoC) using <a href="https://www.microsoft.com/en-us/research/publication/pike-rag-specialized-knowledge-and-rationale-augmented-generation/">PIKE-RAG technology</a>, integrating it into their upgraded knowledge management system built on Microsoft Azure. The result: a 12% improvement in answer accuracy.</p>
+
+
+
+<h2 class="wp-block-heading" id="challenges-of-applying-rag-in-lighting">Challenges of applying RAG in lighting</h2>
+
+
+
+<p>In an era where AI is rapidly transforming how enterprises manage information, Signify recognized the strategic importance of precise and efficient knowledge systems. It adopted large AI models and retrieval-augmented generation (RAG) techniques to better support its wide range of customer inquiries.</p>
+
+
+
+<p>Yet applying RAG to lighting scenarios involving professional users presented unique challenges. Product data spanned multimodal documents, unstructured tables, and complex product parameters, demanding continuous customization that slowed development and limited scalability. Despite improvements through keyword tuning, system optimization, and refined prompts, Signify sought more advanced approaches to further raise accuracy and reliability.</p>
+
+
+
+<p>Seeking to unlock greater value from its knowledge management system, Signify began exploring more suitable technical solutions that are better aligned with their professional use cases. Upon learning that PIKE-RAG had been successfully applied in domains like healthcare and law, significantly improving information accuracy, Signify worked with Microsoft Research Asia on a PoC of PIKE-RAG on Microsoft Azure.</p>
+
+
+
+<h2 class="wp-block-heading" id="how-pike-rag-addressed-signify-s-pain-points">How PIKE-RAG addressed Signify’s pain points</h2>
+
+
+
+<p>Compared to traditional RAG, PIKE-RAG efficiently retrieves textual information and also understands multimodal content like charts and tables. Its built-in domain adaptation module quickly learns reasoning patterns aligned with specific domains to generate responses that are consistent with engineering contexts. These differentiated advantages stem from PIKE-RAG’s unique approach to understanding and processing professional knowledge. In Signify’s use case, this manifests in three key areas:</p>
+
+
+
+<h3 class="wp-block-heading" id="multimodal-document-parsing-and-learning-of-industry-specific-reasoning-patterns">Multimodal document parsing and learning of industry-specific reasoning patterns</h3>
+
+
+
+<p>Signify’s product documentation includes diverse formats, such as nonstandard tables (e.g., comparison charts of voltage ranges under different currents) and circuit diagrams (e.g., driver power limits). Traditional systems often fail to process this information effectively—either ignoring it or extracting disorganized text fragments.</p>
+
+
+
+<p>PIKE-RAG integrates Microsoft Research Asia’s Document Intelligence technology with Microsoft Azure OpenAI models to accurately identify table structures and parse key parameters in circuit diagrams. For example, when a customer service agent queries, “What is the output voltage of a specific driver model at 0.15A current,” the system automatically locates the curve chart in the document and infers a range of 40–54V based on the current interval—an area where traditional systems frequently err, due to their inability to “read” diagrams.</p>
+
+
+
+<h3 class="wp-block-heading" id="end-to-end-knowledge-loop-eliminating-reliance-on-erroneous-data-sources">End-to-end knowledge loop, eliminating reliance on erroneous data sources</h3>
+
+
+
+<p>Enterprise knowledge systems often integrate data from multiple sources, which can lead to discrepancies, especially when database updates are not fully synchronized. PIKE-RAG captures diverse information sources and establishes citation relationships, supporting complex reasoning tasks that rely on multi-source data.</p>
+
+
+
+<p>In other words, PIKE-RAG can directly use original documents as data sources, efficiently parsing and understanding product manuals and PDF charts. By extracting key information from these text- and graphic-rich documents, PIKE-RAG enables more efficient and trustworthy knowledge retrieval.</p>
+
+
+
+<h3 class="wp-block-heading" id="dynamic-task-decomposition-and-multi-hop-reasoning-for-precise-answers-to-complex-questions">Dynamic task decomposition and multi-hop reasoning for precise answers to complex questions</h3>
+
+
+
+<p>Traditional RAG systems typically follow a “one question, one answer” model and struggle with multi-step reasoning. In Signify’s lighting domain, customer inquiries often involve multi-level associations. PIKE-RAG dynamically decomposes user questions into executable subtasks and solves them through multi-hop reasoning. For example, when asked, “List all bases compatible with the G8 series lamps,” if no document directly provides the answer, PIKE-RAG’s reasoning proceeds as follows:</p>
+
+
+
+<p>Step 1: The system identifies implicit knowledge. One document notes that the G7 and G8 series have identical dimensions and that all bases compatible with the G7 series are also compatible with the G8 series.&nbsp;</p>
+
+
+
+<p>Step 2: Based on this, the system retrieves the base list for the G7 series.&nbsp;</p>
+
+
+
+<p>Step 3: Since the list uses abbreviations, the system searches for a table that maps abbreviations to full names and generates a complete list of G8-compatible bases.&nbsp;</p>
+
+
+
+<p>Through this automated multi-hop reasoning, the system delivers accurate and complete answers.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="865" height="451" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png" alt="Figure 1: A flowchart illustrating the PIKE-RAG framework for orchestrating and integrating heterogeneous information across multi-source and multimodal environments. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process starts with a task (e.g., “What wireless drivers are available?”), followed by iterative task decomposition and retrieval from a tools repository. The tools repository includes similarity and keyword retrieval, Text2SQL, decomposers, VLMs, verifiers, and atomizers. Below, domain knowledge is shown in various forms: textual (terminology, specifications), multi-modal (figures, tables), structural (databases, knowledge graphs), and others (search engine, internal FAQ). The LM generates responses and updates memory while fetching context as needed." class="wp-image-1154223" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-300x156.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-768x400.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-240x125.png 240w" sizes="(max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 1: PIKE-RAG orchestrates and integrates heterogeneous information in multi-source and multimodal environments. </figcaption></figure>
+
+
+
+<p>Testing showed that the PIKE-RAG-powered knowledge management platform provided a significant advantage. It achieved a 12% improvement in performance compared with the original system.</p>
+
+
+
+<p>These results were achieved without any question-specific customization, only algorithmic optimization, demonstrating precise knowledge matching and generation. As the system continues to learn and integrate Signify’s proprietary knowledge, accuracy is expected to improve further.</p>
+
+
+
+<p>“In the PoC for our product specification insight tool, PIKE-RAG helped us significantly improve the original system’s performance. This will enhance overall customer satisfaction. We’re currently evaluating PIKE-RAG’s application path from multiple angles, including technical implementation, cost control, and future adaptability, and we look forward to deepening our collaboration with Microsoft Research Asia to drive further innovation,” said Haitao Liu, head of Signify Research China.</p>
+
+
+
+<p>“It’s also worth noting that the researchers at Microsoft Research Asia demonstrated strong industry knowledge and rigorous scientific methodology. They proactively studied and analyzed the issues, tracing and clarifying the root causes of our issues to make PIKE-RAG better suited to Signify’s real-world needs.”</p>
+
+
+
+<h2 class="wp-block-heading" id="beyond-lighting-generalization-across-industries">Beyond lighting: Generalization across industries</h2>
+
+
+
+<p>In Signify’s successful test, PIKE-RAG demonstrated strong generalization capabilities in complex industrial scenarios, enabling rapid cross-domain adaptation. Its three core strengths are:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Support for self-evolution and continuous learning</strong>: PIKE-RAG continuously analyzes error cases in interaction logs and uses evolutionary algorithms to automatically optimize knowledge extraction strategies, such as trying different table parsing methods or adjusting multimodal content weights. Validated strategies are then solidified for future Q&A, allowing the system to adapt to new knowledge types without manual intervention.&nbsp;</li>
+
+
+
+<li><strong>Modular architecture driven by capability needs</strong>: PIKE-RAG flexibly combines modules for document parsing, knowledge extraction, storage, retrieval, organization, knowledge-centered reasoning, and task decomposition. It dynamically adjusts focus areas based on scenario needs (e.g., fact retrieval, multi-hop reasoning, innovative generation) and flexibly builds RAG methods that adapt to real-world applications, efficiently handling various complex tasks.&nbsp;</li>
+
+
+
+<li><strong>Strong adaptation to domain-specific reasoning patterns</strong>: With dynamic updates through the Domain Tips feature, enterprises can add domain-specific logic (e.g., “the maximum output voltage of an LED driver should be the maximum of the operating range, not the spec sheet’s max output”) in real time, enabling the system to process information according to professional engineering standards and follow industry conventions.&nbsp;</li>
+</ul>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="865" height="563" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png" alt="Figure 2: Diagram showing the PIKE-RAG framework overview. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process begins with a task input, decomposes it into sub-tasks, retrieves information from a tools repository, and integrates domain knowledge from multiple modalities such as textual documents, diagrams, tables, relational databases, and knowledge graphs. The LM generates responses and updates memory while orchestrating heterogeneous information sources." class="wp-image-1154224" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-300x195.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-768x500.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-240x156.png 240w" sizes="(max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2: Overview of the PIKE-RAG framework</figcaption></figure>
+
+
+
+<p>PIKE-RAG’s generalization capabilities have been validated not only in Signify’s knowledge management platform but also in pilot applications across industries like manufacturing, mining, and pharmaceuticals—significantly improving Q&A system accuracy.</p>
+
+
+
+<p>“A leader in lighting, Signify presents a complex industrial knowledge system with a highly challenging real-world scenario for PIKE-RAG. Through this collaboration, we validated that PIKE-RAG’s general approach can greatly improve the accuracy of professional knowledge Q&A and accelerate scenario customization. Our researchers also gained valuable experience in handling domain-specific data,” explained <a href="https://www.microsoft.com/en-us/research/people/jiabia/">Jiang Bian</a>, partner research manager at Microsoft Research Asia.</p>
+
+
+
+<p>“Our goal isn’t to build a universal chatbot but to create a professional assistant that aligns with domain-specific logic and performs rigorous knowledge reasoning. That’s the true driving force behind intelligent transformation in industrial knowledge management.”</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/">When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Magentic Marketplace: an open-source simulation environment for studying agentic markets</title>
 		<link>https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/</link>
 		
@@ -32,7 +190,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/">Magentic Marketplace: an open-source simulation environment for studying agentic markets</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows two persons, the third is a building, and the fourth is a location pin" class="wp-image-1154335" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows two persons, the third is a building, and the fourth is a location pin" class="wp-image-1154335" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -60,7 +218,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="936" height="393" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png" alt="Figure 1. Diagram illustrating the Magentic Marketplace Environment. On the left, two sections represent Customers and Businesses. Customers ask, “Could you find me a restaurant serving agua fresca and empanadas with free parking?” and are linked to Customer Agents (blue and purple icons). Businesses display a menu with items like steak tacos and empanadas, connected to Business Agents (purple icons). On the right, a three-step process is shown inside a pink box: Search – Customer agent searches for a restaurant among multiple business agents. Multi-Agent Communication – Customer agent asks about free parking and menu options, interacting with several business agents. Final Transaction – Customer agent places the order with a selected business agent." class="wp-image-1154337" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-300x126.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-768x322.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-240x101.png 240w" sizes="(max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption">Figure 1. With Magentic Marketplace, researchers can model how agents representing customers and businesses interact—shedding light on the dynamics that could shape future digital markets.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="393" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png" alt="Figure 1. Diagram illustrating the Magentic Marketplace Environment. On the left, two sections represent Customers and Businesses. Customers ask, “Could you find me a restaurant serving agua fresca and empanadas with free parking?” and are linked to Customer Agents (blue and purple icons). Businesses display a menu with items like steak tacos and empanadas, connected to Business Agents (purple icons). On the right, a three-step process is shown inside a pink box: Search – Customer agent searches for a restaurant among multiple business agents. Multi-Agent Communication – Customer agent asks about free parking and menu options, interacting with several business agents. Final Transaction – Customer agent places the order with a selected business agent." class="wp-image-1154337" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-300x126.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-768x322.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-240x101.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption">Figure 1. With Magentic Marketplace, researchers can model how agents representing customers and businesses interact—shedding light on the dynamics that could shape future digital markets.</figcaption></figure>
 
 
 
@@ -73,7 +231,7 @@
 
 
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe title="Introducing Magentic Marketplace, an open-source simulation environment for studying agentic markets" width="500" height="375" src="https://www.youtube-nocookie.com/embed/1SHpWinp7V8?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe loading="lazy" title="Introducing Magentic Marketplace, an open-source simulation environment for studying agentic markets" width="500" height="375" src="https://www.youtube-nocookie.com/embed/1SHpWinp7V8?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></figure>
 
 
@@ -499,30 +657,30 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2030,30 +2188,30 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2247,230 +2405,6 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 <p>Historically, step changes in network technology have unlocked entirely new classes of applications and workloads. While our SIGCOMM paper provides&nbsp;possible future&nbsp;directions, we hope this work sparks broader discussion and collaboration across the research and industry communities.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/breaking-the-networking-wall-in-ai-infrastructure/">Breaking the networking wall in AI infrastructure </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Crescent library brings privacy to digital identity systems</title>
-		<link>https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/</link>
-		
-		<dc:creator><![CDATA[Christian Paquin, Greg Zaverucha]]></dc:creator>
-		<pubDate>Tue, 26 Aug 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1148317</guid>
-
-					<description><![CDATA[<p>Crescent helps make digital IDs private by preventing tracking across uses while letting users only disclose what’s necessary from their credentials.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/">Crescent library brings privacy to digital identity systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a computer chip, padlock icon, an avatar icon" class="wp-image-1148394" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Digital identities, the electronic credentials embedded in phone wallets, workplace logins, and other apps, are becoming ubiquitous. While they offer unprecedented convenience, they also create new privacy risks, particularly around tracking and surveillance.&nbsp;</p>
-
-
-
-<p>One of these risks is <em>linkability, </em>the ability to associate one or more uses of a credential to a specific person. Currently, when people use their mobile driver&#8217;s license or log into various apps, hidden identifiers can link these separate activities together, building detailed profiles of user behavior.&nbsp;&nbsp;</p>
-
-
-
-<p>To address this, we have released <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/2013" target="_blank" rel="noopener noreferrer">Crescent<span class="sr-only"> (opens in new tab)</span></a>, a cryptographic library that adds <em>unlinkability </em>to widely used identity formats, protecting privacy. These include JSON Web Tokens (the authentication standard behind many app logins) and mobile driver&#8217;s licenses. Crescent also works without requiring the organizations that issue these credentials to update their systems. &nbsp;</p>
-
-
-
-<p>The protection goes beyond existing privacy features. Some digital identity systems already offer <em>selective disclosure</em>, allowing users to share only specific pieces of information in each interaction. &nbsp;</p>
-
-
-
-<p>But even with selective disclosure, credentials can still be linked through serial numbers, cryptographic signatures, or embedded identifiers. Crescent&#8217;s unlinkability feature is designed to prevent anything in the credential, beyond what a user explicitly chooses to reveal, from being used to connect their separate digital interactions.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="400" height="242" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png" alt="Figure 1: Unlinkability between a credential issuance and presentation" class="wp-image-1148323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability.png 400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-300x182.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig1_unlinkability-240x145.png 240w" sizes="auto, (max-width: 400px) 100vw, 400px" /><figcaption class="wp-element-caption">Figure 1: Unlinkability between a credential issuance and presentation</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="two-paths-to-unlinkability">Two paths to unlinkability&nbsp;</h2>
-
-
-
-<p>To understand how Crescent works, it helps to examine the two main approaches researchers have developed for adding unlinkability to identity systems:&nbsp;</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Specialized cryptographic signature schemes</strong>. These schemes can provide unlinkability but require extensive changes to existing infrastructure. New algorithms must be standardized, implemented, and integrated into software and hardware platforms. For example, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html" target="_blank" rel="noopener noreferrer">BBS<span class="sr-only"> (opens in new tab)</span></a> signature scheme is currently being standardized by the Internet Engineering Task Force (IETF), but even after completion, adoption may be slow.&nbsp;&nbsp;&nbsp;</li>
-</ol>
-
-
-
-<ol start="2" class="wp-block-list">
-<li><strong>Zero-knowledge proofs with existing credentials</strong>. This approach, used by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials" target="_blank" rel="noopener noreferrer">Crescent<span class="sr-only"> (opens in new tab)</span></a>, allows users to prove specific facts about their credentials without revealing the underlying data that could enable tracking. For example, someone could prove they hold a valid driver&#8217;s license and live in a particular ZIP code without exposing any other personal information or identifiers that could link this interaction to future ones.&nbsp;</li>
-</ol>
-
-
-
-<p>Zero-knowledge proofs have become more practical since they were first developed 40 years ago but they are not as efficient as the cryptographic algorithms used in today’s credentials. Crescent addresses this computational challenge through preprocessing, performing the most complex calculations once in advance so that later proof generation is quick and efficient for mobile devices.&nbsp;</p>
-
-
-
-<p>Beyond unlinkability, Crescent supports selective disclosure, allowing users to prove specific facts without revealing unnecessary details. For example, it can confirm that a credential is valid and unexpired without disclosing the exact expiration date, which might otherwise serve as a unique identifier. These privacy protections work even when credentials are stored in a phone&#8217;s secure hardware, which keeps them tied to the device and prevents unauthorized access.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="behind-the-cryptographic-curtain">Behind the cryptographic curtain&nbsp;</h2>
-
-
-
-<p>At its core, Crescent uses a sophisticated form of cryptographic proof called a zero-knowledge SNARK (Zero-Knowledge Succinct Noninteractive Argument of Knowledge). This method allows one party to prove possession of information or credentials without revealing the underlying data itself.&nbsp;</p>
-
-
-
-<p>Crescent specifically uses the Groth16 proof system, one of the first practical implementations of this technology. What makes Groth16 particularly useful is that its proofs are small in size, quick to verify, and can be shared in a single step without back-and-forth communication between the user and verifier.&nbsp;</p>
-
-
-
-<p>The system works by first establishing shared cryptographic parameters based on a credential template. Multiple organizations issuing similar credentials, such as different state motor vehicle departments issuing mobile driver&#8217;s licenses, can use the same parameters as long as they follow compatible data formats and security standards.&nbsp;</p>
-
-
-
-<p>The mathematical rules that define what each proof will verify are written using specialized programming tools that convert them into a Rank-1 Constraint System (R1CS), a mathematical framework that describes exactly what needs to be proven about a credential.&nbsp;</p>
-
-
-
-<p>To make the system fast enough for real-world use, Crescent splits the proof generation into two distinct stages:&nbsp;</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Prepare stage</strong>. This step runs once and generates cryptographic values that can be stored on the user&#8217;s device for repeated use.&nbsp;</li>
-</ol>
-
-
-
-<ol start="2" class="wp-block-list">
-<li><strong>Show stage</strong>. When a user needs to present their credential, this quicker step takes the stored values and randomizes them to prevent any connection to previous presentations. It also creates a compact cryptographic summary that reveals only the specific information needed for that particular interaction.&nbsp;</li>
-</ol>
-
-
-
-<p>Figures 2 and 3 illustrate this credential-proving workflow and the division between the prepare and show steps.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="453" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline.png" alt="Figure 2: Crescent’s credential-proving workflow includes a compilation of a circuit to R1CS, followed by the prepare and show steps. The output zero-knowledge proof is sent to the verifier." class="wp-image-1148322" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-300x97.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-1024x331.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-768x249.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig2_crescent_pipeline-240x78.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2: Crescent’s credential-proving workflow includes a compilation of a circuit to R1CS, followed by the prepare and show steps. The output zero-knowledge proof is sent to the verifier. </figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="443" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview.png" alt="Figure 3: The Crescent presentation steps show the division between prepare and show steps." class="wp-image-1148321" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-300x95.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-1024x324.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-768x243.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig3_proof_overview-240x76.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 3: The Crescent presentation steps show the division between prepare and show steps.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="a-sample-application">A sample application&nbsp;</h2>
-
-
-
-<p>To demonstrate how Crescent works, we created a sample application covering two real-world scenarios: verifying employment and proving age for online access. The application includes sample code for setting up fictional issuers and verifiers as Rust servers, along with a browser-extension wallet for the user. The step numbers correspond to the steps in Figure 4.&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="setup">Setup&nbsp;</h3>
-
-
-
-<ol start="1" class="wp-block-list">
-<li>A Crescent service pre-generates the zero-knowledge parameters for creating and verifying proofs from JSON Web Tokens and mobile driver’s licenses.&nbsp;</li>
-</ol>
-
-
-
-<ol start="2" class="wp-block-list">
-<li>The user obtains a mobile driver’s license from their Department of Motor Vehicles.&nbsp;</li>
-</ol>
-
-
-
-<ol start="3" class="wp-block-list">
-<li>The user obtains a proof-of-employment JSON Web Token from their employer, Contoso.&nbsp;</li>
-</ol>
-
-
-
-<ol start="4" class="wp-block-list">
-<li>These credentials and their private keys are stored in the Crescent wallet.&nbsp;</li>
-</ol>
-
-
-
-<h3 class="wp-block-heading" id="scenarios">Scenarios&nbsp;</h3>
-
-
-
-<ol start="5" class="wp-block-list">
-<li><strong>Employment verification</strong>: The user presents their JSON Web Token to Fabrikam, an online health clinic, to prove they are employed at Contoso and eligible for workplace benefits. Fabrikam learns that the user works at Contoso but not the user&#8217;s identity, while Contoso remains unaware of the interaction.&nbsp;</li>
-</ol>
-
-
-
-<ol start="6" class="wp-block-list">
-<li><strong>Age verification</strong>:<strong> </strong>The user presents their mobile driver’s license to a social network, proving they are over 18. The proof confirms eligibility without revealing their age or identity.&nbsp;</li>
-</ol>
-
-
-
-<p>Across both scenarios, Crescent ensures that credential presentations remain unlinkable, preventing any party from connecting them to the user.&nbsp;</p>
-
-
-
-<p>For simplicity, the sample defines its own issuance and presentation protocol, but it could be integrated into higher-level identity frameworks such as OpenID/OAuth, Verifiable Credentials, or the mobile driver’s license ecosystem.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="502" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch.png" alt="Figure 4. The sample architecture, from credential issuance to presentation." class="wp-image-1148404" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch.png 800w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch-300x188.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch-768x482.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/Crescent_fig4_sample-arch-240x151.png 240w" sizes="auto, (max-width: 800px) 100vw, 800px" /><figcaption class="wp-element-caption">Figure 4. The sample architecture, from credential issuance to presentation.</figcaption></figure>
-
-
-
-<p>To learn more about the project, visit the Crescent project <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/crescent-credentials/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> page, or check out our recent presentations given at the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/live/gnB76DQI1GE?t=3475s" target="_blank" rel="noopener noreferrer">Real-Word Crypto 2025<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.youtube.com/watch?v=9IT659uUXfs&t=13361s" target="_blank" rel="noopener noreferrer">North Sec 2025<span class="sr-only"> (opens in new tab)</span></a> conferences. </p>
-
-
-
-<p></p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/crescent-library-brings-privacy-to-digital-identity-systems/">Crescent library brings privacy to digital identity systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
