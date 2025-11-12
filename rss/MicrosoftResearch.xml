@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 10 Nov 2025 22:27:26 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 11 Nov 2025 14:27:46 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,224 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</title>
+		<link>https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/</link>
+		
+		<dc:creator><![CDATA[Chengquan Guo , Yuzhou  Nie, Chulin Xie, Zinan Lin, Wenbo Guo, Bo Li]]></dc:creator>
+		<pubDate>Tue, 11 Nov 2025 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1154385</guid>
+
+					<description><![CDATA[<p>BlueCodeAgent is an end-to-end blue-teaming framework built to boost code security using automated red-teaming processes, data, and safety rules to guide LLMs’ defensive decisions. Dynamic testing reduces false positives in vulnerability detection.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-green gradient background: the first icon shows a circle with connected nodes, the second shows a circuit, and the third shows a flowchart" class="wp-image-1154392" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<h2 class="wp-block-heading" id="introduction">Introduction</h2>
+
+
+
+<p>Large&nbsp;language&nbsp;models&nbsp;(LLMs)&nbsp;are now widely used for automated code generation across software engineering tasks. However, this powerful capability in code generation also introduces security concerns. Code generation systems could be misused for harmful purposes, such as generating malicious code.&nbsp;It&nbsp;could also&nbsp;produce&nbsp;bias-filled&nbsp;code reflecting&nbsp;underlying logic that is&nbsp;discriminatory&nbsp;or unethical. Additionally, even when completing benign tasks, LLMs may inadvertently produce vulnerable code that&nbsp;contains&nbsp;security flaws (e.g., injection risks, unsafe input handling). These unsafe outcomes undermine the trustworthiness of code generation models and pose threats to the broader software ecosystem, where safety and reliability are critical.</p>
+
+
+
+<p>Many&nbsp;studies have explored red teaming code LLMs, testing whether the models can reject unsafe requests and whether their generated code&nbsp;exhibits&nbsp;insecure patterns. For more details, see our earlier MSR blog post on&nbsp;<a href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent</a>. While red teaming has significantly improved our understanding of model failure modes, progress on blue teaming—i.e., developing effective defensive mechanisms to detect and prevent such failures—remains&nbsp;relatively limited. Current blue teaming approaches face several challenges: (1)&nbsp;Poor alignment with security concepts:&nbsp;additional&nbsp;safety&nbsp;prompts&nbsp;struggle to help models&nbsp;understand high-level notions,&nbsp;such as what constitutes a malicious or bias instruction, and typically lack actionable principles to guide safe decision-making. A case study is shown in Figure 1.&nbsp;(2)<strong>&nbsp;</strong>Over-conservatism:<strong>&nbsp;</strong>especially in the domain of vulnerable code detection, models tend to misclassify safe code as unsafe, leading to more false positives and reduced developer trust<strong>.</strong>&nbsp;(3)&nbsp;Incomplete risk coverage: without a strong knowledge foundation, models perform poorly when dealing with subtle or previously unseen risks.&nbsp;&nbsp;&nbsp;</p>
+
+
+
+<p>To address these challenges, researchers from the University of Chicago, University of California, Santa Barbara, University of Illinois Urbana–Champaign, VirtueAI, and Microsoft Research recently released a paper: <a href="https://www.microsoft.com/en-us/research/publication/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/" target="_blank" rel="noreferrer noopener">BlueCodeAgent: A Blue Teaming Agent Enabled by Automated Red Teaming for CodeGen AI</a>. This work makes the following key contributions:&nbsp;</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>Diverse red-teaming pipeline:</strong> The authors design a comprehensive red-teaming process that integrates multiple strategies to synthesize diverse red-teaming data for effective knowledge accumulation.</li>
+
+
+
+<li><strong>Knowledge-enhanced blue teaming:</strong> Building on the foundation of red-teaming knowledge, BlueCodeAgent significantly improves blue-teaming performance by leveraging constitutions derived from knowledge and dynamic testing.&nbsp;</li>
+
+
+
+<li><strong>Principled-Level Defense and Nuanced-Level analysis:</strong> The authors propose two complementary strategies—Principled-Level Defense (via constitutions) and Nuanced-Level Analysis (via dynamic testing)—and demonstrate their synergistic effects in vulnerable code detection tasks.&nbsp;</li>
+
+
+
+<li><strong>Generalization to seen and unseen risks:</strong> Empowered by comprehensive red-teaming knowledge, BlueCodeAgent generalizes effectively to unseen risks. Overall, BlueCodeAgent achieves an average 12.7% improvement in F1 score across four datasets and three tasks, attributed to its ability to distill actionable constitutions that enhance context-aware risk detection.&nbsp;</li>
+</ol>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1202" height="371" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png" alt="Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. " class="wp-image-1154397" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png 1202w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-300x93.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-1024x316.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-768x237.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-240x74.png 240w" sizes="(max-width: 1202px) 100vw, 1202px" /><figcaption class="wp-element-caption">Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="a-blue-teaming-agent-enabled-by-red-teaming">A blue teaming agent enabled by red teaming</h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1222" height="581" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png" alt="Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. " class="wp-image-1154396" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png 1222w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-300x143.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-1024x487.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-768x365.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-240x114.png 240w" sizes="(max-width: 1222px) 100vw, 1222px" /><figcaption class="wp-element-caption">Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. </figcaption></figure>
+
+
+
+<p>Figure 2 presents an overview of the pipeline. The framework unifies both sides of the process: red teaming generates diverse risky cases and behaviors, which are then distilled into actionable constitutions that encode safety rules on the blue-teaming side. These constitutions guide BlueCodeAgent to more effectively detect unsafe textual inputs and code outputs, mitigating limitations such as poor alignment with abstract security concepts.&nbsp;</p>
+
+
+
+<p>This work targets three major risk categories, covering both input/textual-level risks—including biased and malicious instructions—and output/code-level risks, where models may generate vulnerable code. These categories represent risks that have been widely studied in prior research.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="diverse-red-teaming-process-for-knowledge-accumulation">Diverse red-teaming process for knowledge accumulation&nbsp;</h2>
+
+
+
+<p>Since different tasks require distinct attack strategies, the&nbsp;red-teaming&nbsp;employs multiple attack methods to generate realistic and diverse data. Specifically, the red-teaming process is divided into three categories:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Policy-based instance generation</strong>: To synthesize policy-grounded red-teaming data, diverse security and ethical policies are first collected. These high-level principles are then used to prompt an uncensored model to generate instances that intentionally violate the specified policies.</li>
+
+
+
+<li><strong>Seed-based adversarial prompt optimization</strong>: Existing adversarial instructions are often overly simplistic and easily rejected by models. To overcome this limitation, an adaptive red-teaming agent invokes various jailbreak tools to iteratively refine initial seed prompts until the prompts achieve high attack success rates.</li>
+
+
+
+<li><strong>Knowledge-driven vulnerability generation</strong>: To synthesize both vulnerable and safe code samples under realistic programming scenarios, domain knowledge of common software weaknesses (CWE) is leveraged to generate diverse code examples.</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading" id="knowledge-enhanced-blue-teaming-agent">Knowledge-enhanced blue teaming agent&nbsp;</h2>
+
+
+
+<p>After accumulating red-teaming knowledge data, BlueCodeAgent set up <strong>Principled-Level Defense via Constitution Construction</strong> and <strong>Nuanced-Level Analysis via Dynamic Testing</strong>.</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Principled-Level Defense via Constitution Construction</strong>&nbsp;<br>Based on the most relevant knowledge data<strong>, </strong>BlueCodeAgent summarizes red-teamed knowledge into actionable constitutions—explicit rules and principles distilled from prior attack data. These constitutions serve as normative guidelines, enabling the model to stay aligned with ethical and security principles even when confronted with novel or unseen adversarial inputs.&nbsp;</li>
+
+
+
+<li><strong>Nuanced-Level Analysis via Dynamic Testing</strong>&nbsp;<br>In vulnerable code detection, BlueCodeAgent augments static reasoning with dynamic sandbox-based analysis, executing generated code within isolated Docker environments to verify whether the model-reported vulnerabilities manifest as actual unsafe behaviors. This dynamic validation effectively mitigates the model’s tendency toward over-conservatism, where benign code is mistakenly flagged as vulnerable.&nbsp;</li>
+</ol>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Newsletter</h2>
+				
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="insights-from-bluecodeagent">Insights from BlueCodeAgent&nbsp;</h2>
+
+
+
+<h3 class="wp-block-heading" id="bluecodeagent-outperforms-prompting-baselines">BlueCodeAgent outperforms prompting baselines&nbsp;</h3>
+
+
+
+<p>As shown in Figure 3, BlueCodeAgent significantly outperforms other baselines. Several findings are highlighted.&nbsp;</p>
+
+
+
+<p>(1) Even when test categories differ from knowledge categories to simulate unseen scenarios, BlueCodeAgent effectively leverages previously seen risks to handle unseen ones, benefiting from its knowledge-enhanced safety reasoning.&nbsp;</p>
+
+
+
+<p>(2) BlueCodeAgent is model-agnostic, working consistently across diverse base LLMs, including both open-source and commercial models. Its F1 scores for bias and malicious instruction detection approach 1.0, highlighting strong effectiveness.&nbsp;</p>
+
+
+
+<p>(3) BlueCodeAgent achieves a strong balance between safety and usability. It accurately identifies unsafe inputs while maintaining a reasonable false-positive rate on benign ones, resulting in a consistently high F1 score.&nbsp;</p>
+
+
+
+<p>(4) By contrast, prompting with general or fine-grained safety reminders remains insufficient for effective blue teaming, as models struggle to internalize abstract safety concepts and apply them to unseen risky scenarios. BlueCodeAgent bridges this gap by distilling actionable constitutions from knowledge, using concrete and interpretable safety constraints to enhance model alignment.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="993" height="602" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3.png" alt="Figure 3. F1 scores on bias instruction detection task (BlueCodeEval-Bias) in the first row and on malicious instruction detection task (BlueCodeEval-Mal, RedCode-based) in the second row. " class="wp-image-1154395" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3.png 993w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3-300x182.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3-768x466.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3-240x145.png 240w" sizes="auto, (max-width: 993px) 100vw, 993px" /><figcaption class="wp-element-caption"><strong>Figure 3:</strong> F1 scores on bias instruction detection task (BlueCodeEval-Bias) in the first row and on malicious instruction detection task (BlueCodeEval-Mal) in the second row. </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="complementary-effects-of-constitutions-and-dynamic-testing">Complementary effects of constitutions and dynamic testing&nbsp;</h2>
+
+
+
+<p>In vulnerability detection tasks, models tend to behave conservatively—an effect also noted in prior research. They are often more likely to flag code as <em>unsafe</em> rather than <em>safe</em>. This bias is understandable: confirming that code is completely free from vulnerabilities is generally harder than spotting a potential issue.&nbsp;</p>
+
+
+
+<p>To mitigate this over-conservatism, BlueCodeAgent integrates dynamic testing into its analysis pipeline. When BlueCodeAgent identifies a potential vulnerability, it triggers a reliable model (Claude-3.7-Sonnet-20250219) to generate test cases and corresponding executable code that embeds the suspicious snippet. These test cases are then run in a controlled environment to verify whether the vulnerability actually manifests. The final judgment combines the LLM’s analysis of the static code, the generated test code, run-time execution results, and constitutions derived from knowledge.&nbsp;</p>
+
+
+
+<p>Researchers find the two components—constitutions and dynamic testing—play complementary roles. Constitutions expand the model’s understanding of risk, increasing true positives (TP) and reducing false negatives (FN). Dynamic testing, on the other hand, focuses on reducing false positives (FP) by validating whether predicted vulnerabilities can truly be triggered at run-time. Together, they make BlueCodeAgent both more accurate and more reliable in blue-teaming scenarios.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="summary">Summary&nbsp;</h2>
+
+
+
+<p>BlueCodeAgent introduces an end-to-end blue-teaming framework designed to address risks in code generation. The key insight behind BlueCodeAgent is that comprehensive red-teaming can greatly strengthen blue-teaming defenses. Based on this idea, the framework first builds a red-teaming process with diverse strategies for generating red-teaming data. It then constructs a blue-teaming agent that retrieves relevant examples from the red-teaming knowledge base and summarizes safety constitutions to guide LLMs in making accurate defensive decisions. A dynamic testing component is further added to reduce false positives in vulnerability detection.&nbsp;</p>
+
+
+
+<p>Looking ahead, several directions hold promise.&nbsp;&nbsp;</p>
+
+
+
+<p>First, it is valuable to explore the generalization of BlueCodeAgent to other categories of code-generation risks beyond bias, malicious code, and vulnerable code. This may require designing and integrating novel red-teaming strategies into BlueCodeAgent and creating corresponding benchmarks for new risks.&nbsp;&nbsp;</p>
+
+
+
+<p>Second, scaling BlueCodeAgent to the file and repository levels could further enhance its real-world utility, which requires equipping agents with more advanced context retrieval tools and memory components.&nbsp;&nbsp;</p>
+
+
+
+<p>Finally, beyond code generation, it is also important to extend BlueCodeAgent to mitigate risks in other modalities, including text, image, video, and audio, as well as in multimodal applications.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</title>
 		<link>https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/</link>
 		
@@ -32,7 +250,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/">When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows a person in front of a screen with another person, the third is a magnifying glass" class="wp-image-1154222" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows a person in front of a screen with another person, the third is a magnifying glass" class="wp-image-1154222" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -116,7 +334,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="865" height="451" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png" alt="Figure 1: A flowchart illustrating the PIKE-RAG framework for orchestrating and integrating heterogeneous information across multi-source and multimodal environments. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process starts with a task (e.g., “What wireless drivers are available?”), followed by iterative task decomposition and retrieval from a tools repository. The tools repository includes similarity and keyword retrieval, Text2SQL, decomposers, VLMs, verifiers, and atomizers. Below, domain knowledge is shown in various forms: textual (terminology, specifications), multi-modal (figures, tables), structural (databases, knowledge graphs), and others (search engine, internal FAQ). The LM generates responses and updates memory while fetching context as needed." class="wp-image-1154223" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-300x156.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-768x400.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-240x125.png 240w" sizes="(max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 1: PIKE-RAG orchestrates and integrates heterogeneous information in multi-source and multimodal environments. </figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="865" height="451" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png" alt="Figure 1: A flowchart illustrating the PIKE-RAG framework for orchestrating and integrating heterogeneous information across multi-source and multimodal environments. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process starts with a task (e.g., “What wireless drivers are available?”), followed by iterative task decomposition and retrieval from a tools repository. The tools repository includes similarity and keyword retrieval, Text2SQL, decomposers, VLMs, verifiers, and atomizers. Below, domain knowledge is shown in various forms: textual (terminology, specifications), multi-modal (figures, tables), structural (databases, knowledge graphs), and others (search engine, internal FAQ). The LM generates responses and updates memory while fetching context as needed." class="wp-image-1154223" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-300x156.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-768x400.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-240x125.png 240w" sizes="auto, (max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 1: PIKE-RAG orchestrates and integrates heterogeneous information in multi-source and multimodal environments. </figcaption></figure>
 
 
 
@@ -158,7 +376,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="865" height="563" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png" alt="Figure 2: Diagram showing the PIKE-RAG framework overview. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process begins with a task input, decomposes it into sub-tasks, retrieves information from a tools repository, and integrates domain knowledge from multiple modalities such as textual documents, diagrams, tables, relational databases, and knowledge graphs. The LM generates responses and updates memory while orchestrating heterogeneous information sources." class="wp-image-1154224" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-300x195.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-768x500.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-240x156.png 240w" sizes="(max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2: Overview of the PIKE-RAG framework</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="865" height="563" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png" alt="Figure 2: Diagram showing the PIKE-RAG framework overview. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process begins with a task input, decomposes it into sub-tasks, retrieves information from a tools repository, and integrates domain knowledge from multiple modalities such as textual documents, diagrams, tables, relational databases, and knowledge graphs. The LM generates responses and updates memory while orchestrating heterogeneous information sources." class="wp-image-1154224" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-300x195.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-768x500.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-240x156.png 240w" sizes="auto, (max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2: Overview of the PIKE-RAG framework</figcaption></figure>
 
 
 
@@ -280,30 +498,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -498,7 +716,7 @@
 
 
 
-<p>To address these challenges, researchers from the University of Chicago, University of Illinois Urbana–Champaign, VirtueAI, the UK AI Safety Institute, University of Oxford, UC Berkeley, and Microsoft Research recently proposed <a href="https://www.microsoft.com/en-us/research/publication/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/" target="_blank" rel="noreferrer noopener">RedCodeAgent</a>, the first fully automated and adaptive red-teaming agent designed specifically to evaluate the safety of large language model&nbsp;(LLM)-based code agents.</p>
+<p>To address these challenges, researchers from the University of Chicago, University of Illinois Urbana–Champaign, VirtueAI, the UK AI Security Institute, University of Oxford, UC Berkeley, and Microsoft Research recently proposed <a href="https://www.microsoft.com/en-us/research/publication/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/" target="_blank" rel="noreferrer noopener">RedCodeAgent</a>, the first fully automated and adaptive red-teaming agent designed specifically to evaluate the safety of large language model (LLM)-based code agents.</p>
 
 
 
@@ -660,27 +878,30 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2188,30 +2409,30 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2323,92 +2544,6 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 		
 		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_animate.mp4" length="58187117" type="video/mp4" />
 
-			</item>
-		<item>
-		<title>Breaking the networking wall in AI infrastructure </title>
-		<link>https://www.microsoft.com/en-us/research/blog/breaking-the-networking-wall-in-ai-infrastructure/</link>
-		
-		<dc:creator><![CDATA[Paolo Costa]]></dc:creator>
-		<pubDate>Tue, 09 Sep 2025 14:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false"></guid>
-
-					<description><![CDATA[<p>Datacenter memory and network limits are restraining AI system performance. MOSAIC uses microLEDs and a wide-and-slow optical architecture to deliver faster, longer, more reliable, and energy efficient connections that could transform AI cluster designs.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/breaking-the-networking-wall-in-ai-infrastructure/">Breaking the networking wall in AI infrastructure </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1.jpg" alt="Two white line icons on a gradient background transitioning from blue to pink. From left to right: icon representing a set of gears; an icon representing three connected nodes each containing a user icon." class="wp-image-1148762" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/08/MicroLED-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Memory and network bottlenecks are increasingly limiting AI system performance by reducing GPU&nbsp;utilization&nbsp;and overall efficiency,&nbsp;ultimately preventing&nbsp;infrastructure from reaching its full potential&nbsp;despite enormous investments.&nbsp;At the&nbsp;core&nbsp;of this challenge is a fundamental trade-off in the communication technologies used for memory and network interconnects.</p>
-
-
-
-<p>Datacenters typically deploy two types of physical cables&nbsp;for&nbsp;communication between&nbsp;GPUs.&nbsp;Traditional copper links&nbsp;are power-efficient and&nbsp;reliable,&nbsp;but&nbsp;limited to&nbsp;very short&nbsp;distances&nbsp;(< 2 meters)&nbsp;that&nbsp;restrict their use&nbsp;to within a single&nbsp;GPU&nbsp;rack. Optical&nbsp;fiber&nbsp;links&nbsp;can&nbsp;reach&nbsp;tens of meters,&nbsp;but&nbsp;they&nbsp;consume far more&nbsp;power&nbsp;and fail up to 100 times&nbsp;as often as&nbsp;copper. A&nbsp;team working across&nbsp;Microsoft&nbsp;aims&nbsp;to&nbsp;resolve&nbsp;this trade-off&nbsp;by&nbsp;developing&nbsp;MOSAIC,&nbsp;a novel optical link technology&nbsp;that&nbsp;can provide&nbsp;low power and cost, high reliability, and long reach (up to 50 meters)&nbsp;<em>simultaneously</em>.&nbsp;This approach leverages a hardware-system co-design and adopts&nbsp;a wide-and-slow design with hundreds of parallel low-speed channels using&nbsp;microLEDs.&nbsp;</p>
-
-
-
-<p>The fundamental trade-off&nbsp;among&nbsp;power, reliability, and reach&nbsp;stems from&nbsp;the&nbsp;<em>narrow-and-fast</em>&nbsp;architecture&nbsp;deployed&nbsp;in&nbsp;today&#8217;s copper and optical links,&nbsp;comprising&nbsp;a few channels&nbsp;operating&nbsp;at&nbsp;very high&nbsp;data rates. For example,&nbsp;an&nbsp;800 Gbps link&nbsp;consists of eight 100 Gbps channels.&nbsp;With&nbsp;copper links, higher channel speeds lead to greater signal integrity challenges, which limits their reach.&nbsp;With optical&nbsp;links,&nbsp;high-speed transmission is inherently inefficient, requiring power-hungry laser drivers and&nbsp;complex electronics&nbsp;to compensate for transmission impairments. These challenges&nbsp;grow&nbsp;as speeds increase&nbsp;with&nbsp;every&nbsp;generation&nbsp;of networks.&nbsp;Transmitting at high speeds also pushes the limits of optical components, reducing&nbsp;systems&nbsp;margins&nbsp;and increasing failure rates.&nbsp;</p>
-
-
-
-<p>These limitations force systems designers to make unpleasant&nbsp;choices,&nbsp;limiting the scalability of AI infrastructure.&nbsp;For example,&nbsp;scale-up networks connecting AI accelerators at&nbsp;multi-Tbps&nbsp;bandwidth&nbsp;typically&nbsp;must&nbsp;rely on&nbsp;copper links&nbsp;to meet&nbsp;the&nbsp;power budget,&nbsp;requiring&nbsp;ultra-dense racks that&nbsp;consume&nbsp;hundreds of kilowatts&nbsp;<em>per rack</em>. This creates significant challenges in cooling&nbsp;and&nbsp;mechanical design,&nbsp;which constrain&nbsp;the practical scale of these networks and end-to-end performance. This imbalance&nbsp;ultimately&nbsp;erects&nbsp;a&nbsp;<em>networking wall</em>&nbsp;akin&nbsp;to the&nbsp;<em>memory wall</em>, in&nbsp;which CPU speeds have outstripped memory speeds, creating performance bottlenecks.</p>
-
-
-
-<p class="has-text-align-left">A technology offering copper-like power efficiency and reliability over long distances can overcome this networking wall, enabling multi-rack scale-up domains and unlocking new architectures. This is a highly active R&D area, with many candidate technologies currently being developed across the industry. In our recent paper, <em>“<a href="https://www.microsoft.com/en-us/research/publication/mosaic-breaking-the-optics-versus-copper-trade-off-with-a-wide-and-slow-architecture-and-microleds/">MOSAIC: Breaking the Optics versus Copper Trade-off with a Wide-and-Slow Architecture and MicroLEDs</a>”</em>, which received the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://conferences.sigcomm.org/sigcomm/2025/program/papers-info/" target="_blank" rel="noopener noreferrer">Best Paper award at ACM SIGCOMM<span class="sr-only"> (opens in new tab)</span></a>, we present one such promising approach that is the result of a multi-year collaboration between Microsoft Research, Azure, and M365. This work is centered around an optical wide-and-slow architecture, shifting from a small number of high-speed serial channels towards hundreds of parallel low-speed channels. This would be impractical to realize with today’s copper and optical technologies because of i) electromagnetic interference challenges in high-density copper cables and ii) the high cost and power consumption of lasers in optical links, as well as the increase in packaging complexity. MOSAIC overcomes these issues by leveraging directly modulated microLEDs, a technology originally developed for screen displays. </p>
-
-
-
-<p>MicroLEDs&nbsp;are significantly smaller than traditional LEDs (ranging from a few to tens of&nbsp;microns) and, due to their&nbsp;small size,&nbsp;they&nbsp;can be modulated at several Gbps.&nbsp;They&nbsp;are manufactured in large arrays,&nbsp;with over half a million&nbsp;in a small physical footprint for high-resolution displays&nbsp;like&nbsp;head-mounted devices or smartwatches. For example, assuming 2 Gbps per&nbsp;microLED&nbsp;channel, an 800 Gbps MOSAIC link can be realized by using a 20×20&nbsp;microLED&nbsp;array, which can fit in less than 1 mm×1 mm&nbsp;silicon&nbsp;die.&nbsp;</p>
-
-
-
-<p>MOSAIC’s&nbsp;wide-and-slow&nbsp;design&nbsp;provides four core benefits.</p>
-
-
-
-<ul class="wp-block-list">
-<li>Operating&nbsp;at low speed improves power efficiency&nbsp;by&nbsp;eliminating&nbsp;the need for&nbsp;complex&nbsp;electronics&nbsp;and&nbsp;reducing optical power requirements.</li>
-
-
-
-<li>By&nbsp;leveraging&nbsp;optical transmission (via&nbsp;microLEDs),&nbsp;MOSAIC&nbsp;sidesteps&nbsp;copper’s reach issues, supporting distances up to 50 meters,&nbsp;or&nbsp;> 10x&nbsp;further&nbsp;than copper.</li>
-
-
-
-<li>MicroLEDs’&nbsp;simpler structure&nbsp;and temperature insensitivity&nbsp;make them more reliable than lasers. The parallel nature of&nbsp;wide-and-slow&nbsp;also&nbsp;makes it easy to add redundant channels, further increasing reliability, up to two orders of magnitude higher than optical links.&nbsp;</li>
-
-
-
-<li>The&nbsp;approach is also scalable, as higher aggregate speeds (e.g.,&nbsp;1.6&nbsp;Tbps&nbsp;or 3.2&nbsp;Tbps) can be achieved by increasing the number of&nbsp;channels and/or raising per-channel speed&nbsp;(e.g., to 4-8 Gbps).&nbsp;</li>
-</ul>
-
-
-
-<p>Further,&nbsp;MOSAIC is fully compatible with today’s pluggable transceivers’ form&nbsp;factor&nbsp;and it provides a drop-in replacement for today’s copper and optical cables, without requiring any changes to existing server and network infrastructure.&nbsp;MOSAIC is protocol-agnostic, as it simply relays bits from one endpoint to another without&nbsp;terminating&nbsp;or inspecting the connection&nbsp;and, hence,&nbsp;it’s&nbsp;fully compatible with today’s protocols (e.g.,&nbsp;Ethernet, PCIe, CXL).&nbsp;We are currently working with our suppliers to&nbsp;productize&nbsp;this technology and&nbsp;scale&nbsp;to mass production.&nbsp;</p>
-
-
-
-<p>While&nbsp;conceptually simple, realizing this architecture posed a few key challenges&nbsp;across the stack, which&nbsp;required&nbsp;a multi-disciplinary team with&nbsp;expertise&nbsp;spanning across integrated photonics, lens design, optical transmission, and&nbsp;analog&nbsp;and digital design.&nbsp;For example, using individual&nbsp;fibers&nbsp;per channel would be prohibitively complex and costly due to the&nbsp;large number&nbsp;of channels. We addressed this by employing imaging&nbsp;fibers,&nbsp;which are typically used for medical applications (e.g., endoscopy).&nbsp;They&nbsp;can support thousands of cores&nbsp;per&nbsp;fiber, enabling multiplexing&nbsp;of&nbsp;many channels within a single&nbsp;fiber.&nbsp;Also,&nbsp;microLEDs&nbsp;are a less pure light source&nbsp;than lasers,&nbsp;with&nbsp;a larger beam shape (which complicates&nbsp;fiber&nbsp;coupling) and&nbsp;a broader spectrum (which&nbsp;degrades&nbsp;fiber&nbsp;transmission due to chromatic dispersion).&nbsp;We tackled these issues through&nbsp;a novel&nbsp;microLED and&nbsp;optical lens design,&nbsp;and&nbsp;a power-efficient&nbsp;analog-only electronic back&nbsp;end, which does not require any expensive digital signal processing.&nbsp;&nbsp;</p>
-
-
-
-<p>Based on our current estimates, this approach can save&nbsp;up to 68% of power, i.e., more&nbsp;than 10W per cable while reducing failure rates by up to 100x. With global annual shipments of optical cables&nbsp;reaching into&nbsp;the tens of millions, this translates to over 100MW of power savings per year,&nbsp;enough to power more than 300,000 homes. While these immediate gains are already significant, the unique combination of low power consumption, reduced cost, high reliability, and long reach opens up exciting new opportunities&nbsp;to rethink&nbsp;AI&nbsp;infrastructure from network and cluster architectures to compute and memory designs.</p>
-
-
-
-<p>For example,&nbsp;by&nbsp;supporting&nbsp;low-power,&nbsp;high-bandwidth connectivity at long reach,&nbsp;MOSAIC&nbsp;removes the need for ultra-dense racks and&nbsp;enables&nbsp;novel network topologies, which would be impractical today. The resulting redesign could&nbsp;reduce&nbsp;resource fragmentation and&nbsp;simplify&nbsp;collective optimization.&nbsp;Similarly,&nbsp;on the&nbsp;compute&nbsp;front,&nbsp;the ability&nbsp;to&nbsp;connect&nbsp;silicon&nbsp;dies at low power over long distances&nbsp;could&nbsp;enable&nbsp;resource&nbsp;disaggregation, shifting from today’s&nbsp;large,&nbsp;multi-die packages to&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/good-things-come-in-small-packages-should-we-adopt-lite-gpus-in-ai-infrastructure/">smaller, more cost-effective, ones</a>.&nbsp;Bypassing packaging area constraints would also make it possible to drastically increase&nbsp;GPU&nbsp;memory&nbsp;capacity and bandwidth,&nbsp;while&nbsp;facilitating&nbsp;adoption of&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/storage-class-memory-is-dead-all-hail-managed-retention-memory-rethinking-memory-for-the-ai-era/">novel memory technologies</a>.&nbsp;</p>
-
-
-
-<p>Historically, step changes in network technology have unlocked entirely new classes of applications and workloads. While our SIGCOMM paper provides&nbsp;possible future&nbsp;directions, we hope this work sparks broader discussion and collaboration across the research and industry communities.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/breaking-the-networking-wall-in-ai-infrastructure/">Breaking the networking wall in AI infrastructure </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
 			</item>
 	</channel>
 </rss>
