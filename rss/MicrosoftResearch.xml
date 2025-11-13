@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 11 Nov 2025 14:27:46 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 12 Nov 2025 18:17:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,298 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>MMCTAgent: Enabling multimodal reasoning over large video and image collections</title>
+		<link>https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/</link>
+		
+		<dc:creator><![CDATA[Akshay Nambi, Kavyansh Chourasia, Tanuja Ganu]]></dc:creator>
+		<pubDate>Wed, 12 Nov 2025 12:00:20 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1153693</guid>
+
+					<description><![CDATA[<p>MMCTAgent enables dynamic multimodal reasoning with iterative planning and reflection. Built on Microsoft’s AutoGen framework, it integrates language, vision, and temporal understanding for complex tasks like long video and image analysis.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/">MMCTAgent: Enabling multimodal reasoning over large video and image collections</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows an image/photo; the second icon depicts a computer monitor with vertical bars; the third icon displays three connected circles with user silhouettes." class="wp-image-1153930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Modern multimodal AI models can recognize objects, describe scenes, and answer questions about images and short video clips, but they struggle with long-form and large-scale visual data, where real-world reasoning requires moving beyond object recognition and short-clip analysis.</p>
+
+
+
+<p>Real-world reasoning increasingly involves analyzing long-form video content, where context spans minutes or hours, far beyond the context limits of most models. It also entails querying across massive multimodal libraries of videos, images, and transcripts, where finding and integrating relevant evidence requires more than retrieval—it requires strategic reasoning. Existing models typically perform single-pass inference, producing one-shot answers. This limits their ability to handle tasks that require temporal reasoning, cross-modal grounding, and iterative refinement.</p>
+
+
+
+<h2 class="wp-block-heading" id="mmctagent">MMCTAgent</h2>
+
+
+
+<p>To meet these challenges, we developed the <a href="https://www.microsoft.com/en-us/research/publication/mmctagent-multi-modal-critical-thinking-agent-framework-for-complex-visual-reasoning/?msockid=153992cb7df169482b9487167c0968e9" target="_blank" rel="noreferrer noopener">Multi-modal Critical Thinking Agent</a>, or MMCTAgent, for structured reasoning over long-form video and image data, available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/MMCTAgent" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> and featured on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://labs.ai.azure.com/projects/mmct-agent/">Azure AI Foundry Labs<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<p>Built on <a href="https://www.microsoft.com/en-us/research/project/autogen" target="_blank" rel="noreferrer noopener">AutoGen</a>, Microsoft’s open-source multi-agent system, MMCTAgent provides multimodal question-answering with a Planner–Critic architecture. This design enables planning, reflection, and tool-based reasoning, bridging perception and deliberation in multimodal tasks. It links language, vision, and temporal understanding, transforming static multimodal tasks into dynamic reasoning workflows.&nbsp;&nbsp;</p>
+
+
+
+<p>Unlike conventional models that produce one-shot answers, MMCTAgent has modality-specific agents, including ImageAgent and VideoAgent, which include tools like get_relevant_query_frames() or object_detection-tool(). These agents perform&nbsp;deliberate, iterative reasoning—selecting the right tools for each modality, evaluating intermediate results, and refining conclusions through a Critic loop. This enables MMCTAgent to analyze complex queries across long videos and large image libraries with explainability, extensibility, and scalability.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://labs.ai.azure.com/projects/mmct-agent/">MMCTAgent on Azure AI Foundry Labs</a></div>
+</div>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Forum</h2>
+				
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="how-mmctagent-works">How MMCTAgent works</h2>
+
+
+
+<p>MMCTAgent integrates two coordinated agents, Planner and Critic, orchestrated through AutoGen. The Planner agent decomposes a user query, identifies the appropriate reasoning tools, performs multimodal operations, and drafts a preliminary answer. The Critic agent reviews the Planner’s reasoning chain, validates evidence alignment, and refines or revises the response for factual accuracy and consistency.</p>
+
+
+
+<p>This iterative reasoning loop enables MMCTAgent to improve its answers through structured self-evaluation—bringing reflection into AI reasoning. A key strength of MMCTAgent lies in its modular extensibility. Developers can easily integrate new, domain-specific tools—such as medical image analyzers, industrial inspection models, or specialized retrieval modules—by adding them to ImageQnATools or VideoQnATools. This design makes MMCTAgent adaptable across domains.</p>
+
+
+
+<h3 class="wp-block-heading" id="videoagent-from-ingestion-to-long-form-multimodal-reasoning">VideoAgent: From ingestion to long-form multimodal reasoning</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="14353" height="8455" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/MMCT_UPDATED_FINAL_FINAL.png" alt="MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback. " class="wp-image-1155366"/><figcaption class="wp-element-caption">Figure 1. MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback</figcaption></figure>
+
+
+
+<p>The VideoAgent extends this architecture to long-form video reasoning. It operates in two connected phases: library creation (ingestion) and query-time reasoning.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h4 class="wp-block-heading" id="phase-1-video-ingestion-and-library-creation">Phase 1 – Video ingestion and library creation</h4>
+
+
+
+<p>Before reasoning, long-form videos undergo an ingestion pipeline that aligns multimodal information for retrieval and understanding:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Transcription </strong>and<strong> translation</strong>: Converts audio to text and, if multilingual, translates transcripts into a consistent language&nbsp;</li>
+
+
+
+<li><strong>Key-frame identification</strong>: Extracts representative frames marking major visual or scene changes</li>
+
+
+
+<li><strong>Semantic chunking </strong>and<strong> chapter generation</strong>: Combines transcript segments and visual summaries into coherent, semantically segmented chapters with associated key frames. Inspired by Microsoft’s <a href="https://www.microsoft.com/en-us/research/publication/deep-video-discovery-agentic-search-with-tool-use-for-long-form-video-understanding/" target="_blank" rel="noreferrer noopener">Deep Video Discovery agentic search tool</a>, this step also extracts detailed descriptions of objects, on-screen text, and characters present within each video segment, integrating these insights directly into the corresponding chapters.&nbsp;</li>
+
+
+
+<li><strong>Multimodal embedding creation</strong>: Generates image embeddings for key frames, linking them to their corresponding transcript and chapter data</li>
+</ol>
+
+
+
+<p>All structured metadata, including transcripts, visual summaries, chapters, and embeddings, is indexed in the Multimodal Knowledgebase using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search" target="_blank" rel="noopener noreferrer">Azure AI Search<span class="sr-only"> (opens in new tab)</span></a>, which forms the foundation for scalable semantic retrieval and downstream reasoning.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h4 class="wp-block-heading" id="phase-2-video-question-answering-and-reasoning">Phase 2 – Video question answering and reasoning</h4>
+
+
+
+<p>When a user submits a query, the VideoAgent retrieves, analyzes, and reasons across the indexed video content using specialized planner and critic tools.</p>
+
+
+
+<h5 class="wp-block-heading" id="planner-tools-1">Planner tools</h5>
+
+
+
+<ul class="wp-block-list">
+<li><strong>get_video_analysis</strong>: Finds the most relevant video, provides a summary, and lists detected objects&nbsp;</li>
+
+
+
+<li><strong>get_context</strong>: Retrieves contextual information and relevant chapters from the Azure AI Search index</li>
+
+
+
+<li><strong>get_relevant_frames</strong>: Selects key frames most relevant to the user query</li>
+
+
+
+<li><strong>query_frame</strong>: Performs detailed visual and textual reasoning over selected frames</li>
+
+
+
+<li><strong>get_context</strong> and <strong>get_relevant_frames</strong> work in tandem to ensure that reasoning begins from the most semantically relevant evidence</li>
+</ul>
+
+
+
+<h5 class="wp-block-heading" id="critic-tools-1">Critic tool</h5>
+
+
+
+<ul class="wp-block-list">
+<li><strong>critic_tool</strong>: Evaluates the reasoning output for temporal alignment, factual accuracy, and coherence between visual and textual modalities</li>
+</ul>
+
+
+
+<p>This two-phase design, which involves&nbsp;structured ingestion followed by agentic reasoning, enables MMCTAgent to deliver accurate, interpretable insights for long information-dense videos.&nbsp;</p>
+
+
+
+<h3 class="wp-block-heading" id="imageagent-structured-reasoning-for-static-visuals">ImageAgent: Structured reasoning for static visuals</h3>
+
+
+
+<p>While the VideoAgent handles temporal reasoning across long-form videos, the ImageAgent applies the same Planner–Critic paradigm to static visual analysis. It performs modular, tool-based reasoning over images, combining perception tools for recognition, detection, and optical character recognition with language-based reasoning for interpretation and explanation.</p>
+
+
+
+<h5 class="wp-block-heading" id="planner-tools">Planner tools</h5>
+
+
+
+<ul class="wp-block-list">
+<li><strong>vit_tool</strong>: Leverages Vision Transformer (ViT) or Vision Languague Model (VLM) for high-level visual understanding and description&nbsp;</li>
+
+
+
+<li><strong>recog_tool</strong>: Performs scene, face, and object recognition</li>
+
+
+
+<li><strong>object_detection_tool</strong>: Localizes and labels entities within an image</li>
+
+
+
+<li><strong>ocr_tool</strong>: Extracts embedded text from visual elements</li>
+</ul>
+
+
+
+<h5 class="wp-block-heading" id="critic-tool">Critic tool</h5>
+
+
+
+<ul class="wp-block-list">
+<li><strong>critic_tool</strong>: Validates the Planner’s conclusions for factual alignment and consistency, refining the final response&nbsp;</li>
+</ul>
+
+
+
+<p>This lightweight ImageAgent provides fine-grained, explainable reasoning over image collections—supporting visual question answering, content inspection, and multimodal retrieval—while maintaining architectural symmetry with the VideoAgent.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluation-results">Evaluation Results&nbsp;</h2>
+
+
+
+<p>To assess the effectiveness of MMCTAgent, we evaluated both the ImageAgent and VideoAgent with multiple base LLM models and a range of benchmark datasets and real-world scenarios. Some key results are presented here.&nbsp;</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Image Datasets</th><th>GPT-4V</th><th>MMCT with GPT-4V</th><th>GPT4o</th><th>MMCT with GPT-4o</th><th>GPT-5</th><th>MMCT with GPT-5</th></tr></thead><tbody><tr><td>MM-Vet [1]</td><td>60.20</td><td>74.24</td><td>77.98</td><td>79.36</td><td>80.51</td><td>81.65</td></tr><tr><td>MMMU [2]</td><td>56.80</td><td>63.57</td><td>69.10</td><td>73.00</td><td>84.20</td><td>85.44</td></tr></tbody></table></figure>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Video Datasets</th><th>GPT4o</th><th>MMCT with GPT-4o</th></tr></thead><tbody><tr><td>VideoMME [3]</td><td>72.10</td><td>76.70</td></tr></tbody></table></figure>
+
+
+
+<p>MMCTAgent enhances base model performance by augmenting their capabilities with appropriate tools such as object detection and optical character recognition (OCR) for weaker models, or domain-specific tools for stronger models, thereby leading to substantial improvements. For example, integrating these tools raised GPT-4V’s accuracy from 60.20% to 74.24% on MM-Vet dataset. Additionally, the configurable Critic agent provides additional validation, which is especially valuable in critical domains. The additional evaluation results are available <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/MMCTAgent/blob/main/EVALUATIONS.md" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="takeaways-and-next-steps">Takeaways and next steps</h2>
+
+
+
+<p>MMCTAgent demonstrates a scalable agentic approach to multimodal reasoning with a Planner–Critic architecture. Its unified multimodal design supports both image and video pipelines, while the extensible toolchain enables rapid integration of domain-specific tools and capabilities. It provides Azure-native deployment and supports configurability within the broader open-source ecosystem.</p>
+
+
+
+<p>Looking ahead, we aim to improve efficiency and adaptability in retrieval and reasoning workflows, and to extend MMCTAgent’s applications beyond current agricultural evaluations, exploring new real-world domains through initiatives like <a href="https://www.microsoft.com/en-us/research/project/project-gecko" target="_blank" rel="noreferrer noopener">Project Gecko</a> to advance the creation of accessible, innovative multimodal applications for people around the globe.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>We would like to thank our team members for their valuable contributions to this work: Aman Patkar, <a href="https://www.microsoft.com/en-us/research/people/ogbemie" target="_blank" rel="noreferrer noopener">Ogbemi Ekwejunor-Etchie</a>, Somnath Kumar, Soumya De, and Yash Gadhia. </p>
+
+
+
+<p><strong>References</strong><strong></strong>&nbsp;</p>
+
+
+
+<p>[1] W. Yu, Z. Yang, L. Li, J. Wang, K. Lin, Z. Liu, X. Wang, and L. Wang. “MM-VET: Evaluating large multimodal models for integrated capabilities”, 2023.&nbsp;</p>
+
+
+
+<p>[2] X. Yue, Y. Ni, K. Zhang, T. Zheng, R. Liu, G. Zhang, S. Stevens, D. Jiang, W. Ren, Y. Sun, C. Wei, B. Yu, R. Yuan, R. Sun, M. Yin, B. Zheng, Z. Yang, Y. Liu, W. Huang, H. Sun, Y. Su, and W. Chen. “MMMU: A massive multi-discipline multimodal understanding and reasoning benchmark for expert AGI”, 2023.&nbsp;</p>
+
+
+
+<p>[3] Chaoyou Fu, Yuhan Dai, Yondong Luo, Lei Li, Shuhuai Ren, Renrui Zhang, Zihan Wang, Chenyu Zhou, Yunhang Shen, Mengdan Zhang, et al. “Video-MME: The first-ever comprehensive evaluation benchmark of multi-modal llms in video analysis”, 2024.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/">MMCTAgent: Enabling multimodal reasoning over large video and image collections</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</title>
 		<link>https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/</link>
 		
@@ -32,7 +324,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-green gradient background: the first icon shows a circle with connected nodes, the second shows a circuit, and the third shows a flowchart" class="wp-image-1154392" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-green gradient background: the first icon shows a circle with connected nodes, the second shows a circuit, and the third shows a flowchart" class="wp-image-1154392" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -70,7 +362,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1202" height="371" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png" alt="Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. " class="wp-image-1154397" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png 1202w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-300x93.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-1024x316.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-768x237.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-240x74.png 240w" sizes="(max-width: 1202px) 100vw, 1202px" /><figcaption class="wp-element-caption">Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. </figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1202" height="371" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png" alt="Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. " class="wp-image-1154397" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png 1202w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-300x93.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-1024x316.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-768x237.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-240x74.png 240w" sizes="auto, (max-width: 1202px) 100vw, 1202px" /><figcaption class="wp-element-caption">Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. </figcaption></figure>
 
 
 
@@ -78,7 +370,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1222" height="581" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png" alt="Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. " class="wp-image-1154396" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png 1222w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-300x143.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-1024x487.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-768x365.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-240x114.png 240w" sizes="(max-width: 1222px) 100vw, 1222px" /><figcaption class="wp-element-caption">Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. </figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1222" height="581" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png" alt="Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. " class="wp-image-1154396" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png 1222w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-300x143.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-1024x487.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-768x365.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-240x114.png 240w" sizes="auto, (max-width: 1222px) 100vw, 1222px" /><figcaption class="wp-element-caption">Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. </figcaption></figure>
 
 
 
@@ -130,30 +422,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -498,30 +790,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -878,30 +1170,30 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2351,199 +2643,6 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 					
 		
 		
-			</item>
-		<item>
-		<title>RenderFormer: How neural networks are reshaping 3D rendering</title>
-		<link>https://www.microsoft.com/en-us/research/blog/renderformer-how-neural-networks-are-reshaping-3d-rendering/</link>
-		
-		<dc:creator><![CDATA[Yue Dong]]></dc:creator>
-		<pubDate>Wed, 10 Sep 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1149051</guid>
-
-					<description><![CDATA[<p> RenderFormer, from Microsoft Research, is the first model to show that a neural network can learn a complete graphics rendering pipeline. It’s designed to support full-featured 3D rendering using only machine learning—no traditional graphics computation required. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/renderformer-how-neural-networks-are-reshaping-3d-rendering/">RenderFormer: How neural networks are reshaping 3D rendering</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a gradient background transitioning from blue to green. From left to right: network node icon, lightbulb-shaped icon with a path tool icon in the center; a monitor icon showing a web browser icon" class="wp-image-1149127" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>3D rendering—the process of converting three-dimensional models into two-dimensional images—is a foundational technology in computer graphics, widely used across gaming, film, virtual reality, and architectural visualization. Traditionally, this process has depended on physics-based techniques like ray tracing and rasterization, which simulate light behavior through mathematical formulas and expert-designed models.</p>
-
-
-
-<p>Now, thanks to advances in AI, especially neural networks, researchers are beginning to replace these conventional approaches with machine learning (ML). This shift is giving rise to a new field known as neural rendering.</p>
-
-
-
-<p>Neural rendering combines deep learning with traditional graphics techniques, allowing models to simulate complex light transport without explicitly modeling physical optics. This approach offers significant advantages: it eliminates the need for handcrafted rules, supports end-to-end training, and can be optimized for specific tasks. Yet, most current neural rendering methods rely on 2D image inputs, lack support for raw 3D geometry and material data, and often require retraining for each new scene—limiting their generalizability.</p>
-
-
-
-<h2 class="wp-block-heading" id="renderformer-toward-a-general-purpose-neural-rendering-model">RenderFormer: Toward a general-purpose neural rendering model</h2>
-
-
-
-<p>To overcome these limitations, researchers at Microsoft Research have developed RenderFormer, a new neural architecture designed to support full-featured 3D rendering using only ML—no traditional graphics computation required. RenderFormer is the first model to demonstrate that a neural network can learn a complete graphics rendering pipeline, including support for arbitrary 3D scenes and global illumination, without relying on ray tracing or rasterization. <a href="https://www.microsoft.com/en-us/research/publication/renderformer-transformer-based-neural-rendering-of-triangle-meshes-with-global-illumination/">This work</a> has been accepted at SIGGRAPH 2025 and is <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/renderformer" target="_blank" rel="noopener noreferrer">open-sourced on GitHub<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="architecture-overview">Architecture overview</h2>
-
-
-
-<p>As shown in Figure 1, RenderFormer represents the entire 3D scene using triangle tokens—each one encoding spatial position, surface normal, and physical material properties such as diffuse color, specular color, and roughness. Lighting is also modeled as triangle tokens, with emission values indicating intensity.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2419" height="1008" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1.png" alt="Figure 1: The figure illustrates the architecture of RenderFormer. It includes a Triangle Mesh Scene with a 3D rabbit model inside a colored cube, a Camera Ray Map grid, a View Independent Transformer (12 layers of Self-Attention and Feed Forward Network), a View Dependent Transformer (6 layers with Cross-Attention and Self-Attention), and a DPT Decoder. Scene attributes—Vertex Normal, Reflectance (Diffuse, Specular, Roughness), Emission, and Position—are embedded into Triangle Tokens via Linear + Norm operations. These tokens and Ray Bundle Tokens (from the Camera Ray Map) are processed by the respective transformers and decoded to produce a rendered image of a glossy rabbit in a colored room." class="wp-image-1149133" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1.png 2419w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-1024x427.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-768x320.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-1536x640.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-2048x853.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig1-240x100.png 240w" sizes="auto, (max-width: 2419px) 100vw, 2419px" /><figcaption class="wp-element-caption">Figure 1. Architecture of RenderFormer</figcaption></figure>
-
-
-
-<p>To describe the viewing direction, the model uses ray bundle tokens derived from a ray map—each pixel in the output image corresponds to one of these rays. To improve computational efficiency, pixels are grouped into rectangular blocks, with all rays in a block processed together.</p>
-
-
-
-<p>The model outputs a set of tokens that are decoded into image pixels, completing the rendering process entirely within the neural network.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
-				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="dual-branch-design-for-view-independent-and-view-dependent-effects">Dual-branch design for view-independent and view-dependent effects</h2>
-
-
-
-<p>The RenderFormer architecture is built around two transformers: one for view-independent features and another for view-dependent ones.</p>
-
-
-
-<ul class="wp-block-list">
-<li>The <strong>view-independent transformer</strong> captures scene information unrelated to viewpoint, such as shadowing and diffuse light transport, using self-attention between triangle tokens.</li>
-
-
-
-<li>The <strong>view-dependent transformer</strong> models effects like visibility, reflections, and specular highlights through cross-attention between triangle and ray bundle tokens.</li>
-</ul>
-
-
-
-<p>Additional image-space effects, such as anti-aliasing and screen-space reflections, are handled via self-attention among ray bundle tokens.</p>
-
-
-
-<p>To validate the architecture, the team conducted ablation studies and visual analyses, confirming the importance of each component in the rendering pipeline.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="963" height="509" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1.png" alt="Table 1: A table comparing the performance of different network variants in an ablation study. The columns are labeled Variant, PSNR (↑), SSIM (↑), LPIPS (↓), and FLIP (↓). Variants include configurations such as "full view-dependent stage," "w/o DPT," "w/o self-attention," and "w/o DPT & w/o self-attention." Each variant is associated with numerical values for the four metrics, showing how removing or altering components affects performance. The full view-dependent stage achieves the highest PSNR and SSIM and lowest LPIPS and FLIP, indicating optimal performance. Additional rows explore configurations involving camera space and world space view-dependent stages with various token and layer setups." class="wp-image-1149129" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1.png 963w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1-300x159.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1-768x406.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_table-1-240x127.png 240w" sizes="auto, (max-width: 963px) 100vw, 963px" /><figcaption class="wp-element-caption">Table 1. Ablation study analyzing the impact of different components and attention mechanisms on the final performance of the trained network. </figcaption></figure>
-
-
-
-<p>To test the capabilities of the view-independent transformer, researchers trained a decoder to produce diffuse-only renderings. The results, shown in Figure 2, demonstrate that the model can accurately simulate shadows and other indirect lighting effects.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="943" height="240" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2.png" alt="Figure 2: The figure displays four 3D-rendered objects showcasing view-independent rendering effects. From left to right: a purple teapot on a green surface, a blue rectangular object on a red surface, an upside-down table casting shadows on a green surface, and a green apple-like object on a blue surface. Each object features diffuse lighting and coarse shadow effects, with distinct highlights and shadows produced by directional light sources." class="wp-image-1149132" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2.png 943w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2-300x76.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2-768x195.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig2-240x61.png 240w" sizes="auto, (max-width: 943px) 100vw, 943px" /><figcaption class="wp-element-caption">Figure 2. View-independent rendering effects decoded directly from the view-independent transformer, including diffuse lighting and coarse shadow effects. </figcaption></figure>
-
-
-
-<p>The view-dependent transformer was evaluated through attention visualizations. For example, in Figure 3, the attention map reveals a pixel on a teapot attending to its surface triangle and to a nearby wall—capturing the effect of specular reflection. These visualizations also show how material changes influence the sharpness and intensity of reflections.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="947" height="620" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3.png" alt="Figure 3: The figure contains six panels arranged in two rows and three columns. The top row displays a teapot in a room with red and green walls under three different roughness values: 0.3, 0.7, and 0.99 (left to right). The bottom row shows the corresponding attention outputs for each roughness setting, featuring the teapot silhouette against a dark background with distinct light patterns that vary with roughness." class="wp-image-1149131" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3.png 947w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3-300x196.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3-768x503.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig3-240x157.png 240w" sizes="auto, (max-width: 947px) 100vw, 947px" /><figcaption class="wp-element-caption">Figure 3. Visualization of attention outputs</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="training-methodology-and-dataset-design">Training methodology and dataset design</h2>
-
-
-
-<p>RenderFormer was trained using the Objaverse dataset, a collection of more than 800,000 annotated 3D objects that is designed to advance research in 3D modeling, computer vision, and related fields. The researchers designed four scene templates, populating each with 1–3 randomly selected objects and materials. Scenes were rendered in high dynamic range (HDR) using Blender’s Cycles renderer, under varied lighting conditions and camera angles.</p>
-
-
-
-<p>The base model, consisting of 205 million parameters, was trained in two phases using the AdamW optimizer:</p>
-
-
-
-<ul class="wp-block-list">
-<li>500,000 steps at 256×256 resolution with up to 1,536 triangles</li>
-
-
-
-<li>100,000 steps at 512×512 resolution with up to 4,096 triangles</li>
-</ul>
-
-
-
-<p>The model supports arbitrary triangle-based input and generalizes well to complex real-world scenes. As shown in Figure 4, it accurately reproduces shadows, diffuse shading, and specular highlights.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="805" height="805" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4.jpg" alt="Figure 4: The figure presents a 3×3 grid of diverse 3D scenes rendered by RenderFormer. In the top row, the first scene shows a room with red, green, and white walls containing two rectangular prisms; the second features a metallic tree-like structure in a blue-walled room with a reflective floor; and the third depicts a red animal figure, a black abstract shape, and a multi-faceted sphere in a purple container on a yellow surface. The middle row includes three constant width bodies (black, red, and blue) floating above a colorful checkered floor; a green shader ball with a square cavity inside a gray-walled room; and crystal-like structures in green, purple, and red on a reflective surface. The bottom row showcases a low-poly fox near a pink tree emitting particles on grassy terrain; a golden horse statue beside a heart-shaped object split into red and grey halves on a reflective surface; and a wicker basket, a banana and a bottle placed on a white platform." class="wp-image-1149130" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4.jpg 805w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-300x300.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-150x150.jpg 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-768x768.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-180x180.jpg 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_fig4-360x360.jpg 360w" sizes="auto, (max-width: 805px) 100vw, 805px" /><figcaption class="wp-element-caption">Figure 4. Rendered results of different 3D scenes generated by RenderFormer </figcaption></figure>
-
-
-
-<p>RenderFormer can also generate continuous video by rendering individual frames, thanks to its ability to model viewpoint changes and scene dynamics.</p>
-
-
-
-<figure class="wp-block-video aligncenter"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_animate.mp4"></video><figcaption class="wp-element-caption">3D animation sequence rendered by RenderFormer </figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="looking-ahead-opportunities-and-challenges">Looking ahead: Opportunities and challenges</h2>
-
-
-
-<p>RenderFormer represents a significant step forward for neural rendering. It demonstrates that deep learning can replicate and potentially replace the traditional rendering pipeline, supporting arbitrary 3D inputs and realistic global illumination—all without any hand-coded graphics computations.</p>
-
-
-
-<p>However, key challenges remain. Scaling to larger and more complex scenes with intricate geometry, advanced materials, and diverse lighting conditions will require further research. Still, the transformer-based architecture provides a solid foundation for future integration with broader AI systems, including video generation, image synthesis, robotics, and embodied AI. </p>
-
-
-
-<p>Researchers hope that RenderFormer will serve as a building block for future breakthroughs in both graphics and AI, opening new possibilities for visual computing and intelligent environments.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/renderformer-how-neural-networks-are-reshaping-3d-rendering/">RenderFormer: How neural networks are reshaping 3D rendering</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/RenderFormer_animate.mp4" length="58187117" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
