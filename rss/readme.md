@@ -40,11 +40,6 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml)
 
-## AnthropicResearch
-- 原网址：https://www.anthropic.com/research
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicResearch.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicResearch.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicResearch.xml)
-
 ## projectdiscovery
 - 原网址：https://projectdiscovery.io/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/projectdiscovery.xml
@@ -59,11 +54,6 @@
 - 原网址：https://www.enkryptai.com/company/blog
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/enkryptai.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/enkryptai.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/enkryptai.xml)
-
-## AnthropicEngineering
-- 原网址：https://www.anthropic.com/engineering
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicEngineering.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicEngineering.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/AnthropicEngineering.xml)
 
 ## devin.ai.blog
 - 原网址：https://cognition.ai/blog/1
