@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 19 Nov 2025 16:04:59 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 24 Nov 2025 17:38:51 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,227 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>Fara-7B: An Efficient Agentic Model for Computer Use</title>
+		<link>https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/</link>
+		
+		<dc:creator><![CDATA[Ahmed Awadallah, Akshay Nambi, Alexey Taymanov, Aravind Rajeswaran, Corby Rosset, Hussein Mozannar, Spencer Whitehead, Vibhav Vineet, Yash Lara, Yash Pandya, Andrew Zhao]]></dc:creator>
+		<pubDate>Mon, 24 Nov 2025 18:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false"></guid>
+
+					<description><![CDATA[<p>Fara-7B is our first agentic small language model for computer use. This experimental model includes robust safety measures to aid responsible deployment. Despite its size, Fara-7B holds its own against larger, more resource-intensive agentic systems.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/">Fara-7B: An Efficient Agentic Model for Computer Use</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<h3 class="wp-block-heading" id="pushing-the-frontiers-of-computer-use-agents-with-an-open-weight-ultra-compact-model-optimized-for-real-world-web-tasks">Pushing the frontiers of computer-use agents with an open-weight, ultra-compact model,&nbsp;optimized&nbsp;for real-world web tasks</h3>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-scaled.jpg" alt="Three white line icons on a blue-to-green gradient background: a computer monitor with a globe symbol on the left, a cursor arrow with click lines in the center, and a computer mouse outline on the right." class="wp-image-1156197" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<p>In 2024,&nbsp;Microsoft&nbsp;introduced small language models (SLMs) to customers, starting with the release of<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/products/phi" target="_blank" rel="noopener noreferrer"> Phi<span class="sr-only"> (opens in new tab)</span></a> models on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/products/ai-foundry" target="_blank" rel="noopener noreferrer">Microsoft&nbsp;Foundry<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;as&nbsp;well as deploying&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://blogs.windows.com/windowsexperience/2024/12/06/phi-silica-small-but-mighty-on-device-slm/" target="_blank" rel="noopener noreferrer">Phi Silica<span class="sr-only"> (opens in new tab)</span></a>&nbsp;on Copilot+&nbsp;PCs&nbsp;powered by Windows 11. Today, we are pleased to&nbsp;announce&nbsp;<strong>Fara-7B</strong>, our first&nbsp;<strong>agentic SLM</strong>&nbsp;designed specifically for&nbsp;computer&nbsp;use.</p>
+
+
+
+<p>Unlike traditional chat models that generate text-based responses, Computer&nbsp;Use Agent (CUA) models like Fara-7B&nbsp;leverage computer interfaces, such as a mouse&nbsp;and keyboard, to complete tasks on behalf of users. With only 7 billion parameters, Fara-7B&nbsp;achieves&nbsp;state-of-the-art&nbsp;performance within its size class and is competitive with larger, more resource-intensive agentic systems that depend on prompting multiple large models. Fara-7B’s small size now&nbsp;makes it possible&nbsp;to&nbsp;run CUA models directly on devices. This results in reduced latency and improved privacy, as user data&nbsp;remains&nbsp;local.</p>
+
+
+
+<p>Fara-7B is an experimental release, designed to invite hands-on exploration and feedback from the community. Users can build and test agentic experiences beyond pure research—automating everyday web tasks like filling out forms, searching for information, booking travel, or managing accounts. We recommend running Fara-7B in a sandboxed environment,&nbsp;monitoring&nbsp;its execution, and avoiding sensitive data or high-risk domains. Responsible use is&nbsp;essential&nbsp;as the model continues to evolve.</p>
+
+
+
+<p>Fara-7B&nbsp;operates by&nbsp;visually perceiving&nbsp;a webpage&nbsp;and&nbsp;takes&nbsp;actions like&nbsp;scrolling, typing, and clicking on directly predicted coordinates.&nbsp;It&nbsp;does not&nbsp;rely on&nbsp;separate models to parse the screen, nor on any additional information like&nbsp;accessibility trees,&nbsp;and&nbsp;thus&nbsp;uses the same modalities as humans to interact with the&nbsp;computer.&nbsp;To train Fara-7B, we developed a novel synthetic data generation pipeline&nbsp;for multi-step&nbsp;web tasks, building on our prior work (<a href="https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/?utm_source=chatgpt.com">AgentInstruct</a>).&nbsp;This data generation pipeline draws from&nbsp;real&nbsp;web pages and tasks&nbsp;sourced&nbsp;from human users.</p>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
+</div>
+
+
+
+<figure class="wp-block-video aligncenter"><video controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_xbox_multi_turn-3.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_xbox_multi_turn-3.mp4"></video><figcaption class="wp-element-caption">Video 1: A demo of a shopping scenario with Fara-7B through Magentic-UI. Fara-7B is asked to purchase an X-Box Spongebob controller. Fara-7B goes on to complete this task, but while doing so, also stops at every Critical Point to get input and approval from the user before proceeding.</figcaption></figure>
+
+
+
+<figure class="wp-block-video aligncenter"><video controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_github_demo.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_github_demo.mp4"></video><figcaption class="wp-element-caption">Video 2: A demo of Fara-7B finding relevant information online and summarizing it through Magentic-UI. We ask Fara-7B to find and summarize the latest three issues on Github Microsoft/Magentic-UI.</figcaption></figure>
+
+
+
+<figure class="wp-block-video aligncenter"><video controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_driving-directions-cheese.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/driving_directions_cheese-1_revised.mp4"></video><figcaption class="wp-element-caption">Video 3: A demo of how Fara-7B can use different tools to find relevant information and analyze it through Magentic-UI. We ask Fara-7B to find driving time between two places, and suggest a cheese place near the location. Fara-7B uses Bing Maps to find Driving time, and Bing search to find relevant information.</figcaption></figure>
+
+
+
+<p>Fara-7B exhibits&nbsp;strong performance&nbsp;compared to existing models&nbsp;across&nbsp;a diverse set of benchmarks.&nbsp;This includes both existing benchmarks as well as new&nbsp;evaluations&nbsp;we are&nbsp;releasing&nbsp;which&nbsp;cover useful&nbsp;task&nbsp;segments that are underrepresented in common benchmarks, such as&nbsp;finding job postings&nbsp;and&nbsp;comparing prices across retailers. While Fara-7B demonstrates strong benchmark results, even against much larger models, it shares many of their limitations, including challenges with accuracy on more complex tasks, mistakes in following instructions, and susceptibility to hallucinations.&nbsp;These are active areas of research, and&nbsp;we’re&nbsp;committed to ongoing improvements as we learn from real-world use.</p>
+
+
+
+<p>Fara-7B is now available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a>&nbsp;under an MIT license and is integrated with&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/magnetic-ui/" target="_blank" rel="noopener noreferrer">Magentic-UI, a research prototype from Microsoft Research AI Frontiers<span class="sr-only"> (opens in new tab)</span></a>. We are also sharing a quantized and silicon-optimized version of Fara-7B, which will be available to install and run on&nbsp;Copilot+ PCs powered by Windows 11, for turnkey experimentation.&nbsp;The&nbsp;community&nbsp;can simply download the pre-optimized model and run it in their environment.</p>
+
+
+
+<p>By making Fara-7B open-weight, we aim to lower the barrier&nbsp;to experimenting&nbsp;with&nbsp;and improving&nbsp;CUA technology for automating routine web tasks, such as searching for information,&nbsp;shopping,&nbsp;and&nbsp;booking reservations.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="19108" height="11897" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/model_accuracy_vs_cost_v2-1-1.png" alt="Figure 1: Comparing WebVoyager accuracy and cost of Fara-7B to other computer use agents (CUAs) or agents that prompt LLMs with accessibility trees (SoM Agent w/ Ax Tree). Cost is computed by multiplying the average number of input and output tokens each model consumes by price per token. Both Fara-7B and UI-TARS-1.5-7B are based on Qwen-2.5-VL-7B, for which the lowest inference price from  https://openrouter.ai/  is \(0.2/\)0.2 per 1M input/output tokens. Even though both models are priced equally, Fara-7B is more efficient, completing tasks with only ~16 steps on average compared to ~41 for UI-TARS-1.5-7B. OpenAI computer-use-preview accessed November 2025 via the Responses API." class="wp-image-1156353"/><figcaption class="wp-element-caption"><em><em>Figure&nbsp;1:&nbsp;Comparing&nbsp;WebVoyager&nbsp;accuracy and cost&nbsp;of&nbsp;Fara-7B to other&nbsp;computer&nbsp;use agents (CUAs)&nbsp;or agents that prompt LLMs with accessibility trees (SoM&nbsp;Agent w/ Ax Tree).&nbsp;Cost is computed&nbsp;by&nbsp;multiplying&nbsp;the&nbsp;average&nbsp;number of&nbsp;input&nbsp;and&nbsp;output tokens&nbsp;each model&nbsp;consumes&nbsp;by&nbsp;price per token.&nbsp;Both&nbsp;Fara-7B and UI-TARS-1.5-7B&nbsp;are based&nbsp;on&nbsp;Qwen-2.5-VL-7B,&nbsp;for which the&nbsp;lowest&nbsp;inference price&nbsp;from&nbsp;</em><a href="https://openrouter.ai/" target="_blank" rel="noreferrer noopener"><em>https://openrouter.ai/</em></a><em>&nbsp;&nbsp;is&nbsp;\(0.2/\)0.2&nbsp;per 1M&nbsp;input/output&nbsp;tokens.&nbsp;Even though both models are priced equally, Fara-7B is more&nbsp;efficient,&nbsp;completing tasks&nbsp;with&nbsp;only&nbsp;~16&nbsp;steps on&nbsp;average&nbsp;compared&nbsp;to&nbsp;~41&nbsp;for UI-TARS-1.5-7B.&nbsp;OpenAI computer-use-preview accessed November 2025 via the Responses API.</em></em></figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="developing-fara-7b">Developing Fara-7B</h2>
+
+
+
+<h3 class="wp-block-heading" id="cua-multi-agent-synthetic-data-generation">CUA multi-agent synthetic data generation</h3>
+
+
+
+<p>A key bottleneck&nbsp;for&nbsp;building CUA models is a lack of large-scale, high-quality&nbsp;computer interaction data. Collecting such data with&nbsp;human annotators&nbsp;is prohibitively expensive as a single&nbsp;CUA task can involve&nbsp;dozens&nbsp;of steps,&nbsp;each of which&nbsp;needs to be&nbsp;annotated.&nbsp;Our&nbsp;data generation pipeline&nbsp;(Figure 2)&nbsp;avoids manual annotation and instead relies on scalable synthetic data sourced from&nbsp;publicly&nbsp;available websites&nbsp;and&nbsp;custom&nbsp;task prompts.&nbsp;We build this&nbsp;pipeline&nbsp;on top of&nbsp;the&nbsp;<a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/">Magentic-One</a>&nbsp;framework, and it involves three main stages:&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1349" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-scaled.png" alt="Figure 2: Data Generation workflow from proposing tasks from various seeds like URLs to solving those tasks with the Magentic-One multi-agent framework to generate demonstrations for training, and finally verifiying/filtering completed trajectories" class="wp-image-1155974" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-300x158.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-1024x539.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-768x405.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-1536x809.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-2048x1079.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-240x126.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure&nbsp;2:<em>&nbsp;Data Generation workflow from proposing tasks from various seeds like URLs&nbsp;to&nbsp;solving&nbsp;those tasks with&nbsp;the&nbsp;Magentic-One multi-agent framework to generate demonstrations for training, and finally&nbsp;verifiying/filtering&nbsp;completed&nbsp;trajectories</em></figcaption></figure>
+
+
+
+<p><strong>Task Proposal.</strong> We generate a broad set of synthetic tasks that mirror common user activities on the web. To ensure coverage and diversity, tasks are &#8220;seeded&#8221; by a web index of public URLs classified into various categories e.g., shopping, travel, restaurants, etc. This enables task generation targeting a particular skill, like “book 2 tickets to see the Downton Abbey Grand Finale at AMC Union Square, NYC.” from a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.fandango.com/downton-abbey-the-grand-finale-2025-236926/movie-overview" target="_blank" rel="noopener noreferrer">URL like this<span class="sr-only"> (opens in new tab)</span></a> classified as “movies”.  As another strategy, we devised a way to generate tasks from randomly sampled URLs. Each task starts with a general prompt and is iteratively refined as an LLM agent explores the website and gathers more information about it. We are releasing a held-out subset of these tasks as a benchmark (“<strong>WebTailBench</strong>”), described in the Evaluation section below. </p>
+
+
+
+<p><strong>Task&nbsp;Solving.</strong>&nbsp;Once synthetic tasks are generated, a multi-agent system built on&nbsp;Magentic-One&nbsp;attempts&nbsp;to&nbsp;complete&nbsp;them to generate demonstrations for supervised finetuning. The multi-agent system uses an&nbsp;Orchestrator&nbsp;agent to create a plan and direct a&nbsp;WebSurfer&nbsp;agent to take browser actions and reports results. The Orchestrator monitors progress, updating plans as needed, and can end tasks or engage a<em> </em>UserSimulator agent if user input is&nbsp;required, allowing for multi-turn completion.&nbsp;Each&nbsp;task and corresponding sequence of observations, actions, and agent thoughts&nbsp;forms&nbsp;a&nbsp;“trajectory”.</p>
+
+
+
+<p><strong>Trajectory Verification.</strong> Before using any tasks for training, three verifier agents evaluate if a task was “successful”: The Alignment Verifier checks if the trajectory of actions match the task’s intent; the Rubric Verifier defines completion criteria and scores the trajectory against them; and the Multimodal Verifier reviews screenshots and responses to confirm visual evidence supports successful completion. Trajectories failing these standards are removed.</p>
+
+
+
+<p>We&nbsp;ultimately&nbsp;train&nbsp;this version&nbsp;of&nbsp;Fara-7B&nbsp;on a dataset of&nbsp;145,000&nbsp;trajectories&nbsp;consisting of&nbsp;1&nbsp;million&nbsp;steps&nbsp;covering diverse websites, task types, and difficulty levels.&nbsp;Additionally, we include&nbsp;training&nbsp;data for several auxiliary tasks, including&nbsp;grounding for&nbsp;accurate&nbsp;UI element localization, captioning, and visual question answering.</p>
+
+
+
+<h3 class="wp-block-heading" id="training-fara-7b">Training Fara-7B</h3>
+
+
+
+<p>Using one compute use model is easier than a multi-agent system, particularly when it comes to deployment. Therefore, we distill the complexities of our multi-agent solving system into a single model that can execute tasks. Fara-7B is a proof-of-concept that small models can effectively learn from complex, multi-agent systems with lots of bells and whistles.</p>
+
+
+
+<p>As shown in Figure 3, Fara-7B is trained to execute user tasks by perceiving only browser window screenshots (without relying on accessibility trees), and predicting single-step actions. For each step, the context used to make its prediction contains all user messages, the complete action history, and the latest three screenshots.</p>
+
+
+
+<p>In its prediction,&nbsp;Fara-7B&nbsp;outputs a reasoning message (“thinking” about the next action) followed by a tool call. The available tools include standard&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://playwright.dev/python/docs/intro" target="_blank" rel="noopener noreferrer">Playwright<span class="sr-only"> (opens in new tab)</span></a>&nbsp;mouse and keyboard actions, such as&nbsp;click(x,y)&nbsp;and&nbsp;type(), and browser-specific macro-actions like&nbsp;web_search()&nbsp;and&nbsp;visit_url().</p>
+
+
+
+<p>Fara-7B uses&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2502.13923" target="_blank" rel="noopener noreferrer">Qwen2.5-VL-7B<span class="sr-only"> (opens in new tab)</span></a>&nbsp;as its base model due to its&nbsp;strong performance&nbsp;on grounding tasks and its ability to support long contexts (up to 128k tokens).&nbsp;We&nbsp;linearize the solving pipeline’s&nbsp;trajectories&nbsp;into a sequence of “observe-think-act” steps&nbsp;that are suitable for training with supervised finetuning loss.&nbsp;We did not use reinforcement learning to achieve&nbsp;the&nbsp;results&nbsp;we report below.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="864" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-scaled.png" alt="Figure 3: Operation of Fara-7B as a standalone, native computer use agent running on-device. Because Fara-7B is small, and none of its context needs to leave your personal device, it paves the way for personal and private agentic computing" class="wp-image-1155975" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-300x101.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-1024x346.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-768x259.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-1536x519.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-2048x691.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-240x81.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure&nbsp;3:<em>&nbsp;Operation of Fara-7B as a standalone, native computer use agent&nbsp;running on-device. Because Fara-7B is small, and none of its context needs to leave your personal device, it paves the way for personal and private agentic computing</em></figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="evaluations">Evaluations</h2>
+
+
+
+<p>We evaluate Fara-7B and comparable baselines on canonical public benchmarks including<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2401.13919" target="_blank" rel="noopener noreferrer"> WebVoyager<span class="sr-only"> (opens in new tab)</span></a>,<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2504.01382" target="_blank" rel="noopener noreferrer"> Online-Mind2Web<span class="sr-only"> (opens in new tab)</span></a>, and<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2506.02839" target="_blank" rel="noopener noreferrer"> Deepshop<span class="sr-only"> (opens in new tab)</span></a>, as well as a new benchmark we developed named<strong> WebTailBench</strong>, specifically focusing on 11 real-world task types underrepresented or missing in existing benchmarks like booking movie/event tickets, restaurant reservations, comparing prices across retailers, applying for jobs, finding real estate, and more complex multi-step tasks.</p>
+
+
+
+<p>Evaluation of web agents can be tricky because the web is constantly changing, and many websites even block detected bots, which is why we developed a test harness that relies on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.browserbase.com/" target="_blank" rel="noopener noreferrer">BrowserBase<span class="sr-only"> (opens in new tab)</span></a> to standardize how browser sessions are managed. In Table 1 below, we report a notion of task success rate (%) defined by each benchmark’s official LLM-as-judge evaluator; WebTailBench success is computed using the same Task Verification pipeline that filtered our training data. We find that Fara-7B is state-of-the-art, even outperforming native computer use agents like UI-TARS-1.5-7B, or much larger models like GPT-4o prompted to act like a computer use agent with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2310.11441" target="_blank" rel="noopener noreferrer">Set-Of-Marks<span class="sr-only"> (opens in new tab)</span></a> (SoM Agent). </p>
+
+
+
+<figure class="wp-block-table aligncenter"><table class="has-fixed-layout"><thead><tr><th colspan="2"></th><th>WebVoyager</th><th>Online-Mind2Web</th><th>DeepShop</th><th>WebTailBench&nbsp;&nbsp;</th></tr></thead><tbody><tr><td rowspan="2">SoM&nbsp;Agents&nbsp;</td><td>SoM&nbsp;Agent (GPT-4o)&nbsp;</td><td>65.1&nbsp;</td><td>34.6&nbsp;</td><td>16.0&nbsp;</td><td>30.0&nbsp;</td></tr><tr><td>GLM-4.1V-9B-Thinking&nbsp;</td><td>66.8&nbsp;&nbsp;</td><td>33.9&nbsp;</td><td>32.0&nbsp;</td><td>22.4&nbsp;</td></tr><tr><td rowspan="3">Computer Use Models&nbsp;</td><td>OpenAI&nbsp;computer-use-preview&nbsp;&nbsp;</td><td>70.9&nbsp;</td><td>42.9&nbsp;</td><td>24.7&nbsp;</td><td>25.7&nbsp;</td></tr><tr><td>UI-TARS-1.5-7B&nbsp;</td><td>66.4&nbsp;&nbsp;</td><td>31.3&nbsp;</td><td>11.6&nbsp;</td><td>19.5&nbsp;</td></tr><tr><td><strong>Fara-7B&nbsp;</strong></td><td><strong>73.5&nbsp;</strong></td><td><strong>34.1&nbsp;</strong></td><td><strong>26.2</strong>&nbsp;</td><td><strong>38.4</strong>&nbsp;</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1:&nbsp;<em>Performance comparison across four web benchmarks:&nbsp;WebVoyager, Online-Mind2Web,&nbsp;DeepShop, and&nbsp;our&nbsp;newly introduced WebTailBench.&nbsp;Results are reported as&nbsp;Task Succes Rate / Accuracy&nbsp;(%) and are averaged over 3 runs.&nbsp;OpenAI computer-use-preview accessed November 2025 via the Responses API.</em></figcaption></figure>
+
+
+
+<p>In Figure 1, we expand on the Webvoyager results by giving each model up to three chances to complete a task, and report &#8220;pass@K&#8221;. We also consider on the x-axis the cost of running each model if one were to pay market rates for input/output tokens consumed. Fara-7B breaks ground on a new pareto frontier, showing that on-device computer use agents are approaching the capabilities of frontier models.</p>
+
+
+
+<p>We partnered with a trusted external group, Browserbase, to independently evaluate Fara-7B using human annotators. The model achieved <strong>62%</strong> on WebVoyager (see detailed reports in Browserbase blog <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://browserbase.com/blog/training-computer-use-models-in-the-real-world-with-microsoft" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>). These results were generated in the same environment with identical settings and human verification of each task, making them directly comparable. Note that Browserbase’s standard WebVoyager scores do not use retries when environment errors occur; the results referenced here include retries and should not be compared directly to the non-retry scores. Going forward, we are collaborating with Browserbase to host WebTailBench human evaluations to help the community build reliable and reproducible assessments for computer use agents. </p>
+
+
+
+<h3 class="wp-block-heading" id="safety">Safety</h3>
+
+
+
+<p>Agents capable of operating computers present challenges distinct from chat-only models, including new outlets of user misuse, model misbehavior, and unintended consequences of actions, and external risks like prompt injections or online scams. CUAs take action with real-world consequences, so ensuring robust safety measures is essential to their responsible deployment. Transparency and user control sit at the core of Fara-7B’s design. Although we have incorporated several safety measures, Fara-7B remains a research preview, and we continue to advance our approach to safety for computer use agents, an active area of work across the entire AI community. </p>
+
+
+
+<p>Fara-7B processes browser screenshots, user task instructions, and a history of actions taken during each session and collects only what is necessary to complete the user’s requested task. No&nbsp;additional&nbsp;site data—such as&nbsp;accessibility&nbsp;trees or external scaffolding—is accessed; Fara-7B interacts with the computer in the same way a human would, relying solely on what is visible on the screen.</p>
+
+
+
+<p>All actions taken by the agent are logged and auditable, allowing users to review and&nbsp;monitor&nbsp;every step.&nbsp;&nbsp;For added safety, Fara‑7B is intended to run in sandboxed environments, giving users full oversight and the ability to intervene or halt&nbsp;actions at any time. These safeguards ensure that privacy, transparency, and user control remain at the core of every interaction.</p>
+
+
+
+<p>To address misuse, we trained Fara-7B on a mixture of public safety data and internally generated tasks that it ought to refuse based on Microsoft’s Responsible AI Policy. We evaluated Fara-7B’s ability to refuse harmful tasks on <strong>WebTailBench-Refusals</strong> which consists of 111 red-teaming tasks showing a high refusal rate of 82%. The model also underwent Microsoft’s rigorous red teaming process, where we focused on the model rejecting harmful tasks and risky tasks, such as harmful content, jailbreaking attempts, ungrounded responses, and prompt injections. For further details, check out our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/fara-techreport">technical report<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<p>To mitigate the risk of Fara-7B taking unintended actions,&nbsp;all of&nbsp;Fara-7B’s&nbsp;training data enforces both recognizing and stopping at “Critical Points” when executing a task. A Critical Point&nbsp;(see&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cdn.openai.com/operator_system_card.pdf" target="_blank" rel="noopener noreferrer">Operator System Card<span class="sr-only"> (opens in new tab)</span></a>)&nbsp;is any situation that requires the user&#8217;s personal data or consent before engaging in a transaction or irreversible action like sending an email. Upon reaching a Critical Point, Fara-7B&nbsp;should&nbsp;respond by informing the&nbsp;user&nbsp;it&nbsp;cannot&nbsp;proceed&nbsp;without their consent.</p>
+
+
+
+<p>For guidance on how to use our model safely, and the security considerations to be mindful of when using our model, please refer to our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://huggingface.co/microsoft/Fara-7B">Model card<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<h3 class="wp-block-heading" id="how-to-use">How to use</h3>
+
+
+
+<p>Fara-7B&nbsp;is available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer"><span class="sr-only"> (opens in new tab)</span></a><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">Microsoft&nbsp;Foundry&nbsp;<span class="sr-only"> (opens in new tab)</span></a>and<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">&nbsp;<span class="sr-only"> (opens in new tab)</span></a><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;We are also releasing the implementation of Fara-7B&nbsp;in&nbsp;Magentic-UI,&nbsp;so that&nbsp;users&nbsp;can&nbsp;try&nbsp;it&nbsp;in a contained environment&nbsp;through the inference code provided. Additionally, users can download the model for Copilot+&nbsp;PCs&nbsp;powered by Windows 11&nbsp;from the&nbsp;AI&nbsp;Toolkit in VSCode and&nbsp;run it all on-device,&nbsp;taking advantage of&nbsp;NPU hardware acceleration.&nbsp;&nbsp;</p>
+
+
+
+<h3 class="wp-block-heading" id="looking-forward">Looking forward</h3>
+
+
+
+<p>Our current release is an experimental CUA model that achieves state-of-the-art results for its size, purely using supervised fine-tuning. We believe even stronger CUA models capable of running on-device are possible through improved multimodal base models and through Reinforcement Learning on live and sandboxed environments. These early days are about learning from the community and driving real-world experimentation to shape what comes next. If you’d like to join us and help shape the future of SLMs, please apply for <a href="https://www.microsoft.com/en-us/research/lab/ai-frontiers/opportunities/">open roles</a>. </p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements:&nbsp;</h2>
+
+
+
+<p>We thank Gustavo de Rosa, Adam Fourney, Michael Harrison, Rafah Hosn, Neel Joshi, Ece Kamar, John Langford, Maya Murad, Sidhartha Sen, Pratyusha Sharma, and Lili Wu for their valuable help, insightful discussions, and continued support throughout this work.&nbsp;</p>
+
+
+
+<p>We also thank Pashmina Cameron, Karthik Vijayan, Vicente Rivera, Chris Dern, Sayan Shaw,&nbsp;Sunghoon&nbsp;Choi, Andrey&nbsp;Rybalchenko, and Vivek Pradeep for their efforts in making the model available on Copilot+ PCs through the AI Toolkit.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/">Fara-7B: An Efficient Agentic Model for Computer Use</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_xbox_multi_turn-3.mp4" length="11918959" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_github_demo.mp4" length="5714394" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/driving_directions_cheese-1_revised.mp4" length="12610867" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>MMCTAgent: Enabling multimodal reasoning over large video and image collections</title>
 		<link>https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/</link>
 		
@@ -32,7 +253,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/">MMCTAgent: Enabling multimodal reasoning over large video and image collections</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows an image/photo; the second icon depicts a computer monitor with vertical bars; the third icon displays three connected circles with user silhouettes." class="wp-image-1153930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows an image/photo; the second icon depicts a computer monitor with vertical bars; the third icon displays three connected circles with user silhouettes." class="wp-image-1153930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -66,27 +287,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -111,7 +335,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="14353" height="8455" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/MMCT_UPDATED_FINAL_FINAL.png" alt="MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback. " class="wp-image-1155366"/><figcaption class="wp-element-caption">Figure 1. MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="14353" height="8455" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/MMCT_UPDATED_FINAL_FINAL.png" alt="MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback. " class="wp-image-1155366"/><figcaption class="wp-element-caption">Figure 1. MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback</figcaption></figure>
 
 
 
@@ -321,7 +545,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-green gradient background: the first icon shows a circle with connected nodes, the second shows a circuit, and the third shows a flowchart" class="wp-image-1154392" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-green gradient background: the first icon shows a circle with connected nodes, the second shows a circuit, and the third shows a flowchart" class="wp-image-1154392" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -784,30 +1008,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2409,230 +2630,6 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 
 <p></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/using-ai-to-assist-in-rare-disease-diagnosis/">Using AI to assist in rare disease diagnosis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Tool-space interference in the MCP era: Designing for agent compatibility at scale</title>
-		<link>https://www.microsoft.com/en-us/research/blog/tool-space-interference-in-the-mcp-era-designing-for-agent-compatibility-at-scale/</link>
-		
-		<dc:creator><![CDATA[Adam Fourney, Tyler Payne, Maya Murad, Saleema Amershi]]></dc:creator>
-		<pubDate>Thu, 11 Sep 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1149210</guid>
-
-					<description><![CDATA[<p>As agentic AI ushers in a new era marked by tool expansion, systems are converging, and complexity is rising. Microsoft Research explores the Model Context Protocol (MCP) as a new standard for agent collaboration across fragmented tool ecosystems.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/tool-space-interference-in-the-mcp-era-designing-for-agent-compatibility-at-scale/">Tool-space interference in the MCP era: Designing for agent compatibility at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three white icons on a gradient background transitioning from blue to purple to pink. From left to right: a globe with a magnifying glass representing internet search, a central circle connected to smaller circles symbolizing network connectivity, and a checklist with two checkmarks and one empty box indicating task management." class="wp-image-1149369" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/ToolSpaceInterference-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<p>This year&nbsp;we’ve&nbsp;seen&nbsp;remarkable&nbsp;advances in agentic AI, including&nbsp;systems that conduct deep research,&nbsp;operate&nbsp;computers, complete substantial software engineering tasks, and tackle a range of other complex,&nbsp;multi-step goals. In each case,&nbsp;the industry relied&nbsp;on careful vertical integration: tools and agents were co-designed, co-trained, and tested together&nbsp;for peak&nbsp;performance. For example,&nbsp;OpenAI&#8217;s&nbsp;recent models&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/openai/gpt-oss?tab=readme-ov-file#tools" target="_blank" rel="noopener noreferrer">presume&nbsp;the&nbsp;availability&nbsp;of web search and document retrieval&nbsp;tools<span class="sr-only"> (opens in new tab)</span></a>. Likewise,&nbsp;the prompts and actions&nbsp;of&nbsp;<a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/" target="_blank" rel="noreferrer noopener">Magentic-One</a>&nbsp;are&nbsp;set up to make hand-offs easy—for example, allowing the WebSurfer agent to pass downloaded files to the Coder agent. &nbsp;But as agents proliferate, we anticipate strategies relying heavily on vertical integration will not age well.&nbsp;Agents&nbsp;from&nbsp;different&nbsp;developers&nbsp;or companies will&nbsp;increasingly&nbsp;encounter&nbsp;each other and&nbsp;must&nbsp;work together to complete tasks, in what we refer to as a&nbsp;<em>society of agents</em>.&nbsp;These systems can vary in how coordinated they are, how aligned their goals are, and how much information they share. Can heterogenous agents and tools cooperate&nbsp;in this&nbsp;setting, or will they hinder one another and slow progress?</p>
-
-
-
-<p>Early clues have&nbsp;emerged&nbsp;from an&nbsp;unexpected&nbsp;source:&nbsp;namely,&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol<span class="sr-only"> (opens in new tab)</span></a>&nbsp;(MCP). Since January 2025, MCP has grown from a&nbsp;promising spec to a&nbsp;thriving&nbsp;market&nbsp;of&nbsp;tool&nbsp;servers.&nbsp;As an example, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://docs.zapier.com/mcp/home" target="_blank" rel="noopener noreferrer">Zapier boasts a catalog of 30,000 tools<span class="sr-only"> (opens in new tab)</span></a>&nbsp;across 7,000 services.&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://mcp.composio.dev/" target="_blank" rel="noopener noreferrer">Composio&nbsp;provide over 100 managed MCP servers<span class="sr-only"> (opens in new tab)</span></a>, surfacing hundreds of tools. Hugging&nbsp;Face is now serving&nbsp;many&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/spaces?filter=mcp-server" target="_blank" rel="noopener noreferrer">Spaces&nbsp;apps over MCP<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://shopify.dev/docs/apps/build/storefront-mcp/servers/storefront" target="_blank" rel="noopener noreferrer">Shopify has enabled MCP for millions of storefronts<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;A&nbsp;society of&nbsp;<em>tools</em>&nbsp;is already here, and it promises to&nbsp;extend&nbsp;agent capabilities through&nbsp;cross-provider&nbsp;horizontal integration.&nbsp;</p>
-
-
-
-<p>So,&nbsp;what does MCP have to say about&nbsp;horizontal integration? As catalogs grow,&nbsp;we expect some new failure modes to surface.&nbsp;This&nbsp;blog&nbsp;post introduces&nbsp;these&nbsp;as <em>tool-space interference</em>, and sketches both early observations and some pragmatic interventions to keep the society&nbsp;we’re&nbsp;building&nbsp;from stepping on its own feet.&nbsp;</p>
-
-
-
-<p>Tool-space interference describes situations where otherwise reasonable tools or agents, when co-present, reduce end-to-end effectiveness. This can look like longer action sequences, higher token cost, brittle recovery from errors, or, in some cases, task failure.</p>
-
-
-
-<h2 class="wp-block-heading" id="a-framing-example">A framing example</h2>
-
-
-
-<p>Consider MCP as a means for extending <a href="https://www.microsoft.com/en-us/research/publication/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/">Magentic-One</a>, a generalist multi-agent system we released last year, to cover more software engineering tasks. Magentic-One ships with agents to write code, interact with the computer terminal, browse the web, and access local files. To help Magentic-One navigate version control, find issues to solve, and make pull requests, we could add an agent equipped with the GitHub MCP Server. However, now each time the team encounters a task involving GitHub, it must choose whether to visit github.com in the browser, execute a git command at the command line, or engage the GitHub MCP server. As the task progresses, agent understanding of state can also diverge: changing the branch in the browser won’t change the branch in the terminal, and an authorized MCP tool does not imply authorization in the browser.&nbsp;Thus, while any single agent might complete the task efficiently, the larger set of agents might misunderstand or interfere with one another, leading to additional rounds of debugging, or even complete task failure.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1021" height="410" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image.png" alt="Diagram depicting Magentic-One's multi-agentic architecture. An Orchestrator agent has access to 4 specialized sub-agents: a Coder agent that can write code and reason to sol solve tasks, a Computer Terminal Agent that can execute code written by the Coder agent, a WebSurfer agent that browse the internet (navigate pages, fill forms, etc), and a FileSurfer agent that can navigate files (e.g. PDFs, PPTx, etc). The diagram is annotated to show that for any incoming git-related task, the Orchestrator agent has to decide at evert orchestration step whether to access Git CLI via ComputerTerminal, visit Github site via WebSurfer, or directly access Github’s MCP server." class="wp-image-1149211" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image.png 1021w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-768x308.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-240x96.png 240w" sizes="auto, (max-width: 1021px) 100vw, 1021px" /><figcaption class="wp-element-caption">Figure 1: We can extend&nbsp;Magentic-One by adding an agent that equips the GitHub MCP server. However, on every turn involving a git-related task, the orchestrator will need to decide between messaging the Computer Terminal agent (with access to the git command line interface), WebSurfer agent (with access to github.com), and the agent with the GitHub MCP server. This overlap raises the possibility that they will interfere with one another.&nbsp;&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="tool-space-interference-through-the-lens-of-mcp">Tool-space interference, through the lens of MCP</h2>
-
-
-
-<p>To better understand the potential interference patterns and the current state of the MCP ecosystem, we conducted a survey of MCP servers listed on two registries: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://smithery.ai/">smithery.ai<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://hub.docker.com/mcp">Docker MCP Hub<span class="sr-only"> (opens in new tab)</span></a>. Smithery is an MCP Server registry with over 7,000 first-party and community-contributed servers, which we sampled from the Smithery API. Likewise, Docker MCP Hub is a registry that distributes MCP servers as Docker images, and we manually collected popular entries. We then launched each server for inspection. After excluding servers that were empty or failed to launch, and deduplicating servers with identical features, 1,470 servers remained in our catalog.</p>
-
-
-
-<p>To&nbsp;automate the&nbsp;inspection&nbsp;of&nbsp;running MCP servers,&nbsp;we developed an&nbsp;MCP&nbsp;Interviewer&nbsp;tool.&nbsp;The MCP&nbsp;Interviewer&nbsp;begins by cataloging the server’s tools, prompts, resources, resource templates, and capabilities.&nbsp;From&nbsp;this catalog we can compute&nbsp;descriptive statistics&nbsp;such as the number of tools, or the depth of the parameter&nbsp;schemas.&nbsp;&nbsp;Then, given the list of available tools, the interviewer uses&nbsp;an LLM (in our case,&nbsp;OpenAI&#8217;s GPT-4.1)&nbsp;to construct a functional testing&nbsp;plan&nbsp;that&nbsp;calls each tool at least once, collecting outputs, errors, and statistics along the way. Finally,&nbsp;the&nbsp;interviewer&nbsp;can&nbsp;also&nbsp;grade&nbsp;more qualitative&nbsp;criteria&nbsp;by&nbsp;using&nbsp;an LLM&nbsp;to&nbsp;apply purpose-built rubrics&nbsp;to&nbsp;tool&nbsp;schemas&nbsp;and&nbsp;tool call outputs.&nbsp;&nbsp;We are excited to&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/mcp-interviewer" target="_blank" rel="noopener noreferrer">release the MCP Interviewer&nbsp;as an open-source CLI&nbsp;tool<span class="sr-only"> (opens in new tab)</span></a>, so server developers can automatically evaluate their MCP servers with agent usability in mind,&nbsp;and users can&nbsp;validate&nbsp;new servers.&nbsp;</p>
-
-
-
-<p>While our survey provides informative initial results, it also faces significant limitations, the most obvious of which is authorization: many of the most popular MCP servers provide access to services that require authorization to use, hindering automated analysis. We are often still able to collect static features from these servers but are limited in the functional testing that can be done.</p>
-
-
-
-<h3 class="wp-block-heading" id="one-size-fits-all-but-some-more-than-others">One-size fits all (but some more than others)</h3>
-
-
-
-<p>So, what does our survey of MCP servers tell us about the MCP ecosystem? We will get into the numbers in a moment, but as we contemplate the statistics, there is one overarching theme to keep in mind: MCP servers do not know which clients or models they are working with, and present one common set of tools, prompts, and resources to everyone. However, some models handle long contexts and large tool spaces better than others (with diverging hard limits), and respond quite differently to common prompting patterns. For example, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://platform.openai.com/docs/guides/function-calling#best-practices-for-defining-functions">OpenAI’s guide on function calling<span class="sr-only"> (opens in new tab)</span></a> advises developers to:</p>
-
-
-
-<p>“<em>Include examples and edge cases, especially to rectify any recurring failures. (Note: Adding examples may hurt performance for reasoning models).”</em></p>
-
-
-
-<p>So already, this places MCP at a disadvantage over vertical integrations that optimize to the operating environment. And with that, let’s dive into more numbers.</p>
-
-
-
-<h3 class="wp-block-heading" id="tool-count">Tool count</h3>
-
-
-
-<p>While models generally vary in their proficiency for tool calling, the general trend has been that performance drops as the number of tools increases. For example, OpenAI limits developers to 128 tools, but <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://platform.openai.com/docs/guides/function-calling#best-practices-for-defining-functions">recommends<span class="sr-only"> (opens in new tab)</span></a> that developers:</p>
-
-
-
-<p>“<em>Keep the number of functions small for higher accuracy. Evaluate your performance with different numbers of functions. Aim for fewer than 20 functions at any one time, though this is just a soft suggestion.</em>”</p>
-
-
-
-<p>While we expect this to improve with each new model generation, at present, large tool spaces can <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2505.10570v1">lower performance by up to 85% for some models<span class="sr-only"> (opens in new tab)</span></a>. Thankfully, the majority of servers in our survey contain four or fewer tools. But there are outliers: the largest MCP server we cataloged adds 256 distinct tools, while the 10 next-largest servers add more than 100 tools each. Further down the list we find popular servers like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/microsoft/playwright-mcp">Playwright-MCP<span class="sr-only"> (opens in new tab)</span></a> (29 tools, at the time of this writing), and GitHub MCP (91 tools, with subsets available at alternative endpoint URLs), which might be too large for some models.</p>
-
-
-
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="1024" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1024x1024.png" alt="chart" class="wp-image-1149361" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-2048x2048.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/tool-counts-per-server-360x360.png 360w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Figure 2: The number of tools listed by each catalogued server directly after initialization. Note: servers can change the tools they list at any time, but only 226 servers in our catalog declare this capability.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="response-length">Response length</h3>
-
-
-
-<p>Tools are generally called in agentic loops, where the output is then fed back into the model as input context. Models have hard limits on input context, but even within these limits, large contexts can drive costs up and performance down, so <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://research.trychroma.com/context-rot">practical limits can be much lower<span class="sr-only"> (opens in new tab)</span></a>. MCP offers no guidance on how many tokens a tool call can produce, and the size of some responses can come as a surprise. In our analysis, we consider the 2,443 tool calls across 1,312 unique tools that the MCP Interviewer was able to call successfully during the active testing phase of server inspection. While a majority of tools produced 98 or fewer tokens <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/openai/tiktoken"><span class="sr-only"> (opens in new tab)</span></a>, some tools are extraordinarily heavyweight: the top tool returned an average of 557,766 tokens, which is enough to swamp the context windows of many popular models like GPT-5. Further down the list, we find that 16 tools produce more than 128,000 tokens, swamping GPT-4o and other popular models. Even when responses fit into the context window length, overly long responses can significantly degrade performance (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2505.10570v1">up to 91% in one study<span class="sr-only"> (opens in new tab)</span></a>), and limit the number of future calls that can be made. Of course, agents are free to implement their own context management strategies, but this behavior is left undefined in the MCP specification and server developers cannot count on any particular client behavior or strategy.</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td></td><td></td><td colspan="4"><strong># of tools that would overflow context in</strong></td></tr><tr><td><strong>Model</strong></td><td><strong>Context Window</strong></td><td><strong>1 call</strong></td><td><strong>2 calls</strong></td><td><strong>3-5 calls</strong></td><td><strong>6-10 calls</strong></td></tr><tr><td>GPT 4.1</td><td>1,000,000</td><td>0</td><td>1</td><td>7</td><td>11</td></tr><tr><td>GPT 5</td><td>400,000</td><td>1</td><td>7</td><td>15</td><td>25</td></tr><tr><td>GPT-4o, Llama 3.1,</td><td>128,000</td><td>16</td><td>15</td><td>33</td><td>40</td></tr><tr><td>Qwen 3</td><td>32,000</td><td>56</td><td>37</td><td>86</td><td>90</td></tr><tr><td>Phi-4</td><td>16,000</td><td>93</td><td>60</td><td>116</td><td>109</td></tr></tbody></table></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="936" height="935" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1.png" alt="Chart showing the average tool call output lengths (in tokens) for 1,312 tools, as observed by the MCP Interviewer’s functional test plan. The x-axis represents individual tools (sorted by index), and the y-axis displays the average output length on a logarithmic scale. Horizontal dashed lines indicate context window limits for GPT-4o (128k tokens) and GPT-5 (400k tokens). A pink annotation box summarizes statistics: total tools (1,312), mean (4,431 tokens), median (98 tokens), minimum (0 tokens), and maximum (557,766 tokens)." class="wp-image-1149213" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1-768x767.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/image-1-360x360.png 360w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption">Figure 3: Tool call response length averages, in tokens, as&nbsp;observed&nbsp;by the MCP Interviewer’s functional test plan. Only successful tool calls are considered. Horizontal lines&nbsp;indicate&nbsp;context window limits for GPT-4o and GPT-5.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="tool-parameter-complexity">Tool parameter complexity</h3>
-
-
-
-<p>Mirroring the challenges from increasing&nbsp;the&nbsp;number of tools,&nbsp;increasing the complexity of a tool’s parameter space can also lead to degradation.&nbsp;For example, while MCP tools can take complex object types and structures as parameters,&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://composio.dev/blog/gpt-4-function-calling-example" target="_blank" rel="noopener noreferrer">composio<span class="sr-only"> (opens in new tab)</span></a>&nbsp;found that&nbsp;flattening the parameter space could improve tool-calling performance&nbsp;by 47%&nbsp;compared to baseline performance.&nbsp;&nbsp;In our analysis, we&nbsp;find&nbsp;numerous examples of deeply nested structure—in&nbsp;one&nbsp;case, going&nbsp;20&nbsp;levels deep.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-scaled.png" alt="Chart showing the maximum depth of each tool’s input properties schema. The x-axis represents individual tools (sorted by index), and the y-axis shows the maximum property schema depth. Most tools have a depth  of 2 (named and annotated properties). A pink annotation box summarizes statistics: total tools (12,643), mean (2.24), median (2.00), standard deviation (1.38), minimum (0.00), and maximum (20.00). " class="wp-image-1149365" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-2048x2048.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/09/input_schema_depth-360x360.png 360w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 4: The maximum depth of each tool’s input properties schema. A depth of 0&nbsp;indicates&nbsp;a tool with no properties. A depth of 1&nbsp;indicates&nbsp;a tool with named properties but no annotations (e.g., no description or type). A depth of 2&nbsp;indicates&nbsp;a tool with named and annotated properties.&nbsp;&nbsp;A depth of 3+&nbsp;indicates&nbsp;a tool with structured properties that have&nbsp;additional&nbsp;nested annotations.&nbsp;</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="namespacing-issues-and-naming-ambiguity">Namespacing issues and naming ambiguity</h3>
-
-
-
-<p>Another often-cited issue with the current MCP specification is the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/modelcontextprotocol/modelcontextprotocol/discussions/128">lack of a formal namespace mechanism<span class="sr-only"> (opens in new tab)</span></a>. If two servers are registered to the same agent or application, and the servers have tool names in common, then disambiguation becomes impossible. Libraries like the OpenAI Agents SDK <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/openai/openai-agents-python/issues/464">raise an error<span class="sr-only"> (opens in new tab)</span></a> under this circumstance. Clients, like Claude Code, prefix tool names with unique identifiers to work around this issue. In our analysis of MCP servers, we found name collisions between 775 tools. The most common collision was “search”, which appears across 32 distinct MCP servers. The following table lists the top 10 collisions.</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td><strong>Tool Name</strong></td><td><strong>Number of Instances</strong></td></tr><tr><td><strong>search</strong></td><td>32</td></tr><tr><td><strong>get_user</strong></td><td>11</td></tr><tr><td><strong>execute_query</strong></td><td>11</td></tr><tr><td><strong>list_tables</strong></td><td>10</td></tr><tr><td><strong>update_task</strong></td><td>9</td></tr><tr><td><strong>generate_image</strong></td><td>9</td></tr><tr><td><strong>send_message</strong></td><td>9</td></tr><tr><td><strong>execute_command</strong></td><td>8</td></tr><tr><td><strong>list_tasks</strong></td><td>8</td></tr><tr><td><strong>search_files</strong></td><td>8</td></tr></tbody></table></figure>
-
-
-
-<p>Even when names are unique, they can be semantically similar. If these tools behave similarly, then the redundancy may not be immediately problematic, but if you are expecting to call a particular tool then the name similarities raise the potential for confusion. The following table lists some examples of semantically similar tool names relating to web search:</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><tbody><tr><td>websearch</td><td>brave_web_search</td></tr><tr><td>search-web</td><td>tavily_web_search</td></tr><tr><td>web_search</td><td>google_news_search</td></tr><tr><td>search_web</td><td>google-play-search</td></tr><tr><td>search_webkr</td><td>google_search_parsed</td></tr><tr><td>google_search</td><td>search_google_images</td></tr><tr><td>search_google</td><td>get_webset_search_exa</td></tr><tr><td>ai_web_search</td><td>search_google_scholar</td></tr><tr><td>web_search_exa</td><td>duckduckgo_web_search</td></tr><tr><td>search_web_tool</td><td>google_search_scraper</td></tr><tr><td>web_search_agent</td><td>answer_query_websearch</td></tr><tr><td>batch-web-search</td><td>&nbsp;</td></tr></tbody></table></figure>
-
-
-
-<h3 class="wp-block-heading" id="errors-and-error-messages">Errors and error messages</h3>
-
-
-
-<p>Like all software libraries, MCP will occasionally encounter error conditions. In these cases, it is important to provide sufficient information for the agent to handle the error and plan next steps. In our analysis, we found this was not always the case. While MCP provides an “IsError” flag to signal errors, we found that it was common for servers to handle errors by returning strings while leaving this flag set to false, signaling a normal exit. Out of 5,983 tool call results with no error flag, GPT-4.1 judged that 3,536 indicated errors in their content. More worrisome: the error messages were often of low quality. For instance, one tool providing web search capabilities failed with the string “error: job,” while another tool providing academic search returned “Please retry with 0 or fewer IDs.”</p>
-
-
-
-<h3 class="wp-block-heading" id="resource-sharing-conventions">Resource sharing conventions</h3>
-
-
-
-<p>Finally, in addition to tools, MCP allows servers to share resources and resource templates with clients. In our survey, only 112 (7.6%) servers reported any resources, while 74 (5%) provided templates. One potential reason for low adoption is that the current MCP specification provides limited guidance for when resources are retrieved, or how they are incorporated into context. One clearcut situation where a client might retrieve a resource is in response to a tool returning a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools#resource-links">resource_link<span class="sr-only"> (opens in new tab)</span></a> as a result &#8212; but only 4 tools exhibited this behavior in our survey (arguably, this would be the ideal behavior for tools that return very long, document-like responses, as outlined earlier).</p>
-
-
-
-<p>Conversely, a whole different set of issues arises when there is a need to share resources from the client to the server. Consider for example a tool that provides some analysis of a <em>local</em> PDF file. In the case of a local MCP server utilizing STDIO transport, a local file path can be provided as an argument to the tool, but no similar conventions exist for delivering a local file to a remote MCP server. These issues are challenging enough when implementing a single server. When multiple tools or servers need to interact within the same system, the risk of interoperability errors compounds.</p>
-
-
-
-<h2 class="wp-block-heading" id="recommendations">Recommendations</h2>
-
-
-
-<p>On balance, along any given dimension, the average MCP server is quite reasonable—but, as we have seen, outliers and diverging assumptions can introduce trouble. While we expect many of these challenges to improve with time, we are comfortable making small recommendations that we feel are evergreen. We organize them below by audience.</p>
-
-
-
-<h3 class="wp-block-heading" id="protocol-developers">Protocol developers</h3>
-
-
-
-<p>We recognize the advantages of keeping MCP relatively lightweight, avoiding being overly prescriptive in an environment where AI models and use cases are rapidly changing. However, a few small recommendations are warranted. First, we believe MCP should be extended to include a specification for client-provided resources so that tools on remote servers have a mechanism for operating on specified local files or documents. This would more effectively position MCP as a clearinghouse for resources passed between steps of agentic workflows. The MCP specification would also benefit from taking a more opinionated stance on when resources are retrieved and used overall.</p>
-
-
-
-<p>Likewise, we believe&nbsp;MCP should&nbsp;quickly move to&nbsp;provide formal namespaces&nbsp;to eliminate tool name collisions.&nbsp;If namespaces&nbsp;are hierarchical, then this also provides a way of organizing large catalogs&nbsp;of functions&nbsp;into thematically&nbsp;related tool&nbsp;sets.&nbsp;Tool sets, as an organizing principle,&nbsp;are already showing some promise&nbsp;in&nbsp;GitHub MCP Server’s&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/github/github-mcp-server?tab=readme-ov-file#dynamic-tool-discovery" target="_blank" rel="noopener noreferrer">dynamic tool discovery,<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and VS Code’s&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://code.visualstudio.com/updates/v1_103#_tool-grouping-experimental" target="_blank" rel="noopener noreferrer">tool grouping (with virtual tools)<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;where agents or users&nbsp;can&nbsp;enable and disable tools&nbsp;as needed.&nbsp;&nbsp;In the future,&nbsp;a standardized mechanism for grouping tools would allow&nbsp;<em>clients</em>&nbsp;to engage in hierarchical tool-calling,&nbsp;where they first select a category, then select a tool, without needing to keep all possible&nbsp;tools in context.</p>
-
-
-
-<h3 class="wp-block-heading" id="server-developers">Server developers</h3>
-
-
-
-<p>While our MCP Interviewer tool can catalog many outward-facing properties of MCP servers, developers are often in a much better position to characterize the nature of their tools. To this end, we believe developers should publish an MCP Server card alongside their servers or services, clearly outlining the runtime characteristics of the tools (e.g., the expected number of tokens generated, or expected latency of a tool call). Ideally developers should also indicate which models, agents and clients the server was tested with, how the tools were tested (e.g., provide sample tasks), list any known incompatibilities, and be mindful of limitations of various models throughout development.</p>
-
-
-
-<h3 class="wp-block-heading" id="client-developers">Client developers</h3>
-
-
-
-<p>Client developers have the opportunity to experiment with various mitigations or optimizations that might help the average MCP server work better for a given system or environment. For example, clients could cache tool schemas, serving them as targets for prompt optimizations, or as an index for RAG-like tool selection approaches. To this end, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic recently reported using a tool testing agent<span class="sr-only"> (opens in new tab)</span></a> to rewrite the prompts of defective MCP servers, improving task completion time by 40%. Likewise, rather than waiting for the protocol to evolve, clients could take proactive steps to resolve name collisions— for example, generating namespaces from server names—and could reduce token outputs by summarizing or paginating long tool results.</p>
-
-
-
-<h3 class="wp-block-heading" id="market-developers">Market developers</h3>
-
-
-
-<p>Finally, we see an opportunity for marketplaces to codify best-practices, spot compatibility issues at a global level, and perhaps centralize the generation and serving of model or agent-specific optimizations. Mirroring how a market like PyPI <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://packaging.python.org/en/latest/specifications/platform-compatibility-tags/">distributes Python wheels matched to a developer’s operating system or processor<span class="sr-only"> (opens in new tab)</span></a>, an MCP marketplace could serve tool schemas optimized for a developer’s chosen LLM, agent or client library. We are already seeing small steps in this direction, with registries like Smithery providing customized launch configurations to match users’ clients.</p>
-
-
-
-<h2 class="wp-block-heading" id="conclusion">Conclusion</h2>
-
-
-
-<p>In summary, the MCP&nbsp;ecosystem offers significant value for AI agent development,&nbsp;despite&nbsp;some&nbsp;early&nbsp;growing pains.&nbsp;Grounded in insights from the&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/mcp-interviewer" target="_blank" rel="noopener noreferrer">MCP Interviewer<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and our survey of live servers, the evidence is clear: horizontal integration is expanding capability, yet it also exposes forms of toolspace interference that can erode end to end effectiveness. Anticipating rapid advances in model capability and growing architectural diversity, the recommendations provided here aim to ensure that protocol, server, client, and marketplace developers are&nbsp;well positioned&nbsp;to adapt and thrive. Key steps include implementing formal namespaces to&nbsp;eliminate&nbsp;collisions, enhancing protocol support for&nbsp;client provided&nbsp;resources, and encouraging transparent server documentation to foster interoperability and robust development practices across the ecosystem.&nbsp;</p>
-
-
-
-<p>By embracing these evergreen recommendations and proactively addressing compatibility, usability, and optimization issues, the AI agent community can create a more reliable, scalable, and efficient infrastructure that benefits both developers and end users. The future of MCP is bright, with ample opportunities for experimentation, standardization, and collective progress.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/tool-space-interference-in-the-mcp-era-designing-for-agent-compatibility-at-scale/">Tool-space interference in the MCP era: Designing for agent compatibility at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
