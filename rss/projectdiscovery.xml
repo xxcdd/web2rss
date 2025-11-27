@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 26 Nov 2025 01:51:06 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Nov 2025 01:49:33 +0000</lastBuildDate>
     <item>
       <title>Solving Vulnerability Management: ProjectDiscovery’s RSA Innovation Sandbox Win</title>
       <link>https://projectdiscovery.io/blog/solving-vulnerability-management-projectdiscovery-rsa-innovation-sandbox-win</link>
@@ -117,15 +117,6 @@ GCP is well-known for its powerful features and v</description>
       <description>At ProjectDiscovery, our greatest strength is our community. Thousands of security researchers, bug bounty hunters, and vulnerability analysts who identify zero‑day vulnerabilities, trending CVEs, and actively exploited vulnerabilities (including those listed in CISA KEV).</description>
     </item>
     <item>
-      <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
-      <link>https://projectdiscovery.io/blog/ivanti-remote-code-execution</link>
-      <description>Introduction
-
-As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
-
-However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
-    </item>
-    <item>
       <title>Authentication Bypass to RCE in Versa Concerto</title>
       <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
       <description>Introduction
@@ -142,13 +133,16 @@ DELMIA Apriso is a manufacturing execution and operations orchestration platform
 Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
     </item>
     <item>
-      <title>Remote Code Execution in DELMIA Apriso</title>
-      <link>https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso</link>
+      <title>How to Research &amp; Reverse Web Vulnerabilities 101</title>
+      <link>https://projectdiscovery.io/blog/how-to-research-web-vulnerabilities</link>
       <description>Introduction
 
-DELMIA Apriso is a manufacturing execution and operations orchestration platform used by large manufacturers, service providers, and critical infrastructure operators. Because the product exposes multiple integration points (SOAP, file uploads, provisioning feeds) that are often reachable from internal networks, we performed a focused black-box assessment to surface integration and surface-area weaknesses.
+This blog serves as a detailed methodology guide for analyzing, reversing, and researching web vulnerabilities, particularly those with CVEs assigned. The content outlines repeatable processes used to evaluate vague advisories, analyze vulnerable software, and ultimately recreate or validate security flaws. The objective is to establish a structured, replicable approach to web vulnerability research.
 
-Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
+
+Environment &amp; Tools
+
+When approaching a new target for CVE research or reverse-e</description>
     </item>
     <item>
       <title>From Detection to Validation: Fixing Broken Vulnerability Workflows</title>
@@ -159,6 +153,16 @@ Our testing uncovered two chained, high-impact issues: an unauthenticated S</des
       <title>Open by design, trusted by enterprises: how we keep Nuclei templates reliable at scale</title>
       <link>https://projectdiscovery.io/blog/open-by-design-trusted-by-enterprises-how-we-keep-nuclei-templates-reliable-at-scale</link>
       <description>At ProjectDiscovery, our greatest strength is our community. Thousands of security researchers, bug bounty hunters, and vulnerability analysts who identify zero‑day vulnerabilities, trending CVEs, and actively exploited vulnerabilities (including those listed in CISA KEV).</description>
+    </item>
+    <item>
+      <title>Introducing Credential Monitoring</title>
+      <link>https://projectdiscovery.io/blog/leaked-credential-monitoring</link>
+      <description>Imagine discovering that your company's login credentials are sitting in plain sight on the internet, accessible to anyone who knows where to look. Unfortunately, this isn't hypothetical – it's happening right now to organizations worldwide through malware-stolen credentials.
+
+
+The Hidden Threat: Malware-Stolen Credentials
+
+Every day, cybercriminals deploy malicious software that quietly steals passwords from infected computers. These "stealer" programs harvest credentials from browsers and appl</description>
     </item>
   </channel>
 </rss>
