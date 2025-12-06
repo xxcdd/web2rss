@@ -20,16 +20,6 @@
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/GoogleCloudBlog.xml)
 
-## XbowBlog
-- 原网址：https://xbow.com/blog/
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/XbowBlog.xml)
-
-## PrefectBlog
-- 原网址：https://www.prefect.io/blog
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/PrefectBlog.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/PrefectBlog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/PrefectBlog.xml)
-
 ## DeveloperNvidiaBlog
 - 原网址：https://developer.nvidia.com/zh-cn/blog/recent-posts/
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/DeveloperNvidiaBlog.xml
