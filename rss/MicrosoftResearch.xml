@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 09 Dec 2025 21:14:48 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 10 Dec 2025 18:07:09 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,230 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.8.3</generator>
 	<item>
+		<title>Promptions helps make AI prompting more precise with dynamic UI controls</title>
+		<link>https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/</link>
+		
+		<dc:creator><![CDATA[Sean Rintel, Advait Sarkar, Jack Williams, Nicholas Wilson, Richard Banks, Neeltje Berger, Philipp Steinacher, Payod Panda, Ian Drosos]]></dc:creator>
+		<pubDate>Wed, 10 Dec 2025 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1157824</guid>
+
+					<description><![CDATA[<p>Promptions helps developers add dynamic, context-aware controls to chat interfaces so users can guide generative AI responses. It lets users shape outputs quickly without writing long instructions.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/">Promptions helps make AI prompting more precise with dynamic UI controls</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a blue-to-green gradient background: a hub-and-spoke network symbol on the left, a laptop with a user icon in the center, and a connected group of three user icons on the right." class="wp-image-1157946" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Anyone who uses AI systems knows the frustration: a prompt is given, the response misses the mark, and the cycle repeats. This trial-and-error loop can feel unpredictable and discouraging. To address this, we are excited to introduce <strong>Promptions</strong> (<em>prompt + options</em>), a UI framework that helps developers build AI interfaces with more precise user control.</p>
+
+
+
+<p>Its simple design makes it easy to integrate into any setting&nbsp;that relies on added context, including customer support, education, and medicine. Promptions is available under the MIT license on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/promptions/" target="_blank" rel="noopener noreferrer">Microsoft Foundry Labs<span class="sr-only"> (opens in new tab)</span></a> and GitHub.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Promptions" width="500" height="281" src="https://www.youtube-nocookie.com/embed/vr3fZpkKy8Q?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<h2 class="wp-block-heading" id="background">Background</h2>
+
+
+
+<p>Promptions&nbsp;builds on&nbsp;our research,&nbsp;“<a href="https://www.microsoft.com/en-us/research/publication/dynamic-prompt-middleware-contextual-prompt-refinement-controls-for-comprehension-tasks/" target="_blank" rel="noreferrer noopener">Dynamic Prompt Middleware: Contextual Prompt Refinement Controls for Comprehension Tasks</a>.”&nbsp;This&nbsp;project&nbsp;examined&nbsp;how&nbsp;knowledge&nbsp;workers&nbsp;use&nbsp;generative AI when their goal is&nbsp;to <em>understand</em> rather than&nbsp;<em>create</em>. While much public&nbsp;discussion centers on&nbsp;AI producing text&nbsp;or&nbsp;images, understanding involves asking AI to explain, clarify, or teach—a&nbsp;task&nbsp;that can&nbsp;quickly become&nbsp;complex. Consider a spreadsheet formula: one&nbsp;user may want a&nbsp;simple syntax&nbsp;breakdown,&nbsp;another a&nbsp;debugging&nbsp;guide, and&nbsp;another an explanation suitable for&nbsp;teaching&nbsp;colleagues.&nbsp;The same formula can require&nbsp;entirely&nbsp;different explanations depending on the user’s role, expertise, and goals.&nbsp;</p>
+
+
+
+<p>A great deal of complexity sits beneath these&nbsp;seemingly simple&nbsp;requests.&nbsp;Users&nbsp;often&nbsp;find&nbsp;that the way&nbsp;they phrase a question&nbsp;doesn’t&nbsp;match&nbsp;the&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/what-is-it-like-to-program-with-artificial-intelligence/" target="_blank" rel="noreferrer noopener">level of detail the AI&nbsp;needs</a>.&nbsp;Clarifying what they really want can require long, carefully worded&nbsp;prompts that are tiring to produce.&nbsp;And because the connection&nbsp;between natural language and system behavior&nbsp;isn’t always transparent, it can be difficult to predict&nbsp;how the AI will interpret a&nbsp;given&nbsp;request.&nbsp;In the end, users spend more time&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/the-metacognitive-demands-and-opportunities-of-generative-ai/" target="_blank" rel="noreferrer noopener">managing the interaction itself</a>&nbsp;than understanding the material they&nbsp;hoped&nbsp;to learn.</p>
+
+
+
+<h2 class="wp-block-heading" id="identifying-how-users-want-to-guide-ai-outputs">Identifying&nbsp;how users want to guide AI outputs&nbsp;</h2>
+
+
+
+<p>To explore why these challenges persist and how people can better steer AI toward customized results, we conducted two studies with knowledge workers across technical and nontechnical roles. Their experiences highlighted important gaps that guided Promptions&#8217; design.</p>
+
+
+
+<p>Our&nbsp;first study&nbsp;involved&nbsp;38 professionals&nbsp;across&nbsp;engineering, research, marketing, and program management. Participants reviewed&nbsp;design mock-ups that&nbsp;provided&nbsp;static&nbsp;prompt-refinement&nbsp;options—such as&nbsp;<em>length</em>, <em>tone</em>, or <em>start with</em>—for shaping&nbsp;AI&nbsp;responses.&nbsp;</p>
+
+
+
+<p>Although these&nbsp;static&nbsp;options were helpful, they&nbsp;couldn’t&nbsp;adapt to the&nbsp;specific formula, code snippets, or text&nbsp;the participant&nbsp;was trying to understand.&nbsp;Participants&nbsp;also wanted direct ways to&nbsp;customize&nbsp;the&nbsp;tone,&nbsp;detail, or&nbsp;format of the response&nbsp;without&nbsp;having to&nbsp;type instructions.</p>
+
+
+
+<h3 class="wp-block-heading" id="why-dynamic-refinement-matters">Why dynamic refinement matters</h3>
+
+
+
+<p>The&nbsp;second study&nbsp;tested&nbsp;prototypes&nbsp;in a&nbsp;controlled experiment.&nbsp;We compared the static&nbsp;design&nbsp;from the first study, called&nbsp;the&nbsp;“Static Prompt Refinement Control”&nbsp;(Static PRC),&nbsp;against a&nbsp;“Dynamic Prompt Refinement Control” (Dynamic PRC)&nbsp;with features that&nbsp;responded&nbsp;to&nbsp;participants’ feedback.&nbsp;Sixteen&nbsp;technical&nbsp;professionals familiar with generative AI&nbsp;completed six tasks,&nbsp;spanning&nbsp;code explanation,&nbsp;understanding a&nbsp;complex topic, and&nbsp;learning a new&nbsp;skill.&nbsp;Each participant tested both systems, with task assignments balanced to ensure fair comparison.&nbsp;&nbsp;</p>
+
+
+
+<p>Comparing Dynamic PRC to Static PRC revealed key insights into how dynamic prompt-refinement options change users’ sense of control and exploration and how those options help them reflect on their understanding. </p>
+
+
+
+<h3 class="wp-block-heading" id="static-prompt-refinement">Static&nbsp;prompt&nbsp;refinement</h3>
+
+
+
+<p>Static PRC&nbsp;offered a set of pre‑selected controls&nbsp;(Figure 1)&nbsp;identified&nbsp;in the&nbsp;initial&nbsp;study.&nbsp;We expected these options to be useful&nbsp;across many&nbsp;types of&nbsp;explanation-seeking&nbsp;prompts.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1379" height="852" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1.png" alt="Alt text: The Static PRC interface in the user study. It includes dropdowns and radio buttons for selecting expertise level (Beginner to Advanced), explanation length (Short to Long), role of AI (Coach, Teach, Explain), explanation type (End result, Modular, Step-by-step), starting point (High-level or Detailed), and tone (Formal, Informal, Encouraging, Neutral)." class="wp-image-1157834" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1.png 1379w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-300x185.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-1024x633.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-768x475.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-240x148.png 240w" sizes="(max-width: 1379px) 100vw, 1379px" /><figcaption class="wp-element-caption">Figure&nbsp;1: The static PRC&nbsp;interface&nbsp;</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="dynamic-prompt-refinement">Dynamic prompt refinement</h3>
+
+
+
+<p>We built the Dynamic PRC system to automatically produce prompt options and refinements based on the user’s input, presenting them in real time so that users could adjust these controls and guide the AI’s responses more precisely (Figure 2).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1379" height="915" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig03-dynamicprc-1.png" alt="Alt text: How users interacted with the Dynamic PRC system. (1) shows a user input prompt of “Explain the formula” [with a long Excel formula] (2) Three rows of options relating to this prompt, Explanation Detail Level, Focus Areas, and Learning Objectives, with several options for each, preselected (3) User has modified the preselected options by clicking Troubleshooting under Learning Objectives (4) AI response of an explanation for the formula based on the selected options (5) Session chat control panel with text box that the user adds "I want to control the structure or format of the response". (6) Generates 3 option sets based on this input. (7) A new response is generated with the new session options added." class="wp-image-1157876" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig03-dynamicprc-1.png 1379w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig03-dynamicprc-1-300x199.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig03-dynamicprc-1-1024x679.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig03-dynamicprc-1-768x510.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig03-dynamicprc-1-240x159.png 240w" sizes="auto, (max-width: 1379px) 100vw, 1379px" /><figcaption class="wp-element-caption">Figure&nbsp;2.&nbsp;Interaction flow in&nbsp;the Dynamic PRC system. (1)&nbsp;The&nbsp;user&nbsp;asks&nbsp;the system to explain&nbsp;a long Excel formula.&nbsp;(2)&nbsp;Dynamic PRC generates refinement&nbsp;options:&nbsp;Explanation Detail Level, Focus Areas, and Learning Objectives.&nbsp;(3)&nbsp;The user&nbsp;modifies&nbsp;these&nbsp;options.&nbsp;(4)&nbsp;The&nbsp;AI returns&nbsp;an explanation based on the selected options.&nbsp;(5)&nbsp;In the session chat panel,&nbsp;the user adds&nbsp;a request&nbsp;to control the structure or format of the response.&nbsp;(6)&nbsp;Dynamic PRC generates&nbsp;new&nbsp;option&nbsp;sets based on this input.&nbsp;(7)&nbsp;The&nbsp;AI produces an updated explanation reflecting the&nbsp;newly applied&nbsp;options.&nbsp;</figcaption></figure>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="findings">Findings</h2>
+
+
+
+<p>Participants consistently reported that dynamic controls made it easier to express the nuances of their tasks without repeatedly rephrasing their prompts. This reduced the effort of prompt engineering and allowed users to focus more on understanding content than managing the mechanics of phrasing.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="627" height="313" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig04-plotpreferences-1.png" alt="Alt text: Box plot chart titled “Dynamic vs Static PRC: Which tool…”, comparing user responses to six questions about preference, mental demand, feeling rushed, success, effort, and annoyance. Y-axis ranges from 1 (Dynamic) to 7 (Static), with 4 marked as Equal. Each question is represented by a box plot showing response distribution, median, and variability, illustrating perceived differences between dynamic and static PRC tools." class="wp-image-1157879" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig04-plotpreferences-1.png 627w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig04-plotpreferences-1-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig04-plotpreferences-1-240x120.png 240w" sizes="auto, (max-width: 627px) 100vw, 627px" /><figcaption class="wp-element-caption">Figure&nbsp;3.&nbsp;Comparison of&nbsp;user&nbsp;preferences for Static&nbsp;PRC&nbsp;versus&nbsp;Dynamic PRC&nbsp;across key evaluation criteria.&nbsp;</figcaption></figure>
+
+
+
+<p>Contextual options prompted users to try refinements they might not have considered on their own. This behavior suggests that Dynamic PRC can broaden how users engage with AI explanations, helping them uncover new ways to approach tasks beyond their initial intent. Beyond exploration, the dynamic controls prompted participants to think more deliberately about their goals. Options like &#8220;Learning Objective&#8221; and &#8220;Response Format&#8221; helped them clarify what they needed, whether guidance on applying a concept or step-by-step troubleshooting help.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="627" height="358" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig05-ploteffectiveness-1.png" alt="Alt text: Box plot chart titled “Dynamic vs Static PRC: Control Effectiveness,” comparing user agreement with four statements about AI control tools. Each statement has two box plots—blue for Dynamic and orange for Static—showing response distributions on a 1 (Strongly Disagree) to 7 (Strongly Agree) Likert scale. Statements assess perceived control over AI output, usefulness for understanding, desire for more control, and clarity of control functions." class="wp-image-1157883" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig05-ploteffectiveness-1.png 627w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig05-ploteffectiveness-1-300x171.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig05-ploteffectiveness-1-240x137.png 240w" sizes="auto, (max-width: 627px) 100vw, 627px" /><figcaption class="wp-element-caption">Figure 4.&nbsp;Participant ratings comparing the&nbsp;effectiveness of Static PRC and&nbsp;Dynamic PRC&nbsp;</figcaption></figure>
+
+
+
+<p>While participants valued Dynamic PRC’s adaptability, they also found it more difficult to interpret. Some struggled to anticipate how a selected option would influence the response, noting that the controls seemed opaque because the effect became clear only after the output appeared.</p>
+
+
+
+<p>However,&nbsp;the&nbsp;overall&nbsp;positive response&nbsp;to&nbsp;Dynamic PRC&nbsp;showed us that Promptions&nbsp;could&nbsp;be&nbsp;broadly useful,&nbsp;leading&nbsp;us to share it&nbsp;with the developer community.   &nbsp;</p>
+
+
+
+<h3 class="wp-block-heading" id="technical-design">Technical design</h3>
+
+
+
+<p>Promptions works as a lightweight middleware layer that sits between the user and the underlying language model (Figure 5). It has two main components:</p>
+
+
+
+<p><strong>Option Module</strong>. This module reviews the user’s prompt and conversation history, then generates a set of refinement options. These are presented as interactive UI elements (radio buttons, checkboxes, text fields) that directly shape how the AI interprets the prompt.</p>
+
+
+
+<p><strong>Chat&nbsp;Module.</strong>&nbsp;This module&nbsp;produces the&nbsp;AI’s response based&nbsp;on the refined prompt.&nbsp;When&nbsp;a user changes an option,&nbsp;the&nbsp;response&nbsp;immediately&nbsp;updates,&nbsp;making the interaction feel more like an&nbsp;evolving&nbsp;conversation&nbsp;than&nbsp;a cycle of&nbsp;repeated prompts.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="524" height="547" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig07-systemflow-1.png" alt="Alt text: The Promptions system model. (1) The Option Module ingests the user’s prompt input along with the conversation history. (2) It then outputs a set of prompt options, each initialized based on the content of the prompt. (3) These options are rendered inline via a dedicated rendering engine. (4) The Chat Module incorporates the refined options as grounding, alongside the original prompt and conversation history, to generate a chat response. (5) The user can modify the GUI controls, which updates the refinements and triggers the Chat Module to regenerate the current response accordingly." class="wp-image-1157886" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig07-systemflow-1.png 524w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig07-systemflow-1-287x300.png 287w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig07-systemflow-1-172x180.png 172w" sizes="auto, (max-width: 524px) 100vw, 524px" /><figcaption class="wp-element-caption">Figure&nbsp;5.&nbsp;Promptions&nbsp;middleware workflow. (1) The Option Module&nbsp;reads&nbsp;the user’s prompt&nbsp;and&nbsp;conversation history&nbsp;and&nbsp;(2)&nbsp;generates&nbsp;prompt options. (3) These options are&nbsp;rendered&nbsp;inline&nbsp;by&nbsp;a dedicated&nbsp;component. (4) The Chat Module incorporates these&nbsp;refined options alongside the original prompt and history to&nbsp;produce&nbsp;a response.&nbsp;(5)&nbsp;When the user&nbsp;adjusts&nbsp;the&nbsp;controls,&nbsp;the&nbsp;refinements&nbsp;update&nbsp;and the Chat Module regenerates&nbsp;the response accordingly.</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="adding-promptions-to-an-application">Adding Promptions to an application</h3>
+
+
+
+<p>Promptions easily integrates into any conversational chat interface. Developers only need to add a component to display the options and connect it to the AI system. There&#8217;s no need to store date between sessions, which keeps implementation simple. The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/promptions/" target="_blank" rel="noopener noreferrer">Microsoft Foundry Labs<span class="sr-only"> (opens in new tab)</span></a> repository includes two sample applications, a generic chatbot and an image generator, that demonstrate this design in practice.  </p>
+
+
+
+<p>Promptions is well-suited for interfaces where users need to provide context but don’t want to write it all out. Instead of typing lengthy explanations, they can adjust the controls that guide the AI’s response to match their preferences.</p>
+
+
+
+<h2 class="wp-block-heading" id="questions-for-further-exploration">Questions for further exploration</h2>
+
+
+
+<p>Promptions raises important questions for future research. Key usability challenges include clarifying how dynamic options affect AI output and managing the complexity of multiple controls. Other questions involve balancing immediate adjustments with persistent settings and enabling users to share options collaboratively.</p>
+
+
+
+<p>On the technical side, questions focus on generating more effective options, validating and customizing dynamic interfaces, gathering relevant context automatically, and supporting the ability to save and share option sets across sessions.</p>
+
+
+
+<p> These questions, along with broader considerations of collaboration, ethics, security, and scalability, are guiding our ongoing work on Promptions and related systems.</p>
+
+
+
+<div class="annotations " data-bi-aN="margin-callout">
+	<article class="annotations__list card depth-16 bg-body p-4 annotations__list--right">
+		<div class="annotations__list-item">
+						<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Tool</span>
+			<a href="https://labs.ai.azure.com/projects/promptions/" data-bi-cN="Explore Promptions on Microsoft Foundry Labs" target="_blank" rel="noopener noreferrer" data-external-link="true" data-bi-aN="margin-callout" data-bi-type="annotated-link" class="annotations__link font-weight-semibold text-decoration-none"><span>Explore Promptions on Microsoft Foundry Labs</span>&nbsp;<span class="glyph-in-link glyph-append glyph-append-open-in-new-tab" aria-hidden="true"></span></a>					</div>
+	</article>
+</div>
+
+
+
+<p>By making Promptions open source, we hope to help developers create smarter, more responsive AI experiences.</p>
+
+
+
+<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://labs.ai.azure.com/projects/promptions/">Explore Promptions on Microsoft Foundry Labs<span class="sr-only"> (opens in new tab)</span></a></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/">Promptions helps make AI prompting more precise with dynamic UI controls</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI</title>
 		<link>https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/</link>
 		
@@ -32,7 +256,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka.jpg" alt="Illustration of a person kneeling and looking through a large telescope on a textured pink surface. The telescope is aimed at a dark sky filled with colorful circular icons, each containing abstract shapes. The telescope itself has circuit-like patterns inside." class="wp-image-1156682" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka.jpg" alt="Illustration of a person kneeling and looking through a large telescope on a textured pink surface. The telescope is aimed at a dark sky filled with colorful circular icons, each containing abstract shapes. The telescope itself has circuit-like patterns inside." class="wp-image-1156682" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -56,30 +280,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -96,7 +320,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1265" height="1518" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1.png" alt="Figure 1. GigaTIME enables population-scale tumor immune microenvironment (TIME) analysis. A, GigaTIME inputs a hematoxylin and eosin (H&E) whole-slide image and outputs multiplex immunofluorescence (mIF) across 21 protein channels. By applying GigaTIME to 14,256 patients, we generated a virtual population with mIF information, leading to population-scale discovery on clinical biomarkers and patient stratification, with independent validation on TCGA. B, Circular plot visualizing a TIME spectrum encompassing the GigaTIME-translated virtual mIF activation scores across different protein channels at the population scale, where each channel is represented as an individual circular bar chart segment. The inner circle encodes OncoTree, which classifies 14,256 patients into 306 subtypes across 24 cancer types. The outer circle groups these activations by cancer types, allowing visual comparison across major categories. C, Scatter plot comparing the subtype-level GigaTIME-translated virtual mIF activations between TCGA and Providence virtual populations. Each dot denotes the average activation score of a protein channel among all tumors of a cancer subtype." class="wp-image-1153563" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1.png 1265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-250x300.png 250w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-853x1024.png 853w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-768x922.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-150x180.png 150w" sizes="(max-width: 1265px) 100vw, 1265px" /><figcaption class="wp-element-caption">Figure 1. GigaTIME enables population-scale tumor immune microenvironment (TIME) analysis. A, GigaTIME inputs a hematoxylin and eosin (H&E) whole-slide image and outputs multiplex immunofluorescence (mIF) across 21 protein channels. By applying GigaTIME to 14,256 patients, we generated a virtual population with mIF information, leading to population-scale discovery on clinical biomarkers and patient stratification, with independent validation on TCGA. B, Circular plot visualizing a TIME spectrum encompassing the GigaTIME-translated virtual mIF activation scores across different protein channels at the population scale, where each channel is represented as an individual circular bar chart segment. The inner circle encodes OncoTree, which classifies 14,256 patients into 306 subtypes across 24 cancer types. The outer circle groups these activations by cancer types, allowing visual comparison across major categories. C, Scatter plot comparing the subtype-level GigaTIME-translated virtual mIF activations between TCGA and Providence virtual populations. Each dot denotes the average activation score of a protein channel among all tumors of a cancer subtype.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1265" height="1518" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1.png" alt="Figure 1. GigaTIME enables population-scale tumor immune microenvironment (TIME) analysis. A, GigaTIME inputs a hematoxylin and eosin (H&E) whole-slide image and outputs multiplex immunofluorescence (mIF) across 21 protein channels. By applying GigaTIME to 14,256 patients, we generated a virtual population with mIF information, leading to population-scale discovery on clinical biomarkers and patient stratification, with independent validation on TCGA. B, Circular plot visualizing a TIME spectrum encompassing the GigaTIME-translated virtual mIF activation scores across different protein channels at the population scale, where each channel is represented as an individual circular bar chart segment. The inner circle encodes OncoTree, which classifies 14,256 patients into 306 subtypes across 24 cancer types. The outer circle groups these activations by cancer types, allowing visual comparison across major categories. C, Scatter plot comparing the subtype-level GigaTIME-translated virtual mIF activations between TCGA and Providence virtual populations. Each dot denotes the average activation score of a protein channel among all tumors of a cancer subtype." class="wp-image-1153563" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1.png 1265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-250x300.png 250w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-853x1024.png 853w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-768x922.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-150x180.png 150w" sizes="auto, (max-width: 1265px) 100vw, 1265px" /><figcaption class="wp-element-caption">Figure 1. GigaTIME enables population-scale tumor immune microenvironment (TIME) analysis. A, GigaTIME inputs a hematoxylin and eosin (H&E) whole-slide image and outputs multiplex immunofluorescence (mIF) across 21 protein channels. By applying GigaTIME to 14,256 patients, we generated a virtual population with mIF information, leading to population-scale discovery on clinical biomarkers and patient stratification, with independent validation on TCGA. B, Circular plot visualizing a TIME spectrum encompassing the GigaTIME-translated virtual mIF activation scores across different protein channels at the population scale, where each channel is represented as an individual circular bar chart segment. The inner circle encodes OncoTree, which classifies 14,256 patients into 306 subtypes across 24 cancer types. The outer circle groups these activations by cancer types, allowing visual comparison across major categories. C, Scatter plot comparing the subtype-level GigaTIME-translated virtual mIF activations between TCGA and Providence virtual populations. Each dot denotes the average activation score of a protein channel among all tumors of a cancer subtype.</figcaption></figure>
 
 
 
@@ -104,7 +328,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1241" height="1418" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2.png" alt="Figure 2. GigaTIME enables translation from hematoxylin and eosin (H&E) to multiplex immunofluorescence (mIF) images. A,B, Bar plot comparing GigaTIME and CycleGAN on the translation performance in terms of Dice score (A) and Pearson correlation (B). C, Scatter plots comparing the activation density of the translated mIF and the ground truth mIF across four channels. D, Qualitative results for a sample H&E whole-slide image from our held-out test set with zoomed-in visualizations of the measured mIF and GigaTIME-translated mIF for DAPI, PD-L1, and CD68 channels." class="wp-image-1153564" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2.png 1241w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-263x300.png 263w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-896x1024.png 896w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-768x878.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-158x180.png 158w" sizes="(max-width: 1241px) 100vw, 1241px" /><figcaption class="wp-element-caption">Figure 2. GigaTIME enables translation from hematoxylin and eosin (H&E) to multiplex immunofluorescence (mIF) images. A,B, Bar plot comparing GigaTIME and CycleGAN on the translation performance in terms of Dice score (A) and Pearson correlation (B). C, Scatter plots comparing the activation density of the translated mIF and the ground truth mIF across four channels. D, Qualitative results for a sample H&E whole-slide image from our held-out test set with zoomed-in visualizations of the measured mIF and GigaTIME-translated mIF for DAPI, PD-L1, and CD68 channels.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1241" height="1418" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2.png" alt="Figure 2. GigaTIME enables translation from hematoxylin and eosin (H&E) to multiplex immunofluorescence (mIF) images. A,B, Bar plot comparing GigaTIME and CycleGAN on the translation performance in terms of Dice score (A) and Pearson correlation (B). C, Scatter plots comparing the activation density of the translated mIF and the ground truth mIF across four channels. D, Qualitative results for a sample H&E whole-slide image from our held-out test set with zoomed-in visualizations of the measured mIF and GigaTIME-translated mIF for DAPI, PD-L1, and CD68 channels." class="wp-image-1153564" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2.png 1241w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-263x300.png 263w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-896x1024.png 896w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-768x878.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-158x180.png 158w" sizes="auto, (max-width: 1241px) 100vw, 1241px" /><figcaption class="wp-element-caption">Figure 2. GigaTIME enables translation from hematoxylin and eosin (H&E) to multiplex immunofluorescence (mIF) images. A,B, Bar plot comparing GigaTIME and CycleGAN on the translation performance in terms of Dice score (A) and Pearson correlation (B). C, Scatter plots comparing the activation density of the translated mIF and the ground truth mIF across four channels. D, Qualitative results for a sample H&E whole-slide image from our held-out test set with zoomed-in visualizations of the measured mIF and GigaTIME-translated mIF for DAPI, PD-L1, and CD68 channels.</figcaption></figure>
 
 
 
@@ -1117,30 +1341,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1518,30 +1742,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1874,30 +2098,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2242,30 +2466,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2592,172 +2816,6 @@ Most bars are dominated by pink segments (target agent queries), with several sp
 					
 		
 		
-			</item>
-		<item>
-		<title>Tell me when: Building agents that can wait, monitor, and act</title>
-		<link>https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/</link>
-		
-		<dc:creator><![CDATA[Hussein Mozannar, Matheus Kunzler Maldaner, Maya Murad, Jingya Chen, Gagan Bansal, Rafah Hosn, Adam Fourney]]></dc:creator>
-		<pubDate>Tue, 21 Oct 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1152051</guid>
-
-					<description><![CDATA[<p>SentinelStep enables AI agents to handle monitoring tasks that run for hours or days, like watching for emails or tracking prices. It works by managing when agents should check and their context, avoiding wasted resources and missed updates.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/">Tell me when: Building agents that can wait, monitor, and act</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Workflow icons showing tasks, thinking, and time, linked to a person symbol on a gradient background." class="wp-image-1152522" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticUIupdate-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<p>Modern&nbsp;LLM&nbsp;Agents&nbsp;can debug code, analyze spreadsheets, and book complex travel.&nbsp;Given those capabilities, it’s reasonable to assume that they could handle something simpler:&nbsp;waiting.&nbsp;Ask an agent to&nbsp;monitor&nbsp;your email for a colleague’s response or watch for a price drop over several days, and it will fail. Not because it&nbsp;can’t&nbsp;check email or scrape prices. It can do both. It fails&nbsp;because it&nbsp;doesn’t&nbsp;know&nbsp;<em>when</em>&nbsp;to check.&nbsp;Agents either&nbsp;give up after a few attempts or burn through their context window, checking obsessively. Neither&nbsp;work.&nbsp;</p>
-
-
-
-<p>This matters because monitoring tasks&nbsp;are&nbsp;everywhere. We track emails for specific information, watch news&nbsp;feeds for updates, and&nbsp;monitor&nbsp;prices for sales. Automating these tasks would save hours, but current&nbsp;agents&nbsp;aren’t&nbsp;built for patience.</p>
-
-
-
-<p>To address this, we are introducing&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui" target="_blank" rel="noopener noreferrer">SentinelStep<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;a&nbsp;mechanism&nbsp;that&nbsp;enables&nbsp;agents&nbsp;to complete long-running monitoring&nbsp;tasks.&nbsp;The&nbsp;approach is simple.&nbsp;SentinelStep&nbsp;wraps the agent in a workflow with dynamic&nbsp;polling&nbsp;and&nbsp;careful context&nbsp;management.&nbsp;This&nbsp;enables&nbsp;the&nbsp;agent&nbsp;to&nbsp;monitor&nbsp;conditions for&nbsp;hours&nbsp;or&nbsp;days&nbsp;without getting&nbsp;sidetracked.&nbsp;We&#8217;ve&nbsp;implemented&nbsp;SentinelStep&nbsp;in&nbsp;<a href="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/?msockid=16c285fb8306647b25f593b982ef6516" target="_blank" rel="noreferrer noopener">Magentic-UI</a>,&nbsp;our research&nbsp;prototype&nbsp;agentic system,&nbsp;to enable&nbsp;users&nbsp;to&nbsp;build agents for&nbsp;long-running&nbsp;tasks,&nbsp;whether they&nbsp;involve web&nbsp;browsing, coding, or external&nbsp;tools.&nbsp;</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft research copilot experience</h2>
-				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="how-it-works">How it works</h2>
-
-
-
-<p>The core&nbsp;challenge is&nbsp;polling frequency. Poll too often,&nbsp;and&nbsp;tokens get&nbsp;wasted. Poll too infrequently, and the user’s notification gets delayed.&nbsp;SentinelStep&nbsp;makes&nbsp;an educated guess&nbsp;at&nbsp;the&nbsp;polling interval based on the task at hand—checking email gets different treatment&nbsp;than&nbsp;monitoring&nbsp;quarterly earnings—then dynamically adjusts&nbsp;based on&nbsp;observed&nbsp;behavior.&nbsp;</p>
-
-
-
-<p>There’s&nbsp;a second challenge: context overflow.&nbsp;Because monitoring tasks can run for days,&nbsp;context overflow&nbsp;becomes inevitable.&nbsp;SentinelStep&nbsp;handles&nbsp;this by saving the agent state after the first check, then&nbsp;using&nbsp;that state for each subsequent check.</p>
-
-
-
-<div class="wp-block-group is-layout-grid wp-container-core-group-is-layout-baef362d wp-block-group-is-layout-grid">
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Social-Media-Monitor-Final-demo.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Repo-Milestone-Trigger-Final-demo.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Price-Alert-Final-demo.mp4"></video></figure>
-
-
-
-<figure class="wp-block-video"><video controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Auto-Updating-Project-Dashboard-Final-demo.mp4"></video></figure>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption">These demonstrations capture&nbsp;Magentic-UI with&nbsp;SentinelStep&nbsp;at work, completing a range of tasks in a timelapse sequence.&nbsp;</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="core-components">Core components</h3>
-
-
-
-<p>As&nbsp;the name&nbsp;suggests,&nbsp;SentinelStep&nbsp;consists of&nbsp;individual steps&nbsp;taken as part of&nbsp;an&nbsp;agent’s broader&nbsp;workflow.&nbsp;As illustrated in Figure 1, there are three main components:&nbsp;the&nbsp;actions necessary to collect information, the condition that determines&nbsp;when&nbsp;the task&nbsp;is complete,&nbsp;and the polling interval&nbsp;that&nbsp;determines&nbsp;timing.&nbsp;Once&nbsp;these components&nbsp;are&nbsp;identified, the&nbsp;system’s&nbsp;behavior is simple:&nbsp;every<em>&nbsp;[polling interval]&nbsp;</em>do<em>&nbsp;[actions]&nbsp;</em>until<em>&nbsp;[condition]&nbsp;</em>is satisfied<em>.</em>&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="704" height="250" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png" alt="Figure 1. SentinelSteps’s three main components in Magentic-UI’s co-planning interface. " class="wp-image-1152610" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI.png 704w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-1-Sentinel-UI-240x85.png 240w" sizes="auto, (max-width: 704px) 100vw, 704px" /><figcaption class="wp-element-caption">Figure&nbsp;1.&nbsp;SentinelSteps’s&nbsp;three main components&nbsp;in&nbsp;Magentic-UI’s&nbsp;co-planning interface.<em>&nbsp;</em></figcaption></figure>
-
-
-
-<p>These three components are defined and exposed in the co-planning interface of Magentic-UI. Given a user prompt, Magentic-UI proposes a complete multi-step plan, including pre-filled parameters for any monitoring steps. Users can accept the plan or adjust as needed.</p>
-
-
-
-<h3 class="wp-block-heading" id="processing">Processing</h3>
-
-
-
-<p>Once a run starts, Magentic-UI assigns the most appropriate agent from a team of agents to perform each action. This team includes agents capable of web surfing, code execution, and calling arbitrary MCP servers.</p>
-
-
-
-<p>When the workflow reaches a monitoring step, the flow is straightforward. The assigned agent collects the necessary information through the actions described in the plan. The Magentic-UI orchestrator then checks whether the condition is satisfied. If it is, the SentinelStep is complete, and the orchestrator moves to the next step. If not, the orchestrator determines the timestamp for the next check and resets the agent’s state to prevent context overflow.</p>
-
-
-
-<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
-
-
-
-<p>Evaluating&nbsp;monitoring tasks in real-world settings&nbsp;is&nbsp;nearly impossible.&nbsp;Consider a simple example: monitoring the Magentic-UI repository on GitHub&nbsp;until&nbsp;it reaches&nbsp;10,000 stars&nbsp;(a measure of how many people have bookmarked it). That event occurs only once and can’t be repeated.&nbsp;Most&nbsp;real-world monitoring tasks share this limitation, making systematic bench marking very challenging.</p>
-
-
-
-<p>In response, we&nbsp;are developing&nbsp;SentinelBench, a suite of synthetic&nbsp;web environments for evaluating monitoring tasks. These environments make experiments repeatable. SentinelBench&nbsp;currently&nbsp;supports&nbsp;28&nbsp;configurable scenarios, each&nbsp;allowing the user to schedule exactly when&nbsp;a&nbsp;target&nbsp;event&nbsp;should&nbsp;occur. It includes setups like GitHub Watcher, which&nbsp;simulates a repository accumulating stars over time;&nbsp;Teams Monitor, which models incoming messages, some&nbsp;urgent; and&nbsp;Flight Monitor, which&nbsp;replicates&nbsp;evolving&nbsp;flight-availability&nbsp;dynamics.&nbsp;</p>
-
-
-
-<p>Initial&nbsp;tests&nbsp;show clear benefits.&nbsp;As shown in&nbsp;Figure&nbsp;2, success rates&nbsp;remain&nbsp;high for short tasks (30&nbsp;sec&nbsp;and 1&nbsp;min) regardless of&nbsp;whether&nbsp;SentinelStep&nbsp;is&nbsp;used.&nbsp;For longer tasks,&nbsp;SentinelStep&nbsp;markedly&nbsp;improves reliability: at 1 hour, task reliability rises from 5.6% without&nbsp;SentinelStep&nbsp;to&nbsp;33.3% with&nbsp;it;&nbsp;and at 2 hours,&nbsp;it rises&nbsp;from 5.6% to 38.9%. These gains&nbsp;demonstrate&nbsp;that&nbsp;SentinelStep&nbsp;effectively addresses the challenge of maintaining performance over extended durations.<a id="_msocom_1"></a></p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="619" height="399" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png" alt="Figure 2. SentinelStep improves success rates on longer running tasks (1–2 hours) while maintaining comparable performance on shorter tasks.  " class="wp-image-1152612" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval.png 619w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-300x193.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure-2-Eval-240x155.png 240w" sizes="auto, (max-width: 619px) 100vw, 619px" /><figcaption class="wp-element-caption">Figure&nbsp;2.&nbsp;SentinelStep&nbsp;improves&nbsp;success rates&nbsp;on longer running tasks (1–2&nbsp;hours)&nbsp;while&nbsp;maintaining&nbsp;comparable performance&nbsp;on shorter tasks.&nbsp;&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="impact-and-availability">Impact and availability</h2>
-
-
-
-<p>SentinelStep is a first step toward practical, proactive, longer‑running agents. By embedding patience into plans, agents can responsibly monitor conditions and act when it matters—staying proactive without wasting resources. This lays the groundwork for always‑on assistants that stay efficient, respectful of limits, and aligned with user intent.</p>
-
-
-
-<p>We’ve open-sourced SentinelStep as part of Magentic-UI, available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> or via <code>pip install magnetic-ui</code>. As with any new technique, production deployment should be preceded through&nbsp;testing and validation&nbsp;for the specific use case.&nbsp;For&nbsp;guidance on&nbsp;intended use,&nbsp;privacy&nbsp;considerations,&nbsp;and safety&nbsp;guidelines,&nbsp;see&nbsp;the&nbsp;Magentic-UI&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/magentic-ui/blob/main/TRANSPARENCY_NOTE.md" target="_blank" rel="noopener noreferrer">Transparency&nbsp;Note.<span class="sr-only"> (opens in new tab)</span></a>&nbsp;</p>
-
-
-
-<p>Our goal is to&nbsp;make it easier to implement agents that can&nbsp;handle&nbsp;long-running&nbsp;monitoring&nbsp;tasks&nbsp;and&nbsp;lay&nbsp;the groundwork for&nbsp;systems that&nbsp;anticipate, adapt, and&nbsp;evolve&nbsp;to meet real-world needs.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/tell-me-when-building-agents-that-can-wait-monitor-and-act/">Tell me when: Building agents that can wait, monitor, and act</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Social-Media-Monitor-Final-demo.mp4" length="5720457" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Repo-Milestone-Trigger-Final-demo.mp4" length="6357051" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Price-Alert-Final-demo.mp4" length="2694358" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Auto-Updating-Project-Dashboard-Final-demo.mp4" length="6699013" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
