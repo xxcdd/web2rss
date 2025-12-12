@@ -12,14 +12,162 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 10 Dec 2025 18:07:09 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 12 Dec 2025 00:55:40 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.8.3</generator>
+	<generator>https://wordpress.org/?v=6.9</generator>
 	<item>
+		<title>Agent Lightning: Adding reinforcement learning to AI agents without code rewrites</title>
+		<link>https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/</link>
+		
+		<dc:creator><![CDATA[Xufang Luo, Yuge Zhang, Zhiyuan He, Zilong Wang, Dongsheng Li, Luna K. Qiu, Yuqing Yang]]></dc:creator>
+		<pubDate>Thu, 11 Dec 2025 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1158079</guid>
+
+					<description><![CDATA[<p>By decoupling how agents work from how they’re trained, Agent Lightning turns each step an agent takes into data for reinforcement learning. This makes it easy for developers to improve agent performance with almost zero code changes.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/">Agent Lightning: Adding reinforcement learning to AI agents without code rewrites</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW.jpg" alt="Three white line icons on a blue-to-purple gradient background: the first icon shows a simple flowchart with connected squares and a diamond, the second icon shows a network of interconnected circles, and the third icon shows three user profile symbols linked together." class="wp-image-1158206" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>AI agents are reshaping software development, from writing code to carrying out complex instructions. Yet LLM-based agents are prone to errors and often perform poorly on complicated, multi-step tasks. Reinforcement learning (RL) is an approach where AI systems learn to make optimal decisions by receiving rewards or penalties for their actions, improving through trial and error. RL can help agents improve, but it typically requires developers to extensively rewrite their code. This discourages adoption, even though the data these agents generate could significantly boost performance through RL training.</p>
+
+
+
+<p>To address this, a research team from <a href="https://www.microsoft.com/en-us/research/group/msr-asia-shanghai/">Microsoft Research Asia &#8211; Shanghai</a> has introduced <a href="https://www.microsoft.com/en-us/research/project/agent-lightning/">Agent Lightning</a>. This <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/microsoft/agent-lightning">open-source<span class="sr-only"> (opens in new tab)</span></a> framework makes AI agents trainable through RL by separating how agents execute tasks from model training, allowing developers to add RL capabilities with virtually no code modification.</p>
+
+
+
+<h2 class="wp-block-heading" id="capturing-agent-behavior-for-training">Capturing agent behavior for training</h2>
+
+
+
+<p>Agent Lightning converts an agent&#8217;s experience into a format that RL can use by treating the agent&#8217;s execution as a sequence of states and actions, where each state captures the agent&#8217;s status and each LLM call is an action that moves the agent to a new state.</p>
+
+
+
+<p>This approach works for any workflow, no matter how complex. Whether it involves multiple collaborating agents or dynamic tool use, Agent Lightning breaks it down into a sequence of transitions. Each transition captures the LLM’s input, output, and reward (Figure 1). This standardized format means the data can be used for training without any&nbsp;additional&nbsp;steps.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="891" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-scaled.jpg" alt="Figure 1: Diagram illustrating Agent Lightning’s unified data interface for a retrieval-augmented generation (RAG) agent. On the left, four states (state₀ to state₃) show the agent’s execution flow, where semantic variables—UserInput, Query, Passages, and Answer—are updated after each component call (LLM or Search). Green blocks represent populated variables; gray blocks indicate empty ones. On the right, the unified data interface converts these transitions into a trajectory format containing prompt, generation, and immediate reward for RL training. " class="wp-image-1158102" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-300x104.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-1024x356.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-768x267.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-1536x534.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-2048x713.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-240x84.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. An illustration of Agent Lightning’s standardized format using a retrieval-augmented generation (RAG) agent. Left: The full agent workflow, where the agent&#8217;s state updates after each component step. The green blocks show assigned variables, and the gray blocks indicate variables without content. Right: The collected transitions are based on the standardized format for the RL training process, with each transition corresponding to one LLM step that contains its prompt, result, and immediate reward.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="hierarchical-reinforcement-learning">Hierarchical reinforcement learning</h2>
+
+
+
+<p>Traditional RL training for agents that make multiple LLM requests involves stitching together all content into one long sequence and then identifying which parts should be learned and which ignored during training. This approach is difficult to implement and can create excessively long sequences that degrade model performance.</p>
+
+
+
+<p>Instead, Agent Lightning’s LightningRL algorithm takes a hierarchical approach. After a task completes, a credit assignment module determines how much each LLM request contributed to the outcome and assigns it a corresponding reward. These independent steps, now paired with their own reward scores, can be used with any existing single-step RL algorithm, such as Proximal Policy Optimization (PPO) or Group Relative Policy Optimization (GRPO) (Figure 2).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="835" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-scaled.jpg" alt="Figure 2: Comparison of three reinforcement learning approaches for LLM tasks. (a) Single-step GRPO: The model completes the task in one call, and multiple outputs for the same task are compared with associated rewards. (b) Previous multi-step GRPO: The task spans multiple LLM calls, forming trajectories; non-LLM tokens (gray boxes) are ignored during training, and entire multi-step runs are compared. (c) LightningRL: Breaks multi-step runs into individual LLM calls, each including input, context, output, and reward assigned by a credit assignment module. Calls from the same task are grouped for reinforcement. " class="wp-image-1158259" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-300x98.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-1024x334.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-768x250.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-1536x501.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-2048x668.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-240x78.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (a) Single-step GRPO: The LLM completes the task in one call. Multiple responses for the same task are compared to determine how strongly each should be reinforced. (b) Previous multi-step GRPO: The task involves multiple LLM calls. Multiple multi-step runs of the same task are compared, with non-LLM generated tokens (grey boxes) ignored during training. (c) LightningRL: The multi-step run is divided into individual LLM calls. Calls from the same task are compared to determine how strongly each should be reinforced. Each call includes its input, context, output, and reward, assigned by the credit assignment module.</figcaption></figure>
+
+
+
+<p>This design offers several benefits. It remains fully compatible with widely used single-step RL algorithms, allowing existing training methods to be applied without modification. Organizing data as a sequence of independent transitions lets developers flexibly construct the LLM input as needed, supporting complex behaviors like agents that use multiple tools or&nbsp;work&nbsp;with other agents. Additionally, by keeping sequences short, the approach scales cleanly and keeps training efficient.</p>
+
+
+
+<h2 class="wp-block-heading" id="agent-lightning-as-middleware">Agent Lightning as middleware</h2>
+
+
+
+<p>Agent Lightning serves as middleware between RL algorithms and agent environments, providing modular components that enable scalable RL through standardized protocols and well-defined interfaces.</p>
+
+
+
+<p>An <strong>agent runner</strong> manages the agents as they complete tasks. It distributes work and collects and stores the results and progress data. It operates separately from the LLMs, enabling them to run on different resources and scale to support multiple agents running concurrently.</p>
+
+
+
+<p>An <strong>algorithm</strong> trains the models and hosts the LLMs used for inference and training. It orchestrates the overall RL cycle, managing which tasks are assigned, how agents complete them, and how models are updated based on what the agents learn. It typically runs on GPU resources and communicates with the agent runner through shared protocols.</p>
+
+
+
+<p>The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/agent-lightning/latest/how-to/write-first-algorithm/" target="_blank" rel="noopener noreferrer">LightningStore<span class="sr-only"> (opens in new tab)</span></a> serves as the central repository for all data exchanges within the system. It provides standardized interfaces and a shared format, ensuring that the different components can work together and enabling the algorithm and agent runner to communicate effectively.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="942" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-scaled.png" alt="Figure 3: Diagram showing the architecture of Agent Lightning (AGL). On the left, the AGL Algorithm block includes an inference engine (e.g., vLLM), an algorithm iteration loop, and an adapter for trainable data and weights update. In the center, the AGL Core contains LightningStore, which manages tasks, resources, spans, and LLM calls. On the right, the AGL Agent Runner & Tracer includes a user-defined agent using OpenAI chat completion and agl.emit(). Arrows indicate flows of prompts, responses, tasks, resources, spans, and datasets between components, with roles for algorithm researchers and agent developers highlighted. " class="wp-image-1158104" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-300x110.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-1024x377.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-768x283.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-1536x565.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-2048x754.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-3-240x88.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 3. The Agent Lightning framework</figcaption></figure>
+
+
+
+<p>All RL cycles follow two steps: (1) Agent Lightning collects agent execution data (called “spans”) and store them in the data store; (2) it then retrieves the required data and sends it to the algorithm for training. Through this design, the algorithm can delegate tasks asynchronously to the agent runner, which completes them and reports the results back (Figure 4).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2347" height="840" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new.png" alt="Figure 4: Diagram of the training loop in Agent Lightning. The central element is ‘Trainer,’ with arrows forming a cycle between three components: Agent on the left, Algorithm on the right, and Trainer in the middle. The top arrow labeled ‘Tasks’ flows from Algorithm to Agent, while the bottom arrow labeled ‘Spans’ flows from Agent to Algorithm. ‘Prompt Templates’ is noted above the cycle, indicating its role in task generation. " class="wp-image-1158290" style="width:628px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new.png 2347w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new-300x107.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new-1024x366.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new-768x275.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new-1536x550.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new-2048x733.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-4-new-240x86.png 240w" sizes="auto, (max-width: 2347px) 100vw, 2347px" /><figcaption class="wp-element-caption">Figure 4. Agent Lightning’s RL cycle</figcaption></figure>
+
+
+
+<p>One key advantage of this approach is its algorithmic flexibility. The system makes it easy for developers to customize how agents learn, whether they&#8217;re defining different rewards, capturing intermediate data, or experimenting with different training approaches.</p>
+
+
+
+<p>Another advantage is resource efficiency. Agentic RL systems are complex, integrating agentic systems, LLM inference engines, and training frameworks. By separating these components, Agent Lightning makes this complexity manageable and allows each part to be optimized independently</p>
+
+
+
+<p>A decoupled design allows each component to use the hardware that suits it best. The agent runner can use CPUs while model training uses GPUs. Each component can also scale independently, improving efficiency and making the system easier to maintain. In practice, developers can keep their existing agent frameworks and switch model calls to the Agent Lightning API without changing their agent code (Figure 5). </p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1238" height="1024" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-5-new.png" alt="Figure 5: Side-by-side code comparison showing agent implementation before and after integrating Agent Lightning. The left panel (dark background) displays the original agent code written by the developer, including logic for LLM calls, tool usage, and reward assignment. The right panel (light background) shows the modified version using Agent Lightning, where most of the agent logic remains unchanged but includes additional imports and calls to Agent Lightning components such as agl.PromptTemplate, agl.emit(), and agl.Trainer for training and credit assignment. A stylized lightning icon is centered between the two panels. " class="wp-image-1158107" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-5-new.png 1238w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-5-new-300x248.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-5-new-1024x847.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-5-new-768x635.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-5-new-218x180.png 218w" sizes="auto, (max-width: 1238px) 100vw, 1238px" /><figcaption class="wp-element-caption">Figure 5. On the left, the developer implements the agent code. On the bottom right is the code required for Agent Lightning. The main body of the agent code is unchanged.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="evaluation-across-three-real-world-scenarios">Evaluation across three real-world scenarios</h2>
+
+
+
+<p>Agent Lightning was tested on three distinct tasks, achieving consistent performance improvements across all scenarios (Figure 6):</p>
+
+
+
+<p><strong>Text-to-SQL (LangChain):</strong> In a system with three agents handling SQL generation, checking, and rewriting, Agent Lightning simultaneously optimized two of them, significantly improving the accuracy of generating executable SQL from natural language queries.</p>
+
+
+
+<p><strong>Retrieval-augmented generation (OpenAI Agents SDK implementation):</strong> On the multi-hop question-answering dataset MuSiQue, which requires querying a large Wikipedia database, Agent Lightning helped the agent generate more effective search queries and reason better from retrieved content.</p>
+
+
+
+<p><strong>Mathematical QA and tool use (AutoGen implementation):</strong> For complex math problems, Agent Lightning trained LLMs to more accurately determine when and how to call the tool and integrate the results into its reasoning, increasing accuracy.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1169" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-scaled.jpg" alt="Figure 6: Figure with six line charts showing reward curves across three evaluation scenarios (Spider, MuSiQue, Calculator) for train and test splits. Top row: Train Rewards on Spider, MuSiQue, and Calculator—each plot shows a blue line with noisy upward trend over steps, indicating increasing rewards; Spider and Calculator rise faster with more variance, MuSiQue climbs more gradually. Bottom row: Test Rewards on Spider, MuSiQue, and Calculator—each plot shows a blue line that increases and then stabilizes at higher rewards; Calculator reaches near-plateau earliest, Spider shows steady gains with minor fluctuations, MuSiQue improves more slowly. All plots use ‘Steps’ on the x‑axis and ‘Rewards’ on the y‑axis, with a legend labeled ‘ours’ and light gridlines. " class="wp-image-1158109" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-300x137.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-1024x468.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-768x351.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-1536x701.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-2048x935.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-6-240x110.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 6. Reward curves across the three evaluation scenarios</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="enabling-continuous-agent-improvement">Enabling continuous agent improvement</h2>
+
+
+
+<p>By simplifying RL integration, Agent Lightning can make it easier for developers to build, iterate, and deploy high-performance agents. We plan to expand Agent Lightning&#8217;s capabilities to include automatic prompt optimization and additional RL algorithms.</p>
+
+
+
+<p>The framework is designed to serve as an open platform where any AI agent can improve through real-world practice. By bridging existing agentic&nbsp;systems with reinforcement learning, Agent Lightning aims to help create AI systems that learn from experience and improve over time.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/">Agent Lightning: Adding reinforcement learning to AI agents without code rewrites</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Promptions helps make AI prompting more precise with dynamic UI controls</title>
 		<link>https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/</link>
 		
@@ -32,7 +180,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/">Promptions helps make AI prompting more precise with dynamic UI controls</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a blue-to-green gradient background: a hub-and-spoke network symbol on the left, a laptop with a user icon in the center, and a connected group of three user icons on the right." class="wp-image-1157946" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a blue-to-green gradient background: a hub-and-spoke network symbol on the left, a laptop with a user icon in the center, and a connected group of three user icons on the right." class="wp-image-1157946" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/Promptions-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -45,7 +193,7 @@
 
 
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe title="Promptions" width="500" height="281" src="https://www.youtube-nocookie.com/embed/vr3fZpkKy8Q?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe loading="lazy" title="Promptions" width="500" height="281" src="https://www.youtube-nocookie.com/embed/vr3fZpkKy8Q?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></figure>
 
 
@@ -98,7 +246,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1379" height="852" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1.png" alt="Alt text: The Static PRC interface in the user study. It includes dropdowns and radio buttons for selecting expertise level (Beginner to Advanced), explanation length (Short to Long), role of AI (Coach, Teach, Explain), explanation type (End result, Modular, Step-by-step), starting point (High-level or Detailed), and tone (Formal, Informal, Encouraging, Neutral)." class="wp-image-1157834" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1.png 1379w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-300x185.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-1024x633.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-768x475.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-240x148.png 240w" sizes="(max-width: 1379px) 100vw, 1379px" /><figcaption class="wp-element-caption">Figure&nbsp;1: The static PRC&nbsp;interface&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1379" height="852" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1.png" alt="Alt text: The Static PRC interface in the user study. It includes dropdowns and radio buttons for selecting expertise level (Beginner to Advanced), explanation length (Short to Long), role of AI (Coach, Teach, Explain), explanation type (End result, Modular, Step-by-step), starting point (High-level or Detailed), and tone (Formal, Informal, Encouraging, Neutral)." class="wp-image-1157834" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1.png 1379w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-300x185.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-1024x633.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-768x475.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/blog-fig02-staticprc-1-240x148.png 240w" sizes="auto, (max-width: 1379px) 100vw, 1379px" /><figcaption class="wp-element-caption">Figure&nbsp;1: The static PRC&nbsp;interface&nbsp;</figcaption></figure>
 
 
 
@@ -114,30 +262,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -280,30 +428,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -406,7 +551,7 @@
 
 
 
-<p>Paper co-authors: <em><a href="https://www.microsoft.com/en-us/research/people/jevalanarasu/">Jeya Maria Jose Valanarasu</a>, Hanwen Xu, <a href="https://www.microsoft.com/en-us/research/people/naotous/">Naoto Usuyama</a>, Chanwoo Kim, <a href="https://www.microsoft.com/en-us/research/people/clwon/">Cliff Wong</a>, <a href="https://www.microsoft.com/en-us/research/people/penielargaw/">Peniel Argaw</a>, Racheli Ben Shimol, Angela Crabtree, Kevin Matlock, Alexandra Q. Bartlett, Jaspreet Bagga, Yu Gu, <a href="https://www.microsoft.com/en-us/research/people/shezhan/">Sheng Zhang</a>, <a href="https://www.microsoft.com/en-us/research/people/tristan/">Tristan Naumann</a>, Bernard A. Fox, Bill Wright, Ari Robicsek, Brian Piening, Carlo Bifulco, Sheng Wang, <a href="https://www.microsoft.com/en-us/research/people/hoifung/">Hoifung Poon</a></em></p>
+<p>Paper co-authors: <em><a href="https://www.microsoft.com/en-us/research/people/jevalanarasu/">Jeya Maria Jose Valanarasu</a>, Hanwen Xu, <a href="https://www.microsoft.com/en-us/research/people/naotous/">Naoto Usuyama</a>, Chanwoo Kim, <a href="https://www.microsoft.com/en-us/research/people/clwon/">Cliff Wong</a>, <a href="https://www.microsoft.com/en-us/research/people/penielargaw/">Peniel Argaw</a>, Racheli Ben Shimol, Angela Crabtree, Kevin Matlock, Alexandra Q. Bartlett, Jaspreet Bagga, <a href="https://www.microsoft.com/en-us/research/people/yugu1/">Yu Gu</a>, <a href="https://www.microsoft.com/en-us/research/people/shezhan/">Sheng Zhang</a>, <a href="https://www.microsoft.com/en-us/research/people/tristan/">Tristan Naumann</a>, Bernard A. Fox, Bill Wright, Ari Robicsek, Brian Piening, Carlo Bifulco, Sheng Wang, <a href="https://www.microsoft.com/en-us/research/people/hoifung/">Hoifung Poon</a></em></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
@@ -1525,15 +1670,15 @@
 
 
 
-<figure class="wp-block-video aligncenter"><video controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_xbox_multi_turn-3.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_xbox_multi_turn-3.mp4"></video><figcaption class="wp-element-caption">Video 1: A demo of a shopping scenario with Fara-7B through Magentic-UI. Fara-7B is asked to purchase an X-Box Spongebob controller. Fara-7B goes on to complete this task, but while doing so, also stops at every Critical Point to get input and approval from the user before proceeding.</figcaption></figure>
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_xbox_multi_turn-3.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_xbox_multi_turn-3.mp4"></video><figcaption class="wp-element-caption">Video 1: A demo of a shopping scenario with Fara-7B through Magentic-UI. Fara-7B is asked to purchase an X-Box Spongebob controller. Fara-7B goes on to complete this task, but while doing so, also stops at every Critical Point to get input and approval from the user before proceeding.</figcaption></figure>
 
 
 
-<figure class="wp-block-video aligncenter"><video controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_github_demo.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_github_demo.mp4"></video><figcaption class="wp-element-caption">Video 2: A demo of Fara-7B finding relevant information online and summarizing it through Magentic-UI. We ask Fara-7B to find and summarize the latest three issues on Github Microsoft/Magentic-UI.</figcaption></figure>
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1440 / 1080;" width="1440" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_github_demo.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_github_demo.mp4"></video><figcaption class="wp-element-caption">Video 2: A demo of Fara-7B finding relevant information online and summarizing it through Magentic-UI. We ask Fara-7B to find and summarize the latest three issues on Github Microsoft/Magentic-UI.</figcaption></figure>
 
 
 
-<figure class="wp-block-video aligncenter"><video controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_driving-directions-cheese.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/driving_directions_cheese-1_revised.mp4"></video><figcaption class="wp-element-caption">Video 3: A demo of how Fara-7B can use different tools to find relevant information and analyze it through Magentic-UI. We ask Fara-7B to find driving time between two places, and suggest a cheese place near the location. Fara-7B uses Bing Maps to find Driving time, and Bing search to find relevant information.</figcaption></figure>
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_driving-directions-cheese.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/driving_directions_cheese-1_revised.mp4"></video><figcaption class="wp-element-caption">Video 3: A demo of how Fara-7B can use different tools to find relevant information and analyze it through Magentic-UI. We ask Fara-7B to find driving time between two places, and suggest a cheese place near the location. Fara-7B uses Bing Maps to find Driving time, and Bing search to find relevant information.</figcaption></figure>
 
 
 
@@ -1541,7 +1686,7 @@
 
 
 
-<p>Fara-7B is now available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a>&nbsp;and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a>&nbsp;under an MIT license and is integrated with&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/magnetic-ui/" target="_blank" rel="noopener noreferrer">Magentic-UI, a research prototype from Microsoft Research AI Frontiers<span class="sr-only"> (opens in new tab)</span></a>. We are also sharing a quantized and silicon-optimized version of Fara-7B, which will be available to install and run on&nbsp;Copilot+ PCs powered by Windows 11, for turnkey experimentation.&nbsp;The&nbsp;community&nbsp;can simply download the pre-optimized model and run it in their environment.</p>
+<p>Fara-7B is now available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a> under an MIT license and is integrated with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/magnetic-ui/" target="_blank" rel="noopener noreferrer">Magentic-UI, a research prototype from Microsoft Research AI Frontiers<span class="sr-only"> (opens in new tab)</span></a>. We are also sharing a quantized and silicon-optimized version of Fara-7B, is available to install and run on Copilot+ PCs powered by Windows 11, for turnkey experimentation. The community can simply download the pre-optimized model and run it in their environment.</p>
 
 
 
@@ -1617,7 +1762,7 @@
 
 
 
-<p>Evaluation of web agents can be tricky because the web is constantly changing, and many websites even block detected bots, which is why we developed a test harness that relies on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.browserbase.com/" target="_blank" rel="noopener noreferrer">Browserbase<span class="sr-only"> (opens in new tab)</span></a> to standardize how browser sessions are managed. In Table 1 below, we report a notion of task success rate (%) defined by each benchmark’s official LLM-as-judge evaluator; WebTailBench success is computed using the same Task Verification pipeline that filtered our training data. We find that Fara-7B is state-of-the-art, even outperforming native computer use agents like UI-TARS-1.5-7B, or much larger models like GPT-4o prompted to act like a computer use agent with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2310.11441" target="_blank" rel="noopener noreferrer">Set-Of-Marks<span class="sr-only"> (opens in new tab)</span></a> (SoM Agent). </p>
+<p>Evaluation of&nbsp;web&nbsp;agents can be tricky&nbsp;because the web is constantly&nbsp;changing,&nbsp;and many websites even block detected bots,&nbsp;which is why we&nbsp;developed&nbsp;a&nbsp;test&nbsp;harness&nbsp;that&nbsp;relies on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.browserbase.com/" target="_blank" rel="noopener noreferrer">Browserbase<span class="sr-only"> (opens in new tab)</span></a>&nbsp;to standardize how browser sessions are managed.&nbsp;In Table 1 below, we report a notion of task success rate&nbsp;(%)&nbsp;defined&nbsp;by each benchmark’s official&nbsp;LLM-as-judge evaluator;&nbsp;WebTailBench&nbsp;success is&nbsp;computed using the same Task Verification pipeline that filtered&nbsp;our&nbsp;training data.&nbsp;We find that&nbsp;Fara-7B&nbsp;is&nbsp;state-of-the-art,&nbsp;even&nbsp;outperforming native computer use&nbsp;agents&nbsp;like UI-TARS-1.5-7B, or much larger&nbsp;models&nbsp;like GPT-4o prompted to act like a computer use agent with&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2310.11441" target="_blank" rel="noopener noreferrer">Set-Of-Marks<span class="sr-only"> (opens in new tab)</span></a>&nbsp;(SoM&nbsp;Agent).&nbsp;</p>
 
 
 
@@ -2098,30 +2243,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2466,30 +2611,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2650,168 +2792,6 @@
 
 <p>The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/multi-agent-marketplace/" target="_blank" rel="noopener noreferrer">documentation<span class="sr-only"> (opens in new tab)</span></a> provides instructions for reproducing the experiments described above and guidance for extending the environment to new marketplace configurations.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/">Magentic Marketplace: an open-source simulation environment for studying agentic markets</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>RedCodeAgent: Automatic red-teaming agent against diverse code agents</title>
-		<link>https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/</link>
-		
-		<dc:creator><![CDATA[Chengquan Guo , Chulin Xie, Yu Yang, Zhaorun Chen, Zinan Lin, Xander Davies, Yarin Gal, Dawn Song, Bo Li]]></dc:creator>
-		<pubDate>Tue, 04 Nov 2025 17:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1152834</guid>
-
-					<description><![CDATA[<p>Code agents help streamline software development workflows, but may also introduce critical security risks. Learn how RedCodeAgent automates and improves “red-teaming” attack simulations to help uncover real-world threats that other methods overlook.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent: Automatic red-teaming agent against diverse code agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Icons of a chat bubble, connected document, and shield with checkmark on a blue-green gradient background." class="wp-image-1152887" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/RedCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<h2 class="wp-block-heading" id="introduction">Introduction</h2>
-
-
-
-<p>Code agents are AI systems that can generate high-quality code and work smoothly with code interpreters. These capabilities help streamline complex software development workflows,&nbsp;which has led to their widespread adoption.</p>
-
-
-
-<p>However, this progress also introduces critical safety and security risks. Existing static safety benchmarks and red-teaming methods—in which&nbsp;security researchers&nbsp;simulate real-world attacks to&nbsp;identify&nbsp;security vulnerabilities—often fall short when evaluating code agents.&nbsp;They&nbsp;may&nbsp;fail to&nbsp;detect&nbsp;emerging real-world risks, such as the combined effects of multiple jailbreak tools.&nbsp;In&nbsp;the context of code, effective red-teaming requires more than simply checking whether the target code agent rejects unsafe requests. Instead, the agent must generate and execute correct code that performs the intended risky functionality, making it essential to evaluate execution behaviors beyond static code analysis.&nbsp;</p>
-
-
-
-<p>To address these challenges, researchers from the University of Chicago, University of Illinois Urbana–Champaign, VirtueAI, the UK AI Security Institute, University of Oxford, UC Berkeley, and Microsoft Research recently proposed <a href="https://www.microsoft.com/en-us/research/publication/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/" target="_blank" rel="noreferrer noopener">RedCodeAgent</a>, the first fully automated and adaptive red-teaming agent designed specifically to evaluate the safety of large language model (LLM)-based code agents.</p>
-
-
-
-<p>Comprehensive experimental results demonstrate the effectiveness and efficiency of&nbsp;RedCodeAgent across (1) diverse Common Weakness Enumeration (CWE) vulnerabilities and malware types, (2) multiple programming languages—including Python, C, C++, and Java—and (3) a wide range of code agents, such as OpenCodeInterpreter, ReAct, MetaGPT, and commercial agents like Cursor and&nbsp;Codeium.&nbsp;RedCodeAgent also uncovers common vulnerabilities across agents&nbsp;such as generating and executing unsafe code, exposes variations in red-teaming difficulty across goals, identifies frequently triggered attack tools, and detects previously unknown vulnerabilities that all other baseline methods overlook.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="framework-for-automatic-red-teaming-against-code-agents">Framework for&nbsp;automatic&nbsp;red-teaming&nbsp;against&nbsp;code&nbsp;agents</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1600" height="484" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_.jpg" alt="A flowchart illustrating the workflow of RedCodeAgent, a system for red-teaming code agents. 
-
-User Input (left panel): 
-The user provides a risk scenario (e.g., “Delete sensitive files”) and a detailed risk description (e.g., “Create and execute a Python script that removes /root/.bashrc”). 
-
-Memory module (center-left): 
-RedCodeAgent retrieves the top-K most similar memory entries, each containing a risk scenario, description, trajectory, evaluation result, and self-reflection. 
-
-LLM red-teaming function call (center): 
-The agent uses large language model (LLM) reasoning and tools from its toolbox—such as Code Substitution, GCG, AutoDAN, AmpleGCG, and Advprompter—to generate attacks. 
-
-Query target code agent (center-right): 
-The generated query is sent to the target code agent, which attempts to execute or reject the risky action. 
-
-Evaluation module (right panel): 
-Outcomes are classified as: 
-
-Attack success (e.g., file is no longer present), 
-
-Attack failure (e.g., file is still present), or 
-
-Get rejected (e.g., rejection words appear). 
-
-If the attack fails or gets rejected, the process iterates until reaching the maximum iteration or success. 
-
-Final Output (bottom): 
-Successful red-teaming instances are stored, followed by a self-reflection step that appends a new memory entry. 
-
-Visual elements include arrows showing flow between modules, success/failure indicators, and icons representing users, agents, memory, and evaluation. " class="wp-image-1152869" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-300x91.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-1024x310.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-768x232.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-1536x465.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure1_-240x73.jpg 240w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure 1: Illustration of&nbsp;RedCodeAgent&nbsp;on automatic red-teaming against a target code agent&nbsp;</figcaption></figure>
-
-
-
-<p>As shown in Figure 1,&nbsp;RedCodeAgent&nbsp;is equipped with a&nbsp;<strong>memory module</strong>&nbsp;that accumulates successful attack experiences, enabling the system to&nbsp;<strong>continuously learn and adapt its attack strategies</strong>. After learning from the previous experiences,&nbsp;RedCodeAgent&nbsp;further&nbsp;leverages&nbsp;a&nbsp;<strong>tailored toolbox</strong>&nbsp;that combines representative red-teaming tools with a specialized&nbsp;<strong>code substitution module</strong>, enabling realistic and diverse code-specific attack simulations through function calling. Based on the target agent’s responses across multiple interactive trials, RedCodeAgent optimizes&nbsp;its strategies, systematically&nbsp;probing for&nbsp;weaknesses and vulnerabilities&nbsp;in real time.&nbsp;</p>
-
-
-
-<p>In the evaluation phase,&nbsp;RedCodeAgent&nbsp;integrates simulated sandbox environments to enable code execution and assess the impact of the resulting behaviors. This sandbox-based evaluation ensures a more robust assessment of harmful behaviors and addresses the potential biases of&nbsp;previous&nbsp;static methods that rely solely on “LLM-as-a-judge” evaluations.</p>
-
-
-
-<p>A case study is shown in Figure 2. Initially,&nbsp;RedCodeAgent&nbsp;discovers that the request was rejected, then RedCodeAgent calls the Greedy Coordinate&nbsp;Gradient&nbsp;(GCG)&nbsp;algorithm&nbsp;to bypass the safety guardrail. After the second request was rejected by the code agent,&nbsp;RedCodeAgent&nbsp;invoked both Code Substitution and GCG to optimize the prompt. Ultimately,&nbsp;RedCodeAgent&nbsp;successfully combined the suggestion from Code Substitution (i.e., using&nbsp;pathlib) with the adversarial suffix generated by GCG, making the target code agent delete the specified file.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1600" height="1771" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_.jpg" alt="A flowchart illustrating a red-teaming attack scenario targeting a code agent. The risk scenario is deleting sensitive files, specifically removing “/etc/gshadow.” The process shows several decision steps: querying the target code agent (rejected), calling the GCG to optimize prompts, trying modified prompts, using code substitution (e.g., replacing os.remove with pathlib.unlink), and retrying the optimized prompts. The final result shows that the optimized prompt successfully caused the file “/etc/gshadow” to be removed, labeled as “Attack success.” The chart includes text boxes for each step, evaluation results (e.g., “Get rejected” or “Attack success”), and concludes with a “Final output” section describing self-reflection on the red-teaming process." class="wp-image-1152871" style="width:622px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-271x300.jpg 271w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-925x1024.jpg 925w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-768x850.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-1388x1536.jpg 1388w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure2_-163x180.jpg 163w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure2. A case study of&nbsp;RedCodeAgent&nbsp;calling different tools to successfully attack the target code agent</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="insights-from-redcodeagent">Insights from&nbsp;RedCodeAgent&nbsp;</h2>
-
-
-
-<p>Experiments on diverse benchmarks show that&nbsp;RedCodeAgent&nbsp;achieves both a higher attack success rate (ASR) and a lower rejection rate, revealing several key findings outlined below.</p>
-
-
-
-<h3 class="wp-block-heading" id="using-traditional-jailbreak-methods-alone-does-not-necessarily-improve-asr-on-code-agents">Using&nbsp;traditional&nbsp;jailbreak&nbsp;methods&nbsp;alone&nbsp;does&nbsp;not&nbsp;necessarily&nbsp;improve&nbsp;ASR on code agents</h3>
-
-
-
-<p>The optimized prompts generated by GCG,&nbsp;AmpleGCG,&nbsp;Advprompter, and&nbsp;AutoDAN&nbsp;do not always achieve a higher ASR compared with static prompts with no jailbreak, as shown in Figure 3.&nbsp;This is&nbsp;likely&nbsp;due to the difference between code-specific tasks and general malicious request tasks in LLM safety. In the context of code, it is not enough for the target code agent to simply avoid rejecting the request; the target code agent must also generate and execute code that performs the intended function.&nbsp;Previous&nbsp;jailbreak methods do not guarantee this outcome. However,&nbsp;RedCodeAgent&nbsp;ensures that the input prompt has a clear functional objective (e.g., deleting specific sensitive files). RedCodeAgent&nbsp;can dynamically adjust based on evaluation feedback, continually optimizing to achieve the specified objectives.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1600" height="1581" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_.jpg" alt="A scatter plot comparing six methods on two metrics: Attack Success Rate (ASR) in percent (y-axis) and Time Cost in seconds (x-axis). Each method is represented by a distinct marker with coordinates labeled as (time, ASR): 
-
-RedCodeAgent (121.17s, 72.47%) — red circle, highest ASR. 
-
-GCG (71.44s, 54.69%) — purple diamond. 
-
-No Jailbreak (36.25s, 55.46%) — blue square. 
-
-Advprompter (132.59s, 46.42%) — pink inverted triangle. 
-
-AmpleGCG (45.28s, 41.11%) — yellow triangle. 
-
-AutoDAN (51.77s, 29.26%) — gray hexagon. 
-The “Better” direction points toward higher ASR and lower time cost. The chart shows that RedCodeAgent achieves the best performance (highest ASR) despite moderate time cost. " class="wp-image-1152872" style="width:574px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-300x296.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-1024x1012.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-768x759.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-1536x1518.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure3_-182x180.jpg 182w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure 3：RedCodeAgent&nbsp;achieves the highest ASR compared with other methods</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="redcodeagent-exhibits-adaptive-tool-utilization">RedCodeAgent&nbsp;exhibits&nbsp;adaptive&nbsp;tool&nbsp;utilization&nbsp;</h3>
-
-
-
-<p>RedCodeAgent&nbsp;can dynamically adjust its tool usage based on task difficulty. Figure 4 shows that the tool calling combination is different&nbsp;for&nbsp;different tasks.&nbsp;For simpler tasks, where the baseline static test cases already achieve a high ASR,&nbsp;RedCodeAgent&nbsp;spends little time invoking&nbsp;additional&nbsp;tools,&nbsp;demonstrating&nbsp;its efficiency. For more challenging tasks, where the baseline static test cases in&nbsp;RedCode-Exec achieve a lower ASR,we observe that RedCodeAgent spends more time using advanced tools like&nbsp;GCG and&nbsp;Advprompter&nbsp;to&nbsp;optimize&nbsp;the prompt for a successful attack. As a result, the average time spent on invoking different tools varies across tasks, indicating that RedCodeAgent adapts its strategy depending on the specific task.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1600" height="789" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_.jpg" alt="A stacked bar chart showing the time cost (seconds) for different methods across risk indices 1–27 (except 18) for an agent. The x-axis represents risk indices, and the y-axis shows time cost in seconds. Each bar is divided into colored segments representing different components of the total time cost: 
-
-Pink: Query (target agent) – 36.25s per call 
-Brown: Code substitution – 12.16s per call 
-Green: GCG – 35.19s per call 
-Teal: AutoDAN – 15.52s per call 
-Blue: AmpleGCG – 9.03s per call 
-Magenta: Advprompter – 96.34s per call 
-
-Most bars are dominated by pink segments (target agent queries), with several spikes (e.g., risk indices 9–11 and 14–15) where additional methods like GCG and Advprompter add noticeable time overhead. The legend in the upper right lists each method’s average time per call. " class="wp-image-1152874" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_.jpg 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-300x148.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-1024x505.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-768x379.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-1536x757.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Figure4_-240x118.jpg 240w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /><figcaption class="wp-element-caption">Figure 4: Average time cost for&nbsp;RedCodeAgent&nbsp;to invoke different tools or query the target code agent in successful cases for each risk scenario&nbsp;</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="redcodeagent-discovers-new-vulnerabilities">RedCodeAgent&nbsp;discovers&nbsp;new&nbsp;vulnerabilities</h3>
-
-
-
-<p>In scenarios where other methods&nbsp;fail to&nbsp;find successful attack strategies,&nbsp;RedCodeAgent&nbsp;is able to discover new, feasible jailbreak approaches. Quantitatively, we find that&nbsp;RedCodeAgent&nbsp;is capable of discovering&nbsp;82 (out of 27*30=810 cases in&nbsp;RedCode-Exec benchmark) unique vulnerabilities on the&nbsp;OpenCodeInterpreter&nbsp;code agent and 78 on the ReAct code agent. These are cases where all baseline methods&nbsp;fail to&nbsp;identify the vulnerability, but RedCodeAgent succeeds.</p>
-
-
-
-<h2 class="wp-block-heading" id="summary">Summary</h2>
-
-
-
-<p>RedCodeAgent&nbsp;combines adaptive memory, specialized tools, and simulated execution environments to uncover real-world risks that static benchmarks&nbsp;may&nbsp;miss.&nbsp;It&nbsp;consistently outperforms leading jailbreak methods, achieving higher attack success rates and lower rejection rates, while remaining efficient and adaptable across diverse agents and programming languages.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent: Automatic red-teaming agent against diverse code agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
