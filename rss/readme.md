@@ -1,10 +1,5 @@
 # RSS订阅
 
-## splunk_blog
-- 原网址：https://www.splunk.com/en_us/blog
-- 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/splunk_blog.xml
-- Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/splunk_blog.xml](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/splunk_blog.xml)
-
 ## github_trending
 - 原网址：https://github.com/trending
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/rss/github_trending.xml
