@@ -6,19 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 22 Oct 2025 03:42:46 +0000</lastBuildDate>
-    <item>
-      <title>April 2025 Newsletter</title>
-      <link>https://projectdiscovery.io/blog/april-2025-newsletter</link>
-      <description>Hot off the press, ProjectDiscovery scooped the award for Most Innovative Startup late this month, after presenting our pitch over at RSAC 2025.</description>
-    </item>
-    <item>
-      <title>Solving Vulnerability Management: ProjectDiscovery’s RSA Innovation Sandbox Win</title>
-      <link>https://projectdiscovery.io/blog/solving-vulnerability-management-projectdiscovery-rsa-innovation-sandbox-win</link>
-      <description>Last week, ProjectDiscovery took home the title of Most Innovative Startup at the 2025 RSA Innovation Sandbox, the biggest stage in the world for security innovation. While much of this year’s buzz centered on securing AI, our win was a powerful signal: even as new frontiers emerge, foundational problems like vulnerability management remain unsolved. Security leaders are still spending millions on tools that generate noise instead of insight, and the industry is ready for a better way.
-
-Our COO,</description>
-    </item>
+    <lastBuildDate>Wed, 07 Jan 2026 02:00:07 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -29,6 +17,23 @@ These improvements represent months of engineering effort informed by our commun
 Redesigned for Speed and Clarity
 
 The new v1.3.0</description>
+    </item>
+    <item>
+      <title>Introducing Credential Monitoring</title>
+      <link>https://projectdiscovery.io/blog/leaked-credential-monitoring</link>
+      <description>Imagine discovering that your company's login credentials are sitting in plain sight on the internet, accessible to anyone who knows where to look. Unfortunately, this isn't hypothetical – it's happening right now to organizations worldwide through malware-stolen credentials.
+
+
+The Hidden Threat: Malware-Stolen Credentials
+
+Every day, cybercriminals deploy malicious software that quietly steals passwords from infected computers. These "stealer" programs harvest credentials from browsers and appl</description>
+    </item>
+    <item>
+      <title>Introducing Neo, an AI security engineer for complex security tasks</title>
+      <link>https://projectdiscovery.io/blog/introducing-neo</link>
+      <description>Neo is a cloud-based AI security engineer that works alongside your team and takes on real security tasks like a true co-engineer. As it operates, it continuously learns your systems and processes, improving over time just like an engineer ramping up on your team.
+
+Neo is built as a framework, not as a black box. It combines the reasoning of large language models with purpose-built execution tools, isolated sandboxes, a memory layer that learns your code, architecture and naming, and deep integr</description>
     </item>
     <item>
       <title>Getting Started with ProjectDiscovery in Linux and Windows</title>
@@ -93,15 +98,6 @@ The new interface for cataloging and organizing all assets along with their asso
       <description>By going beyond version checks, you’ll reduce noise, speed up critical fixes, and keep engineering smiling.</description>
     </item>
     <item>
-      <title>Effortless Passive Detection Using Global Matchers in Nuclei</title>
-      <link>https://projectdiscovery.io/blog/introducing-global-matchers-in-nuclei</link>
-      <description>If you've ever found yourself repeatedly setting up the same matchers in multiple Nuclei templates, it's time to break free from that cycle. Meet global matchers, a killer feature in Nuclei that simplifies your detection workflow.
-
-Imagine having a single template that automatically hunts for specific patterns (like private keys, sensitive tokens, or webhooks) across every HTTP response from all your other templates. That's what global matchers do — and they do it effortlessly.
-
-In this post, we</description>
-    </item>
-    <item>
       <title>GCP Cloud Configuration Review Templates - Nuclei Templates v10.2.0 🎉</title>
       <link>https://projectdiscovery.io/blog/gcp-cloud-configuration-review-templates-nuclei-templates-v10-2-0</link>
       <description>We’re excited to tell you about Nuclei Templates release v10.2.0! This new version includes newly added GCP Config Review templates. In this blog post, we’ll discuss automating Google Cloud misconfiguration review, creating custom GCP checks, and sharing results on the PDCP Cloud for review.
@@ -116,13 +112,9 @@ GCP is well-known for its powerful features and v</description>
       <description>Discover the highlights from Nuclei Templates v10.2.1 and v10.2.2 releases: 106 new templates, 57 CVEs covered (including 10 actively exploited KEVs), first-time contributions, a new template bounty program, and key improvements to reduce false positives and negatives.</description>
     </item>
     <item>
-      <title>CVE-2025-4427/4428 : Ivanti EPMM Remote Code Execution - Technical Analysis</title>
-      <link>https://projectdiscovery.io/blog/ivanti-remote-code-execution</link>
-      <description>Introduction
-
-As security researchers, we all know that familiar dance when blackbox testing web apps and APIs. You poke an endpoint, get hit with "blah parameter is missing" or "blah is of the wrong type," and after satisfying every requirement, you're often met with the frustrating 401 or 403. That feeling of being so close, yet so far, is something we've all experienced.
-
-However, in a recent analysis of Ivanti EPMM's CVE-2025-4427 and CVE-2025-4428 , this very flow of execution – validation</description>
+      <title>Open by design, trusted by enterprises: how we keep Nuclei templates reliable at scale</title>
+      <link>https://projectdiscovery.io/blog/open-by-design-trusted-by-enterprises-how-we-keep-nuclei-templates-reliable-at-scale</link>
+      <description>At ProjectDiscovery, our greatest strength is our community. Thousands of security researchers, bug bounty hunters, and vulnerability analysts who identify zero‑day vulnerabilities, trending CVEs, and actively exploited vulnerabilities (including those listed in CISA KEV).</description>
     </item>
     <item>
       <title>Authentication Bypass to RCE in Versa Concerto</title>
@@ -141,25 +133,38 @@ DELMIA Apriso is a manufacturing execution and operations orchestration platform
 Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
     </item>
     <item>
-      <title>Authentication Bypass to RCE in Versa Concerto</title>
-      <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
+      <title>How to Research &amp; Reverse Web Vulnerabilities 101</title>
+      <link>https://projectdiscovery.io/blog/how-to-research-web-vulnerabilities</link>
       <description>Introduction
 
-Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
+This blog serves as a detailed methodology guide for analyzing, reversing, and researching web vulnerabilities, particularly those with CVEs assigned. The content outlines repeatable processes used to evaluate vague advisories, analyze vulnerable software, and ultimately recreate or validate security flaws. The objective is to establish a structured, replicable approach to web vulnerability research.
+
+
+Environment &amp; Tools
+
+When approaching a new target for CVE research or reverse-e</description>
     </item>
     <item>
-      <title>The Coverage Lie: Why Current Vulnerability Scanners Fail to Stop Breaches</title>
-      <link>https://projectdiscovery.io/blog/why-current-vuln-scanners-fail-to-stop-breaches</link>
-      <description>First-generation scanners drown teams in noise. Only 6% of CVEs are ever exploited, yet attackers weaponize them in hours. ProjectDiscovery, the RSA Sandbox winner, delivers runtime validation and detections within hours so you can act fast, cut false positives, and close real risk.</description>
+      <title>Open by design, trusted by enterprises: how we keep Nuclei templates reliable at scale</title>
+      <link>https://projectdiscovery.io/blog/open-by-design-trusted-by-enterprises-how-we-keep-nuclei-templates-reliable-at-scale</link>
+      <description>At ProjectDiscovery, our greatest strength is our community. Thousands of security researchers, bug bounty hunters, and vulnerability analysts who identify zero‑day vulnerabilities, trending CVEs, and actively exploited vulnerabilities (including those listed in CISA KEV).</description>
     </item>
     <item>
-      <title>Remote Code Execution in DELMIA Apriso</title>
-      <link>https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso</link>
-      <description>Introduction
+      <title>Introducing Credential Monitoring</title>
+      <link>https://projectdiscovery.io/blog/leaked-credential-monitoring</link>
+      <description>Imagine discovering that your company's login credentials are sitting in plain sight on the internet, accessible to anyone who knows where to look. Unfortunately, this isn't hypothetical – it's happening right now to organizations worldwide through malware-stolen credentials.
 
-DELMIA Apriso is a manufacturing execution and operations orchestration platform used by large manufacturers, service providers, and critical infrastructure operators. Because the product exposes multiple integration points (SOAP, file uploads, provisioning feeds) that are often reachable from internal networks, we performed a focused black-box assessment to surface integration and surface-area weaknesses.
 
-Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
+The Hidden Threat: Malware-Stolen Credentials
+
+Every day, cybercriminals deploy malicious software that quietly steals passwords from infected computers. These "stealer" programs harvest credentials from browsers and appl</description>
+    </item>
+    <item>
+      <title>Introducing Neo, an AI security engineer for complex security tasks</title>
+      <link>https://projectdiscovery.io/blog/introducing-neo</link>
+      <description>Neo is a cloud-based AI security engineer that works alongside your team and takes on real security tasks like a true co-engineer. As it operates, it continuously learns your systems and processes, improving over time just like an engineer ramping up on your team.
+
+Neo is built as a framework, not as a black box. It combines the reasoning of large language models with purpose-built execution tools, isolated sandboxes, a memory layer that learns your code, architecture and naming, and deep integr</description>
     </item>
   </channel>
 </rss>
