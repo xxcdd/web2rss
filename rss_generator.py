@@ -10,6 +10,8 @@ import time as time_module
 from soupsieve.util import SelectorSyntaxError
 from datetime import datetime
 from urllib.parse import urljoin
+import argparse
+import sys
 
 
 def create_webdriver(proxy=None):
@@ -38,7 +40,7 @@ def load_config(config_path='config.yaml'):
 
 def fetch_blog_posts(config):
     print(f"Fetching posts from: {config['url']}")
-    print(f"Using selectors: block={config['block_css']}, title={config['title_css']}, description={config['description_css']}, link={config['link_css']}")
+    print(f"Using selectors: block={config['block_css']}, title={config['title_css']}, description={config['description_css']}, link={config['link_css']}, date={config.get('date_css', 'N/A')}")
 
     proxy = config.get('proxy')  # 获取代理设置
 
@@ -113,7 +115,8 @@ def fetch_blog_posts(config):
         title = block.select_one(config['title_css'])
         description = block.select_one(config['description_css']) if config['description_css'] else block
         link = block.select_one(config['link_css']) if config['link_css'] else block
-        
+        date_element = block.select_one(config['date_css']) if config.get('date_css') else None
+
         # 获取额外信息
         extra_info = []
         if 'extra_css' in config:
@@ -130,8 +133,40 @@ def fetch_blog_posts(config):
                 'title': title.get_text(strip=True),
                 'description': description.get_text(strip=True),
                 'link': link['href'] if link['href'].startswith('http') else urljoin(config['url'], link['href']),
-                'extra_info': extra_info
+                'extra_info': extra_info,
+                'pub_date': None
             }
+
+            # 处理日期
+            if date_element:
+                # 优先获取 dateTime 属性
+                date_str = date_element.get('datetime') or date_element.get('dateTime')
+                if date_str:
+                    try:
+                        # 解析 ISO 8601 格式日期
+                        post_data['pub_date'] = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+                        print(f"Extracted date from dateTime attribute: {date_str}")
+                    except Exception as e:
+                        print(f"Failed to parse dateTime '{date_str}': {e}")
+                        # 尝试解析文本内容
+                        try:
+                            post_data['pub_date'] = datetime.fromisoformat(date_element.get_text(strip=True))
+                        except Exception as e2:
+                            print(f"Failed to parse date text: {e2}")
+                else:
+                    # 没有 dateTime 属性，尝试解析文本
+                    date_text = date_element.get_text(strip=True)
+                    try:
+                        # 尝试常见日期格式
+                        for fmt in ['%Y-%m-%d', '%b %d, %Y', '%Y年%m月%d日']:
+                            try:
+                                post_data['pub_date'] = datetime.strptime(date_text, fmt)
+                                print(f"Parsed date with format '{fmt}': {date_text}")
+                                break
+                            except ValueError:
+                                continue
+                    except Exception as e:
+                        print(f"Failed to parse date text '{date_text}': {e}")
             posts.append(post_data)
             print(f"Successfully parsed post: {post_data['title']}")
         else:
@@ -157,36 +192,66 @@ def generate_rss(posts, site):
         entry.link(href=post['link'])
         entry.description(post['description'])
 
+        # 设置发布时间
+        if post.get('pub_date'):
+            entry.pubDate(post['pub_date'])
+            print(f"Set pubDate for {post['title']}: {post['pub_date']}")
+
     return feed.rss_str(pretty=True).decode('utf-8')  # 确保返回字符串
 
 def main():
+    # 解析命令行参数
+    parser = argparse.ArgumentParser(description='生成网站RSS订阅源')
+    parser.add_argument('--site', '-s', type=str, help='指定要生成的站点名称（例如：cursor_blog）')
+    parser.add_argument('--list', '-l', action='store_true', help='列出所有可用的站点名称')
+    args = parser.parse_args()
+
     config = load_config()
-    
+
+    # 如果使用 --list 参数，列出所有站点
+    if args.list:
+        print("可用的站点列表：")
+        for site in config['sites']:
+            print(f"  - {site['name']}: {site['url']}")
+        sys.exit(0)
+
+    # 筛选要处理的站点
+    sites_to_process = config['sites']
+    if args.site:
+        sites_to_process = [site for site in config['sites'] if site['name'] == args.site]
+        if not sites_to_process:
+            print(f"错误：未找到名为 '{args.site}' 的站点")
+            print(f"使用 --list 参数查看所有可用站点")
+            sys.exit(1)
+        print(f"仅生成站点：{args.site}")
+    else:
+        print(f"生成所有站点的RSS")
+
     # 创建readme.md文件
     readme_path = "rss/readme.md"
     with open(readme_path, 'w', encoding='utf-8') as readme_file:
         readme_file.write("# RSS订阅\n\n")
-    
-    for site in config['sites']:
+
+    for site in sites_to_process:
         try:
             posts = fetch_blog_posts(site)
             if not posts:
                 print(f"No posts found for {site['url']}, skipping RSS generation.")
                 continue
-                
+
             rss_feed = generate_rss(posts, site)
             file_name = f"rss/{site['name']}.xml"
             with open(file_name, 'w', encoding='utf-8') as file:
                 file.write(rss_feed)  # 确保写入的是字符串
             print(f"Generated RSS feed for {site['url']} -> {file_name}")
-            
+
             # 更新readme.md文件
             with open(readme_path, 'a', encoding='utf-8') as readme_file:
                 readme_file.write(f"""## {site['name']}
 - 原网址：{site['url']}
 - 订阅源：https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/{file_name}
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/{file_name}](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/{file_name})\n\n""")
-                
+
         except Exception as e:
             print(f"Error generating RSS feed for {site['url']}: {e}")
 

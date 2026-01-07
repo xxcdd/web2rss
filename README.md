@@ -15,8 +15,9 @@
 | title_css | 是 | string | 在父元素内部的标题选择器，用于提取文章标题 |
 | description_css | 否 | string | 在父元素内部的描述选择器，用于提取文章描述 |
 | link_css | 否 | string | 在父元素内部的链接选择器，用于提取文章链接。链接在父元素的情况下，该字段置空 |
+| date_css | 否 | string | 在父元素内部的日期选择器，用于提取文章发布时间。支持 `datetime` 或 `dateTime` 属性，也支持常见日期格式的文本解析 |
 | use_headless_browser | 是 | boolean | 是否使用无头浏览器进行页面加载，布尔值（`true` 或 `false`）。对于需要 JavaScript 渲染的页面，建议设置为 `true` |
-| extra_css | 否 | array[string] | 额外的 CSS 选择器列表，用于获取更多信息（如语言、星标数等） |
+| extra_css | 否 | array[string] | 额外的 CSS 选择器列表，用于获取更多信息（如语言、星标数等），这些信息会被添加到标题中 |
 | proxy | 否 | string | 代理服务器地址，用于访问需要代理的网站 |
 
 ### 注意事项
