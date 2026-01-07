@@ -166,10 +166,19 @@ sites:
     use_headless_browser: false
 
   - name: manus.blog
-    follow_desc: 
+    follow_desc:
     url: https://manus.im/zh-cn/blog
     block_css: a.group.block
     title_css: h2
     description_css: div.mt-1
     link_css:
     use_headless_browser: false
+
+  - name: cursor_blog
+    follow_desc:
+    url: https://cursor.com/cn/blog
+    block_css: article.flex.grow-1.flex-col.mb-g1
+    title_css: p:first-of-type
+    description_css: p.text-theme-text-sec
+    link_css: a.card.card--text
+    use_headless_browser: true
