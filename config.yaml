@@ -168,11 +168,12 @@ sites:
   - name: manus.blog
     follow_desc:
     url: https://manus.im/zh-cn/blog
-    block_css: a.group.block
+    block_css: article
     title_css: h2
-    description_css: div.mt-1
-    link_css:
-    use_headless_browser: false
+    description_css: p
+    link_css: a
+    date_css: span.leading-\[24px\]  # 发布时间
+    use_headless_browser: true
 
   - name: cursor_blog
     follow_desc:
