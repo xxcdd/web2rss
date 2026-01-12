@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time as time_module
 from soupsieve.util import SelectorSyntaxError
-from datetime import datetime
+from datetime import datetime, timezone
 from urllib.parse import urljoin
 import argparse
 import sys
@@ -144,13 +144,21 @@ def fetch_blog_posts(config):
                 if date_str:
                     try:
                         # 解析 ISO 8601 格式日期
-                        post_data['pub_date'] = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+                        parsed_date = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+                        # 如果解析出的日期没有时区信息，添加 UTC 时区
+                        if parsed_date.tzinfo is None:
+                            parsed_date = parsed_date.replace(tzinfo=timezone.utc)
+                        post_data['pub_date'] = parsed_date
                         print(f"Extracted date from dateTime attribute: {date_str}")
                     except Exception as e:
                         print(f"Failed to parse dateTime '{date_str}': {e}")
                         # 尝试解析文本内容
                         try:
-                            post_data['pub_date'] = datetime.fromisoformat(date_element.get_text(strip=True))
+                            parsed_date = datetime.fromisoformat(date_element.get_text(strip=True))
+                            # 如果解析出的日期没有时区信息，添加 UTC 时区
+                            if parsed_date.tzinfo is None:
+                                parsed_date = parsed_date.replace(tzinfo=timezone.utc)
+                            post_data['pub_date'] = parsed_date
                         except Exception as e2:
                             print(f"Failed to parse date text: {e2}")
                 else:
@@ -160,15 +168,17 @@ def fetch_blog_posts(config):
                         # 尝试常见日期格式
                         for fmt in ['%Y-%m-%d', '%b %d, %Y', '%Y年%m月%d日']:
                             try:
-                                post_data['pub_date'] = datetime.strptime(date_text, fmt)
-                                print(f"Parsed date with format '{fmt}': {date_text}")
+                                parsed_date = datetime.strptime(date_text, fmt)
+                                # 为没有时区信息的日期添加 UTC 时区
+                                post_data['pub_date'] = parsed_date.replace(tzinfo=timezone.utc)
+                                # print(f"Parsed date with format '{fmt}': {date_text}")
                                 break
                             except ValueError:
                                 continue
                     except Exception as e:
                         print(f"Failed to parse date text '{date_text}': {e}")
             posts.append(post_data)
-            print(f"Successfully parsed post: {post_data['title']}")
+            print(f"Successfully parsed post: {post_data['title']} {post_data['link']} {post_data['pub_date']}")
         else:
             print(f"Skipped block {i+1} due to missing data - Title: {bool(title)}, Description: {bool(description)}, Link: {bool(link)}")
 
@@ -253,7 +263,9 @@ def main():
 - Follow订阅跳转：[follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/{file_name}](follow://add?url=https://raw.githubusercontent.com/xxcdd/web2rss/refs/heads/master/{file_name})\n\n""")
 
         except Exception as e:
+            import traceback
             print(f"Error generating RSS feed for {site['url']}: {e}")
+            traceback.print_exc()
 
 if __name__ == '__main__':
     main()
