@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 12 Dec 2025 00:55:40 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 15 Jan 2026 14:00:04 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,172 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9</generator>
 	<item>
+		<title>OptiMind: A small language model with optimization expertise</title>
+		<link>https://www.microsoft.com/en-us/research/blog/optimind-a-small-language-model-with-optimization-expertise/</link>
+		
+		<dc:creator><![CDATA[Xinzhi Zhang, Zeyi Chen, Humishka Hope, Hugo Barbalho, Konstantina Mellou, Marco Molinaro, Janardhan (Jana) Kulkarni, Ishai Menache, Sirui Li]]></dc:creator>
+		<pubDate>Thu, 15 Jan 2026 14:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1159707</guid>
+
+					<description><![CDATA[<p>OptiMind is a small language model that converts business operation challenges, described naturally, into mathematical formulations that optimization software can solve. It reduces formulation time &#038; errors &#038; enables fast, privacy-preserving local use.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/optimind-a-small-language-model-with-optimization-expertise/">OptiMind: A small language model with optimization expertise</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2.jpg" alt="A flowchart with three horizontal sections on a blue-to-green gradient background. The first section, labeled “Classification,” shows icons of a computer, an arrow pointing to a robot face, and another arrow pointing to a box labeled “TSP.” The second section, labeled “Inference,” displays a robot icon connected by arrows to two document icons, one of which includes a magnifying glass. The third section, labeled “Test-time scaling,” shows a document with a checkmark connected by an arrow to a circular refresh icon. Arrows indicate the flow between sections, starting from Classification to Inference and then to Test-time scaling." class="wp-image-1159915" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-style-default mb-10 pb-1 pr-1 is-layout-flow wp-block-column-is-layout-flow" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Many real-world business problems can benefit from optimization, but translating decisions, constraints, and goals from natural language into optimization algorithms is slow.</li>
+
+
+
+<li>OptiMind is a small language model designed to convert business problems described in natural language into the mathematical formulations needed by optimization software.</li>
+
+
+
+<li>OptiMind&nbsp;is trained on&nbsp;a carefully curated, expert-aligned dataset&nbsp;and applies domain-specific hints and self-checks at inference time, improving&nbsp;its&nbsp;accuracy.</li>
+
+
+
+<li>OptiMind&nbsp;matches or exceeds the performance of much larger systems,&nbsp;can&nbsp;run&nbsp;locally to protect sensitive data,&nbsp;produces&nbsp;more reliable formulations, and&nbsp;reduces the time and&nbsp;expertise&nbsp;needed to prepare optimization models.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Enterprises across industries, from energy to finance, use optimization models to plan complex operations like supply chains and logistics. These models work by defining three elements: the choices that can be made (such as production quantities or delivery routes), the rules and limits those choices must follow, and the goal, whether that’s minimizing costs, meeting customer demand, or improving efficiency.</p>
+
+
+
+<p>Over the past few decades,&nbsp;many&nbsp;businesses have shifted&nbsp;from&nbsp;judgment-based decision-making to data-driven&nbsp;approaches,&nbsp;leading to&nbsp;major&nbsp;efficiency gains and cost&nbsp;savings. Advances in AI promise to accelerate this shift even further, potentially cutting decision times from days to minutes while delivering better results.</p>
+
+
+
+<p>In practice, however, turning real-world business problems into a form that optimization software can understand is challenging. This translation process requires expressing decisions, constraints, and objectives in mathematical terms. The work demands specialized&nbsp;expertise,&nbsp;and&nbsp;it&nbsp;can take anywhere from&nbsp;one&nbsp;day to several weeks&nbsp;to solve&nbsp;complex problems.&nbsp;</p>
+
+
+
+<p>To address this challenge, we’re introducing <a href="https://www.microsoft.com/en-us/research/publication/optimind-teaching-llms-to-think-like-optimization-experts/">OptiMind</a>, a small language model designed to convert problems described in plain language into the mathematical formulations that optimization software needs. Built on a 20-billion parameter model, OptiMind is compact by today’s standards yet matches the performance of larger, more complex systems. Its modest size means it can run locally on users’ devices, enabling fast iteration while keeping sensitive business data on users’ devices rather than transmitting it to external servers.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+		
+
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Azure AI Foundry Labs</h2>
+				
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="how-it-works">How it works<strong></strong></h2>
+
+
+
+<p>OptiMind incorporates knowledge from optimization experts both during training and when it’s being used to improve formulation accuracy at scale. Three stages enable this: domain-specific hints improve training data quality, the model undergoes fine-tuning, and expert reasoning guides the model as it works.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="750" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-scaled.jpg" alt="The image illustrates a linear programming model for a manufacturing facility, detailing the production quantities, setup indicators, and inventory levels for different products over a six-month period, aiming to optimize costs." class="wp-image-1160007" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-300x88.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-1024x300.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-768x225.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-1536x450.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-2048x600.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-240x70.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1.&nbsp;From problem description to solution&nbsp;</figcaption></figure>
+
+
+
+<p>One of the central challenges&nbsp;in&nbsp;developing&nbsp;OptiMind was the poor quality of existing public datasets for optimization problems. Many examples were incomplete or&nbsp;contained incorrect solutions. To address this, we developed a systematic approach that combines automation with expert review. It organizes problems into well-known categories, such as scheduling or routing, and identifies common error patterns within each. Using these insights, we generated expert-verified &#8220;hints&#8221; to guide the process, enabling the system to regenerate higher-quality solutions and filter out unsolvable examples (Figure 2). The result is a training dataset that more accurately reflects how optimization experts structure problems.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="1648" height="638" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning.png" alt="Process for correcting training data" class="wp-image-1159877" style="aspect-ratio:2.58319131760696;width:526px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning.png 1648w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-300x116.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-1024x396.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-768x297.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-1536x595.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-240x93.png 240w" sizes="(max-width: 1648px) 100vw, 1648px" /><figcaption class="wp-element-caption">Figure 2. Process for correcting training data</figcaption></figure>
+
+
+
+<p>Using this refined dataset, we applied supervised fine-tuning to the base model. Rather than simply generating code, we trained OptiMind to produce structured mathematical formulations alongside intermediate reasoning steps, helping it avoid the common mistakes found in earlier datasets.</p>
+
+
+
+<p>When in use, the model&#8217;s reliability further improves. When given a new problem, OptiMind first classifies it into a category, such as scheduling or network design. It then applies expert hints relevant to that type of problem, which act as reminders to check for errors before generating a solution. For particularly challenging problems, the system generates multiple solutions and either selects the most&nbsp;frequently&nbsp;occurring one or uses feedback to refine its response. This approach increases accuracy without requiring a larger model, as illustrated in Figure 3.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2057" height="817" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline.png" alt="OptiMind’s inference process" class="wp-image-1159878" style="aspect-ratio:2.5178126502600864;width:770px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline.png 2057w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline-300x119.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline-1024x407.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline-768x305.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline-1536x610.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline-2048x813.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/inference-pipeline-240x95.png 240w" sizes="auto, (max-width: 2057px) 100vw, 2057px" /><figcaption class="wp-element-caption">Figure 3. OptiMind’s inference process</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
+
+
+
+<p>To test the system, we turned to three widely used public benchmarks that&nbsp;represent&nbsp;some of the most complex formulation tasks in the field. On closer inspection, we discovered that&nbsp;30 to 50 percent&nbsp;of the original test data was flawed.&nbsp;After manually correcting the issues, OptiMind improved accuracy by approximately 10 percent over the base model. Figure 4 and Table 1 show detailed comparisons: OptiMind outperformed other open-source models under 32 billion parameters and, when combined with expert hints and correction strategies, matched or exceeded the performance of current leading models.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1231" height="457" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main_barplot_new-1.png" alt="Average accuracy percentages over all models." class="wp-image-1160042" style="aspect-ratio:2.461748867424566;width:850px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main_barplot_new-1.png 1231w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main_barplot_new-1-300x111.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main_barplot_new-1-1024x380.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main_barplot_new-1-768x285.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main_barplot_new-1-240x89.png 240w" sizes="auto, (max-width: 1231px) 100vw, 1231px" /><figcaption class="wp-element-caption">Figure 4. Average accuracy percentages over all models.</figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2122" height="922" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table.png" alt="Performance of all models on corrected benchmark datasets" class="wp-image-1159880" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table.png 2122w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table-300x130.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table-1024x445.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table-768x334.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table-1536x667.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table-2048x890.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/main-results-table-240x104.png 240w" sizes="auto, (max-width: 2122px) 100vw, 2122px" /><figcaption class="wp-element-caption">Table 1. Performance of all models on corrected benchmark datasets</figcaption></figure>
+
+
+
+<p>OptiMind is more reliable than other models because it learns from higher-quality, domain-aligned data. And by correcting errors and inconsistencies in standard datasets, we significantly reduced the model&#8217;s tendency to hallucinate relative&nbsp;to the base and comparison models.</p>
+
+
+
+<h2 class="wp-block-heading" id="looking-forward">Looking forward<strong></strong></h2>
+
+
+
+<p>While supervised fine-tuning has provided a strong foundation, we are exploring reinforcement learning to further refine OptiMind&#8217;s reasoning capabilities. We’re also investigating automated frameworks that would allow LLMs to generate their own expert hints, enabling continuous autonomous improvement. Additionally, we are working with Microsoft product teams and industry collaborators to expand OptiMind’s utility, adding support for more programming languages and a variety of input formats, including Excel and other widely used tools.</p>
+
+
+
+<p>We&#8217;re releasing OptiMind as an experimental model to gather community feedback and inform future development. The model is available through <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/OptiMindCatalog" target="_blank" rel="noopener noreferrer">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/OptiMindHF" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a>, and we’ve open-sourced the benchmarks and data-processing procedures on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/OptiGuideGithub" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> to support more reliable evaluation across the field. We welcome feedback through <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/OptiGuideGithub" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>, and invite those interested in shaping the future of optimization to apply for one of our <a href="https://www.microsoft.com/en-us/research/careers/">open roles</a>.</p>
+
+
+
+<p></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/optimind-a-small-language-model-with-optimization-expertise/">OptiMind: A small language model with optimization expertise</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Agent Lightning: Adding reinforcement learning to AI agents without code rewrites</title>
 		<link>https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/</link>
 		
@@ -32,7 +198,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-adding-reinforcement-learning-to-ai-agents-without-code-rewrites/">Agent Lightning: Adding reinforcement learning to AI agents without code rewrites</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW.jpg" alt="Three white line icons on a blue-to-purple gradient background: the first icon shows a simple flowchart with connected squares and a diamond, the second icon shows a network of interconnected circles, and the third icon shows three user profile symbols linked together." class="wp-image-1158206" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW.jpg" alt="Three white line icons on a blue-to-purple gradient background: the first icon shows a simple flowchart with connected squares and a diamond, the second icon shows a network of interconnected circles, and the third icon shows three user profile symbols linked together." class="wp-image-1158206" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/AgentLightning-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -56,7 +222,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="891" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-scaled.jpg" alt="Figure 1: Diagram illustrating Agent Lightning’s unified data interface for a retrieval-augmented generation (RAG) agent. On the left, four states (state₀ to state₃) show the agent’s execution flow, where semantic variables—UserInput, Query, Passages, and Answer—are updated after each component call (LLM or Search). Green blocks represent populated variables; gray blocks indicate empty ones. On the right, the unified data interface converts these transitions into a trajectory format containing prompt, generation, and immediate reward for RL training. " class="wp-image-1158102" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-300x104.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-1024x356.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-768x267.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-1536x534.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-2048x713.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-240x84.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. An illustration of Agent Lightning’s standardized format using a retrieval-augmented generation (RAG) agent. Left: The full agent workflow, where the agent&#8217;s state updates after each component step. The green blocks show assigned variables, and the gray blocks indicate variables without content. Right: The collected transitions are based on the standardized format for the RL training process, with each transition corresponding to one LLM step that contains its prompt, result, and immediate reward.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="891" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-scaled.jpg" alt="Figure 1: Diagram illustrating Agent Lightning’s unified data interface for a retrieval-augmented generation (RAG) agent. On the left, four states (state₀ to state₃) show the agent’s execution flow, where semantic variables—UserInput, Query, Passages, and Answer—are updated after each component call (LLM or Search). Green blocks represent populated variables; gray blocks indicate empty ones. On the right, the unified data interface converts these transitions into a trajectory format containing prompt, generation, and immediate reward for RL training. " class="wp-image-1158102" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-300x104.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-1024x356.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-768x267.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-1536x534.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-2048x713.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-1-240x84.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. An illustration of Agent Lightning’s standardized format using a retrieval-augmented generation (RAG) agent. Left: The full agent workflow, where the agent&#8217;s state updates after each component step. The green blocks show assigned variables, and the gray blocks indicate variables without content. Right: The collected transitions are based on the standardized format for the RL training process, with each transition corresponding to one LLM step that contains its prompt, result, and immediate reward.</figcaption></figure>
 
 
 
@@ -72,7 +238,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="835" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-scaled.jpg" alt="Figure 2: Comparison of three reinforcement learning approaches for LLM tasks. (a) Single-step GRPO: The model completes the task in one call, and multiple outputs for the same task are compared with associated rewards. (b) Previous multi-step GRPO: The task spans multiple LLM calls, forming trajectories; non-LLM tokens (gray boxes) are ignored during training, and entire multi-step runs are compared. (c) LightningRL: Breaks multi-step runs into individual LLM calls, each including input, context, output, and reward assigned by a credit assignment module. Calls from the same task are grouped for reinforcement. " class="wp-image-1158259" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-300x98.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-1024x334.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-768x250.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-1536x501.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-2048x668.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-240x78.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (a) Single-step GRPO: The LLM completes the task in one call. Multiple responses for the same task are compared to determine how strongly each should be reinforced. (b) Previous multi-step GRPO: The task involves multiple LLM calls. Multiple multi-step runs of the same task are compared, with non-LLM generated tokens (grey boxes) ignored during training. (c) LightningRL: The multi-step run is divided into individual LLM calls. Calls from the same task are compared to determine how strongly each should be reinforced. Each call includes its input, context, output, and reward, assigned by the credit assignment module.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="835" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-scaled.jpg" alt="Figure 2: Comparison of three reinforcement learning approaches for LLM tasks. (a) Single-step GRPO: The model completes the task in one call, and multiple outputs for the same task are compared with associated rewards. (b) Previous multi-step GRPO: The task spans multiple LLM calls, forming trajectories; non-LLM tokens (gray boxes) are ignored during training, and entire multi-step runs are compared. (c) LightningRL: Breaks multi-step runs into individual LLM calls, each including input, context, output, and reward assigned by a credit assignment module. Calls from the same task are grouped for reinforcement. " class="wp-image-1158259" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-300x98.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-1024x334.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-768x250.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-1536x501.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-2048x668.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/12/figure-2-new-240x78.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (a) Single-step GRPO: The LLM completes the task in one call. Multiple responses for the same task are compared to determine how strongly each should be reinforced. (b) Previous multi-step GRPO: The task involves multiple LLM calls. Multiple multi-step runs of the same task are compared, with non-LLM generated tokens (grey boxes) ignored during training. (c) LightningRL: The multi-step run is divided into individual LLM calls. Calls from the same task are compared to determine how strongly each should be reinforced. Each call includes its input, context, output, and reward, assigned by the credit assignment module.</figcaption></figure>
 
 
 
@@ -262,30 +428,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -428,30 +594,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -683,7 +846,7 @@
 
 <div class="wp-block-msr-show-more">
 	<div class="bg-neutral-100 p-5">
-		<div class="show-more-show-less" data-mount="show-more-show-less">
+		<div class="show-more-show-less">
 			<div>
 				<span>
 					
@@ -1489,30 +1652,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1890,30 +2053,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2246,30 +2406,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2506,295 +2666,6 @@
 
 <p>“Our goal isn’t to build a universal chatbot but to create a professional assistant that aligns with domain-specific logic and performs rigorous knowledge reasoning. That’s the true driving force behind intelligent transformation in industrial knowledge management.”</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/">When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Magentic Marketplace: an open-source simulation environment for studying agentic markets</title>
-		<link>https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/</link>
-		
-		<dc:creator><![CDATA[Gagan Bansal, Wenyue Hua, Zachary Huang, Adam Fourney, Amanda Swearngin, Chinmay Singh, Brendan Lucier, Jake Hofman, Markus Mobius, Will Epperson, Tyler Payne, Akshay Nambi, Archana Yadav, Maya Murad, Matthew Vogel, Alex Slivkins, Dan Goldstein, David Rothschild, Hussein Mozannar, Nicole Immorlica, Eric Horvitz, Saleema Amershi]]></dc:creator>
-		<pubDate>Wed, 05 Nov 2025 17:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/</guid>
-
-					<description><![CDATA[<p>AI agents are poised to transform digital marketplaces. To explore what can happen when AI agents interact and transact at scale, we built Magentic Marketplace, an open-source simulation environment for studying agentic market designs.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/">Magentic Marketplace: an open-source simulation environment for studying agentic markets</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows two persons, the third is a building, and the fourth is a location pin" class="wp-image-1154335" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MagenticMarketplace-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Autonomous AI agents are here, and they&#8217;re poised to reshape the economy. By automating discovery, negotiation, and transactions, agents can overcome inefficiencies like information asymmetries and platform lock-in, enabling faster, more transparent, and more competitive markets.</p>
-
-
-
-<p>We are already seeing early signs of this transformation in digital marketplaces. Customer-facing assistants like OpenAI’s Operator and Anthropic’s Computer Use can navigate websites and complete purchases. On the business side, Shopify Sidekick, Salesforce Einstein, and Meta’s Business AI help merchants with operations and customer engagement. These examples hint at a future where agents become active market participants, but the structure of these markets remains uncertain.</p>
-
-
-
-<p>Several scenarios are possible. We might see one-sided markets where only customers or businesses deploy agents; closed platforms (known as <em>walled gardens</em>) where companies tightly control agent interactions; or even open two-sided marketplaces where customer and business agents transact freely across ecosystems. Each path carries different trade-offs for security, openness, convenience, and competition, which will shape how value flows in the digital economy. For a deeper exploration of these dynamics, see our paper, <a href="https://www.microsoft.com/en-us/research/publication/the-agentic-economy/">The Agentic Economy</a>.</p>
-
-
-
-<p>To help navigate this uncertainty, we built <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/multi-agent-marketplace" target="_blank" rel="noopener noreferrer">Magentic Marketplace<span class="sr-only"> (opens in new tab)</span></a>— an open-source simulation environment for exploring the numerous possibilities of agentic markets and their societal implications at scale. It provides a foundation for studying these markets and guiding them toward outcomes that benefit everyone.</p>
-
-
-
-<p>This matters because most AI agent research focuses on isolated scenarios—a single agent completing a task or two agents negotiating a simple transaction. But real markets involve a large number of agents simultaneously searching, communicating, and transacting, creating complex dynamics that can’t be understood by studying agents in isolation. Capturing this complexity is essential because real-world deployments raise critical questions about consumer welfare, market efficiency, fairness, manipulation resistance, and bias—questions that can’t be safely answered in production environments.</p>
-
-
-
-<p>To explore these dynamics in depth, the Magentic Marketplace platform enables controlled experimentation across diverse agentic marketplace scenarios. Its current focus is on two-sided markets, but the environment is modular and extensible, supporting future exploration of mixed human–agent systems, one-sided markets, and complex communication protocols.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="393" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png" alt="Figure 1. Diagram illustrating the Magentic Marketplace Environment. On the left, two sections represent Customers and Businesses. Customers ask, “Could you find me a restaurant serving agua fresca and empanadas with free parking?” and are linked to Customer Agents (blue and purple icons). Businesses display a menu with items like steak tacos and empanadas, connected to Business Agents (purple icons). On the right, a three-step process is shown inside a pink box: Search – Customer agent searches for a restaurant among multiple business agents. Multi-Agent Communication – Customer agent asks about free parking and menu options, interacting with several business agents. Final Transaction – Customer agent places the order with a selected business agent." class="wp-image-1154337" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-300x126.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-768x322.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1-240x101.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption">Figure 1. With Magentic Marketplace, researchers can model how agents representing customers and businesses interact—shedding light on the dynamics that could shape future digital markets.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="what-is-magentic-marketplace">What is Magentic Marketplace?</h2>
-
-
-
-<p>Magentic Marketplace’s environment manages market-wide capabilities like maintaining catalogs of available goods and services, implementing discovery algorithms, facilitating agent-to-agent communication, and handling simulated payments through a centralized transaction layer at its core, which ensures transaction integrity across all marketplace interactions. Additionally, the platform enables systematic, reproducible research. As demonstrated in the following video, it supports a wide range of agent implementations and evolving marketplace features, allowing researchers to integrate diverse agent architectures and adapt the environment as new capabilities emerge.</p>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Introducing Magentic Marketplace, an open-source simulation environment for studying agentic markets" width="500" height="375" src="https://www.youtube-nocookie.com/embed/1SHpWinp7V8?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div></figure>
-
-
-
-<p>We built Magentic Marketplace around three core architectural choices:</p>
-
-
-
-<p><strong>HTTP/REST client-server architecture</strong>: Agents operate as independent clients while the Marketplace Environment serves as a central server. This mirrors real-world platforms and supports clear separation of customer and business agent roles.</p>
-
-
-
-<p><strong>Minimal&nbsp;three-endpoint&nbsp;market&nbsp;protocol</strong>:<strong>&nbsp;</strong>Just&nbsp;three endpoints—register, protocol discovery, and action execution—lets&nbsp;agents dynamically discover available actions.&nbsp;New capabilities&nbsp;can&nbsp;be added without disrupting existing experiments.</p>
-
-
-
-<p><strong>Rich action protocol</strong>: Specific message types support the complete transaction lifecycle: search, negotiation, proposals, and payments. The protocol is designed for extensibility. New actions like refunds, reviews, or ratings can be added seamlessly, allowing researchers to evolve marketplace capabilities and study emerging agent behaviors while remaining compatible.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="624" height="178" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure2.png" alt="Figure 2. Diagram of a Market Environment showing interactions between an Assistant Agent (representing user intention) and a Service Agent (representing point of sale). Both agents connect to the Market Environment via POST /register, POST /action, and GET /protocol. Inside the Market Environment, components include Catalog, Search, Communication, and Transaction, with two Action Routers facilitating sending and receiving actions between the agents and the environment." class="wp-image-1154338" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure2.png 624w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure2-300x86.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure2-240x68.png 240w" sizes="auto, (max-width: 624px) 100vw, 624px" /><figcaption class="wp-element-caption">Figure 2. Magentic Marketplace includes two agent types: Assistant Agents (customers) and Service Agents (businesses). Both interact with a central Market Environment via REST APIs for registration, service discovery, communication, and transaction execution. Action Routers manage message flow and protocol requests, enabling autonomous negotiation and commerce in a two-sided marketplace.</figcaption></figure>
-
-
-
-<p>Additionally, a visualization module lets users observe marketplace dynamics and review individual conversation threads between customer and business agents.</p>
-
-
-
-<h2 class="wp-block-heading" id="setting-up-the-experiments">Setting up the experiments</h2>
-
-
-
-<p>To ensure reproducibility, we instantiated the marketplace with fully synthetic data, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/multi-agent-marketplace/tree/main/data" target="_blank" rel="noopener noreferrer">available in our open-source repository<span class="sr-only"> (opens in new tab)</span></a>. The experiments modeled transactions such as ordering food and engaging with home improvement services, where agents represented customers and businesses engaging in marketplace transactions. This setup enabled precise measurement of behavior and systematic comparison against theoretical upper bounds.</p>
-
-
-
-<p>Each experiment was run using 100 customers and 300 businesses and included both proprietary models (GPT-4o, GPT-4.1, GPT-5, and Gemini-2.5-Flash) and open-source models (OSS-20b, Qwen3-14b, and Qwen3-4b-Instruct-2507).</p>
-
-
-
-<p>Our scenarios focused on simple all-or-nothing requests: Each customer had a list of desired items and amenities that needed to be present for a transaction to be satisfying. For those transactions, utility was computed as the sum of the customer’s internal item valuations minus actual prices paid. Consumer welfare, defined as the sum of utilities across all completed transactions, served as our key metric for comparing agent performance.</p>
-
-
-
-<p>While this experimental setup provides a useful starting point, it is not intended to be definitive. We encourage researchers to extend the framework with richer, more nuanced measures and request types that better capture real consumer welfare, fairness, and other societal considerations.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
-		
-
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Azure AI Foundry Labs</h2>
-				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="what-did-we-find">What did we find?</h2>
-
-
-
-<h3 class="wp-block-heading" id="agents-can-improve-consumer-welfare-but-only-with-good-discovery">Agents can improve consumer welfare—but only with good discovery</h3>
-
-
-
-<p>We explored whether two-sided agentic markets—where AI agents interact with each other and with service providers—can improve consumer welfare by reducing information gaps. Unlike traditional markets, which do not provide agentic support and place the full burden of overcoming information asymmetries on customers, agentic markets shift much of that effort to agents. This change matters because as agents gain better tools for discovery and communication, they relieve customers of the heavy cognitive load of filling any information gaps. This lowers the cost of making informed decisions and improves customer outcomes.</p>
-
-
-
-<p>We compared several marketplace setups. Under realistic conditions (Agentic: Lexical search), agents faced real-world challenges like building queries, navigating paginated lists, identifying the right businesses to send inquiries to, and negotiating transactions.</p>
-
-
-
-<p>Despite these complexities, advanced proprietary models and some medium-sized open-source models like GPTOSS-20b outperformed simple baselines like <em>randomly choosing or simply choosing the cheapest option</em>. Notably, GPT-5 achieved near-optimal performance, demonstrating its ability to effectively gather and utilize decision-relevant information in realistic marketplace conditions.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="447" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure3.png" alt="Figure 3. Table comparing Baseline and Agentic conditions for marketplace decision-making. Columns include: Condition (e.g., Random w/ items only, Cheapest w/ items & prices, Random w/ items & amenities, Optimal, Perfect search, Lexical search) Query (N/A for most; “Agent decides” for Lexical search) Consideration Set (Businesses) (e.g., All w/ matching menus; Paginated lists of 10 based on menu items) Businesses Contacted (All in consideration set or Agent decides) Information Used (Menu items, prices, amenities, or depends on agent-to-agent conversation) Decision Criteria (Random choice, Lowest price, or Agent decides)." class="wp-image-1154339" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure3.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure3-300x143.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure3-768x367.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure3-240x115.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption">Figure 3. Table comparing experimental setups for welfare outcomes in the restaurant industry. Each row shows a different way agents or baselines make decisions, from random picks to fully coordinated agentic strategies. Cell colors indicate how much information is available: green, at the top left, represents complete information, red, at the top right, represents limited information, and yellow at the bottom represents decisions that depend on agent communication.</figcaption></figure>
-
-
-
-<p>Performance increased considerably under the <em>Agentic: Perfect search</em> condition, where agents started with the top three matches without needing to search and navigate among the choices. In this setting, Sonnet-4.0, Sonnet-4.5, GPT-5, and GPT-4.1 nearly reached the theoretical optimum and beat baselines with full amenity details but without agent-to-agent coordination.</p>
-
-
-
-<p>Open-source models were mixed: GPTOSS-20b performed strongly under both <em>Perfect search</em> and <em>Lexical search</em> conditions, even exceeding GPT-4o&#8217;s performance with Perfect search. This suggests that relatively compact models can exhibit robust information-gathering and decision-making capabilities in complex multi-agent environments. Qwen3-4b-2507 faltered when discovery involved irrelevant options (Lexical search), while Qwen3-14b lagged in both cases due to fundamental limitations in reasoning.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1430" height="470" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-4.png" alt="Figure 4. Boxplot comparing Agentic and Baseline strategies on welfare scores. The y-axis shows welfare (0–2000+), and the x-axis lists models and conditions. Under Agentic, models include Sonnet-4.0, Sonnet-4.5, GPT-5, GPT-4.1, Gemini-2.5-flash, GPT-4.0, GPT-oss-20b, Qwen3-4b-2507, and Qwen31-14b. Under Baselines, conditions include Random, Cheapest, and Random-items+amenities. Colors represent search types: blue = Lexical Search, yellow = Perfect Search, gray = Baseline, with a dashed line indicating Optimal welfare. Agentic models generally achieve higher welfare than baselines, with variability across models." class="wp-image-1154341" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-4.png 1430w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-4-300x99.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-4-1024x337.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-4-768x252.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-4-240x79.png 240w" sizes="auto, (max-width: 1430px) 100vw, 1430px" /><figcaption class="wp-element-caption">Figure 4. Chart showing consumer welfare outcomes in the restaurant industry under different marketplace setups. Blue bars show Agentic: Lexical search, where agents navigate realistic discovery challenges; yellow bars show Agentic: Perfect search, where agents started with ideal matches. Proprietary models approached optimum consumer welfare under perfect search, while open-source models and baselines lagged behind.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="paradox-of-choice">Paradox of Choice</h2>
-
-
-
-<p>One promise of agents is their ability to consider far more options than people can. However, our experiments revealed a surprising limitation: providing agents with more options does not necessarily lead to more thorough exploration. We designed experiments that varied the search results limit from 3 to 100. Except for Gemini-2.5-Flash and GPT-5, the models contacted only a small fraction of available businesses regardless of the search limit. This suggests that most models do not conduct exhaustive comparisons and instead easily accept the initial &#8220;good enough&#8221; options.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1430" height="660" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-5.png" alt="Figure 5. Line chart showing the relationship between Search Limit (x-axis: 3 to 100) and Mean Messages per Customer (y-axis: 0 to 120) for five models: Claude Sonnet 4 (red triangles) – stays nearly flat around 10–15 messages. Gemini 2.5 Flash (purple diamonds) – rises sharply from ~5 to over 110 messages as search limit increases. GPT-4.1 (orange circles) and GPT-4o (green squares) – remain low and stable around 5–10 messages. GPT-5 (blue line) – increases moderately to ~40 messages, then plateaus." class="wp-image-1154342" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-5.png 1430w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-5-300x138.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-5-1024x473.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-5-768x354.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-5-240x111.png 240w" sizes="auto, (max-width: 1430px) 100vw, 1430px" /><figcaption class="wp-element-caption">Figure 5. More options didn’t lead to broader exploration. Most models still contacted only a few businesses, except Gemini-2.5-Flash and GPT-5.</figcaption></figure>
-
-
-
-<p>Additionally, across all models, consumer welfare declined as the number of search results increased. Despite contacting over a hundred businesses, Gemini-2.5-Flash&#8217;s performance declined from 1,700 to 1,350, and GPT-5 declined even more, from a near-optimal 2,000 to 1,400.</p>
-
-
-
-<p>This demonstrates a Paradox of Choice effect, where more exploration does not guarantee better outcomes, potentially due to limited long context understanding. Claude Sonnet 4 showed the steepest performance decline, from 1,800 to 600 in consumer welfare. With all the options presented, it struggled to navigate larger sets of options and frequently contacted businesses that did not provide the goods or services that the customer was looking for.</p>
-
-
-
-<p>This combination of poor initial selection and premature search termination demonstrates both inadequate decision-making criteria and insufficient exploration strategies. Some models showed modest performance decline (i.e., GPT-4.1: from 1,850 to 1,700; GPT-4o: from 1,550 to 1,450), finding good options within their limited exploration.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1430" height="653" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-6.png" alt="Figure 6. Line chart showing Mean Customer Welfare (y-axis: 0–2200) versus Search Limit (x-axis: 3 to 100) for five models: Claude Sonnet 4 (red triangles) – starts near 1800 and declines sharply to ~600 as search limit increases. Gemini 2.5 Flash (purple diamonds) – decreases gradually from ~1700 to ~1300. GPT-4.1 (orange circles) – remains highest and most stable, around 1900–1700. GPT-4o (green squares) – stays near 1500 with slight decline. GPT-5 (blue line) – starts near 2000 and drops to ~1100. Dashed line at the top represents Optimal welfare (~2200)." class="wp-image-1154340" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-6.png 1430w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-6-300x137.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-6-1024x468.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-6-768x351.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-6-240x110.png 240w" sizes="auto, (max-width: 1430px) 100vw, 1430px" /><figcaption class="wp-element-caption">Figure 6. Mean consumer welfare decreased as consideration set size grew, revealing a Paradox of Choice effect, where expanding options reduced overall welfare.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="agents-are-vulnerable-to-manipulation">Agents are vulnerable to manipulation</h2>
-
-
-
-<p>We tested six manipulation strategies, ranging from subtle psychological tactics to aggressive prompt injection attacks:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Authority</strong>: Fake credentials like “Michelin Guide featured” and “James Beard Award nominated” paired with fabricated certifications.</li>
-
-
-
-<li><strong>Social proof</strong>: Claims like “Join 50,000+ satisfied customers” or “#1-rated Mexican restaurant” combined with fake reviews.</li>
-
-
-
-<li><strong>Loss aversion</strong>: Fear-based warnings about “food poisoning” risks and “contamination issues” at competing restaurants.</li>
-
-
-
-<li><strong>Prompt injection (basic)</strong>: Attempts to override agent instructions.</li>
-
-
-
-<li><strong>Prompt injection (strong)</strong>: Aggressive attacks using emergency language and fabricating competitor scandals.</li>
-</ul>
-
-
-
-<p>Results revealed significant variation in manipulation resistance across models. Sonnet-4 was resistant to all attacks, and none of the manipulative strategies affected any of the customers’ choices. Gemini-2.5-Flash was generally resistant, except for strong prompt injections, where mean payments to unmanipulated agents were affected as a result. GPT-4o, GPTOSS-20b and Qwen3-4b were very vulnerable to prompt injection: all payments were redirected to the manipulative agent under these conditions. Specifically for GPTOSS-20 and Qwen3-4b-2507, even traditional psychological manipulation tactics (authority appeals and social proof) increased payments to malicious agents, demonstrating their vulnerability to basic persuasion techniques. These findings highlight a critical security concern for agentic marketplaces.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1430" height="270" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-7.png" alt="Figure 7. Horizontal bar chart comparing mean payments received under different manipulation strategies for six models: Claude Sonnet 4.5, Gemini 2.5 Flash, GPT-4o, GPT OSS 20B, Qwen3 14B, and Qwen3 4B. Each model has bars for six conditions: Control, Authority, Social Proof, Loss Aversion, Prompt Injection (Basic), and Prompt Injection (Strong). Bars are split into red for manipulated and gray for rest, with values ranging from near 0 to 3. Claude Sonnet 4.5 shows consistently high payments (~3) across all conditions, while Gemini and GPT models vary, and Qwen models show very low manipulated values (~0.2) compared to rest." class="wp-image-1154344" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-7.png 1430w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-7-300x57.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-7-1024x193.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-7-768x145.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-7-240x45.png 240w" sizes="auto, (max-width: 1430px) 100vw, 1430px" /><figcaption class="wp-element-caption">Figure 7. Charts showing the variation in mean payments received by service agents with and without manipulation tactics. The results reveal substantial differences in manipulation resistance across models, with GPT-4.1 showing significantly higher vulnerability compared to Gemini-2.5-Flash.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="systemic-biases-create-unfair-advantages">Systemic biases create unfair advantages</h2>
-
-
-
-<p>Our analysis revealed two distinct types of systematic biases showed by agents when selecting businesses from search results. Models showed systematic preferences based on where businesses appeared in search results. While proprietary models showed no strong positional preferences, open-source models exhibited clear patterns. Specifically, Qwen2.5-14b-2507 showed a pronounced bias toward selecting the last business presented, regardless of its actual merits.</p>
-
-
-
-<p>Proposal&nbsp;bias&nbsp;is&nbsp;more pervasive across all models tested. This &#8220;first-offer acceptance&#8221; pattern suggests that models prioritized&nbsp;immediate selection over comprehensive exploration, potentially missing better alternatives that&nbsp;could have&nbsp;emerged&nbsp;by waiting for better options. This behavior&nbsp;continued&nbsp;across both proprietary and open-source models,&nbsp;indicating&nbsp;a fundamental challenge in agent decision-making architectures.</p>
-
-
-
-<p>These biases can create unfair market dynamics, drive unintended behaviors, and push businesses to complete on response speed rather than product or service quality.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1430" height="289" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-8.png" alt="Figure 8. Bar chart showing average selection rate for first, second, and third choices across six models: Claude Sonnet 4.5, Gemini 2.5 Flash, GPT-4o, GPT OSS 20B, Qwen3 14B, and Qwen3 4B. Each model has three bars labeled 1st, 2nd, and 3rd. Most models strongly favor the first choice: Claude Sonnet 4.5: 93.3% for 1st, 0% for 2nd, 6.7% for 3rd. Gemini 2.5 Flash: 86.7% for 1st, 6.7% for 2nd and 3rd. GPT-4o: 100% for 1st, 0% for others. GPT OSS 20B: 80% for 1st, 13.3% for 2nd, 6.7% for 3rd. Qwen3 14B: 0% for all. Qwen3 4B: 100% for 1st, 0% for others. Dashed line indicates random selection baseline." class="wp-image-1154343" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-8.png 1430w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-8-300x61.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-8-1024x207.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-8-768x155.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure-8-240x49.png 240w" sizes="auto, (max-width: 1430px) 100vw, 1430px" /><figcaption class="wp-element-caption">Figure 8. All models showed strong preference for the first proposal received, accepting it without waiting for additional proposals or conducting systematic comparisons.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="what-this-means">What this means</h2>
-
-
-
-<p>Even state-of-the-art models can show notable vulnerabilities and biases in marketplace environments. In our implementation, agents struggled with too many options, were susceptible to manipulation tactics, and showed systemic biases that created unfair advantages.</p>
-
-
-
-<p>These outcomes are shaped not only by agent capabilities but also by marketplace design and implementation. Our current study focused on static markets, but real-world environments are dynamic, with agents and users learning over time. Oversight is critical for high-stakes transactions. Agents should assist, not replace, human decision-making.</p>
-
-
-
-<p>We plan to explore dynamic markets and human-in-the-loop designs to improve efficiency and trust. A simulation environment like Magentic Marketplace is crucial for understanding the interplay between market components and agents before deploying them at scale.</p>
-
-
-
-<p>Full details of our experimental setup and results are available in our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2510.25779" target="_blank" rel="noopener noreferrer">paper<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="getting-started">Getting started</h2>
-
-
-
-<p>Magentic Marketplace is available as an open-source environment for exploring agentic market dynamics. Code, datasets, and experiment templates are available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/multi-agent-marketplace/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://labs.ai.azure.com/projects/magentic-marketplace">Azure AI Foundry Labs<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/multi-agent-marketplace/" target="_blank" rel="noopener noreferrer">documentation<span class="sr-only"> (opens in new tab)</span></a> provides instructions for reproducing the experiments described above and guidance for extending the environment to new marketplace configurations.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/">Magentic Marketplace: an open-source simulation environment for studying agentic markets</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
