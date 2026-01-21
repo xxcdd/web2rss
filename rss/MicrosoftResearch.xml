@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 15 Jan 2026 14:00:04 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 20 Jan 2026 14:12:28 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,176 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9</generator>
 	<item>
+		<title>Multimodal reinforcement learning with agentic verifier for AI agents</title>
+		<link>https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/</link>
+		
+		<dc:creator><![CDATA[Reuben Tan, Baolin Peng, Zhengyuan Yang, Oier Mees, Jianfeng Gao]]></dc:creator>
+		<pubDate>Tue, 20 Jan 2026 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160129</guid>
+
+					<description><![CDATA[<p>Argos improves multimodal RL by evaluating whether an agent’s reasoning aligns with what it observes over time. The approach reduces visual hallucinations and produces more reliable, data-efficient agents for real-world applications.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Multimodal reinforcement learning with agentic verifier for AI agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing visual, audio, and document icons feeding into a central network icon of connected people, which then leads to a checkmark symbol, all on a blue‑to‑purple gradient background." class="wp-image-1160195" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Today&#8217;s multimodal AI systems&nbsp;can&nbsp;give&nbsp;answers that sound right but&nbsp;may not be&nbsp;grounded in what they&nbsp;actually&nbsp;observe&nbsp;over time, leading to unpredictable errors and safety risks in real-world settings.</li>
+
+
+
+<li>Argos is a verification framework for multimodal reinforcement learning that trains models by rewarding not just correct answers, but correct answers grounded in visual and temporal evidence, using automated verification rather than human labeling.&nbsp;It selects the appropriate specialized tools for each answer&nbsp;based on what needs to be verified.&nbsp;</li>
+
+
+
+<li>Models trained with Argos show stronger spatial reasoning, far fewer visual hallucinations, more stable learning dynamics, and better performance on robotics and real-world tasks while requiring fewer training samples.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Over the past few years, AI systems have become much better at discerning images, generating language, and performing tasks within physical and virtual environments. Yet they still fail in ways that are hard to predict and even harder to fix. A robot might try to grasp a tool when the object is visibly blocked, or a visual assistant integrated into smart glasses might describe objects that aren’t actually present.</p>
+
+
+
+<p>These errors often arise because today’s multimodal agents are trained to generate outputs that are plausible rather than grounded in the actual information they receive from their environment. As a result, a model’s output can seem correct while relying on incorrect information. As AI systems are increasingly used to navigate 3D spaces and make decisions in real-world settings, this gap can be a safety and reliability concern.</p>
+
+
+
+<p>To tackle this challenge, we posed the question: How can we train AI agents to generate correct answers and take appropriate actions for the right reasons so that their behavior is reliable even as the environment or tasks change?</p>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/publication/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Argos</a> represents a novel answer to this challenge. It’s an agentic verification framework designed to improve the reliability of reinforcement learning in multimodal models.&nbsp;Reinforcement learning is a training method where AI models learn by receiving rewards for desired behaviors and penalties for undesired ones, gradually improving their performance through trial and error.</p>
+
+
+
+<p>Rather than rewarding only correct behaviors, Argos evaluates <em>how</em> those behaviors were produced. It draws on a pool of larger, more capable teacher models and rule-based checks to verify two things: first, that the objects and events a model references actually exist in its input, and second, that the model’s reasoning aligns with what it observes. Argos rewards the model when both conditions are met. In practice, these rewards help curate high-quality training data and guide the model’s further training.</p>
+
+
+
+<h2 class="wp-block-heading" id="how-argos-works">How Argos works<strong></strong></h2>
+
+
+
+<p>Argos functions as a verification layer on top of an existing multimodal model. Given an image or video, a task or query, and information about the model’s reasoning and output, Argos identifies where the model indicates objects are located in the image, when it indicates events occur in a video, and what action or answer it produces.</p>
+
+
+
+<p>Argos then applies specialized tools tailored to the specific content to evaluate and score three aspects of the model’s output. It checks whether the answer is correct, whether referenced objects and events appear at the indicated locations and times, and whether the reasoning is consistent with the visual evidence and the answer (Figure 1).</p>
+
+
+
+<p>These scores are combined using a gated aggregation function, a method that dynamically adjusts the importance of different scores. It emphasizes reasoning checks only when the final output is correct. This design prevents unreliable feedback from dominating training and produces a stable reward signal for&nbsp;reinforcement learning.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1255" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg" alt="Figure 1 shows an overview of Argos, an agentic verifier for multimodal reinforcement learning and its downstream applications. The left half of the figure illustrates Argos verifying model responses to visual questions. The left example counts dogs in an image, with red dots marking the referenced dogs and a visual grounding score; another example shows a bathroom scene where the agent reasons whether it can open the door, with an accuracy score. Below these, a blue bar titled “Argos verifier” feeds into icons representing multiple tools, including Grounding DINO, SAM-2, a pointing-hand evaluator, string matching, and a language model score, where their outputs combine into grounding and accuracy scores. The right half of the figure depicts three categories of downstream tasks powered by this supervision: robotic manipulation (a robot arm interacting with objects on a table), high-level task planning and completion (placing toilet paper on the back of a toilet and putting a bowl on a coffee table), and spatial reasoning (answering a viewpoint-based navigation question using room images). The overall message is that dense, grounded verification enables stronger agent performance on complex, real-world tasks." class="wp-image-1160145" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-300x147.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1024x502.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-768x376.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1536x753.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-2048x1004.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-240x118.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Argos selects different specialized tools to verify and score the accuracy of referenced points and events in the agent’s reasoning.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="using-argos-to-curate-data-for-supervised-fine-tuning">Using Argos to curate data for supervised fine-tuning</h2>
+
+
+
+<p>Argos also helps curate high-quality training data to provide the model with a strong foundation in grounded reasoning. Before the reinforcement learning stage begins, Argos uses a multi-stage process to generate data that is explicitly tied to visual locations and time intervals.</p>
+
+
+
+<p>In the first stage, Argos identifies the objects, actions, and events that are relevant to a task and links them to specific locations in images or specific moments in videos. These references are overlaid on images and selected video frames. Next, a reasoning model generates step-by-step explanations that refer to these visual locations and time spans.</p>
+
+
+
+<p>Finally, Argos evaluates each generated example for accuracy and visual grounding, filtering out low-quality training data and retaining only data that is both correct and well-grounded in visual input. The resulting dataset is then used in an initial training phase, where the model learns to generate reasoning steps before producing its final output. This process is illustrated in Figure 2.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="800" height="450" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/data-curation-animation-gif.gif" alt="Figure 2 illustrates the Argos scoring pipeline for both images and videos. On the left, two examples show an image of a living room and a short video clip, each paired with a question and a free-form model response (e.g., estimating the distance between two lamps, or describing why a person failed to pour oil). In the middle, an “Agentic Verifier” column parses each response into structured elements: spatial 2D points indicating the referenced object and pixel coordinates, temporal segments for the relevant video frames, a reasoning-quality panel that combines the image/video, question, and response, and a final-answer panel comparing the predicted answer to ground truth. Below, a row of teacher models and scoring functions, such as Grounding DINO, SAM-2, a pointing-hand metric, string matching, relative accuracy, and a language model score, take these extracted elements as input to produce separate scores. On the right, arrows labeled “Action” and “Score” show how the verifier adaptively selects which teachers to call and then aggregates their outputs via a gated aggregation function into a single reward signal for training. " class="wp-image-1160147"/><figcaption class="wp-element-caption">Figure 2. Argos generates step-by-step reasoning grounded in image locations and video timestamps then filters out low-quality training data.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
+
+
+
+<p>Building on this foundation in grounded reasoning, we further trained the model using reinforcement learning guided by Argos and evaluated its performance across a range of benchmarks. On spatial reasoning tasks, the Argos-trained model outperformed both the base model Qwen2.5-VL-7B and the stronger Video-R1 baseline across challenging 3D scenarios and multi-view tasks. Models trained with Argos also showed a substantial reduction of hallucinations compared with both standard chain-of-thought prompting and reinforcement learning baselines.</p>
+
+
+
+<p>Finally, we evaluated the model in robotics and other real-world task settings, focusing on high-level planning and fine-grained control. Models trained with Argos performed better on complex, multi-step tasks. Notably, these improvements were achieved using fewer training samples than existing approaches, highlighting the importance of reward design in producing more capable and data-efficient agents. Figure 3 illustrates some of these findings.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1331" height="406" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3.png" alt="Figure 3 shows two side-by-side line charts comparing an Agentic model (dashed line) that uses the Argos verifier with a Non-Agentic model (solid line) trained only with an outcome reward. The left plot, “Response Accuary,” tracks response accuracy versus RL step (0, 5, 10, 15). Both models start near 0.54 accuracy, but the Agentic curve slightly rises and then stays roughly flat, while the Non-agentic curve steadily declines to about 0.50. The right plot, “Visual Grounding Acc,” shows visual grounding accuracy over the same steps: the Agentic curve increases monotonically from about 0.39 to just above 0.5, whereas the Non-Agentic curve initially rises slightly and then drops sharply to about 0.1. Together, the plots illustrate that Argos stabilizes answer accuracy and significantly improves visual grounding, while the non-agentic model’s performance and grounding collapse over training." class="wp-image-1160369" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3.png 1331w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-300x92.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-1024x312.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-768x234.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-240x73.png 240w" sizes="auto, (max-width: 1331px) 100vw, 1331px" /><figcaption class="wp-element-caption">Figure 3.&nbsp;Performance of&nbsp;Argos&nbsp;compared with&nbsp;baseline models&nbsp;on the task of visual hallucination detection&nbsp;(left)&nbsp;and&nbsp;embodied&nbsp;task planning and completion&nbsp;(right).&nbsp;</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading" id="how-argos-shapes-reinforcement-learning">How Argos shapes reinforcement learning</h3>
+
+
+
+<p>To understand how Argos affects learning, we took the same vision-language model that had been trained on our curated dataset and fine-tuned it using&nbsp;reinforcement learning in two different ways. In one approach, Argos was an agentic verifier, checking the correctness of outputs and the quality of reasoning. In the other, the model received feedback only on whether its answers were correct.</p>
+
+
+
+<p>We evaluated both versions on 1,500 samples from a new dataset and tracked their performance throughout the learning process (Figure 4). Although they started at similar levels, the model without Argos quickly got worse. Its accuracy steadily declined, and it increasingly gave answers that ignored what was in the videos. It learned to game the system by producing answers that seemed correct without grounding them in visual evidence.</p>
+
+
+
+<p>The model trained with Argos showed the opposite pattern. Accuracy improved steadily, and the model became better at linking its reasoning to what appeared in the videos. This difference highlights the value of verification: when training rewards both correct outputs and sound reasoning based on visual and temporal evidence, models learn to be more reliable rather than simply finding shortcuts to high scores.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1996" height="550" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final.jpg" alt="Figure 4 shows two side-by-side line charts comparing an Agentic model (dashed line) that uses the Argos verifier with a Non-Agentic model (solid line) trained only with an outcome reward. The left plot, “Response Accuary,” tracks response accuracy versus RL step (0, 5, 10, 15). Both models start near 0.54 accuracy, but the Agentic curve slightly rises and then stays roughly flat, while the Non-agentic curve steadily declines to about 0.50. The right plot, “Visual Grounding Acc,” shows visual grounding accuracy over the same steps: the Agentic curve increases monotonically from about 0.39 to just above 0.5, whereas the Non-Agentic curve initially rises slightly and then drops sharply to about 0.1. Together, the plots illustrate that Argos stabilizes answer accuracy and significantly improves visual grounding, while the non-agentic model’s performance and grounding collapse over training. " class="wp-image-1160428" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final.jpg 1996w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-300x83.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-1024x282.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-768x212.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-1536x423.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-240x66.jpg 240w" sizes="auto, (max-width: 1996px) 100vw, 1996px" /><figcaption class="wp-element-caption">Figure 4.&nbsp;Comparison of&nbsp;response accuracy changes with and without Argos&nbsp;across&nbsp;two model versions&nbsp;(left) and&nbsp;differences in&nbsp;visual grounding accuracy&nbsp;over training for both&nbsp;versions&nbsp;(right).</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="potential-impact-and-looking-forward">Potential impact and looking forward</h2>
+
+
+
+<p>This research points toward a different way of building AI agents for real-world applications. Rather than fixing errors after they occur, it focuses on training agents to systematically anchor their reasoning in what they actually receive as input throughout the training process.</p>
+
+
+
+<p>The potential applications span many domains. A visual assistant for a self-driving car that verifies what’s actually in an image is less likely to report phantom obstacles. A system that automates digital tasks and checks each action against what’s displayed on the screen is less likely to click the wrong button.</p>
+
+
+
+<p>As AI systems move beyond research labs into homes, factories, and offices, reliable reasoning becomes essential for safety and trust. Argos represents an early example of verification systems that evolve alongside the AI models they supervise. Future verifiers could be tailored for specific fields like medical imaging, industrial simulations, and business analytics. As more advanced models and richer data sources become available, researchers can use them to improve these verification systems, providing even better guidance during training and further reducing hallucinations.</p>
+
+
+
+<p>We hope that this research helps move the field toward AI systems that are both capable and interpretable: agents that can explain their decisions, point to the evidence behind them, and be trained to adhere to real-world requirements and values.</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1076" style="aspect-ratio: 1920 / 1076;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-demo-video.mp4"></video></figure>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Multimodal reinforcement learning with agentic verifier for AI agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-demo-video.mp4" length="101343835" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>OptiMind: A small language model with optimization expertise</title>
 		<link>https://www.microsoft.com/en-us/research/blog/optimind-a-small-language-model-with-optimization-expertise/</link>
 		
@@ -32,7 +202,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/optimind-a-small-language-model-with-optimization-expertise/">OptiMind: A small language model with optimization expertise</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2.jpg" alt="A flowchart with three horizontal sections on a blue-to-green gradient background. The first section, labeled “Classification,” shows icons of a computer, an arrow pointing to a robot face, and another arrow pointing to a box labeled “TSP.” The second section, labeled “Inference,” displays a robot icon connected by arrows to two document icons, one of which includes a magnifying glass. The third section, labeled “Test-time scaling,” shows a document with a checkmark connected by an arrow to a circular refresh icon. Arrows indicate the flow between sections, starting from Classification to Inference and then to Test-time scaling." class="wp-image-1159915" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2.jpg" alt="A flowchart with three horizontal sections on a blue-to-green gradient background. The first section, labeled “Classification,” shows icons of a computer, an arrow pointing to a robot face, and another arrow pointing to a box labeled “TSP.” The second section, labeled “Inference,” displays a robot icon connected by arrows to two document icons, one of which includes a magnifying glass. The third section, labeled “Test-time scaling,” shows a document with a checkmark connected by an arrow to a circular refresh icon. Arrows indicate the flow between sections, starting from Classification to Inference and then to Test-time scaling." class="wp-image-1159915" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-BlogHeroFeature-1400x788-2-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -122,7 +292,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="750" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-scaled.jpg" alt="The image illustrates a linear programming model for a manufacturing facility, detailing the production quantities, setup indicators, and inventory levels for different products over a six-month period, aiming to optimize costs." class="wp-image-1160007" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-300x88.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-1024x300.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-768x225.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-1536x450.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-2048x600.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-240x70.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1.&nbsp;From problem description to solution&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="750" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-scaled.jpg" alt="The image illustrates a linear programming model for a manufacturing facility, detailing the production quantities, setup indicators, and inventory levels for different products over a six-month period, aiming to optimize costs." class="wp-image-1160007" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-300x88.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-1024x300.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-768x225.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-1536x450.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-2048x600.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/OptiMind-1-240x70.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1.&nbsp;From problem description to solution&nbsp;</figcaption></figure>
 
 
 
@@ -130,7 +300,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="1648" height="638" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning.png" alt="Process for correcting training data" class="wp-image-1159877" style="aspect-ratio:2.58319131760696;width:526px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning.png 1648w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-300x116.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-1024x396.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-768x297.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-1536x595.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-240x93.png 240w" sizes="(max-width: 1648px) 100vw, 1648px" /><figcaption class="wp-element-caption">Figure 2. Process for correcting training data</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1648" height="638" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning.png" alt="Process for correcting training data" class="wp-image-1159877" style="aspect-ratio:2.58319131760696;width:526px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning.png 1648w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-300x116.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-1024x396.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-768x297.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-1536x595.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/training-data-cleaning-240x93.png 240w" sizes="auto, (max-width: 1648px) 100vw, 1648px" /><figcaption class="wp-element-caption">Figure 2. Process for correcting training data</figcaption></figure>
 
 
 
@@ -428,30 +598,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2053,30 +2220,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2409,27 +2573,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2508,164 +2675,6 @@
 
 <p>Finally, beyond code generation, it is also important to extend BlueCodeAgent to mitigate risks in other modalities, including text, image, video, and audio, as well as in multimodal applications.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</title>
-		<link>https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/</link>
-		
-		<dc:creator><![CDATA[Industry  Innovation Center]]></dc:creator>
-		<pubDate>Thu, 06 Nov 2025 13:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1154225</guid>
-
-					<description><![CDATA[<p>A collaboration between Signify and Microsoft Research shows how PIKE-RAG improves enterprise knowledge systems, delivering a 12% increase in accuracy and faster, more reliable answers.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/">When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows a node cluster, the second shows a person in front of a screen with another person, the third is a magnifying glass" class="wp-image-1154222" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>As a world leader in connected LED lighting products, systems, and services, Signify (formerly Philips Lighting) serves not only everyday consumers but also a large number of professional users who have stringent requirements for technical specifications and engineering compatibility. Faced with thousands of product models, complex component parameters, and technical documentation spanning multiple versions, delivering accurate, professional answers efficiently has become a core challenge for Signify’s knowledge management system.</p>
-
-
-
-<p>To address this challenge, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.signify.com" target="_blank" rel="noopener noreferrer">Signify<span class="sr-only"> (opens in new tab)</span></a> collaborated with <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a> on a proof-of-concept (PoC) using <a href="https://www.microsoft.com/en-us/research/publication/pike-rag-specialized-knowledge-and-rationale-augmented-generation/">PIKE-RAG technology</a>, integrating it into their upgraded knowledge management system built on Microsoft Azure. The result: a 12% improvement in answer accuracy.</p>
-
-
-
-<h2 class="wp-block-heading" id="challenges-of-applying-rag-in-lighting">Challenges of applying RAG in lighting</h2>
-
-
-
-<p>In an era where AI is rapidly transforming how enterprises manage information, Signify recognized the strategic importance of precise and efficient knowledge systems. It adopted large AI models and retrieval-augmented generation (RAG) techniques to better support its wide range of customer inquiries.</p>
-
-
-
-<p>Yet applying RAG to lighting scenarios involving professional users presented unique challenges. Product data spanned multimodal documents, unstructured tables, and complex product parameters, demanding continuous customization that slowed development and limited scalability. Despite improvements through keyword tuning, system optimization, and refined prompts, Signify sought more advanced approaches to further raise accuracy and reliability.</p>
-
-
-
-<p>Seeking to unlock greater value from its knowledge management system, Signify began exploring more suitable technical solutions that are better aligned with their professional use cases. Upon learning that PIKE-RAG had been successfully applied in domains like healthcare and law, significantly improving information accuracy, Signify worked with Microsoft Research Asia on a PoC of PIKE-RAG on Microsoft Azure.</p>
-
-
-
-<h2 class="wp-block-heading" id="how-pike-rag-addressed-signify-s-pain-points">How PIKE-RAG addressed Signify’s pain points</h2>
-
-
-
-<p>Compared to traditional RAG, PIKE-RAG efficiently retrieves textual information and also understands multimodal content like charts and tables. Its built-in domain adaptation module quickly learns reasoning patterns aligned with specific domains to generate responses that are consistent with engineering contexts. These differentiated advantages stem from PIKE-RAG’s unique approach to understanding and processing professional knowledge. In Signify’s use case, this manifests in three key areas:</p>
-
-
-
-<h3 class="wp-block-heading" id="multimodal-document-parsing-and-learning-of-industry-specific-reasoning-patterns">Multimodal document parsing and learning of industry-specific reasoning patterns</h3>
-
-
-
-<p>Signify’s product documentation includes diverse formats, such as nonstandard tables (e.g., comparison charts of voltage ranges under different currents) and circuit diagrams (e.g., driver power limits). Traditional systems often fail to process this information effectively—either ignoring it or extracting disorganized text fragments.</p>
-
-
-
-<p>PIKE-RAG integrates Microsoft Research Asia’s Document Intelligence technology with Microsoft Azure OpenAI models to accurately identify table structures and parse key parameters in circuit diagrams. For example, when a customer service agent queries, “What is the output voltage of a specific driver model at 0.15A current,” the system automatically locates the curve chart in the document and infers a range of 40–54V based on the current interval—an area where traditional systems frequently err, due to their inability to “read” diagrams.</p>
-
-
-
-<h3 class="wp-block-heading" id="end-to-end-knowledge-loop-eliminating-reliance-on-erroneous-data-sources">End-to-end knowledge loop, eliminating reliance on erroneous data sources</h3>
-
-
-
-<p>Enterprise knowledge systems often integrate data from multiple sources, which can lead to discrepancies, especially when database updates are not fully synchronized. PIKE-RAG captures diverse information sources and establishes citation relationships, supporting complex reasoning tasks that rely on multi-source data.</p>
-
-
-
-<p>In other words, PIKE-RAG can directly use original documents as data sources, efficiently parsing and understanding product manuals and PDF charts. By extracting key information from these text- and graphic-rich documents, PIKE-RAG enables more efficient and trustworthy knowledge retrieval.</p>
-
-
-
-<h3 class="wp-block-heading" id="dynamic-task-decomposition-and-multi-hop-reasoning-for-precise-answers-to-complex-questions">Dynamic task decomposition and multi-hop reasoning for precise answers to complex questions</h3>
-
-
-
-<p>Traditional RAG systems typically follow a “one question, one answer” model and struggle with multi-step reasoning. In Signify’s lighting domain, customer inquiries often involve multi-level associations. PIKE-RAG dynamically decomposes user questions into executable subtasks and solves them through multi-hop reasoning. For example, when asked, “List all bases compatible with the G8 series lamps,” if no document directly provides the answer, PIKE-RAG’s reasoning proceeds as follows:</p>
-
-
-
-<p>Step 1: The system identifies implicit knowledge. One document notes that the G7 and G8 series have identical dimensions and that all bases compatible with the G7 series are also compatible with the G8 series.&nbsp;</p>
-
-
-
-<p>Step 2: Based on this, the system retrieves the base list for the G7 series.&nbsp;</p>
-
-
-
-<p>Step 3: Since the list uses abbreviations, the system searches for a table that maps abbreviations to full names and generates a complete list of G8-compatible bases.&nbsp;</p>
-
-
-
-<p>Through this automated multi-hop reasoning, the system delivers accurate and complete answers.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="865" height="451" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png" alt="Figure 1: A flowchart illustrating the PIKE-RAG framework for orchestrating and integrating heterogeneous information across multi-source and multimodal environments. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process starts with a task (e.g., “What wireless drivers are available?”), followed by iterative task decomposition and retrieval from a tools repository. The tools repository includes similarity and keyword retrieval, Text2SQL, decomposers, VLMs, verifiers, and atomizers. Below, domain knowledge is shown in various forms: textual (terminology, specifications), multi-modal (figures, tables), structural (databases, knowledge graphs), and others (search engine, internal FAQ). The LM generates responses and updates memory while fetching context as needed." class="wp-image-1154223" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-300x156.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-768x400.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-1-new-240x125.png 240w" sizes="auto, (max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 1: PIKE-RAG orchestrates and integrates heterogeneous information in multi-source and multimodal environments. </figcaption></figure>
-
-
-
-<p>Testing showed that the PIKE-RAG-powered knowledge management platform provided a significant advantage. It achieved a 12% improvement in performance compared with the original system.</p>
-
-
-
-<p>These results were achieved without any question-specific customization, only algorithmic optimization, demonstrating precise knowledge matching and generation. As the system continues to learn and integrate Signify’s proprietary knowledge, accuracy is expected to improve further.</p>
-
-
-
-<p>“In the PoC for our product specification insight tool, PIKE-RAG helped us significantly improve the original system’s performance. This will enhance overall customer satisfaction. We’re currently evaluating PIKE-RAG’s application path from multiple angles, including technical implementation, cost control, and future adaptability, and we look forward to deepening our collaboration with Microsoft Research Asia to drive further innovation,” said Haitao Liu, head of Signify Research China.</p>
-
-
-
-<p>“It’s also worth noting that the researchers at Microsoft Research Asia demonstrated strong industry knowledge and rigorous scientific methodology. They proactively studied and analyzed the issues, tracing and clarifying the root causes of our issues to make PIKE-RAG better suited to Signify’s real-world needs.”</p>
-
-
-
-<h2 class="wp-block-heading" id="beyond-lighting-generalization-across-industries">Beyond lighting: Generalization across industries</h2>
-
-
-
-<p>In Signify’s successful test, PIKE-RAG demonstrated strong generalization capabilities in complex industrial scenarios, enabling rapid cross-domain adaptation. Its three core strengths are:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Support for self-evolution and continuous learning</strong>: PIKE-RAG continuously analyzes error cases in interaction logs and uses evolutionary algorithms to automatically optimize knowledge extraction strategies, such as trying different table parsing methods or adjusting multimodal content weights. Validated strategies are then solidified for future Q&A, allowing the system to adapt to new knowledge types without manual intervention.&nbsp;</li>
-
-
-
-<li><strong>Modular architecture driven by capability needs</strong>: PIKE-RAG flexibly combines modules for document parsing, knowledge extraction, storage, retrieval, organization, knowledge-centered reasoning, and task decomposition. It dynamically adjusts focus areas based on scenario needs (e.g., fact retrieval, multi-hop reasoning, innovative generation) and flexibly builds RAG methods that adapt to real-world applications, efficiently handling various complex tasks.&nbsp;</li>
-
-
-
-<li><strong>Strong adaptation to domain-specific reasoning patterns</strong>: With dynamic updates through the Domain Tips feature, enterprises can add domain-specific logic (e.g., “the maximum output voltage of an LED driver should be the maximum of the operating range, not the spec sheet’s max output”) in real time, enabling the system to process information according to professional engineering standards and follow industry conventions.&nbsp;</li>
-</ul>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="865" height="563" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png" alt="Figure 2: Diagram showing the PIKE-RAG framework overview. At the center is a language model (LM) connected to PIKE-RAG, which performs iterative retrieval by tool calling. The process begins with a task input, decomposes it into sub-tasks, retrieves information from a tools repository, and integrates domain knowledge from multiple modalities such as textual documents, diagrams, tables, relational databases, and knowledge graphs. The LM generates responses and updates memory while orchestrating heterogeneous information sources." class="wp-image-1154224" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-300x195.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-768x500.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/PIKERAG_figure-2-240x156.png 240w" sizes="auto, (max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2: Overview of the PIKE-RAG framework</figcaption></figure>
-
-
-
-<p>PIKE-RAG’s generalization capabilities have been validated not only in Signify’s knowledge management platform but also in pilot applications across industries like manufacturing, mining, and pharmaceuticals—significantly improving Q&A system accuracy.</p>
-
-
-
-<p>“A leader in lighting, Signify presents a complex industrial knowledge system with a highly challenging real-world scenario for PIKE-RAG. Through this collaboration, we validated that PIKE-RAG’s general approach can greatly improve the accuracy of professional knowledge Q&A and accelerate scenario customization. Our researchers also gained valuable experience in handling domain-specific data,” explained <a href="https://www.microsoft.com/en-us/research/people/jiabia/">Jiang Bian</a>, partner research manager at Microsoft Research Asia.</p>
-
-
-
-<p>“Our goal isn’t to build a universal chatbot but to create a professional assistant that aligns with domain-specific logic and performs rigorous knowledge reasoning. That’s the true driving force behind intelligent transformation in industrial knowledge management.”</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/when-industry-knowledge-meets-pike-rag-the-innovation-behind-signifys-customer-service-boost/">When industry knowledge meets PIKE-RAG: The innovation behind Signify’s customer service boost</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
