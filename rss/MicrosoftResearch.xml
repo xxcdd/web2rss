@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 20 Jan 2026 14:12:28 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 27 Jan 2026 02:32:05 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,179 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9</generator>
 	<item>
+		<title>UniRG: Scaling medical imaging report generation with multimodal reinforcement learning</title>
+		<link>https://www.microsoft.com/en-us/research/blog/unirg-scaling-medical-imaging-report-generation-with-multimodal-reinforcement-learning/</link>
+		
+		<dc:creator><![CDATA[Sheng Zhang, Flora Liu, Guanghui Qin, Mu Wei, Hoifung Poon]]></dc:creator>
+		<pubDate>Tue, 27 Jan 2026 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160723</guid>
+
+					<description><![CDATA[<p>AI can help generate medical image reports, but today’s models struggle with varying reporting schemes. Learn how UniRG uses reinforcement learning to boost performance of medical vision-language models.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/unirg-scaling-medical-imaging-report-generation-with-multimodal-reinforcement-learning/">UniRG: Scaling medical imaging report generation with multimodal reinforcement learning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue‑green gradient: a ribcage scan, a circuit‑style document, and a neural network diagram" class="wp-image-1160804" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>AI-driven medical image report generation can help medical providers become more efficient and productive.</li>
+
+
+
+<li>Current models are difficult to train because reporting practices vary widely among providers.</li>
+
+
+
+<li>Universal Report Generation (UniRG) uses reinforcement learning to align model training with real-world radiology practice rather than proxy text-generation objectives.</li>
+
+
+
+<li>UniRG&nbsp;has&nbsp;achieved&nbsp;state-of-the-art&nbsp;performance across datasets, metrics, diagnostic tasks, longitudinal settings, and demographic subgroups.</li>
+
+
+
+<li>Test results show that reinforcement learning, guided by clinically meaningful reward signals, can substantially improve the reliability and generality of medical vision–language models.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>AI can be used to produce clinically meaningful radiology reports using medical images like chest x-rays. Medical image report generation can reduce reporting burden while improving workflow efficiency for healthcare professionals. Beyond the real-world benefits, report generation has also become a critical benchmark for evaluating multimodal reasoning in healthcare AI.</p>
+
+
+
+<p>Despite recent advances driven by large vision–language models, current systems still face major limitations in real-world clinical settings. One challenge stems from the wide variation in radiology reporting practices across institutions, departments, and patient populations. A model trained with supervised fine-tuning on one set of data may learn its specific phrasing and conventions instead of more general patterns—a problem known as <em>overfitting</em>. As a result, the model performs well on that data but delivers poor results when evaluated on unseen institutions or external datasets. Moreover, since model training is often aimed at producing text that looks similar to existing reports, some well written but clinically inaccurate reports can slip through.</p>
+
+
+
+<p>In this blog, we introduce <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="http://aka.ms/unirg-paper">Universal Report Generation (UniRG)<span class="sr-only"> (opens in new tab)</span></a></strong>, a reinforcement learning–based framework for medical imaging report generation. This work is a research prototype intended to advance medical AI research and is not validated for clinical use. UniRG uses reinforcement learning as a unifying mechanism to directly optimize clinically grounded evaluation signals, aligning model training with real-world radiology practice rather than proxy text-generation objectives. Using this framework, we train <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="http://aka.ms/unirg-paper">UniRG-CXR<span class="sr-only"> (opens in new tab)</span></a></strong>, a state-of-the-art chest x-ray report generation model at scale, spanning over 560,000 studies, 780,000 images, and 226,000 patients from more than 80 medical institutions.</p>
+
+
+
+<p>To our knowledge, this is the first report generation model to achieve consistent state-of-the-art performance across report-level metrics, disease-level diagnostic accuracy, cross-institution generalization, longitudinal report generation, and demographic subgroups. These results demonstrate that reinforcement learning, when guided by clinically meaningful reward signals, can substantially improve both the reliability and generality of medical vision–language models.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="a-unified-framework-for-scaling-medical-image-report-generation">A unified framework for scaling medical image report generation</h2>
+
+
+
+<p>UniRG&nbsp;builds&nbsp;state-of-the-art&nbsp;report generation models by combining supervised fine-tuning with reinforcement learning, which&nbsp;optimizes&nbsp;a composite reward that integrates rule-based metrics, model-based semantic metrics, and LLM-based clinical error signals. This approach allows the resulting model&nbsp;UniRG-CXR to learn from diverse data sources, move beyond dataset-specific reporting patterns, and learn representations that generalize across institutions, metrics, and clinical contexts. Notably,&nbsp;UniRG-CXR sets a new state of&nbsp;the art on the authoritative&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rexrank.ai/" target="_blank" rel="noopener noreferrer"><strong>ReXrank leaderboard</strong><span class="sr-only"> (opens in new tab)</span></a>,&nbsp;a&nbsp;public leaderboard for chest X-ray image interpretation,&nbsp;as of&nbsp;01/22/2026, surpassing&nbsp;previous&nbsp;best models&nbsp;by&nbsp;substantial&nbsp;margins (Figure 1).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2141" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-scaled.png" alt="Fig 1: Overview diagram of the UniRG-CXR framework showing training data sources, reinforcement-learning–based training with composite rewards, evaluation on multiple datasets, and a results panel demonstrating state-of-the-art performance across benchmarks." class="wp-image-1160837" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-scaled.png 2141w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-251x300.png 251w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-857x1024.png 857w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-768x918.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-1285x1536.png 1285w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-1713x2048.png 1713w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-151x180.png 151w" sizes="(max-width: 2141px) 100vw, 2141px" /><figcaption class="wp-element-caption">Figure 1. Overview of UniRG-CXR. (a) Training Data: UniRG-CXR is trained on the training splits of MIMIC-CXR, CheXpert Plus, and ReXGradient-160k, covering diverse institutions and patient demographics. (b) Training and Rewards: Taking input from the current image, clinical context (e.g., indication), and optionally prior studies, UniRG-CXR uses GRPO reinforcement learning to optimize composite rewards that combine rule-based, model-based, and LLM-based metrics. (c) Evaluation: We assess UniRG-CXR on held-out test sets (MIMIC-CXR, CheXpert Plus, ReXGradient), and unseen datasets (IU Xray and proprietary data). Report quality measured using ReXrank metrics and an LLM-based clinical-error metric, while diagnostic ability is evaluated via F1-based disease classification from generated reports. (d) ReXrank Results: UniRG-CXR achieves SOTA performance across four datasets and two generation settings (findings only and findings + impression), showing substantial gains over prior state-of-the-art systems.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="universal-improvements-across-metrics-and-clinical-errors">Universal improvements across metrics and clinical errors</h2>
+
+
+
+<p>Rather than excelling on one metric at the expense of others, UniRG-CXR delivers balanced improvements across many different measures of report quality. More importantly, it produces reports with substantially fewer clinically significant errors. This indicates that the model is not just learning how to sound like a radiology report, but is better capturing the underlying clinical facts. Explicitly optimizing for clinical correctness helps the model avoid common failure modes where fluent language masks incorrect or missing findings (Figure 2).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="871" height="835" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2.png" alt="Fig 2: Multi-panel figure showing UniRG-CXR’s state-of-the-art performance: leaderboard gains across metrics, ablation studies demonstrating benefits of combined reinforcement-learning rewards, improved training dynamics with fewer clinical errors, qualitative case studies with error-free reports, and a distribution showing fewer high-error reports compared to prior models." class="wp-image-1160707" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2.png 871w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-300x288.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-768x736.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-188x180.png 188w" sizes="(max-width: 871px) 100vw, 871px" /><figcaption class="wp-element-caption">Figure 2. UniRG-CXR achieves state-of-the-art performance, delivering consistent and comprehensive performance gains across metrics. (a) On the ReXrank leaderboard, UniRG-CXR (green) shows robust, universal improvement across all evaluation metrics.  (b). Starting from the same SFT checkpoint, RL with our combined reward achieves more balanced gains across metrics and the highest RadCliQ-v1 score compared to RL on single metrics. This ablation study is trained and tested on MIMIC (c). Ablation study on the training dynamics shows RL full (UniRG-CXR) achieves significantly better RadCliQ-v1 score than RL only on BLEU. (d). During training, RL full (UniRG-CXR) shows a steady decrease in clinical errors per report as compared with a fluctuating trajectory without consistent improvement from an ablation run without error awareness (i.e. removing CheXprompt metric optimization). Both (c) and (d) show results on 1024 MIMIC validation set from ablations that are trained on MIMIC. (e). Case studies illustrate that UniRG-CXR can produce error-free reports, unlike MedVersa and MedGemma. (f). UniRG-CXR yields a substantially higher proportion of reports with $\leq 1$ error and fewer with $\geq 4$ errors than prior models.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="strong-performance-in-longitudinal-report-generation">Strong performance in longitudinal report generation</h2>
+
+
+
+<p>In clinical practice, radiologists often compare current images with prior exams to determine whether a condition is improving, worsening, or unchanged. UniRG-CXR is able to incorporate this historical information effectively, generating reports that reflect meaningful changes over time. This allows the model to describe new findings, progression, or resolution of disease more accurately, moving closer to how radiologists reason across patient histories rather than treating each exam in isolation (Figure 3).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2548" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-scaled.png" alt="Fig 3: Multi-panel results demonstrating UniRG-CXR’s advantages in longitudinal chest X-ray report generation, including superior performance over prior models and a non-longitudinal ablation across encounters, consistent gains at increasing follow-up complexity, improved handling of temporal disease changes, and qualitative examples of accurate longitudinal predictions." class="wp-image-1160838" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-scaled.png 2548w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-1019x1024.png 1019w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-768x772.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-1529x1536.png 1529w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-2039x2048.png 2039w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig3_UPDATED-179x180.png 179w" sizes="auto, (max-width: 2548px) 100vw, 2548px" /><figcaption class="wp-element-caption">Figure 3. UniRG-CXR enhances longitudinal report generation. (a). Comparing UniRG-CXR and its non-longitudinal ablation with prior models on longitudinal report generation, we show UniRG-CXR exhibits the best performance and the longitudinal information is beneficial to the performance. (b). UniRG-CXR achieves the best performance across different longitudinal encounter points ranging from the first encounter to the more complex 5th+ encounters, showcasing its improvements are across the board. In comparison, prior models such as GPT-5, GPT-4o and MedGemma are barely surpassing the copy prior report baseline (grey lines).  (c). Compared with prior models which barely improve over the copy prior baseline (dashed line), UniRG-CXR significantly and consistently improves performance across different temporal disease change categories including new development, no change, progression and regression (categorized by GPT-5 on ground truth report). Qualitative examples are shown for each category where UniRG-CXR correctly predicts the temporal change based on the input. All results in this figure are on MIMIC test set with prior information where available.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="robust-generalization-across-institutions-and-populations">Robust generalization across institutions and populations</h2>
+
+
+
+<p>UniRG-CXR maintains strong performance even when applied to data from institutions it has never seen before. This suggests that the model is learning general clinical patterns rather than memorizing institution-specific reporting styles. In addition, its performance remains stable across different patient subgroups, including age, gender, and race. This robustness is critical for real-world deployment, where models must perform reliably across diverse populations and healthcare environments (Figure 4).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="871" height="761" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig4.png" alt="Fig 4: Multi-panel figure showing UniRG-CXR’s generalization and robustness: zero-shot evaluation with strong performance on unseen datasets, superior condition-level diagnostic F1 scores, and consistent accuracy across gender, age, and race subgroups compared with prior models." class="wp-image-1160706" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig4.png 871w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig4-300x262.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig4-768x671.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig4-206x180.png 206w" sizes="auto, (max-width: 871px) 100vw, 871px" /><figcaption class="wp-element-caption">Figure 4. Generalization and robustness of UniRG-CXR. (a). We evaluate UniRG-CXR in a zero-shot setting on two datasets from previously unseen institutions: IU-Xray and PD (proprietary data). UniRG-CXR consistently outperforms prior models, maintaining substantial performance gains in this challenging setup. (b) and (c) present condition-level F1 scores on MIMIC-CXR and PD and highlight that UniRG-CXR remains the overall top-performing model in condition-level diagnostic accuracy. (d). UniRG-CXR demonstrates stable and robust performance across gender, age, and race subgroups, all of which exceed the performance of the second-best model (the dashed lines).</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="unirg-is-a-promising-step-toward-scaling-medical-imaging-report-generation">UniRG is a promising step toward scaling medical imaging report generation</h2>
+
+
+
+<p>UniRG introduces a reinforcement learning–based framework that rethinks how medical imaging report generation models are trained and evaluated. By directly optimizing clinically grounded reward signals, UniRG-CXR achieves state-of-the-art performance across datasets, metrics, diagnostic tasks, longitudinal settings, and demographic subgroups, addressing longstanding limitations of supervised-only approaches.</p>
+
+
+
+<p>Looking ahead, this framework can be extended to additional imaging modalities and clinical tasks, and combined with richer multimodal patient data such as prior imaging, laboratory results, and clinical notes. More broadly, UniRG highlights the promise of reinforcement learning as a core component of next-generation medical foundation models that are robust, generalizable, and clinically aligned.</p>
+
+
+
+<p>UniRG reflects Microsoft’s larger commitment to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AI-S2300233" target="_blank" rel="noopener noreferrer">advancing multimodal generative AI for precision health<span class="sr-only"> (opens in new tab)</span></a>, with other exciting progress such as <a href="https://www.microsoft.com/en-us/research/blog/gigapath-whole-slide-foundation-model-for-digital-pathology/">GigaPath</a>, <a href="https://www.microsoft.com/en-us/research/publication/biomedclip-a-multimodal-biomedical-foundation-model-pretrained-from-fifteen-million-scientific-image-text-pairs/">BiomedCLIP</a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41467-025-58344-x" target="_blank" rel="noopener noreferrer">LLaVA-Rad<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/publication/biomedjourney-counterfactual-biomedical-image-generation-by-instruction-learning-from-multimodal-patient-journeys/">BiomedJourney</a>, <a href="https://www.microsoft.com/en-us/research/blog/biomedparse-a-foundation-model-for-smarter-all-in-one-biomedical-image-analysis/">BiomedParse</a>, <a href="https://www.microsoft.com/en-us/research/publication/trialscope-a-unifying-causal-framework-for-scaling-real-world-evidence-generation-with-biomedical-language-models/">TrialScope</a>, <a href="https://www.microsoft.com/en-us/research/publication/generative-medical-event-models-improve-with-scale/">Curiosity</a>.</p>
+
+
+
+<p>Paper co-authors: <a href="https://www.microsoft.com/en-us/research/people/qianchuliu/">Qianchu Liu</a>, <a href="https://www.microsoft.com/en-us/research/people/shezhan/">Sheng Zhang</a>, <a href="https://www.microsoft.com/en-us/research/people/guanghuiqin/">Guanghui Qin</a>, <a href="https://www.microsoft.com/en-us/research/people/yugu1/">Yu Gu</a>, Ying Jin, Sam Preston, Yanbo Xu, Sid Kiblawi, <a href="https://www.microsoft.com/en-us/research/people/yimwenwai/">Wen-wai Yim</a>, Tim Ossowski, <a href="https://www.microsoft.com/en-us/research/people/tristan/">Tristan Naumann</a>, Mu Wei, <a href="https://www.microsoft.com/en-us/research/people/hoifung/">Hoifung Poon</a></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/unirg-scaling-medical-imaging-report-generation-with-multimodal-reinforcement-learning/">UniRG: Scaling medical imaging report generation with multimodal reinforcement learning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Multimodal reinforcement learning with agentic verifier for AI agents</title>
 		<link>https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/</link>
 		
@@ -32,7 +205,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Multimodal reinforcement learning with agentic verifier for AI agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing visual, audio, and document icons feeding into a central network icon of connected people, which then leads to a checkmark symbol, all on a blue‑to‑purple gradient background." class="wp-image-1160195" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing visual, audio, and document icons feeding into a central network icon of connected people, which then leads to a checkmark symbol, all on a blue‑to‑purple gradient background." class="wp-image-1160195" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -101,7 +274,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1255" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg" alt="Figure 1 shows an overview of Argos, an agentic verifier for multimodal reinforcement learning and its downstream applications. The left half of the figure illustrates Argos verifying model responses to visual questions. The left example counts dogs in an image, with red dots marking the referenced dogs and a visual grounding score; another example shows a bathroom scene where the agent reasons whether it can open the door, with an accuracy score. Below these, a blue bar titled “Argos verifier” feeds into icons representing multiple tools, including Grounding DINO, SAM-2, a pointing-hand evaluator, string matching, and a language model score, where their outputs combine into grounding and accuracy scores. The right half of the figure depicts three categories of downstream tasks powered by this supervision: robotic manipulation (a robot arm interacting with objects on a table), high-level task planning and completion (placing toilet paper on the back of a toilet and putting a bowl on a coffee table), and spatial reasoning (answering a viewpoint-based navigation question using room images). The overall message is that dense, grounded verification enables stronger agent performance on complex, real-world tasks." class="wp-image-1160145" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-300x147.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1024x502.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-768x376.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1536x753.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-2048x1004.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-240x118.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Argos selects different specialized tools to verify and score the accuracy of referenced points and events in the agent’s reasoning.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1255" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg" alt="Figure 1 shows an overview of Argos, an agentic verifier for multimodal reinforcement learning and its downstream applications. The left half of the figure illustrates Argos verifying model responses to visual questions. The left example counts dogs in an image, with red dots marking the referenced dogs and a visual grounding score; another example shows a bathroom scene where the agent reasons whether it can open the door, with an accuracy score. Below these, a blue bar titled “Argos verifier” feeds into icons representing multiple tools, including Grounding DINO, SAM-2, a pointing-hand evaluator, string matching, and a language model score, where their outputs combine into grounding and accuracy scores. The right half of the figure depicts three categories of downstream tasks powered by this supervision: robotic manipulation (a robot arm interacting with objects on a table), high-level task planning and completion (placing toilet paper on the back of a toilet and putting a bowl on a coffee table), and spatial reasoning (answering a viewpoint-based navigation question using room images). The overall message is that dense, grounded verification enables stronger agent performance on complex, real-world tasks." class="wp-image-1160145" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-300x147.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1024x502.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-768x376.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1536x753.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-2048x1004.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-240x118.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Argos selects different specialized tools to verify and score the accuracy of referenced points and events in the agent’s reasoning.</figcaption></figure>
 
 
 
@@ -121,7 +294,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="800" height="450" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/data-curation-animation-gif.gif" alt="Figure 2 illustrates the Argos scoring pipeline for both images and videos. On the left, two examples show an image of a living room and a short video clip, each paired with a question and a free-form model response (e.g., estimating the distance between two lamps, or describing why a person failed to pour oil). In the middle, an “Agentic Verifier” column parses each response into structured elements: spatial 2D points indicating the referenced object and pixel coordinates, temporal segments for the relevant video frames, a reasoning-quality panel that combines the image/video, question, and response, and a final-answer panel comparing the predicted answer to ground truth. Below, a row of teacher models and scoring functions, such as Grounding DINO, SAM-2, a pointing-hand metric, string matching, relative accuracy, and a language model score, take these extracted elements as input to produce separate scores. On the right, arrows labeled “Action” and “Score” show how the verifier adaptively selects which teachers to call and then aggregates their outputs via a gated aggregation function into a single reward signal for training. " class="wp-image-1160147"/><figcaption class="wp-element-caption">Figure 2. Argos generates step-by-step reasoning grounded in image locations and video timestamps then filters out low-quality training data.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="450" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/data-curation-animation-gif.gif" alt="Figure 2 illustrates the Argos scoring pipeline for both images and videos. On the left, two examples show an image of a living room and a short video clip, each paired with a question and a free-form model response (e.g., estimating the distance between two lamps, or describing why a person failed to pour oil). In the middle, an “Agentic Verifier” column parses each response into structured elements: spatial 2D points indicating the referenced object and pixel coordinates, temporal segments for the relevant video frames, a reasoning-quality panel that combines the image/video, question, and response, and a final-answer panel comparing the predicted answer to ground truth. Below, a row of teacher models and scoring functions, such as Grounding DINO, SAM-2, a pointing-hand metric, string matching, relative accuracy, and a language model score, take these extracted elements as input to produce separate scores. On the right, arrows labeled “Action” and “Score” show how the verifier adaptively selects which teachers to call and then aggregates their outputs via a gated aggregation function into a single reward signal for training. " class="wp-image-1160147"/><figcaption class="wp-element-caption">Figure 2. Argos generates step-by-step reasoning grounded in image locations and video timestamps then filters out low-quality training data.</figcaption></figure>
 
 
 
@@ -255,30 +428,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -601,30 +774,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -767,30 +940,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1828,30 +2001,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2229,27 +2399,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2466,224 +2639,6 @@
 
 <p>[3] Chaoyou Fu, Yuhan Dai, Yondong Luo, Lei Li, Shuhuai Ren, Renrui Zhang, Zihan Wang, Chenyu Zhou, Yunhang Shen, Mengdan Zhang, et al. “Video-MME: The first-ever comprehensive evaluation benchmark of multi-modal llms in video analysis”, 2024.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/">MMCTAgent: Enabling multimodal reasoning over large video and image collections</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</title>
-		<link>https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/</link>
-		
-		<dc:creator><![CDATA[Chengquan Guo , Yuzhou  Nie, Chulin Xie, Zinan Lin, Wenbo Guo, Bo Li]]></dc:creator>
-		<pubDate>Tue, 11 Nov 2025 17:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1154385</guid>
-
-					<description><![CDATA[<p>BlueCodeAgent is an end-to-end blue-teaming framework built to boost code security using automated red-teaming processes, data, and safety rules to guide LLMs’ defensive decisions. Dynamic testing reduces false positives in vulnerability detection.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-green gradient background: the first icon shows a circle with connected nodes, the second shows a circuit, and the third shows a flowchart" class="wp-image-1154392" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<h2 class="wp-block-heading" id="introduction">Introduction</h2>
-
-
-
-<p>Large language models (LLMs) are now widely used for automated code generation across software engineering tasks. However, this powerful capability in code generation also introduces security concerns. Code generation systems could be misused for harmful purposes, such as generating malicious code. It could also produce bias-filled code reflecting underlying logic that is discriminatory or unethical. Additionally, even when completing benign tasks, LLMs may inadvertently produce vulnerable code that contains security flaws (e.g., injection risks, unsafe input handling). These unsafe outcomes undermine the trustworthiness of code generation models and pose threats to the broader software ecosystem, where safety and reliability are critical. </p>
-
-
-
-<p>Many&nbsp;studies have explored red teaming code LLMs, testing whether the models can reject unsafe requests and whether their generated code&nbsp;exhibits&nbsp;insecure patterns. For more details, see our earlier MSR blog post on&nbsp;<a href="https://www.microsoft.com/en-us/research/blog/redcodeagent-automatic-red-teaming-agent-against-diverse-code-agents/">RedCodeAgent</a>. While red teaming has significantly improved our understanding of model failure modes, progress on blue teaming—i.e., developing effective defensive mechanisms to detect and prevent such failures—remains&nbsp;relatively limited. Current blue teaming approaches face several challenges: (1)&nbsp;Poor alignment with security concepts:&nbsp;additional&nbsp;safety&nbsp;prompts&nbsp;struggle to help models&nbsp;understand high-level notions,&nbsp;such as what constitutes a malicious or bias instruction, and typically lack actionable principles to guide safe decision-making. A case study is shown in Figure 1.&nbsp;(2)<strong>&nbsp;</strong>Over-conservatism:<strong>&nbsp;</strong>especially in the domain of vulnerable code detection, models tend to misclassify safe code as unsafe, leading to more false positives and reduced developer trust<strong>.</strong>&nbsp;(3)&nbsp;Incomplete risk coverage: without a strong knowledge foundation, models perform poorly when dealing with subtle or previously unseen risks.&nbsp;&nbsp;&nbsp;</p>
-
-
-
-<p>To address these challenges, researchers from the University of Chicago, University of California, Santa Barbara, University of Illinois Urbana–Champaign, VirtueAI, and Microsoft Research recently released a paper: <a href="https://www.microsoft.com/en-us/research/publication/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/" target="_blank" rel="noreferrer noopener">BlueCodeAgent: A Blue Teaming Agent Enabled by Automated Red Teaming for CodeGen AI</a>. This work makes the following key contributions:&nbsp;</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>Diverse red-teaming pipeline:</strong> The authors design a comprehensive red-teaming process that integrates multiple strategies to synthesize diverse red-teaming data for effective knowledge accumulation.</li>
-
-
-
-<li><strong>Knowledge-enhanced blue teaming:</strong> Building on the foundation of red-teaming knowledge, BlueCodeAgent significantly improves blue-teaming performance by leveraging constitutions derived from knowledge and dynamic testing.&nbsp;</li>
-
-
-
-<li><strong>Principled-Level Defense and Nuanced-Level analysis:</strong> The authors propose two complementary strategies—Principled-Level Defense (via constitutions) and Nuanced-Level Analysis (via dynamic testing)—and demonstrate their synergistic effects in vulnerable code detection tasks.&nbsp;</li>
-
-
-
-<li><strong>Generalization to seen and unseen risks:</strong> Empowered by comprehensive red-teaming knowledge, BlueCodeAgent generalizes effectively to unseen risks. Overall, BlueCodeAgent achieves an average 12.7% improvement in F1 score across four datasets and three tasks, attributed to its ability to distill actionable constitutions that enhance context-aware risk detection.&nbsp;</li>
-</ol>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1202" height="371" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png" alt="Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. " class="wp-image-1154397" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1.png 1202w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-300x93.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-1024x316.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-768x237.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure1-240x74.png 240w" sizes="auto, (max-width: 1202px) 100vw, 1202px" /><figcaption class="wp-element-caption">Figure 1. A case study of BlueCodeAgent on the bias instruction detection task. Even when concepts such as “biased” are explicitly included in additional safety prompts, models often fail to recognize biased requests (left). BlueCodeAgent (right) addresses this gap by summarizing constitutions from knowledge and applying concrete, actionable constraints benefited from red teaming to improve the defense. </figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="a-blue-teaming-agent-enabled-by-red-teaming">A blue teaming agent enabled by red teaming</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1222" height="581" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png" alt="Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. " class="wp-image-1154396" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2.png 1222w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-300x143.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-1024x487.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-768x365.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure2-240x114.png 240w" sizes="auto, (max-width: 1222px) 100vw, 1222px" /><figcaption class="wp-element-caption">Figure 2: Overview of BlueCodeAgent, an end-to-end blue teaming framework powered by automated red teaming for code security. By integrating knowledge derived from diverse red teaming and conducting dynamic sandbox-based testing, BlueCodeAgent substantially strengthens the defensive capabilities beyond static LLM analysis. </figcaption></figure>
-
-
-
-<p>Figure 2 presents an overview of the pipeline. The framework unifies both sides of the process: red teaming generates diverse risky cases and behaviors, which are then distilled into actionable constitutions that encode safety rules on the blue-teaming side. These constitutions guide BlueCodeAgent to more effectively detect unsafe textual inputs and code outputs, mitigating limitations such as poor alignment with abstract security concepts.&nbsp;</p>
-
-
-
-<p>This work targets three major risk categories, covering both input/textual-level risks—including biased and malicious instructions—and output/code-level risks, where models may generate vulnerable code. These categories represent risks that have been widely studied in prior research.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="diverse-red-teaming-process-for-knowledge-accumulation">Diverse red-teaming process for knowledge accumulation&nbsp;</h2>
-
-
-
-<p>Since different tasks require distinct attack strategies, the&nbsp;red-teaming&nbsp;employs multiple attack methods to generate realistic and diverse data. Specifically, the red-teaming process is divided into three categories:</p>
-
-
-
-<ol class="wp-block-list">
-<li><strong>Policy-based instance generation</strong>: To synthesize policy-grounded red-teaming data, diverse security and ethical policies are first collected. These high-level principles are then used to prompt an uncensored model to generate instances that intentionally violate the specified policies.</li>
-
-
-
-<li><strong>Seed-based adversarial prompt optimization</strong>: Existing adversarial instructions are often overly simplistic and easily rejected by models. To overcome this limitation, an adaptive red-teaming agent invokes various jailbreak tools to iteratively refine initial seed prompts until the prompts achieve high attack success rates.</li>
-
-
-
-<li><strong>Knowledge-driven vulnerability generation</strong>: To synthesize both vulnerable and safe code samples under realistic programming scenarios, domain knowledge of common software weaknesses (CWE) is leveraged to generate diverse code examples.</li>
-</ol>
-
-
-
-<h2 class="wp-block-heading" id="knowledge-enhanced-blue-teaming-agent">Knowledge-enhanced blue teaming agent&nbsp;</h2>
-
-
-
-<p>After accumulating red-teaming knowledge data, BlueCodeAgent set up <strong>Principled-Level Defense via Constitution Construction</strong> and <strong>Nuanced-Level Analysis via Dynamic Testing</strong>.</p>
-
-
-
-<ol class="wp-block-list">
-<li><strong>Principled-Level Defense via Constitution Construction</strong>&nbsp;<br>Based on the most relevant knowledge data<strong>, </strong>BlueCodeAgent summarizes red-teamed knowledge into actionable constitutions—explicit rules and principles distilled from prior attack data. These constitutions serve as normative guidelines, enabling the model to stay aligned with ethical and security principles even when confronted with novel or unseen adversarial inputs.&nbsp;</li>
-
-
-
-<li><strong>Nuanced-Level Analysis via Dynamic Testing</strong>&nbsp;<br>In vulnerable code detection, BlueCodeAgent augments static reasoning with dynamic sandbox-based analysis, executing generated code within isolated Docker environments to verify whether the model-reported vulnerabilities manifest as actual unsafe behaviors. This dynamic validation effectively mitigates the model’s tendency toward over-conservatism, where benign code is mistakenly flagged as vulnerable.&nbsp;</li>
-</ol>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="insights-from-bluecodeagent">Insights from BlueCodeAgent&nbsp;</h2>
-
-
-
-<h3 class="wp-block-heading" id="bluecodeagent-outperforms-prompting-baselines">BlueCodeAgent outperforms prompting baselines&nbsp;</h3>
-
-
-
-<p>As shown in Figure 3, BlueCodeAgent significantly outperforms other baselines. Several findings are highlighted.&nbsp;</p>
-
-
-
-<p>(1) Even when test categories differ from knowledge categories to simulate unseen scenarios, BlueCodeAgent effectively leverages previously seen risks to handle unseen ones, benefiting from its knowledge-enhanced safety reasoning.&nbsp;</p>
-
-
-
-<p>(2) BlueCodeAgent is model-agnostic, working consistently across diverse base LLMs, including both open-source and commercial models. Its F1 scores for bias and malicious instruction detection approach 1.0, highlighting strong effectiveness.&nbsp;</p>
-
-
-
-<p>(3) BlueCodeAgent achieves a strong balance between safety and usability. It accurately identifies unsafe inputs while maintaining a reasonable false-positive rate on benign ones, resulting in a consistently high F1 score.&nbsp;</p>
-
-
-
-<p>(4) By contrast, prompting with general or fine-grained safety reminders remains insufficient for effective blue teaming, as models struggle to internalize abstract safety concepts and apply them to unseen risky scenarios. BlueCodeAgent bridges this gap by distilling actionable constitutions from knowledge, using concrete and interpretable safety constraints to enhance model alignment.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="993" height="602" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3.png" alt="Figure 3. F1 scores on bias instruction detection task (BlueCodeEval-Bias) in the first row and on malicious instruction detection task (BlueCodeEval-Mal, RedCode-based) in the second row. " class="wp-image-1154395" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3.png 993w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3-300x182.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3-768x466.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/BlueCodeAgent_figure3-240x145.png 240w" sizes="auto, (max-width: 993px) 100vw, 993px" /><figcaption class="wp-element-caption"><strong>Figure 3:</strong>&nbsp;F1 scores on bias instruction detection task (BlueCodeEval-Bias) in the first row and on malicious instruction detection task (BlueCodeEval-Mal) in the second row.&nbsp;</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="complementary-effects-of-constitutions-and-dynamic-testing">Complementary effects of constitutions and dynamic testing&nbsp;</h2>
-
-
-
-<p>In vulnerability detection tasks, models tend to behave conservatively—an effect also noted in prior research. They are often more likely to flag code as <em>unsafe</em> rather than <em>safe</em>. This bias is understandable: confirming that code is completely free from vulnerabilities is generally harder than spotting a potential issue.&nbsp;</p>
-
-
-
-<p>To mitigate this over-conservatism, BlueCodeAgent integrates dynamic testing into its analysis pipeline. When BlueCodeAgent identifies a potential vulnerability, it triggers a reliable model (Claude-3.7-Sonnet-20250219) to generate test cases and corresponding executable code that embeds the suspicious snippet. These test cases are then run in a controlled environment to verify whether the vulnerability actually manifests. The final judgment combines the LLM’s analysis of the static code, the generated test code, run-time execution results, and constitutions derived from knowledge.&nbsp;</p>
-
-
-
-<p>Researchers find the two components—constitutions and dynamic testing—play complementary roles. Constitutions expand the model’s understanding of risk, increasing true positives (TP) and reducing false negatives (FN). Dynamic testing, on the other hand, focuses on reducing false positives (FP) by validating whether predicted vulnerabilities can truly be triggered at run-time. Together, they make BlueCodeAgent both more accurate and more reliable in blue-teaming scenarios.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="summary">Summary&nbsp;</h2>
-
-
-
-<p>BlueCodeAgent introduces an end-to-end blue-teaming framework designed to address risks in code generation. The key insight behind BlueCodeAgent is that comprehensive red-teaming can greatly strengthen blue-teaming defenses. Based on this idea, the framework first builds a red-teaming process with diverse strategies for generating red-teaming data. It then constructs a blue-teaming agent that retrieves relevant examples from the red-teaming knowledge base and summarizes safety constitutions to guide LLMs in making accurate defensive decisions. A dynamic testing component is further added to reduce false positives in vulnerability detection.&nbsp;</p>
-
-
-
-<p>Looking ahead, several directions hold promise.&nbsp;&nbsp;</p>
-
-
-
-<p>First, it is valuable to explore the generalization of BlueCodeAgent to other categories of code-generation risks beyond bias, malicious code, and vulnerable code. This may require designing and integrating novel red-teaming strategies into BlueCodeAgent and creating corresponding benchmarks for new risks.&nbsp;&nbsp;</p>
-
-
-
-<p>Second, scaling BlueCodeAgent to the file and repository levels could further enhance its real-world utility, which requires equipping agents with more advanced context retrieval tools and memory components.&nbsp;&nbsp;</p>
-
-
-
-<p>Finally, beyond code generation, it is also important to extend BlueCodeAgent to mitigate risks in other modalities, including text, image, video, and audio, as well as in multimodal applications.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/bluecodeagent-a-blue-teaming-agent-enabled-by-automated-red-teaming-for-codegen-ai/">BlueCodeAgent: A blue teaming agent enabled by automated red teaming for CodeGen AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
