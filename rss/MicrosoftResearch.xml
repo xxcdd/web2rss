@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 27 Jan 2026 02:32:05 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 05 Feb 2026 16:09:45 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,564 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9</generator>
 	<item>
+		<title>Rethinking imitation learning with Predictive Inverse Dynamics Models</title>
+		<link>https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/</link>
+		
+		<dc:creator><![CDATA[Pallavi Choudhury, Lukas Sch&auml;fer, Chris Lovett, Katja Hofmann, Sergio Valcarcel Macua]]></dc:creator>
+		<pubDate>Thu, 05 Feb 2026 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160901</guid>
+
+					<description><![CDATA[<p>This research looks at why Predictive Inverse Dynamics Models often outperform standard Behavior Cloning in imitation learning. By using simple predictions of what happens next, PIDMs reduce ambiguity and learn from far fewer demonstrations.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/">Rethinking imitation learning with Predictive Inverse Dynamics Models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New.jpg" alt="Smart Replay - flowchart diagram showing the flow between Encoder, State Predictor, and Policy" class="wp-image-1161128" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Imitation learning becomes easier when an AI&nbsp;agent&nbsp;understands why an action is taken.</li>
+
+
+
+<li>Predictive Inverse Dynamics Models (PIDMs)&nbsp;predict&nbsp;plausible future states,&nbsp;clarifying the direction of behavior during imitation&nbsp;learning.</li>
+
+
+
+<li>Even imperfect predictions reduce ambiguity,&nbsp;making&nbsp;it clearer which action makes sense&nbsp;in the moment.</li>
+
+
+
+<li>This makes PIDMs far more data‑efficient than traditional approaches.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Imitation&nbsp;learning&nbsp;teaches&nbsp;AI agents by example: show the agent recordings of how people perform a task and let it&nbsp;infer&nbsp;what to do.&nbsp;The&nbsp;most common&nbsp;approach,&nbsp;Behavior Cloning&nbsp;(BC),&nbsp;frames this as a simple question: “Given the current state&nbsp;of the environment, what action&nbsp;would&nbsp;an expert take?”</p>
+
+
+
+<p>In practice, this is done through supervised learning, where the states serve as inputs and expert actions as outputs. While simple in principle, BC often requires large demonstration datasets to account for the natural variability in human behavior, but collecting such datasets can be costly and difficult in real-world settings.</p>
+
+
+
+<p>Predictive Inverse Dynamics Models (PIDMs) offer a different take on imitation learning by changing how agents interpret human behavior. Instead of directly mapping states to actions, PIDMs break down the problem into two subproblems: predicting what should happen next and inferring an appropriate action to go from the current state to the predicted future state. While PIDMs often outperform BC, it has not been clear why they work so well, motivating a closer look at the mechanisms behind their performance.</p>
+
+
+
+<p>In the paper, “<a href="https://www.microsoft.com/en-us/research/publication/when-does-predictive-inverse-dynamics-outperform-behavior-cloning/">When does predictive inverse dynamics outperform behavior cloning?</a>” we show how this two-stage approach enables PIDMs to learn effective policies from far fewer demonstrations than BC. By grounding the selection process in a plausible future, PIDMs provide a clearer basis for choosing an action&nbsp;during inference. In practice, this can mean achieving comparable performance with as few as one-fifth the demonstrations required by BC, even when predictions are imperfect.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="1009" height="658" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1.png" alt="Figure 1. BC vs. PIDM architectures. (Top) Behavior Cloning learns how to perform a direct mapping from the current state to an action. (Bottom) PIDMs add a state predictor that predicts future states. They then use an inverse dynamics model to predict the action required to move from the current state towards that future state. Both approaches share a common latent representation through a shared state encoder." class="wp-image-1161185" style="width:600px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1.png 1009w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1-300x196.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1-768x501.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1-240x157.png 240w" sizes="(max-width: 1009px) 100vw, 1009px" /><figcaption class="wp-element-caption">Figure 1. BC vs. PIDM architectures.&nbsp;(Top) Behavior&nbsp;Cloning learns&nbsp;how to perform&nbsp;a direct mapping from the current state to an action. (Bottom)&nbsp;PIDMs add a state predictor that predicts future&nbsp;states. They&nbsp;then use an inverse dynamics model to predict the action&nbsp;required&nbsp;to move from the current state towards that future state. Both approaches share a common latent representation through a shared state encoder.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="how-pidms-rethink-imitation">How PIDMs rethink imitation</h2>
+
+
+
+<p>PIDMs’ approach to imitation learning consists of two core elements: a model that forecasts plausible future states, and an inverse dynamics model (IDM) that predicts the action needed to move from the present state toward that future. Instead of asking, “What action would an expert take?” PIDMs effectively ask, “What would an expert try to achieve, and what action would lead to it?” This shift turns the information in the current observation (e.g., video frame) into a coherent sense of direction, reducing ambiguity about intent and making action prediction easier.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="real-world-validation-in-a-3d-gameplay-environment">Real-world validation in a 3D gameplay environment</h2>
+
+
+
+<p>To evaluate PIDMs under realistic conditions, we trained agents on human gameplay demonstrations in a visually rich video game. These conditions include operating directly from raw video input, interacting with a complex 3D environment in real time at 30 frames per second, and handling visual artifacts and unpredictable system delays.  </p>
+
+
+
+<p>The agents ran from beginning to end, taking video frames as input and continuously deciding which buttons to press and how to move the joysticks. Instead of relying on a hand-coded set of game variables and rules, the model worked directly from visual input, using past examples to predict what comes next and choosing actions that moved play in that direction.</p>
+
+
+
+<p>We ran all experiments on a cloud gaming platform, which introduced additional delays and visual distortions. Despite these challenges, the PIDM agents consistently matched human patterns of play and achieved high success rates across tasks, as shown in Video 1 below and Videos 2 and 3 in the appendix.</p>
+
+
+
+<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Smart Replay demo: exercise (video 1)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/Jfjt_k6Pw1k?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption class="wp-element-caption">Video 1. A player&nbsp;(left)&nbsp;and a PIDM agent&nbsp;(right)&nbsp;side by side playing the game&nbsp;<em>Bleeding Edge</em>.&nbsp;Both&nbsp;navigate the same trajectory,&nbsp;jumping over obstacles and engaging&nbsp;with&nbsp;nonplayer&nbsp;characters. Despite&nbsp;network delays, the&nbsp;agent closely matches the player&#8217;s timing and&nbsp;movement&nbsp;in real time.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="why-and-when-pidms-outperform-bc">Why and when PIDMs outperform BC</h2>
+
+
+
+<p>Of course, AI agents do not have access to future outcomes. They can only generate predictions based on available data, and those predictions are sometimes wrong. This creates a central trade‑off for PIDMs.</p>
+
+
+
+<p>On one hand, anticipating where the agent should be heading can clarify what action makes sense in the present. Knowing the intended direction helps narrow an otherwise ambiguous choice. On the other hand, inaccurate predictions can occasionally steer the model toward the wrong action.</p>
+
+
+
+<p>The key insight is that these effects are not symmetric. While prediction errors introduce some risk, reducing ambiguity in the present often matters more. Our theoretical analysis shows that even with imperfect predictions, PIDMs outperform BC as long as the prediction error remains modest. If future states were known perfectly, PIDMs would outperform BC outright.</p>
+
+
+
+<p>In practice, this means that clarifying intent often matters more than accurately predicting the future. That advantage is most evident in the situations where BC struggles: where human behavior varies and actions are driven by underlying goals rather than by what is immediately visible on the screen.</p>
+
+
+
+<p>BC requires many demonstrations because each example is noisy and open to multiple interpretations. PIDMs, by contrast, sharpen each demonstration by linking actions to the future states they aim to reach. As a result, PIDMs can learn effective action strategies from far fewer examples.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
+
+
+
+<p>To test these ideas under realistic conditions, we designed a sequence of experiments that begins with a simple, interpretable 2D environment (Video 4 in the appendix) and culminates in a complex 3D video game. We trained both BC and PIDM on very small datasets, ranging from one to fifty demonstrations in the 2D environment and from five to thirty for the 3D video game. Across all tasks, PIDM reached high success rates with far fewer demonstrations than BC.</p>
+
+
+
+<p>In the 2D setting, BC needed two to five times more data to match PIDM’s performance (Figure 2). In the 3D game, BC needed 66% more data to achieve comparable results (Video 5 in the appendix).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1166" height="871" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d.png" alt="Figure 2. Performance gains in the 2D environment. As the number of training demonstrations increases, PIDM consistently achieves higher success rates than BC across all four tasks. Curves show mean performance, with shading indicating variability across 20 experiments for reproducibility." class="wp-image-1161012" style="object-fit:cover" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d.png 1166w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-300x224.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-1024x765.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-768x574.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-240x180.png 240w" sizes="auto, (max-width: 1166px) 100vw, 1166px" /><figcaption class="wp-element-caption">Figure 2. Performance gains in the 2D environment. As the number of training demonstrations increases, PIDM consistently achieves higher success rates than BC across all four tasks. Curves show mean performance, with shading indicating variability across 20 experiments for reproducibility. </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="takeaway-intent-matters-in-imitation-learning">Takeaway: Intent matters in imitation learning</h2>
+
+
+
+<p>The main message of our investigation is simple: imitation becomes easier when intent is made explicit. Predicting a plausible future, even an imperfect one, helps resolve ambiguity about which action makes sense right now, much like driving more confidently in the fog when the driver already knows where the road is headed. PIDM shifts imitation learning from pure copying toward goal-oriented action.</p>
+
+
+
+<p>This approach has limits. If predictions of future states become too unreliable, they can mislead the model about the intended next move. In those cases, the added uncertainty can outweigh the benefit of reduced ambiguity, causing PIDM to underperform BC.</p>
+
+
+
+<p>But when predictions are reasonably accurate, reframing action prediction as “<em>How do I get there from here</em>?” helps explain why learning from small, messy human datasets can be surprisingly effective. In settings where data is expensive and demonstrations are limited, that shift in perspective can make a meaningful difference.</p>
+
+
+
+<h2 class="wp-block-heading" id="appendix-visualizations-and-results-videos">Appendix: Visualizations and results (videos)</h2>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading h4" id="a-player-a-naive-action-replay-baseline-and-a-pidm-agent-playing-bleeding-edge-1">A player, a naïve action-replay baseline, and a PIDM agent playing <em>Bleeding Edge</em></h3>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Smart Replay demo: Player and PIDM performing a complex task (video 2)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/x1WdGiX4QYk?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption class="wp-element-caption">Video&nbsp;2. (Left)&nbsp;The player completes the task under normal conditions. (Middle)&nbsp;The baseline replays the recorded actions at their original timestamps, which initially appears to work. Because the game runs on a cloud gaming platform, however, random network delays quickly push the replay&nbsp;out of sync, causing the trajectory to fail. (Right) Under the same conditions, the PIDM agent behaves differently. Instead of naively replaying actions, it continuously interprets visual input, predicts how the behavior is likely to unfold, and adapts its actions in real time. This allows it to correct delays, recover from deviations, and successfully reproduce the task in settings where naïve replay inevitably fails.</figcaption></figure>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading h4" id="a-player-and-a-pidm-agent-performing-a-complex-task-in-bleeding-edge">A player and a PIDM agent&nbsp;performing a complex task in&nbsp;<em>Bleeding Edge</em></h3>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Smart Replay demo: Player, replay baseline, and PIDM (video 3)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/gUbIsAcsW6w?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption class="wp-element-caption">Video&nbsp;3.&nbsp;In this video, the task&nbsp;exhibits&nbsp;strong partial observability: correct behavior depends on whether a location is being visited for the first or second time. For example,&nbsp;in the first encounter, the agent proceeds straight up the ramp; on the second, it turns right toward the bridge. Similarly, it may jump over a box on the first pass but walk around it on the second. The PIDM agent reproduces this trajectory reliably, using coarse future guidance to select actions in the correct direction.</figcaption></figure>
+</div>
+</div>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading h4" id="visualization-of-the-2d-navigation-environment">Visualization of the 2D navigation environment</h3>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Smart Replay demo: 2D navigation task visualization (video 4)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/PfU2gMXqQ8c?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption class="wp-element-caption">Video&nbsp;4.&nbsp;These&nbsp;videos show ten demonstrations for each of four tasks: Four Room, Zigzag, Maze, and Multiroom. In all cases, the setup is the same: the character (blue box) moves through the environment and must reach a sequence of goals (red squares).&nbsp;The overlaid trajectories visualize the paths the player took; the models never see these paths. Instead, they observe only their character’s current location, the position of all goals, and whether each goal has already been reached. Because these demonstrations come from real players, no two paths are identical: players pause, take detours, or correct small mistakes along the way. That natural variability is exactly what the models must learn to handle.</figcaption></figure>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h3 class="wp-block-heading h4" id="pidm-vs-bc-in-a-3d-environment">PIDM vs. BC in a 3D&nbsp;environment</h3>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Smart Replay demo: PIDM vs. BC in a 3D environment (video 5)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/iXgDXSVPJxY?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption class="wp-element-caption">Video&nbsp;5. The PIDM agent achieves an 85% success rate with only fifteen demonstrations used in training. The BC agent struggles to stay on track and levels off around 60%.&nbsp;The contrast illustrates how differently the two approaches perform when training data is limited.</figcaption></figure>
+</div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/">Rethinking imitation learning with Predictive Inverse Dynamics Models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Paza: Introducing automatic speech recognition benchmarks and models for low resource languages</title>
+		<link>https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/</link>
+		
+		<dc:creator><![CDATA[Mercy Muchai, Kevin  Chege, Nick  Mumero, Stephanie Nyairo]]></dc:creator>
+		<pubDate>Thu, 05 Feb 2026 05:07:55 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160691</guid>
+
+					<description><![CDATA[<p>Microsoft Research unveils Paza, a human-centered speech pipeline, and PazaBench, the first leaderboard for low-resource languages. It covers 39 African languages and 52 models and is tested with communities in real settings. </p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/">Paza: Introducing automatic speech recognition benchmarks and models for low resource languages</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a blue‑to‑purple gradient background: a vertical audio waveform on the left, a globe showing Africa and Europe in the center, and a network on the right." class="wp-image-1160744" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Microsoft Research releases PazaBench and Paza automatic speech recognition models</strong>, advancing speech technology for low resource languages.</li>
+
+
+
+<li><strong>Human-centered pipeline for low-resource languages: </strong>Built for and tested by communities, Paza is an end-to-end, continuous pipeline that elevates historically under-represented languages and makes speech models usable in real-world, low-resource contexts.</li>
+
+
+
+<li><strong>First-of-its-kind ASR leaderboard, starting with African languages: </strong>Pazabench is the first automatic speech recognition (ASR) leaderboard for low-resource languages. Launching with 39 African languages and 51 state-of-the-art models, it tracks three key metrics across leading public and community datasets.</li>
+
+
+
+<li><strong>Human-centered&nbsp;Paza&nbsp;ASR&nbsp;models:</strong>&nbsp;Minimal&nbsp;data, fine-tuned&nbsp;ASR models&nbsp;grounded in&nbsp;real-world&nbsp;testing&nbsp;with farmers on everyday mobile devices, covering&nbsp;six&nbsp;Kenyan languages:&nbsp;Swahili,&nbsp;Dholuo, Kalenjin, Kikuyu, Maasai,&nbsp;and Somali.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>According to the 2025&nbsp;<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Microsoft-AI-Diffusion-Report-2025-H2.pdf" target="_blank" rel="noreferrer noopener">Microsoft AI Diffusion Report</a>&nbsp;approximately one&nbsp;in&nbsp;six&nbsp;people globally had used a generative AI product.&nbsp;Yet for billions of&nbsp;people,&nbsp;the promise of voice interaction still falls short, and&nbsp;whilst&nbsp;AI is becoming increasingly multilingual, a key question&nbsp;remains:&nbsp;<em><strong>Do&nbsp;these models&nbsp;actually work&nbsp;for all languages and the people who rely on them?</strong></em>&nbsp;This challenge is one we first confronted through&nbsp;<a href="https://www.microsoft.com/en-us/research/project/project-gecko/" target="_blank" rel="noreferrer noopener">Project Gecko</a>—a collaboration between Microsoft Research and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://digitalgreen.org/" target="_blank" rel="noopener noreferrer">Digital&nbsp;Green<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;where&nbsp;field teams across Africa and India focused on building usable AI tools for farmers.</p>
+
+
+
+<p>Gecko revealed how often speech systems fail in real‑world, low‑resource environments—where many languages go&nbsp;unrecognized&nbsp;and non‑Western accents are frequently misunderstood. Yet speech remains the primary medium of communication globally. For communities across Kenya, Africa, and beyond, this mismatch creates cascading challenges: without foundational data&nbsp;representing&nbsp;their languages and cultures, innovation stalls, and the digital and AI divides widen.&nbsp;</p>
+
+
+
+<p>Paza addresses this with a human-centered speech models pipeline. Through&nbsp;PazaBench, it benchmarks low-resource languages using both public and community-sourced data, and through Paza&nbsp;models, it&nbsp;fine-tunes&nbsp;speech models&nbsp;to deliver outsized gains in mid- and low-resource languages, evaluating with community testers using real devices in real contexts. Upcoming playbooks complement this work by sharing practical guidance on&nbsp;dataset creation,&nbsp;fine-tuning&nbsp;approaches&nbsp;with minimal data&nbsp;and evaluation considerations, introducing a continuous pipeline that&nbsp;enables&nbsp;researchers&nbsp;and practitioners to build and evaluate systems grounded in real human use.</p>
+
+
+
+<h2 class="wp-block-heading" id="how-project-gecko-informed-paza-s-design">How Project Gecko informed Paza’s design</h2>
+
+
+
+<p>In addition to building cost-effective, adaptable AI systems, the extensive&nbsp;fieldwork on&nbsp;Project Gecko highlighted an important lesson:&nbsp;<strong><em>Building usable speech&nbsp;models&nbsp;in low‑resource settings is not only a data problem,&nbsp;but also&nbsp;a design and evaluation problem.</em></strong>&nbsp;For AI systems to be useful, they must work in local languages, support hands‑free interaction through voice, text, and video, and deliver information in formats that fit real-world environments, that is, on low-bandwidth&nbsp;mobile devices,&nbsp;in&nbsp;noisy settings, and&nbsp;for&nbsp;varying literacy levels.&nbsp;&nbsp;</p>
+
+
+
+<p>These insights shaped the design of Paza, from&nbsp;the&nbsp;Swahili&nbsp;phrase&nbsp;<em><strong>paza&nbsp;sauti</strong></em>&nbsp;meaning “to project,” or “to raise your voice.” &nbsp;The name reflects our intent: rather than simply adding more languages to existing systems,<strong>&nbsp;Paza is about co-creating speech technologies in partnership with the communities who use them.</strong>&nbsp;Guided by this principle, Paza puts human use&nbsp;first,&nbsp;which&nbsp;enables&nbsp;model improvement.&nbsp;</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="pazabench-the-first-asr-leaderboard-for-low-resource-languages">PazaBench: The first ASR leaderboard for low-resource languages</h2>
+
+
+
+<p><strong>PazaBench</strong> is the first automatic speech recognition (ASR) leaderboard dedicated to low‑resource languages. It launches&nbsp;with&nbsp;initial&nbsp;coverage&nbsp;for&nbsp;39 African languages and benchmarks&nbsp;52 state‑of‑the‑art ASR and language models, including newly released Paza ASR models for six Kenyan languages. The platform aggregates leading public and community datasets from diverse styles of speech including conversational, scripted read aloud, unscripted, broadcast news, and domain-specific data—into one easy‑to‑explore platform per language.&nbsp;This makes it easier for&nbsp;researchers, developers, and product teams to easily assess which models perform best across underserved languages and diverse regions, understand trade-offs between speed and accuracy&nbsp;while&nbsp;identifying&nbsp;where gaps persist.&nbsp;</p>
+
+
+
+<p><strong>PazaBench tracks three core metrics:</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Character Error Rate (CER)</strong> which is important for languages with rich word forms, where meaning is built by combining word parts, therefore errors at the character level can significantly impact meaning</li>
+
+
+
+<li><strong>Word Error Rate (WER)</strong> for word-level transcript accuracy</li>
+
+
+
+<li><strong>RTFx (Inverse Real‑Time Factor)</strong> which measures how fast transcription runs relative to real‑time audio duration<em>.</em></li>
+</ol>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="PazaBench Walkthrough" width="500" height="281" src="https://www.youtube-nocookie.com/embed/jAuuh0saMUI?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p><em><strong><em>More than scores,&nbsp;PazaBench&nbsp;standardizes evaluation to prioritize dataset gaps,&nbsp;identify&nbsp;underperforming languages, and highlight where localized models beat&nbsp;wider coverage ASR models—offering early evidence of&nbsp;the value of African‑centric innovation.</em></strong></em></p>
+</blockquote>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/spaces/microsoft/paza-bench" target="_blank" rel="noreferrer noopener">Explore PazaBench</a></div>
+</div>
+
+
+
+<p class="has-text-align-center"><em><sup>To contribute to the benchmark, request additional language evaluation on the leaderboard.</sup></em></p>
+
+
+
+<h2 class="wp-block-heading" id="paza-asr-models-built-with-and-for-kenyan-languages">Paza ASR Models: Built with and for Kenyan languages</h2>
+
+
+
+<p>The Paza ASR models consist of three fine-tuned ASR models built on top of state‑of‑the‑art model architectures. Each model targets <em>Swahili, </em>a mid-resource language and five low‑resource Kenyan languages; <em>Dholuo, Kalenjin, Kikuyu, Maasai and Somali</em>. The models are fine-tuned on public and curated proprietary datasets.  </p>
+
+
+
+<p>Fine‑tuning the three models allowed us to explore supportive approaches toward a shared goal: building speech recognition systems that are usable for local contexts starting with the six Kenyan languages and bridging the gaps of multi-lingual and multi-modal video question and answering through the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/mmct-agent/" target="_blank" rel="noopener noreferrer">MMCT agent.<span class="sr-only"> (opens in new tab)</span></a></p>
+
+
+
+<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Project Gecko: Building globally equitable generative AI" width="500" height="281" src="https://www.youtube-nocookie.com/embed/59O8kP8pmtI?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div><figcaption class="wp-element-caption">See the MMCT agent in action in the field</figcaption></figure>
+
+
+
+<p>Early versions of two models in Kikuyu and Swahili were deployed on mobile devices and tested directly with farmers in real‑world settings, enabling the team to observe how the models performed with everyday use. Farmers provided in‑the‑moment feedback on accuracy, usability, and relevance, highlighting where transcripts broke down, which errors were most disruptive, and what improvements would make the models more helpful in practice. This feedback loop directly informed subsequent fine‑tuning, ensuring model improvements were driven not only by benchmark scores, but by the needs and expectations of the communities they are intended to serve.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/collections/microsoft/paza" target="_blank" rel="noreferrer noopener">Explore Paza Collection Here</a></div>
+</div>
+
+
+
+<p>Here is how Paza models compare to&nbsp;three&nbsp;state-of-the-art&nbsp;ASR&nbsp;models&nbsp;today:</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1287" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-scaled.png" alt="Figure 1: Character Error Rate (CER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower CER indicates better transcription performance." class="wp-image-1161323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-1024x515.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-768x386.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-1536x772.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-2048x1029.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-240x121.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1: Character Error Rate (CER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower CER indicates better transcription performance.</em></figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1287" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-scaled.png" alt="Figure 2: Word Error Rate (WER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower WER indicates better transcription performance." class="wp-image-1161325" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-1024x515.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-768x386.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-1536x772.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-2048x1029.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-240x121.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 2: Word Error Rate (WER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower WER indicates better transcription performance.</em></figcaption></figure>
+
+
+
+<p><strong>1) Paza‑Phi‑4‑Multimodal‑Instruct</strong></p>
+
+
+
+<p>Microsoft’s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Phi-4-multimodal-instruct" target="_blank" rel="noopener noreferrer">Phi‑4 multimodal‑instruct<span class="sr-only"> (opens in new tab)</span></a> is a next‑generation small language model built to reason across audio, text, and vision. With Paza, we extend its audio capabilities, adapting a powerful multimodal architecture into a high‑quality automatic speech recognition (ASR) system for low‑resource African languages.</p>
+
+
+
+<p>Fine‑tuned on unified multilingual speech datasets, the model was optimized specifically for transcription in the six languages. The model preserves its underlying transformer architecture and multi-modal capabilities, while selectively fine-tuning only the audio‑specific components, enabling strong cross‑lingual generalization.</p>
+
+
+
+<p>As the results below show, this model delivers consistent improvements in transcription quality across all six languages.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1063" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-scaled.png" alt="Figure 3: Character Error Rate (CER) comparison across the six languages for the base model versus the finetuned Paza model. Lower CER indicates better transcription performance." class="wp-image-1161376" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-1024x425.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-768x319.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-1536x638.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-2048x851.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-240x100.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 3: <em>Character Error Rate (CER) comparison across&nbsp;the six</em><strong>&nbsp;</strong><em>languages for the base&nbsp;model&nbsp;versus the finetuned Paza model.&nbsp;Lower CER&nbsp;indicates&nbsp;better transcription performance.</em></em></figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1063" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-scaled.png" alt="Figure 4: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance." class="wp-image-1161378" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-1024x425.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-768x319.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-1536x638.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-2048x851.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-240x100.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 4: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance.</em></figcaption></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/microsoft/paza-Phi-4-multimodal-instruct" target="_blank" rel="noreferrer noopener">Test the model here</a></div>
+</div>
+
+
+
+<p><strong>2) Paza‑MMS‑1B‑All</strong></p>
+
+
+
+<p>This model is fine-tuned on Meta’s mms-1b-all model, which employs a large-scale Wav2Vec2.0-style encoder with lightweight language-specific adapters to enable efficient multilingual specialization. For this release, each of the six language adapters was fine‑tuned independently on curated low‑resource datasets, allowing targeted adaptation while keeping the shared encoder largely frozen.</p>
+
+
+
+<p>As shown in the figures below, this model improves transcription accuracy while maintaining the model’s strong cross‑lingual generalization.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1160" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-scaled.png" alt="Figure 5: Character Error Rate (CER) comparison across the six languages for the base model versus the finetuned Paza model. Lower CER indicates better transcription performance." class="wp-image-1161380" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-300x136.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-1024x464.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-768x348.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-1536x696.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-2048x928.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-240x109.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 5: <em>Character Error Rate (CER)&nbsp;comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model&nbsp;versus&nbsp;the finetuned Paza model.&nbsp;Lower CER&nbsp;indicates&nbsp;better transcription performance.</em></em></figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1160" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-scaled.png" alt="Figure 6: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance." class="wp-image-1161382" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-300x136.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-1024x464.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-768x348.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-1536x696.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-2048x928.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-240x109.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 6: <em>Word Error Rate (WER)&nbsp;comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model&nbsp;versus the finetuned Paza model.&nbsp;Lower WER indicates better transcription performance.</em></em></figcaption></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="http://Aka.ms/pazareap" target="_blank" rel="noreferrer noopener">Join the Research Early Access Program</a></div>
+</div>
+
+
+
+<p><strong>3) Paza‑Whisper‑Large‑v3‑Turbo</strong></p>
+
+
+
+<p>This model is finetuned on OpenAI’s whisper-large-v3-turbo&nbsp;base model. Whisper is a transformer-based encoder–decoder model which&nbsp;delivers robust automatic speech recognition (ASR)&nbsp;capabilities. This model was fine‑tuned on the entire unified multilingual ASR dataset,&nbsp;on&nbsp;the mentioned six languages, to encourage cross-lingual generalization.&nbsp;In addition, an extra post‑processing step was applied to address the known Whisper hallucination failure modes, improving transcription reliability.</p>
+
+
+
+<p>As shown below, this release achieves improved transcription accuracy while retaining Whisper’s robustness.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1081" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-scaled.png" alt="Figure 7: Character Error Rate (CER) comparison across the six languages for the base model versus the finetuned Paza model. Lower CER indicates better transcription performance." class="wp-image-1161338" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-1024x432.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-768x324.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-1536x648.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-2048x864.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-240x101.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 7: <em>Character Error Rate (CER) comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model versus the finetuned Paza model.&nbsp;Lower CER&nbsp;indicates&nbsp;better transcription performance.</em></em></figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1081" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-scaled.png" alt="Figure 8: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance." class="wp-image-1161341" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-1024x432.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-768x324.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-1536x648.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-2048x864.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-240x101.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 8: <em>Word Error Rate (WER) comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model versus the finetuned Paza model.&nbsp;Lower WER indicates better transcription performance.</em></em></figcaption></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--5"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/microsoft/paza-whisper-large-v3-turbo" target="_blank" rel="noreferrer noopener">Test the model here</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading" id="where-do-we-go-from-here">Where do we go from here</h2>
+
+
+
+<p>AI is reshaping how the world communicates. Designing with people, not just for them, means looking beyond the languages that are already well‑served. We plan to expand PazaBench beyond African languages and evaluate state‑of‑the‑art ASR models across&nbsp;more low‑resource languages globally. The Paza ASR models are an early step; truly supporting small and under‑represented languages requires dedicated datasets, strong local partnerships, and rigorous evaluation. Meaningful progress depends on sustained collaboration with the communities who speak these languages, and expanding responsibly means prioritizing depth and quality over broad but shallow coverage.&nbsp;</p>
+
+
+
+<p>As we continue this work,&nbsp;we&#8217;re&nbsp;distilling our methods into a forthcoming playbook to help the broader ecosystem curate datasets, fine‑tune responsibly, and evaluate models in real‑world conditions. And we’re not stopping at speech—additional&nbsp;playbooks will guide&nbsp;teams&nbsp;building AI tools and applications for multilingual, multicultural contexts, and give them practical recommendations for deploying across diverse communities.&nbsp;</p>
+
+
+
+<p>Together, these guides—grounded in technical advances and community‑driven design—share our learnings to help researchers, engineers, and designers build more human‑centered AI systems.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>The following researchers played an integral role in this work: Najeeb Abdulhamid, Felermino Ali, Liz Ankrah, Kevin Chege, Ogbemi Ekwejunor-Etchie, Ignatius Ezeani, Tanuja Ganu, Antonis Krasakis, Mercy Kwambai, Samuel Maina, Muchai Mercy, Danlami Mohammed, Nick Mumero, Martin Mwiti, Stephanie Nyairo, Millicent Ochieng and Jacki O’Neill.</p>
+
+
+
+<p>We would like to thank the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://digitalgreen.org/" target="_blank" rel="noopener noreferrer">Digital Green<span class="sr-only"> (opens in new tab)</span></a> team—Rikin Gandhi, Alex Mwaura, Jacqueline Wang’ombe, Kevin Mugambi, Lorraine Nyambura, Juan Pablo, Nereah Okanga, Ramaskanda R.S, Vineet Singh, Nafhtari Wanjiku, Kista Ogot, Samuel Owinya&nbsp;and the community evaluators in Nyeri and Nandi, Kenya — for their valuable contributions to this work.</p>
+
+
+
+<p>We extend our gratitude to the creators, community contributors, and maintainers of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/MCAA1-MSU/anv_data_ke" target="_blank" rel="noopener noreferrer">African Next Voices Kenya<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/dsfsi-anv/za-african-next-voices" target="_blank" rel="noopener noreferrer">African Next Voices South Africa<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://openslr.org/25/" target="_blank" rel="noopener noreferrer">ALFFA<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/DigiGreen/KikuyuASR_trainingdataset" target="_blank" rel="noopener noreferrer">Digigreen<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noopener noreferrer">Google FLEURS<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://commonvoice.mozilla.org/" target="_blank" rel="noopener noreferrer">Mozilla Common Voice<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/naijavoices/naijavoices-dataset" target="_blank" rel="noopener noreferrer">Naija Voices<span class="sr-only"> (opens in new tab)</span></a> whose efforts have been invaluable in advancing African languages speech data.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/">Paza: Introducing automatic speech recognition benchmarks and models for low resource languages</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>UniRG: Scaling medical imaging report generation with multimodal reinforcement learning</title>
 		<link>https://www.microsoft.com/en-us/research/blog/unirg-scaling-medical-imaging-report-generation-with-multimodal-reinforcement-learning/</link>
 		
@@ -32,7 +590,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/unirg-scaling-medical-imaging-report-generation-with-multimodal-reinforcement-learning/">UniRG: Scaling medical imaging report generation with multimodal reinforcement learning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue‑green gradient: a ribcage scan, a circuit‑style document, and a neural network diagram" class="wp-image-1160804" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue‑green gradient: a ribcage scan, a circuit‑style document, and a neural network diagram" class="wp-image-1160804" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -89,27 +647,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -126,7 +687,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2141" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-scaled.png" alt="Fig 1: Overview diagram of the UniRG-CXR framework showing training data sources, reinforcement-learning–based training with composite rewards, evaluation on multiple datasets, and a results panel demonstrating state-of-the-art performance across benchmarks." class="wp-image-1160837" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-scaled.png 2141w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-251x300.png 251w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-857x1024.png 857w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-768x918.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-1285x1536.png 1285w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-1713x2048.png 1713w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-151x180.png 151w" sizes="(max-width: 2141px) 100vw, 2141px" /><figcaption class="wp-element-caption">Figure 1. Overview of UniRG-CXR. (a) Training Data: UniRG-CXR is trained on the training splits of MIMIC-CXR, CheXpert Plus, and ReXGradient-160k, covering diverse institutions and patient demographics. (b) Training and Rewards: Taking input from the current image, clinical context (e.g., indication), and optionally prior studies, UniRG-CXR uses GRPO reinforcement learning to optimize composite rewards that combine rule-based, model-based, and LLM-based metrics. (c) Evaluation: We assess UniRG-CXR on held-out test sets (MIMIC-CXR, CheXpert Plus, ReXGradient), and unseen datasets (IU Xray and proprietary data). Report quality measured using ReXrank metrics and an LLM-based clinical-error metric, while diagnostic ability is evaluated via F1-based disease classification from generated reports. (d) ReXrank Results: UniRG-CXR achieves SOTA performance across four datasets and two generation settings (findings only and findings + impression), showing substantial gains over prior state-of-the-art systems.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2141" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-scaled.png" alt="Fig 1: Overview diagram of the UniRG-CXR framework showing training data sources, reinforcement-learning–based training with composite rewards, evaluation on multiple datasets, and a results panel demonstrating state-of-the-art performance across benchmarks." class="wp-image-1160837" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-scaled.png 2141w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-251x300.png 251w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-857x1024.png 857w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-768x918.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-1285x1536.png 1285w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-1713x2048.png 1713w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/fig1_UPDATED-151x180.png 151w" sizes="auto, (max-width: 2141px) 100vw, 2141px" /><figcaption class="wp-element-caption">Figure 1. Overview of UniRG-CXR. (a) Training Data: UniRG-CXR is trained on the training splits of MIMIC-CXR, CheXpert Plus, and ReXGradient-160k, covering diverse institutions and patient demographics. (b) Training and Rewards: Taking input from the current image, clinical context (e.g., indication), and optionally prior studies, UniRG-CXR uses GRPO reinforcement learning to optimize composite rewards that combine rule-based, model-based, and LLM-based metrics. (c) Evaluation: We assess UniRG-CXR on held-out test sets (MIMIC-CXR, CheXpert Plus, ReXGradient), and unseen datasets (IU Xray and proprietary data). Report quality measured using ReXrank metrics and an LLM-based clinical-error metric, while diagnostic ability is evaluated via F1-based disease classification from generated reports. (d) ReXrank Results: UniRG-CXR achieves SOTA performance across four datasets and two generation settings (findings only and findings + impression), showing substantial gains over prior state-of-the-art systems.</figcaption></figure>
 
 
 
@@ -138,7 +699,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="871" height="835" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2.png" alt="Fig 2: Multi-panel figure showing UniRG-CXR’s state-of-the-art performance: leaderboard gains across metrics, ablation studies demonstrating benefits of combined reinforcement-learning rewards, improved training dynamics with fewer clinical errors, qualitative case studies with error-free reports, and a distribution showing fewer high-error reports compared to prior models." class="wp-image-1160707" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2.png 871w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-300x288.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-768x736.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-188x180.png 188w" sizes="(max-width: 871px) 100vw, 871px" /><figcaption class="wp-element-caption">Figure 2. UniRG-CXR achieves state-of-the-art performance, delivering consistent and comprehensive performance gains across metrics. (a) On the ReXrank leaderboard, UniRG-CXR (green) shows robust, universal improvement across all evaluation metrics.  (b). Starting from the same SFT checkpoint, RL with our combined reward achieves more balanced gains across metrics and the highest RadCliQ-v1 score compared to RL on single metrics. This ablation study is trained and tested on MIMIC (c). Ablation study on the training dynamics shows RL full (UniRG-CXR) achieves significantly better RadCliQ-v1 score than RL only on BLEU. (d). During training, RL full (UniRG-CXR) shows a steady decrease in clinical errors per report as compared with a fluctuating trajectory without consistent improvement from an ablation run without error awareness (i.e. removing CheXprompt metric optimization). Both (c) and (d) show results on 1024 MIMIC validation set from ablations that are trained on MIMIC. (e). Case studies illustrate that UniRG-CXR can produce error-free reports, unlike MedVersa and MedGemma. (f). UniRG-CXR yields a substantially higher proportion of reports with $\leq 1$ error and fewer with $\geq 4$ errors than prior models.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="871" height="835" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2.png" alt="Fig 2: Multi-panel figure showing UniRG-CXR’s state-of-the-art performance: leaderboard gains across metrics, ablation studies demonstrating benefits of combined reinforcement-learning rewards, improved training dynamics with fewer clinical errors, qualitative case studies with error-free reports, and a distribution showing fewer high-error reports compared to prior models." class="wp-image-1160707" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2.png 871w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-300x288.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-768x736.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/UniRG_fig2-188x180.png 188w" sizes="auto, (max-width: 871px) 100vw, 871px" /><figcaption class="wp-element-caption">Figure 2. UniRG-CXR achieves state-of-the-art performance, delivering consistent and comprehensive performance gains across metrics. (a) On the ReXrank leaderboard, UniRG-CXR (green) shows robust, universal improvement across all evaluation metrics.  (b). Starting from the same SFT checkpoint, RL with our combined reward achieves more balanced gains across metrics and the highest RadCliQ-v1 score compared to RL on single metrics. This ablation study is trained and tested on MIMIC (c). Ablation study on the training dynamics shows RL full (UniRG-CXR) achieves significantly better RadCliQ-v1 score than RL only on BLEU. (d). During training, RL full (UniRG-CXR) shows a steady decrease in clinical errors per report as compared with a fluctuating trajectory without consistent improvement from an ablation run without error awareness (i.e. removing CheXprompt metric optimization). Both (c) and (d) show results on 1024 MIMIC validation set from ablations that are trained on MIMIC. (e). Case studies illustrate that UniRG-CXR can produce error-free reports, unlike MedVersa and MedGemma. (f). UniRG-CXR yields a substantially higher proportion of reports with $\leq 1$ error and fewer with $\geq 4$ errors than prior models.</figcaption></figure>
 
 
 
@@ -425,27 +986,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -934,30 +1498,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1227,7 +1791,7 @@
 
 
 				</span>
-				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+				<span id="show-more-show-less-toggle-6" class="show-more-show-less-toggleable-content">
 					
 
 
@@ -1937,7 +2501,7 @@
 				aria-expanded="false"
 				data-show-less-text="Show less"
 				type="button"
-				aria-controls="show-more-show-less-toggle-1"
+				aria-controls="show-more-show-less-toggle-6"
 				aria-label="Show more content"
 				data-alternate-aria-label="Show less content">
 				Show more			</button>
@@ -1995,30 +2559,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2123,519 +2687,6 @@
 
 <p>Together, these efforts demonstrate a research path that moves from identifying the problem to attempting to solve it. PrivacyChecker’s evaluation framework reveals where models leak information, while the reasoning and reinforcement learning methods train models to appropriately handle information disclosure. Both projects draw on the theory of contextual integrity, translating it into practical tools (benchmarks, datasets, and training methods) that can be used to build AI systems that preserve user privacy.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/reducing-privacy-leaks-in-ai-two-approaches-to-contextual-integrity/">Reducing Privacy leaks in AI: Two approaches to contextual integrity </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Fara-7B: An Efficient Agentic Model for Computer Use</title>
-		<link>https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/</link>
-		
-		<dc:creator><![CDATA[Ahmed Awadallah, Akshay Nambi, Alexey Taymanov, Aravind Rajeswaran, Corby Rosset, Hussein Mozannar, Spencer Whitehead, Vibhav Vineet, Yash Lara, Yash Pandya, Andrew Zhao]]></dc:creator>
-		<pubDate>Mon, 24 Nov 2025 18:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/</guid>
-
-					<description><![CDATA[<p>Fara-7B is our first agentic small language model for computer use. This experimental model includes robust safety measures to aid responsible deployment. Despite its size, Fara-7B holds its own against larger, more resource-intensive agentic systems.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/">Fara-7B: An Efficient Agentic Model for Computer Use</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<h3 class="wp-block-heading" id="pushing-the-frontiers-of-computer-use-agents-with-an-open-weight-ultra-compact-model-optimized-for-real-world-web-tasks">Pushing the frontiers of computer-use agents with an open-weight, ultra-compact model,&nbsp;optimized&nbsp;for real-world web tasks</h3>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-scaled.jpg" alt="Three white line icons on a blue-to-green gradient background: a computer monitor with a globe symbol on the left, a cursor arrow with click lines in the center, and a computer mouse outline on the right." class="wp-image-1156197" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara7B-BlogHeroFeature-1400x788_NEW-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<p>In 2024,&nbsp;Microsoft&nbsp;introduced small language models (SLMs) to customers, starting with the release of<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/products/phi" target="_blank" rel="noopener noreferrer"> Phi<span class="sr-only"> (opens in new tab)</span></a> models on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/products/ai-foundry" target="_blank" rel="noopener noreferrer">Microsoft&nbsp;Foundry<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;as&nbsp;well as deploying&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://blogs.windows.com/windowsexperience/2024/12/06/phi-silica-small-but-mighty-on-device-slm/" target="_blank" rel="noopener noreferrer">Phi Silica<span class="sr-only"> (opens in new tab)</span></a>&nbsp;on Copilot+&nbsp;PCs&nbsp;powered by Windows 11. Today, we are pleased to&nbsp;announce&nbsp;<strong>Fara-7B</strong>, our first&nbsp;<strong>agentic SLM</strong>&nbsp;designed specifically for&nbsp;computer&nbsp;use.</p>
-
-
-
-<p>Unlike traditional chat models that generate text-based responses, Computer&nbsp;Use Agent (CUA) models like Fara-7B&nbsp;leverage computer interfaces, such as a mouse&nbsp;and keyboard, to complete tasks on behalf of users. With only 7 billion parameters, Fara-7B&nbsp;achieves&nbsp;state-of-the-art&nbsp;performance within its size class and is competitive with larger, more resource-intensive agentic systems that depend on prompting multiple large models. Fara-7B’s small size now&nbsp;makes it possible&nbsp;to&nbsp;run CUA models directly on devices. This results in reduced latency and improved privacy, as user data&nbsp;remains&nbsp;local.</p>
-
-
-
-<p>Fara-7B is an experimental release, designed to invite hands-on exploration and feedback from the community. Users can build and test agentic experiences beyond pure research—automating everyday web tasks like filling out forms, searching for information, booking travel, or managing accounts. We recommend running Fara-7B in a sandboxed environment,&nbsp;monitoring&nbsp;its execution, and avoiding sensitive data or high-risk domains. Responsible use is&nbsp;essential&nbsp;as the model continues to evolve.</p>
-
-
-
-<p>Fara-7B&nbsp;operates by&nbsp;visually perceiving&nbsp;a webpage&nbsp;and&nbsp;takes&nbsp;actions like&nbsp;scrolling, typing, and clicking on directly predicted coordinates.&nbsp;It&nbsp;does not&nbsp;rely on&nbsp;separate models to parse the screen, nor on any additional information like&nbsp;accessibility trees,&nbsp;and&nbsp;thus&nbsp;uses the same modalities as humans to interact with the&nbsp;computer.&nbsp;To train Fara-7B, we developed a novel synthetic data generation pipeline&nbsp;for multi-step&nbsp;web tasks, building on our prior work (<a href="https://www.microsoft.com/en-us/research/blog/orca-agentinstruct-agentic-flows-can-be-effective-synthetic-data-generators/?utm_source=chatgpt.com">AgentInstruct</a>).&nbsp;This data generation pipeline draws from&nbsp;real&nbsp;web pages and tasks&nbsp;sourced&nbsp;from human users.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_xbox_multi_turn-3.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_xbox_multi_turn-3.mp4"></video><figcaption class="wp-element-caption">Video 1: A demo of a shopping scenario with Fara-7B through Magentic-UI. Fara-7B is asked to purchase an X-Box Spongebob controller. Fara-7B goes on to complete this task, but while doing so, also stops at every Critical Point to get input and approval from the user before proceeding.</figcaption></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1440 / 1080;" width="1440" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_github_demo.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_github_demo.mp4"></video><figcaption class="wp-element-caption">Video 2: A demo of Fara-7B finding relevant information online and summarizing it through Magentic-UI. We ask Fara-7B to find and summarize the latest three issues on Github Microsoft/Magentic-UI.</figcaption></figure>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Fara_driving-directions-cheese.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/driving_directions_cheese-1_revised.mp4"></video><figcaption class="wp-element-caption">Video 3: A demo of how Fara-7B can use different tools to find relevant information and analyze it through Magentic-UI. We ask Fara-7B to find driving time between two places, and suggest a cheese place near the location. Fara-7B uses Bing Maps to find Driving time, and Bing search to find relevant information.</figcaption></figure>
-
-
-
-<p>Fara-7B exhibits&nbsp;strong performance&nbsp;compared to existing models&nbsp;across&nbsp;a diverse set of benchmarks.&nbsp;This includes both existing benchmarks as well as new&nbsp;evaluations&nbsp;we are&nbsp;releasing&nbsp;which&nbsp;cover useful&nbsp;task&nbsp;segments that are underrepresented in common benchmarks, such as&nbsp;finding job postings&nbsp;and&nbsp;comparing prices across retailers. While Fara-7B demonstrates strong benchmark results, even against much larger models, it shares many of their limitations, including challenges with accuracy on more complex tasks, mistakes in following instructions, and susceptibility to hallucinations.&nbsp;These are active areas of research, and&nbsp;we’re&nbsp;committed to ongoing improvements as we learn from real-world use.</p>
-
-
-
-<p>Fara-7B is now available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a> under an MIT license and is integrated with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/magnetic-ui/" target="_blank" rel="noopener noreferrer">Magentic-UI, a research prototype from Microsoft Research AI Frontiers<span class="sr-only"> (opens in new tab)</span></a>. We are also sharing a quantized and silicon-optimized version of Fara-7B, is available to install and run on Copilot+ PCs powered by Windows 11, for turnkey experimentation. The community can simply download the pre-optimized model and run it in their environment.</p>
-
-
-
-<p>By making Fara-7B open-weight, we aim to lower the barrier&nbsp;to experimenting&nbsp;with&nbsp;and improving&nbsp;CUA technology for automating routine web tasks, such as searching for information,&nbsp;shopping,&nbsp;and&nbsp;booking reservations.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="19108" height="11897" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/model_accuracy_vs_cost_v2-1-1.png" alt="Figure 1: Comparing WebVoyager accuracy and cost of Fara-7B to other computer use agents (CUAs) or agents that prompt LLMs with accessibility trees (SoM Agent w/ Ax Tree). Cost is computed by multiplying the average number of input and output tokens each model consumes by price per token. Both Fara-7B and UI-TARS-1.5-7B are based on Qwen-2.5-VL-7B, for which the lowest inference price from  https://openrouter.ai/  is \(0.2/\)0.2 per 1M input/output tokens. Even though both models are priced equally, Fara-7B is more efficient, completing tasks with only ~16 steps on average compared to ~41 for UI-TARS-1.5-7B. OpenAI computer-use-preview accessed November 2025 via the Responses API." class="wp-image-1156353"/><figcaption class="wp-element-caption"><em><em>Figure&nbsp;1:&nbsp;Comparing&nbsp;WebVoyager&nbsp;accuracy and cost&nbsp;of&nbsp;Fara-7B to other&nbsp;computer&nbsp;use agents (CUAs)&nbsp;or agents that prompt LLMs with accessibility trees (SoM&nbsp;Agent w/ Ax Tree).&nbsp;Cost is computed&nbsp;by&nbsp;multiplying&nbsp;the&nbsp;average&nbsp;number of&nbsp;input&nbsp;and&nbsp;output tokens&nbsp;each model&nbsp;consumes&nbsp;by&nbsp;price per token.&nbsp;Both&nbsp;Fara-7B and UI-TARS-1.5-7B&nbsp;are based&nbsp;on&nbsp;Qwen-2.5-VL-7B,&nbsp;for which the&nbsp;lowest&nbsp;inference price&nbsp;from&nbsp;</em><a href="https://openrouter.ai/" target="_blank" rel="noreferrer noopener"><em>https://openrouter.ai/</em></a><em>&nbsp;&nbsp;is&nbsp;\(0.2/\)0.2&nbsp;per 1M&nbsp;input/output&nbsp;tokens.&nbsp;Even though both models are priced equally, Fara-7B is more&nbsp;efficient,&nbsp;completing tasks&nbsp;with&nbsp;only&nbsp;~16&nbsp;steps on&nbsp;average&nbsp;compared&nbsp;to&nbsp;~41&nbsp;for UI-TARS-1.5-7B.&nbsp;OpenAI computer-use-preview accessed November 2025 via the Responses API.</em></em></figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="developing-fara-7b">Developing Fara-7B</h2>
-
-
-
-<h3 class="wp-block-heading" id="cua-multi-agent-synthetic-data-generation">CUA multi-agent synthetic data generation</h3>
-
-
-
-<p>A key bottleneck&nbsp;for&nbsp;building CUA models is a lack of large-scale, high-quality&nbsp;computer interaction data. Collecting such data with&nbsp;human annotators&nbsp;is prohibitively expensive as a single&nbsp;CUA task can involve&nbsp;dozens&nbsp;of steps,&nbsp;each of which&nbsp;needs to be&nbsp;annotated.&nbsp;Our&nbsp;data generation pipeline&nbsp;(Figure 2)&nbsp;avoids manual annotation and instead relies on scalable synthetic data sourced from&nbsp;publicly&nbsp;available websites&nbsp;and&nbsp;custom&nbsp;task prompts.&nbsp;We build this&nbsp;pipeline&nbsp;on top of&nbsp;the&nbsp;<a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/">Magentic-One</a>&nbsp;framework, and it involves three main stages:&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1349" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-scaled.png" alt="Figure 2: Data Generation workflow from proposing tasks from various seeds like URLs to solving those tasks with the Magentic-One multi-agent framework to generate demonstrations for training, and finally verifiying/filtering completed trajectories" class="wp-image-1155974" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-300x158.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-1024x539.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-768x405.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-1536x809.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-2048x1079.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-2-240x126.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure&nbsp;2:<em>&nbsp;Data Generation workflow from proposing tasks from various seeds like URLs&nbsp;to&nbsp;solving&nbsp;those tasks with&nbsp;the&nbsp;Magentic-One multi-agent framework to generate demonstrations for training, and finally&nbsp;verifiying/filtering&nbsp;completed&nbsp;trajectories</em></figcaption></figure>
-
-
-
-<p><strong>Task Proposal.</strong>&nbsp;We generate a broad set of synthetic tasks that mirror common user activities on the&nbsp;web.&nbsp;To ensure coverage and diversity, tasks are&nbsp;&#8220;seeded&#8221; by&nbsp;a&nbsp;web&nbsp;index of public URLs&nbsp;classified into various categories e.g., shopping, travel, restaurants, etc. This enables&nbsp;task&nbsp;generation&nbsp;targeting&nbsp;a particular skill, like “book 2 tickets to see the Downton Abbey Grand Finale at AMC Union Square, NYC.”&nbsp;from a&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.fandango.com/downton-abbey-the-grand-finale-2025-236926/movie-overview" target="_blank" rel="noopener noreferrer">URL like this<span class="sr-only"> (opens in new tab)</span></a>&nbsp;classified as “movies”.&nbsp;&nbsp;As another strategy, we devised a way&nbsp;to generate tasks from&nbsp;randomly&nbsp;sampled&nbsp;URLs.&nbsp;Each task starts with a general prompt and is iteratively refined as an&nbsp;LLM&nbsp;agent explores the website and gathers&nbsp;more information about it. We are releasing a held-out subset of these tasks as a benchmark (“<strong>WebTailBench</strong>”), described in the Evaluation section below.&nbsp;</p>
-
-
-
-<p><strong>Task&nbsp;Solving.</strong>&nbsp;Once synthetic tasks are generated, a multi-agent system built on&nbsp;Magentic-One&nbsp;attempts&nbsp;to&nbsp;complete&nbsp;them to generate demonstrations for supervised finetuning. The multi-agent system uses an&nbsp;Orchestrator&nbsp;agent to create a plan and direct a&nbsp;WebSurfer&nbsp;agent to take browser actions and reports results. The Orchestrator monitors progress, updating plans as needed, and can end tasks or engage a<em> </em>UserSimulator agent if user input is&nbsp;required, allowing for multi-turn completion.&nbsp;Each&nbsp;task and corresponding sequence of observations, actions, and agent thoughts&nbsp;forms&nbsp;a&nbsp;“trajectory”.</p>
-
-
-
-<p><strong>Trajectory Verification.</strong> Before using any tasks for training, three verifier agents evaluate if a task was “successful”: The Alignment Verifier checks if the trajectory of actions match the task’s intent; the Rubric Verifier defines completion criteria and scores the trajectory against them; and the Multimodal Verifier reviews screenshots and responses to confirm visual evidence supports successful completion. Trajectories failing these standards are removed.</p>
-
-
-
-<p>We&nbsp;ultimately&nbsp;train&nbsp;this version&nbsp;of&nbsp;Fara-7B&nbsp;on a dataset of&nbsp;145,000&nbsp;trajectories&nbsp;consisting of&nbsp;1&nbsp;million&nbsp;steps&nbsp;covering diverse websites, task types, and difficulty levels.&nbsp;Additionally, we include&nbsp;training&nbsp;data for several auxiliary tasks, including&nbsp;grounding for&nbsp;accurate&nbsp;UI element localization, captioning, and visual question answering.</p>
-
-
-
-<h3 class="wp-block-heading" id="training-fara-7b">Training Fara-7B</h3>
-
-
-
-<p>Using&nbsp;one&nbsp;compute use&nbsp;model&nbsp;is&nbsp;easier than&nbsp;a&nbsp;multi-agent system, particularly when it comes to&nbsp;deployment. Therefore, we&nbsp;distill the complexities of&nbsp;our multi-agent&nbsp;solving system into a single model&nbsp;that can&nbsp;execute tasks.&nbsp;Fara-7B&nbsp;is a proof-of-concept that small models can&nbsp;effectively&nbsp;learn from complex, multi-agent systems&nbsp;with lots of bells and whistles.</p>
-
-
-
-<p>As shown in Figure 3, Fara-7B is trained to execute user tasks by perceiving only browser window screenshots (without relying on accessibility trees), and predicting single-step actions. For each step, the context used to make its prediction contains all user messages, the complete action history, and the latest three screenshots.</p>
-
-
-
-<p>In its prediction,&nbsp;Fara-7B&nbsp;outputs a reasoning message (“thinking” about the next action) followed by a tool call. The available tools include standard&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://playwright.dev/python/docs/intro" target="_blank" rel="noopener noreferrer">Playwright<span class="sr-only"> (opens in new tab)</span></a>&nbsp;mouse and keyboard actions, such as&nbsp;click(x,y)&nbsp;and&nbsp;type(), and browser-specific macro-actions like&nbsp;web_search()&nbsp;and&nbsp;visit_url().</p>
-
-
-
-<p>Fara-7B uses&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2502.13923" target="_blank" rel="noopener noreferrer">Qwen2.5-VL-7B<span class="sr-only"> (opens in new tab)</span></a>&nbsp;as its base model due to its&nbsp;strong performance&nbsp;on grounding tasks and its ability to support long contexts (up to 128k tokens).&nbsp;We&nbsp;linearize the solving pipeline’s&nbsp;trajectories&nbsp;into a sequence of “observe-think-act” steps&nbsp;that are suitable for training with supervised finetuning loss.&nbsp;We did not use reinforcement learning to achieve&nbsp;the&nbsp;results&nbsp;we report below.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="864" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-scaled.png" alt="Figure 3: Operation of Fara-7B as a standalone, native computer use agent running on-device. Because Fara-7B is small, and none of its context needs to leave your personal device, it paves the way for personal and private agentic computing" class="wp-image-1155975" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-300x101.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-1024x346.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-768x259.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-1536x519.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-2048x691.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/Figure-3-240x81.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure&nbsp;3:<em>&nbsp;Operation of Fara-7B as a standalone, native computer use agent&nbsp;running on-device. Because Fara-7B is small, and none of its context needs to leave your personal device, it paves the way for personal and private agentic computing</em></figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="evaluations">Evaluations</h2>
-
-
-
-<p>We evaluate Fara-7B and comparable baselines on canonical public benchmarks including<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2401.13919" target="_blank" rel="noopener noreferrer"> WebVoyager<span class="sr-only"> (opens in new tab)</span></a>,<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2504.01382" target="_blank" rel="noopener noreferrer"> Online-Mind2Web<span class="sr-only"> (opens in new tab)</span></a>, and<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2506.02839" target="_blank" rel="noopener noreferrer"> Deepshop<span class="sr-only"> (opens in new tab)</span></a>, as well as a new benchmark we developed named<strong> WebTailBench</strong>, specifically focusing on 11 real-world task types underrepresented or missing in existing benchmarks like booking movie/event tickets, restaurant reservations, comparing prices across retailers,&nbsp;applying for jobs,&nbsp;finding real estate, and more complex multi-step tasks.</p>
-
-
-
-<p>Evaluation of&nbsp;web&nbsp;agents can be tricky&nbsp;because the web is constantly&nbsp;changing,&nbsp;and many websites even block detected bots,&nbsp;which is why we&nbsp;developed&nbsp;a&nbsp;test&nbsp;harness&nbsp;that&nbsp;relies on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.browserbase.com/" target="_blank" rel="noopener noreferrer">Browserbase<span class="sr-only"> (opens in new tab)</span></a>&nbsp;to standardize how browser sessions are managed.&nbsp;In Table 1 below, we report a notion of task success rate&nbsp;(%)&nbsp;defined&nbsp;by each benchmark’s official&nbsp;LLM-as-judge evaluator;&nbsp;WebTailBench&nbsp;success is&nbsp;computed using the same Task Verification pipeline that filtered&nbsp;our&nbsp;training data.&nbsp;We find that&nbsp;Fara-7B&nbsp;is&nbsp;state-of-the-art,&nbsp;even&nbsp;outperforming native computer use&nbsp;agents&nbsp;like UI-TARS-1.5-7B, or much larger&nbsp;models&nbsp;like GPT-4o prompted to act like a computer use agent with&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2310.11441" target="_blank" rel="noopener noreferrer">Set-Of-Marks<span class="sr-only"> (opens in new tab)</span></a>&nbsp;(SoM&nbsp;Agent).&nbsp;</p>
-
-
-
-<figure class="wp-block-table aligncenter"><table class="has-fixed-layout"><thead><tr><th colspan="2"></th><th>WebVoyager</th><th>Online-Mind2Web</th><th>DeepShop</th><th>WebTailBench&nbsp;&nbsp;</th></tr></thead><tbody><tr><td rowspan="2">SoM&nbsp;Agents&nbsp;</td><td>SoM&nbsp;Agent (GPT-4o)&nbsp;</td><td>65.1&nbsp;</td><td>34.6&nbsp;</td><td>16.0&nbsp;</td><td>30.0&nbsp;</td></tr><tr><td>GLM-4.1V-9B-Thinking&nbsp;</td><td>66.8&nbsp;&nbsp;</td><td>33.9&nbsp;</td><td>32.0&nbsp;</td><td>22.4&nbsp;</td></tr><tr><td rowspan="3">Computer Use Models&nbsp;</td><td>OpenAI&nbsp;computer-use-preview&nbsp;&nbsp;</td><td>70.9&nbsp;</td><td>42.9&nbsp;</td><td>24.7&nbsp;</td><td>25.7&nbsp;</td></tr><tr><td>UI-TARS-1.5-7B&nbsp;</td><td>66.4&nbsp;&nbsp;</td><td>31.3&nbsp;</td><td>11.6&nbsp;</td><td>19.5&nbsp;</td></tr><tr><td><strong>Fara-7B&nbsp;</strong></td><td><strong>73.5&nbsp;</strong></td><td><strong>34.1&nbsp;</strong></td><td><strong>26.2</strong>&nbsp;</td><td><strong>38.4</strong>&nbsp;</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1:&nbsp;<em>Performance comparison across four web benchmarks:&nbsp;WebVoyager, Online-Mind2Web,&nbsp;DeepShop, and&nbsp;our&nbsp;newly introduced WebTailBench.&nbsp;Results are reported as&nbsp;Task Succes Rate / Accuracy&nbsp;(%) and are averaged over 3 runs.&nbsp;OpenAI computer-use-preview accessed November 2025 via the Responses API.</em></figcaption></figure>
-
-
-
-<p>In Figure 1, we&nbsp;expand on&nbsp;the&nbsp;Webvoyager&nbsp;results by giving each model up to three chances to complete a task, and report &#8220;pass@K&#8221;. We also consider&nbsp;on the x-axis the&nbsp;cost of running each model if one were to pay market rates for input/output tokens consumed. Fara-7B breaks ground on a new pareto frontier, showing that on-device computer use agents are approaching the capabilities of frontier models.</p>
-
-
-
-<p>We partnered with a trusted external group,&nbsp;Browserbase, to independently evaluate Fara-7B using human annotators. The model achieved&nbsp;<strong>62%</strong> on&nbsp;WebVoyager (see detailed reports in&nbsp;Browserbase&nbsp;blog&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://browserbase.com/blog/training-computer-use-models-in-the-real-world-with-microsoft" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>). These results were generated in the same environment with identical settings and human verification of each task, making them directly comparable. Note that&nbsp;Browserbase’s&nbsp;standard&nbsp;WebVoyager&nbsp;scores do not use retries when&nbsp;environment&nbsp;errors occur; the results referenced here include retries and should not be compared directly to the non-retry scores. Going forward, we are collaborating with&nbsp;Browserbase&nbsp;to host&nbsp;WebTailBench&nbsp;human evaluations to help the community build reliable and reproducible assessments for computer use agents.&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="safety">Safety</h3>
-
-
-
-<p>Agents capable of operating computers present challenges&nbsp;distinct&nbsp;from&nbsp;chat-only models,&nbsp;including new&nbsp;outlets of&nbsp;user&nbsp;misuse, model misbehavior,&nbsp;and unintended&nbsp;consequences of&nbsp;actions,&nbsp;and&nbsp;external&nbsp;risks like prompt injections or online scams.&nbsp;CUAs&nbsp;take action with&nbsp;real-world consequences, so ensuring&nbsp;robust safety measures is essential to their responsible deployment.&nbsp;Transparency and user control sit at the core of Fara-7B’s design. Although we have incorporated several safety measures, Fara-7B&nbsp;remains&nbsp;a research preview, and we continue to advance our approach to safety for computer use agents, an active area of work across the entire AI community.&nbsp;</p>
-
-
-
-<p>Fara-7B processes browser screenshots, user task instructions, and a history of actions taken during each session and collects only what is necessary to complete the user’s requested task. No&nbsp;additional&nbsp;site data—such as&nbsp;accessibility&nbsp;trees or external scaffolding—is accessed; Fara-7B interacts with the computer in the same way a human would, relying solely on what is visible on the screen.</p>
-
-
-
-<p>All actions taken by the agent are logged and auditable, allowing users to review and&nbsp;monitor&nbsp;every step.&nbsp;&nbsp;For added safety, Fara‑7B is intended to run in sandboxed environments, giving users full oversight and the ability to intervene or halt&nbsp;actions at any time. These safeguards ensure that privacy, transparency, and user control remain at the core of every interaction.</p>
-
-
-
-<p>To&nbsp;address&nbsp;misuse, we trained Fara-7B on a mixture of public safety data and internally generated tasks that it&nbsp;ought to refuse&nbsp;based on&nbsp;Microsoft’s Responsible AI Policy.&nbsp;We evaluated&nbsp;Fara-7B’s ability to refuse harmful tasks&nbsp;on&nbsp;<strong>WebTailBench-Refusals</strong>&nbsp;which consists of&nbsp;111 red-teaming tasks&nbsp;showing a high refusal rate&nbsp;of 82%.&nbsp;The&nbsp;model&nbsp;also&nbsp;underwent&nbsp;Microsoft’s&nbsp;rigorous&nbsp;red teaming process, where we focused on the model rejecting harmful tasks and risky tasks, such as harmful content, jailbreaking attempts, ungrounded&nbsp;responses,&nbsp;and prompt injections. For further details, check out our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/fara-techreport">technical report<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>To mitigate the risk of Fara-7B taking unintended actions,&nbsp;all of&nbsp;Fara-7B’s&nbsp;training data enforces both recognizing and stopping at “Critical Points” when executing a task. A Critical Point&nbsp;(see&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://cdn.openai.com/operator_system_card.pdf" target="_blank" rel="noopener noreferrer">Operator System Card<span class="sr-only"> (opens in new tab)</span></a>)&nbsp;is any situation that requires the user&#8217;s personal data or consent before engaging in a transaction or irreversible action like sending an email. Upon reaching a Critical Point, Fara-7B&nbsp;should&nbsp;respond by informing the&nbsp;user&nbsp;it&nbsp;cannot&nbsp;proceed&nbsp;without their consent.</p>
-
-
-
-<p>For guidance on how to use our model safely, and the security considerations to be mindful of when using our model, please refer to our&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://huggingface.co/microsoft/Fara-7B">Model&nbsp;card<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h3 class="wp-block-heading" id="how-to-use">How to use</h3>
-
-
-
-<p>Fara-7B&nbsp;is available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer"><span class="sr-only"> (opens in new tab)</span></a><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">Microsoft&nbsp;Foundry&nbsp;<span class="sr-only"> (opens in new tab)</span></a>and<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/explore/models/Fara-7B/version/1/registry/azureml-msr?tid=72f988bf-86f1-41af-91ab-2d7cd011db47" target="_blank" rel="noopener noreferrer">&nbsp;<span class="sr-only"> (opens in new tab)</span></a><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Fara-7B" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;We are also releasing the implementation of Fara-7B&nbsp;in&nbsp;Magentic-UI,&nbsp;so that&nbsp;users&nbsp;can&nbsp;try&nbsp;it&nbsp;in a contained environment&nbsp;through the inference code provided. Additionally, users can download the model for Copilot+&nbsp;PCs&nbsp;powered by Windows 11&nbsp;from the&nbsp;AI&nbsp;Toolkit in VSCode and&nbsp;run it all on-device,&nbsp;taking advantage of&nbsp;NPU hardware acceleration.&nbsp;&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="looking-forward">Looking forward</h3>
-
-
-
-<p>Our current release&nbsp;is an experimental CUA model&nbsp;that achieves&nbsp;state-of-the-art&nbsp;results for its size,&nbsp;purely using&nbsp;supervised fine-tuning.&nbsp;We believe even stronger CUA&nbsp;models capable of running on-device are possible&nbsp;through&nbsp;improved&nbsp;multimodal base models and through Reinforcement Learning&nbsp;on&nbsp;live and sandboxed environments.&nbsp;These early days&nbsp;are about learning from the community and driving real-world experimentation to shape what comes next.&nbsp;If&nbsp;you’d&nbsp;like to join us and help shape the future of SLMs,&nbsp;please&nbsp;apply for <a href="https://www.microsoft.com/en-us/research/lab/ai-frontiers/opportunities/">open roles</a>.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements:&nbsp;</h2>
-
-
-
-<p>We thank Gustavo de Rosa, Adam Fourney, Michael Harrison, Rafah Hosn, Neel Joshi, Ece Kamar, John Langford, Maya Murad, Sidhartha Sen, Pratyusha Sharma, and Lili Wu for their valuable help, insightful discussions, and continued support throughout this work.&nbsp;</p>
-
-
-
-<p>We also thank Pashmina Cameron, Karthik Vijayan, Vicente Rivera, Chris Dern, Sayan Shaw,&nbsp;Sunghoon&nbsp;Choi, Andrey&nbsp;Rybalchenko, and Vivek Pradeep for their efforts in making the model available on Copilot+ PCs through the AI Toolkit.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/">Fara-7B: An Efficient Agentic Model for Computer Use</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_xbox_multi_turn-3.mp4" length="11918959" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/fara_github_demo.mp4" length="5714394" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/driving_directions_cheese-1_revised.mp4" length="12610867" type="video/mp4" />
-
-			</item>
-		<item>
-		<title>MMCTAgent: Enabling multimodal reasoning over large video and image collections</title>
-		<link>https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/</link>
-		
-		<dc:creator><![CDATA[Akshay Nambi, Kavyansh Chourasia, Tanuja Ganu]]></dc:creator>
-		<pubDate>Wed, 12 Nov 2025 12:00:20 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1153693</guid>
-
-					<description><![CDATA[<p>MMCTAgent enables dynamic multimodal reasoning with iterative planning and reflection. Built on Microsoft’s AutoGen framework, it integrates language, vision, and temporal understanding for complex tasks like long video and image analysis.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/">MMCTAgent: Enabling multimodal reasoning over large video and image collections</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg" alt="Three white icons on a blue-to-purple gradient background: the first icon shows an image/photo; the second icon depicts a computer monitor with vertical bars; the third icon displays three connected circles with user silhouettes." class="wp-image-1153930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/MMCTAgent-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Modern multimodal AI models can recognize objects, describe scenes, and answer questions about images and short video clips, but they struggle with long-form and large-scale visual data, where real-world reasoning requires moving beyond object recognition and short-clip analysis.</p>
-
-
-
-<p>Real-world reasoning increasingly involves analyzing long-form video content, where context spans minutes or hours, far beyond the context limits of most models. It also entails querying across massive multimodal libraries of videos, images, and transcripts, where finding and integrating relevant evidence requires more than retrieval—it requires strategic reasoning. Existing models typically perform single-pass inference, producing one-shot answers. This limits their ability to handle tasks that require temporal reasoning, cross-modal grounding, and iterative refinement.</p>
-
-
-
-<h2 class="wp-block-heading" id="mmctagent">MMCTAgent</h2>
-
-
-
-<p>To meet these challenges, we developed the <a href="https://www.microsoft.com/en-us/research/publication/mmctagent-multi-modal-critical-thinking-agent-framework-for-complex-visual-reasoning/?msockid=153992cb7df169482b9487167c0968e9" target="_blank" rel="noreferrer noopener">Multi-modal Critical Thinking Agent</a>, or MMCTAgent, for structured reasoning over long-form video and image data, available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/MMCTAgent" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> and featured on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://labs.ai.azure.com/projects/mmct-agent/">Azure AI Foundry Labs<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>Built on <a href="https://www.microsoft.com/en-us/research/project/autogen" target="_blank" rel="noreferrer noopener">AutoGen</a>, Microsoft’s open-source multi-agent system, MMCTAgent provides multimodal question-answering with a Planner–Critic architecture. This design enables planning, reflection, and tool-based reasoning, bridging perception and deliberation in multimodal tasks. It links language, vision, and temporal understanding, transforming static multimodal tasks into dynamic reasoning workflows.&nbsp;&nbsp;</p>
-
-
-
-<p>Unlike conventional models that produce one-shot answers, MMCTAgent has modality-specific agents, including ImageAgent and VideoAgent, which include tools like get_relevant_query_frames() or object_detection-tool(). These agents perform&nbsp;deliberate, iterative reasoning—selecting the right tools for each modality, evaluating intermediate results, and refining conclusions through a Critic loop. This enables MMCTAgent to analyze complex queries across long videos and large image libraries with explainability, extensibility, and scalability.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://labs.ai.azure.com/projects/mmct-agent/">MMCTAgent on Azure AI Foundry Labs</a></div>
-</div>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft research copilot experience</h2>
-				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="how-mmctagent-works">How MMCTAgent works</h2>
-
-
-
-<p>MMCTAgent integrates two coordinated agents, Planner and Critic, orchestrated through AutoGen. The Planner agent decomposes a user query, identifies the appropriate reasoning tools, performs multimodal operations, and drafts a preliminary answer. The Critic agent reviews the Planner’s reasoning chain, validates evidence alignment, and refines or revises the response for factual accuracy and consistency.</p>
-
-
-
-<p>This iterative reasoning loop enables MMCTAgent to improve its answers through structured self-evaluation—bringing reflection into AI reasoning. A key strength of MMCTAgent lies in its modular extensibility. Developers can easily integrate new, domain-specific tools—such as medical image analyzers, industrial inspection models, or specialized retrieval modules—by adding them to ImageQnATools or VideoQnATools. This design makes MMCTAgent adaptable across domains.</p>
-
-
-
-<h3 class="wp-block-heading" id="videoagent-from-ingestion-to-long-form-multimodal-reasoning">VideoAgent: From ingestion to long-form multimodal reasoning</h3>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="14353" height="8455" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/MMCT_UPDATED_FINAL_FINAL.png" alt="MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback. " class="wp-image-1155366"/><figcaption class="wp-element-caption">Figure 1. MMCTAgent’s Planner–Critic architecture enables multimodal reasoning over long-form video through structured ingestion, retrieval, and iterative feedback</figcaption></figure>
-
-
-
-<p>The VideoAgent extends this architecture to long-form video reasoning. It operates in two connected phases: library creation (ingestion) and query-time reasoning.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h4 class="wp-block-heading" id="phase-1-video-ingestion-and-library-creation">Phase 1 – Video ingestion and library creation</h4>
-
-
-
-<p>Before reasoning, long-form videos undergo an ingestion pipeline that aligns multimodal information for retrieval and understanding:</p>
-
-
-
-<ol class="wp-block-list">
-<li><strong>Transcription </strong>and<strong> translation</strong>: Converts audio to text and, if multilingual, translates transcripts into a consistent language&nbsp;</li>
-
-
-
-<li><strong>Key-frame identification</strong>: Extracts representative frames marking major visual or scene changes</li>
-
-
-
-<li><strong>Semantic chunking </strong>and<strong> chapter generation</strong>: Combines transcript segments and visual summaries into coherent, semantically segmented chapters with associated key frames. Inspired by Microsoft’s <a href="https://www.microsoft.com/en-us/research/publication/deep-video-discovery-agentic-search-with-tool-use-for-long-form-video-understanding/" target="_blank" rel="noreferrer noopener">Deep Video Discovery agentic search tool</a>, this step also extracts detailed descriptions of objects, on-screen text, and characters present within each video segment, integrating these insights directly into the corresponding chapters.&nbsp;</li>
-
-
-
-<li><strong>Multimodal embedding creation</strong>: Generates image embeddings for key frames, linking them to their corresponding transcript and chapter data</li>
-</ol>
-
-
-
-<p>All structured metadata, including transcripts, visual summaries, chapters, and embeddings, is indexed in the Multimodal Knowledgebase using <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search" target="_blank" rel="noopener noreferrer">Azure AI Search<span class="sr-only"> (opens in new tab)</span></a>, which forms the foundation for scalable semantic retrieval and downstream reasoning.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h4 class="wp-block-heading" id="phase-2-video-question-answering-and-reasoning">Phase 2 – Video question answering and reasoning</h4>
-
-
-
-<p>When a user submits a query, the VideoAgent retrieves, analyzes, and reasons across the indexed video content using specialized planner and critic tools.</p>
-
-
-
-<h5 class="wp-block-heading" id="planner-tools-1">Planner tools</h5>
-
-
-
-<ul class="wp-block-list">
-<li><strong>get_video_analysis</strong>: Finds the most relevant video, provides a summary, and lists detected objects&nbsp;</li>
-
-
-
-<li><strong>get_context</strong>: Retrieves contextual information and relevant chapters from the Azure AI Search index</li>
-
-
-
-<li><strong>get_relevant_frames</strong>: Selects key frames most relevant to the user query</li>
-
-
-
-<li><strong>query_frame</strong>: Performs detailed visual and textual reasoning over selected frames</li>
-
-
-
-<li><strong>get_context</strong> and <strong>get_relevant_frames</strong> work in tandem to ensure that reasoning begins from the most semantically relevant evidence</li>
-</ul>
-
-
-
-<h5 class="wp-block-heading" id="critic-tools-1">Critic tool</h5>
-
-
-
-<ul class="wp-block-list">
-<li><strong>critic_tool</strong>: Evaluates the reasoning output for temporal alignment, factual accuracy, and coherence between visual and textual modalities</li>
-</ul>
-
-
-
-<p>This two-phase design, which involves&nbsp;structured ingestion followed by agentic reasoning, enables MMCTAgent to deliver accurate, interpretable insights for long information-dense videos.&nbsp;</p>
-
-
-
-<h3 class="wp-block-heading" id="imageagent-structured-reasoning-for-static-visuals">ImageAgent: Structured reasoning for static visuals</h3>
-
-
-
-<p>While the VideoAgent handles temporal reasoning across long-form videos, the ImageAgent applies the same Planner–Critic paradigm to static visual analysis. It performs modular, tool-based reasoning over images, combining perception tools for recognition, detection, and optical character recognition with language-based reasoning for interpretation and explanation.</p>
-
-
-
-<h5 class="wp-block-heading" id="planner-tools">Planner tools</h5>
-
-
-
-<ul class="wp-block-list">
-<li><strong>vit_tool</strong>: Leverages Vision Transformer (ViT) or Vision Languague Model (VLM) for high-level visual understanding and description&nbsp;</li>
-
-
-
-<li><strong>recog_tool</strong>: Performs scene, face, and object recognition</li>
-
-
-
-<li><strong>object_detection_tool</strong>: Localizes and labels entities within an image</li>
-
-
-
-<li><strong>ocr_tool</strong>: Extracts embedded text from visual elements</li>
-</ul>
-
-
-
-<h5 class="wp-block-heading" id="critic-tool">Critic tool</h5>
-
-
-
-<ul class="wp-block-list">
-<li><strong>critic_tool</strong>: Validates the Planner’s conclusions for factual alignment and consistency, refining the final response&nbsp;</li>
-</ul>
-
-
-
-<p>This lightweight ImageAgent provides fine-grained, explainable reasoning over image collections—supporting visual question answering, content inspection, and multimodal retrieval—while maintaining architectural symmetry with the VideoAgent.</p>
-
-
-
-<h2 class="wp-block-heading" id="evaluation-results">Evaluation Results&nbsp;</h2>
-
-
-
-<p>To assess the effectiveness of MMCTAgent, we evaluated both the ImageAgent and VideoAgent with multiple base LLM models and a range of benchmark datasets and real-world scenarios. Some key results are presented here.&nbsp;</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Image Datasets</th><th>GPT-4V</th><th>MMCT with GPT-4V</th><th>GPT4o</th><th>MMCT with GPT-4o</th><th>GPT-5</th><th>MMCT with GPT-5</th></tr></thead><tbody><tr><td>MM-Vet [1]</td><td>60.20</td><td>74.24</td><td>77.98</td><td>79.36</td><td>80.51</td><td>81.65</td></tr><tr><td>MMMU [2]</td><td>56.80</td><td>63.57</td><td>69.10</td><td>73.00</td><td>84.20</td><td>85.44</td></tr></tbody></table></figure>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Video Datasets</th><th>GPT4o</th><th>MMCT with GPT-4o</th></tr></thead><tbody><tr><td>VideoMME [3]</td><td>72.10</td><td>76.70</td></tr></tbody></table></figure>
-
-
-
-<p>MMCTAgent enhances base model performance by augmenting their capabilities with appropriate tools such as object detection and optical character recognition (OCR) for weaker models, or domain-specific tools for stronger models, thereby leading to substantial improvements. For example, integrating these tools raised GPT-4V’s accuracy from 60.20% to 74.24% on MM-Vet dataset. Additionally, the configurable Critic agent provides additional validation, which is especially valuable in critical domains. The additional evaluation results are available <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/MMCTAgent/blob/main/EVALUATIONS.md" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="takeaways-and-next-steps">Takeaways and next steps</h2>
-
-
-
-<p>MMCTAgent demonstrates a scalable agentic approach to multimodal reasoning with a Planner–Critic architecture. Its unified multimodal design supports both image and video pipelines, while the extensible toolchain enables rapid integration of domain-specific tools and capabilities. It provides Azure-native deployment and supports configurability within the broader open-source ecosystem.</p>
-
-
-
-<p>Looking ahead, we aim to improve efficiency and adaptability in retrieval and reasoning workflows, and to extend MMCTAgent’s applications beyond current agricultural evaluations, exploring new real-world domains through initiatives like <a href="https://www.microsoft.com/en-us/research/project/project-gecko" target="_blank" rel="noreferrer noopener">Project Gecko</a> to advance the creation of accessible, innovative multimodal applications for people around the globe.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p>We would like to thank our team members for their valuable contributions to this work: Aman Patkar, <a href="https://www.microsoft.com/en-us/research/people/ogbemie" target="_blank" rel="noreferrer noopener">Ogbemi Ekwejunor-Etchie</a>, Somnath Kumar, Soumya De, and Yash Gadhia. </p>
-
-
-
-<p><strong>References</strong><strong></strong>&nbsp;</p>
-
-
-
-<p>[1] W. Yu, Z. Yang, L. Li, J. Wang, K. Lin, Z. Liu, X. Wang, and L. Wang. “MM-VET: Evaluating large multimodal models for integrated capabilities”, 2023.&nbsp;</p>
-
-
-
-<p>[2] X. Yue, Y. Ni, K. Zhang, T. Zheng, R. Liu, G. Zhang, S. Stevens, D. Jiang, W. Ren, Y. Sun, C. Wei, B. Yu, R. Yuan, R. Sun, M. Yin, B. Zheng, Z. Yang, Y. Liu, W. Huang, H. Sun, Y. Su, and W. Chen. “MMMU: A massive multi-discipline multimodal understanding and reasoning benchmark for expert AGI”, 2023.&nbsp;</p>
-
-
-
-<p>[3] Chaoyou Fu, Yuhan Dai, Yondong Luo, Lei Li, Shuhuai Ren, Renrui Zhang, Zihan Wang, Chenyu Zhou, Yunhang Shen, Mengdan Zhang, et al. “Video-MME: The first-ever comprehensive evaluation benchmark of multi-modal llms in video analysis”, 2024.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mmctagent-enabling-multimodal-reasoning-over-large-video-and-image-collections/">MMCTAgent: Enabling multimodal reasoning over large video and image collections</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
