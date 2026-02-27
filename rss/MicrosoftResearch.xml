@@ -12,14 +12,215 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 24 Feb 2026 15:34:05 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 26 Feb 2026 17:10:15 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.9</generator>
+	<generator>https://wordpress.org/?v=6.9.1</generator>
 	<item>
+		<title>CORPGEN advances AI agents for real work</title>
+		<link>https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/</link>
+		
+		<dc:creator><![CDATA[Abubakarr Jaye, Nigel Boachie Kumankumah, Chidera Biringa, Sulaiman Vesal, Anjel Patel, Dayquan Julienne]]></dc:creator>
+		<pubDate>Thu, 26 Feb 2026 17:06:34 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1162836</guid>
+
+					<description><![CDATA[<p>By mid-morning, a typical knowledge worker is already juggling a client report, a budget spreadsheet, a slide deck, and an email backlog, all interdependent and all demanding attention at once. For AI agents to be genuinely useful in that environment, they will need to operate the same way, but today’s best models are evaluated one [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/">CORPGEN advances AI agents for real work</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image aligncenter size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1.jpg" alt="decorative icons in white on a blue and green gradient background" class="wp-image-1162851" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/CORPGEN-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Today’s AI agent benchmarks test one task at a time, while real workplace productivity requires managing dozens of interdependent tasks at once. To reflect this, we created a setting called Multi-Horizon Task Environments (MHTEs).</li>
+
+
+
+<li>Under multi-task loads, leading computer-using agents degrade sharply, with completion rates dropping from 16.7% to 8.7%.</li>
+
+
+
+<li>CORPGEN introduces <em>digital employees</em>, with hierarchical planning, memory isolation, and experiential learning, delivering up to 3.5 times higher completion rates than baselines across three independent agent backends.</li>
+
+
+
+<li>Because CORPGEN is architecture-agnostic and modular, its gains come from system design rather than any single base model, and it benefits directly as underlying models improve.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>By mid-morning, a typical knowledge worker is already juggling a client report, a budget spreadsheet, a slide deck, and an email backlog, all interdependent and all demanding attention at once. For AI agents to be genuinely useful in that environment, they will need to operate the same way, but today’s best models are evaluated one task at a time, not dozens at once.</p>
+
+
+
+<p>In our paper, “<a href="https://www.microsoft.com/en-us/research/publication/corpgen-simulating-corporate-environments-with-autonomous-digital-employees-in-multi-horizon-task-environments/">CORPGEN: Simulating Corporate Environments with Autonomous Digital Employees in Multi-Horizon Task Environments</a>,” we propose an agent framework that equips AI with the memory, planning, and learning capabilities to close that gap.</p>
+
+
+
+<h2 class="wp-block-heading" id="introducing-multi-horizon-task-environments">Introducing Multi-Horizon Task Environments</h2>
+
+
+
+<p>Replicating the reality of workplace multitasking requires a new kind of evaluation environment. In response, we developed Multi-Horizon Task Environments (MHTEs), settings where an agent must manage multiple complex tasks simultaneously. Each task requires 10 to 30 dependent steps within a single session spanning five hours.</p>
+
+
+
+<p>To determine what a benchmark would need to test, we ran MHTEs at scale on some of today’s leading AI agents, exposing four weaknesses. First, memory fills up. An agent cannot hold details for multiple active tasks at once. Second, information from one task interferes with reasoning about another. Third, tasks don’t depend on each other in simple sequences. They form complex webs where an agent must constantly check whether upstream work is finished before it can move forward on anything downstream. Fourth, every action cycle requires reprioritizing across all active tasks, not simply resuming where the agent left off.</p>
+
+
+
+<p>We also tested three independent agent systems under increasing loads. As the number of concurrent tasks rose from 12 to 46, completion rates fell from 16.7% to 8.7% across all systems.</p>
+
+
+
+<h2 class="wp-block-heading" id="corpgen-s-architecture">CORPGEN’s architecture</h2>
+
+
+
+<p>CORPGEN introduces <em>digital employees</em>: LLM-powered AI agents with persistent identities, role-specific expertise, and realistic work schedules. They operate Microsoft Office applications through GUI automation and perform consistently within MHTEs over hours of continuous activity. Figure 1 illustrates how a digital employee moves through a full workday.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1318" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-scaled.png" alt="Diagram showing a digital employee's workday in three phases. Day Init on the left, where the agent loads memory and generates a daily plan. Execution Cycles in the center, where the agent repeatedly retrieves context, reasons and acts through a ReAct loop, and persists results across 50+ interleaved tasks. Day End on the right, where the agent generates a reflection and consolidates experience into long-term memory. Below the diagram, labels show the tiered memory architecture and experiential learning components." class="wp-image-1162865" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-300x154.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-1024x527.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-768x395.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-1536x791.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-2048x1055.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/day_in_life_color_AH-240x124.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Each day begins with a structured plan and memory loaded from previous sessions. The agent then works through overlapping tasks in repeated cycles, storing key outcomes at day’s end to inform the next session.</figcaption></figure>
+
+
+
+<p>CORPGEN addresses each of the four weaknesses of concurrent task execution—memory overload, cross-task interference, dependency complexity, and reprioritization—in a targeted way. Hierarchical planning breaks objectives into daily goals and then into moment-to-moment decisions, allowing the agent to act from a structured plan instead of reviewing all available tasks before each step.</p>
+
+
+
+<p>Subagents perform complex operations like web research in isolated contexts, preventing cross-task contamination. A tiered memory system enables selective recall of task-related information rather than retaining everything in active context. Adaptive summarization compresses routine observations while preserving critical information, keeping memory growth controlled. </p>
+
+
+
+<p>Because these mechanisms are not tied to a specific base model, we tested CORPGEN across three different agents. In each case, we observed consistent gains. The improvements came from the architecture, not from the strength of any particular model. Figure 2 shows how they fit together within CORPGEN&#8217;s architecture.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1318" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-scaled.png" alt="Architecture diagram of the CORPGEN framework. At center is the Digital Employee with persistent identity, execution engine, cognitive tools, sub-agents, and context management. On the left, Hierarchical Planning decomposes strategic objectives into tactical plans and operational actions. On the right, Sub-Agents as Tools shows a Research Agent and Computer-Use agent (UFO2) operating in isolated contexts. At the bottom, the Tiered Memory Architecture spans working memory, structured long-term memory, and semantic memory via Mem0. Experiential Learning in the bottom right captures successful trajectories and routes feedback to UFO2. Multi-Employee Collaboration at the top shows async communication via Email and Teams with no shared state." class="wp-image-1162863" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-300x154.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-1024x527.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-768x395.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-1536x791.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-2048x1055.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/corpgen_arch_color_AH2-240x124.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Four mechanisms support concurrent task execution in CORPGEN: hierarchical planning, isolated subagents, tiered memory, and adaptive summarization.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="how-digital-employees-collaborate">How digital employees collaborate</h2>
+
+
+
+<p>When multiple digital employees operate in the same environment, collaboration takes shape through standard communication channels, without predefined coordination rules. One employee sends an email requesting data; another picks it up in the next cycle, uses its memory to process it, and responds. This exchange mirrors real workplace communication.</p>
+
+
+
+<p>There is no shared internal state between agents. Coordination occurs entirely through email and Microsoft Teams, the same channels many workers use. Over time, these independent exchanges form recognizable organizational patterns. Some agents take on leadership roles; others provide support; shared documents become the connective tissue.</p>
+
+
+
+<p>When a communication path breaks, such as an email delivery error, agents reroute messages through alternate channels to keep work moving. The result is a virtual organization that behaves like a real one without being explicitly programmed to do so.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluating-corpgen">Evaluating CORPGEN</h2>
+
+
+
+<p>We evaluated CORPGEN on a multi-task benchmark that combined up to 46 tasks into a single six-hour session. Three findings stood out.</p>
+
+
+
+<p><strong>Baselines degrade as load increases; CORPGEN does not.</strong> All three baseline agent systems showed steady performance declines as task load rose. CORPGEN, by contrast, maintained or improved its completion rates at higher loads. At 46 tasks, CORPGEN completed 15.2% of tasks, compared with 4.3% for the baselines, roughly 3.5 times more.</p>
+
+
+
+<p><strong>Experiential learning drives the largest gains.</strong> We introduced CORPGEN’s components sequentially: first the orchestration layer, then cognitive tools, and finally experiential learning. The first two produced moderate improvements. Experiential learning, in which agents store records of completed tasks and reuse them when they encounter structurally similar work, produced the largest increase, raising completion rates from 8.7% to 15.2%.</p>
+
+
+
+<p><strong>Evaluation methodology changes the picture.</strong> When we inspected the actual output files produced by agents, the results agreed with human judgements roughly 90% of the time. Evaluation based on screenshots and action logs agreed only about 40% of the time. This gap suggests that common evaluation approaches may underestimate what agents actually accomplish in practice.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Newsletter</h2>
+				
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="implications-and-looking-forward">Implications and looking forward</h2>
+
+
+
+<p>The results suggest that memory and retrieval, not just raw model capability, may be a key bottleneck in getting agents to work in the real world. The largest gains came from experiential learning. Agents that learn from prior successes and apply those patterns to structurally similar tasks build an advantage over systems that respond to each task in isolation.</p>
+
+
+
+<p>CORPGEN also opens a new lens on how AI agents collaborate. Next steps include testing whether agents can maintain memory across multiple workdays and how they coordinate when working in teams. We are also exploring ways to make agents faster and more reliable by combining different methods of interacting with software.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-dots"/>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgments">Acknowledgments</h2>
+
+
+
+<p>This work is a result of a collaboration between the Office of the CTO at Microsoft and the Microsoft AI Development Accelerator Program (MAIDAP). We would like to thank the Microsoft Security Research team for providing resources that supported this research. We also thank the members of the Microsoft <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/UFO" target="_blank" rel="noopener noreferrer">UFO2<span class="sr-only"> (opens in new tab)</span></a> team and the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/mem0ai/mem0" target="_blank" rel="noopener noreferrer">Mem0<span class="sr-only"> (opens in new tab)</span></a> project for their open-source contributions, which enabled key components of the CORPGEN architecture, and the OSWorld team for the benchmark that served as the foundation for our multi-task evaluation.</p>
+
+
+
+<p>Finally, we thank the many contributors to this research: Anjel Shaileshbhai Patel, Dayquan Julienne, Charlotte Siska, Manuel Raúl Meléndez Luján, Anthony Twum-Barimah, Mauricio Velazco, and Tianwei Chen.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/corpgen-advances-ai-agents-for-real-work/">CORPGEN advances AI agents for real work</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Media Authenticity Methods in Practice: Capabilities, Limitations, and Directions</title>
 		<link>https://www.microsoft.com/en-us/research/blog/media-authenticity-methods-in-practice-capabilities-limitations-and-directions/</link>
 		
@@ -36,7 +237,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1.jpg" alt="three white outline icons on a blue-to-pink gradient background: an image with a copyright “CR” badge, an image overlaid with fingerprint-like lines, and an image framed by a cropping grid." class="wp-image-1162625" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1.jpg" alt="three white outline icons on a blue-to-pink gradient background: an image with a copyright “CR” badge, an image overlaid with fingerprint-like lines, and an image framed by a cropping grid." class="wp-image-1162625" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/MediaIntegrityReport-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -172,7 +373,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-silicas-advances-in-glass-storage-technology/">Project Silica’s advances in glass storage technology</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1.jpg" alt="A blue-to-green gradient background featuring three white icons: a networked globe on the left, a cloud in the center, and a stacked database on the right." class="wp-image-1162006" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1.jpg" alt="A blue-to-green gradient background featuring three white icons: a networked globe on the left, a cloud in the center, and a stacked database on the right." class="wp-image-1162006" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/NatureSilica-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -229,30 +430,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -321,7 +522,7 @@
 	<div class="card material-card h-100 p-0">
 
 					<div class="embed-responsive embed-responsive-16by9">
-				<img decoding="async" width="1024" height="683" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-1024x683.jpg" class="card-img embed-responsive-item img-object-cover" alt="Project Silica | Nature | Microsoft Azure - vertical color bars in varying shades of blue" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-1024x683.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-300x200.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-768x512.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-240x160.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800.jpg 1200w" sizes="(max-width: 1024px) 100vw, 1024px" />			</div>
+				<img loading="lazy" decoding="async" width="1024" height="683" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-1024x683.jpg" class="card-img embed-responsive-item img-object-cover" alt="Project Silica | Nature | Microsoft Azure - vertical color bars in varying shades of blue" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-1024x683.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-300x200.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-768x512.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800-240x160.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/Nature_Silica_1_1200x800.jpg 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px" />			</div>
 		
 		<div class="card-body px-4 px-lg-5 pt-4">
 										<div class="card__description mb-3">
@@ -492,30 +693,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1851,176 +2052,6 @@
 
 <p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://labs.ai.azure.com/projects/promptions/">Explore Promptions on Microsoft Foundry Labs<span class="sr-only"> (opens in new tab)</span></a></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/promptions-helps-make-ai-prompting-more-precise-with-dynamic-ui-controls/">Promptions helps make AI prompting more precise with dynamic UI controls</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI</title>
-		<link>https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/</link>
-		
-		<dc:creator><![CDATA[Hoifung Poon, Jeya Maria Jose Valanarasu, Naoto Usuyama, Sheng Wang]]></dc:creator>
-		<pubDate>Tue, 09 Dec 2025 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/</guid>
-
-					<description><![CDATA[<p>Using AI-generated virtual populations, Microsoft researchers uncovered hidden cellular patterns that could reshape how we understand and treat cancer. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka.jpg" alt="Illustration of a person kneeling and looking through a large telescope on a textured pink surface. The telescope is aimed at a dark sky filled with colorful circular icons, each containing abstract shapes. The telescope itself has circuit-like patterns inside." class="wp-image-1156682" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/11/LANDSCAPE-INMUNE-MAPS_holasoyka-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>The convergence of digital transformation and the GenAI revolution creates an unprecedented opportunity for accelerating progress in precision health. Precision immunotherapy is a poster child for this transformation. Emerging technologies such as multiplex immunofluorescence (mIF) can assess internal states of individual cells along with their spatial locations, which is critical for deciphering how tumors interact with the immune system. The resulting insights, often referred to as the &#8220;grammar&#8221; of the tumor microenvironment, can help predict whether a tumor will respond to immunotherapy. If it is unlikely to respond, these insights can also inform strategies to reprogram the tumor from &#8220;cold&#8221; to &#8220;hot,&#8221; increasing its susceptibility to treatment.</p>
-
-
-
-<p>This is exciting, but progress is hindered by the high cost and limited scalability of current technology. For example, obtaining mIF data of a couple dozen protein channels for a tissue sample can cost thousands of dollars, and even the most advanced labs can barely scale it to a tiny fraction of their available tissue samples.</p>
-
-
-
-<p>In our paper published in Cell on&nbsp;December&nbsp;9, “<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.cell.com/cell/fulltext/S0092-8674(25)01312-1" target="_blank" rel="noopener noreferrer">Multimodal AI generates virtual population for tumor microenvironment modeling<span class="sr-only"> (opens in new tab)</span></a>,” we present&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/gigatime-code" target="_blank" rel="noopener noreferrer">GigaTIME<span class="sr-only"> (opens in new tab)</span></a>, a&nbsp;multimodal AI&nbsp;model&nbsp;for translating routinely available hematoxylin and eosin (H&E)&nbsp;pathology slides&nbsp;to virtual&nbsp;mIF&nbsp;images. Developed in collaboration with Providence and the University of Washington, GigaTIME was trained on a Providence dataset of 40 million cells with paired H&E and mIF images across 21 protein channels. We applied&nbsp;GigaTIME&nbsp;to&nbsp;14,256&nbsp;cancer&nbsp;patients from 51 hospitals and over a thousand clinics within the Providence system. This effort generated a virtual population of around 300,000 mIF images spanning 24 cancer types and 306 cancer subtypes. This virtual population uncovered&nbsp;1,234 statistically significant&nbsp;associations linking&nbsp;mIF&nbsp;protein activations with key clinical attributes such as biomarkers, staging,&nbsp;and patient&nbsp;survival.&nbsp;Independent external validation&nbsp;on&nbsp;10,200&nbsp;Cancer Genome Atlas (TCGA) patients further corroborated our findings.&nbsp;</p>
-
-
-
-<p>To our knowledge, this is the first population-scale study of tumor immune microenvironment (TIME) based on spatial proteomics. Such studies were previously infeasible due to the scarcity of mIF data. By translating readily available H&E pathology slides into high-resolution virtual mIF data, GigaTIME provides a novel research framework for exploring precision immuno-oncology through population-scale TIME analysis and discovery. We have made our GigaTIME model publicly available at <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/GigaTIMELabs">Microsoft Foundry Labs<span class="sr-only"> (opens in new tab)</span></a> and on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/prov-gigatime/GigaTIME" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a> to help accelerate clinical research in precision oncology.</p>
-
-
-
-<p>&#8220;GigaTIME&nbsp;is about unlocking insights that were previously out of reach,&#8221; explained Carlo Bifulco, MD, chief medical officer of Providence Genomics and medical director of cancer genomics and precision oncology at the Providence Cancer Institute. “By analyzing the tumor microenvironment of thousands of patients,&nbsp;GigaTIME&nbsp;has the potential to accelerate discoveries that will shape the future of precision oncology and improve patient outcomes.&#8221;&nbsp;</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="gigatime-generates-a-virtual-population-for-tumor-microenvironment-modeling">GigaTIME generates a virtual population for tumor microenvironment modeling</h2>
-
-
-
-<p>Digital pathology transforms a microscopy slide of stained tumor tissue into a high-resolution digital image, revealing details of cell morphology such as nucleus and cytoplasm. Such a slide only costs $5 to $10 per image and has become routinely available in cancer care. It is well known that H&E-based cell morphology contains information about the cellular states. Last year, we released <a href="https://www.microsoft.com/en-us/research/blog/gigapath-whole-slide-foundation-model-for-digital-pathology/">GigaPath</a>, the first digital pathology foundation model for scaling transformer architectures to gigapixel H&E slides. Afterward, researchers at Mount Sinai Hospital and Memorial Sloan Kettering Cancer Center showed in a global prospective trial that it can reliably predict a key biomarker from H&E slides for precision oncology triaging. However, such prior works are generally limited to average biomarker status across the entire tissue. GigaTIME thus represents a major step forward by learning to predict spatially resolved, single-cell states essential for tumor microenvironment modeling. In turn, this enables us to generate a virtual population of mIF images for large-scale TIME analysis (Figure 1).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1265" height="1518" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1.png" alt="Figure 1. GigaTIME enables population-scale tumor immune microenvironment (TIME) analysis. A, GigaTIME inputs a hematoxylin and eosin (H&E) whole-slide image and outputs multiplex immunofluorescence (mIF) across 21 protein channels. By applying GigaTIME to 14,256 patients, we generated a virtual population with mIF information, leading to population-scale discovery on clinical biomarkers and patient stratification, with independent validation on TCGA. B, Circular plot visualizing a TIME spectrum encompassing the GigaTIME-translated virtual mIF activation scores across different protein channels at the population scale, where each channel is represented as an individual circular bar chart segment. The inner circle encodes OncoTree, which classifies 14,256 patients into 306 subtypes across 24 cancer types. The outer circle groups these activations by cancer types, allowing visual comparison across major categories. C, Scatter plot comparing the subtype-level GigaTIME-translated virtual mIF activations between TCGA and Providence virtual populations. Each dot denotes the average activation score of a protein channel among all tumors of a cancer subtype." class="wp-image-1153563" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1.png 1265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-250x300.png 250w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-853x1024.png 853w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-768x922.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure1-150x180.png 150w" sizes="auto, (max-width: 1265px) 100vw, 1265px" /><figcaption class="wp-element-caption">Figure 1. GigaTIME enables population-scale tumor immune microenvironment (TIME) analysis. A, GigaTIME inputs a hematoxylin and eosin (H&E) whole-slide image and outputs multiplex immunofluorescence (mIF) across 21 protein channels. By applying GigaTIME to 14,256 patients, we generated a virtual population with mIF information, leading to population-scale discovery on clinical biomarkers and patient stratification, with independent validation on TCGA. B, Circular plot visualizing a TIME spectrum encompassing the GigaTIME-translated virtual mIF activation scores across different protein channels at the population scale, where each channel is represented as an individual circular bar chart segment. The inner circle encodes OncoTree, which classifies 14,256 patients into 306 subtypes across 24 cancer types. The outer circle groups these activations by cancer types, allowing visual comparison across major categories. C, Scatter plot comparing the subtype-level GigaTIME-translated virtual mIF activations between TCGA and Providence virtual populations. Each dot denotes the average activation score of a protein channel among all tumors of a cancer subtype.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="gigatime-learns-a-multimodal-ai-model-to-translate-pathology-slides-into-spatial-proteomics-images-bridging-cell-morphology-and-cell-states">GigaTIME learns a multimodal AI model to translate pathology slides into spatial proteomics images, bridging cell morphology and cell states</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1241" height="1418" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2.png" alt="Figure 2. GigaTIME enables translation from hematoxylin and eosin (H&E) to multiplex immunofluorescence (mIF) images. A,B, Bar plot comparing GigaTIME and CycleGAN on the translation performance in terms of Dice score (A) and Pearson correlation (B). C, Scatter plots comparing the activation density of the translated mIF and the ground truth mIF across four channels. D, Qualitative results for a sample H&E whole-slide image from our held-out test set with zoomed-in visualizations of the measured mIF and GigaTIME-translated mIF for DAPI, PD-L1, and CD68 channels." class="wp-image-1153564" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2.png 1241w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-263x300.png 263w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-896x1024.png 896w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-768x878.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure2-158x180.png 158w" sizes="auto, (max-width: 1241px) 100vw, 1241px" /><figcaption class="wp-element-caption">Figure 2. GigaTIME enables translation from hematoxylin and eosin (H&E) to multiplex immunofluorescence (mIF) images. A,B, Bar plot comparing GigaTIME and CycleGAN on the translation performance in terms of Dice score (A) and Pearson correlation (B). C, Scatter plots comparing the activation density of the translated mIF and the ground truth mIF across four channels. D, Qualitative results for a sample H&E whole-slide image from our held-out test set with zoomed-in visualizations of the measured mIF and GigaTIME-translated mIF for DAPI, PD-L1, and CD68 channels.</figcaption></figure>
-
-
-
-<p>GigaTIME learned a cross-modal AI translator from digital pathology to spatial multiplex proteomics by training on 40 million cells with paired H&E slides and mIF images from Providence. To our knowledge, this is the first large-scale study exploring multimodal AI for scaling virtual mIF generation. The high-quality paired data enabled much more accurate cross-modal translation compared to prior state-of-the-art methods (Figure 2).</p>
-
-
-
-<h2 class="wp-block-heading" id="virtual-population-enables-population-scale-discovery-of-associations-between-cell-states-and-key-biomarkers">Virtual population enables population-scale discovery of associations between cell states and key biomarkers</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1257" height="1747" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3.png" alt="Figure 3. GigaTIME identifies novel TIME protein vs biomarker associations at pan-cancer, cancer type, cancer subtype levels. A, GigaTIME generates a virtual population of 14,256 with virtual mIF by translating available H&E images to mIF images, enabling pan-cancer, cancer type, and cancer subtype levels of biomedical discovery. B-G, Correlation analysis between protein channels in virtual mIF and patient biomarkers reveal TIME protein-biomarker associations at pan-cancer level (B), cancer-type level (C-E), and cancer-subtype level (F,G). Circle size denotes significance strength. Circle color denotes the directionality in which the correlation occurs. Channel color denotes high, medium, and low confidence based on pearson correlations evaluated using test set. H, A case study showcasing the activation maps across different virtual mIF channels for a H&E slide in our virtual population, and virtual mIF of sample patches from this slide." class="wp-image-1153565" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3.png 1257w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3-216x300.png 216w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3-737x1024.png 737w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3-768x1067.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3-1105x1536.png 1105w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure3-130x180.png 130w" sizes="auto, (max-width: 1257px) 100vw, 1257px" /><figcaption class="wp-element-caption">Figure 3. GigaTIME identifies novel TIME protein vs biomarker associations at pan-cancer, cancer type, cancer subtype levels. A, GigaTIME generates a virtual population of 14,256 with virtual mIF by translating available H&E images to mIF images, enabling pan-cancer, cancer type, and cancer subtype levels of biomedical discovery. B-G, Correlation analysis between protein channels in virtual mIF and patient biomarkers reveal TIME protein-biomarker associations at pan-cancer level (B), cancer-type level (C-E), and cancer-subtype level (F,G). Circle size denotes significance strength. Circle color denotes the directionality in which the correlation occurs. Channel color denotes high, medium, and low confidence based on pearson correlations evaluated using test set. H, A case study showcasing the activation maps across different virtual mIF channels for a H&E slide in our virtual population, and virtual mIF of sample patches from this slide.</figcaption></figure>
-
-
-
-<p>By applying GigaTIME to Providence real-world data, we generated a virtual population of 14,256 patients with virtual mIF and key clinical attributes. After correcting for multiple hypothesis testing, we have identified 1,234 statistically significant associations between tumor immune cell states (CD138, CD20, CD4) and clinical biomarkers (tumor mutation burden, KRAS, KMT2D), from pan-cancer to cancer subtypes (Figure 3). Many of these findings are supported by existing literature. For example, MSI high and TMB high associated with increased activations of TIME-related channels such as CD138. Additionally, the virtual population also uncovered previously unknown associations, such as pan-cancer associations between immune activations and key tumor biomarkers, such as the tumor suppressor KMT2D and the oncogene KRAS).</p>
-
-
-
-<h2 class="wp-block-heading" id="virtual-population-enables-population-scale-discovery-of-tumor-immune-signatures-for-patient-stratification">Virtual population enables population-scale discovery of tumor immune signatures for patient stratification</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1654" height="1733" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4.png" alt="Figure 4. GigaTIME enables effective patient stratification across pathological stages and survival groups. A-C, Correlation analysis between virtual mIF and pathological stages at pan-cancer level (A), cancer-type level (B), and cancer-subtype level (C). Circle size denotes significance strength. Circle color denotes the directionality in which the correlation happens. Channel color denotes high, medium, and low confidence based on pearson correlations evaluated using test set. D-F, Survival analysis on lung cancer by using virtual CD3, virtual CD8, and virtual GigaTIME signature (all 21 GigaTIME protein channels) to stratify patients at pan-cancer level (D) and cancer-type level: lung (E), brain (F). G, Bar plot comparing pan-cancer patient stratification performance in terms of survival log rank p-values among virtual GigaTIME signature and individual virtual protein channels." class="wp-image-1153566" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4.png 1654w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4-286x300.png 286w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4-977x1024.png 977w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4-768x805.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4-1466x1536.png 1466w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure4-172x180.png 172w" sizes="auto, (max-width: 1654px) 100vw, 1654px" /><figcaption class="wp-element-caption">Figure 4. GigaTIME enables effective patient stratification across pathological stages and survival groups. A-C, Correlation analysis between virtual mIF and pathological stages at pan-cancer level (A), cancer-type level (B), and cancer-subtype level (C). Circle size denotes significance strength. Circle color denotes the directionality in which the correlation happens. Channel color denotes high, medium, and low confidence based on pearson correlations evaluated using test set. D-F, Survival analysis on lung cancer by using virtual CD3, virtual CD8, and virtual GigaTIME signature (all 21 GigaTIME protein channels) to stratify patients at pan-cancer level (D) and cancer-type level: lung (E), brain (F). G, Bar plot comparing pan-cancer patient stratification performance in terms of survival log rank p-values among virtual GigaTIME signature and individual virtual protein channels.</figcaption></figure>
-
-
-
-<p>The virtual population also uncovered&nbsp;GigaTIME&nbsp;signatures for&nbsp;effective&nbsp;patient stratification&nbsp;across staging and survival profiles&nbsp;(Figure 4), from pan-cancer to cancer subtypes.&nbsp;Prior studies have&nbsp;explored patient stratification based on&nbsp;individual&nbsp;immune&nbsp;proteins&nbsp;such as CD3 and CD8. We found that GigaTIME-simulated CD3 and CD8 are similarly effective. Moreover, the combined GigaTIME signature across all 21 protein channels attained even better patient stratification compared to individual channels.</p>
-
-
-
-<h2 class="wp-block-heading" id="virtual-population-uncovers-interesting-spatial-and-combinatorial-interactions">Virtual population uncovers interesting spatial and combinatorial interactions</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1249" height="1606" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5.png" alt="Figure 5. GigaTIME uncovers interesting spatial and combinatorial virtual mIF patterns. A,B,C Bar plots comparing virtual mIF activation density with spatial metrics on identifying TIME protein-biomarker correlations. We investigated three spatial metrics based on entropy (A), signal-to-noise ratio (SNR) (B), and sharpness (C). D,E, Bar plots comparing single-channel and combinatorial-channel (using the OR logical operation) in biomarker associations for two GigaTIME virtual protein pairs: CD138/CD68 (D) and PD-L1/Caspase 3 (E), demonstrating substantially improved associations for the combination. F, Case studies visualizing the virtual mIF activation maps of individual channels (CD138, CD68; PD-L1, Caspase 3) and their combinations." class="wp-image-1153567" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5.png 1249w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5-233x300.png 233w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5-796x1024.png 796w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5-768x988.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5-1195x1536.png 1195w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure5-140x180.png 140w" sizes="auto, (max-width: 1249px) 100vw, 1249px" /><figcaption class="wp-element-caption">Figure 5. GigaTIME uncovers interesting spatial and combinatorial virtual mIF patterns. A,B,C Bar plots comparing virtual mIF activation density with spatial metrics on identifying TIME protein-biomarker correlations. We investigated three spatial metrics based on entropy (A), signal-to-noise ratio (SNR) (B), and sharpness (C). D,E, Bar plots comparing single-channel and combinatorial-channel (using the OR logical operation) in biomarker associations for two GigaTIME virtual protein pairs: CD138/CD68 (D) and PD-L1/Caspase 3 (E), demonstrating substantially improved associations for the combination. F, Case studies visualizing the virtual mIF activation maps of individual channels (CD138, CD68; PD-L1, Caspase 3) and their combinations.</figcaption></figure>
-
-
-
-<p>The virtual population uncovered interesting non-linear interactions across the GigaTIME virtual protein channels, revealing associations with spatial features such as sharpness and entropy, as well as with key clinical biomarkers like APC and KMT2D (Figure 6). Such combinatorial studies were previously out of reach given the scarcity of mIF data.</p>
-
-
-
-<h2 class="wp-block-heading" id="independent-external-validation-on-tcga">Independent external validation on TCGA</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1977" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-scaled.png" alt="Figure 6. Independent validation on a virtual population from TCGA. A, Grid charts showing significantly correlated pan-cancer GigaTIME protein-biomarker pairs in Providence (left), TCGA (middle), and both (right). B, Grid charts showing significantly correlated GigaTIME protein-biomarker pairs for lung cancer in Providence and TCGA. C, Grid chart showing significantly correlated GigaTIME protein-biomarker pairs for LUAD in Providence. Channel color denotes high, medium, and low confidence based on pearson correlations evaluated using test set. D, Case studies with visualizations of H&E slides and the corresponding virtual mIF activations for the pair of a GigaTIME protein channel and a biomarker (mutated/non-mutated), where the patient with the given mutation demonstrates much higher activation scores for that GigaTIME protein channel." class="wp-image-1153568" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-scaled.png 1977w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-232x300.png 232w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-791x1024.png 791w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-768x995.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-1186x1536.png 1186w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-1581x2048.png 1581w, https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/GigaTIME_Figure6-1-139x180.png 139w" sizes="auto, (max-width: 1977px) 100vw, 1977px" /><figcaption class="wp-element-caption">Figure 6. Independent validation on a virtual population from TCGA. A, Grid charts showing significantly correlated pan-cancer GigaTIME protein-biomarker pairs in Providence (left), TCGA (middle), and both (right). B, Grid charts showing significantly correlated GigaTIME protein-biomarker pairs for lung cancer in Providence and TCGA. C, Grid chart showing significantly correlated GigaTIME protein-biomarker pairs for LUAD in Providence. Channel color denotes high, medium, and low confidence based on pearson correlations evaluated using test set. D, Case studies with visualizations of H&E slides and the corresponding virtual mIF activations for the pair of a GigaTIME protein channel and a biomarker (mutated/non-mutated), where the patient with the given mutation demonstrates much higher activation scores for that GigaTIME protein channel.</figcaption></figure>
-
-
-
-<p>We conducted an independent external validation by applying GigaTIME to 10,200 patients in The Cancer Genome Atlas (TCGA) dataset and studied associations between GigaTIME-simulated virtual mIF and clinical biomarkers available in TCGA. We observed significant concordance across the virtual populations from Providence and TCGA, with a Spearman correlation of 0.88 for virtual protein activations across cancer subtypes. The two populations also uncovered a significant overlap of associations between GigaTIME-simulated protein activations and clinical biomarkers (Fisher’s exact test p < 2 × 10−9). On the other hand, the Providence virtual population yielded 33% more significant associations than TCGA, highlighting the value of large and diverse real-world data for clinical discovery.</p>
-
-
-
-<h2 class="wp-block-heading" id="gigatime-is-a-promising-step-toward-the-moonshot-of-virtual-patient">GigaTIME is a promising step toward the moonshot of “virtual patient”</h2>
-
-
-
-<p>By learning to translate across modalities, GigaTIME is a promising step toward “learning the language of patients” for the ultimate goal of developing a “virtual patient”, a high-fidelity digital twin that could one day accurately forecast disease progression and counterfactual treatment response. By converting routinely available cell morphology data into otherwise scarce high-resolution cell states signals, GigaTIME demonstrated the potential in harnessing multimodal AI to scale real-world evidence (RWE) generation.</p>
-
-
-
-<p>Going forward, growth opportunities abound. GigaTIME can be extended to handle more spatial modalities and cell-state channels. It can be integrated into advanced multimodal frameworks such as <a href="https://www.microsoft.com/en-us/research/publication/llava-med-training-a-large-language-and-vision-assistant-for-biomedicine-in-one-day/">LLaVA-Med</a> to facilitate conversational image analysis by “talking to the data.” To facilitate research in tumor microenvironment modeling, we have made <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/gigatime-code" target="_blank" rel="noopener noreferrer">GigaTIME open-source<span class="sr-only"> (opens in new tab)</span></a> on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/GigaTIMELabs">Foundry Labs<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/prov-gigatime/GigaTIME" target="_blank" rel="noopener noreferrer">Hugging Face<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>GigaTIME is a joint work with Providence and the University of Washington&#8217;s Paul G. Allen School of Computer Science & Engineering. It reflects Microsoft’s larger commitment to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.nejm.org/doi/full/10.1056/AI-S2300233" target="_blank" rel="noopener noreferrer">advancing multimodal generative AI for precision health<span class="sr-only"> (opens in new tab)</span></a>, with other exciting progress such as <a href="https://www.microsoft.com/en-us/research/blog/gigapath-whole-slide-foundation-model-for-digital-pathology/">GigaPath</a>, <a href="https://www.microsoft.com/en-us/research/publication/biomedclip-a-multimodal-biomedical-foundation-model-pretrained-from-fifteen-million-scientific-image-text-pairs/">BiomedCLIP</a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41467-025-58344-x" target="_blank" rel="noopener noreferrer">LLaVA-Rad<span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/publication/biomedjourney-counterfactual-biomedical-image-generation-by-instruction-learning-from-multimodal-patient-journeys/">BiomedJourney</a>, <a href="https://www.microsoft.com/en-us/research/blog/biomedparse-a-foundation-model-for-smarter-all-in-one-biomedical-image-analysis/">BiomedParse</a>, <a href="https://www.microsoft.com/en-us/research/publication/trialscope-a-unifying-causal-framework-for-scaling-real-world-evidence-generation-with-biomedical-language-models/">TrialScope</a>, <a href="https://www.microsoft.com/en-us/research/publication/generative-medical-event-models-improve-with-scale/">Curiosity</a>.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://news.microsoft.com/signal/articles/gigatime-ai-tool-advances-cancer-research/">Learn more at the Microsoft Signal blog</a></div>
-</div>
-
-
-
-<p>Paper co-authors: <em><a href="https://www.microsoft.com/en-us/research/people/jevalanarasu/">Jeya Maria Jose Valanarasu</a>, Hanwen Xu, <a href="https://www.microsoft.com/en-us/research/people/naotous/">Naoto Usuyama</a>, Chanwoo Kim, <a href="https://www.microsoft.com/en-us/research/people/clwon/">Cliff Wong</a>, <a href="https://www.microsoft.com/en-us/research/people/penielargaw/">Peniel Argaw</a>, Racheli Ben Shimol, Angela Crabtree, Kevin Matlock, Alexandra Q. Bartlett, Jaspreet Bagga, <a href="https://www.microsoft.com/en-us/research/people/yugu1/">Yu Gu</a>, <a href="https://www.microsoft.com/en-us/research/people/shezhan/">Sheng Zhang</a>, <a href="https://www.microsoft.com/en-us/research/people/tristan/">Tristan Naumann</a>, Bernard A. Fox, Bill Wright, Ari Robicsek, Brian Piening, Carlo Bifulco, Sheng Wang, <a href="https://www.microsoft.com/en-us/research/people/hoifung/">Hoifung Poon</a></em></p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">GigaTIME: Scaling tumor microenvironment modeling using virtual population generated by multimodal AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
