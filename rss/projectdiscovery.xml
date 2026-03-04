@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 03 Mar 2026 02:33:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Mar 2026 02:26:27 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -117,22 +117,6 @@ GCP is well-known for its powerful features and v</description>
       <description>At ProjectDiscovery, our greatest strength is our community. Thousands of security researchers, bug bounty hunters, and vulnerability analysts who identify zero‑day vulnerabilities, trending CVEs, and actively exploited vulnerabilities (including those listed in CISA KEV).</description>
     </item>
     <item>
-      <title>Authentication Bypass to RCE in Versa Concerto</title>
-      <link>https://projectdiscovery.io/blog/versa-concerto-authentication-bypass-rce</link>
-      <description>Introduction
-
-Versa Concerto is a widely used network security and SD-WAN orchestration platform, designed to provide seamless policy management, analytics, and automation for enterprises. With a growing customer base that includes large enterprises, service providers, and government entities, the security of this platform is critical. Given its extensive adoption and potential exposure to external threats, we initiated research to assess its security posture and uncover possible vulnerabilities</description>
-    </item>
-    <item>
-      <title>Remote Code Execution in DELMIA Apriso</title>
-      <link>https://projectdiscovery.io/blog/remote-code-execution-in-delmia-apriso</link>
-      <description>Introduction
-
-DELMIA Apriso is a manufacturing execution and operations orchestration platform used by large manufacturers, service providers, and critical infrastructure operators. Because the product exposes multiple integration points (SOAP, file uploads, provisioning feeds) that are often reachable from internal networks, we performed a focused black-box assessment to surface integration and surface-area weaknesses.
-
-Our testing uncovered two chained, high-impact issues: an unauthenticated S</description>
-    </item>
-    <item>
       <title>How to Research &amp; Reverse Web Vulnerabilities 101</title>
       <link>https://projectdiscovery.io/blog/how-to-research-web-vulnerabilities</link>
       <description>Introduction
@@ -145,15 +129,18 @@ Environment &amp; Tools
 When approaching a new target for CVE research or reverse-e</description>
     </item>
     <item>
-      <title>Year in Review: The Vulnerabilities That Defined 2025</title>
-      <link>https://projectdiscovery.io/blog/year-in-review-the-vulnerabilities-that-defined-2025</link>
-      <description>A Year of Real-World Exploitation
+      <title>AI code review has come a long way, but it can’t catch everything</title>
+      <link>https://projectdiscovery.io/blog/ai-code-review-vs-neo</link>
+      <description>AI code review can reason about intent, but real incidents often stem from business logic flaws that only show up in runtime. Our benchmark reveals where code-only review falls short.</description>
+    </item>
+    <item>
+      <title>How Neo found an SSRF vulnerability in Faraday, and why it matters for every team that ships code</title>
+      <link>https://projectdiscovery.io/blog/how-neo-found-an-ssrf-vulnerability-in-faraday-and-why-it-matters-for-every-team-that-ships-code</link>
+      <description>Executive Summary
 
-If you work in security, you probably remember React2Shell. Shortly after public disclosure, scanning activity increased, and exploitation attempts began to surface.
+Neo found a Server-Side Request Forgery (SSRF) vulnerability in Faraday, a widely used HTTP client library in the Ruby ecosystem. This is Neo’s first credited CVE discovery.
 
-That sequence showed up repeatedly across several of 2025’s most impactful vulnerabilities. Advisories were still circulating while attackers were already testing and operationalizing exploits.
-
-This wasn’t true for the thousands of CVEs published quietly throughout the year. But for a smaller set</description>
+Neo is ProjectDiscovery’s AI security copilot for tasks like code review and vulnerability discovery. For this finding, Neo reviewed a widely used open source dependency and, without human guidance, surfaced a subtle URL-handling edge case, validated it in runtime, and produced a clear write-up that maint</description>
     </item>
     <item>
       <title>Surfacing the real attack surface: Advances in asset discovery</title>
@@ -168,6 +155,11 @@ Traditional discovery tools are effective at identifying well-known or easily in
       <title>New Report: State of AppSec 2026 | Security at Engineering Speed</title>
       <link>https://projectdiscovery.io/blog/new-report-state-of-appsec-2026-security-at-engineering-speed</link>
       <description>In 2026, most organizations aren’t shipping “applications” so much as they’re shipping continuous change; across APIs and services, infrastructure and configuration, identity and permissions, feature flags, and AI-assisted code.</description>
+    </item>
+    <item>
+      <title>AI code review has come a long way, but it can’t catch everything</title>
+      <link>https://projectdiscovery.io/blog/ai-code-review-vs-neo</link>
+      <description>AI code review can reason about intent, but real incidents often stem from business logic flaws that only show up in runtime. Our benchmark reveals where code-only review falls short.</description>
     </item>
   </channel>
 </rss>
