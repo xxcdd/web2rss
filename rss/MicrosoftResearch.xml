@@ -12,14 +12,226 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 11 Mar 2026 20:47:58 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 12 Mar 2026 16:38:47 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.9.1</generator>
+	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>Systematic debugging for AI agents: Introducing the AgentRx framework</title>
+		<link>https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/</link>
+		
+		<dc:creator><![CDATA[Shraddha Barke, Arnav Goyal, Alind Khare, Chetan Bansal]]></dc:creator>
+		<pubDate>Thu, 12 Mar 2026 16:38:45 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1163539</guid>
+
+					<description><![CDATA[<p>As AI agents transition from simple chatbots to autonomous systems capable of managing cloud incidents, navigating complex web interfaces, and executing multi-step API workflows, a new challenge has emerged: transparency. When a human makes a mistake, we can usually trace the logic. But when an AI agent fails, perhaps by hallucinating a tool output or [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/">Systematic debugging for AI agents: Introducing the AgentRx framework</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons, showing network, workflow, and bug‑analysis icons, on a blue‑to‑purple gradient background." class="wp-image-1163547" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Problem:</strong> Debugging AI agent failures is hard because trajectories are long, stochastic, and often multi-agent, so the true root cause gets buried.</li>
+
+
+
+<li><strong>Solution:</strong> <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Repo" type="link" id="https://aka.ms/AgentRx/Repo" target="_blank" rel="noopener noreferrer">AgentRx<span class="sr-only"> (opens in new tab)</span></a></strong> pinpoints the <em>first unrecoverable (“critical failure”) step</em> by synthesizing <strong>guarded, executable constraints</strong> from tool schemas and domain policies, then logging evidence-backed violations step-by-step.</li>
+
+
+
+<li><strong>Benchmark + taxonomy:</strong> We release <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Dataset" type="link" id="https://aka.ms/AgentRx/Dataset" target="_blank" rel="noopener noreferrer">AgentRx Benchmark<span class="sr-only"> (opens in new tab)</span></a></strong> with <strong>115</strong> manually annotated failed trajectories across <strong>τ-bench</strong>, <strong>Flash</strong>, and <strong>Magentic-One</strong>, plus a grounded nine<strong>-category failure taxonomy</strong>.</li>
+
+
+
+<li><strong>Results + release:</strong> AgentRx improves failure localization (<strong>+23.6%</strong>) and root-cause attribution (<strong>+22.9%</strong>) over prompting baselines, and we are open-sourcing the framework and dataset.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>As AI agents transition from simple chatbots to autonomous systems capable of managing cloud incidents, navigating complex web interfaces, and executing multi-step API workflows, a new challenge has emerged: <strong>transparency.</strong></p>
+
+
+
+<p>When a human makes a mistake, we can usually trace the logic. But when an AI agent fails, perhaps by hallucinating a tool output or deviating from a security policy ten steps into a fifty-step task, identifying exactly where and why things went wrong is an arduous, manual process.</p>
+
+
+
+<p>Today, we are excited to announce the open-source release of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Repo" target="_blank" rel="noopener noreferrer"><strong>AgentRx</strong><span class="sr-only"> (opens in new tab)</span></a>, an automated, domain-agnostic framework designed to pinpoint the &#8220;critical failure step&#8221; in agent trajectories. Alongside the framework, we are releasing the <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Dataset" type="link" id="https://aka.ms/AgentRx/Dataset" target="_blank" rel="noopener noreferrer">AgentRx Benchmark<span class="sr-only"> (opens in new tab)</span></a></strong>, a dataset of 115 manually annotated failed trajectories to help the community build more transparent, resilient agentic systems.</p>
+
+
+
+<figure class="wp-block-video"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-framework.mp4"></video></figure>
+
+
+
+<h2 class="wp-block-heading" id="the-challenge-why-ai-agents-are-hard-to-debug">The challenge: Why AI agents are hard to debug</h2>
+
+
+
+<p>Modern AI agents are often:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Long-horizon:</strong> They perform dozens of actions over extended periods.</li>
+
+
+
+<li><strong>Probabilistic:</strong> The same input might lead to different outputs, making reproduction difficult.</li>
+
+
+
+<li><strong>Multi-agent:</strong> Failures can be &#8220;passed&#8221; between agents, masking the original root cause.</li>
+</ul>
+
+
+
+<p>Traditional success metrics (like “Did the task finish?”) don’t tell us enough. To build safe agents, we need to identify the exact moment a trajectory becomes unrecoverable and capture evidence for what went wrong at that step.</p>
+
+
+
+<h2 class="wp-block-heading" id="introducing-agentrx-an-automated-diagnostic-prescription">Introducing AgentRx: An automated diagnostic &#8220;prescription&#8221;</h2>
+
+
+
+<p><strong>AgentRx</strong> (short for &#8220;Agent Diagnosis&#8221;) treats agent execution like a system trace that needs validation. Instead of relying on a single LLM to &#8220;guess&#8221; the error, AgentRx uses a structured, multi-stage pipeline:</p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Trajectory normalization:</strong> Heterogeneous logs from different domains are converted into a common intermediate representation.</li>
+
+
+
+<li><strong>Constraint synthesis:</strong> The framework automatically generates executable constraints based on tool schemas (e.g., &#8220;The API must return a valid JSON response&#8221;) and domain policies (e.g., &#8220;Do not delete data without user confirmation&#8221;).</li>
+
+
+
+<li><strong>Guarded evaluation:</strong> AgentRx evaluates constraints step-by-step, checking each constraint only when its <em>guard condition</em> applies, and produces an <strong>auditable validation log</strong> of evidence-backed violations.</li>
+
+
+
+<li><strong>LLM-based judging:</strong> Finally, an LLM judge uses the validation log and a grounded failure taxonomy to identify the <strong>Critical Failure Step</strong>—the first unrecoverable error.</li>
+</ol>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1197" height="955" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx.png" alt="Flowchart illustrating an agent failure attribution pipeline. In the upper left, a blue rounded box labeled “Task Context” contains three stacked inputs: “Domain Policy,” “Tool Schema,” and “Trajectory.” A downward arrow leads into a large yellow rounded rectangle representing the validation pipeline. Inside this area, a green box labeled “Constraint Generator” feeds into a blue box labeled “Constraint Checker.” To their right is a JSON-like constraint specification with fields such as assertion_name: "tshirt_count_matches", taxonomy_targets: "MisinterpretationOfToolOutput", type: "RELATIONAL_POST", trigger: { step_index: 7, agent_name: "assistant" }, and a check hint stating that the assistant must compute the T-shirt count from the correct field of the get_product_details result. At the far right, a scroll-shaped box labeled “Validation log (Violated Constraints + Taxonomy checklist)” receives output from the checker. Above the yellow region, under the title “Agent Failure Attribution,” a trajectory snippet shows a tool call to get_product_details followed by an assistant message highlighted in a red box: “There are 11 available T-shirt options …”. Red text below labels this as “Misinterpretation of Tool Output @ Step 7.” A dark upward arrow connects the validation log back to the highlighted assistant message, showing that the violated constraint is used to attribute the failure to that specific step. A horizontal arrow along the bottom asks, “Constraint violated?” " class="wp-image-1163550" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx.png 1197w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-300x239.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-1024x817.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-768x613.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-226x180.png 226w" sizes="(max-width: 1197px) 100vw, 1197px" /><figcaption class="wp-element-caption"><em>The AgentRx workflow: </em>Given a failed trajectory, tool schemas, and domain policy, AgentRx synthesizes guarded constraints, evaluates them step-by-step to produce an auditable violation log with evidence, and uses an LLM judge to predict the <strong>critical failure step</strong> and <strong>root-cause category</strong>.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="a-new-benchmark-for-agent-failures">A New Benchmark for Agent Failures</h2>
+
+
+
+<p>To evaluate AgentRx, we developed a manually annotated benchmark consisting of <strong>115 failed trajectories</strong> across three complex domains:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>τ-bench:</strong> Structured API workflows for retail and service tasks.</li>
+
+
+
+<li><strong>Flash:</strong> Real-world incident management and system troubleshooting.</li>
+
+
+
+<li><strong>Magentic-One:</strong> Open-ended web and file tasks using a generalist multi-agent system.</li>
+</ul>
+
+
+
+<p>Using a grounded-theory approach, we derived a nine<strong>-category failure taxonomy</strong> that generalizes across these domains. This taxonomy helps developers distinguish between a <strong>&#8220;Plan Adherence Failure&#8221;</strong> (where the agent ignored its own steps) and an <strong>&#8220;Invention of New Information&#8221;</strong> (hallucination).</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Taxonomy Category</th><th>Description</th></tr></thead><tbody><tr><td>Plan Adherence Failure</td><td>Ignored required steps / did extra unplanned actions</td></tr><tr><td>Invention of New Information</td><td>Altered facts not grounded in trace/tool output</td></tr><tr><td>Invalid Invocation</td><td>Tool call malformed / missing args / schema-invalid</td></tr><tr><td>Misinterpretation of Tool Output</td><td>Read tool output incorrectly; acted on wrong assumptions</td></tr><tr><td>Intent–Plan Misalignment</td><td>Misread user goal/constraints and planned wrongly</td></tr><tr><td>Under-specified User Intent</td><td>Could not proceed because required info wasn’t available</td></tr><tr><td>Intent Not Supported</td><td>No available tool can do what’s being asked</td></tr><tr><td>Guardrails Triggered</td><td>Execution blocked by safety/access restrictions</td></tr><tr><td>System Failure</td><td>Connectivity/tool endpoint failures</td></tr></tbody></table></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1512" height="854" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines.png" alt="Two-column taxonomy table with a dark blue header row labeled “Taxonomy Category” and “Description.” The rows define nine agent failure types: Plan Adherence Failure, Invention of New Information, Invalid Invocation, Misinterpretation of Tool Output, Intent–Plan Misalignment, Under-specified User Intent, Intent Not Supported, Guardrails Triggered, and System Failure. Their descriptions explain, respectively, skipped or extra actions, invented facts, malformed tool calls, incorrect reading of tool outputs, wrong planning from misunderstood intent, inability to proceed due to missing information, lack of tool support, blocking by safety or access controls, and connectivity or endpoint failures. " class="wp-image-1163552" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines.png 1512w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-1024x578.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-768x434.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-240x136.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-640x360.png 640w" sizes="(max-width: 1512px) 100vw, 1512px" /><figcaption class="wp-element-caption"><em>Analysis of failure density across domains. In multi-agent systems like <a href="https://labs.ai.azure.com/projects/magentic-one/" type="link" id="https://labs.ai.azure.com/projects/magentic-one/" target="_blank" rel="noreferrer noopener">Magentic-One</a>, trajectories often contain multiple errors, but AgentRx focuses on identifying the first critical breach.</em></figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="key-results">Key Results</h2>
+
+
+
+<p>In our experiments, AgentRx demonstrated significant improvements over existing LLM-based prompting baselines:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>+23.6% absolute improvement</strong> in failure localization accuracy.</li>
+
+
+
+<li><strong>+22.9% improvement</strong> in root-cause attribution.</li>
+</ul>
+
+
+
+<p>By providing the &#8220;why&#8221; behind a failure through an auditable log, AgentRx allows developers to move beyond trial-and-error prompting and toward systematic agentic engineering.</p>
+
+
+
+<h2 class="wp-block-heading" id="join-the-community-open-source-release">Join the Community: Open Source Release</h2>
+
+
+
+<p>We believe that agent reliability is a prerequisite for real-world deployment. To support this, we are open sourcing the AgentRx framework and the complete annotated benchmark.</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Read the Paper:</strong> <a href="https://www.microsoft.com/en-us/research/publication/agentrx-diagnosing-ai-agent-failures-from-execution-trajectories/" type="link" id="https://www.microsoft.com/en-us/research/publication/agentrx-diagnosing-ai-agent-failures-from-execution-trajectories/">AgentRx: Diagnosing AI Agent Failures from Execution Trajectories</a></li>
+
+
+
+<li><strong>Explore the Code & Data:</strong> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Code" target="_blank" rel="noopener noreferrer">https://aka.ms/AgentRx/Code<span class="sr-only"> (opens in new tab)</span></a></li>
+</ul>
+
+
+
+<p>We invite researchers and developers to use AgentRx to diagnose their own agentic workflows and contribute to the growing library of failure constraints. Together, we can build AI agents that are not just powerful, but auditable, and reliable.</p>
+
+
+
+<h3 class="wp-block-heading" id="acknowledgements">Acknowledgements</h3>
+
+
+
+<p>We would like to thank Avaljot Singh and <a href="https://www.microsoft.com/en-us/research/people/sumann/">Suman Nath</a> for contributing to this project.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/">Systematic debugging for AI agents: Introducing the AgentRx framework</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-framework.mp4" length="29894728" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>PlugMem: Transforming raw agent interactions into reusable knowledge</title>
 		<link>https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/</link>
 		
@@ -32,7 +244,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/">PlugMem: Transforming raw agent interactions into reusable knowledge</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-scaled.jpg" alt="blue and purple gradient background with decorative white icons" class="wp-image-1163443" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-scaled.jpg" alt="blue and purple gradient background with decorative white icons" class="wp-image-1163443" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -109,7 +321,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-scaled.png" alt="Figure 1. PlugMem organizes different types of agent interactions into a knowledge-centric memory graph, enabling structured retrieval and reasoning." class="wp-image-1163440" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-300x80.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-1024x275.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-768x206.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-1536x412.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-2048x549.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-240x64.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. PlugMem organizes different types of agent interactions into a knowledge-centric memory graph, enabling structured retrieval and reasoning.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-scaled.png" alt="Figure 1. PlugMem organizes different types of agent interactions into a knowledge-centric memory graph, enabling structured retrieval and reasoning." class="wp-image-1163440" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-300x80.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-1024x275.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-768x206.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-1536x412.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-2048x549.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Figure1-240x64.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. PlugMem organizes different types of agent interactions into a knowledge-centric memory graph, enabling structured retrieval and reasoning.</figcaption></figure>
 
 
 
@@ -163,7 +375,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1990" height="572" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH.png" alt="Figure 2. Across all three benchmarks, PlugMem delivered more useful memory with less of the agent’s context window." class="wp-image-1163441" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH.png 1990w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-300x86.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-1024x294.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-768x221.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-1536x442.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-240x69.png 240w" sizes="(max-width: 1990px) 100vw, 1990px" /><figcaption class="wp-element-caption">Figure 2. Across all three benchmarks, PlugMem delivered more useful memory with less of the agent’s context window.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1990" height="572" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH.png" alt="Figure 2. Across all three benchmarks, PlugMem delivered more useful memory with less of the agent’s context window." class="wp-image-1163441" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH.png 1990w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-300x86.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-1024x294.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-768x221.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-1536x442.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/PlugMem_Fig2_AH-240x69.png 240w" sizes="auto, (max-width: 1990px) 100vw, 1990px" /><figcaption class="wp-element-caption">Figure 2. Across all three benchmarks, PlugMem delivered more useful memory with less of the agent’s context window.</figcaption></figure>
 
 
 
@@ -861,27 +1073,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -984,30 +1199,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1394,30 +1609,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1941,30 +2156,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2043,176 +2258,6 @@
 					
 		
 		
-			</item>
-		<item>
-		<title>Multimodal reinforcement learning with agentic verifier for AI agents</title>
-		<link>https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/</link>
-		
-		<dc:creator><![CDATA[Reuben Tan, Baolin Peng, Zhengyuan Yang, Oier Mees, Jianfeng Gao]]></dc:creator>
-		<pubDate>Tue, 20 Jan 2026 17:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160129</guid>
-
-					<description><![CDATA[<p>Argos improves multimodal RL by evaluating whether an agent’s reasoning aligns with what it observes over time. The approach reduces visual hallucinations and produces more reliable, data-efficient agents for real-world applications.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Multimodal reinforcement learning with agentic verifier for AI agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg" alt="Diagram showing visual, audio, and document icons feeding into a central network icon of connected people, which then leads to a checkmark symbol, all on a blue‑to‑purple gradient background." class="wp-image-1160195" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Argos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Today&#8217;s multimodal AI systems&nbsp;can&nbsp;give&nbsp;answers that sound right but&nbsp;may not be&nbsp;grounded in what they&nbsp;actually&nbsp;observe&nbsp;over time, leading to unpredictable errors and safety risks in real-world settings.</li>
-
-
-
-<li>Argos is a verification framework for multimodal reinforcement learning that trains models by rewarding not just correct answers, but correct answers grounded in visual and temporal evidence, using automated verification rather than human labeling.&nbsp;It selects the appropriate specialized tools for each answer&nbsp;based on what needs to be verified.&nbsp;</li>
-
-
-
-<li>Models trained with Argos show stronger spatial reasoning, far fewer visual hallucinations, more stable learning dynamics, and better performance on robotics and real-world tasks while requiring fewer training samples.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>Over the past few years, AI systems have become much better at discerning images, generating language, and performing tasks within physical and virtual environments. Yet they still fail in ways that are hard to predict and even harder to fix. A robot might try to grasp a tool when the object is visibly blocked, or a visual assistant integrated into smart glasses might describe objects that aren’t actually present.</p>
-
-
-
-<p>These errors often arise because today’s multimodal agents are trained to generate outputs that are plausible rather than grounded in the actual information they receive from their environment. As a result, a model’s output can seem correct while relying on incorrect information. As AI systems are increasingly used to navigate 3D spaces and make decisions in real-world settings, this gap can be a safety and reliability concern.</p>
-
-
-
-<p>To tackle this challenge, we posed the question: How can we train AI agents to generate correct answers and take appropriate actions for the right reasons so that their behavior is reliable even as the environment or tasks change?</p>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/publication/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Argos</a> represents a novel answer to this challenge. It’s an agentic verification framework designed to improve the reliability of reinforcement learning in multimodal models.&nbsp;Reinforcement learning is a training method where AI models learn by receiving rewards for desired behaviors and penalties for undesired ones, gradually improving their performance through trial and error.</p>
-
-
-
-<p>Rather than rewarding only correct behaviors, Argos evaluates <em>how</em> those behaviors were produced. It draws on a pool of larger, more capable teacher models and rule-based checks to verify two things: first, that the objects and events a model references actually exist in its input, and second, that the model’s reasoning aligns with what it observes. Argos rewards the model when both conditions are met. In practice, these rewards help curate high-quality training data and guide the model’s further training.</p>
-
-
-
-<h2 class="wp-block-heading" id="how-argos-works">How Argos works<strong></strong></h2>
-
-
-
-<p>Argos functions as a verification layer on top of an existing multimodal model. Given an image or video, a task or query, and information about the model’s reasoning and output, Argos identifies where the model indicates objects are located in the image, when it indicates events occur in a video, and what action or answer it produces.</p>
-
-
-
-<p>Argos then applies specialized tools tailored to the specific content to evaluate and score three aspects of the model’s output. It checks whether the answer is correct, whether referenced objects and events appear at the indicated locations and times, and whether the reasoning is consistent with the visual evidence and the answer (Figure 1).</p>
-
-
-
-<p>These scores are combined using a gated aggregation function, a method that dynamically adjusts the importance of different scores. It emphasizes reasoning checks only when the final output is correct. This design prevents unreliable feedback from dominating training and produces a stable reward signal for&nbsp;reinforcement learning.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1255" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg" alt="Figure 1 shows an overview of Argos, an agentic verifier for multimodal reinforcement learning and its downstream applications. The left half of the figure illustrates Argos verifying model responses to visual questions. The left example counts dogs in an image, with red dots marking the referenced dogs and a visual grounding score; another example shows a bathroom scene where the agent reasons whether it can open the door, with an accuracy score. Below these, a blue bar titled “Argos verifier” feeds into icons representing multiple tools, including Grounding DINO, SAM-2, a pointing-hand evaluator, string matching, and a language model score, where their outputs combine into grounding and accuracy scores. The right half of the figure depicts three categories of downstream tasks powered by this supervision: robotic manipulation (a robot arm interacting with objects on a table), high-level task planning and completion (placing toilet paper on the back of a toilet and putting a bowl on a coffee table), and spatial reasoning (answering a viewpoint-based navigation question using room images). The overall message is that dense, grounded verification enables stronger agent performance on complex, real-world tasks." class="wp-image-1160145" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-300x147.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1024x502.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-768x376.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-1536x753.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-2048x1004.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos_agentic_verifier-240x118.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Argos selects different specialized tools to verify and score the accuracy of referenced points and events in the agent’s reasoning.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="using-argos-to-curate-data-for-supervised-fine-tuning">Using Argos to curate data for supervised fine-tuning</h2>
-
-
-
-<p>Argos also helps curate high-quality training data to provide the model with a strong foundation in grounded reasoning. Before the reinforcement learning stage begins, Argos uses a multi-stage process to generate data that is explicitly tied to visual locations and time intervals.</p>
-
-
-
-<p>In the first stage, Argos identifies the objects, actions, and events that are relevant to a task and links them to specific locations in images or specific moments in videos. These references are overlaid on images and selected video frames. Next, a reasoning model generates step-by-step explanations that refer to these visual locations and time spans.</p>
-
-
-
-<p>Finally, Argos evaluates each generated example for accuracy and visual grounding, filtering out low-quality training data and retaining only data that is both correct and well-grounded in visual input. The resulting dataset is then used in an initial training phase, where the model learns to generate reasoning steps before producing its final output. This process is illustrated in Figure 2.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="450" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/data-curation-animation-gif.gif" alt="Figure 2 illustrates the Argos scoring pipeline for both images and videos. On the left, two examples show an image of a living room and a short video clip, each paired with a question and a free-form model response (e.g., estimating the distance between two lamps, or describing why a person failed to pour oil). In the middle, an “Agentic Verifier” column parses each response into structured elements: spatial 2D points indicating the referenced object and pixel coordinates, temporal segments for the relevant video frames, a reasoning-quality panel that combines the image/video, question, and response, and a final-answer panel comparing the predicted answer to ground truth. Below, a row of teacher models and scoring functions, such as Grounding DINO, SAM-2, a pointing-hand metric, string matching, relative accuracy, and a language model score, take these extracted elements as input to produce separate scores. On the right, arrows labeled “Action” and “Score” show how the verifier adaptively selects which teachers to call and then aggregates their outputs via a gated aggregation function into a single reward signal for training. " class="wp-image-1160147"/><figcaption class="wp-element-caption">Figure 2. Argos generates step-by-step reasoning grounded in image locations and video timestamps then filters out low-quality training data.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
-
-
-
-<p>Building on this foundation in grounded reasoning, we further trained the model using reinforcement learning guided by Argos and evaluated its performance across a range of benchmarks. On spatial reasoning tasks, the Argos-trained model outperformed both the base model Qwen2.5-VL-7B and the stronger Video-R1 baseline across challenging 3D scenarios and multi-view tasks. Models trained with Argos also showed a substantial reduction of hallucinations compared with both standard chain-of-thought prompting and reinforcement learning baselines.</p>
-
-
-
-<p>Finally, we evaluated the model in robotics and other real-world task settings, focusing on high-level planning and fine-grained control. Models trained with Argos performed better on complex, multi-step tasks. Notably, these improvements were achieved using fewer training samples than existing approaches, highlighting the importance of reward design in producing more capable and data-efficient agents. Figure 3 illustrates some of these findings.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1331" height="406" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3.png" alt="Figure 3 shows two side-by-side line charts comparing an Agentic model (dashed line) that uses the Argos verifier with a Non-Agentic model (solid line) trained only with an outcome reward. The left plot, “Response Accuary,” tracks response accuracy versus RL step (0, 5, 10, 15). Both models start near 0.54 accuracy, but the Agentic curve slightly rises and then stays roughly flat, while the Non-agentic curve steadily declines to about 0.50. The right plot, “Visual Grounding Acc,” shows visual grounding accuracy over the same steps: the Agentic curve increases monotonically from about 0.39 to just above 0.5, whereas the Non-Agentic curve initially rises slightly and then drops sharply to about 0.1. Together, the plots illustrate that Argos stabilizes answer accuracy and significantly improves visual grounding, while the non-agentic model’s performance and grounding collapse over training." class="wp-image-1160369" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3.png 1331w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-300x92.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-1024x312.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-768x234.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-blog_fig3-240x73.png 240w" sizes="auto, (max-width: 1331px) 100vw, 1331px" /><figcaption class="wp-element-caption">Figure 3.&nbsp;Performance of&nbsp;Argos&nbsp;compared with&nbsp;baseline models&nbsp;on the task of visual hallucination detection&nbsp;(left)&nbsp;and&nbsp;embodied&nbsp;task planning and completion&nbsp;(right).&nbsp;</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="how-argos-shapes-reinforcement-learning">How Argos shapes reinforcement learning</h3>
-
-
-
-<p>To understand how Argos affects learning, we took the same vision-language model that had been trained on our curated dataset and fine-tuned it using&nbsp;reinforcement learning in two different ways. In one approach, Argos was an agentic verifier, checking the correctness of outputs and the quality of reasoning. In the other, the model received feedback only on whether its answers were correct.</p>
-
-
-
-<p>We evaluated both versions on 1,500 samples from a new dataset and tracked their performance throughout the learning process (Figure 4). Although they started at similar levels, the model without Argos quickly got worse. Its accuracy steadily declined, and it increasingly gave answers that ignored what was in the videos. It learned to game the system by producing answers that seemed correct without grounding them in visual evidence.</p>
-
-
-
-<p>The model trained with Argos showed the opposite pattern. Accuracy improved steadily, and the model became better at linking its reasoning to what appeared in the videos. This difference highlights the value of verification: when training rewards both correct outputs and sound reasoning based on visual and temporal evidence, models learn to be more reliable rather than simply finding shortcuts to high scores.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1996" height="550" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final.jpg" alt="Figure 4 shows two side-by-side line charts comparing an Agentic model (dashed line) that uses the Argos verifier with a Non-Agentic model (solid line) trained only with an outcome reward. The left plot, “Response Accuary,” tracks response accuracy versus RL step (0, 5, 10, 15). Both models start near 0.54 accuracy, but the Agentic curve slightly rises and then stays roughly flat, while the Non-agentic curve steadily declines to about 0.50. The right plot, “Visual Grounding Acc,” shows visual grounding accuracy over the same steps: the Agentic curve increases monotonically from about 0.39 to just above 0.5, whereas the Non-Agentic curve initially rises slightly and then drops sharply to about 0.1. Together, the plots illustrate that Argos stabilizes answer accuracy and significantly improves visual grounding, while the non-agentic model’s performance and grounding collapse over training. " class="wp-image-1160428" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final.jpg 1996w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-300x83.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-1024x282.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-768x212.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-1536x423.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/evaluation-fig4-final-240x66.jpg 240w" sizes="auto, (max-width: 1996px) 100vw, 1996px" /><figcaption class="wp-element-caption">Figure 4.&nbsp;Comparison of&nbsp;response accuracy changes with and without Argos&nbsp;across&nbsp;two model versions&nbsp;(left) and&nbsp;differences in&nbsp;visual grounding accuracy&nbsp;over training for both&nbsp;versions&nbsp;(right).</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="potential-impact-and-looking-forward">Potential impact and looking forward</h2>
-
-
-
-<p>This research points toward a different way of building AI agents for real-world applications. Rather than fixing errors after they occur, it focuses on training agents to systematically anchor their reasoning in what they actually receive as input throughout the training process.</p>
-
-
-
-<p>The potential applications span many domains. A visual assistant for a self-driving car that verifies what’s actually in an image is less likely to report phantom obstacles. A system that automates digital tasks and checks each action against what’s displayed on the screen is less likely to click the wrong button.</p>
-
-
-
-<p>As AI systems move beyond research labs into homes, factories, and offices, reliable reasoning becomes essential for safety and trust. Argos represents an early example of verification systems that evolve alongside the AI models they supervise. Future verifiers could be tailored for specific fields like medical imaging, industrial simulations, and business analytics. As more advanced models and richer data sources become available, researchers can use them to improve these verification systems, providing even better guidance during training and further reducing hallucinations.</p>
-
-
-
-<p>We hope that this research helps move the field toward AI systems that are both capable and interpretable: agents that can explain their decisions, point to the evidence behind them, and be trained to adhere to real-world requirements and values.</p>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1076" style="aspect-ratio: 1920 / 1076;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-demo-video.mp4"></video></figure>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/multimodal-reinforcement-learning-with-agentic-verifier-for-ai-agents/">Multimodal reinforcement learning with agentic verifier for AI agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/argos-demo-video.mp4" length="101343835" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
