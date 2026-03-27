@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 23 Mar 2026 20:07:43 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 26 Mar 2026 19:02:55 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,364 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>AsgardBench: A benchmark for visually grounded interactive planning</title>
+		<link>https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/</link>
+		
+		<dc:creator><![CDATA[Andrea Tupini, Lars Liden, Reuben Tan, Jianfeng Gao]]></dc:creator>
+		<pubDate>Thu, 26 Mar 2026 19:02:53 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1166723</guid>
+
+					<description><![CDATA[<p>Imagine a robot tasked with cleaning a kitchen. It needs to observe its environment, decide what to do, and adjust when things don&#8217;t go as expected, for example, when the mug it was tasked to wash is already clean, or the sink is full of other items. This is the domain of embodied AI: systems [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1.jpg" alt="AsgardBench | three whit icons on a blue to purple gradient background | first icon shows a laptop screen with a eye in the upper right corner, second icon shows relational nodes | third icon is a security shield with a checkmark" class="wp-image-1166730" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>To successfully complete tasks, embodied AI agents must ground and update their plans based on visual feedback.</li>
+
+
+
+<li>AsgardBench isolates whether agents can use visual observations to revise their plans as tasks unfold.</li>
+
+
+
+<li>Spanning 108 controlled task instances across 12 task types, the benchmark requires agents to adapt their plans based on what they observe.</li>
+
+
+
+<li>Because objects can be in different positions and states (e.g., clean or dirty), the same instruction can require different action sequences, even in the same environment.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Imagine a robot tasked with cleaning a kitchen. It needs to observe its environment, decide what to do, and adjust when things don&#8217;t go as expected, for example, when the mug it was tasked to wash is already clean, or the sink is full of other items. This is the domain of embodied AI: systems that perceive their environment and act within it.</p>
+
+
+
+<p>The field has made rapid progress, but evaluating these systems is harder than it looks. Many benchmarks test perception, navigation, and physical control all at once, making it difficult to isolate whether an AI agent is actually using what it perceives to make better decisions or just getting lucky because the environment is predictable enough to script around.</p>
+
+
+
+<p>To address this, we created AsgardBench. In the paper, <a href="https://www.microsoft.com/en-us/research/publication/asgardbench-evaluating-visually-grounded-interactive-planning-under-minimal-feedback/" type="msr-research-item" id="1166402">AsgardBench &#8212; Evaluating Visually Grounded Interactive Planning Under Minimal Feedback</a>,” we describe how this benchmark poses a simple but demanding challenge: give an AI agent a household task, let it observe the environment through images, and see whether it can adjust its plan when what it perceives contradicts what it anticipated. Can it notice that the mug it needs to clean is already in the sink, or that it isn&#8217;t, and behave accordingly? That is the core question AsgardBench is designed to answer.</p>
+
+
+
+<p>Built on AI2-THOR, an interactive 3D simulation environment used to train and evaluate AI agents on household tasks, AsgardBench positions agents near objects and gives them a small, fixed set of actions, such as <em>find</em>, <em>pickup</em>, <em>put</em>, <em>clean</em>, and <em>toggle_on/off</em>. At each turn, the agent proposes a full sequence of steps to complete the task, but only the first step executes. Throughout, the focus is squarely on plan adaptation, not whether an agent can navigate a room or manipulate an object, but whether it can use what it perceives to revise its next step.</p>
+
+
+
+<p>For example, the agent may discover a mug to be clean, dirty, or filled with coffee, or it may observe that a sink contains many other items, so the same instruction can require different action sequences as the task unfolds. This process is illustrated in Figure 1.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="658" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1.png" alt="Model changes the steps in its plan as new observations are observed" class="wp-image-1166728" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-240x113.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 1: Agent observations and corresponding action plans in AsgardBench. Each image is paired with the plan generated from that observation. This illustrates how AsgardBench requires agents to update or change their plans based on new visual evidence rather than following a fixed sequence.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="how-it-works">How it works</h2>
+
+
+
+<p>Agents start in interaction-ready positions, so navigation and viewpoint selection are not factors. A <em>find </em>action brings objects into view, and the environment handles the details of container sizing and placement, so the agent does not need to reason about which cabinet or countertop to use. The only inputs are color images, a history of attempted actions with simple success or failure signals, and the agent’s own record of what it plans to do next.</p>
+
+
+
+<p>At each turn, the agent proposes a complete sequence of steps to finish the task, but only the first step proceeds. It then receives new images and a simple signal—did that action succeed or fail? This prevents the agent from scripting everything upfront and forces it to re-evaluate and revise its plan at every step. Built-in limits on total steps and repeated actions prevent endless loops. Because the environment provides only simple feedback, the agent must be able to notice what it perceives (e.g., whether a mug is dirty, whether a faucet is running) and keep track of where it is in the task from one step to the next.</p>
+
+
+
+<h2 class="wp-block-heading" id="evaluating-asgardbench">Evaluating AsgardBench</h2>
+
+
+
+<p>We tested several leading vision-capable models on AsgardBench and observed that high-performing models require visual grounding to consistently succeed. Across the models, visual input substantially improved performance: most models more than doubled success rates when given images versus text-only descriptions of the scene. This is in contrast to some prior benchmarks where agents could perform reasonably well without vision by relying on textual feedback on what went wrong.</p>
+
+
+
+<p>Providing that kind of detailed failure information raises performance for all models in AsgardBench, too, but it can mask the real problem. The strongest vision-capable models still outperform text-only agents even when those agents are given detailed feedback, demonstrating that the benchmark requires visual grounding that text alone cannot replicate. AsgardBench’s performance is illustrated in Figure 2.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="658" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2.png" alt="Chart showing input substantially improves performance for all but the weakest models when images are included" class="wp-image-1166727" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-240x113.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. Success rates for image-based and text-only conditions. Visual input substantially improves performance for all but the weakest agents, while text-only performance remains low, indicating that AsgardBench requires perception-based reasoning.</figcaption></figure>
+
+
+
+<p>The results also revealed where today&#8217;s agents consistently fall short. Across all models, the same problems kept appearing: agents attempted undoable actions (e.g., trying to clean a mug that was not in the sink), got stuck in repeated action loops, misinterpreted subtle visual cues (on/off, clean/dirty), and lost track of where they were in the task progress from one step to the next. This points to three weaknesses: the inability to distinguish subtle visual details in cluttered scenes, the inability to maintain an accurate picture of task progress across multiple steps, and the inability to consistently translate what the agent sees into timely updates to its plan. Taken together, these point to where the next generation of embodied agents will need to improve.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Newsletter</h2>
+				
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="implications-and-looking-ahead">Implications and looking ahead</h2>
+
+
+
+<p>AsgardBench is useful as both a diagnostic and development tool. By varying what feedback agents receive (none, minimal, or detailed), researchers can isolate whether performance gains come from better perception, better memory, or better planning. Promising directions include systems that combine stronger visual understanding with better state tracking, training approaches that emphasize learning to repair plans mid-task, and evaluation methods that measure not just whether an agent succeeds but how well it adapted along the way.</p>
+
+
+
+<p>The failure patterns AsgardBench surfaces point toward a concrete next step: building systems that can make finer visual distinctions, keep track of what changed more reliably across steps, and learn to revise plans mid-task rather than plowing ahead on a script. Agents that make progress on these challenges should be meaningfully better equipped for the messiness of real-world environments: unexpected object states, cluttered scenes, and the constant need to adapt.</p>
+
+
+
+<p>AsgardBench is open source and available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/AsgardBench" type="link" id="https://github.com/microsoft/AsgardBench" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>, providing a foundation for advancing research in visually grounded planning.</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>We thank the AI2-THOR community for building the simulation platform and making reproducible embodied evaluation possible.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</title>
+		<link>https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/</link>
+		
+		<dc:creator><![CDATA[Sehun Jung, HyunJee Song, Dong-Hee Kim, Reuben Tan, Jianfeng Gao, Yong Jae Lee, Donghyun Kim]]></dc:creator>
+		<pubDate>Thu, 26 Mar 2026 16:03:56 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false"></guid>
+
+					<description><![CDATA[<p>Vision-language models (VLMs) use images and text to plan robot actions, but they still struggle to decide what actions to take and where to take them. Most systems split these decisions into two steps: a VLM generates a plan in natural language, and a separate model translates it into executable actions. This approach often breaks [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/">GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1.jpg" alt="V2GP framework | three white icons on a blue to green gradient background | first icon is three concentric rings with a square box around it, second icon is a list of three items | third icon is a tool" class="wp-image-1166732" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>VLM-based robot planners struggle with long, complex tasks because natural-language plans can be ambiguous, especially when specifying both actions and locations.</li>
+
+
+
+<li>GroundedPlanBench evaluates whether models can plan actions and determine where they should occur across diverse, real-world robot scenarios.</li>
+
+
+
+<li>Video-to-Spatially Grounded Planning (V2GP) is a framework that converts robot demonstration videos into spatially grounded training data, enabling models to learn planning and grounding jointly.</li>
+
+
+
+<li>Grounded planning improves both task success and action accuracy, outperforming decoupled approaches in benchmark and real-world evaluations.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Vision-language models (VLMs) use images and text to plan robot actions, but they still struggle to decide what actions to take and where to take them. Most systems split these decisions into two steps: a VLM generates a plan in natural language, and a separate model translates it into executable actions. This approach often breaks down for long, complex tasks because natural-language plans can be ambiguous or even hallucinated when specifying actions and locations (Figure 1). Because planning and spatial reasoning are handled separately, errors in one stage can propagate to the next. This raises a key question: can a VLM determine both what to do and where to do it simultaneously?</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="885" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1.png" alt="Figure 1: This figure shows some failure cases for a vision-language robot task planner. Given the instruction “discard all paper cups to bin,” the planner produces an action sequence with ambiguous cup references and a hallucinated step, “place inside the cabinet.” Cropped object views and arrows to a language-based spatial grounding module show that ambiguous grounding can lead to non-executable plans." class="wp-image-1166790" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-300x190.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-1024x647.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-768x485.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-240x152.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 1. Failures in VLM-based task planners, where ambiguous language leads to non-executable actions.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="planning-with-spatial-grounding">Planning with spatial grounding</h2>
+
+
+
+<p>To address this problem, we developed <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://groundedplanning.github.io/GroundedPlanning/" type="link" id="https://groundedplanning.github.io/GroundedPlanning/" target="_blank" rel="noopener noreferrer">GroundedPlanBench<span class="sr-only"> (opens in new tab)</span></a>. In our paper, “<a href="https://www.microsoft.com/en-us/research/publication/spatially-grounded-long-horizon-task-planning-in-the-wild/" type="msr-research-item" id="1166702">Spatially Grounded Long-Horizon Task Planning in the Wild</a>,” we describe how this new benchmark evaluates whether VLMs can plan actions and determine where those actions should occur across diverse real-world environments. We also built Video-to-Spatially Grounded Planning (V2GP), a framework that converts robot demonstration videos into training data to help VLMs learn this capability.</p>
+
+
+
+<p>Evaluating these with both open- and closed-source VLMs, we found that grounded planning for long, complex tasks is challenging. At the same time, V2GP improves both planning and grounding, with gains validated on our benchmark and in real-world experiments using robots.</p>
+
+
+
+<h2 class="wp-block-heading" id="how-groundedplanbench-works">How GroundedPlanBench works</h2>
+
+
+
+<p>To create realistic robot scenarios, we built our benchmark from 308 robot manipulation scenes in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://droid-dataset.github.io/" type="link" id="https://droid-dataset.github.io/" target="_blank" rel="noopener noreferrer">Distributed Robot Interaction Dataset (DROID)<span class="sr-only"> (opens in new tab)</span></a>, a large collection of recordings of robots performing tasks. We worked with experts to review each scene and define tasks that a robot could perform. Each task was written in two styles: explicit instructions that clearly describe the actions (e.g., “put a spoon on the white plate”) and implicit instructions that describe the goal more generally (e.g., “tidy up the table”).</p>
+
+
+
+<p>For each task, the plan was broken down into four basic actions—<em>grasp</em>,&nbsp;<em>place</em>,&nbsp;<em>open</em>, and&nbsp;<em>close</em>—each tied to a specific location in the image. <em>Grasp, open, and close</em> actions were linked to a box drawn around the target object, while place actions were linked to a box showing where the object should be placed.</p>
+
+
+
+<p>Figure 2 illustrates medium- and long-duration tasks, along with their explicit and implicit instructions. In total, GroundedPlanBench contains 1,009 tasks, ranging from 1–4 actions (345 tasks) to 5–8 (381) and 9–26 (283).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="449" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2.png" alt="Figure 2: This figure shows two examples comparing explicit and implicit task instructions: one about placing bottles and a cup into a sink, and another about placing eggs and vegetables into a silver bowl. The figure shows that implicit instructions summarize explicit object lists into higher-level descriptions. This figure shows two examples comparing explicit and implicit task instructions: one about placing bottles and a cup into a sink, and another about placing eggs and vegetables into a silver bowl. The figure shows that implicit instructions summarize explicit object lists into higher-level descriptions." class="wp-image-1166789" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-300x96.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-1024x328.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-768x246.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-240x77.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. Examples of tasks in GroundedPlanBench.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="how-v2gp-works">How V2GP works</h2>
+
+
+
+<p>The V2GP framework first detects moments when the robot interacts with objects using the recorded gripper signals. It then generates a text description of the manipulated object with a multimodal language model. Guided by this description, the system tracks the object across the video using Meta’s advanced open-vocabulary image and video segmentation model, SAM3. The system then constructs grounded plans from the tracking results, identifying the object&#8217;s location at the moment it is grasped and where it is placed.</p>
+
+
+
+<p>This process is illustrated in Figure 3. It yielded 43K grounded plans with varying lengths: 34,646 plans with 1–4 actions, 4,368 with 5–8 actions, and 4,448 with 9–26 actions.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="702" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3.png" alt="Figure 3: This figure shows an overview of the V2GP framework. Robot demonstration videos are segmented into temporal sub-actions, matched with active objects, spatially grounded with grasp boxes and placement points, and converted into unified training samples containing language instructions and structured action plans. This figure shows an overview of the V2GP framework. Robot demonstration videos are segmented into temporal sub-actions, matched with active objects, spatially grounded with grasp boxes and placement points, and converted into unified training samples containing language instructions and structured action plans." class="wp-image-1166788" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-1024x513.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-768x385.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-240x120.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 3. The V2GP framework converts robot videos into spatially grounded plans.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="evaluating-decoupled-versus-grounded-planning">Evaluating decoupled versus grounded planning</h2>
+
+
+
+<p>To evaluate GroundedPlanBench in real-world robotic settings, we used <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/QwenLM/Qwen3-VL" type="link" id="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener noreferrer">Qwen3-VL<span class="sr-only"> (opens in new tab)</span></a> as our base model. Qwen3-VL is a vision-language model that processes text, images, and video to support multimodal reasoning. It performs well on standard multimodal reasoning benchmarks without additional training. We first evaluated it, along with other proprietary models, on GroundedPlanBench without any task-specific training (Table 1). We then fine-tuned it on V2GP training data and compared it with a decoupled approach, in which planning and grounding are handled separately.</p>
+
+
+
+<p>In this setup, a VLM first generated a plan describing what the robot should do. We used GPT-5.2 or Qwen3-VL-4B for this step. The plan was then passed to a spatial grounding model, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://embodied-r1.github.io/" type="link" id="https://embodied-r1.github.io/" target="_blank" rel="noopener noreferrer">Embodied-R1<span class="sr-only"> (opens in new tab)</span></a>, which converted the plans into executable signals. Embodied-R1 is a large vision-language model trained for embodied reasoning and pointing, where the model identifies specific locations in the image to guide the robot’s actions. We selected it for spatial grounding because its training targets embodied spatial reasoning and point-based localization, making it well suited for grounding model outputs to specific locations in an image.</p>
+
+
+
+<p>Figure 4 highlights a key limitation of this approach: ambiguity in natural language. For example, Qwen3-VL-4B generated grasp actions by referring to “napkin on the table” for all four napkins in the scene, leading Embodied-R1 to ground each action the same napkin. GPT-5.2 produced more descriptive phrases, such as “top-left napkin” or “upper-center napkin,” but these were still too imprecise for the model to reliably distinguish between them and were again grounded to the same object.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="593" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4.png" alt="Figure 4: This figure shows a comparison of planning methods for the instruction “Put four napkins on the couch.” Several baseline methods ground actions to the wrong objects, while the grounded V2GP method correctly identifies the napkins and their placement locations." class="wp-image-1166787" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-1024x434.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-768x325.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-240x102.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 4. Decoupled vs. grounded planning, illustrating how ambiguous language causes actions to be grounded to the wrong objects.</figcaption></figure>
+
+
+
+<p>This limitation becomes more pronounced in real-world robot manipulation, where environments are often cluttered and complex. As a result, decoupled approaches struggle to work reliably. In contrast, our approach,&nbsp;grounded planning,&nbsp;performs planning and grounding jointly within a single model and improves both planning and grounding performance.</p>
+
+
+
+<p>Table 1 presents evaluation results for open- and closed-source VLMs on GroundedPlanBench. Multi-step planning and handling of implicit instructions were challenging for all models, while training Qwen3-VL-4B and Qwen3-VL-32B with V2GP led to significant improvements in grounded planning.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1253" height="776" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1.png" alt="Table 1: This table reports results of evaluation on GroundedPlanBench, comparing proprietary and open-source VLMs on task success rate and action recall for explicit and implicit instructions of varying lengths. V2GP achieves the best overall performance, with consistent gains over decoupled planning plus spatial grounding baselines." class="wp-image-1166785" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1.png 1253w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-300x186.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-1024x634.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-768x476.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-240x149.png 240w" sizes="auto, (max-width: 1253px) 100vw, 1253px" /><figcaption class="wp-element-caption">Table 1. Evaluation results on GroundedPlanBench. Task Success Rate (TSR) measures the percentage of tasks completed correctly, requiring all actions to be both correctly planned and spatially grounded. Action Recall Rate (ARR) measures the proportion of generated actions that match the sub-actions defined in the dataset, regardless of order. The V2GP approach improves performance on both metrics and achieves the best results (shown in bold). </figcaption></figure>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="implications-and-looking-forward">Implications and looking forward</h2>
+
+
+
+<p>Integrating planning and grounding within a single model offers a path to more reliable robot manipulation in real-world settings. Rather than relying on separate stages, this approach keeps decisions about what to do and where to act tightly coupled, but models still struggle with longer, multi-step tasks and implicit instructions. Models must reason over longer sequences of actions and maintain consistency across many steps and goals described indirectly, as in everyday language.</p>
+
+
+
+<p>Looking ahead, a promising direction combines grounded planning with world models, which enable robots to predict the outcomes of actions before executing them. Together, these capabilities could allow robots to decide what to do, where to act, and what will happen next, bringing us closer to systems that can plan and act reliably in the real world.</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>This research was conducted in collaboration with Korea University, Microsoft Research, University of Wisconsin-Madison, and supported by the Institute of Information & Communications Technology Planning & Evaluation (IITP) grant (No. RS-2025-25439490) funded by the Korea government (MSIT).</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/">GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Will machines ever be intelligent? </title>
 		<link>https://www.microsoft.com/en-us/research/podcast/will-machines-ever-be-intelligent/</link>
 		
@@ -33,12 +391,12 @@
 ]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe title="Will machines ever be intelligent?" width="500" height="281" src="https://www.youtube-nocookie.com/embed/6gdlcbhtqSk?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe loading="lazy" title="Will machines ever be intelligent?" width="500" height="281" src="https://www.youtube-nocookie.com/embed/6gdlcbhtqSk?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=153442105&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=153442105&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1245,7 +1603,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/">Systematic debugging for AI agents: Introducing the AgentRx framework</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons, showing network, workflow, and bug‑analysis icons, on a blue‑to‑purple gradient background." class="wp-image-1163547" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons, showing network, workflow, and bug‑analysis icons, on a blue‑to‑purple gradient background." class="wp-image-1163547" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -2412,30 +2770,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2559,30 +2917,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2739,564 +3097,6 @@
 
 <p><a href="https://www.microsoft.com/en-us/research/project/project-silica/" type="link" id="https://www.microsoft.com/en-us/research/project/project-silica/">Project Silica</a> has made scientific advances across multiple areas beyond laser direct writing (LDW) in glass, including archival storage systems design, archival workload analysis, datacenter robotics, erasure coding, free-space optical components, and machine learning-based methods for symbol decoding in storage systems. Many of these innovations were described in our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/Silica" target="_blank" rel="noopener noreferrer">ACM Transactions on Storage publication<span class="sr-only"> (opens in new tab)</span></a> in 2025.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/project-silicas-advances-in-glass-storage-technology/">Project Silica’s advances in glass storage technology</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Rethinking imitation learning with Predictive Inverse Dynamics Models</title>
-		<link>https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/</link>
-		
-		<dc:creator><![CDATA[Pallavi Choudhury, Lukas Sch&auml;fer, Chris Lovett, Katja Hofmann, Sergio Valcarcel Macua]]></dc:creator>
-		<pubDate>Thu, 05 Feb 2026 17:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160901</guid>
-
-					<description><![CDATA[<p>This research looks at why Predictive Inverse Dynamics Models often outperform standard Behavior Cloning in imitation learning. By using simple predictions of what happens next, PIDMs reduce ambiguity and learn from far fewer demonstrations.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/">Rethinking imitation learning with Predictive Inverse Dynamics Models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New.jpg" alt="Smart Replay - flowchart diagram showing the flow between Encoder, State Predictor, and Policy" class="wp-image-1161128" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay-BlogHeroFeature-1400x788_New-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Imitation learning becomes easier when an AI&nbsp;agent&nbsp;understands why an action is taken.</li>
-
-
-
-<li>Predictive Inverse Dynamics Models (PIDMs)&nbsp;predict&nbsp;plausible future states,&nbsp;clarifying the direction of behavior during imitation&nbsp;learning.</li>
-
-
-
-<li>Even imperfect predictions reduce ambiguity,&nbsp;making&nbsp;it clearer which action makes sense&nbsp;in the moment.</li>
-
-
-
-<li>This makes PIDMs far more data‑efficient than traditional approaches.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>Imitation&nbsp;learning&nbsp;teaches&nbsp;AI agents by example: show the agent recordings of how people perform a task and let it&nbsp;infer&nbsp;what to do.&nbsp;The&nbsp;most common&nbsp;approach,&nbsp;Behavior Cloning&nbsp;(BC),&nbsp;frames this as a simple question: “Given the current state&nbsp;of the environment, what action&nbsp;would&nbsp;an expert take?”</p>
-
-
-
-<p>In practice, this is done through supervised learning, where the states serve as inputs and expert actions as outputs. While simple in principle, BC often requires large demonstration datasets to account for the natural variability in human behavior, but collecting such datasets can be costly and difficult in real-world settings.</p>
-
-
-
-<p>Predictive Inverse Dynamics Models (PIDMs) offer a different take on imitation learning by changing how agents interpret human behavior. Instead of directly mapping states to actions, PIDMs break down the problem into two subproblems: predicting what should happen next and inferring an appropriate action to go from the current state to the predicted future state. While PIDMs often outperform BC, it has not been clear why they work so well, motivating a closer look at the mechanisms behind their performance.</p>
-
-
-
-<p>In the paper, “<a href="https://www.microsoft.com/en-us/research/publication/when-does-predictive-inverse-dynamics-outperform-behavior-cloning/">When does predictive inverse dynamics outperform behavior cloning?</a>” we show how this two-stage approach enables PIDMs to learn effective policies from far fewer demonstrations than BC. By grounding the selection process in a plausible future, PIDMs provide a clearer basis for choosing an action&nbsp;during inference. In practice, this can mean achieving comparable performance with as few as one-fifth the demonstrations required by BC, even when predictions are imperfect.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1009" height="658" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1.png" alt="Figure 1. BC vs. PIDM architectures. (Top) Behavior Cloning learns how to perform a direct mapping from the current state to an action. (Bottom) PIDMs add a state predictor that predicts future states. They then use an inverse dynamics model to predict the action required to move from the current state towards that future state. Both approaches share a common latent representation through a shared state encoder." class="wp-image-1161185" style="width:600px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1.png 1009w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1-300x196.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1-768x501.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/SmartReplay_FIG1-240x157.png 240w" sizes="auto, (max-width: 1009px) 100vw, 1009px" /><figcaption class="wp-element-caption">Figure 1. BC vs. PIDM architectures.&nbsp;(Top) Behavior&nbsp;Cloning learns&nbsp;how to perform&nbsp;a direct mapping from the current state to an action. (Bottom)&nbsp;PIDMs add a state predictor that predicts future&nbsp;states. They&nbsp;then use an inverse dynamics model to predict the action&nbsp;required&nbsp;to move from the current state towards that future state. Both approaches share a common latent representation through a shared state encoder.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-pidms-rethink-imitation">How PIDMs rethink imitation</h2>
-
-
-
-<p>PIDMs’ approach to imitation learning consists of two core elements: a model that forecasts plausible future states, and an inverse dynamics model (IDM) that predicts the action needed to move from the present state toward that future. Instead of asking, “What action would an expert take?” PIDMs effectively ask, “What would an expert try to achieve, and what action would lead to it?” This shift turns the information in the current observation (e.g., video frame) into a coherent sense of direction, reducing ambiguity about intent and making action prediction easier.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
-				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="real-world-validation-in-a-3d-gameplay-environment">Real-world validation in a 3D gameplay environment</h2>
-
-
-
-<p>To evaluate PIDMs under realistic conditions, we trained agents on human gameplay demonstrations in a visually rich video game. These conditions include operating directly from raw video input, interacting with a complex 3D environment in real time at 30 frames per second, and handling visual artifacts and unpredictable system delays.  </p>
-
-
-
-<p>The agents ran from beginning to end, taking video frames as input and continuously deciding which buttons to press and how to move the joysticks. Instead of relying on a hand-coded set of game variables and rules, the model worked directly from visual input, using past examples to predict what comes next and choosing actions that moved play in that direction.</p>
-
-
-
-<p>We ran all experiments on a cloud gaming platform, which introduced additional delays and visual distortions. Despite these challenges, the PIDM agents consistently matched human patterns of play and achieved high success rates across tasks, as shown in Video 1 below and Videos 2 and 3 in the appendix.</p>
-
-
-
-<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Smart Replay demo: exercise (video 1)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/Jfjt_k6Pw1k?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Video 1. A player&nbsp;(left)&nbsp;and a PIDM agent&nbsp;(right)&nbsp;side by side playing the game&nbsp;<em>Bleeding Edge</em>.&nbsp;Both&nbsp;navigate the same trajectory,&nbsp;jumping over obstacles and engaging&nbsp;with&nbsp;nonplayer&nbsp;characters. Despite&nbsp;network delays, the&nbsp;agent closely matches the player&#8217;s timing and&nbsp;movement&nbsp;in real time.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="why-and-when-pidms-outperform-bc">Why and when PIDMs outperform BC</h2>
-
-
-
-<p>Of course, AI agents do not have access to future outcomes. They can only generate predictions based on available data, and those predictions are sometimes wrong. This creates a central trade‑off for PIDMs.</p>
-
-
-
-<p>On one hand, anticipating where the agent should be heading can clarify what action makes sense in the present. Knowing the intended direction helps narrow an otherwise ambiguous choice. On the other hand, inaccurate predictions can occasionally steer the model toward the wrong action.</p>
-
-
-
-<p>The key insight is that these effects are not symmetric. While prediction errors introduce some risk, reducing ambiguity in the present often matters more. Our theoretical analysis shows that even with imperfect predictions, PIDMs outperform BC as long as the prediction error remains modest. If future states were known perfectly, PIDMs would outperform BC outright.</p>
-
-
-
-<p>In practice, this means that clarifying intent often matters more than accurately predicting the future. That advantage is most evident in the situations where BC struggles: where human behavior varies and actions are driven by underlying goals rather than by what is immediately visible on the screen.</p>
-
-
-
-<p>BC requires many demonstrations because each example is noisy and open to multiple interpretations. PIDMs, by contrast, sharpen each demonstration by linking actions to the future states they aim to reach. As a result, PIDMs can learn effective action strategies from far fewer examples.</p>
-
-
-
-<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
-
-
-
-<p>To test these ideas under realistic conditions, we designed a sequence of experiments that begins with a simple, interpretable 2D environment (Video 4 in the appendix) and culminates in a complex 3D video game. We trained both BC and PIDM on very small datasets, ranging from one to fifty demonstrations in the 2D environment and from five to thirty for the 3D video game. Across all tasks, PIDM reached high success rates with far fewer demonstrations than BC.</p>
-
-
-
-<p>In the 2D setting, BC needed two to five times more data to match PIDM’s performance (Figure 2). In the 3D game, BC needed 66% more data to achieve comparable results (Video 5 in the appendix).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1166" height="871" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d.png" alt="Figure 2. Performance gains in the 2D environment. As the number of training demonstrations increases, PIDM consistently achieves higher success rates than BC across all four tasks. Curves show mean performance, with shading indicating variability across 20 experiments for reproducibility." class="wp-image-1161012" style="object-fit:cover" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d.png 1166w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-300x224.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-1024x765.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-768x574.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/SmartReplay_blog_Fig2a-d-240x180.png 240w" sizes="auto, (max-width: 1166px) 100vw, 1166px" /><figcaption class="wp-element-caption">Figure 2. Performance gains in the 2D environment. As the number of training demonstrations increases, PIDM consistently achieves higher success rates than BC across all four tasks. Curves show mean performance, with shading indicating variability across 20 experiments for reproducibility. </figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="takeaway-intent-matters-in-imitation-learning">Takeaway: Intent matters in imitation learning</h2>
-
-
-
-<p>The main message of our investigation is simple: imitation becomes easier when intent is made explicit. Predicting a plausible future, even an imperfect one, helps resolve ambiguity about which action makes sense right now, much like driving more confidently in the fog when the driver already knows where the road is headed. PIDM shifts imitation learning from pure copying toward goal-oriented action.</p>
-
-
-
-<p>This approach has limits. If predictions of future states become too unreliable, they can mislead the model about the intended next move. In those cases, the added uncertainty can outweigh the benefit of reduced ambiguity, causing PIDM to underperform BC.</p>
-
-
-
-<p>But when predictions are reasonably accurate, reframing action prediction as “<em>How do I get there from here</em>?” helps explain why learning from small, messy human datasets can be surprisingly effective. In settings where data is expensive and demonstrations are limited, that shift in perspective can make a meaningful difference.</p>
-
-
-
-<h2 class="wp-block-heading" id="appendix-visualizations-and-results-videos">Appendix: Visualizations and results (videos)</h2>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h3 class="wp-block-heading h4" id="a-player-a-naive-action-replay-baseline-and-a-pidm-agent-playing-bleeding-edge-1">A player, a naïve action-replay baseline, and a PIDM agent playing <em>Bleeding Edge</em></h3>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Smart Replay demo: Player and PIDM performing a complex task (video 2)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/x1WdGiX4QYk?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Video&nbsp;2. (Left)&nbsp;The player completes the task under normal conditions. (Middle)&nbsp;The baseline replays the recorded actions at their original timestamps, which initially appears to work. Because the game runs on a cloud gaming platform, however, random network delays quickly push the replay&nbsp;out of sync, causing the trajectory to fail. (Right) Under the same conditions, the PIDM agent behaves differently. Instead of naively replaying actions, it continuously interprets visual input, predicts how the behavior is likely to unfold, and adapts its actions in real time. This allows it to correct delays, recover from deviations, and successfully reproduce the task in settings where naïve replay inevitably fails.</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h3 class="wp-block-heading h4" id="a-player-and-a-pidm-agent-performing-a-complex-task-in-bleeding-edge">A player and a PIDM agent&nbsp;performing a complex task in&nbsp;<em>Bleeding Edge</em></h3>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Smart Replay demo: Player, replay baseline, and PIDM (video 3)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/gUbIsAcsW6w?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Video&nbsp;3.&nbsp;In this video, the task&nbsp;exhibits&nbsp;strong partial observability: correct behavior depends on whether a location is being visited for the first or second time. For example,&nbsp;in the first encounter, the agent proceeds straight up the ramp; on the second, it turns right toward the bridge. Similarly, it may jump over a box on the first pass but walk around it on the second. The PIDM agent reproduces this trajectory reliably, using coarse future guidance to select actions in the correct direction.</figcaption></figure>
-</div>
-</div>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h3 class="wp-block-heading h4" id="visualization-of-the-2d-navigation-environment">Visualization of the 2D navigation environment</h3>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Smart Replay demo: 2D navigation task visualization (video 4)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/PfU2gMXqQ8c?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Video&nbsp;4.&nbsp;These&nbsp;videos show ten demonstrations for each of four tasks: Four Room, Zigzag, Maze, and Multiroom. In all cases, the setup is the same: the character (blue box) moves through the environment and must reach a sequence of goals (red squares).&nbsp;The overlaid trajectories visualize the paths the player took; the models never see these paths. Instead, they observe only their character’s current location, the position of all goals, and whether each goal has already been reached. Because these demonstrations come from real players, no two paths are identical: players pause, take detours, or correct small mistakes along the way. That natural variability is exactly what the models must learn to handle.</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h3 class="wp-block-heading h4" id="pidm-vs-bc-in-a-3d-environment">PIDM vs. BC in a 3D&nbsp;environment</h3>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Smart Replay demo: PIDM vs. BC in a 3D environment (video 5)" width="500" height="281" src="https://www.youtube-nocookie.com/embed/iXgDXSVPJxY?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">Video&nbsp;5. The PIDM agent achieves an 85% success rate with only fifteen demonstrations used in training. The BC agent struggles to stay on track and levels off around 60%.&nbsp;The contrast illustrates how differently the two approaches perform when training data is limited.</figcaption></figure>
-</div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/">Rethinking imitation learning with Predictive Inverse Dynamics Models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Paza: Introducing automatic speech recognition benchmarks and models for low resource languages</title>
-		<link>https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/</link>
-		
-		<dc:creator><![CDATA[Mercy Muchai, Kevin  Chege, Nick  Mumero, Stephanie Nyairo]]></dc:creator>
-		<pubDate>Thu, 05 Feb 2026 05:07:55 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1160691</guid>
-
-					<description><![CDATA[<p>Microsoft Research unveils Paza, a human-centered speech pipeline, and PazaBench, the first leaderboard for low-resource languages. It covers 39 African languages and 52 models and is tested with communities in real settings. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/">Paza: Introducing automatic speech recognition benchmarks and models for low resource languages</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons on a blue‑to‑purple gradient background: a vertical audio waveform on the left, a globe showing Africa and Europe in the center, and a network on the right." class="wp-image-1160744" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Paza-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Microsoft Research releases PazaBench and Paza automatic speech recognition models</strong>, advancing speech technology for low resource languages.</li>
-
-
-
-<li><strong>Human-centered pipeline for low-resource languages: </strong>Built for and tested by communities, Paza is an end-to-end, continuous pipeline that elevates historically under-represented languages and makes speech models usable in real-world, low-resource contexts.</li>
-
-
-
-<li><strong>First-of-its-kind ASR leaderboard, starting with African languages: </strong>Pazabench is the first automatic speech recognition (ASR) leaderboard for low-resource languages. Launching with 39 African languages and 51 state-of-the-art models, it tracks three key metrics across leading public and community datasets.</li>
-
-
-
-<li><strong>Human-centered&nbsp;Paza&nbsp;ASR&nbsp;models:</strong>&nbsp;Minimal&nbsp;data, fine-tuned&nbsp;ASR models&nbsp;grounded in&nbsp;real-world&nbsp;testing&nbsp;with farmers on everyday mobile devices, covering&nbsp;six&nbsp;Kenyan languages:&nbsp;Swahili,&nbsp;Dholuo, Kalenjin, Kikuyu, Maasai,&nbsp;and Somali.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>According to the 2025&nbsp;<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Microsoft-AI-Diffusion-Report-2025-H2.pdf" target="_blank" rel="noreferrer noopener">Microsoft AI Diffusion Report</a>&nbsp;approximately one&nbsp;in&nbsp;six&nbsp;people globally had used a generative AI product.&nbsp;Yet for billions of&nbsp;people,&nbsp;the promise of voice interaction still falls short, and&nbsp;whilst&nbsp;AI is becoming increasingly multilingual, a key question&nbsp;remains:&nbsp;<em><strong>Do&nbsp;these models&nbsp;actually work&nbsp;for all languages and the people who rely on them?</strong></em>&nbsp;This challenge is one we first confronted through&nbsp;<a href="https://www.microsoft.com/en-us/research/project/project-gecko/" target="_blank" rel="noreferrer noopener">Project Gecko</a>—a collaboration between Microsoft Research and&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://digitalgreen.org/" target="_blank" rel="noopener noreferrer">Digital&nbsp;Green<span class="sr-only"> (opens in new tab)</span></a>,&nbsp;where&nbsp;field teams across Africa and India focused on building usable AI tools for farmers.</p>
-
-
-
-<p>Gecko revealed how often speech systems fail in real‑world, low‑resource environments—where many languages go&nbsp;unrecognized&nbsp;and non‑Western accents are frequently misunderstood. Yet speech remains the primary medium of communication globally. For communities across Kenya, Africa, and beyond, this mismatch creates cascading challenges: without foundational data&nbsp;representing&nbsp;their languages and cultures, innovation stalls, and the digital and AI divides widen.&nbsp;</p>
-
-
-
-<p>Paza addresses this with a human-centered speech models pipeline. Through&nbsp;PazaBench, it benchmarks low-resource languages using both public and community-sourced data, and through Paza&nbsp;models, it&nbsp;fine-tunes&nbsp;speech models&nbsp;to deliver outsized gains in mid- and low-resource languages, evaluating with community testers using real devices in real contexts. Upcoming playbooks complement this work by sharing practical guidance on&nbsp;dataset creation,&nbsp;fine-tuning&nbsp;approaches&nbsp;with minimal data&nbsp;and evaluation considerations, introducing a continuous pipeline that&nbsp;enables&nbsp;researchers&nbsp;and practitioners to build and evaluate systems grounded in real human use.</p>
-
-
-
-<h2 class="wp-block-heading" id="how-project-gecko-informed-paza-s-design">How Project Gecko informed Paza’s design</h2>
-
-
-
-<p>In addition to building cost-effective, adaptable AI systems, the extensive&nbsp;fieldwork on&nbsp;Project Gecko highlighted an important lesson:&nbsp;<strong><em>Building usable speech&nbsp;models&nbsp;in low‑resource settings is not only a data problem,&nbsp;but also&nbsp;a design and evaluation problem.</em></strong>&nbsp;For AI systems to be useful, they must work in local languages, support hands‑free interaction through voice, text, and video, and deliver information in formats that fit real-world environments, that is, on low-bandwidth&nbsp;mobile devices,&nbsp;in&nbsp;noisy settings, and&nbsp;for&nbsp;varying literacy levels.&nbsp;&nbsp;</p>
-
-
-
-<p>These insights shaped the design of Paza, from&nbsp;the&nbsp;Swahili&nbsp;phrase&nbsp;<em><strong>paza&nbsp;sauti</strong></em>&nbsp;meaning “to project,” or “to raise your voice.” &nbsp;The name reflects our intent: rather than simply adding more languages to existing systems,<strong>&nbsp;Paza is about co-creating speech technologies in partnership with the communities who use them.</strong>&nbsp;Guided by this principle, Paza puts human use&nbsp;first,&nbsp;which&nbsp;enables&nbsp;model improvement.&nbsp;</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="pazabench-the-first-asr-leaderboard-for-low-resource-languages">PazaBench: The first ASR leaderboard for low-resource languages</h2>
-
-
-
-<p><strong>PazaBench</strong> is the first automatic speech recognition (ASR) leaderboard dedicated to low‑resource languages. It launches&nbsp;with&nbsp;initial&nbsp;coverage&nbsp;for&nbsp;39 African languages and benchmarks&nbsp;52 state‑of‑the‑art ASR and language models, including newly released Paza ASR models for six Kenyan languages. The platform aggregates leading public and community datasets from diverse styles of speech including conversational, scripted read aloud, unscripted, broadcast news, and domain-specific data—into one easy‑to‑explore platform per language.&nbsp;This makes it easier for&nbsp;researchers, developers, and product teams to easily assess which models perform best across underserved languages and diverse regions, understand trade-offs between speed and accuracy&nbsp;while&nbsp;identifying&nbsp;where gaps persist.&nbsp;</p>
-
-
-
-<p><strong>PazaBench tracks three core metrics:</strong></p>
-
-
-
-<ol class="wp-block-list">
-<li><strong>Character Error Rate (CER)</strong> which is important for languages with rich word forms, where meaning is built by combining word parts, therefore errors at the character level can significantly impact meaning</li>
-
-
-
-<li><strong>Word Error Rate (WER)</strong> for word-level transcript accuracy</li>
-
-
-
-<li><strong>RTFx (Inverse Real‑Time Factor)</strong> which measures how fast transcription runs relative to real‑time audio duration<em>.</em></li>
-</ol>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="PazaBench Walkthrough" width="500" height="281" src="https://www.youtube-nocookie.com/embed/jAuuh0saMUI?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div></figure>
-
-
-
-<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p><em><strong><em>More than scores,&nbsp;PazaBench&nbsp;standardizes evaluation to prioritize dataset gaps,&nbsp;identify&nbsp;underperforming languages, and highlight where localized models beat&nbsp;wider coverage ASR models—offering early evidence of&nbsp;the value of African‑centric innovation.</em></strong></em></p>
-</blockquote>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--6"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/spaces/microsoft/paza-bench" target="_blank" rel="noreferrer noopener">Explore PazaBench</a></div>
-</div>
-
-
-
-<p class="has-text-align-center"><em><sup>To contribute to the benchmark, request additional language evaluation on the leaderboard.</sup></em></p>
-
-
-
-<h2 class="wp-block-heading" id="paza-asr-models-built-with-and-for-kenyan-languages">Paza ASR Models: Built with and for Kenyan languages</h2>
-
-
-
-<p>The Paza ASR models consist of three fine-tuned ASR models built on top of state‑of‑the‑art model architectures. Each model targets <em>Swahili, </em>a mid-resource language and five low‑resource Kenyan languages; <em>Dholuo, Kalenjin, Kikuyu, Maasai and Somali</em>. The models are fine-tuned on public and curated proprietary datasets.  </p>
-
-
-
-<p>Fine‑tuning the three models allowed us to explore supportive approaches toward a shared goal: building speech recognition systems that are usable for local contexts starting with the six Kenyan languages and bridging the gaps of multi-lingual and multi-modal video question and answering through the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://labs.ai.azure.com/projects/mmct-agent/" target="_blank" rel="noopener noreferrer">MMCT agent.<span class="sr-only"> (opens in new tab)</span></a></p>
-
-
-
-<figure class="wp-block-embed aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Project Gecko: Building globally equitable generative AI" width="500" height="281" src="https://www.youtube-nocookie.com/embed/59O8kP8pmtI?feature=oembed&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div><figcaption class="wp-element-caption">See the MMCT agent in action in the field</figcaption></figure>
-
-
-
-<p>Early versions of two models in Kikuyu and Swahili were deployed on mobile devices and tested directly with farmers in real‑world settings, enabling the team to observe how the models performed with everyday use. Farmers provided in‑the‑moment feedback on accuracy, usability, and relevance, highlighting where transcripts broke down, which errors were most disruptive, and what improvements would make the models more helpful in practice. This feedback loop directly informed subsequent fine‑tuning, ensuring model improvements were driven not only by benchmark scores, but by the needs and expectations of the communities they are intended to serve.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--7"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/collections/microsoft/paza" target="_blank" rel="noreferrer noopener">Explore Paza Collection Here</a></div>
-</div>
-
-
-
-<p>Here is how Paza models compare to&nbsp;three&nbsp;state-of-the-art&nbsp;ASR&nbsp;models&nbsp;today:</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1287" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-scaled.png" alt="Figure 1: Character Error Rate (CER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower CER indicates better transcription performance." class="wp-image-1161323" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-1024x515.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-768x386.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-1536x772.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-2048x1029.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG1_overall_cer_grouped_sorted_NEW-240x121.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1: Character Error Rate (CER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower CER indicates better transcription performance.</em></figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1287" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-scaled.png" alt="Figure 2: Word Error Rate (WER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower WER indicates better transcription performance." class="wp-image-1161325" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-300x151.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-1024x515.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-768x386.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-1536x772.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-2048x1029.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG2_overall_wer_grouped_sorted_NEW-240x121.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 2: Word Error Rate (WER) comparison across the Kenyan languages for several state‑of‑the‑art ASR models including the Paza models. Lower WER indicates better transcription performance.</em></figcaption></figure>
-
-
-
-<p><strong>1) Paza‑Phi‑4‑Multimodal‑Instruct</strong></p>
-
-
-
-<p>Microsoft’s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Phi-4-multimodal-instruct" target="_blank" rel="noopener noreferrer">Phi‑4 multimodal‑instruct<span class="sr-only"> (opens in new tab)</span></a> is a next‑generation small language model built to reason across audio, text, and vision. With Paza, we extend its audio capabilities, adapting a powerful multimodal architecture into a high‑quality automatic speech recognition (ASR) system for low‑resource African languages.</p>
-
-
-
-<p>Fine‑tuned on unified multilingual speech datasets, the model was optimized specifically for transcription in the six languages. The model preserves its underlying transformer architecture and multi-modal capabilities, while selectively fine-tuning only the audio‑specific components, enabling strong cross‑lingual generalization.</p>
-
-
-
-<p>As the results below show, this model delivers consistent improvements in transcription quality across all six languages.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1063" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-scaled.png" alt="Figure 3: Character Error Rate (CER) comparison across the six languages for the base model versus the finetuned Paza model. Lower CER indicates better transcription performance." class="wp-image-1161376" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-1024x425.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-768x319.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-1536x638.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-2048x851.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG3_phi_cer_comparison_NEW-240x100.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 3: <em>Character Error Rate (CER) comparison across&nbsp;the six</em><strong>&nbsp;</strong><em>languages for the base&nbsp;model&nbsp;versus the finetuned Paza model.&nbsp;Lower CER&nbsp;indicates&nbsp;better transcription performance.</em></em></figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1063" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-scaled.png" alt="Figure 4: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance." class="wp-image-1161378" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-1024x425.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-768x319.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-1536x638.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-2048x851.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG4_phi_wer_comparison_NEW-240x100.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 4: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance.</em></figcaption></figure>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--8"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/microsoft/paza-Phi-4-multimodal-instruct" target="_blank" rel="noreferrer noopener">Test the model here</a></div>
-</div>
-
-
-
-<p><strong>2) Paza‑MMS‑1B‑All</strong></p>
-
-
-
-<p>This model is fine-tuned on Meta’s mms-1b-all model, which employs a large-scale Wav2Vec2.0-style encoder with lightweight language-specific adapters to enable efficient multilingual specialization. For this release, each of the six language adapters was fine‑tuned independently on curated low‑resource datasets, allowing targeted adaptation while keeping the shared encoder largely frozen.</p>
-
-
-
-<p>As shown in the figures below, this model improves transcription accuracy while maintaining the model’s strong cross‑lingual generalization.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1160" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-scaled.png" alt="Figure 5: Character Error Rate (CER) comparison across the six languages for the base model versus the finetuned Paza model. Lower CER indicates better transcription performance." class="wp-image-1161380" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-300x136.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-1024x464.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-768x348.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-1536x696.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-2048x928.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG5_mms_cer_comparison_NEW-240x109.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 5: <em>Character Error Rate (CER)&nbsp;comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model&nbsp;versus&nbsp;the finetuned Paza model.&nbsp;Lower CER&nbsp;indicates&nbsp;better transcription performance.</em></em></figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1160" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-scaled.png" alt="Figure 6: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance." class="wp-image-1161382" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-300x136.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-1024x464.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-768x348.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-1536x696.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-2048x928.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG6_mms_wer_comparison_NEW-240x109.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 6: <em>Word Error Rate (WER)&nbsp;comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model&nbsp;versus the finetuned Paza model.&nbsp;Lower WER indicates better transcription performance.</em></em></figcaption></figure>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--9"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="http://Aka.ms/pazareap" target="_blank" rel="noreferrer noopener">Join the Research Early Access Program</a></div>
-</div>
-
-
-
-<p><strong>3) Paza‑Whisper‑Large‑v3‑Turbo</strong></p>
-
-
-
-<p>This model is finetuned on OpenAI’s whisper-large-v3-turbo&nbsp;base model. Whisper is a transformer-based encoder–decoder model which&nbsp;delivers robust automatic speech recognition (ASR)&nbsp;capabilities. This model was fine‑tuned on the entire unified multilingual ASR dataset,&nbsp;on&nbsp;the mentioned six languages, to encourage cross-lingual generalization.&nbsp;In addition, an extra post‑processing step was applied to address the known Whisper hallucination failure modes, improving transcription reliability.</p>
-
-
-
-<p>As shown below, this release achieves improved transcription accuracy while retaining Whisper’s robustness.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1081" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-scaled.png" alt="Figure 7: Character Error Rate (CER) comparison across the six languages for the base model versus the finetuned Paza model. Lower CER indicates better transcription performance." class="wp-image-1161338" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-1024x432.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-768x324.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-1536x648.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-2048x864.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG7whisper_cer_comparison_NEW-240x101.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 7: <em>Character Error Rate (CER) comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model versus the finetuned Paza model.&nbsp;Lower CER&nbsp;indicates&nbsp;better transcription performance.</em></em></figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1081" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-scaled.png" alt="Figure 8: Word Error Rate (WER) comparison across the six languages for the base model versus the finetuned Paza model. Lower WER indicates better transcription performance." class="wp-image-1161341" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-1024x432.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-768x324.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-1536x648.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-2048x864.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/FIG8_whisper_wer_comparison_NEW-240x101.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 8: <em>Word Error Rate (WER) comparison across the six</em><strong>&nbsp;</strong><em>languages for the base model versus the finetuned Paza model.&nbsp;Lower WER indicates better transcription performance.</em></em></figcaption></figure>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--10"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/microsoft/paza-whisper-large-v3-turbo" target="_blank" rel="noreferrer noopener">Test the model here</a></div>
-</div>
-
-
-
-<h2 class="wp-block-heading" id="where-do-we-go-from-here">Where do we go from here</h2>
-
-
-
-<p>AI is reshaping how the world communicates. Designing with people, not just for them, means looking beyond the languages that are already well‑served. We plan to expand PazaBench beyond African languages and evaluate state‑of‑the‑art ASR models across&nbsp;more low‑resource languages globally. The Paza ASR models are an early step; truly supporting small and under‑represented languages requires dedicated datasets, strong local partnerships, and rigorous evaluation. Meaningful progress depends on sustained collaboration with the communities who speak these languages, and expanding responsibly means prioritizing depth and quality over broad but shallow coverage.&nbsp;</p>
-
-
-
-<p>As we continue this work,&nbsp;we&#8217;re&nbsp;distilling our methods into a forthcoming playbook to help the broader ecosystem curate datasets, fine‑tune responsibly, and evaluate models in real‑world conditions. And we’re not stopping at speech—additional&nbsp;playbooks will guide&nbsp;teams&nbsp;building AI tools and applications for multilingual, multicultural contexts, and give them practical recommendations for deploying across diverse communities.&nbsp;</p>
-
-
-
-<p>Together, these guides—grounded in technical advances and community‑driven design—share our learnings to help researchers, engineers, and designers build more human‑centered AI systems.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p>The following researchers played an integral role in this work: Najeeb Abdulhamid, Felermino Ali, Liz Ankrah, Kevin Chege, Ogbemi Ekwejunor-Etchie, Ignatius Ezeani, Tanuja Ganu, Antonis Krasakis, Mercy Kwambai, Samuel Maina, Muchai Mercy, Danlami Mohammed, Nick Mumero, Martin Mwiti, Stephanie Nyairo, Millicent Ochieng and Jacki O’Neill.</p>
-
-
-
-<p>We would like to thank the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://digitalgreen.org/" target="_blank" rel="noopener noreferrer">Digital Green<span class="sr-only"> (opens in new tab)</span></a> team—Rikin Gandhi, Alex Mwaura, Jacqueline Wang’ombe, Kevin Mugambi, Lorraine Nyambura, Juan Pablo, Nereah Okanga, Ramaskanda R.S, Vineet Singh, Nafhtari Wanjiku, Kista Ogot, Samuel Owinya&nbsp;and the community evaluators in Nyeri and Nandi, Kenya — for their valuable contributions to this work.</p>
-
-
-
-<p>We extend our gratitude to the creators, community contributors, and maintainers of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/MCAA1-MSU/anv_data_ke" target="_blank" rel="noopener noreferrer">African Next Voices Kenya<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/dsfsi-anv/za-african-next-voices" target="_blank" rel="noopener noreferrer">African Next Voices South Africa<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://openslr.org/25/" target="_blank" rel="noopener noreferrer">ALFFA<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/DigiGreen/KikuyuASR_trainingdataset" target="_blank" rel="noopener noreferrer">Digigreen<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/google/fleurs" target="_blank" rel="noopener noreferrer">Google FLEURS<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://commonvoice.mozilla.org/" target="_blank" rel="noopener noreferrer">Mozilla Common Voice<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/naijavoices/naijavoices-dataset" target="_blank" rel="noopener noreferrer">Naija Voices<span class="sr-only"> (opens in new tab)</span></a> whose efforts have been invaluable in advancing African languages speech data.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/">Paza: Introducing automatic speech recognition benchmarks and models for low resource languages</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
