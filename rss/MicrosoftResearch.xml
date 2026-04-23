@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 20 Apr 2026 20:22:08 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 22 Apr 2026 18:48:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,162 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>AutoAdapt: Automated domain adaptation for large language models</title>
+		<link>https://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/</link>
+		
+		<dc:creator><![CDATA[Sidharth Sinha, Anson Bastos, Xuchao Zhang, Akshay Nambi, Rujia Wang, Chetan Bansal]]></dc:creator>
+		<pubDate>Wed, 22 Apr 2026 16:25:30 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1168790</guid>
+
+					<description><![CDATA[<p>Deploying large language models (LLMs) in real-world, high-stakes settings is harder than it should be. In high-stakes settings like law, medicine, and cloud incident response, performance and reliability can quickly break down because adapting models to domain-specific requirements is a slow and manual process that is difficult to reproduce. The core challenge is domain adaptation, [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/">AutoAdapt: Automated domain adaptation for large language models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons in a row; a document list, a workflow, and process wheel against a blue and purple gradient background." class="wp-image-1169326" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Problem</strong>:&nbsp;Adapting large language models to specialized, high-stakes domains is slow, expensive, and hard to reproduce.&nbsp;</li>
+
+
+
+<li><strong>What we built</strong>:&nbsp;AutoAdapt&nbsp;automates&nbsp;planning, strategy selection&nbsp;(e.g., RAG vs. fine-tuning), and tuning under real deployment constraints.&nbsp;</li>
+
+
+
+<li><strong>How it works</strong>:&nbsp; A structured configuration graph&nbsp;maps the&nbsp;full scope&nbsp;of the&nbsp;adaptation&nbsp;process, an agentic planner&nbsp;selects and sequences the right steps, and&nbsp;a&nbsp;budget-aware optimization loop (AutoRefine)&nbsp;refines the process within defined constraints. &nbsp;</li>
+
+
+
+<li><strong>Why it matters</strong>:&nbsp;The result is faster,&nbsp;automated,&nbsp;more reliable domain adaptation that turns weeks of&nbsp;manual&nbsp;iteration into repeatable pipelines.&nbsp;</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Deploying large language models (LLMs) in real-world, high-stakes settings is harder than it should be. In high-stakes settings like law, medicine, and cloud incident response, performance and reliability can quickly break down because adapting models to domain-specific requirements is a slow and manual process that is difficult to reproduce.</p>
+
+
+
+<p>The core challenge is domain adaptation, which entails turning a general-purpose model into one that consistently follows domain rules, draws on the right knowledge, and meets constraints such as latency, privacy, and cost. Today, that process typically involves guesswork, choosing among approaches like retrieval-augmented generation (RAG) and fine-tuning, tuning hyperparameters, and iterating through evaluations with no clear path to a good outcome. An operations team responding to an outage can&#8217;t afford a model that drifts from domain requirements or a tuning process that takes weeks with no guarantee of a reproducible result.</p>
+
+
+
+<p>To tackle this, we&#8217;re pleased to introduce AutoAdapt. In our paper, “<a href="https://www.microsoft.com/en-us/research/publication/autoadapt-an-automated-domain-adaptation-framework-for-llms/" type="msr-research-item" id="1163986">AutoAdapt: An Automated Domain Adaptation Framework for Large Language Models</a>,” we describe an end-to-end, constraint-aware framework for domain adaptation. Given a task objective, available domain data, and practical requirements like accuracy, latency, hardware, and budget, AutoAdapt plans a valid adaptation pipeline, selecting among approaches like RAG and multiple fine-tuning methods, and tunes key hyperparameters using a budget-aware refinement loop. The result is an executable, reproducible workflow for building domain-ready models more quickly and consistently, helping make LLMs dependable in real-world settings.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+		
+
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Azure AI Foundry Labs</h2>
+				
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="how-it-works">How it works</h2>
+
+
+
+<p>AutoAdapt starts from a practical observation: teams don’t just need a better prompt or more data, they need a decision process that reliably maps a task, its domain data, and real constraints to an approach that works. To do this, AutoAdapt treats domain adaptation as a constrained planning problem. Given an objective provided in natural language, dataset size and format, and limits on latency, hardware, privacy, and cost, it provides an end-to-end pipeline that teams can execute and deploy.</p>
+
+
+
+<p>Domain adaptation often feels like trial and error because the design space is large and complex. Teams must choose among approaches such as RAG, supervised fine-tuning, parameter-efficient methods (such as LoRA), and alignment steps, each with many hyperparameters. These choices interact in nonobvious ways, and not all combinations are valid, making it difficult to identify a reliable strategy. The problem is compounded by the high cost of LLM training, which limits how many configurations can be explored.</p>
+
+
+
+<p>AutoAdapt addresses this with the Adaptation Configuration Graph (ACG), a structured representation of the system&#8217;s configuration space that enables efficient search while guaranteeing valid pipelines.</p>
+
+
+
+<p>Building on the ACG, AutoAdapt uses a planning agent to make and justify decisions. It proposes strategies, evaluates them against user requirements, and iterates until the plan is feasible and well-grounded. Rather than optimizing in an unconstrained black box, AutoAdapt roots each decision in best practices and explicit constraints, producing an executable workflow with parameter ranges.</p>
+
+
+
+<p>Finally, AutoAdapt introduces AutoRefine, a budget-aware refinement loop that optimizes hyperparameters by strategically selecting which experiments to run next, even under limited feedback. AutoRefine replaces weeks of manual tuning with a more disciplined, reproducible process that is easier to audit and compare across projects. In real-world systems such as healthcare documentation, legal workflows, or incident response, this level of rigor is essential. Figure 1 illustrates the end-to-end workflow.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="683" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_overview_fig1_1400px.png" alt="A workflow diagram illustrating how a user’s task description and constraints are processed to automatically produce a deployable language model. User inputs are analyzed and refined through multiple stages, including multi‑agent proposal and critique, best‑practice consultation, and iterative pipeline refinement. These stages evaluate task requirements, data choices, and model configurations while verifying user constraints. The process concludes with an executable plan that generates a final model meeting the specified objectives and constraints." class="wp-image-1168794" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_overview_fig1_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_overview_fig1_1400px-300x146.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_overview_fig1_1400px-1024x500.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_overview_fig1_1400px-768x375.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_overview_fig1_1400px-240x117.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 1. The AutoAdapt workflow, showing how user inputs flow through planning and refinement to produce a deployable model. </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
+
+
+
+<p>In experiments, AutoAdapt consistently identifies effective adaptation strategies and delivers improvements across a range of benchmark and real-world tasks, including reasoning, question answering, coding, classification, and cloud-incident diagnosis. It uses constraint-aware planning and budgeted refinement to find better-performing configurations with minimal added time and cost, making the process practical for production teams. Figures 2 and 3 show aggregate performance against competitive baselines.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="513" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_results_fig3_1400px.png" alt="Three radar plots compare multiple methods across several datasets using success rate, normalized performance score, and a cumulative metric. In all three plots, the AutoAdapt method consistently exhibits larger coverage across most tasks, indicating stronger overall performance. Baseline methods show more uneven profiles, with strengths limited to specific datasets or metrics. The visualization highlights AutoAdapt’s robust and consistent advantage relative to existing approaches." class="wp-image-1168793" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_results_fig3_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_results_fig3_1400px-300x110.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_results_fig3_1400px-1024x375.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_results_fig3_1400px-768x281.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_results_fig3_1400px-240x88.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. Success rate (SR), normalized performance score (NPS), and cumulative score (CS) comparing AutoAdapt with baseline methods across datasets. Higher scores indicate better performance, with AutoAdapt outperforming state-of-the-art baselines.</figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="288" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_cost_time_overhead_fig2_1400px.png" alt="Two bar charts compare time and cost overheads for AutoAdapt relative to a default baseline across multiple datasets. AutoAdapt introduces only a small additional time requirement, averaging around half an hour, while achieving noticeable performance improvements. The cost comparison shows a similarly modest increase, with average extra cost remaining low across tasks. Overall, the figure indicates that AutoAdapt delivers performance gains with minimal additional time and financial overhead." class="wp-image-1168795" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_cost_time_overhead_fig2_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_cost_time_overhead_fig2_1400px-300x62.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_cost_time_overhead_fig2_1400px-1024x211.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_cost_time_overhead_fig2_1400px-768x158.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt_cost_time_overhead_fig2_1400px-240x49.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 3. AutoAdapt achieves performance gains with minimal overhead, approximately 30 minutes of additional time and $4 in additional cost.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="implications-and-looking-forward">Implications and looking forward</h2>
+
+
+
+<p>The broader significance of AutoAdapt is that domain adaptation can become an engineering discipline, not an ad hoc process. By making key choices explicit—what to adapt, how to adapt it, and which constraints the system must satisfy—AutoAdapt helps teams reach results faster, reproduce them more easily, and audit them more rigorously. This shift is especially important in domains where drift from pretrained knowledge is common and failures are costly. When LLMs are used to draft clinical notes, triage support incidents, or summarize regulatory language, organizations need a clear, repeatable path from data to models that behave predictably under latency, privacy, and budget requirements.</p>
+
+
+
+<p>Because domain adaptation is a prerequisite for deploying LLMs in real-world settings, we’re making the&nbsp;AutoAdapt&nbsp;framework&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/AutoAdapt" target="_blank" rel="noopener noreferrer">open&nbsp;source<span class="sr-only"> (opens in new tab)</span></a> to give teams a concrete starting point. The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/microsoft/AutoAdapt?tab=readme-ov-file#installation-and-quick-start">README<span class="sr-only"> (opens in new tab)</span></a> file provides installation and quick-start instructions.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="yt-consent-placeholder" role="region" aria-label="Video playback requires cookie consent" data-video-id="z3JMQqDwCOc" data-poster="https://img.youtube.com/vi/z3JMQqDwCOc/maxresdefault.jpg"><iframe aria-hidden="true" tabindex="-1" title="AutoAdapt demo" width="500" height="281" data-src="https://www.youtube-nocookie.com/embed/z3JMQqDwCOc?feature=oembed&rel=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="yt-consent-placeholder__overlay"><button class="yt-consent-placeholder__play"><svg width="42" height="42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="none" fill-rule="evenodd"><circle fill="#000" opacity=".556" cx="21" cy="21" r="21"/><path stroke="#FFF" d="M27.5 22l-12 8.5v-17z"/></g></svg><span class="yt-consent-placeholder__label">Video playback requires cookie consent</span></button></div></div>
+</div></figure>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/">AutoAdapt: Automated domain adaptation for large language models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Can we AI our way to a more sustainable world?</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/</link>
 		
@@ -38,7 +194,7 @@
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=153817508&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=153817508&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -1337,7 +1493,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/">New Future of Work: AI is driving rapid change, uneven benefits</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" class="wp-image-1167890" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" class="wp-image-1167890" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -2587,27 +2743,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2741,30 +2900,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the first four episodes on demand.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2938,30 +3097,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4588,382 +4747,6 @@
 
 <p>Code and experimental results are publicly available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/TIMAN-group/PlugMem" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> so that others can reproduce the results and conduct their own research.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/">PlugMem: Transforming raw agent interactions into reusable knowledge</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Phi-4-reasoning-vision and the lessons of training a multimodal reasoning model</title>
-		<link>https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/</link>
-		
-		<dc:creator><![CDATA[Jyoti Aneja, Michael Harrison, Neel Joshi, Tyler LaBonte, John Langford, Eduardo Salinas]]></dc:creator>
-		<pubDate>Wed, 04 Mar 2026 18:05:57 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1163159</guid>
-
-					<description><![CDATA[<p>We are pleased to announce Phi-4-reasoning-vision-15B, a 15 billion parameter open‑weight multimodal reasoning model, available through Microsoft Foundry (opens in new tab), HuggingFace (opens in new tab) and GitHub (opens in new tab). Phi-4-reasoning-vision-15B is a broadly capable model that can be used for a wide array of vision-language tasks such as image captioning, asking [&#8230;]</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/">Phi-4-reasoning-vision and the lessons of training a multimodal reasoning model</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1.jpg" alt="White line icons against a blue-green gradient background form an architecture flow chart. In the middle of the chart is a three-by-three matrix of circles and lines within a round-edge square. Above the matrix, three icons in a row – an equation, a person using a desktop, and a head with gears flow by dotted lines to the matrix. To the left of the matrix is an icon representing a stack of files with an arrow pointing to the matrix. To the right of the matrix is a graph with a double headed arrow pointing to the matrix and to itself. Below the matrix is an icon representing a document. A dotted line arrow connects this graph to the matrix, showing the direction flowing from the matrix to the document. To the right of the document icon is an hourglass icon and three list icons with a dotted line connecting the hourglass to the lists." class="wp-image-1163175" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/Phi4-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Phi-4-reasoning-vision-15B</strong> is a compact and smart open‑weight multimodal reasoning model that balances reasoning power, efficiency, and training data needs. It is a broadly capable model that allows for natural interaction for a wide array of vision-language tasks and excels at math and science reasoning and understanding user-interfaces.</li>
-
-
-
-<li><strong>We share lessons learned and best practices</strong> for training a multimodal reasoning model—showing the benefit of careful architecture choices, rigorous data curation, and the benefits of using a mixture of reasoning and non-reasoning data.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>We are pleased to announce <strong>Phi-4-reasoning-vision-15B</strong>, a 15 billion parameter open‑weight multimodal reasoning model, available through <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/Phi-4-r-v-foundry">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Phi-4-vision-reasoning-15B" type="link" id="https://huggingface.co/microsoft/Phi-4-vision-reasoning-15B" target="_blank" rel="noopener noreferrer">HuggingFace<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/Phi-4-vision" type="link" id="https://github.com/microsoft/Phi-4-vision" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>. Phi-4-reasoning-vision-15B is a broadly capable model that can be used for a wide array of vision-language tasks such as image captioning, asking questions about images, reading documents and receipts, helping with homework, inferring about changes in sequences of images, and much more. Beyond these general capabilities, it excels at math and science reasoning and at understanding and grounding elements on computer and mobile screens. In particular, our model presents an appealing value relative to popular open-weight models, pushing the pareto-frontier of the tradeoff between accuracy and compute costs. We have competitive performance to much slower models that require ten times or more compute-time and tokens and better accuracy than similarly fast models, particularly when it comes to <a href="#evaluation" type="internal" id="#evaluation">math and science reasoning</a>.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2347" height="947" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens.png" alt="Performance charts comparing Phi-4-Reasoning-Vision-15B against other models (Kimi-VL, Qwen-3, Gemma-3) on accuracy vs. response time and accuracy vs. completion tokens. Phi-4 stands out as being fast and token-efficient while achieving ~75% accuracy. " class="wp-image-1163184" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens.png 2347w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens-300x121.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens-1024x413.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens-768x310.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens-1536x620.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens-2048x826.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/timing_and_tokens-240x97.png 240w" sizes="auto, (max-width: 2347px) 100vw, 2347px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>1</em>:&nbsp;Phi-4-reasoning-vision-15B&nbsp;presents a compelling&nbsp;option&nbsp;compared to existing models,&nbsp;pushing the pareto-frontier of the tradeoff between accuracy and compute costs.&nbsp;We have&nbsp;competitive&nbsp;performance&nbsp;to much&nbsp;slower models that require more&nbsp;time and&nbsp;tokens&nbsp;and&nbsp;higher accuracy&nbsp;than&nbsp;similarly fast&nbsp;models.&nbsp;These values were computed by averaging&nbsp;accuracy, time, and output token-counts&nbsp;for a subset of 4 benchmarks:&nbsp;ChartQA<sub>_TEST</sub>,&nbsp;MathVista<sub>_MINI</sub>, MMMU<sub>_VAL</sub>,&nbsp;and&nbsp;ScreenSpot<sub>_v2</sub>,&nbsp;where we had logged these values.&nbsp;</em></figcaption></figure>
-
-
-
-<p>In this post, we share the motivations, design choices, experiments, and learnings that informed its development, as well as an evaluation of the model’s performance and guidance on how to use it. Our goal is to contribute practical insight to the community on building smaller, efficient multimodal reasoning models and to share an open-weight model that is <a href="#evaluation" type="internal" id="#evaluation">competitive</a> with models of similar size at general vision-language tasks, <a href="#evaluation" type="internal" id="#evaluation">excels</a> at computer use, and excels on scientific and mathematical multimodal reasoning.</p>
-
-
-
-<h2 class="wp-block-heading" id="a-focus-on-smaller-and-faster-vision-language-models">A focus on smaller and faster vision–language models</h2>
-
-
-
-<p>Many popular vision-language models (VLMs) have trended towards growing in parameter count and, in particular, the number of tokens they consume and generate. This leads to increase in training and inference-time cost and latency, and impedes their usability for downstream deployment, especially in resource‑constrained or interactive settings.</p>
-
-
-
-<p>A growing countertrend towards <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2409.17146" type="link" id="https://arxiv.org/pdf/2409.17146" target="_blank" rel="noopener noreferrer">smaller<span class="sr-only"> (opens in new tab)</span></a> models aims to boost efficiency, enabled by careful model design and data curation – a goal pioneered by the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/en-us/products/phi" type="link" id="https://azure.microsoft.com/en-us/products/phi" target="_blank" rel="noopener noreferrer">Phi family of models<span class="sr-only"> (opens in new tab)</span></a> and furthered by Phi-4-reasoning-vision-15B. We specifically build on learnings from the <a href="https://www.microsoft.com/en-us/research/publication/phi-4-technical-report/" type="link" id="https://www.microsoft.com/en-us/research/publication/phi-4-technical-report/">Phi-4</a> and <a href="https://www.microsoft.com/en-us/research/publication/phi-4-reasoning-technical-report/" type="link" id="https://www.microsoft.com/en-us/research/publication/phi-4-reasoning-technical-report/">Phi-4-Reasoning</a> language models and show how a multimodal model can be trained to cover a wide range of vision and language tasks without relying on extremely large training datasets, architectures, or excessive inference‑time token generation. Our model is intended to be lightweight enough to run on modest hardware while remaining capable of structured reasoning when it is beneficial. Our model was trained with far less compute than many recent open-weight VLMs of similar size. We used just 200 billion tokens of multimodal data leveraging Phi-4-reasoning (trained with 16 billion tokens) based on a core model Phi-4 (400 billion unique tokens), compared to more than 1 trillion tokens used for training multimodal models like Qwen <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2502.13923" type="link" id="https://arxiv.org/abs/2502.13923" target="_blank" rel="noopener noreferrer">2.5 VL<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2511.21631" type="link" id="https://arxiv.org/pdf/2511.21631" target="_blank" rel="noopener noreferrer">3 VL<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2504.07491" target="_blank" rel="noopener noreferrer">Kimi-VL<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2503.19786" target="_blank" rel="noopener noreferrer">Gemma3<span class="sr-only"> (opens in new tab)</span></a>. We can therefore present a compelling option compared to existing models pushing the pareto-frontier of the tradeoff between accuracy and compute costs.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:60%">
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1600" height="1630" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH.png" alt=" A travel blog caption task. Given a photo of Iguazu Falls, the model writes a personal, evocative caption referencing the rainbow, the mist, and the emotional experience." class="wp-image-1163338" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH.png 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH-294x300.png 294w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH-1005x1024.png 1005w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH-768x782.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH-1508x1536.png 1508w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/iguazu_AH-177x180.png 177w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1600" height="1538" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH.png" alt="Restaurant bill splitting. Given a photo of a receipt and instructions about who ordered what, the model calculates each person's share including half the tax, and returns the result as JSON." class="wp-image-1163339" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH.png 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH-300x288.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH-1024x984.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH-768x738.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH-1536x1476.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/bill_AH-187x180.png 187w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /></figure>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1600" height="1300" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH.png" alt="Laundry care symbol interpretation. The model correctly identifies all five symbols: machine washable, do not bleach, tumble dry low, iron on low heat, do not dry clean." class="wp-image-1163340" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH.png 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH-300x244.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH-1024x832.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH-768x624.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH-1536x1248.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/wash_AH-222x180.png 222w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /></figure>
-</div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption"><em>Figure 2: Phi-4-Reasoning-Vision can help with a wide range of everyday tasks.</em></figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="lessons-from-training-a-multimodal-model">Lessons from training a multimodal model</h2>
-
-
-
-<p>Training a multimodal reasoning model raises numerous questions and requires many nuanced design choices around model architecture, dataset quality and composition, and the interaction between reasoning‑heavy and non-reasoning perception‑focused tasks.</p>
-
-
-
-<h3 class="wp-block-heading" id="model-architecture-early-vs-mid-fusion">Model architecture: Early- vs mid-fusion</h3>
-
-
-
-<p>Model architectures for VLMs differ primarily in how visual and textual information is fused. Mid-fusion models use a pretrained vision encoder to convert images into visual tokens that are projected into a pretrained LLM&#8217;s embedding space, enabling cross-modal reasoning while leveraging components already trained on trillions of tokens. Early-fusion models process image patches and text tokens in a single model transformer, yielding richer joint representations but at significantly higher compute, memory, and data cost. We adopted a mid-fusion architecture as it offers a practical trade-off for building a performant model with modest resources.</p>
-
-
-
-<h3 class="wp-block-heading" id="model-architecture-vision-encoder-and-image-processing">Model architecture: Vision encoder and image processing</h3>
-
-
-
-<p>We build on the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2502.14786" type="link" id="https://arxiv.org/pdf/2502.14786" target="_blank" rel="noopener noreferrer">SigLIP-2<span class="sr-only"> (opens in new tab)</span></a> vision encoder and the <a href="https://www.microsoft.com/en-us/research/publication/phi-4-reasoning-technical-report/" type="link" id="https://www.microsoft.com/en-us/research/publication/phi-4-reasoning-technical-report/">Phi-4-Reasoning</a> backbone. In previous research, we found that multimodal language models sometimes struggled to solve tasks, not because of a lack of reasoning proficiency, but rather an <a href="https://www.microsoft.com/en-us/research/publication/eureka-evaluating-and-understanding-large-foundation-models/" type="link" id="https://www.microsoft.com/en-us/research/publication/eureka-evaluating-and-understanding-large-foundation-models/">inability to extract and select relevant perceptual information</a> from the image. An example would be a high-resolution screenshot that is information-dense with relatively small interactive elements.</p>
-
-
-
-<p>Several open-source multimodal language models have adapted their methodologies accordingly, e.g., <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2503.19786" type="link" id="https://arxiv.org/pdf/2503.19786" target="_blank" rel="noopener noreferrer">Gemma3<span class="sr-only"> (opens in new tab)</span></a> uses pan-and-scan and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2412.04468" type="link" id="https://arxiv.org/pdf/2412.04468" target="_blank" rel="noopener noreferrer">NVILA<span class="sr-only"> (opens in new tab)</span></a> uses Dynamic S2. However, their trade-offs are difficult to understand across different datasets and hyperparameters. To this end, we conducted an ablation study of several techniques. We trained a smaller 5 billion parameter Phi-4 based proxy model on a dataset of 10 million image-text pairs, primarily composed of computer-use and GUI grounding data. We compared with Dynamic S2, which resizes images to a rectangular resolution that minimizes distortion while admitting a tiling by 384×384 squares; Multi-crop, which splits the image into potentially overlapping 384×384 squares and concatenates their encoded features on the token dimension; Multi-crop with S2, which broadens the receptive field by cropping into 1536×1536 squares before applying S2; and Dynamic resolution using the Naflex variant of SigLIP-2, a natively dynamic-resolution encoder with adjustable patch counts.</p>
-
-
-
-<p>Our primary finding is that dynamic resolution vision encoders perform the best and especially well on high-resolution data. It is particularly interesting to compare dynamic resolution with 2048 vs 3600 maximum tokens: the latter roughly corresponds to native HD 720p resolution and enjoys a substantial boost on high-resolution benchmarks, particularly ScreenSpot-Pro. Reinforcing the high-resolution trend, we find that multi-crop with S2 outperforms standard multi-crop despite using fewer visual tokens (i.e., fewer crops overall). The dynamic resolution technique produces the most tokens on average; due to their tiling subroutine, S2-based methods are constrained by the original image resolution and often only use about half the maximum tokens. From these experiments we choose the SigLIP-2 Naflex variant as our vision encoder.</p>
-
-
-
-<figure class="wp-block-table aligncenter is-style-stripes"><table class="has-fixed-layout"><thead><tr><th>Method</th><th class="has-text-align-left" data-align="left">Max Tokens</th><th>MathVista</th><th>ScreenSpot</th><th>ScreenSpot-Pro</th><th>V*Bench</th></tr></thead><tbody><tr><td><strong>Dynamic-S<sup>2</sup></strong></td><td class="has-text-align-left" data-align="left">3096</td><td>42.9</td><td>78.4</td><td>9.4</td><td>52.9</td></tr><tr><td><strong>Multi-crop</strong></td><td class="has-text-align-left" data-align="left">3096</td><td>43.4</td><td>67.8</td><td>5.4</td><td>51.8</td></tr><tr><td><strong>Multi-crop with S<sup>2</sup></strong></td><td class="has-text-align-left" data-align="left">2048</td><td>43.4</td><td>79.1</td><td><strong>10.6</strong></td><td><strong>57.1</strong></td></tr><tr><td><strong>Dynamic resolution</strong></td><td class="has-text-align-left" data-align="left">2048</td><td><strong>45.2</strong></td><td><strong>81.5</strong></td><td>9.2</td><td>51.3</td></tr><tr><td><strong>Dynamic resolution</strong></td><td class="has-text-align-left" data-align="left">3600</td><td><strong>44.9</strong></td><td><strong>79.7</strong></td><td><strong>17.5</strong></td><td><strong>56.0</strong></td></tr></tbody></table><figcaption class="wp-element-caption"><em>Table 1: Results with different&nbsp;resolution handling approaches.&nbsp;The top two configurations on each benchmark&nbsp;are in&nbsp;bold.</em></figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="data-quality-and-composition">Data: Quality and composition</h3>
-
-
-
-<p>As with its language backbone Phi-4-Reasoning, Phi-4-reasoning-vision-15B was trained with a deliberate focus on data quality. Our final dataset consists primarily of data from three sources: open-source datasets which were meticulously filtered and improved; high-quality domain-specific internal data; and high-quality data from targeted acquisitions. The overwhelming majority of our data lies in the first category: data which originated as open-source data, which were significantly filtered and improved, whether by removing low-quality datasets or records, programmatically fixing errors in data formatting, or using open-source images as seeds to synthetically generate higher-quality accompanying text.</p>
-
-
-
-<p>The process of improving open-source data began by manually reviewing samples from each dataset. Typically, 5 to 10 minutes were sufficient to classify data as excellent-quality, good questions with wrong answers, low-quality questions or images, or high-quality with formatting errors. Excellent data was kept largely unchanged. For data with incorrect answers or poor-quality captions, we re-generated responses using GPT-4o and o4-mini, excluding datasets where error rates remained too high. Low-quality questions proved difficult to salvage, but when the images themselves were high quality, we repurposed them as seeds for new caption or visual question answering (VQA) data. Datasets with fundamentally flawed images were excluded entirely. We also fixed a surprisingly large number of formatting and logical errors across widely used open-source datasets.</p>
-
-
-
-<p>We extracted additional value from existing datasets through reformatting, diversification, and using images as seeds for new data generation. We generated detailed image descriptions alongside original QA pairs for math and science data, had data perform &#8220;double-duty&#8221; by embedding instruction-following requirements directly into domain-specific QA, created &#8220;scrambled,&#8221; &#8220;caption-matching,&#8221; and &#8220;what&#8217;s changed?&#8221; records to improve multi-image reasoning and sequential navigation for CUA scenarios, and diversifying prompt styles to encourage robustness beyond perfectly structured questions.</p>
-
-
-
-<p>To supplement the improved open-source data, we utilize high-quality internal datasets, several math-specific datasets which were acquired during training of the Phi-4 language model, and also some domain-specific curated data; for example, latex-OCR data generated by processing and rendering equations from arXiv documents.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:55%">
-<figure class="wp-block-image size-full"><img decoding="async" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_AH.png" alt="Top: A pie chart titled "Training Data Composition by Category" with slices: VQA (20.37%), Math & Science (18.66%), Grounding (18.24%), Web (15.19%), Text (11.04%), Object Detection (7.90%), Caption (5.39%), OCR (1.61%), Perception (1.10%), and Alignment (0.50%). Bottom: Two JSON training examples under "Training with Mixed Non-Reasoning/Reasoning Data" — one uses a <nothink> before  returning a bounding box coordinates for a UI grounding task, and the other uses a <think> tag with step-by-step reasoning to answer a chart question about expatriate populations, concluding with "Dubai." " class="wp-image-1163336"/></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1431" height="2355" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH.png" alt="Top: A "Web/Grounding" example showing a screenshot of a blog post about interior design ("Follow my Three C's of Decorating"), with colored bounding boxes highlighting key words, phrases, and buttons on the webpage, displayed within a browser and an overlapping application window. Bottom: A beach photo of a bride with outstretched arms and a flowing veil, labeled "GPT-4o Captions of images," showing three caption levels: an original caption ("Sunset Weddings Cabo"), a short recap describing the bride on a beach, and a medium recap with detailed scene description including the ocean, rocky formations, and vibrant sky." class="wp-image-1163337" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH.png 1431w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH-182x300.png 182w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH-622x1024.png 622w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH-768x1264.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH-933x1536.png 933w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH-1244x2048.png 1244w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/phi4mm_data_right_AH-109x180.png 109w" sizes="auto, (max-width: 1431px) 100vw, 1431px" /></figure>
-</div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption"><em>Figure 3: Phi-4-reasoning-vision-15B training data composition and examples</em></figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="data-mathematics-vs-computer-use-data-proportion">Data: Mathematics vs. computer-use data proportion</h3>
-
-
-
-<p>One of our goals was to train a model that performs well across general vision-language tasks, while excelling at mathematical and scientific reasoning and computer-use scenarios. How to structure datasets for generalizable reasoning remains an open question—particularly because the relationship between data scale and reasoning performance can lead to starkly different design decisions, such as training a single model on a large dataset versus multiple specialized models with targeted post-training.</p>
-
-
-
-<p>Research on long-tailed classification robustness has suggested that <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/1710.05381" type="link" id="https://arxiv.org/pdf/1710.05381" target="_blank" rel="noopener noreferrer">balancing or removing data from overrepresented tasks or subgroups<span class="sr-only"> (opens in new tab)</span></a> is an effective method for ensuring good performance. Nevertheless, these insights are not fully utilized or explored when it comes to training VLMs, which at times have favored scale over careful data balancing. To achieve our goals, we conducted a set of experiments to analyze a range of data ratios between our focus domains.</p>
-
-
-
-<p>Using the same 5 billion parameter proxy model as for previous experiments, we trained while varying the amount of mathematics and science vs. computer-use data for each run. Each dataset included the same subset of 1 million general image-text pairs as a baseline. For mathematics and science data, we used a subsample of 150,000 records, optionally duplicating each one up to three times. Next, we included up to 450,000 computer-use records, and optionally an additional 400,000 from <a href="https://www.microsoft.com/en-us/research/publication/phi-ground-tech-report-advancing-perception-in-gui-grounding/" type="link" id="https://www.microsoft.com/en-us/research/publication/phi-ground-tech-report-advancing-perception-in-gui-grounding/">Phi-Ground</a>.</p>
-
-
-
-<p>We found that that multimodal mathematics and science performance were not harmed by additional computer-use data, and vice versa. Interestingly, we found that increasing mathematics data by 3x while keeping computer-use data constant improved math, science, and computer-use benchmarks.</p>
-
-
-
-<figure class="wp-block-table aligncenter is-style-stripes"><table class="has-fixed-layout"><thead><tr><th>General</th><th>Math and Science</th><th>CUA</th><th>Total</th><th>MMMU</th><th>MathVista</th><th>ScreenSpot-V2</th></tr></thead><tbody><tr><td>1M</td><td>150K</td><td>450K</td><td>1.6M</td><td>44.0</td><td>37.4</td><td>48.2</td></tr><tr><td>1M</td><td>150K</td><td>850K</td><td>2.0M</td><td>44.1</td><td>37.3</td><td>60.0</td></tr><tr><td>1M</td><td>450K</td><td>450K</td><td>1.9M</td><td><strong>45.3</strong></td><td>36.0</td><td>48.3</td></tr><tr><td>1M</td><td>450K</td><td>850K</td><td>2.3M</td><td>43.4</td><td><strong>38.9</strong></td><td><strong>63.1</strong></td></tr><tr><td>1M</td><td>150K</td><td>150K</td><td>1.3M</td><td>44.2</td><td>36.9</td><td>29.8</td></tr><tr><td>1M</td><td>150K</td><td>250K</td><td>1.4M</td><td><strong>45.4</strong></td><td>37.4</td><td>37.7</td></tr></tbody></table><figcaption class="wp-element-caption"><em>Table 2: Varying the ratios of math and CUA data.&nbsp;Increasing math data by 3x while keeping computer-use data constant improves both math and computer-use benchmarks. </em></figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="data-synthetic-data-for-text-rich-visual-reasoning">Data: Synthetic data for text-rich visual reasoning</h3>
-
-
-
-<p><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2502.14846" type="link" id="https://arxiv.org/pdf/2502.14846" target="_blank" rel="noopener noreferrer">Recent work<span class="sr-only"> (opens in new tab)</span></a> suggests that targeted synthetic data can materially improve multimodal reasoning, particularly for text-rich visual domains such as charts, documents, diagrams, and rendered mathematics. Using images, questions, and answers that are programmatically generated and grounded in the visual structure enables precise control over visual content and supervision quality, resulting in data that avoids many annotation errors, ambiguities, and distributional biases common in scraped datasets. This enables cleaner alignment between visual perception and multi-step inference, which has been shown to translate into measurable gains on reasoning-heavy benchmarks.</p>
-
-
-
-<p>Synthetic text-rich images expand coverage of long-tail visual formats that are underrepresented in real data but disproportionately impact reasoning accuracy, improving not only visual grounding but also downstream reasoning by ensuring that failures are less often caused by perceptual errors. We found that programmatically generated synthetic data is a useful augmentation to high-quality real datasets — not a replacement, but a scalable mechanism for strengthening both perception and reasoning that complements the training objectives in compact multimodal models such as Phi-4-reasoning-vision-15B.</p>
-
-
-
-<h2 class="wp-block-heading" id="mixing-non-reasoning-and-reasoning-as-a-design-objective">Mixing non-reasoning and reasoning as a design objective</h2>
-
-
-
-<p>In language-only settings, reasoning traces have improved performance on many tasks, but they require additional compute which adds undesired latency. In multimodal settings, this tradeoff is less clear-cut, for tasks such as image captioning and optical character recognition (OCR), reasoning is often unnecessary and can even be <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2502.09621" type="link" id="https://arxiv.org/pdf/2502.09621" target="_blank" rel="noopener noreferrer">harmful<span class="sr-only"> (opens in new tab)</span></a>, while mathematical and scientific problem-solving benefit from multi-step reasoning. Thus, the choice of when to reason or not can be quite nuanced.</p>
-
-
-
-<h3 class="wp-block-heading" id="training-approaches-for-multimodal-reasoning-models">Training approaches for multimodal reasoning models</h3>
-
-
-
-<p>Language-only reasoning models are typically created through supervised fine-tuning (SFT) or reinforcement learning (RL): SFT is simpler but requires large amounts of expensive reasoning trace data, while RL reduces data requirements at the cost of significantly increased training complexity and compute. Multimodal reasoning models follow a similar process, but the design space is more complex. With a mid-fusion architecture, the first decision is whether the base language model is itself a reasoning or non-reasoning model. This leads to several possible training pipelines:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Non-reasoning LLM → reasoning multimodal training:</strong> Reasoning and multimodal capabilities are trained together.</li>
-
-
-
-<li><strong>Non-reasoning LLM → non-reasoning multimodal → reasoning multimodal training:</strong> Multimodal capabilities are learned first, then reasoning is added.</li>
-
-
-
-<li><strong>Reasoning LLM → reasoning multimodal training:</strong> A reasoning base is used, but all multimodal data must include reasoning traces.</li>
-
-
-
-<li><strong>Our approach: Reasoning LLM → mixed non-reasoning / reasoning multimodal training.</strong> A reasoning-capable base is trained on a hybrid data mixture, learning when to reason and when to respond directly.</li>
-</ul>
-
-
-
-<p>Approaches 1 and 2 offer flexibility in designing multimodal reasoning behavior from scratch using widely available non-reasoning LLM checkpoints but place a heavy burden on multimodal training. Approach 1 must teach visual understanding and reasoning simultaneously and requires a large amount of multimodal reasoning data, while Approach 2 can be trained with less reasoning data but risks catastrophic forgetting, as reasoning training may degrade previously learned visual capabilities. Both risk weaker reasoning than starting from a reasoning-capable base. Approach 3 inherits strong reasoning foundations, but like Approach 1, it requires reasoning traces for all training data and produces reasoning traces for all queries, even when not beneficial.</p>
-
-
-
-<h3 class="wp-block-heading" id="our-approach-a-mixed-reasoning-and-non-reasoning-model">Our approach: A mixed reasoning and non-reasoning model</h3>
-
-
-
-<p>Phi-4-reasoning-vision-15B adopts the 4th approach listed previously, as it balances reasoning capability, inference efficiency, and data requirements. It inherits a strong reasoning foundation but uses a hybrid approach to combine the strengths of alternatives while mitigating their drawbacks. Our model defaults to direct inference for perception-focused domains where reasoning adds latency without improving accuracy, avoiding unnecessary verbosity and reducing inference costs, and it invokes longer reasoning paths for domains, such as <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2409.12183" type="link" id="https://arxiv.org/pdf/2409.12183" target="_blank" rel="noopener noreferrer">math and science, that benefit from structured multi-step reasoning<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>Our model is trained with SFT, where reasoning samples include “…” sections with chain-of-thought reasoning before the final answer, covering domains like math and science. Non-reasoning samples are tagged to start with a “” token, signaling a direct response, and cover perception-focused tasks such as captioning, grounding, OCR, and simple VQA. Reasoning data comprises approximately 20% of the total mix. Starting from a reasoning-capable backbone means this data grounds existing reasoning in visual contexts rather than teaching it to reason from scratch.</p>
-
-
-
-<p>This approach is not without limitations. The balance between modes is a direct function of design choices we made, informed by <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/pdf/2502.09621" type="link" id="https://arxiv.org/pdf/2502.09621" target="_blank" rel="noopener noreferrer">recent literature<span class="sr-only"> (opens in new tab)</span></a> and observed model behavior during training—though the boundary between modes can be imprecise as it is learned implicitly from the data distribution. Our model allows control through explicit prompting with “” or “” tokens when the user wants to override the default reasoning behavior. The 20/80 reasoning-to-non-reasoning data split may not be optimal for all domains or deployment contexts. Evaluating the ideal balance of data and the model&#8217;s ability to switch appropriately between modes remains an open problem.</p>
-
-
-
-<p>We view this mixed approach not as a definitive solution, but as one practical and well-motivated point in the design space for balancing latency, accuracy, and flexibility in multimodal systems.</p>
-
-
-
-<h2 class="wp-block-heading" id="applications">Applications</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1883" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-scaled.png" alt="A multi-image reasoning example — five Hubble photos of Saturn from 2018–2022, with the query "Why does it look like Saturn is tilting?" The model correctly explains Saturn's 26.7° axial tilt and how it affects the appearance of the rings over time." class="wp-image-1163181" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-300x221.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-1024x753.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-768x565.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-1536x1130.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-2048x1506.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-80x60.png 80w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/saturn-240x177.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;4: Phi-4-Reasoning-Vision can interpret sequences of images&nbsp;</em></figcaption></figure>
-
-
-
-<p>Phi-4-reasoning-vision-15B is a high-performing model across many vision-language tasks. It sees and understands the world by looking at a photo, document, chart, or screen and making sense of it. In practice that covers an enormous range of applications — just a few examples include: describing images and answering questions about them, interpreting changes and trends in images sequences, and recognizing objects, landmarks, and transcribing text.</p>
-
-
-
-<h2 class="wp-block-heading" id="highlights-scientific-and-mathematical-reasoning-and-supporting-computer-using-agents-cua">Highlights: Scientific and mathematical reasoning and supporting computer-using agents (CUA)</h2>
-
-
-
-<p>In addition to general vision and language tasks, Phi-4-reasoning-vision-15B was designed to excel at tasks that combine visual input with structured inference, such as solving math problems presented in visual form, such as handwritten or diagram-based questions, extracting and reasoning over quantitative information in documents and charts, and supporting multi-step reasoning in educational or scientific analysis contexts.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1456" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-scaled.png" alt="A physics problem about spring-mass systems, with two diagrams. The model correctly works through the spring constant relationships and arrives at answer B (0.433s)." class="wp-image-1163180" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-300x171.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-1024x583.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-768x437.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-1536x874.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-2048x1165.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math-240x137.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;5: Phi-4-reasoning-vision-15B&nbsp;is great at math&nbsp;and science&nbsp;</em></figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1915" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-scaled.png" alt="A handwritten math homework checker. The student made a sign error in the quadratic formula (wrote −8 instead of +8). The model's thinking process catches the error and provides the corrected solution (x = 5 and x = 3)." class="wp-image-1163179" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-scaled.png 1915w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-224x300.png 224w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-766x1024.png 766w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-768x1027.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-1149x1536.png 1149w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-1532x2048.png 1532w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/math_homework_best-135x180.png 135w" sizes="auto, (max-width: 1915px) 100vw, 1915px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;6:&nbsp;Phi-4-reasoning-vision-15B&nbsp;can&nbsp;help with written math problems&nbsp;</em></figcaption></figure>
-
-
-
-<p>In addition, we trained Phi-4-reasoning-vision-15B to have skills that can enable agents to interact with graphical user interfaces by interpreting screen content and selecting actions. With strong high-resolution perception and fine-grained grounding capabilities, Phi-4-reasoning-vision-15B is a compelling option as a base-model for training agentic models such as ones that navigate desktop, web, and mobile interfaces by identifying and localizing interactive elements such as buttons, menus, and text fields. Due to its low inference-time needs it is great for interactive environments where low latency and compact model size are essential.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1600" height="1339" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH.png" alt="A GUI interaction task. Given a Windows 11 Start Menu screenshot and the query "Where do I click to play music?", the model outputs normalized click coordinates pointing directly to the Spotify icon." class="wp-image-1163333" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH.png 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH-300x251.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH-1024x857.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH-768x643.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH-1536x1285.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/start_menu_AH-215x180.png 215w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1600" height="1417" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH.png" alt="A Google Shopping screenshot of heels. The model identifies all black heels, provides bounding box coordinates for each, and suggests outfit pairings (little black dress, tailored suit, jumpsuit)." class="wp-image-1163334" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH.png 1600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH-300x266.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH-1024x907.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH-768x680.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH-1536x1360.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/shopping_AH-203x180.png 203w" sizes="auto, (max-width: 1600px) 100vw, 1600px" /></figure>
-</div>
-</div>
-
-
-
-<figure class="wp-block-video aligncenter"><figcaption class="wp-element-caption"><em>Figure 7: Phi-4-reasoning-vision-15B can help navigate computer UIs</em></figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="evaluation">Evaluation</h2>
-
-
-
-<p>Phi-4-reasoning-vision-15B was evaluated for accuracy and timing using two complementary open-source frameworks to ensure both rigorous and standardized analysis: <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/eureka-ml-insights" type="link" id="https://github.com/microsoft/eureka-ml-insights" target="_blank" rel="noopener noreferrer">Eureka ML Insights<span class="sr-only"> (opens in new tab)</span></a></strong> and <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/open-compass/VLMEvalKit" type="link" id="https://github.com/open-compass/VLMEvalKit" target="_blank" rel="noopener noreferrer">VLMEvalKit<span class="sr-only"> (opens in new tab)</span></a></strong>.</p>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner">
-			<figure class="wp-block-table aligncenter is-style-stripes"><table class="has-fixed-layout"><thead><tr><th>Benchmark</th><th>Phi-4-reasoning-vision-15B</th><th>Phi-4-reasoning-vision-15B&nbsp;–&nbsp;force&nbsp;nothink</th><th>Phi-4-mm-instruct</th><th>Kimi-VL-A3B-Instruct</th><th>gemma-3-12b-it</th><th>Qwen3-VL-8B-Instruct-4K</th><th>Qwen3-VL-8B-Instruct-32K</th><th>Qwen3-VL-32B-Instruct-4K</th><th>Qwen3-VL-32B-Instruct-32K</th></tr></thead><tbody><tr><td><strong>AI2D</strong><strong><em><sub>_TEST</sub></em></strong>&nbsp;</td><td>84.8&nbsp;</td><td>84.7&nbsp;</td><td>68.6&nbsp;</td><td>84.6&nbsp;</td><td>80.4&nbsp;</td><td>82.7&nbsp;</td><td>83&nbsp;</td><td>84.8&nbsp;</td><td>85&nbsp;</td></tr><tr><td><strong>ChartQA</strong><strong><sub>_TEST</sub></strong>&nbsp;</td><td>83.3&nbsp;</td><td>76.5&nbsp;</td><td>23.5&nbsp;</td><td>87&nbsp;</td><td>39&nbsp;</td><td>83.1&nbsp;</td><td>83.2&nbsp;</td><td>84.3&nbsp;</td><td>84&nbsp;</td></tr><tr><td><strong>HallusionBench</strong></td><td>64.4&nbsp;</td><td>63.1&nbsp;</td><td>56&nbsp;</td><td>65.2&nbsp;</td><td>65.3&nbsp;</td><td>73.5&nbsp;</td><td>74.1&nbsp;</td><td>74.4&nbsp;</td><td>74.9&nbsp;</td></tr><tr><td><strong>MathVerse</strong><strong><sub>_MINI</sub></strong>&nbsp;</td><td>44.9&nbsp;</td><td>43.8&nbsp;</td><td>32.4&nbsp;</td><td>41.7&nbsp;</td><td>29.8&nbsp;</td><td>54.5&nbsp;</td><td>57.4&nbsp;</td><td>64.2&nbsp;</td><td>64.2&nbsp;</td></tr><tr><td><strong>MathVision</strong><strong><sub>_MINI</sub></strong>&nbsp;</td><td>36.2&nbsp;</td><td>34.2&nbsp;</td><td>20&nbsp;</td><td>28.3&nbsp;</td><td>31.9&nbsp;</td><td>45.7&nbsp;</td><td>50&nbsp;</td><td>54.3&nbsp;</td><td>60.5&nbsp;</td></tr><tr><td><strong>MathVista</strong><strong><sub>_MINI</sub></strong>&nbsp;</td><td>75.2&nbsp;</td><td>68.7&nbsp;</td><td>50.5&nbsp;</td><td>67.1&nbsp;</td><td>57.4&nbsp;</td><td>77.1&nbsp;</td><td>76.4&nbsp;</td><td>82.5&nbsp;</td><td>81.8&nbsp;</td></tr><tr><td><strong>MMMU</strong><strong><sub>_VAL</sub></strong>&nbsp;</td><td>54.3&nbsp;</td><td>52&nbsp;</td><td>42.3&nbsp;</td><td>52&nbsp;</td><td>50&nbsp;</td><td>60.7&nbsp;</td><td>64.6&nbsp;</td><td>68.6&nbsp;</td><td>70.6&nbsp;</td></tr><tr><td><strong>MMStar</strong>&nbsp;</td><td>64.5&nbsp;</td><td>63.3&nbsp;</td><td>45.9&nbsp;</td><td>60&nbsp;</td><td>59.4&nbsp;</td><td>68.9&nbsp;</td><td>69.9&nbsp;</td><td>73.7&nbsp;</td><td>74.3&nbsp;</td></tr><tr><td><strong>OCRBench</strong>&nbsp;</td><td>76&nbsp;</td><td>75.6&nbsp;</td><td>62.6&nbsp;</td><td>86.5&nbsp;</td><td>75.3&nbsp;</td><td>89.2&nbsp;</td><td>90&nbsp;</td><td>88.5&nbsp;</td><td>88.5&nbsp;</td></tr><tr><td><strong>ScreenSpot</strong><strong><sub>_v2</sub></strong>&nbsp;</td><td>88.2&nbsp;</td><td>88.3&nbsp;</td><td>28.5&nbsp;</td><td>89.8&nbsp;</td><td>3.5&nbsp;</td><td>91.5&nbsp;</td><td>91.5&nbsp;</td><td>93.7&nbsp;</td><td>93.9&nbsp;</td></tr></tbody></table><figcaption class="wp-element-caption"><em>Table 3: Accuracy comparisons&nbsp;relative&nbsp;to popular open-weight, non-thinking models&nbsp;</em></figcaption></figure>
-
-
-
-<figure class="wp-block-table aligncenter is-style-stripes"><table class="has-fixed-layout"><thead><tr><th>Benchmark</th><th>Phi-4-reasoning-vision-15B</th><th>Phi-4-reasoning-vision-15B &#8211;&nbsp;force thinking</th><th>Kimi-VL-A3B-Thinking</th><th>gemma-3-12b-it</th><th>Qwen3-VL-8B-Thinking-4K</th><th>Qwen3-VL-8B-Thinking-40K</th><th>Qwen3-VL-32B-Thiking-4K</th><th>Qwen3-VL-32B-Thinking-40K</th></tr></thead><tbody><tr><td><strong>AI2D_TEST</strong>&nbsp;</td><td>84.8&nbsp;</td><td>79.7&nbsp;</td><td>81.2&nbsp;</td><td>80.4&nbsp;</td><td>83.5&nbsp;</td><td>83.9&nbsp;</td><td>86.9&nbsp;</td><td>87.2&nbsp;</td></tr><tr><td><strong>ChartQA</strong><strong><sub>_TEST</sub></strong>&nbsp;</td><td>83.3&nbsp;</td><td>82.9&nbsp;</td><td>73.3&nbsp;</td><td>39&nbsp;</td><td>78&nbsp;</td><td>78.6&nbsp;</td><td>78.5&nbsp;</td><td>79.1&nbsp;</td></tr><tr><td><strong>HallusionBench</strong></td><td>64.4&nbsp;</td><td>63.9&nbsp;</td><td>70.6&nbsp;</td><td>65.3&nbsp;</td><td>71.6&nbsp;</td><td>73&nbsp;</td><td>76.4&nbsp;</td><td>76.6&nbsp;</td></tr><tr><td><strong>MathVerse</strong><strong><sub>_MINI</sub></strong>&nbsp;</td><td>44.9&nbsp;</td><td>53.1&nbsp;</td><td>61&nbsp;</td><td>29.8&nbsp;</td><td>67.3&nbsp;</td><td>73.3&nbsp;</td><td>78.3&nbsp;</td><td>78.2&nbsp;</td></tr><tr><td><strong>MathVision</strong><strong><sub>_MINI</sub></strong>&nbsp;</td><td>36.2&nbsp;</td><td>36.2&nbsp;</td><td>50.3&nbsp;</td><td>31.9&nbsp;</td><td>43.1&nbsp;</td><td>50.7&nbsp;</td><td>60.9&nbsp;</td><td>58.6&nbsp;</td></tr><tr><td><strong>MathVista</strong><strong><sub>_MINI</sub></strong>&nbsp;</td><td>75.2&nbsp;</td><td>74.1&nbsp;</td><td>78.6&nbsp;</td><td>57.4&nbsp;</td><td>77.7&nbsp;</td><td>79.5&nbsp;</td><td>83.9&nbsp;</td><td>83.8&nbsp;</td></tr><tr><td><strong>MMMU</strong><strong><sup>_VAL</sup></strong>&nbsp;</td><td>54.3&nbsp;</td><td>55&nbsp;</td><td>60.2&nbsp;</td><td>50&nbsp;</td><td>59.3&nbsp;</td><td>65.3&nbsp;</td><td>72&nbsp;</td><td>72.2&nbsp;</td></tr><tr><td><strong>MMStar</strong>&nbsp;</td><td>64.5&nbsp;</td><td>63.9&nbsp;</td><td>69.6&nbsp;</td><td>59.4&nbsp;</td><td>69.3&nbsp;</td><td>72.3&nbsp;</td><td>75.5&nbsp;</td><td>75.7&nbsp;</td></tr><tr><td><strong>OCRBench</strong>&nbsp;</td><td>76&nbsp;</td><td>73.7&nbsp;</td><td>79.9&nbsp;</td><td>75.3&nbsp;</td><td>81.2&nbsp;</td><td>82&nbsp;</td><td>83.7&nbsp;</td><td>85&nbsp;</td></tr><tr><td><strong>ScreenSpot</strong><strong><sub>_v2</sub></strong>&nbsp;</td><td>88.2&nbsp;</td><td>88.1&nbsp;</td><td>81.8&nbsp;</td><td>3.5&nbsp;</td><td>93.3&nbsp;</td><td>92.7&nbsp;</td><td>83.1&nbsp;</td><td>83.1&nbsp;</td></tr></tbody></table><figcaption class="wp-element-caption"><em>Table&nbsp;4: Accuracy comparisons&nbsp;relative&nbsp;to popular open-weight, thinking models&nbsp;</em></figcaption></figure>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>Our model balances thinking and non-thinking performance – on average showing better accuracy in the default “mixed-reasoning” behavior than when forcing thinking vs. non-thinking. Only in a few cases does forcing a specific mode improve performance (MathVerse and MMU_val for thinking and ScreenSpot_v2 for non-thinking). Compared to recent popular, open-weight models, our model provides a desirable trade-off between accuracy and cost (as a function of inference time compute and output tokens), as discussed previously.</p>
-
-
-
-<p>Note: All numbers here are the result of running benchmarks ourselves and may be lower than other previously shared numbers. Instead of quoting leaderboards, we performed our own benchmarking, so we could understand scaling performance as a function of output token counts for related models. We made our best effort to run fair evaluations and used recommended evaluation platforms with model-specific recommended settings and prompts provided for all third-party models. For Qwen models we use the recommended token counts and also ran evaluations matching our max output token count of 4096. For Phi-4-reasoning-vision-15B, we used our system prompt and chat template but did not do any custom user-prompting or parameter tuning, and we ran all evaluations with temperature=0.0, greedy decoding, and 4096 max output tokens. These numbers are provided for comparison and analysis rather than as leaderboard claims. For maximum transparency and fairness, we will release all our evaluation logs publicly. For more details on our evaluation methodology, please see our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/Phi-4-reasoning-vision-15B-TR">technical report<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="safety">Safety</h2>
-
-
-
-<p>As with other Phi models, Phi-4-reasoning-vision-15B was developed with safety as a core consideration throughout training and evaluation. The model was trained on a mixture of public safety datasets and internally generated examples designed to elicit behaviors the model should appropriately refuse, in alignment with Microsoft’s Responsible AI Principles. For further details, check out our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/Phi-4-reasoning-vision-15B-TR">technical report<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="open-release-and-community-engagement">Open release and community engagement</h2>
-
-
-
-<p>Phi-4-reasoning-vision-15B is available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/Phi-4-r-v-foundry">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/microsoft/Phi-4-vision-reasoning-15B" type="link" id="https://huggingface.co/microsoft/Phi-4-vision-reasoning-15B" target="_blank" rel="noopener noreferrer">HuggingFace<span class="sr-only"> (opens in new tab)</span></a> with additional examples and details on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/Phi-4-vision" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>. For additional guidance on how to use our model properly and safely, please refer to our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B">Model card<span class="sr-only"> (opens in new tab)</span></a>. For further details on the technical aspects of the model, training, and evaluation, see our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/Phi-4-reasoning-vision-15B-TR" type="link" id="https://aka.ms/Phi-4-reasoning-vision-15B-TR">technical report<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p>In line with our goal of supporting future AI development in the community, Phi-4-reasoning-vision-15B is released under a permissive license with model weights, fine‑tuning code, and benchmark logs. We intend this release to complement existing work by providing concrete artifacts that help close gaps in understanding how compact multimodal reasoning models can be built and studied.</p>
-
-
-
-<h2 class="wp-block-heading" id="looking-forward">Looking forward</h2>
-
-
-
-<p>Smaller vision–language models with selective, task‑aware reasoning offer one promising direction for making multimodal systems more practical and accessible. We present our model and its learnings to inform ongoing research in multimodal modeling, computer‑using agents, and mathematical scientific reasoning. We hope these details are useful to researchers exploring similar tradeoffs and invite critical evaluation, replication, and extension by the community. If you’d like to join us and help shape the future of multimodal models, please apply for one of our <a href="https://www.microsoft.com/en-us/research/lab/ai-frontiers/opportunities/" type="link" id="https://www.microsoft.com/en-us/research/lab/ai-frontiers/opportunities/">open roles</a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p>We thank Rachel Ward for her extensive work on data collection and curation. We thank the GenDatasets, PhiGround, SimCity, and Fara-7B efforts for invaluable training data. We thank Harkirat Behl, Mojan Javaheripi, and Suriya Gunasekar for providing us with Phi-4 checkpoints and guidance on training with Phi models. We additionally thank Sahaj Agarwal, Ahmed Awadallah, Qi Dai, Gustavo de Rosa, Rafah Hosn, Ece Kamar, Piero Kauffmann, Yash Lara, Chong Luo, Caio César Teodoro Mendes, Akshay Nambi, Craig Presti, Matthew Rosoff, Corby Rosset, Marco Rossi, Kashyap Patel, Adil Salim, Sidhartha Sen, Shital Shah, Pratyusha Sharma, Alexey Taymanov, Vibhav Vineet, John Weiss, Spencer Whitehead, the AI Frontiers Team and Leadership, and Microsoft Research Leadership, for their valuable help, insightful discussions, and continued support throughout this work.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/phi-4-reasoning-vision-and-the-lessons-of-training-a-multimodal-reasoning-model/">Phi-4-reasoning-vision and the lessons of training a multimodal reasoning model</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
