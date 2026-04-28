@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 27 Apr 2026 03:28:17 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 03:34:55 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -138,11 +138,6 @@ Neo is ProjectDiscovery’s AI security copilot for tasks like code review and v
 The practical reality for a security team deploying AI is messier than the headlines or early POC results suggest. Noise compounds fast. Anthropic brought in external security researchers to help validate the vo</description>
     </item>
     <item>
-      <title>Inside the benchmark: app architectures, walkthroughs of findings, and what each scanner actually caught</title>
-      <link>https://projectdiscovery.io/blog/inside-the-benchmark-pp-architectures-finding-walkthroughs-and-what-each-scanner-actually-caught</link>
-      <description>This is Part 2 of our vibe coding security benchmark study. In Part 1, we compared how LLM-based security tools like ProjectDiscovery's Neo and Claude Code performed against traditional SAST and DAST scanners on AI-generated code. We found that LLM-based tools like Neo and Claude Code detected many high-value findings that traditional scanners missed. Between Neo and Claude Code, Neo produced more true positives and fewer false positives because it could validate hypotheses against a running app</description>
-    </item>
-    <item>
       <title>Everyone is finding vulns. The hard part is proving them.</title>
       <link>https://projectdiscovery.io/blog/everyone-is-finding-vulns-the-hard-part-is-proving-them</link>
       <description>LLMs are a genuine leap forward for vulnerability discovery. Anthropic reported 500+ zero-days from Opus 4.6 and OpenAI's Codex Security discovered 14 CVEs across projects like OpenSSH and GnuTLS. If you've experimented with LLMs for security testing, you've probably been impressed too.
@@ -155,6 +150,13 @@ The practical reality for a security team deploying AI is messier than the headl
       <description>At ProjectDiscovery, we've been building Neo, an autonomous security testing platform that runs multi-agent, multi-step workflows, routinely executing 20-40+ LLM steps per task. Vulnerability assessments, code reviews, and security audits at scale, enabling continuous testing across the entire development lifecycle.
 
 When we launched, our LLM costs were staggering. A single complex task with Opus 4.5 could consume 60 million tokens. Then we implemented prompt caching. Here's what changed:</description>
+    </item>
+    <item>
+      <title>Neo v. DIY: The gap between a single finding and a mature security program</title>
+      <link>https://projectdiscovery.io/blog/neo-vs-diy</link>
+      <description>In our latest webinar, our Founding Solutions Engineer, Davis Franklin, addressed the massive gap between finding a vulnerability with an LLM and running a mature security program. That gap is what Neo is built to close.
+
+With the release of Opus 4.6 and the announcement of Mythos, the question we hear constantly has gotten louder: Can I just build this with Claude Code? The short answer is yes. You can spin up a working PoC in about half an hour, find a real vulnerability, and feel genuinely co</description>
     </item>
   </channel>
 </rss>
