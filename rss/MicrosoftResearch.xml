@@ -10,9 +10,9 @@
 <channel>
 	<title>Microsoft Research</title>
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
-	<link>https://www.microsoft.com/en-us/research</link>
+	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 30 Apr 2026 23:12:42 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 05 May 2026 14:35:34 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,322 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>Microsoft at NSDI 2026: Advances in large-scale networked systems</title>
+		<link>https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/</link>
+		
+		<dc:creator><![CDATA[Sujata Banerjee]]></dc:creator>
+		<pubDate>Tue, 05 May 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1170563</guid>
+
+					<description><![CDATA[<p>Microsoft researchers share advances in building and operating large-scale distributed systems, spanning datacenters, networking, and the growing intersection with AI during  NSDI ’26.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/">Microsoft at NSDI 2026: Advances in large-scale networked systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1.jpg" alt="NSDI ’26 logo in white, centered on a smooth gradient background transitioning from blue to purple and pink." class="wp-image-1170639" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p>Large-scale networked systems underpin cloud computing, AI, and distributed applications and services. The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.usenix.org/conference/nsdi26" target="_blank" rel="noopener noreferrer">USENIX Symposium on Networked Systems Design and Implementation 2026<span class="sr-only"> (opens in new tab)</span></a> (NSDI ’26) is a leading forum where researchers and practitioners share new research, insights, and advances in the design and operation of these systems.</p>
+
+
+
+<p>Microsoft is proud to support NSDI ’26 as a returning sponsor, reflecting our ongoing commitment to advancing systems and networking research and engaging with the broader community. Microsoft researchers and engineering leaders are also serving on the program committee and in other organizational roles.</p>
+
+
+
+<p>This year, 11 papers by Microsoft authors and collaborators were accepted to the conference, spanning datacenter and wide-area networks, AI systems, and cloud infrastructure. Together, they highlight advances in building and operating large-scale networked systems.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="technical-sessions">Technical sessions</h2>
+
+
+
+<p><em>Monday, May 4, 2:00–3:20 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="droidspeak-kv-cache-sharing-across-fine-tuned-model-variants"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/liu-yuhan">DroidSpeak: KV Cache Sharing Across Fine-tuned Model Variants<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Yuhan Liu, Yuyang Huang, Jiayi Yao, Zhuohan Gu, Kuntai Du, Hanchen Li, Yihua Cheng, and Junchen Jiang, University of Chicago; </em><a href="https://www.microsoft.com/en-us/research/people/shanlu/"><em>Shan Lu</em></a><em>, </em><a href="https://www.microsoft.com/en-us/research/people/madanm/"><em>Madan Musuvathi</em></a><em>, and </em><a href="https://www.microsoft.com/en-us/research/people/eschouks/"><em>Esha Choukse</em></a><em>, Microsoft</em></p>
+
+
+
+<p>DroidSpeak enables LLMs with the same architecture to share and partially reuse KV caches across models, delivering up to 4 times higher throughput and faster responses with minimal impact on output quality.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Monday, May 4, 3:50–5:30 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="eywa-automating-model-based-testing-using-llms"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/mondal">Eywa: Automating Model-Based Testing using LLMs<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Rajdeep Mondal, Rathin Singha, Todd D. Millstein, and George Varghese, UCLA; </em><a href="https://www.microsoft.com/en-us/research/people/rybecket/"><em>Ryan Beckett</em></a><em> and </em><a href="https://www.microsoft.com/en-us/research/people/sivakakarla/"><em>Siva Kesava Reddy Kakarla</em></a><em>, Microsoft Research</em></p>
+
+
+
+<p>Eywa uses LLMs to automatically build protocol models from natural language sources, enabling model-based testing. It uncovered 33 bugs, including 16 previously unknown, in widely used network protocol implementations.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Tuesday, May 5, 2:00–3:20 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="octopus-enhancing-cxl-memory-pods-via-sparse-topology"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/zhong">Octopus: Enhancing CXL Memory Pods via Sparse Topology<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Yuhong Zhong, Columbia University; </em><a href="https://www.microsoft.com/en-us/research/people/fkazhamiaka/"><em>Fiodar Kazhamiaka</em></a><em>, Pantea Zardoshti, Shuwei Teng and </em><a href="https://www.microsoft.com/en-us/research/people/rofons/"><em>Rodrigo Fonseca</em></a><em>, Microsoft Azure; Mark D. Hill, University of Wisconsin-Madison; </em><a href="https://www.microsoft.com/en-us/research/people/daberg/"><em>Daniel S. Berger</em></a><em>, Microsoft Azure and University of Washington</em></p>
+
+
+
+<p>Octopus&nbsp;introduces a switch-free design for disaggregated memory pods that reduces cost and scales to multi-rack pods. On a three-server hardware prototype, Octopus RPCs are 3.2x faster than in-rack RDMA and 2.4x faster than CXL switches.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Tuesday, May 5, 3:50–5:30 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="hedge-traffic-engineering-with-probabilistic-link-capacities"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/devraj">HEDGE: Traffic Engineering with Probabilistic Link Capacities<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Arjun Devraj, Cornell University; Bill Owens, NYSERNet; Umesh Krishnaswamy, Microsoft; Ying Zhang, Meta; Rachee Singh, Cornell University</em></p>
+
+
+
+<p>HEDGE mitigates wavelength-specific faults in optical networks by combining link-local and global network-wide resilience that maintain stable capacity and optimize traffic flow despite fluctuating link performance. It matches existing systems’ throughput while reducing network disruptions.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 9:00–10:20 AM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="ava-towards-video-analytics-with-vision-language-models"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/yan">AVA: Towards Video Analytics with Vision Language Models<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Yuxuan Yan, Zhejiang University; </em><a href="https://www.microsoft.com/en-us/research/people/shijiang/"><em>Shiqi Jiang</em></a><em>, Microsoft Research; Ting Cao, Tsinghua University; </em><a href="https://www.microsoft.com/en-us/research/people/yifanyang/"><em>Yifan Yang</em></a><em>, Microsoft Research; Qianqian Yang and Yuanchao Shu, Zhejiang University; </em><a href="https://www.microsoft.com/en-us/research/people/yuqyang/"><em>Yuqing Yang</em></a><em> and Lili Qiu, Microsoft Research</em></p>
+
+
+
+<p>AVA supports open-ended video analytics by combining event knowledge graphs with agentic retrieval over vision-language models. Furthermore, to evaluate video analytics in ultra-long, open-world scenarios, the authors introduce AVA-100, a benchmark comprising eight videos each exceeding 10 hours and 120 manually annotated, diverse, and complex question–answer pairs, on which AVA achieves 75.8% accuracy.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 9:00–10:20 AM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="smartnic-enabled-live-migration-for-storage-optimized-vms-with-pyrocumulus"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/zhao-jiechen">SmartNIC-Enabled Live Migration for Storage-Optimized VMs with Pyrocumulus<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Jiechen Zhao, University of Toronto and Microsoft Research Asia; </em><a href="https://www.microsoft.com/en-us/research/people/rashu/"><em>Ran Shu</em></a><em>, Lei Qu, Ziyue Yang, and </em><a href="https://www.microsoft.com/en-us/research/people/mrui/"><em>Rui Ma</em></a><em>, Microsoft Research Asia; Derek Chiou, Microsoft and UT Austin; Natalie Enright Jerger, University of Toronto; </em><a href="https://www.microsoft.com/en-us/research/people/pengc/"><em>Peng Cheng</em></a><em> and </em><a href="https://www.microsoft.com/en-us/research/people/yqx/"><em>Yongqiang Xiong</em></a><em>, Microsoft Research Asia</em></p>
+
+
+
+<p>Pyrocumulus enables fast, low-overhead live migration for storage-optimized VMs through hardware customizability and efficient network accessibility of the FPGA SmartNIC with LM protocol, architecture, and algorithm designs.&nbsp;</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 10:50 AM–12:30 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="forestcoll-throughput-optimal-collective-communications-on-heterogeneous-network-fabrics"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/zhao-liangyu">ForestColl: Throughput-Optimal Collective Communications on Heterogeneous Network Fabrics<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Liangyu Zhao, University of Washington; Saeed Maleki, Independent Researcher; Yuanhong Wang, Tsinghua University; Zezhou Wang, University of Washington; Ziyue Yang, Microsoft Research; Hossein Pourreza, Microsoft; Arvind Krishnamurthy, University of Washington</em></p>
+
+
+
+<p>ForestColl constructs broadcast/aggregation spanning trees as the communication schedule, achieving theoretical optimality. Its schedule generation runs in polynomial time and is highly scalable. It supports any network fabric, including both switching fabrics and direct accelerator connections.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 10:50 AM–12:30 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="heuristic-analysis-from-source-code-via-symbolic-guided-optimization"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/karimi">Heuristic Analysis from Source Code via Symbolic-Guided Optimization<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Pantea Karimi, MIT; </em><a href="https://www.microsoft.com/en-us/research/people/sivakakarla/"><em>Siva Kesava Reddy Kakarla</em></a><em> and </em><a href="https://www.microsoft.com/en-us/research/people/rybecket/"><em>Ryan Beckett</em></a><em>, Microsoft Research; Santiago Segarra, Rice University; </em><a href="https://www.microsoft.com/en-us/research/people/namyarpooria/"><em>Pooria Namyar</em></a><em>, Microsoft Research; Mohammad Alizadeh, MIT; </em><a href="https://www.microsoft.com/en-us/research/people/bearzani/"><em>Behnaz Arzani</em></a><em>, Microsoft Research</em></p>
+
+
+
+<p>MetaEase analyzes heuristics directly from source code to uncover worst-case performance scenarios, eliminating the need for complex formal modeling. It matches or outperforms state-of-the-art analyzers across domains and reveals previously unknown performance gaps in real-world systems.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 2:00–3:20 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="harvesting-spare-cpu-resources-in-container-systems"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/hall">Harvesting Spare CPU Resources in Container Systems<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Adam Hall and Anirudh Sarma, Georgia Institute of Technology; </em><a href="https://www.microsoft.com/en-us/research/people/eschouks/"><em>Esha Choukse</em></a><em>, Microsoft Azure Research; Umakishore Ramachandran, Georgia Institute of Technology; </em><a href="https://www.microsoft.com/en-us/research/people/samehe/"><em>Sameh Elnikety</em></a><em>, Microsoft Research</em></p>
+
+
+
+<p>HarvestContainers protects latency-sensitive containers from interference while using their spare CPU cores to run latency-tolerant workloads. It dynamically determines how many cores can be safely harvested and requires no changes to applications or the operating system. It enables up to 75% utilization of spare CPU while keeping tail latency within 4% of standalone performance.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 3:50–5:30 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="offloading-cloud-network-services-at-production-scale-with-sonic-dash-smartswitch"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/wu-shaofeng">Offloading Cloud Network Services at Production Scale with SONiC DASH SmartSwitch<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Community Award Winner</em></p>
+
+
+
+<p><em>Shaofeng Wu, The Chinese University of Hong Kong and Microsoft Research Asia</em><a href="https://www.microsoft.com/en-us/research/people/zhniu/"><em>; Zhixiong Niu</em></a><em>, Microsoft Research Asia; Riff Jiang, Lawrence Lee, Junhua Zhai, </em><a href="https://www.microsoft.com/en-us/research/people/zegan/"><em>Ze Gan</em></a><em>, Vasundhara Volam, Prabhat Aravind, Prince Sunny, Prince George, Qi Luo, Evan Langlais, Soumya Tiwari, Venkat Satish Katta, Weixi Chen, Rishiraj Hazarika, Sachin Jain, Deven Jagasia, Michal Zygmunt, Avijit Gupta, Neeraj Motwani, and Pranjal Shrivastava, Microsoft; Qiang Su, The Chinese University of Hong Kong; Anil Reddy Pannala, Kristina Moore, James Grantham, Anupam Pandey, Xin Liu, Guohan Lu, Gerald De Grace, Rishabh Tewari, Lihua Yuan, Erica Lan, Deepak Bansal, and Dave Maltz, Microsoft; </em><a href="https://www.microsoft.com/en-us/research/people/yqx/"><em>Yongqiang Xiong</em></a><em>, Microsoft Research Asia; Hong Xu, The Chinese University of Hong Kong</em></p>
+
+
+
+<p>SONiC DASH SmartSwitch redesigns cloud network offloading with a hardware-friendly pipeline, unified switch architecture, and open development model while addressing key scalability and deployment challenges. Deployed at scale in Azure, it delivers high throughput and connection capacity while significantly improving power and space efficiency.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p><em>Wednesday, May 6, 3:50–5:30 PM</em></p>
+
+
+
+<h3 class="wp-block-heading h5" id="krakenguard-towards-fine-grained-ebpf-isolation"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/patel">KRAKENGUARD: Towards Fine-Grained eBPF Isolation<span class="sr-only"> (opens in new tab)</span></a></h3>
+
+
+
+<p><em>Jainil Patel, IIT Roorkee; Lucas Graeff Buhl-Nielsen, Quantco; </em><a href="https://www.microsoft.com/en-us/research/people/adrienghosn/"><em>Adrien Ghosn</em></a><em>, Microsoft; Marios Kogias, Imperial College London</em></p>
+
+
+
+<p>KRAKENGUARD enforces fine-grained, policy-based controls on eBPF programs at load time using symbolic execution, enabling safe use in multi-tenant environments without relying on coarse Linux capabilities. It prevents malicious behavior, detects vulnerabilities, and allows for secure execution of untrusted programs with strong isolation guarantees.</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<h2 class="wp-block-heading" id="symposium-organizers-from-microsoft">Symposium organizers from Microsoft</h2>
+
+
+
+<h3 class="wp-block-heading" id="program-committee">Program Committee</h3>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/people/ga/">Ganesh Ananthanarayanan</a><br><a href="https://www.microsoft.com/en-us/research/people/bearzani/">Behnaz Arzani</a><br><a href="https://www.microsoft.com/en-us/research/people/hiballan/">Hitesh Ballani</a><br><a href="https://www.microsoft.com/en-us/research/people/rybecket/">Ryan Beckett</a><br><a href="https://www.microsoft.com/en-us/research/people/ranveer/">Ranveer Chandra</a><br><a href="https://www.microsoft.com/en-us/research/people/pcosta/">Paolo Costa</a><br><a href="https://www.microsoft.com/en-us/research/people/rofons/">Rodrigo Fonseca</a><br><a href="https://www.microsoft.com/en-us/research/people/xefouk/">Xenofon Foukas</a><br><a href="https://www.microsoft.com/en-us/research/people/kevhsieh/">Kevin Hsieh</a><br><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/ukrishnas/">Umesh Krishnaswamy<span class="sr-only"> (opens in new tab)</span></a><br><a href="https://www.microsoft.com/en-us/research/people/jingliu3/">Jing Liu</a><br><a href="https://www.microsoft.com/en-us/research/people/jonathanmace/">Jonathan Mace</a><br><a href="https://www.microsoft.com/en-us/research/people/dmaltz/">Dave Maltz</a><br><a href="https://www.microsoft.com/en-us/research/people/samani/">Sathiya Mani</a><br><a href="https://www.microsoft.com/en-us/research/people/dnarayan/">Dushyanth Narayanan</a><br><a href="https://www.microsoft.com/en-us/research/people/sumann/">Suman Nath</a><br><a href="https://www.microsoft.com/en-us/research/people/ramjee/">Ram Ramjee</a><br><a href="https://www.microsoft.com/en-us/research/people/ssaroiu/">Stefan Saroiu</a></p>
+
+
+
+<h3 class="wp-block-heading" id="steering-committee">Steering Committee</h3>
+
+
+
+<p><a href="https://www.microsoft.com/en-us/research/people/sujbanerjee/">Sujata Banerjee</a><br><a href="https://www.microsoft.com/en-us/research/people/lorch/">Jay Lorch</a></p>
+
+
+
+<div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/">Microsoft at NSDI 2026: Advances in large-scale networked systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale</title>
 		<link>https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/</link>
 		
@@ -28,9 +344,11 @@
 				<category><![CDATA[Research Blog]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1170266</guid>
 
-					<description><![CDATA[Safe agents don’t guarantee a safe ecosystem of interconnected agents. Microsoft Research examines what breaks when AI agents interact and why network-level risks require new approaches.]]></description>
+					<description><![CDATA[<p>Safe agents don’t guarantee a safe ecosystem of interconnected agents. Microsoft Research examines what breaks when AI agents interact and why network-level risks require new approaches.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/">Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1.jpg" alt="three icons on a blue to green gradient background | connected node icon, document with an 'x' icon, shield with a checkmark icon" class="wp-image-1170288" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1.jpg" alt="three icons on a blue to green gradient background | connected node icon, document with an 'x' icon, shield with a checkmark icon" class="wp-image-1170288" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -105,30 +423,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -205,7 +523,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="347" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px.png" alt="Figure 2. A self-propagating agent worm. A single seed message causes each infected agent to access sensitive local data, send it to the attacker, and forward the information to another agent, creating an autonomous chain that spreads and leaks data at each step. Four‑panel comic illustrating a self‑propagating agent worm. Panel 1: A red agent labeled “Alice” sends an envelope marked with a bug icon to an orange agent, with a speech bubble saying “Pass this along!” Caption reads “Alice seeds malicious message to Agent Bob.” Panel 2: The orange agent forwards the same envelope to a blue agent; a small icon shows money being leaked. Caption reads “Agent Bob executes instructions and forwards message to Agent Charlie.” Panel 3: Multiple agents arranged in a circle automatically pass the infected message to each other, showing autonomous spread. Caption reads “Worm propagates autonomously.” Panel 4: All agents connect back to Alice, who holds an envelope full of money. Caption reads “Alice gets everyone’s private data.”" class="wp-image-1170290" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-300x74.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-1024x254.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-768x190.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-240x59.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. A self-propagating agent worm. A single seed message causes each infected agent to access sensitive local data, send it to the attacker, and forward the information to another agent, creating an autonomous chain that spreads and leaks data at each step.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="347" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px.png" alt="Figure 2. A self-propagating agent worm. A single seed message causes each infected agent to access sensitive local data, send it to the attacker, and forward the information to another agent, creating an autonomous chain that spreads and leaks data at each step. Four‑panel comic illustrating a self‑propagating agent worm. Panel 1: A red agent labeled “Alice” sends an envelope marked with a bug icon to an orange agent, with a speech bubble saying “Pass this along!” Caption reads “Alice seeds malicious message to Agent Bob.” Panel 2: The orange agent forwards the same envelope to a blue agent; a small icon shows money being leaked. Caption reads “Agent Bob executes instructions and forwards message to Agent Charlie.” Panel 3: Multiple agents arranged in a circle automatically pass the infected message to each other, showing autonomous spread. Caption reads “Worm propagates autonomously.” Panel 4: All agents connect back to Alice, who holds an envelope full of money. Caption reads “Alice gets everyone’s private data.”" class="wp-image-1170290" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-300x74.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-1024x254.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-768x190.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AIRT_case_study_1_self_propagating_worm_1400px-240x59.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. A self-propagating agent worm. A single seed message causes each infected agent to access sensitive local data, send it to the attacker, and forward the information to another agent, creating an autonomous chain that spreads and leaks data at each step.</figcaption></figure>
 
 
 
@@ -358,7 +676,8 @@
 
 
 <p></p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/">Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -372,7 +691,9 @@
 				<category><![CDATA[Research Blog]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1168790</guid>
 
-					<description><![CDATA[Deploying large language models (LLMs) in real-world, high-stakes settings is harder than it should be. In high-stakes settings like law, medicine, and cloud incident response, performance and reliability can quickly break down because adapting models to domain-specific requirements is a slow and manual process that is difficult to reproduce. The core challenge is domain adaptation, [&#8230;]]]></description>
+					<description><![CDATA[<p>Deploying large language models (LLMs) in real-world, high-stakes settings is harder than it should be. In high-stakes settings like law, medicine, and cloud incident response, performance and reliability can quickly break down because adapting models to domain-specific requirements is a slow and manual process that is difficult to reproduce. The core challenge is domain adaptation, [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/">AutoAdapt: Automated domain adaptation for large language models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons in a row; a document list, a workflow, and process wheel against a blue and purple gradient background." class="wp-image-1169326" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/AutoAdapt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
@@ -423,30 +744,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -514,7 +835,8 @@
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 <div class="yt-consent-placeholder" role="region" aria-label="Video playback requires cookie consent" data-video-id="z3JMQqDwCOc" data-poster="https://img.youtube.com/vi/z3JMQqDwCOc/maxresdefault.jpg"><iframe aria-hidden="true" tabindex="-1" title="AutoAdapt demo" width="500" height="281" data-src="https://www.youtube-nocookie.com/embed/z3JMQqDwCOc?feature=oembed&rel=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="yt-consent-placeholder__overlay"><button class="yt-consent-placeholder__play"><svg width="42" height="42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="none" fill-rule="evenodd"><circle fill="#000" opacity=".556" cx="21" cy="21" r="21"/><path stroke="#FFF" d="M27.5 22l-12 8.5v-17z"/></g></svg><span class="yt-consent-placeholder__label">Video playback requires cookie consent</span></button></div></div>
 </div></figure>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/">AutoAdapt: Automated domain adaptation for large language models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -528,7 +850,9 @@
 				<category><![CDATA[Microsoft Research Podcast]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1168725</guid>
 
-					<description><![CDATA[Doug Burger, sustainability expert Amy Luers, and optimization researcher Ishai Menache examine the global emissions implications of datacenter operations, efficiency gains, and AI's potential across electrification, materials, and food systems.]]></description>
+					<description><![CDATA[<p>Doug Burger, sustainability expert Amy Luers, and optimization researcher Ishai Menache examine the global emissions implications of datacenter operations, efficiency gains, and AI's potential across electrification, materials, and food systems.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/">Can we AI our way to a more sustainable world?</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 <div class="yt-consent-placeholder" role="region" aria-label="Video playback requires cookie consent" data-video-id="pwB5ArIj-vw" data-poster="https://img.youtube.com/vi/pwB5ArIj-vw/maxresdefault.jpg"><iframe aria-hidden="true" tabindex="-1" title="Can we AI our way to a more sustainable world?" width="500" height="281" data-src="https://www.youtube-nocookie.com/embed/pwB5ArIj-vw?feature=oembed&rel=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="yt-consent-placeholder__overlay"><button class="yt-consent-placeholder__play"><svg width="42" height="42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="none" fill-rule="evenodd"><circle fill="#000" opacity=".556" cx="21" cy="21" r="21"/><path stroke="#FFF" d="M27.5 22l-12 8.5v-17z"/></g></svg><span class="yt-consent-placeholder__label">Video playback requires cookie consent</span></button></div></div>
@@ -1816,7 +2140,8 @@
 
 <div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
 </div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/">Can we AI our way to a more sustainable world?</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -1830,7 +2155,9 @@
 				<category><![CDATA[Research Blog]]></category>
 		<guid isPermaLink="false"></guid>
 
-					<description><![CDATA[For the past five years, the New Future of Work report has captured how work is changing. This year, the shift feels especially sharp. Previous editions have focused on technology’s role in increasing productivity by automating tasks, accelerating communication, and expanding access to information, as well as the rise of remote work. Today, generative AI [&#8230;]]]></description>
+					<description><![CDATA[<p>For the past five years, the New Future of Work report has captured how work is changing. This year, the shift feels especially sharp. Previous editions have focused on technology’s role in increasing productivity by automating tasks, accelerating communication, and expanding access to information, as well as the rise of remote work. Today, generative AI [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/">New Future of Work: AI is driving rapid change, uneven benefits</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" class="wp-image-1167890" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
@@ -1924,30 +2251,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2113,7 +2440,8 @@
 
 
 <p>The research in this year&#8217;s <em>New Future of Work</em> report points to both opportunity and responsibility. The future is not predetermined. It will be shaped by the choices we make today—in how we build AI systems, how organizations adopt them, and how individuals learn to work alongside them. Microsoft remains committed to studying these changes as they unfold, grounding our understanding in evidence, and ensuring that the future we are collectively building is one where AI helps us all work better, together.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/">New Future of Work: AI is driving rapid change, uneven benefits</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -2127,7 +2455,9 @@
 				<category><![CDATA[Microsoft Research Podcast]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1167876</guid>
 
-					<description><![CDATA[Microsoft Chief Scientist Jaime Teevan and researchers Jenna Butler, Jake Hofman, and Rebecca Janssen unpack the New Future of Work Report 2025 and explore the ideal AI-driven working world. Plus, is AI a tool or a collaborator? And why the answer matters.]]></description>
+					<description><![CDATA[<p>Microsoft Chief Scientist Jaime Teevan and researchers Jenna Butler, Jake Hofman, and Rebecca Janssen unpack the New Future of Work Report 2025 and explore the ideal AI-driven working world. Plus, is AI a tool or a collaborator? And why the answer matters.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ideas-steering-ai-toward-the-work-future-we-want/">Ideas: Steering AI toward the work future we want</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 <div class="yt-consent-placeholder" role="region" aria-label="Video playback requires cookie consent" data-video-id="f_xltAMa2ik" data-poster="https://img.youtube.com/vi/f_xltAMa2ik/maxresdefault.jpg"><iframe aria-hidden="true" tabindex="-1" title="Ideas: Steering AI toward the work future we want" width="500" height="281" data-src="https://www.youtube-nocookie.com/embed/f_xltAMa2ik?feature=oembed&rel=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="yt-consent-placeholder__overlay"><button class="yt-consent-placeholder__play"><svg width="42" height="42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="none" fill-rule="evenodd"><circle fill="#000" opacity=".556" cx="21" cy="21" r="21"/><path stroke="#FFF" d="M27.5 22l-12 8.5v-17z"/></g></svg><span class="yt-consent-placeholder__label">Video playback requires cookie consent</span></button></div></div>
@@ -2963,7 +3293,8 @@
 
 <div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
 </div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/ideas-steering-ai-toward-the-work-future-we-want/">Ideas: Steering AI toward the work future we want</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -2977,7 +3308,9 @@
 				<category><![CDATA[Research Blog]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1167099</guid>
 
-					<description><![CDATA[AI benchmarks report how large language models (LLMs) perform on specific tasks but provide little insight into their underlying capabilities that drive their performance. They do not explain failures or reliably predict outcomes on new tasks. To address this, Microsoft researchers in collaboration with Princeton University and&#160;Universitat&#160;Politècnica&#160;de València introduce ADeLe (opens in new tab) (AI [&#8230;]]]></description>
+					<description><![CDATA[<p>AI benchmarks report how large language models (LLMs) perform on specific tasks but provide little insight into their underlying capabilities that drive their performance. They do not explain failures or reliably predict outcomes on new tasks. To address this, Microsoft researchers in collaboration with Princeton University and&#160;Universitat&#160;Politècnica&#160;de València introduce ADeLe (opens in new tab) (AI [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/adele-predicting-and-explaining-ai-performance-across-tasks/">ADeLe: Predicting and explaining AI performance across tasks</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="ADeLe | Three white line icons, showing a circle with a checkmark, a search document, and a set of tools, on a blue‑to‑green gradient background." class="wp-image-1167109" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/NatureADELE-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 
@@ -3076,27 +3409,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3118,7 +3454,8 @@
 
 
 <p>As general-purpose AI systems continue to outpace existing evaluation methods, approaches like ADeLe offer a path toward more rigorous and transparent assessment in real-world use. The research team is working to expand this effort through a broader community. Additional experiments, benchmark annotations, and resources are available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://kinds-of-intelligence-cfi.github.io/ADELE/" type="link" id="https://kinds-of-intelligence-cfi.github.io/ADELE/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/adele-predicting-and-explaining-ai-performance-across-tasks/">ADeLe: Predicting and explaining AI performance across tasks</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -3132,7 +3469,9 @@
 				<category><![CDATA[Research Blog]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1166723</guid>
 
-					<description><![CDATA[Imagine a robot tasked with cleaning a kitchen. It needs to observe its environment, decide what to do, and adjust when things don&#8217;t go as expected, for example, when the mug it was tasked to wash is already clean, or the sink is full of other items. This is the domain of embodied AI: systems [&#8230;]]]></description>
+					<description><![CDATA[<p>Imagine a robot tasked with cleaning a kitchen. It needs to observe its environment, decide what to do, and adjust when things don&#8217;t go as expected, for example, when the mug it was tasked to wash is already clean, or the sink is full of other items. This is the domain of embodied AI: systems [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1.jpg" alt="AsgardBench | three whit icons on a blue to purple gradient background | first icon shows a laptop screen with a eye in the upper right corner, second icon shows relational nodes | third icon is a security shield with a checkmark" class="wp-image-1166730" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
@@ -3227,27 +3566,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3277,7 +3619,8 @@
 
 
 <p>We thank the AI2-THOR community for building the simulation platform and making reproducible embodied evaluation possible.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -3291,7 +3634,9 @@
 				<category><![CDATA[Research Blog]]></category>
 		<guid isPermaLink="false"></guid>
 
-					<description><![CDATA[Vision-language models (VLMs) use images and text to plan robot actions, but they still struggle to decide what actions to take and where to take them. Most systems split these decisions into two steps: a VLM generates a plan in natural language, and a separate model translates it into executable actions. This approach often breaks [&#8230;]]]></description>
+					<description><![CDATA[<p>Vision-language models (VLMs) use images and text to plan robot actions, but they still struggle to decide what actions to take and where to take them. Most systems split these decisions into two steps: a VLM generates a plan in natural language, and a separate model translates it into executable actions. This approach often breaks [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/">GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1.jpg" alt="V2GP framework | three white icons on a blue to green gradient background | first icon is three concentric rings with a square box around it, second icon is a list of three items | third icon is a tool" class="wp-image-1166732" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
@@ -3418,30 +3763,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3467,7 +3812,8 @@
 
 
 <p>This research was conducted in collaboration with Korea University, Microsoft Research, University of Wisconsin-Madison, and supported by the Institute of Information & Communications Technology Planning & Evaluation (IITP) grant (No. RS-2025-25439490) funded by the Korea government (MSIT).</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/">GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
@@ -3481,7 +3827,9 @@
 				<category><![CDATA[Microsoft Research Podcast]]></category>
 		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1163921</guid>
 
-					<description><![CDATA[Are machines truly intelligent? AI researchers Subutai Ahmad and Nicolò Fusi join Doug Burger to compare transformer-based AI with the human brain, exploring continual learning, efficiency, and whether today’s models are on a path toward human intelligence.]]></description>
+					<description><![CDATA[<p>Are machines truly intelligent? AI researchers Subutai Ahmad and Nicolò Fusi join Doug Burger to compare transformer-based AI with the human brain, exploring continual learning, efficiency, and whether today’s models are on a path toward human intelligence.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/will-machines-ever-be-intelligent/">Will machines ever be intelligent? </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 <div class="yt-consent-placeholder" role="region" aria-label="Video playback requires cookie consent" data-video-id="6gdlcbhtqSk" data-poster="https://img.youtube.com/vi/6gdlcbhtqSk/maxresdefault.jpg"><iframe aria-hidden="true" tabindex="-1" title="Will machines ever be intelligent?" width="500" height="281" data-src="https://www.youtube-nocookie.com/embed/6gdlcbhtqSk?feature=oembed&rel=0&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="yt-consent-placeholder__overlay"><button class="yt-consent-placeholder__play"><svg width="42" height="42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="none" fill-rule="evenodd"><circle fill="#000" opacity=".556" cx="21" cy="21" r="21"/><path stroke="#FFF" d="M27.5 22l-12 8.5v-17z"/></g></svg><span class="yt-consent-placeholder__label">Video playback requires cookie consent</span></button></div></div>
@@ -4673,219 +5021,11 @@
 
 <div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
 </div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/will-machines-ever-be-intelligent/">Will machines ever be intelligent? </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
 					
 		
 		
-			</item>
-		<item>
-		<title>Systematic debugging for AI agents: Introducing the AgentRx framework</title>
-		<link>https://www.microsoft.com/en-us/research/blog/systematic-debugging-for-ai-agents-introducing-the-agentrx-framework/</link>
-		
-		<dc:creator><![CDATA[Shraddha Barke, Arnav Goyal, Alind Khare, Chetan Bansal]]></dc:creator>
-		<pubDate>Thu, 12 Mar 2026 16:38:45 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1163539</guid>
-
-					<description><![CDATA[As AI agents transition from simple chatbots to autonomous systems capable of managing cloud incidents, navigating complex web interfaces, and executing multi-step API workflows, a new challenge has emerged: transparency. When a human makes a mistake, we can usually trace the logic. But when an AI agent fails, perhaps by hallucinating a tool output or [&#8230;]]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg" alt="Three white line icons, showing network, workflow, and bug‑analysis icons, on a blue‑to‑purple gradient background." class="wp-image-1163547" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Problem:</strong> Debugging AI agent failures is hard because trajectories are long, stochastic, and often multi-agent, so the true root cause gets buried.</li>
-
-
-
-<li><strong>Solution:</strong> <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Repo" type="link" id="https://aka.ms/AgentRx/Repo" target="_blank" rel="noopener noreferrer">AgentRx<span class="sr-only"> (opens in new tab)</span></a></strong> pinpoints the <em>first unrecoverable (“critical failure”) step</em> by synthesizing <strong>guarded, executable constraints</strong> from tool schemas and domain policies, then logging evidence-backed violations step-by-step.</li>
-
-
-
-<li><strong>Benchmark + taxonomy:</strong> We release <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Dataset" type="link" id="https://aka.ms/AgentRx/Dataset" target="_blank" rel="noopener noreferrer">AgentRx Benchmark<span class="sr-only"> (opens in new tab)</span></a></strong> with <strong>115</strong> manually annotated failed trajectories across <strong>τ-bench</strong>, <strong>Flash</strong>, and <strong>Magentic-One</strong>, plus a grounded nine<strong>-category failure taxonomy</strong>.</li>
-
-
-
-<li><strong>Results + release:</strong> AgentRx improves failure localization (<strong>+23.6%</strong>) and root-cause attribution (<strong>+22.9%</strong>) over prompting baselines, and we are open-sourcing the framework and dataset.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>As AI agents transition from simple chatbots to autonomous systems capable of managing cloud incidents, navigating complex web interfaces, and executing multi-step API workflows, a new challenge has emerged: <strong>transparency.</strong></p>
-
-
-
-<p>When a human makes a mistake, we can usually trace the logic. But when an AI agent fails, perhaps by hallucinating a tool output or deviating from a security policy ten steps into a fifty-step task, identifying exactly where and why things went wrong is an arduous, manual process.</p>
-
-
-
-<p>Today, we are excited to announce the open-source release of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Repo" target="_blank" rel="noopener noreferrer"><strong>AgentRx</strong><span class="sr-only"> (opens in new tab)</span></a>, an automated, domain-agnostic framework designed to pinpoint the &#8220;critical failure step&#8221; in agent trajectories. Alongside the framework, we are releasing the <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Dataset" type="link" id="https://aka.ms/AgentRx/Dataset" target="_blank" rel="noopener noreferrer">AgentRx Benchmark<span class="sr-only"> (opens in new tab)</span></a></strong>, a dataset of 115 manually annotated failed trajectories to help the community build more transparent, resilient agentic systems.</p>
-
-
-
-<figure class="wp-block-video"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-framework.mp4"></video></figure>
-
-
-
-<h2 class="wp-block-heading" id="the-challenge-why-ai-agents-are-hard-to-debug">The challenge: Why AI agents are hard to debug</h2>
-
-
-
-<p>Modern AI agents are often:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Long-horizon:</strong> They perform dozens of actions over extended periods.</li>
-
-
-
-<li><strong>Probabilistic:</strong> The same input might lead to different outputs, making reproduction difficult.</li>
-
-
-
-<li><strong>Multi-agent:</strong> Failures can be &#8220;passed&#8221; between agents, masking the original root cause.</li>
-</ul>
-
-
-
-<p>Traditional success metrics (like “Did the task finish?”) don’t tell us enough. To build safe agents, we need to identify the exact moment a trajectory becomes unrecoverable and capture evidence for what went wrong at that step.</p>
-
-
-
-<h2 class="wp-block-heading" id="introducing-agentrx-an-automated-diagnostic-prescription">Introducing AgentRx: An automated diagnostic &#8220;prescription&#8221;</h2>
-
-
-
-<p><strong>AgentRx</strong> (short for &#8220;Agent Diagnosis&#8221;) treats agent execution like a system trace that needs validation. Instead of relying on a single LLM to &#8220;guess&#8221; the error, AgentRx uses a structured, multi-stage pipeline:</p>
-
-
-
-<ol class="wp-block-list">
-<li><strong>Trajectory normalization:</strong> Heterogeneous logs from different domains are converted into a common intermediate representation.</li>
-
-
-
-<li><strong>Constraint synthesis:</strong> The framework automatically generates executable constraints based on tool schemas (e.g., &#8220;The API must return a valid JSON response&#8221;) and domain policies (e.g., &#8220;Do not delete data without user confirmation&#8221;).</li>
-
-
-
-<li><strong>Guarded evaluation:</strong> AgentRx evaluates constraints step-by-step, checking each constraint only when its <em>guard condition</em> applies, and produces an <strong>auditable validation log</strong> of evidence-backed violations.</li>
-
-
-
-<li><strong>LLM-based judging:</strong> Finally, an LLM judge uses the validation log and a grounded failure taxonomy to identify the <strong>Critical Failure Step</strong>—the first unrecoverable error.</li>
-</ol>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1197" height="955" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx.png" alt="Flowchart illustrating an agent failure attribution pipeline. In the upper left, a blue rounded box labeled “Task Context” contains three stacked inputs: “Domain Policy,” “Tool Schema,” and “Trajectory.” A downward arrow leads into a large yellow rounded rectangle representing the validation pipeline. Inside this area, a green box labeled “Constraint Generator” feeds into a blue box labeled “Constraint Checker.” To their right is a JSON-like constraint specification with fields such as assertion_name: "tshirt_count_matches", taxonomy_targets: "MisinterpretationOfToolOutput", type: "RELATIONAL_POST", trigger: { step_index: 7, agent_name: "assistant" }, and a check hint stating that the assistant must compute the T-shirt count from the correct field of the get_product_details result. At the far right, a scroll-shaped box labeled “Validation log (Violated Constraints + Taxonomy checklist)” receives output from the checker. Above the yellow region, under the title “Agent Failure Attribution,” a trajectory snippet shows a tool call to get_product_details followed by an assistant message highlighted in a red box: “There are 11 available T-shirt options …”. Red text below labels this as “Misinterpretation of Tool Output @ Step 7.” A dark upward arrow connects the validation log back to the highlighted assistant message, showing that the violated constraint is used to attribute the failure to that specific step. A horizontal arrow along the bottom asks, “Constraint violated?” " class="wp-image-1163550" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx.png 1197w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-300x239.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-1024x817.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-768x613.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/agentrx-226x180.png 226w" sizes="auto, (max-width: 1197px) 100vw, 1197px" /><figcaption class="wp-element-caption"><em>The AgentRx workflow: </em>Given a failed trajectory, tool schemas, and domain policy, AgentRx synthesizes guarded constraints, evaluates them step-by-step to produce an auditable violation log with evidence, and uses an LLM judge to predict the <strong>critical failure step</strong> and <strong>root-cause category</strong>.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="a-new-benchmark-for-agent-failures">A New Benchmark for Agent Failures</h2>
-
-
-
-<p>To evaluate AgentRx, we developed a manually annotated benchmark consisting of <strong>115 failed trajectories</strong> across three complex domains:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>τ-bench:</strong> Structured API workflows for retail and service tasks.</li>
-
-
-
-<li><strong>Flash:</strong> Real-world incident management and system troubleshooting.</li>
-
-
-
-<li><strong>Magentic-One:</strong> Open-ended web and file tasks using a generalist multi-agent system.</li>
-</ul>
-
-
-
-<p>Using a grounded-theory approach, we derived a nine<strong>-category failure taxonomy</strong> that generalizes across these domains. This taxonomy helps developers distinguish between a <strong>&#8220;Plan Adherence Failure&#8221;</strong> (where the agent ignored its own steps) and an <strong>&#8220;Invention of New Information&#8221;</strong> (hallucination).</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Taxonomy Category</th><th>Description</th></tr></thead><tbody><tr><td>Plan Adherence Failure</td><td>Ignored required steps / did extra unplanned actions</td></tr><tr><td>Invention of New Information</td><td>Altered facts not grounded in trace/tool output</td></tr><tr><td>Invalid Invocation</td><td>Tool call malformed / missing args / schema-invalid</td></tr><tr><td>Misinterpretation of Tool Output</td><td>Read tool output incorrectly; acted on wrong assumptions</td></tr><tr><td>Intent–Plan Misalignment</td><td>Misread user goal/constraints and planned wrongly</td></tr><tr><td>Under-specified User Intent</td><td>Could not proceed because required info wasn’t available</td></tr><tr><td>Intent Not Supported</td><td>No available tool can do what’s being asked</td></tr><tr><td>Guardrails Triggered</td><td>Execution blocked by safety/access restrictions</td></tr><tr><td>System Failure</td><td>Connectivity/tool endpoint failures</td></tr></tbody></table></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1512" height="854" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines.png" alt="Two-column taxonomy table with a dark blue header row labeled “Taxonomy Category” and “Description.” The rows define nine agent failure types: Plan Adherence Failure, Invention of New Information, Invalid Invocation, Misinterpretation of Tool Output, Intent–Plan Misalignment, Under-specified User Intent, Intent Not Supported, Guardrails Triggered, and System Failure. Their descriptions explain, respectively, skipped or extra actions, invented facts, malformed tool calls, incorrect reading of tool outputs, wrong planning from misunderstood intent, inability to proceed due to missing information, lack of tool support, blocking by safety or access controls, and connectivity or endpoint failures. " class="wp-image-1163552" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines.png 1512w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-1024x578.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-768x434.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-240x136.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/failure_timelines-640x360.png 640w" sizes="auto, (max-width: 1512px) 100vw, 1512px" /><figcaption class="wp-element-caption"><em>Analysis of failure density across domains. In multi-agent systems like <a href="https://labs.ai.azure.com/projects/magentic-one/" type="link" id="https://labs.ai.azure.com/projects/magentic-one/" target="_blank" rel="noreferrer noopener">Magentic-One</a>, trajectories often contain multiple errors, but AgentRx focuses on identifying the first critical breach.</em></figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="key-results">Key Results</h2>
-
-
-
-<p>In our experiments, AgentRx demonstrated significant improvements over existing LLM-based prompting baselines:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>+23.6% absolute improvement</strong> in failure localization accuracy.</li>
-
-
-
-<li><strong>+22.9% improvement</strong> in root-cause attribution.</li>
-</ul>
-
-
-
-<p>By providing the &#8220;why&#8221; behind a failure through an auditable log, AgentRx allows developers to move beyond trial-and-error prompting and toward systematic agentic engineering.</p>
-
-
-
-<h2 class="wp-block-heading" id="join-the-community-open-source-release">Join the Community: Open Source Release</h2>
-
-
-
-<p>We believe that agent reliability is a prerequisite for real-world deployment. To support this, we are open sourcing the AgentRx framework and the complete annotated benchmark.</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Read the Paper:</strong> <a href="https://www.microsoft.com/en-us/research/publication/agentrx-diagnosing-ai-agent-failures-from-execution-trajectories/" type="link" id="https://www.microsoft.com/en-us/research/publication/agentrx-diagnosing-ai-agent-failures-from-execution-trajectories/">AgentRx: Diagnosing AI Agent Failures from Execution Trajectories</a></li>
-
-
-
-<li><strong>Explore the Code & Data:</strong> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AgentRx/Code" target="_blank" rel="noopener noreferrer">https://aka.ms/AgentRx/Code<span class="sr-only"> (opens in new tab)</span></a></li>
-</ul>
-
-
-
-<p>We invite researchers and developers to use AgentRx to diagnose their own agentic workflows and contribute to the growing library of failure constraints. Together, we can build AI agents that are not just powerful, but auditable, and reliable.</p>
-
-
-
-<h3 class="wp-block-heading" id="acknowledgements">Acknowledgements</h3>
-
-
-
-<p>We would like to thank Avaljot Singh and <a href="https://www.microsoft.com/en-us/research/people/sumann/">Suman Nath</a> for contributing to this project.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AgentRx-framework.mp4" length="29894728" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
