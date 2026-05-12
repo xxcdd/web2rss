@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 08 May 2026 19:53:58 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 11 May 2026 17:19:31 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,367 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests</title>
+		<link>https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/</link>
+		
+		<dc:creator><![CDATA[Tyler Payne, Will Epperson, Safoora Yousefi, Zachary Huang, Gagan Bansal, Wenyue Hua, Maya Murad, Asli Celikyilmaz, Saleema Amershi]]></dc:creator>
+		<pubDate>Mon, 11 May 2026 17:19:28 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false"></guid>
+
+					<description><![CDATA[<p>Using SocialReasoning Bench, we observed a stable pattern across models—agents execute competently, but fail to consistently improve the user’s position, even with explicit instructions to optimize for user interest.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/">SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1.jpg" alt="Social Reasoning Bench | four icons on a blue to green gradient | person icon, chat bubble icon, chart icon, checklist icon" class="wp-image-1170935" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>AI agents are moving into social&nbsp;contexts. When agents manage calendars, negotiate purchases, or interact with other agents on a user’s behalf, they need more than task competence—they need social reasoning.</li>
+
+
+
+<li>SocialReasoning-Bench&nbsp;evaluates that ability. The benchmark tests&nbsp;whether an agent can negotiate for a user in two realistic settings: Calendar Coordination and Marketplace Negotiation.&nbsp;</li>
+
+
+
+<li>The benchmark measures both outcomes and process: it&nbsp;scores&nbsp;agents on&nbsp;outcome&nbsp;optimality&nbsp;(how much value they secure for the user) and&nbsp;due&nbsp;diligence&nbsp;(whether they follow a competent decision-making process).&nbsp;</li>
+
+
+
+<li>Current frontier models often leave value on the table. They usually complete the task, but they&nbsp;frequently&nbsp;accept suboptimal meeting times or poor deals instead of advocating effectively for the user.&nbsp;</li>
+
+
+
+<li>Prompting helps, but it is not enough. Even with explicit guidance to act in the user’s best interest, performance&nbsp;remains&nbsp;well below what a trustworthy delegate should achieve.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>As AI agents&nbsp;take on more real-world tasks, they are increasingly&nbsp;operating&nbsp;in&nbsp;social contexts.&nbsp;With&nbsp;the right&nbsp;integrations, agents like Claude Cowork and Google Gemini can manage email and calendar&nbsp;workflows.&nbsp;In these settings, the agent&nbsp;must&nbsp;interact with&nbsp;others&nbsp;on your behalf. This&nbsp;requires&nbsp;<em>social reasoning</em>&nbsp;—&nbsp;understanding what you want, what the counterparty wants, and what information to reveal, protect, or push back on.</p>
+
+
+
+<p>Our previous research suggests that today&#8217;s frontier models lack social reasoning. In our <a href="https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/" type="post" id="1154326">simulated multi-agent marketplace</a>, agents accepted the first proposal they received up to 93% of the time without exploring alternatives. When <a href="https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/" type="link" id="https://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/">red-teaming a social network of agents</a>, a single malicious message spread through the system and led agents to disclose private data before passing the message along.</p>
+
+
+
+<p>This kind of relationship has a long history&nbsp;outside&nbsp;AI. In economics and&nbsp;law&nbsp;it is called a&nbsp;<em>principal-agent&nbsp;</em>relationship: an agent acts on a principal&#8217;s behalf in interactions with others whose interests differ. Attorneys, real-estate agents, and financial advisors all&nbsp;operate&nbsp;in this mode, and the duties they owe—care, loyalty, confidentiality—are codified in centuries of professional norms. AI agents acting on a user&#8217;s behalf&nbsp;should&nbsp;ultimately be&nbsp;held to&nbsp;similar&nbsp;standards.</p>
+
+
+
+<p>To measure and drive progress in social reasoning, we built&nbsp;SocialReasoning-Bench:&nbsp;&nbsp;a benchmark for testing whether agents can&nbsp;reason and&nbsp;negotiate on a user’s behalf against a counterparty with independent goals,&nbsp;private information, and potentially adversarial intent.</p>
+
+
+
+<h2 class="wp-block-heading" id="introducing-socialreasoning-bench">Introducing SocialReasoning-Bench</h2>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="1376" height="768" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark.png" alt="Figure 1: Our benchmark measures agents' social reasoning ability in two domains, calendar coordination and marketplace negotiation. Each requires communicating with other parties, advocating on a principal's behalf, and reasoning about tradeoffs. " class="wp-image-1171327" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark.png 1376w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-300x167.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-240x134.png 240w" sizes="(max-width: 1376px) 100vw, 1376px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>1</em>: Our benchmark measures agents&#8217; social reasoning ability in two domains, calendar&nbsp;coordination&nbsp;and marketplace negotiation. Each requires&nbsp;communicating with other parties, advocating on&nbsp;a&nbsp;principal&#8217;s behalf, and reasoning about tradeoffs.&nbsp;</em></figcaption></figure>
+
+
+
+<p>SocialReasoning-Bench evaluates social reasoning in two domains: Calendar Coordination and Marketplace Negotiation. In each, an agent advocates for its user against a counterparty and is scored on both the outcome it reached and the process it followed. We find that frontier models complete most tasks but consistently leave value on the table for the user.</p>
+
+
+
+<h3 class="wp-block-heading" id="calendar-coordination">Calendar coordination</h3>
+
+
+
+<p>In calendar coordination, an assistant agent manages a user&#8217;s calendar on a single day and fields a meeting request from another agent.</p>
+
+
+
+<p>We assume the agent has access to a value function over time slots that captures the user’s scheduling preferences between 0.0 and 1. This function could be provided explicitly by the user or inferred from their calendar history, and is given to the assistant at the start of the task.</p>
+
+
+
+<p>The counterparty is a requestor agent representing another person who wants to schedule a meeting with the user. The counterparty has its own value function over the same slots, constructed as the inverse of the user&#8217;s, so the slots most valuable to one are least valuable to the other. Some requestors negotiate in good faith, while others use the interaction to extract private calendar details or push the assistant toward times the user does not want.</p>
+
+
+
+<p>In each task there is a <em>zone of possible agreement</em> (ZOPA) a term borrowed from negotiation theory for the set of outcomes that both parties could plausibly accept. In calendar coordination, the ZOPA is the set of time slots that are mutually free on both calendars. We construct every task so that the ZOPA contains at least three slots with different preference scores for the user, and the requestor&#8217;s opening request always conflicts with the user&#8217;s calendar.</p>
+
+
+
+<h3 class="wp-block-heading" id="marketplace-negotiation">Marketplace negotiation</h3>
+
+
+
+<p>In marketplace negotiation, a buyer agent representing a user negotiates with a seller agent to purchase a single product.</p>
+
+
+
+<p>The user wants to pay as little as possible for the product. Their value function is the gap between the deal price and a private reservation price, the highest price they would pay. A larger gap captures more value, and a deal above the reservation captures none.</p>
+
+
+
+<p>The&nbsp;counterparty&nbsp;is a seller agent with its own private reservation price set below the buyer&#8217;s. The counterparty&#8217;s value function mirrors the&nbsp;user&#8217;s, with higher deal prices yielding more value and&nbsp;deal&nbsp;prices below the seller’s reservation price yielding no value.</p>
+
+
+
+<p>The ZOPA is the price range between the seller&#8217;s and buyer&#8217;s reservations. The seller&#8217;s opening offer is always above the buyer&#8217;s reservation, forcing the buyer to negotiate the price down.</p>
+
+
+
+<h2 class="wp-block-heading" id="new-metrics-for-a-new-setting">New metrics for a new setting</h2>
+
+
+
+<p>Existing benchmarks focus on task completion: did the meeting get scheduled? Did the trade close? In principal–agent settings, what matters is not just <em>whether</em> the task is completed, but how <em>well</em> it is done. We introduce new measures to capture this distinction.</p>
+
+
+
+<h3 class="wp-block-heading" id="outcome-optimality">Outcome Optimality</h3>
+
+
+
+<p>Outcome optimality scores the share of available value the agent captured for its principal, on a 0-to-1 scale. The outcome inside the ZOPA most favorable to the principal scores 1, while the outcome most favorable to the counterparty scores 0.0. Intermediate outcomes are scored by where the principal&#8217;s value function places them between those two endpoints.</p>
+
+
+
+<h3 class="wp-block-heading" id="due-diligence">Due Diligence</h3>
+
+
+
+<p>Outcome optimality alone conflates skill with luck. An agent that immediately accepts a counterparty&#8217;s first offer, without inspecting its situation or making a counter-proposal, can still score well if the counterparty happens to propose a good outcome. To separate skill from luck, we introduce a process metric.</p>
+
+
+
+<p>Due diligence scores process quality on a 0-to-1 scale by comparing the agent&#8217;s actions, at each decision point in the trajectory, against the action a deterministic <em>reasonable-agent</em> policy would have taken in the same state. The reasonable-agent policy is a greedy procedure that captures what a competent advocate would do at each step, such as gathering relevant context before acting, opening with a position favorable to its principal, and conceding only after better options have been exhausted. The Due Diligence score is the rate at which the agent&#8217;s actual choices match the reasonable-agent&#8217;s choices over the trajectory.</p>
+
+
+
+<h3 class="wp-block-heading" id="duty-of-care">Duty of care</h3>
+
+
+
+<p>Together, Outcome Optimality and Due Diligence form an operational notion of an agent&#8217;s <em>duty of care</em> to the person it represents. An agent that lands a good outcome through a careless process is fragile, while an agent that follows good process but lands a bad outcome points to a capability gap rather than negligence. Only an agent that scores well on both is exhibiting strong social reasoning.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">On Second Thought</h2>
+				
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="experimental-setup">Experimental setup</h2>
+
+
+
+<p>For the calendar assistant agent and marketplace buyer agent, we evaluate GPT-4.1 with chain-of-thought, GPT-5.4 at&nbsp;high&nbsp;reasoning effort,&nbsp;and&nbsp;Claude Sonnet 4.6&nbsp;and Gemini 3 Flash at&nbsp;high&nbsp;thinking levels. The counterparty (i.e.&nbsp;requestor in calendar coordination, and seller in marketplace negotiation) is always Gemini 3 Flash with medium reasoning effort, held constant across all conditions so that any difference in scores reflects the model under test rather than the difficulty of its opponent.</p>
+
+
+
+<p>Each model is run under two prompt conditions: <strong>Basic Prompting</strong> where the agent receives only role and tool descriptions, and <strong>Defensive Prompting</strong> where the agent additionally receives explicit guidance to consult all available sources and advocate for the user toward the best possible outcome.</p>
+
+
+
+<p>Each task runs for 10 negotiation rounds, at most. The counterparty proposes first in every task.</p>
+
+
+
+<h2 class="wp-block-heading" id="what-we-re-finding">What we’re finding</h2>
+
+
+
+<h3 class="wp-block-heading h4" id="finding-1-agents-complete-tasks-at-near-perfect-rates-but-produce-poor-outcomes">Finding 1: Agents complete tasks at near-perfect rates but produce poor outcomes.</h3>
+
+
+
+<p>In calendar scheduling, agents&nbsp;almost always&nbsp;succeed in booking the meeting, but&nbsp;most&nbsp;often at suboptimal times. In marketplace negotiation, deals&nbsp;almost always&nbsp;close, but&nbsp;frequently&nbsp;at the worst possible price. The tasks get done, but not done well: task completion signals success, while&nbsp;Outcome&nbsp;Optimality reveals a consistent failure to act in the principal’s best interest.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="2560" height="928" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-scaled.png" alt="Figure 2: Task Completion vs Outcome Optimality by model and domain. All models complete tasks at near-perfect rates, but produce poor outcomes. We measured Outcome Optimality against the two prompts, basic and defensive. Defensive prompting helps but does not close the gap. " class="wp-image-1171350" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-1024x371.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-768x278.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-1536x557.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-2048x743.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-240x87.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>2</em>: Task Completion vs Outcome Optimality by model and domain. All&nbsp;models&nbsp;complete tasks at&nbsp;near-perfect&nbsp;rates, but&nbsp;produce poor outcomes.&nbsp;We&nbsp;measured&nbsp;<em>O</em>utcome&nbsp;<em>O</em>ptimality against&nbsp;the two prompts, basic and defensive.&nbsp;Defensive prompting&nbsp;helps but does not close the gap.&nbsp;</em></figcaption></figure>
+
+
+
+<h3 class="wp-block-heading h4" id="finding-2-defensive-prompting-helps-but-is-not-enough-to-close-the-gap">Finding 2: Defensive prompting helps, but is not enough to close the gap.</h3>
+
+
+
+<p>When we instruct agents on how to work hard on their principal’s behalf, we see outcome improvements&nbsp;across both domains, but it is not enough to close the gap. GPT-5.4 benefits most&nbsp;from defensive prompting&nbsp;(+0.21 in calendaring, +0.12 in&nbsp;marketplace), while&nbsp;GPT-4.1&nbsp;barely responds to it in either domain. The other models fall somewhere in between.</p>
+
+
+
+<h3 class="wp-block-heading h4" id="finding-3-outcome-optimality-shows-how-much-value-agents-leave-on-the-table">Finding 3: Outcome optimality shows how much value agents leave on the table.</h3>
+
+
+
+<p>Outcome optimality reflects where each deal lands within the ZOPA. When we plot outcomes, they cluster closer to the counterparty’s ideal than the principal’s.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="904" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-scaled.png" alt="Figure 3: Outcome Optimality (OO) distribution by model and domain. Each dot is one task instance. OO=1.0 means the agent captured all available value for its principal; OO=0.0 means the counterparty captured everything. Black lines show the mean. In marketplace, outcomes cluster near zero across all models. In calendar, agents perform better but still settle below the midpoint on average. " class="wp-image-1171353" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-300x106.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-1024x362.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-768x271.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-1536x542.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-2048x723.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure3-fixed_Benchmark-240x85.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>3</em>: Outcome Optimality&nbsp;<em>(OO)&nbsp;</em>distribution by model and domain. Each dot is one task instance. OO=1.0 means the agent captured all available value for its principal; OO=0.0 means the counterparty captured everything. Black lines show the&nbsp;mean. In marketplace, outcomes cluster near zero across all models. In calendar, agents perform better but still settle below the midpoint on average.&nbsp;</em></figcaption></figure>
+
+
+
+<p>In marketplace negotiation, all&nbsp;models settle at or near zero for&nbsp;Outcome&nbsp;Optimality, accepting deals that give away&nbsp;virtually all&nbsp;available&nbsp;surplus. In calendar scheduling, agents perform better but still land below the midpoint, accepting the requestor’s preferred slots rather than ones that better serve their principal.</p>
+
+
+
+<p>Measuring value capture in agent negotiations builds on recent studies examining how agents perform in marketplace settings. Because we operate in a controlled setting, we can establish ground-truth constraints for both parties and measure exactly how the available value was divided. Our formulation also generalizes beyond price-based negotiations: by abstracting to a domain-specific value function, Outcome Optimality can measure surplus division in any setting where agents face competing incentives, including non-monetary domains like calendar scheduling where “value” is defined over preference scores rather than prices.</p>
+
+
+
+<h3 class="wp-block-heading h4" id="finding-4-due-diligence-helps-distinguish-between-luck-and-skill">Finding 4: Due&nbsp;Diligence&nbsp;helps&nbsp;distinguish&nbsp;between luck and skill.</h3>
+
+
+
+<p>When we look at the combination of outcome quality and process quality,&nbsp;a more nuanced picture&nbsp;emerges. Many agents that achieve reasonable outcomes do so through fragile processes: they&nbsp;don&#8217;t&nbsp;check context before acting or they accept offers without countering. High&nbsp;Outcome&nbsp;Optimality&nbsp;with low&nbsp;Due&nbsp;Diligence&nbsp;suggests an agent that got lucky rather than one that can be trusted. Conversely, some agents show genuine diligence — gathering information, pushing back — but still land on poor outcomes, pointing to capability gaps rather than negligence.&nbsp;Dividing&nbsp;Outcome&nbsp;Optimality&nbsp;and&nbsp;Due&nbsp;Diligence&nbsp;each into high (>=0.5) and low (<0.5) buckets,&nbsp;we can sort every task into one of four archetypes.</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th></th><th>Not diligent (DD < 0.5)</th><th>Diligent (DD ≥ 0.5)</th></tr></thead><tbody><tr><td>Good outcome (OO ≥ 0.5)</td><td>Lucky</td><td>Robust</td></tr><tr><td>Poor outcome (OO < 0.5)</td><td>Negligent</td><td>Ineffective</td></tr></tbody></table></figure>
+
+
+
+<p>Through the lens of this&nbsp;decomposition, we can see that models&nbsp;exhibit&nbsp;robust&nbsp;<em>duty of&nbsp;care</em>&nbsp;on more than 50% of calendar coordination tasks, with Gemini 3 Flash leading at&nbsp;90% robust.&nbsp;In marketplace negotiation, though,&nbsp;a very different&nbsp;picture&nbsp;emerges.&nbsp;GPT-4.1 is&nbsp;negligent&nbsp;in 95% of&nbsp;tasks,&nbsp;neither gathering information nor advocating for its principal, while Claude Sonnet 4.6, GPT-5.4, and Gemini 3 Flash show ineffective&nbsp;behavior in&nbsp;roughly 90%&nbsp;of marketplace tasks, negotiating diligently but still unable to achieve good outcomes.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure4_NEW_Benchmark.png" alt="Figure 4: Splitting Outcome Optimality and Due Diligence into “low” (<0.5) and “high” (>=0.5) buckets each, we plot the percent of tasks for each model that fall into each quadrant. For example, in calendar scheduling, GPT-4.1 achieves both high OO and high DD (Robust) in 63% of tasks. In contrast, in the marketplace domain, GPT-4.1 exhibits low OO and low DD (Negligent) in 95% of tasks. " class="wp-image-1171332"/><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>4</em>: Splitting Outcome Optimality and Due Diligence into “low” (<0.5) and “high” (>=0.5) buckets each, we plot the percent of tasks for each model that fall into each quadrant. For example, in<em>&nbsp;calendar scheduling, GPT-4.1 achieves&nbsp;both high OO and high DD (Robust) in&nbsp;63</em>% of&nbsp;tasks.<em>&nbsp;In contrast,&nbsp;in the marketplace domain,</em>&nbsp;<em>GPT-4.1&nbsp;</em>exhibits low&nbsp;<em>OO and low DD</em>&nbsp;(Negligent)<em>&nbsp;in 95% of tasks</em>.&nbsp;</em></figcaption></figure>
+
+
+
+<p>Figures 5-8 illustrate&nbsp;these different behaviors and failure modes with real examples from&nbsp;SocialReasoning-Bench&nbsp;in the calendaring domain.&nbsp;We see agents that follow a strong negotiation strategy and secure high-value outcomes, but also agents&nbsp;that achieve reasonable outcomes through sloppy processes, such as&nbsp;failing to propose&nbsp;the principal’s best&nbsp;option.&nbsp;Others begin with a strong position but concede prematurely, collapsing to poor deals.&nbsp;At the extreme, some agents exhibit negligent behavior, accepting the first proposal without checking constraints, even&nbsp;when it directly conflicts with the user’s interests.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1904" height="894" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark.png" alt="Figure 5. A real paraphrased example of robust behavior from GPT-4.1 in the calendaring domain, achieving a good outcome after proposing the principal’s most preferred option first, correctly refusing the conflict, and then holding the line at their second best option." class="wp-image-1171295" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark.png 1904w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark-1536x721.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure5_Benchmark-240x113.png 240w" sizes="auto, (max-width: 1904px) 100vw, 1904px" /><figcaption class="wp-element-caption"><em><em>Figure&nbsp;5.&nbsp;A&nbsp;real paraphrased example of&nbsp;robust behavior&nbsp;from GPT-4.1&nbsp;in the calendaring domain, achieving a good outcome&nbsp;after proposing the principal’s most preferred&nbsp;option&nbsp;first,&nbsp;correctly refusing the conflict,&nbsp;and then holding the line at their&nbsp;second best&nbsp;option.</em></em></figcaption></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1890" height="880" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk.png" alt="Figure 6. GPT-4.1 in the calendaring domain achieving a reasonable outcome from a sloppy process that didn’t include proposing the principal’s most preferred option. " class="wp-image-1171297" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk.png 1890w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk-300x140.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk-1024x477.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk-768x358.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk-1536x715.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure6_Benchamrk-240x112.png 240w" sizes="auto, (max-width: 1890px) 100vw, 1890px" /><figcaption class="wp-element-caption"><em><em>Figure&nbsp;6.&nbsp;GPT-4.1 in the calendaring domain achieving a&nbsp;reasonable outcome from a sloppy process that&nbsp;didn’t&nbsp;include proposing the principal’s&nbsp;most preferred&nbsp;option.</em>&nbsp;</em></figcaption></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1896" height="880" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark.png" alt="Figure 7. GPT-4.1 in the calendaring domain starting out strong by proposing the principal’s most preferred slot but then caving early and achieving a poor outcome. " class="wp-image-1171300" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark.png 1896w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark-300x139.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark-1024x475.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark-768x356.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark-1536x713.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure7_Benchmark-240x111.png 240w" sizes="auto, (max-width: 1896px) 100vw, 1896px" /><figcaption class="wp-element-caption"><em><em>Figure&nbsp;7. GPT-4.1 in the calendaring domain&nbsp;starting out strong by proposing the principal’s most&nbsp;preferred slot&nbsp;but then caving early&nbsp;and achieving a poor&nbsp;outcome.</em>&nbsp;</em></figcaption></figure>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1894" height="892" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark.png" alt="Figure 8. GPT-4.1 exhibiting negligent behavior, accepting the requestor’s first proposal without confirming availability and conflicting with another meeting on the principal’s calendar. " class="wp-image-1171302" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark.png 1894w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark-1024x482.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark-768x362.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark-1536x723.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure8_Benchmark-240x113.png 240w" sizes="auto, (max-width: 1894px) 100vw, 1894px" /><figcaption class="wp-element-caption"><em><em>Figure&nbsp;</em>8.<em>&nbsp;GPT-4.1 exhibiting negligent behavior,&nbsp;accepting the&nbsp;requestor’s&nbsp;first proposal&nbsp;without confirming availability and&nbsp;conflicting with another meeting&nbsp;on the principal’s calendar.</em>&nbsp;</em></figcaption></figure>
+
+
+
+<p>Taken together, these examples highlight why outcome alone is insufficient.&nbsp;Without measuring process, we risk mistaking brittle or accidental success for genuine capability.&nbsp;Due Diligence helps surface whether an agent is consistently behaving like a competent, trustworthy delegate, or simply getting lucky.</p>
+
+
+
+<h3 class="wp-block-heading h4" id="finding-5-agents-are-vulnerable-to-adversarial-manipulation">Finding 5: Agents are vulnerable to adversarial manipulation</h3>
+
+
+
+<p>When we stress test agents by pitting them against adversarial counterparties, we find that agents struggle to balance when to engage, when to refuse, and how to negotiate under pressure.</p>
+
+
+
+<p>To create these adversarial scenarios, we introduce counterparties explicitly trying to manipulate outcomes or bypass protective steps. Some follow carefully designed strategies, applying pressure or probing for information, while others use more unpredictable, creatively generated <a href="https://www.microsoft.com/en-us/research/articles/whimsical-strategies-break-ai-agents-generating-out-of-distribution-adversarial-strategies-at-scale/">whimsical tactics that mimic novel forms of social engineering</a>. Together, these test whether agents can handle not just known attacks, but unfamiliar ones.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1438" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-scaled.png" alt="Figure 9: Refusal Rates and Outcome Optimality when agents engaged with adversarial requestors in both domains. Agents rarely refuse adversarial requests in calendaring, while refusing more often in the marketplace. When agents did engage with malicious actors, Outcome Optimality dropped across the board. " class="wp-image-1171355" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-1024x575.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-768x431.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-1536x863.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-2048x1150.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure9-fixed_Benchmark-1920x1080.png 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>9</em>: Refusal Rates and Outcome Optimality when agents&nbsp;engaged&nbsp;with adversarial requestors in both domains. Agents rarely refuse adversarial requests in calendaring, while refusing more often in the marketplace. When agents did engage with malicious actors, Outcome Optimality dropped across the board.&nbsp;</em></figcaption></figure>
+
+
+
+<p>We find that, aside from Claude Sonnet 4.6, agents rarely refuse adversarial requests in calendar scheduling, while refusing more often in marketplace settings. This suggests that adversarial intent is harder to detect in socially framed interactions. When agents do engage, the impact is starkest in calendar scheduling with Outcome Optimality dropping substantially across GPT-4.1, GPT-5.4, and Gemini Flash 3, suggesting that adversarial counterparties successfully steer these agents toward worse outcomes. In the marketplace domain, Outcome Optimality when agents engaged remains comparable to the low levels achieved against benign counterparties, capturing little to no value for their principals.</p>
+
+
+
+<h2 class="wp-block-heading" id="why-this-matters-now">Why this matters now</h2>
+
+
+
+<p>Agents are&nbsp;interacting&nbsp;with each other in multi-party environments, from collaborating across enterprise workflows to transacting in digital marketplaces. As these networks form, the social reasoning gaps we&nbsp;observe&nbsp;in simple two-agent settings&nbsp;can&nbsp;begin&nbsp;to compound. Weak negotiation, over-trust, or failure to exercise due diligence no longer stay local. They propagate through coordination, influence downstream decisions, and shape collective outcomes.&nbsp;&nbsp;</p>
+
+
+
+<p>In isolation, an agent that accepts a bad meeting time or a poor deal causes limited harm. In a network, those same behaviors can cascade, leading to systematically worse coordination or widespread value loss across many agents.</p>
+
+
+
+<p>Recent work has begun exploring these risks and dynamics through case studies of agents interacting in networked settings. SocialReasoning-Bench complements this line of work by providing a controlled, reproducible benchmark that isolates interaction behaviors and makes them measurable. This allows us to move beyond anecdotes and systematically track progress, giving model, agent, and platform developers a concrete target for building agents that act as trustworthy delegates.</p>
+
+
+
+<p>SocialReasoning-Bench is open source and available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/social-reasoning-bench" type="link" id="https://github.com/microsoft/social-reasoning-bench" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="limitations-and-future-work">Limitations and future work</h2>
+
+
+
+<p>Our current measures treat all counterparties equally. In practice, relationships matter. A socially intelligent agent should modulate its assertiveness based on their principal’s relationship with the counterparty: pushing too hard when scheduling a meeting with a senior executive may damage a valuable relationship, and sometimes the right outcome is reached through compromise. Developing relationship-aware measures that account for power dynamics, rapport, and long-term consequences is an important direction for future work.</p>
+
+
+
+<p>We evaluate social reasoning in simplified two-agent settings, whereas real-world delegation often involves multi-party dynamics such as group scheduling or multi-stakeholder negotiations. Each task is also treated as an independent encounter, with no modeling of long-term relationships, reputation, or trust-building across repeated interactions. Our scenarios are also limited to English-language and U.S.-centric business contexts, though social norms around negotiation, privacy, and hierarchy vary widely across cultures. Looking ahead, we plan to extend our benchmark to more diverse settings.</p>
+
+
+
+<p>Finally, Outcome Optimality works well in settings with clear boundaries, where a “good” outcome can be defined and measured. But many tasks that require <em>duty of care</em>, such as drafting sensitive messages or navigating team dynamics, may not have a well-defined ZOPA. In these cases, outcomes depend on context, relationships, and judgment in ways that may resist a single score. Extending our approach to these more subjective settings is an important direction for future work.</p>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements&nbsp;</h2>
+
+
+
+<p>We would like to thank&nbsp;<a href="https://www.microsoft.com/en-us/research/people/brlucier/" target="_blank" rel="noreferrer noopener">Brendan Lucier</a>,&nbsp;<a href="https://www.microsoft.com/en-us/research/people/adamfo/" target="_blank" rel="noreferrer noopener">Adam Fourney</a>,&nbsp;<a href="https://www.microsoft.com/en-us/research/people/aswearngin/" target="_blank" rel="noreferrer noopener">Amanda Swearngin</a>, and&nbsp;<a href="https://www.microsoft.com/en-us/research/people/eckamar/" target="_blank" rel="noreferrer noopener">Ece Kamar</a>&nbsp;for&nbsp;their helpful feedback, discussions, and support of this work.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/">SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Building realistic electric transmission grid dataset at scale: a pipeline from open dataset</title>
 		<link>https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/</link>
 		
@@ -32,7 +393,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/">Building realistic electric transmission grid dataset at scale: a pipeline from open dataset</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a blue-to-green gradient background: a connected globe with signal waves (left), a map location pin (center), and a lightbulb with rays (right), representing connectivity, location, and ideas." class="wp-image-1171061" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a blue-to-green gradient background: a connected globe with signal waves (left), a map location pin (center), and a lightbulb with rays (right), representing connectivity, location, and ideas." class="wp-image-1171061" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -153,11 +514,11 @@
 
 
 
-<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="545" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1024x545.png" alt="Transmission corridor density across the contiguous United States, showing most corridors carry a single circuit with denser multi-circuit regions near major cities. " class="wp-image-1170873" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1024x545.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-300x160.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-768x409.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1536x818.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-2048x1091.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-240x128.png 240w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="545" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1024x545.png" alt="Transmission corridor density across the contiguous United States, showing most corridors carry a single circuit with denser multi-circuit regions near major cities. " class="wp-image-1170873" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1024x545.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-300x160.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-768x409.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1536x818.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-2048x1091.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-240x128.png 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1363" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-scaled.png" alt="Zoomed view of California showing dense multi-circuit corridors near urban areas and lower-density radial lines in rural regions." class="wp-image-1170874" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-300x160.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-1024x545.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-768x409.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-1536x818.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-2048x1091.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-240x128.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1. Across the contiguous United States (top), the model identifies 31,488 distinct transmission corridors. The overwhelming majority (27,506) carry a single circuit (green), making parallel lines easier. The roughly 4,000 corridors in orange through red already carry two or more parallel circuits, with the densest packing ten circuits (30 conductors) onto a single path. Zooming into California (bottom), the pattern becomes more discernable. The red corridor north of Sacramento and the orange clusters around the Bay Area and LA basin show where the grid is already physically dense, while the long green radials across the Mojave and into Nevada still have room to grow.</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1363" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-scaled.png" alt="Zoomed view of California showing dense multi-circuit corridors near urban areas and lower-density radial lines in rural regions." class="wp-image-1170874" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-300x160.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-1024x545.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-768x409.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-1536x818.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-2048x1091.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-240x128.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1. Across the contiguous United States (top), the model identifies 31,488 distinct transmission corridors. The overwhelming majority (27,506) carry a single circuit (green), making parallel lines easier. The roughly 4,000 corridors in orange through red already carry two or more parallel circuits, with the densest packing ten circuits (30 conductors) onto a single path. Zooming into California (bottom), the pattern becomes more discernable. The red corridor north of Sacramento and the orange clusters around the Bay Area and LA basin show where the grid is already physically dense, while the long green radials across the Mojave and into Nevada still have room to grow.</em></figcaption></figure>
 
 
 
@@ -297,27 +658,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -669,30 +1033,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -990,30 +1354,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2497,30 +2861,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3655,30 +4019,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3812,30 +4176,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3866,199 +4230,6 @@
 
 <p>We thank the AI2-THOR community for building the simulation platform and making reproducible embodied evaluation possible.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</title>
-		<link>https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/</link>
-		
-		<dc:creator><![CDATA[Sehun Jung, HyunJee Song, Dong-Hee Kim, Reuben Tan, Jianfeng Gao, Yong Jae Lee, Donghyun Kim]]></dc:creator>
-		<pubDate>Thu, 26 Mar 2026 16:03:56 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false"></guid>
-
-					<description><![CDATA[<p>Vision-language models (VLMs) use images and text to plan robot actions, but they still struggle to decide what actions to take and where to take them. Most systems split these decisions into two steps: a VLM generates a plan in natural language, and a separate model translates it into executable actions. This approach often breaks [&#8230;]</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/">GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1.jpg" alt="V2GP framework | three white icons on a blue to green gradient background | first icon is three concentric rings with a square box around it, second icon is a list of three items | third icon is a tool" class="wp-image-1166732" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP-BlogHeroFeature-v2-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>VLM-based robot planners struggle with long, complex tasks because natural-language plans can be ambiguous, especially when specifying both actions and locations.</li>
-
-
-
-<li>GroundedPlanBench evaluates whether models can plan actions and determine where they should occur across diverse, real-world robot scenarios.</li>
-
-
-
-<li>Video-to-Spatially Grounded Planning (V2GP) is a framework that converts robot demonstration videos into spatially grounded training data, enabling models to learn planning and grounding jointly.</li>
-
-
-
-<li>Grounded planning improves both task success and action accuracy, outperforming decoupled approaches in benchmark and real-world evaluations.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>Vision-language models (VLMs) use images and text to plan robot actions, but they still struggle to decide what actions to take and where to take them. Most systems split these decisions into two steps: a VLM generates a plan in natural language, and a separate model translates it into executable actions. This approach often breaks down for long, complex tasks because natural-language plans can be ambiguous or even hallucinated when specifying actions and locations (Figure 1). Because planning and spatial reasoning are handled separately, errors in one stage can propagate to the next. This raises a key question: can a VLM determine both what to do and where to do it simultaneously?</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="885" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1.png" alt="Figure 1: This figure shows some failure cases for a vision-language robot task planner. Given the instruction “discard all paper cups to bin,” the planner produces an action sequence with ambiguous cup references and a hallucinated step, “place inside the cabinet.” Cropped object views and arrows to a language-based spatial grounding module show that ambiguous grounding can lead to non-executable plans." class="wp-image-1166790" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-300x190.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-1024x647.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-768x485.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig1-240x152.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 1. Failures in VLM-based task planners, where ambiguous language leads to non-executable actions.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="planning-with-spatial-grounding">Planning with spatial grounding</h2>
-
-
-
-<p>To address this problem, we developed <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://groundedplanning.github.io/GroundedPlanning/" type="link" id="https://groundedplanning.github.io/GroundedPlanning/" target="_blank" rel="noopener noreferrer">GroundedPlanBench<span class="sr-only"> (opens in new tab)</span></a>. In our paper, “<a href="https://www.microsoft.com/en-us/research/publication/spatially-grounded-long-horizon-task-planning-in-the-wild/" type="msr-research-item" id="1166702">Spatially Grounded Long-Horizon Task Planning in the Wild</a>,” we describe how this new benchmark evaluates whether VLMs can plan actions and determine where those actions should occur across diverse real-world environments. We also built Video-to-Spatially Grounded Planning (V2GP), a framework that converts robot demonstration videos into training data to help VLMs learn this capability.</p>
-
-
-
-<p>Evaluating these with both open- and closed-source VLMs, we found that grounded planning for long, complex tasks is challenging. At the same time, V2GP improves both planning and grounding, with gains validated on our benchmark and in real-world experiments using robots.</p>
-
-
-
-<h2 class="wp-block-heading" id="how-groundedplanbench-works">How GroundedPlanBench works</h2>
-
-
-
-<p>To create realistic robot scenarios, we built our benchmark from 308 robot manipulation scenes in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://droid-dataset.github.io/" type="link" id="https://droid-dataset.github.io/" target="_blank" rel="noopener noreferrer">Distributed Robot Interaction Dataset (DROID)<span class="sr-only"> (opens in new tab)</span></a>, a large collection of recordings of robots performing tasks. We worked with experts to review each scene and define tasks that a robot could perform. Each task was written in two styles: explicit instructions that clearly describe the actions (e.g., “put a spoon on the white plate”) and implicit instructions that describe the goal more generally (e.g., “tidy up the table”).</p>
-
-
-
-<p>For each task, the plan was broken down into four basic actions—<em>grasp</em>,&nbsp;<em>place</em>,&nbsp;<em>open</em>, and&nbsp;<em>close</em>—each tied to a specific location in the image. <em>Grasp, open, and close</em> actions were linked to a box drawn around the target object, while place actions were linked to a box showing where the object should be placed.</p>
-
-
-
-<p>Figure 2 illustrates medium- and long-duration tasks, along with their explicit and implicit instructions. In total, GroundedPlanBench contains 1,009 tasks, ranging from 1–4 actions (345 tasks) to 5–8 (381) and 9–26 (283).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="449" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2.png" alt="Figure 2: This figure shows two examples comparing explicit and implicit task instructions: one about placing bottles and a cup into a sink, and another about placing eggs and vegetables into a silver bowl. The figure shows that implicit instructions summarize explicit object lists into higher-level descriptions. This figure shows two examples comparing explicit and implicit task instructions: one about placing bottles and a cup into a sink, and another about placing eggs and vegetables into a silver bowl. The figure shows that implicit instructions summarize explicit object lists into higher-level descriptions." class="wp-image-1166789" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-300x96.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-1024x328.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-768x246.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig2-240x77.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. Examples of tasks in GroundedPlanBench.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-v2gp-works">How V2GP works</h2>
-
-
-
-<p>The V2GP framework first detects moments when the robot interacts with objects using the recorded gripper signals. It then generates a text description of the manipulated object with a multimodal language model. Guided by this description, the system tracks the object across the video using Meta’s advanced open-vocabulary image and video segmentation model, SAM3. The system then constructs grounded plans from the tracking results, identifying the object&#8217;s location at the moment it is grasped and where it is placed.</p>
-
-
-
-<p>This process is illustrated in Figure 3. It yielded 43K grounded plans with varying lengths: 34,646 plans with 1–4 actions, 4,368 with 5–8 actions, and 4,448 with 9–26 actions.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="702" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3.png" alt="Figure 3: This figure shows an overview of the V2GP framework. Robot demonstration videos are segmented into temporal sub-actions, matched with active objects, spatially grounded with grasp boxes and placement points, and converted into unified training samples containing language instructions and structured action plans. This figure shows an overview of the V2GP framework. Robot demonstration videos are segmented into temporal sub-actions, matched with active objects, spatially grounded with grasp boxes and placement points, and converted into unified training samples containing language instructions and structured action plans." class="wp-image-1166788" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-1024x513.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-768x385.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig3-240x120.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 3. The V2GP framework converts robot videos into spatially grounded plans.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="evaluating-decoupled-versus-grounded-planning">Evaluating decoupled versus grounded planning</h2>
-
-
-
-<p>To evaluate GroundedPlanBench in real-world robotic settings, we used <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/QwenLM/Qwen3-VL" type="link" id="https://github.com/QwenLM/Qwen3-VL" target="_blank" rel="noopener noreferrer">Qwen3-VL<span class="sr-only"> (opens in new tab)</span></a> as our base model. Qwen3-VL is a vision-language model that processes text, images, and video to support multimodal reasoning. It performs well on standard multimodal reasoning benchmarks without additional training. We first evaluated it, along with other proprietary models, on GroundedPlanBench without any task-specific training (Table 1). We then fine-tuned it on V2GP training data and compared it with a decoupled approach, in which planning and grounding are handled separately.</p>
-
-
-
-<p>In this setup, a VLM first generated a plan describing what the robot should do. We used GPT-5.2 or Qwen3-VL-4B for this step. The plan was then passed to a spatial grounding model, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://embodied-r1.github.io/" type="link" id="https://embodied-r1.github.io/" target="_blank" rel="noopener noreferrer">Embodied-R1<span class="sr-only"> (opens in new tab)</span></a>, which converted the plans into executable signals. Embodied-R1 is a large vision-language model trained for embodied reasoning and pointing, where the model identifies specific locations in the image to guide the robot’s actions. We selected it for spatial grounding because its training targets embodied spatial reasoning and point-based localization, making it well suited for grounding model outputs to specific locations in an image.</p>
-
-
-
-<p>Figure 4 highlights a key limitation of this approach: ambiguity in natural language. For example, Qwen3-VL-4B generated grasp actions by referring to “napkin on the table” for all four napkins in the scene, leading Embodied-R1 to ground each action the same napkin. GPT-5.2 produced more descriptive phrases, such as “top-left napkin” or “upper-center napkin,” but these were still too imprecise for the model to reliably distinguish between them and were again grounded to the same object.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="593" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4.png" alt="Figure 4: This figure shows a comparison of planning methods for the instruction “Put four napkins on the couch.” Several baseline methods ground actions to the wrong objects, while the grounded V2GP method correctly identifies the napkins and their placement locations." class="wp-image-1166787" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-1024x434.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-768x325.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Fig4-240x102.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 4. Decoupled vs. grounded planning, illustrating how ambiguous language causes actions to be grounded to the wrong objects.</figcaption></figure>
-
-
-
-<p>This limitation becomes more pronounced in real-world robot manipulation, where environments are often cluttered and complex. As a result, decoupled approaches struggle to work reliably. In contrast, our approach,&nbsp;grounded planning,&nbsp;performs planning and grounding jointly within a single model and improves both planning and grounding performance.</p>
-
-
-
-<p>Table 1 presents evaluation results for open- and closed-source VLMs on GroundedPlanBench. Multi-step planning and handling of implicit instructions were challenging for all models, while training Qwen3-VL-4B and Qwen3-VL-32B with V2GP led to significant improvements in grounded planning.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1253" height="776" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1.png" alt="Table 1: This table reports results of evaluation on GroundedPlanBench, comparing proprietary and open-source VLMs on task success rate and action recall for explicit and implicit instructions of varying lengths. V2GP achieves the best overall performance, with consistent gains over decoupled planning plus spatial grounding baselines." class="wp-image-1166785" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1.png 1253w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-300x186.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-1024x634.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-768x476.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/V2GP_Table1-240x149.png 240w" sizes="auto, (max-width: 1253px) 100vw, 1253px" /><figcaption class="wp-element-caption">Table 1. Evaluation results on GroundedPlanBench. Task Success Rate (TSR) measures the percentage of tasks completed correctly, requiring all actions to be both correctly planned and spatially grounded. Action Recall Rate (ARR) measures the proportion of generated actions that match the sub-actions defined in the dataset, regardless of order. The V2GP approach improves performance on both metrics and achieves the best results (shown in bold). </figcaption></figure>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">On Second Thought</h2>
-				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="implications-and-looking-forward">Implications and looking forward</h2>
-
-
-
-<p>Integrating planning and grounding within a single model offers a path to more reliable robot manipulation in real-world settings. Rather than relying on separate stages, this approach keeps decisions about what to do and where to act tightly coupled, but models still struggle with longer, multi-step tasks and implicit instructions. Models must reason over longer sequences of actions and maintain consistency across many steps and goals described indirectly, as in everyday language.</p>
-
-
-
-<p>Looking ahead, a promising direction combines grounded planning with world models, which enable robots to predict the outcomes of actions before executing them. Together, these capabilities could allow robots to decide what to do, where to act, and what will happen next, bringing us closer to systems that can plan and act reliably in the real world.</p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p>This research was conducted in collaboration with Korea University, Microsoft Research, University of Wisconsin-Madison, and supported by the Institute of Information & Communications Technology Planning & Evaluation (IITP) grant (No. RS-2025-25439490) funded by the Korea government (MSIT).</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/groundedplanbench-spatially-grounded-long-horizon-task-planning-for-robot-manipulation/">GroundedPlanBench: Spatially grounded long-horizon task planning for robot manipulation</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
