@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 11 May 2026 17:19:31 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 12 May 2026 13:29:42 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,205 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models</title>
+		<link>https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/</link>
+		
+		<dc:creator><![CDATA[Andrew Fowler, Claudio Zeni, Daniel Zügner, Fabian Thiemann, Han Yang, Robert Pinsler, Shoko Ueda, Kenji Takeda]]></dc:creator>
+		<pubDate>Tue, 12 May 2026 13:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1171172</guid>
+
+					<description><![CDATA[<p>MatterSim is expanding what AI can do for materials science—from faster large-scale simulations to MatterSim-MT, a new multi-task model for simulating properties beyond potential energy surfaces alone.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/">Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a blue-to-purple-to-pink gradient background: honeycomb, flowchart icon, scientific beaker with circled checkmark" class="wp-image-1171177" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Experimental validation</strong>: Using high-throughput screening with MatterSim-v1, we <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/" type="link" id="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/">previously</a> identified tetragonal tantalum phosphorus (TaP) as a potential high-performance thermal conductor. Now we have experimentally synthesized it and measured its thermal conductivity (152 W/m/K) to be close to the thermal conductivity of silicon.</li>
+
+
+
+<li><strong>Faster simulation</strong>: We have accelerated MatterSim-v1 model inference by 3-5x and integrated it with the LAMMPS software package, enabling large-scale simulations across multiple GPUs.</li>
+
+
+
+<li><strong>New model release</strong>: We are introducing MatterSim-MT, a multi-task foundation model for in silico materials characterization that enables the simulation of complex, multi-property phenomena beyond what potential energy surfaces alone can capture.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Materials design underpins a wide range of technological advances, from nanoelectronics to semiconductor design and energy storage. Yet development cycles for novel materials remain slow and costly. Universal machine learning interatomic potentials aim to accelerate the materials design process by providing accurate stability and property predictions for a wide range of materials. These models are orders of magnitude faster than traditional first-principles simulations, turning previously impractical problems into routine computations that can be completed in a few hours. Since we <a href="https://www.microsoft.com/en-us/research/publication/mattersim-a-deep-learning-atomistic-model-across-elements-temperatures-and-pressures/" type="msr-research-item" id="1033005">launched</a> our MatterSim-v1 model, it has gained popularity in the materials science community for its ability to accurately simulate materials under realistic conditions, including finite temperature and pressure.</p>
+
+
+
+<p>Today, we have several exciting MatterSim updates to share. These include experimental validation of MatterSim predictions for thermal conductors, performance improvements for faster simulation, and the introduction of a new multi-task foundation model for materials characterization.</p>
+
+
+
+<h2 class="wp-block-heading" id="experimental-validation">Experimental validation</h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="800" height="264" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2.png" alt="Right: Scatter plot of MatterSim's thermal conductivity predictions compared to ground-truth simulation and experiment. The plot shows a good agreement. | Left: Different views of the experimentally synthesized tetragonal tantalum phosphorus sample." class="wp-image-1171414" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2.png 800w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2-300x99.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2-768x253.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2-240x79.png 240w" sizes="(max-width: 800px) 100vw, 800px" /><figcaption class="wp-element-caption">Figure 1: Based on MatterSim’s computational predictions, we have synthesized a potential high thermal conductor. Left: MatterSim predictions of thermal conductivity compared to ground-truth simulation and experiment (with ±50% error band shown for reference). Right: Different views of the experimentally synthesized tetragonal tantalum phosphorus (TaP) sample with measured thermal conductivity of <strong>152</strong> W/m/K.</figcaption></figure>
+
+
+
+<p>Materials with high thermal conductivity play a critical role in heat management, preventing overheating and improving energy efficiency. For example, established high thermal conductors like diamond, copper and silicon are widely used across a broad range of cooling applications. Designing next-generation thermal conductors may enable advances in computing, power electronics, and aerospace technologies. However, doing so requires accurate predictions of thermal conductivity values for candidate materials.</p>
+
+
+
+<p>In solids, heat is carried in two main ways: by vibrating atoms (phonons) and by moving electrons. The phonon contribution can be estimated using machine-learning interatomic potentials to enable screening of thousands of candidates, narrowing the search space to the most promising materials before expensive experimental validation.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>“MatterSim has generated by far the largest database of computational thermal conductivities. This opens the door to exploring a far broader materials space than before […].”</p>
+<cite>– Prof. Bing Lv, University of Texas Dallas</cite></blockquote>
+
+
+
+<p>In collaboration with the University of Texas Dallas (UT Dallas), University of Illinois Urbana-Champaign, and University of California Davis (UC Davis), we have used MatterSim-v1 to screen over 240,000 candidate materials for high thermal conductors. As shown in Fig. 1 (left), MatterSim’s predictions have good agreement with first-principles simulations. Prof. Davide Donadio from UC Davis: &#8220;I was amazed by how the MatterSim model combined accuracy and computational efficiency to predict such a sensitive property as thermal conductivity. That was the key that unlocked screening at this scale, hundreds of thousands of crystals, that would have been completely out of reach with conventional methods.&#8221; Prof. Bing Lv from UT Dallas adds: “MatterSim has generated by far the largest database of computational thermal conductivities. This opens the door to exploring a far broader materials space than before, enabling the community to uncover a broader set of viable materials even after imposing practical requirements.”</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>“For the first time, we can test conventional understanding of what controls thermal conductivity at scale […]”</p>
+<cite>– Prof. David Cahill, University of Illinois Urbana-Champaign</cite></blockquote>
+
+
+
+<p>Based on these predictions, we have identified tetragonal tantalum phosphorus (TaP) as a potential high thermal conductor. We have experimentally synthesized tetragonal tantalum phosphorus (TaP) at UT Dallas and measured its thermal conductivity at University of Illinois Urbana-Champaign (152 W/m/K for our best samples), close to the thermal conductivity of silicon. While we are not the first to synthesize tetragonal TaP, the material has not been considered as a thermal conductor before. These results demonstrate how MatterSim can enable the identification of functional materials: &#8220;For the first time, we can test conventional understanding of what controls thermal conductivity at scale, while enabling the discovery of new functional materials that balance it with other important constraints such as mass density, elemental abundance, and environmental stability&#8221;, says Prof. David Cahill from University of Illinois Urbana-Champaign.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Newsletter</h2>
+				
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="performance-improvements">Performance improvements</h2>
+
+
+
+<p>We are making MatterSim-v1 significantly faster by releasing several open-source performance and usability improvements. First, we speed up model inference through a combination of faster graph construction, ahead-of-time compilation and reduced conversion between atomic representations, resulting in a 3x speed-up of MatterSim-v1.0.0-5M and a 5x speed-up of MatterSim-v1.0.0-1M (see Fig. 2). To make MatterSim-v1 easier to use, we have integrated it into the widely used LAMMPS simulation software, allowing users to easily scale model inference across multiple GPUs in their existing workflows.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2134" height="1534" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup.png" alt="Bar charts comparing the inference time of the previous and updated MatterSim versions. The plot shows 3 times speed-up for the 5 million parameter model and 5 times speed-up for the 1 million parameter model." class="wp-image-1171180" style="aspect-ratio:1.3911699352719544;object-fit:cover;width:600px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup.png 2134w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-1024x736.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-768x552.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-1536x1104.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-2048x1472.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-240x173.png 240w" sizes="(max-width: 2134px) 100vw, 2134px" /><figcaption class="wp-element-caption">Figure 2: 3x inference speed-up of MatterSim-v1.0.0-5M and 5x inference speedup of MatterSim-v1.0.0-1M (python). </figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="new-model-release">New model release</h2>
+
+
+
+<p>Building on the success of MatterSim-v1, today we extend the MatterSim model family by announcing MatterSim-MT: a multi-task (MT) foundation model for in silico materials simulation and property characterization. The model natively predicts energies, forces, stress and several important materials properties.</p>
+
+
+
+<p>MatterSim-MT is pretrained on over 35 million first-principles-labelled structures covering 89 elements, temperatures up to 5000 K and pressures up to 1000 GPa. It is further fine-tuned on various properties including Bader charges, magnetic moments, Born effective charges, and dielectric matrices. Out of the box, MatterSim-MT serves as a foundation model for predicting material structure, dynamics and thermodynamics. Its multi-task architecture also enables a wide range of complex simulations that cannot be captured by potential energy surfaces alone. The ability to accurately simulate these phenomena is crucial for applications such as catalysis and energy storage.</p>
+
+
+
+<p>Here, we illustrate these multi-task capabilities through three case studies: vibrational spectroscopy, ferroelectric switching, and electrochemical redox. Each example requires a distinct combination of property predictions. <a href="https://www.microsoft.com/en-us/research/publication/mattersim-mt-a-multi-task-foundation-model-for-in-silico-materials-characterization/">In the full manuscript</a>, we also show that MatterSim-MT scales well with more data and parameters, can be efficiently fine-tuned to higher levels of theory, and can be systematically extended to new systems via active learning.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1024" height="927" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask.png" alt="Top left: Atomic representation of a material along with an overview of the multi-task capabilities of the model. Top right: Pressure-dependent phonon spectrum of Silicon Carbide (SiC) up to 100 GPa. Bottom left: Predicted hysteresis curve of the polarization density as a function of the electrical field along the z direction in the ferroelectric tetragonal Barium titanate material. Bottom right: Evolution of oxygen Bader charge distributions in Lithium Manganese dioxide during delithiation, with arrows indicating the formation of an oxygen molecule." class="wp-image-1171183" style="aspect-ratio:1.1046545077958692;object-fit:cover;width:600px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask-300x272.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask-768x695.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask-199x180.png 199w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Figure 3: MatterSim‑MT’s multi-task prediction ability enables simulating complex material phenomena. (a) Illustration of the multi-task inference capabilities of MatterSim-MT, including predictions of energy (E), forces (F), stress (S), magnetic moments (μ), Born effective charges (Z∗), and dielectric matrices (ε∞) from atomic structures. (b) Pressure-dependent phonon spectrum of silicon carbide (SiC) up to 100 GPa, with inset comparing MatterSim’s predicted longitudinal optical (LO) and transverse optical (TO) splitting against experimental measurements. (c) Predicted hysteresis curve of polarization density as a function of the electrical field along the z direction in the ferroelectric tetragonal BaTiO3 material. (d) Evolution of oxygen Bader charge distributions in Li<sub>1.2 – x</sub>Mn<sub>0.8</sub>O<sub>2</sub> during delithiation, with arrows indicating the formation of an O<sub>2</sub> molecule. </figcaption></figure>
+
+
+
+<p>First, we focus on vibrational spectroscopy, a technique that identifies substances by measuring how their atomic bonds naturally vibrate. We demonstrate how predictions of Born effective charges and dielectric properties enable the computation of phonon spectra in polar crystals. In these materials, oppositely charged ions vibrate against each other. Depending on the direction of vibration, this can lead to a buildup of charge that creates a macroscopic electric field, splitting the optical phonon modes into higher-frequency longitudinal (LO) and lower-frequency transverse (TO) branches. As a case study, we simulated this behavior in 3c-silicon carbide (3c-SiC), a material used in high-power electronics, under extreme pressures. As shown in Fig. 3(b), MatterSim-MT predicts a Born effective charge in close agreement with both theoretical and experimental values. The resulting LO-TO splitting of 5.26 THz deviates by only 0.06 THz from ab initio calculations and 0.03 THz from experimental measurements.</p>
+
+
+
+<p>The predicted Born effective charges also allow us to simulate how systems respond to an external electric field. In ferroelectric materials, ions adopt an asymmetric arrangement that gives the crystal a net electric polarization that can be flipped by an applied field. In Fig.&nbsp;3(c), we&nbsp;demonstrate&nbsp;this by&nbsp;simulating&nbsp;barium&nbsp;titanate (BaTiO<sub>3</sub>) under an applied&nbsp;electric&nbsp;field, reproducing&nbsp;the switching of&nbsp;its&nbsp;polarization. The&nbsp;resulting&nbsp;hysteresis curve&nbsp;correctly shows that&nbsp;finite-temperature effects&nbsp;at 300 K&nbsp;make it easier to flip&nbsp;the&nbsp;polarization, even though the predicted spontaneous polarization&nbsp;(38&nbsp;μC/cm<sup>2</sup>)&nbsp;is slightly higher than&nbsp;the experimental value (26&nbsp;μC/cm<sup>2</sup>).&nbsp;This discrepancy is likely due to the well-known&nbsp;underbinding&nbsp;of the underlying first-principles calculations.</p>
+
+
+
+<p>Finally, we predict atomic charges to study the electronic degrees of freedom in chemical bonding and redox processes. We examine the behavior of the cathode material Li<sub>1.2 – x</sub>Mn<sub>0.8</sub>O<sub>2</sub> during a simulated battery charging process. These lithium-rich transition-metal oxides are promising next-generation batteries due to their high energy density but suffer from irreversible capacity loss associated with the anionic oxygen redox mechanism. We reproduced this phenomenon by running molecular dynamics simulations at 1000 K and progressively extracting Lithium to mimic battery charging. We observe a clear shift over time: at first, the manganese (Mn) atoms supply the electrons needed for charging, but as more lithium is removed, oxygen atoms are forced to give up electrons instead (cationic to anionic redox), as shown by the shift to less negative Bader charges over time (Fig. 3(d)). This destabilises the structure with oxygen atoms pairing up to form O<sub>2</sub> dimers (Fig. 3(d), inset). Notably, this comprehensive picture of the cationic-to-anionic redox transition and lattice degradation naturally emerges from the multi-task predictions, without any task-specific training on battery materials.</p>
+
+
+
+<h2 class="wp-block-heading" id="next-steps">Next steps</h2>
+
+
+
+<p>With experimental validation, substantial performance improvements, and new multi-task capabilities, MatterSim is advancing toward more practical, decision-relevant use in materials design. Together, these developments are helping materials scientists move more quickly from large-scale computational screening to targeted experimental follow-up and decision-relevant scientific workflows. We are excited to see how the materials science community applies these advances in their own domains.</p>
+
+
+
+<p>We look forward to continued collaboration as MatterSim is tested, extended, and integrated into real-world materials discovery pipelines.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/mattersim" target="_blank" rel="noreferrer noopener">MatterSim updated</a></div>
+
+
+
+<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://arxiv.org/abs/2605.07927v1">MatterSim-MT Pre-Print</a></div>
+</div>
+
+
+
+<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
+
+
+
+<p>This work is the product of a highly collaborative and interdisciplinary effort led by Microsoft Research AI for Science in partnership with Microsoft Research Accelerator and collaborators at the University of Texas Dallas (supported by MSR Accelerator), University of Illinois Urbana-Champaign and University of California Davis. Contributors to this work include Han Yang, Xixian Liu, Chenxi Hu, Yichi Zhou, Yu Shi, Chang Liu, Junfu Tan, Jielan Li, Guanzhi Li, Qian Wang, Yu Zhu, Zekun Chen, Shuizhou Chen, Fabian Thiemann, Claudio Zeni, Matthew Horton, Robert Pinsler, Andrew Fowler, Daniel Zügner, Tian Xie, Lixin Sun, Yicheng Chen, Lingyu Kong, Yeqi Bai, Deniz Gunceler, Frank Noé, Hongxia Hao, Ziheng Lu, Zixin Zhai, Mengfan Wu, Haoke Qiu, Mingfa Tang, Tie-Yan Liu, Haiguang Liu, Tao Qin, David G. Cahill, Bing Lv, Davide Donadio, Shoko Ueda, and Kenji Takeda.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/">Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests</title>
 		<link>https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/</link>
 		
@@ -32,7 +231,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/">SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1.jpg" alt="Social Reasoning Bench | four icons on a blue to green gradient | person icon, chat bubble icon, chart icon, checklist icon" class="wp-image-1170935" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1.jpg" alt="Social Reasoning Bench | four icons on a blue to green gradient | person icon, chat bubble icon, chart icon, checklist icon" class="wp-image-1170935" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/SocialReasoningBench-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -93,7 +292,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="1376" height="768" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark.png" alt="Figure 1: Our benchmark measures agents' social reasoning ability in two domains, calendar coordination and marketplace negotiation. Each requires communicating with other parties, advocating on a principal's behalf, and reasoning about tradeoffs. " class="wp-image-1171327" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark.png 1376w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-300x167.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-240x134.png 240w" sizes="(max-width: 1376px) 100vw, 1376px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>1</em>: Our benchmark measures agents&#8217; social reasoning ability in two domains, calendar&nbsp;coordination&nbsp;and marketplace negotiation. Each requires&nbsp;communicating with other parties, advocating on&nbsp;a&nbsp;principal&#8217;s behalf, and reasoning about tradeoffs.&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1376" height="768" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark.png" alt="Figure 1: Our benchmark measures agents' social reasoning ability in two domains, calendar coordination and marketplace negotiation. Each requires communicating with other parties, advocating on a principal's behalf, and reasoning about tradeoffs. " class="wp-image-1171327" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark.png 1376w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-300x167.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure1_NEW_Benchmark-240x134.png 240w" sizes="auto, (max-width: 1376px) 100vw, 1376px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>1</em>: Our benchmark measures agents&#8217; social reasoning ability in two domains, calendar&nbsp;coordination&nbsp;and marketplace negotiation. Each requires&nbsp;communicating with other parties, advocating on&nbsp;a&nbsp;principal&#8217;s behalf, and reasoning about tradeoffs.&nbsp;</em></figcaption></figure>
 
 
 
@@ -177,30 +376,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -237,7 +436,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="2560" height="928" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-scaled.png" alt="Figure 2: Task Completion vs Outcome Optimality by model and domain. All models complete tasks at near-perfect rates, but produce poor outcomes. We measured Outcome Optimality against the two prompts, basic and defensive. Defensive prompting helps but does not close the gap. " class="wp-image-1171350" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-1024x371.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-768x278.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-1536x557.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-2048x743.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-240x87.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>2</em>: Task Completion vs Outcome Optimality by model and domain. All&nbsp;models&nbsp;complete tasks at&nbsp;near-perfect&nbsp;rates, but&nbsp;produce poor outcomes.&nbsp;We&nbsp;measured&nbsp;<em>O</em>utcome&nbsp;<em>O</em>ptimality against&nbsp;the two prompts, basic and defensive.&nbsp;Defensive prompting&nbsp;helps but does not close the gap.&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="928" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-scaled.png" alt="Figure 2: Task Completion vs Outcome Optimality by model and domain. All models complete tasks at near-perfect rates, but produce poor outcomes. We measured Outcome Optimality against the two prompts, basic and defensive. Defensive prompting helps but does not close the gap. " class="wp-image-1171350" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-1024x371.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-768x278.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-1536x557.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-2048x743.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/figure2-fixed_Benchmark-240x87.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure&nbsp;<em>2</em>: Task Completion vs Outcome Optimality by model and domain. All&nbsp;models&nbsp;complete tasks at&nbsp;near-perfect&nbsp;rates, but&nbsp;produce poor outcomes.&nbsp;We&nbsp;measured&nbsp;<em>O</em>utcome&nbsp;<em>O</em>ptimality against&nbsp;the two prompts, basic and defensive.&nbsp;Defensive prompting&nbsp;helps but does not close the gap.&nbsp;</em></figcaption></figure>
 
 
 
@@ -658,30 +857,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1354,30 +1550,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2861,30 +3057,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4019,30 +4215,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -4065,171 +4261,6 @@
 
 <p>As general-purpose AI systems continue to outpace existing evaluation methods, approaches like ADeLe offer a path toward more rigorous and transparent assessment in real-world use. The research team is working to expand this effort through a broader community. Additional experiments, benchmark annotations, and resources are available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://kinds-of-intelligence-cfi.github.io/ADELE/" type="link" id="https://kinds-of-intelligence-cfi.github.io/ADELE/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/adele-predicting-and-explaining-ai-performance-across-tasks/">ADeLe: Predicting and explaining AI performance across tasks</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>AsgardBench: A benchmark for visually grounded interactive planning</title>
-		<link>https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/</link>
-		
-		<dc:creator><![CDATA[Andrea Tupini, Lars Liden, Reuben Tan, Yu Wang, Jianfeng Gao]]></dc:creator>
-		<pubDate>Thu, 26 Mar 2026 19:02:53 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1166723</guid>
-
-					<description><![CDATA[<p>Imagine a robot tasked with cleaning a kitchen. It needs to observe its environment, decide what to do, and adjust when things don&#8217;t go as expected, for example, when the mug it was tasked to wash is already clean, or the sink is full of other items. This is the domain of embodied AI: systems [&#8230;]</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1.jpg" alt="AsgardBench | three whit icons on a blue to purple gradient background | first icon shows a laptop screen with a eye in the upper right corner, second icon shows relational nodes | third icon is a security shield with a checkmark" class="wp-image-1166730" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>To successfully complete tasks, embodied AI agents must ground and update their plans based on visual feedback.</li>
-
-
-
-<li>AsgardBench isolates whether agents can use visual observations to revise their plans as tasks unfold.</li>
-
-
-
-<li>Spanning 108 controlled task instances across 12 task types, the benchmark requires agents to adapt their plans based on what they observe.</li>
-
-
-
-<li>Because objects can be in different positions and states (e.g., clean or dirty), the same instruction can require different action sequences, even in the same environment.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p>Imagine a robot tasked with cleaning a kitchen. It needs to observe its environment, decide what to do, and adjust when things don&#8217;t go as expected, for example, when the mug it was tasked to wash is already clean, or the sink is full of other items. This is the domain of embodied AI: systems that perceive their environment and act within it.</p>
-
-
-
-<p>The field has made rapid progress, but evaluating these systems is harder than it looks. Many benchmarks test perception, navigation, and physical control all at once, making it difficult to isolate whether an AI agent is actually using what it perceives to make better decisions or just getting lucky because the environment is predictable enough to script around.</p>
-
-
-
-<p>To address this, we created AsgardBench. In the paper, <a href="https://www.microsoft.com/en-us/research/publication/asgardbench-evaluating-visually-grounded-interactive-planning-under-minimal-feedback/" type="msr-research-item" id="1166402">AsgardBench &#8212; Evaluating Visually Grounded Interactive Planning Under Minimal Feedback</a>,” we describe how this benchmark poses a simple but demanding challenge: give an AI agent a household task, let it observe the environment through images, and see whether it can adjust its plan when what it perceives contradicts what it anticipated. Can it notice that the mug it needs to clean is already in the sink, or that it isn&#8217;t, and behave accordingly? That is the core question AsgardBench is designed to answer.</p>
-
-
-
-<p>Built on AI2-THOR, an interactive 3D simulation environment used to train and evaluate AI agents on household tasks, AsgardBench positions agents near objects and gives them a small, fixed set of actions, such as <em>find</em>, <em>pickup</em>, <em>put</em>, <em>clean</em>, and <em>toggle_on/off</em>. At each turn, the agent proposes a full sequence of steps to complete the task, but only the first step executes. Throughout, the focus is squarely on plan adaptation, not whether an agent can navigate a room or manipulate an object, but whether it can use what it perceives to revise its next step.</p>
-
-
-
-<p>For example, the agent may discover a mug to be clean, dirty, or filled with coffee, or it may observe that a sink contains many other items, so the same instruction can require different action sequences as the task unfolds. This process is illustrated in Figure 1.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="658" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1.png" alt="Model changes the steps in its plan as new observations are observed" class="wp-image-1166728" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig1-240x113.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 1: Agent observations and corresponding action plans in AsgardBench. Each image is paired with the plan generated from that observation. This illustrates how AsgardBench requires agents to update or change their plans based on new visual evidence rather than following a fixed sequence.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="how-it-works">How it works</h2>
-
-
-
-<p>Agents start in interaction-ready positions, so navigation and viewpoint selection are not factors. A <em>find </em>action brings objects into view, and the environment handles the details of container sizing and placement, so the agent does not need to reason about which cabinet or countertop to use. The only inputs are color images, a history of attempted actions with simple success or failure signals, and the agent’s own record of what it plans to do next.</p>
-
-
-
-<p>At each turn, the agent proposes a complete sequence of steps to finish the task, but only the first step proceeds. It then receives new images and a simple signal—did that action succeed or fail? This prevents the agent from scripting everything upfront and forces it to re-evaluate and revise its plan at every step. Built-in limits on total steps and repeated actions prevent endless loops. Because the environment provides only simple feedback, the agent must be able to notice what it perceives (e.g., whether a mug is dirty, whether a faucet is running) and keep track of where it is in the task from one step to the next.</p>
-
-
-
-<h2 class="wp-block-heading" id="evaluating-asgardbench">Evaluating AsgardBench</h2>
-
-
-
-<p>We tested several leading vision-capable models on AsgardBench and observed that high-performing models require visual grounding to consistently succeed. Across the models, visual input substantially improved performance: most models more than doubled success rates when given images versus text-only descriptions of the scene. This is in contrast to some prior benchmarks where agents could perform reasonably well without vision by relying on textual feedback on what went wrong.</p>
-
-
-
-<p>Providing that kind of detailed failure information raises performance for all models in AsgardBench, too, but it can mask the real problem. The strongest vision-capable models still outperform text-only agents even when those agents are given detailed feedback, demonstrating that the benchmark requires visual grounding that text alone cannot replicate. AsgardBench’s performance is illustrated in Figure 2.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="658" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2.png" alt="Chart showing input substantially improves performance for all but the weakest models when images are included" class="wp-image-1166727" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/03/AsgardBench-fig2-240x113.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2. Success rates for image-based and text-only conditions. Visual input substantially improves performance for all but the weakest agents, while text-only performance remains low, indicating that AsgardBench requires perception-based reasoning.</figcaption></figure>
-
-
-
-<p>The results also revealed where today&#8217;s agents consistently fall short. Across all models, the same problems kept appearing: agents attempted undoable actions (e.g., trying to clean a mug that was not in the sink), got stuck in repeated action loops, misinterpreted subtle visual cues (on/off, clean/dirty), and lost track of where they were in the task progress from one step to the next. This points to three weaknesses: the inability to distinguish subtle visual details in cluttered scenes, the inability to maintain an accurate picture of task progress across multiple steps, and the inability to consistently translate what the agent sees into timely updates to its plan. Taken together, these point to where the next generation of embodied agents will need to improve.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="implications-and-looking-ahead">Implications and looking ahead</h2>
-
-
-
-<p>AsgardBench is useful as both a diagnostic and development tool. By varying what feedback agents receive (none, minimal, or detailed), researchers can isolate whether performance gains come from better perception, better memory, or better planning. Promising directions include systems that combine stronger visual understanding with better state tracking, training approaches that emphasize learning to repair plans mid-task, and evaluation methods that measure not just whether an agent succeeds but how well it adapted along the way.</p>
-
-
-
-<p>The failure patterns AsgardBench surfaces point toward a concrete next step: building systems that can make finer visual distinctions, keep track of what changed more reliably across steps, and learn to revise plans mid-task rather than plowing ahead on a script. Agents that make progress on these challenges should be meaningfully better equipped for the messiness of real-world environments: unexpected object states, cluttered scenes, and the constant need to adapt.</p>
-
-
-
-<p>AsgardBench is open source and available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/AsgardBench" type="link" id="https://github.com/microsoft/AsgardBench" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>, providing a foundation for advancing research in visually grounded planning.</p>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p>We thank the AI2-THOR community for building the simulation platform and making reproducible embodied evaluation possible.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/asgardbench-a-benchmark-for-visually-grounded-interactive-planning/">AsgardBench: A benchmark for visually grounded interactive planning</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
