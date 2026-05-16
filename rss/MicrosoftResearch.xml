@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 13 May 2026 17:29:03 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 15 May 2026 18:17:35 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,118 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</title>
+		<link>https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/</link>
+		
+		<dc:creator><![CDATA[Philippe Laban, Tobias Schnabel, Jennifer Neville]]></dc:creator>
+		<pubDate>Fri, 15 May 2026 18:06:57 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1172154</guid>
+
+					<description><![CDATA[<p>Our recent paper, “LLMs Corrupt Your Documents When You Delegate”, has generated discussion about the reliability of AI systems in delegated workflows. We appreciate the interest in this work and want to clarify several important points about what the paper does—and does not—claim. The research aims to develop robust evaluation methods for long-horizon delegated and [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/">Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<p>Our recent paper, “<a href="https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/">LLMs Corrupt Your Documents When You Delegate</a>”, has generated discussion about the reliability of AI systems in delegated workflows. We appreciate the interest in this work and want to clarify several important points about what the paper does—and does not—claim.</p>
+
+
+
+<p>The research aims to develop robust evaluation methods for long-horizon delegated and collaborative tasks. More broadly, this work reflects an ongoing effort to better understand the gap between strong benchmark performance and certain real-world tasks. Using a controlled evaluation methodology, we examine how well information is preserved across these extended workflows. Within this constrained setting, we observe that models can accumulate fidelity degradation over repeated edits. Note however, that current production systems can mitigate these effects through verification loops, orchestration, and domain-specific tooling.</p>
+
+
+
+<p>Our goal is not to argue against the use of AI systems in professional workflows, but rather to identify where current systems need further research and engineering to help make them more trustworthy collaborators. This benchmark is intended as a diagnostic tool for examining delegation patterns, not a measure of overall model capability, task success, or user outcomes.</p>
+
+
+
+<h2 class="wp-block-heading" id="main-results">Main results</h2>
+
+
+
+<p>The paper evaluates a specific interaction pattern we call delegated work—situations where a user entrusts an AI system to carry out multi-step modifications to important artifacts such as documents, spreadsheets, code, or structured files with limited human verification between steps.</p>
+
+
+
+<p>We use chained transformation-and-inversion tasks that evaluate whether semantic content is preserved accurately across extended delegated workflows. Our evaluation uses domain-specific semantic parsing to focus on meaningful changes to the underlying artifact rather than superficial formatting or stylistic differences. The errors we report thus correspond to degradation in the underlying semantic content but, our measure of “corruption” did not include task completion or user satisfaction.</p>
+
+
+
+<p>Using this methodology, we find that current frontier models can introduce sparse but consequential errors during long-horizon workflows, and that these errors may accumulate over repeated interactions. Across the evaluated settings, strong state-of-the-art models showed roughly a 19–34% degradation in artifact fidelity over 20 delegated iterations. Notably, Python workflows generally exhibited stronger robustness under extended delegated interactions, with less than 1% degradation on average.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Forum</h2>
+				
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="methodological-limitations">Methodological limitations</h2>
+
+
+
+<p>DELEGATE-52 was intentionally designed as a stress test for long-horizon delegated execution. The benchmark evaluates whether systems preserve artifact integrity across extended sequences of transformations and inversions.</p>
+
+
+
+<p>The study focuses specifically on delegated execution with limited human intervention between steps. It does not attempt to measure the full range of real-world AI deployments, many of which involve substantially more oversight, verification, and workflow structure.</p>
+
+
+
+<p>The paper also evaluated a simplified agentic harness with tool use capabilities such as Python execution and file operations. While this setup did not eliminate the observed degradation, it should not be interpreted as representative of production-grade systems optimized for specific workflows or enterprise domains.</p>
+
+
+
+<h2 class="wp-block-heading" id="implications">Implications</h2>
+
+
+
+<p>We believe the primary implication of this work is that reliable long-horizon delegation remains an important open research and engineering challenge.</p>
+
+
+
+<p>The results suggest that strong short-horizon benchmark performance alone may not guarantee dependable delegated execution over extended workflows. At the same time, the findings should not be interpreted as evidence that AI systems lack practical value in real-world work today.</p>
+
+
+
+<p>In practice, many deployed AI systems combine models with specialized harnesses, orchestration layers, retrieval systems, verification procedures, memory mechanisms, and human oversight designed to improve reliability and deliver useful user outcomes despite underlying model limitations. We expect continued improvements in models, workflow-aware training, memory systems, and production-grade agentic harnesses to further reduce these failure modes over time.</p>
+
+
+
+<p></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/">Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>mimalloc: A new, high-performance, scalable memory allocator for the modern era</title>
 		<link>https://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/</link>
 		
@@ -200,30 +312,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -387,30 +499,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -736,30 +848,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1003,27 +1115,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1481,30 +1596,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1856,30 +1971,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2177,27 +2292,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3571,303 +3689,6 @@
 <div style="height:25px" aria-hidden="true" class="wp-block-spacer"></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/">Can we AI our way to a more sustainable world?</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>New Future of Work: AI is driving rapid change, uneven benefits</title>
-		<link>https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/</link>
-		
-		<dc:creator><![CDATA[Jaime Teevan, Sonia Jaffe, Rebecca Janssen, Nancy Baym, Siân Lindley, Bahar Sarrafzadeh, Brent Hecht, Jenna Butler, Jake Hofman, Sean Rintel]]></dc:creator>
-		<pubDate>Thu, 09 Apr 2026 16:11:44 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false"></guid>
-
-					<description><![CDATA[<p>For the past five years, the New Future of Work report has captured how work is changing. This year, the shift feels especially sharp. Previous editions have focused on technology’s role in increasing productivity by automating tasks, accelerating communication, and expanding access to information, as well as the rise of remote work. Today, generative AI [&#8230;]</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/">New Future of Work: AI is driving rapid change, uneven benefits</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" class="wp-image-1167890" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>AI is driving rapid changes in the workplace, more sharply than those covered in previous editions of the New Future of Work</li>
-
-
-
-<li>AI is changing how people work together, not just enabling them to work faster or from remote locations. Organizations that treat AI as a collaborative partner are seeing the biggest benefits.</li>
-
-
-
-<li>The benefits of AI are not yet evenly distributed, underscoring the need for industry leaders to build AI that expands opportunity. The future is not predetermined. It will be shaped by the choices we make today.</li>
-
-
-
-<li>Human expertise matters more, not less, in an AI-powered world. People are shifting from merely doing work to guiding, critiquing, and improving the work of AI.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-<div class="wp-block-msr-podcast-container my-4">
-	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=153792598&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
-</div>
-
-
-
-<p id="for-the-past-five-years-the-new-future-of-work-report-has-captured-how-work-is-changing-this-year-the-shift-feels-especially-sharp-previous-editions-have-focused-on-technology-s-role-in-increasing-productivity-by-automating-tasks-accelerating-communication-and-expanding-access-to-information-as-well-as-the-rise-of-remote-work-today-generative-ai-has-put-this-transformation-on-fast-forward-instead-of-simply-speeding-up-existing-workflows-ai-increasingly-participates-in-them-shaping-how-people-create-decide-collaborate-and-learn">For the past five years, the New Future of Work report has captured how work is changing. This year, the shift feels especially sharp. Previous editions have focused on technology’s role in increasing productivity by automating tasks, accelerating communication, and expanding access to information, as well as the rise of remote work. Today, generative AI has put this transformation on fast forward. Instead of simply speeding up existing workflows, AI increasingly participates in them, shaping how people create, decide, collaborate, and learn.</p>
-
-
-
-<p>For decades, researchers across Microsoft have studied these changes not as abstract trends but as lived experiences. Across organizations and occupations, people are experimenting with AI in uneven, creative, and sometimes surprising ways. Many are saving time, expanding their capabilities, and taking on more complex work, but the real opportunity ahead is to use AI to help us work better, together.</p>
-
-
-
-<div class="annotations " data-bi-aN="margin-callout">
-	<article class="annotations__list card depth-16 bg-body p-4 annotations__list--right">
-		<div class="annotations__list-item">
-						<span class="annotations__type d-block text-uppercase font-weight-semibold text-neutral-300 small">Publication</span>
-			<a href="https://www.microsoft.com/en-us/research/publication/new-future-of-work-report-2025/" data-bi-cN="New Future of Work Report 2025" target="_blank" rel="noopener noreferrer" data-external-link="true" data-bi-aN="margin-callout" data-bi-type="annotated-link" class="annotations__link font-weight-semibold text-decoration-none"><span>New Future of Work Report 2025</span>&nbsp;<span class="glyph-in-link glyph-append glyph-append-open-in-new-tab" aria-hidden="true"></span></a>					</div>
-	</article>
-</div>
-
-
-
-<p>The <a href="https://www.microsoft.com/en-us/research/publication/new-future-of-work-report-2025/" type="msr-research-item" id="1156834">New Future of Work</a> report brings together research from inside and outside of Microsoft to understand what is happening as AI enters workplaces. Through the efforts of dozens of authors and editors, it draws on evidence from large‑scale data analyses, field and lab studies, and theory to look at who is using AI, why they are using it, and how it is reshaping productivity, collaboration, learning, and judgment. It highlights professions where changes are unfolding especially quickly, as well as the broader societal impact of these technologies.</p>
-
-
-
-<p>Taken together, these findings point to a central insight: The future of work is not something that will simply happen to us. We are actively constructing it, through the choices individuals make, the norms teams build, the systems organizations adopt, and the discoveries researchers uncover. At the same time, AI’s role is still evolving, and it is driving a range of impact—some of which may be viewed as positive or negative. What follows is a research-backed snapshot of this moment in time and what it can teach us about how to collectively create a new and better future of work with AI.</p>
-
-
-
-<h2 class="wp-block-heading" id="adoption-and-usage">Adoption and usage</h2>
-
-
-
-<p>Generative AI is entering workplaces quickly, likely faster than most earlier technologies. But the patterns of who uses it, and how, will shape who benefits. Reports on early adoption appear to show significant penetration: in one German survey, 38% of employed respondents reported using AI at work. But usage and confidence vary widely across sectors, and men report using AI at work more often than women. It’s not yet clear whether that variability is driven by occupational distributions, relative comfort with new tools, or something else. This raises the challenge that uneven adoption is likely to translate into uneven productivity gains, learning opportunities, downstream career paths and more between those who adopt and those who do not.</p>
-
-
-
-<p>A look at generative AI adoption globally reveals further differences. High-income countries still lead overall usage, but the fastest growth is happening in low- and middle-income regions. When local languages are poorly served, people switch to English simply to get reliable results. Without investment in infrastructure and multilingual model development, AI risks reinforcing existing divides rather than narrowing them.</p>
-
-
-
-<p>Inside organizations, the decision to use or not use AI is shaped less by strategy decks and more by culture. People try new tools when they trust their employer and feel safe experimenting. They stick with tools that make their work better, but might reject tools that seem designed to replace them—which is a common concern among workers. And many of the most useful applications don’t come from top-down initiatives at all but from employees trying things, discovering what actually helps, and sharing those insights with colleagues. Research has shown that involving workers’ perspectives in the design of workplace technologies promotes sustainable improvements in productivity and well-being.</p>
-
-
-
-<p>We are also starting to see what people actually do with AI. At Anthropic, an analysis of millions of user conversations found that 37% of Claude usage was tied to software and mathematical occupations. A study of Microsoft Copilot conversations found high applicability to the activities of information workers across sales, media, tech, and administrative roles. But the broader point is simpler: most occupations include at least some tasks where AI is useful.</p>
-
-
-
-<p>These shifts come with social side effects. Several studies show that employees who use AI can be perceived as less capable, even when their output is identical to that of people who didn’t use AI. Whether these perception penalties fall unevenly across groups is still an open question. However, managers who have used AI tend to evaluate AI-assisted work more fairly. This suggests that AI may require broad exposure before it can be used openly and without judgment.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
-		
-
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Azure AI Foundry Labs</h2>
-				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="impact-on-work-and-labor-markets">Impact on work and labor markets</h2>
-
-
-
-<p>Understanding who uses AI and why they use it can help assess its value, but the harder question is how it impacts productivity and labor markets, which can be less straightforward. Productivity can increase through time saved, higher-quality work, or simply feeling more capable. Surveyed enterprise users of AI report saving 40–60 minutes a day, while model-based evaluations show frontier systems can approach quality levels like that of experts on a growing range of tasks. But AI may also reduce productivity. In one U.S. survey, 40% of employees said they had received “workslop”, i.e. AI-generated content that looks polished but isn’t accurate or useful, in the past month. When that happens, any time savings can quickly disappear, and quality can actually suffer.</p>
-
-
-
-<p>We still don’t have the full picture of what this means for jobs and labor markets more broadly. Large-scale empirical work finds no clear aggregate effects on unemployment, hours worked, or job openings. However, AI does seem to be reducing opportunities for younger, inexperienced workers. Entry-level roles rely less on experience and knowledge and are easier to automate. Empirical evidence suggests employment for workers aged 22–25 in highly AI-exposed jobs declined by 16% relative to similar but less-exposed roles, and hiring into junior positions appears to slow after firms adopt AI. This pattern raises a longer-term concern: automating jobs that enable workers to learn skills may undermine how expertise is built over time. This point is reinforced by research using theoretical models as well as empirical evidence.</p>
-
-
-
-<p>Meanwhile, AI is also changing which skills matter. Roles that mention AI skills in their job postings are nearly twice as likely to also emphasize analytical thinking, resilience, and digital literacy. Demand for work that can be outsourced to AI models more easily, including data-related tasks or routine translation, continues to fall. Even where overall employment remains stable, AI is already reshaping how jobs are structured and this trend will continue.</p>
-
-
-
-<p>As more empirical evidence comes in, theoretical work helps frame what might lie ahead. One recurring theme is that human judgment – spotting opportunities, working under ambiguity or choosing from outputs – becomes more valuable as AI improves. And organizations that use AI to augment what people can do often end up creating new kinds of work, rather than simply eliminating existing ones. If AI is meant to deliver on its potential to support broad prosperity gains, the path forward is less about replacing tasks and more about expanding what people are able to do.</p>
-
-
-
-<h2 class="wp-block-heading" id="human-ai-collaboration">Human-AI collaboration</h2>
-
-
-
-<p>As AI becomes more capable, the nature of human-AI interaction is changing. AI systems are increasingly playing a role in decision-making, creativity, and communication, with AI systems being positioned as a &#8220;collaborator.&#8221; This raises questions about how to support &#8220;collaboration&#8221; between people and AI, what we can learn from how people interact with each other, and where the capabilities of AI systems raise different opportunities and create different requirements.</p>
-
-
-
-<p>At the heart of effective collaboration is common ground: the shared understanding that allows people to coordinate and communicate. In human conversation, we constantly check for alignment – through clarifications, acknowledgements, and follow-up questions. Yet current AI systems often skip these steps, generating responses that assume understanding rather than building it. Research shows that this lack of conversational grounding can lead to breakdowns in human-AI interaction. Encouragingly, systems like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/microsoft/CollabLLM" type="link" id="https://github.com/microsoft/CollabLLM">CollabLLM<span class="sr-only"> (opens in new tab)</span></a>, which prompt AI to ask clarifying questions and respond over multiple turns, have shown improved task performance and more interactive exchanges.</p>
-
-
-
-<p>Trust is another essential aspect of collaboration. Although AI can process vast amounts of information, its usefulness in decision-making depends on how well it grasps human goals, and how well people understand its capabilities. Using AI that doesn’t understand a person’s objectives can lead to worse outcomes than using no AI at all. Yet people often overestimate AI’s abilities, which distort their judgment on when and how to use it. Systems that support selective delegation can improve these decisions, especially when the AI is programmed to account for this selective approach in its responses.</p>
-
-
-
-<p>AI’s advancing capabilities are fueling a shift in people’s roles. This includes software production, where developers who once wrote code from beginning to end are increasingly reviewing and refining AI-generated suggestions. Writers and designers are acting more as curators and editors, guiding AI outputs rather than producing everything from scratch. This shift demands new skills &#8211; like crafting effective prompts, vetting AI responses, and maintaining quality oversight &#8211; and new tools to support them.</p>
-
-
-
-<p>Current chat-based interfaces are often too limited for these evolving workflows. Alongside knowledge about the capabilities, limitations, and workings of an AI system, as well as domain expertise and situational awareness to enable intervention, oversight requires observability of system activity, decisions, and outputs. New interface designs are emerging to address this, including visualizations of AI reasoning, shared editing spaces, and mixed-initiative systems that allow humans and AI to take turns leading a task. These innovations aim to preserve human agency while making AI more transparent and responsive.</p>
-
-
-
-<p>Ultimately, the future of work is about building complementary interactions between people, drawing on knowledge of how people collaborate, while acknowledging the unique challenges of human-AI interaction, and drawing on AI capabilities to do so.</p>
-
-
-
-<h2 class="wp-block-heading" id="ai-for-teamwork">AI for teamwork</h2>
-
-
-
-<p>AI systems have been designed from the ground up to work best for individuals, not for teams of people. It is no surprise then, that when people use AI as a team, they often underperform, even relative to an individual using AI.</p>
-
-
-
-<p>The good news is that a growing amount of research is dedicated to AI that supports team and group interaction. Researchers are using two broad approaches: (1) process-focused strategies, i.e. building AI to facilitate specific team processes like information sharing and (2) outcome-focused strategies, i.e. training end-to-end AI systems that attempt to learn from short- and long-range team outcomes.</p>
-
-
-
-<p>Some examples of the former include systems that provide a devil&#8217;s advocate perspective in a group discussion or help amplify minority perspectives. Examples of the latter include systems that try to help teams make good decisions or drive meetings towards achieving goals.</p>
-
-
-
-<p>Theory from fields like collective intelligence would suggest that both approaches have great potential: AI can unlock new models of collaboration that are wildly different and more productive than we&#8217;ve had before. One notable example is AI enabling much more ephemeral teams, where a precise group of people in a given organization (or even beyond) can come together to solve a specific problem, then disband when the problem is solved.</p>
-
-
-
-<p>More philosophically, it can be useful to understand even individual interaction with a large language model (LLM) as a type of teamwork. In fact, “collective intelligence” is perhaps a more accurate term for technologies like LLMs than “artificial intelligence”. LLMs take knowledge from millions of people who have written web content or posted in places like Reddit and Wikipedia, interacted with chatbots, and generated other types of data, and make that available to individuals on demand. Every time you interact with an LLM, you’re interacting with the work of millions of people, without the impossible overhead of that scale of collaboration.</p>
-
-
-
-<h2 class="wp-block-heading" id="thinking-learning-and-psychological-influences">Thinking, learning and psychological influences</h2>
-
-
-
-<p>Generative AI is changing cognition and learning while also introducing new psychological dynamics. This is making design choices about agency, effort, and well-being increasingly consequential. </p>
-
-
-
-<p>A central pattern emerging in generative AI is a shift from ‘thinking by doing’ (e.g. writing a document) toward ‘choosing from outputs’ (e.g. prompting AI to write a document). This may weaken the judgment and practices that sustain human expertise unless it is paired with user experiences that keep people cognitively engaged, and upskilling/reskilling to accommodate changes in available work. AI can also be designed to support thinking rather than substitute for it, for example by provoking reflection, scaffolding reasoning, and workflows that help people ‘decide how to decide’ through alternatives and critiques. For ideation and creativity, benefits can be fragile. Using LLMs at the wrong time can reduce originality and self-efficacy, and repeated cognitive offloading can carry over even when AI is removed. To avoid trading short-term accuracy for long-term capability, AI experiences should help users practice the judgment needed to challenge and refine AI outputs.</p>
-
-
-
-<p>AI use in education is already widespread, but much of this activity runs through general-purpose tools rather than education-specific products, while training and policy are still catching up. In learning contexts, the speed and ease with which AI is being designed to meet workplace tasks may conflict with the needs of education. Learning often benefits from ‘desirable difficulties,’ and heavy reliance on summaries and syntheses may make learning shallower without thoughtful support. This may involve trying problems before turning to AI for help, and question-driven tutoring that requires students to justify and check outputs. Coding education remains essential, but needs to change focus from memorizing syntax to centering abstraction and accountability, such as problem framing and critical review. Workplace training can counter overreliance and ‘work-slop’ productivity problems by helping workers reframe AI as a thought partner, prompting reflective interaction and strengthening calibration and verification habits so workers retain responsibility for final decisions. </p>
-
-
-
-<p>Finally, conversational AI is increasingly being used for social and emotional support, making empathy and psychological well-being core design and governance concerns, especially because effects can vary sharply by user context and interaction patterns. That variability also raises the stakes for anthropomorphic behaviors. Clearer definitions and measurement are needed to understand when systems appear human-like and what consequences follow. Broader mapping of the design space can help designers anticipate implications and choose alternatives.</p>
-
-
-
-<h2 class="wp-block-heading" id="specific-roles-industries">Specific roles & industries</h2>
-
-
-
-<p>While much of the NFW report highlights broad work patterns such as collaboration, communication, and decision-making, we also examined specific professions that are seeing especially rapid disruption. Among those that stand out in this year’s edition are software engineering and science. To counter some of the misunderstandings around these fields, we address several myths, including:</p>
-
-
-
-<ul class="wp-block-list">
-<li>Counting AI-generated lines of code is a meaningful productivity metric</li>
-
-
-
-<li>Current tools will instantly turn every developer into a “10× engineer”</li>
-</ul>
-
-
-
-<p>Adoption primarily depends on model capability. Beyond myth-busting, we see real shifts in the software lifecycle. Historically, PMs (product/program/project managers) focused on customer needs, telemetry, design, and feedback, while developers wrote the code. With generative AI, these boundaries are blurring. PMs report doing more technical work and writing more code, while developers increasingly engage in higher-level planning and conceptual thinking as they interact with AI agents.</p>
-
-
-
-<p>This shift is illustrated by the rise of vibe coding—developing software through iterative prompting rather than directly writing and editing code. Studies show that experienced computer science students are better at vibe coding than novices, able to steer models with a smaller number of targeted prompts. As humans build trust with AI assistants, work becomes more co-creative, enabling engineers to stay “in flow” through continuous iteration.</p>
-
-
-
-<p>Together, these changes point to a deeper transformation in how software is built—both the mechanics of code production and the ways teams coordinate, plan, and collaborate.</p>
-
-
-
-<p>Science is also seeing significant AI-driven acceleration. AI is meaningfully accelerating scientific discoveries by assisting researchers in identifying promising ideas, retracing known results, and surfacing cross-field connections. Foundation models also make it easier to work with diverse data types and enable experiments at a previously impossible scale.</p>
-
-
-
-<p>Benefits of increased research productivity and moderate quality gains appear to be most pronounced for early career researchers and non-English speaking scientists, for whom AI can act as both a collaborator and a form of access to advanced tooling.</p>
-
-
-
-<p>However, AI introduces new risks. Issues of data provenance, accountability, and replication become more complex when generative systems are involved. Small variations in prompts can significantly change outcomes, making results harder to verify. Models may reproduce ideas without attribution or hallucinate entirely, increasing the burden of source-checking. And because many models tend toward sycophantic responses, scientists may overestimate the novelty or correctness of AI-generated insights.</p>
-
-
-
-<h2 class="wp-block-heading" id="closing">Closing</h2>
-
-
-
-<p>Generative AI will not arrive in some distant future, it is reshaping work right now. Here are a few things to take away:</p>
-
-
-
-<ol class="wp-block-list">
-<li><strong>AI isn’t just speeding up work—it’s changing how we work together</strong>.<br>This year’s research shows a real shift: AI is moving from automating tasks to actively shaping how people create, decide, collaborate, and learn. The organizations seeing the biggest gains are the ones treating AI as a collaborative partner—not a bolt‑on tool—and building the culture, norms, and confidence to experiment.</li>
-
-
-
-<li><strong>The benefits of AI are real, but they’re not evenly distributed—yet</strong>.<br>Adoption is rising fast across countries, professions, and industries, but the gaps in access, confidence, and usage are widening. Early evidence shows that who uses AI (and how) will determine who benefits. Industry leaders need to ensure AI expands opportunity rather than reinforces divides.</li>
-
-
-
-<li><strong>Human expertise matters more—not less—in an AI‑powered world</strong>.<br>Across software engineering, science, and knowledge work, AI is transforming roles: people are shifting from doing the work to guiding, critiquing, and improving it. The organizations that thrive will be the ones that invest in judgment, critical thinking, and responsible oversight—and design AI experiences that keep people thoughtfully engaged.</li>
-</ol>
-
-
-
-<p>The research in this year&#8217;s <em>New Future of Work</em> report points to both opportunity and responsibility. The future is not predetermined. It will be shaped by the choices we make today—in how we build AI systems, how organizations adopt them, and how individuals learn to work alongside them. Microsoft remains committed to studying these changes as they unfold, grounding our understanding in evidence, and ensuring that the future we are collectively building is one where AI helps us all work better, together.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/new-future-of-work-ai-is-driving-rapid-change-uneven-benefits/">New Future of Work: AI is driving rapid change, uneven benefits</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
