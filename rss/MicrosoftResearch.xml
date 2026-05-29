@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 27 May 2026 16:41:26 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 28 May 2026 13:46:16 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,147 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>Data Formulator 0.7: AI-powered data analytics for enterprise data</title>
+		<link>https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/</link>
+		
+		<dc:creator><![CDATA[Chenglong Wang, Scott Tsukamaki, Michel Galley, Jianfeng Gao]]></dc:creator>
+		<pubDate>Thu, 28 May 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1173479</guid>
+
+					<description><![CDATA[<p>Data Formulator introduces AI-powered analytics for enterprise data workflows. Data teams can easily bring enterprise data into an AI-ready workspace where users can explore, analyze, and visualize data with AI agents to turn raw data into actionable insights.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/">Data Formulator 0.7: AI-powered data analytics for enterprise data</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a textured blue‑green gradient background: a rising bar chart on the left, a central hub‑and‑spoke network diagram in the middle, and a checkmark inside a circle on the right." class="wp-image-1173551" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Data Formulator 0.7 is an open-source AI-powered system for enterprise data analytics that combines data connectivity, agent-guided exploration, and visualization refinement in a shared workspace.</li>
+
+
+
+<li>It includes a Data Connectors feature, which supports governed, reusable connections across databases, warehouses, BI systems, object stores, and local files, reducing integration work for platform teams.</li>
+
+
+
+<li>Context-aware agents help users prepare data, explore analyses, generate visualizations, and navigate long-running and branching analytical workflows.</li>
+
+
+
+<li>An interactive, multimodal interface allows teams to iteratively explore and refine analyses across fragmented data sources, with no SQL or programming expertise required.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>Enterprise teams increasingly rely on AI systems for analytics, but enterprise data workflows are often fragmented across storage systems and tools. Before analysis can begin, teams often need to establish governed connections, prepare metadata, manage permissions, and build workflows for combining and reshaping data across multiple systems.</p>
+
+
+
+<p>Beyond data connection, analysis itself remains challenging for analysts and domain experts, many of whom lack deep coding expertise. They frequently need to compute new metrics, compare different ways of organizing data, inspect intermediate outputs, and refine visualizations as needs evolve. These workflows are difficult to reproduce inside isolated chat interactions that lack persistent access to enterprise data, workflow history, and visualization context.</p>
+
+
+
+<p>Our new release, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener noreferrer">Data Formulator 0.7<span class="sr-only"> (opens in new tab)</span></a>, is designed to address these challenges. It is an open-source AI-powered data analysis system that connects fragmented enterprise data and iterative analytical workflows. It provides a lightweight way to connect across a variety of data sources, context-aware agents that assist with data preparation, exploration, and visualization, and an interactive workspace where users can iteratively refine and share their analyses.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="connecting-enterprise-data-with-data-connectors">Connecting enterprise data with Data Connectors</h2>
+
+
+
+<p>Data Formulator helps teams bring enterprise data into an AI-ready workspace without needing to rebuild the same connections for every source of data. The Data Connectors feature supports authentication, persistent connections, previews, metadata, and a unified workspace model across databases, warehouses, BI systems, object stores, and local files. This reduces integration work for platform teams and allows users to work from centrally managed, reusable data connections rather than relying on repeated manual file uploads, as shown in Figure 1. </p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1059" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg" alt="Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data." class="wp-image-1173869" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-300x124.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1024x424.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-768x318.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1536x636.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-2048x848.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-240x99.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading" id="context-aware-agents-for-data-analysis">Context-aware agents for data analysis</h2>
+
+
+
+<p>Context-aware AI agents form the core of Data Formulator. Unlike a single prompt, Data Formulator gives agents access to the full analysis workspace, including connected data sources, loaded tables, prior charts, and the user&#8217;s objective. Agents reason and act through tools rather than text alone. In a single interaction, an agent can inspect data, write and run code in an isolated environment, generate chart specifications, and explain its results while showing intermediate steps.</p>
+
+
+
+<p>When a request is ambiguous, the agent asks clarifying questions before proceeding. This allows agents to carry out more complex analytical workflows: aligning analyses with the user&#8217;s goal, preparing and transforming data, suggesting follow-up questions, generating tables and charts in batch, and creating verifiable, reproducible code for every result.</p>
+
+
+
+<h2 class="wp-block-heading" id="a-workspace-for-iterative-data-analysis">A workspace for iterative data analysis</h2>
+
+
+
+<p>Data Formulator pairs these agents with a multimodal interface designed for open-ended analysis workflows. Users work with agents through the Data Thread, a structured chat that records every question, intermediate finding, and chart throughout the analysis process. Long sessions stay navigable: users can revisit earlier steps, branch into alternative analyses, and compare them side by side without losing context.</p>
+
+
+
+<p>As illustrated in Figure 2, the interactive canvas complements Data Thread by allowing users to directly edit visualizations. When users shift from exploration to communication, they can refine charts directly on the canvas or describe changes in natural language and let the agent adjust labels, annotations, layout, color, and emphasis. Analysts can also generate reports and share their findings with others.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1440" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png" alt="Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side." class="wp-image-1173492" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1536x864.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-2048x1152.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1920x1080.png 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side.</figcaption></figure>
+
+
+
+<p>View the Data Formulator demo <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://data-formulator.ai" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>, or explore the Data Formulator <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener noreferrer">GitHub repository<span class="sr-only"> (opens in new tab)</span></a>. Teams developing analytics workflows for enterprise data can use the project as a foundation for adapting these capabilities to their own systems and requirements.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/">Data Formulator 0.7: AI-powered data analytics for enterprise data</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Extending Human Intelligence Through AI</title>
 		<link>https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/</link>
 		
@@ -32,7 +173,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/">Extending Human Intelligence Through AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three icons (speech bubble, handshake, and interconnected circles) on a blue and green gradient background.  " class="wp-image-1172711" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three icons (speech bubble, handshake, and interconnected circles) on a blue and green gradient background.  " class="wp-image-1172711" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -89,7 +230,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="906" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px.png" alt="How AI extends human cognition | diagram" class="wp-image-1172363" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-300x194.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-1024x663.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-768x497.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-240x155.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">AI Extends Human Cognition&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="906" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px.png" alt="How AI extends human cognition | diagram" class="wp-image-1172363" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-300x194.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-1024x663.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-768x497.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-240x155.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">AI Extends Human Cognition&nbsp;</figcaption></figure>
 
 
 
@@ -113,30 +254,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -169,7 +310,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/">MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-scaled.jpg" alt="MagenticLite" class="wp-image-1171504" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-scaled.jpg" alt="MagenticLite" class="wp-image-1171504" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -278,30 +419,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -807,27 +945,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1231,30 +1372,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1847,30 +1988,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2294,322 +2435,6 @@
 <div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/collections/microsoft/gridsfm">Hugging Face</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/">Building realistic electric transmission grid dataset at scale: a pipeline from open dataset</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Microsoft at NSDI 2026: Advances in large-scale networked systems</title>
-		<link>https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/</link>
-		
-		<dc:creator><![CDATA[Sujata Banerjee]]></dc:creator>
-		<pubDate>Tue, 05 May 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1170563</guid>
-
-					<description><![CDATA[<p>Microsoft researchers share advances in building and operating large-scale distributed systems, spanning datacenters, networking, and the growing intersection with AI during  NSDI ’26.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/">Microsoft at NSDI 2026: Advances in large-scale networked systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1.jpg" alt="NSDI ’26 logo in white, centered on a smooth gradient background transitioning from blue to purple and pink." class="wp-image-1170639" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/NSDI2026-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<p>Large-scale networked systems underpin cloud computing, AI, and distributed applications and services. The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.usenix.org/conference/nsdi26" target="_blank" rel="noopener noreferrer">USENIX Symposium on Networked Systems Design and Implementation 2026<span class="sr-only"> (opens in new tab)</span></a> (NSDI ’26) is a leading forum where researchers and practitioners share new research, insights, and advances in the design and operation of these systems.</p>
-
-
-
-<p>Microsoft is proud to support NSDI ’26 as a returning sponsor, reflecting our ongoing commitment to advancing systems and networking research and engaging with the broader community. Microsoft researchers and engineering leaders are also serving on the program committee and in other organizational roles.</p>
-
-
-
-<p>This year, 11 papers by Microsoft authors and collaborators were accepted to the conference, spanning datacenter and wide-area networks, AI systems, and cloud infrastructure. Together, they highlight advances in building and operating large-scale networked systems.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">On Second Thought</h2>
-				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
-							Explore the series						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="technical-sessions">Technical sessions</h2>
-
-
-
-<p><em>Monday, May 4, 2:00–3:20 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="droidspeak-kv-cache-sharing-across-fine-tuned-model-variants"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/liu-yuhan">DroidSpeak: KV Cache Sharing Across Fine-tuned Model Variants<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Yuhan Liu, Yuyang Huang, Jiayi Yao, Zhuohan Gu, Kuntai Du, Hanchen Li, Yihua Cheng, and Junchen Jiang, University of Chicago; </em><a href="https://www.microsoft.com/en-us/research/people/shanlu/"><em>Shan Lu</em></a><em>, </em><a href="https://www.microsoft.com/en-us/research/people/madanm/"><em>Madan Musuvathi</em></a><em>, and </em><a href="https://www.microsoft.com/en-us/research/people/eschouks/"><em>Esha Choukse</em></a><em>, Microsoft</em></p>
-
-
-
-<p>DroidSpeak enables LLMs with the same architecture to share and partially reuse KV caches across models, delivering up to 4 times higher throughput and faster responses with minimal impact on output quality.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Monday, May 4, 3:50–5:30 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="eywa-automating-model-based-testing-using-llms"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/mondal">Eywa: Automating Model-Based Testing using LLMs<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Rajdeep Mondal, Rathin Singha, Todd D. Millstein, and George Varghese, UCLA; </em><a href="https://www.microsoft.com/en-us/research/people/rybecket/"><em>Ryan Beckett</em></a><em> and </em><a href="https://www.microsoft.com/en-us/research/people/sivakakarla/"><em>Siva Kesava Reddy Kakarla</em></a><em>, Microsoft Research</em></p>
-
-
-
-<p>Eywa uses LLMs to automatically build protocol models from natural language sources, enabling model-based testing. It uncovered 33 bugs, including 16 previously unknown, in widely used network protocol implementations.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Tuesday, May 5, 2:00–3:20 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="octopus-enhancing-cxl-memory-pods-via-sparse-topology"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/zhong">Octopus: Enhancing CXL Memory Pods via Sparse Topology<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Yuhong Zhong, Columbia University; </em><a href="https://www.microsoft.com/en-us/research/people/fkazhamiaka/"><em>Fiodar Kazhamiaka</em></a><em>, Pantea Zardoshti, Shuwei Teng and </em><a href="https://www.microsoft.com/en-us/research/people/rofons/"><em>Rodrigo Fonseca</em></a><em>, Microsoft Azure; Mark D. Hill, University of Wisconsin-Madison; </em><a href="https://www.microsoft.com/en-us/research/people/daberg/"><em>Daniel S. Berger</em></a><em>, Microsoft Azure and University of Washington</em></p>
-
-
-
-<p>Octopus&nbsp;introduces a switch-free design for disaggregated memory pods that reduces cost and scales to multi-rack pods. On a three-server hardware prototype, Octopus RPCs are 3.2x faster than in-rack RDMA and 2.4x faster than CXL switches.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Tuesday, May 5, 3:50–5:30 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="hedge-traffic-engineering-with-probabilistic-link-capacities"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/devraj">HEDGE: Traffic Engineering with Probabilistic Link Capacities<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Arjun Devraj, Cornell University; Bill Owens, NYSERNet; Umesh Krishnaswamy, Microsoft; Ying Zhang, Meta; Rachee Singh, Cornell University</em></p>
-
-
-
-<p>HEDGE mitigates wavelength-specific faults in optical networks by combining link-local and global network-wide resilience that maintain stable capacity and optimize traffic flow despite fluctuating link performance. It matches existing systems’ throughput while reducing network disruptions.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 9:00–10:20 AM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="ava-towards-video-analytics-with-vision-language-models"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/yan">AVA: Towards Video Analytics with Vision Language Models<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Yuxuan Yan, Zhejiang University; </em><a href="https://www.microsoft.com/en-us/research/people/shijiang/"><em>Shiqi Jiang</em></a><em>, Microsoft Research; Ting Cao, Tsinghua University; </em><a href="https://www.microsoft.com/en-us/research/people/yifanyang/"><em>Yifan Yang</em></a><em>, Microsoft Research; Qianqian Yang and Yuanchao Shu, Zhejiang University; </em><a href="https://www.microsoft.com/en-us/research/people/yuqyang/"><em>Yuqing Yang</em></a><em> and Lili Qiu, Microsoft Research</em></p>
-
-
-
-<p>AVA supports open-ended video analytics by combining event knowledge graphs with agentic retrieval over vision-language models. Furthermore, to evaluate video analytics in ultra-long, open-world scenarios, the authors introduce AVA-100, a benchmark comprising eight videos each exceeding 10 hours and 120 manually annotated, diverse, and complex question–answer pairs, on which AVA achieves 75.8% accuracy.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 9:00–10:20 AM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="smartnic-enabled-live-migration-for-storage-optimized-vms-with-pyrocumulus"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/zhao-jiechen">SmartNIC-Enabled Live Migration for Storage-Optimized VMs with Pyrocumulus<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Jiechen Zhao, University of Toronto and Microsoft Research Asia; </em><a href="https://www.microsoft.com/en-us/research/people/rashu/"><em>Ran Shu</em></a><em>, Lei Qu, Ziyue Yang, and </em><a href="https://www.microsoft.com/en-us/research/people/mrui/"><em>Rui Ma</em></a><em>, Microsoft Research Asia; Derek Chiou, Microsoft and UT Austin; Natalie Enright Jerger, University of Toronto; </em><a href="https://www.microsoft.com/en-us/research/people/pengc/"><em>Peng Cheng</em></a><em> and </em><a href="https://www.microsoft.com/en-us/research/people/yqx/"><em>Yongqiang Xiong</em></a><em>, Microsoft Research Asia</em></p>
-
-
-
-<p>Pyrocumulus enables fast, low-overhead live migration for storage-optimized VMs through hardware customizability and efficient network accessibility of the FPGA SmartNIC with LM protocol, architecture, and algorithm designs.&nbsp;</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 10:50 AM–12:30 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="forestcoll-throughput-optimal-collective-communications-on-heterogeneous-network-fabrics"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/zhao-liangyu">ForestColl: Throughput-Optimal Collective Communications on Heterogeneous Network Fabrics<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Liangyu Zhao, University of Washington; Saeed Maleki, Independent Researcher; Yuanhong Wang, Tsinghua University; Zezhou Wang, University of Washington; Ziyue Yang, Microsoft Research; Hossein Pourreza, Microsoft; Arvind Krishnamurthy, University of Washington</em></p>
-
-
-
-<p>ForestColl constructs broadcast/aggregation spanning trees as the communication schedule, achieving theoretical optimality. Its schedule generation runs in polynomial time and is highly scalable. It supports any network fabric, including both switching fabrics and direct accelerator connections.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 10:50 AM–12:30 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="heuristic-analysis-from-source-code-via-symbolic-guided-optimization"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/karimi">Heuristic Analysis from Source Code via Symbolic-Guided Optimization<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Pantea Karimi, MIT; </em><a href="https://www.microsoft.com/en-us/research/people/sivakakarla/"><em>Siva Kesava Reddy Kakarla</em></a><em> and </em><a href="https://www.microsoft.com/en-us/research/people/rybecket/"><em>Ryan Beckett</em></a><em>, Microsoft Research; Santiago Segarra, Rice University; </em><a href="https://www.microsoft.com/en-us/research/people/namyarpooria/"><em>Pooria Namyar</em></a><em>, Microsoft Research; Mohammad Alizadeh, MIT; </em><a href="https://www.microsoft.com/en-us/research/people/bearzani/"><em>Behnaz Arzani</em></a><em>, Microsoft Research</em></p>
-
-
-
-<p>MetaEase analyzes heuristics directly from source code to uncover worst-case performance scenarios, eliminating the need for complex formal modeling. It matches or outperforms state-of-the-art analyzers across domains and reveals previously unknown performance gaps in real-world systems.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 2:00–3:20 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="harvesting-spare-cpu-resources-in-container-systems"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/hall">Harvesting Spare CPU Resources in Container Systems<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Adam Hall and Anirudh Sarma, Georgia Institute of Technology; </em><a href="https://www.microsoft.com/en-us/research/people/eschouks/"><em>Esha Choukse</em></a><em>, Microsoft Azure Research; Umakishore Ramachandran, Georgia Institute of Technology; </em><a href="https://www.microsoft.com/en-us/research/people/samehe/"><em>Sameh Elnikety</em></a><em>, Microsoft Research</em></p>
-
-
-
-<p>HarvestContainers protects latency-sensitive containers from interference while using their spare CPU cores to run latency-tolerant workloads. It dynamically determines how many cores can be safely harvested and requires no changes to applications or the operating system. It enables up to 75% utilization of spare CPU while keeping tail latency within 4% of standalone performance.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 3:50–5:30 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="offloading-cloud-network-services-at-production-scale-with-sonic-dash-smartswitch"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/wu-shaofeng">Offloading Cloud Network Services at Production Scale with SONiC DASH SmartSwitch<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Community Award Winner</em></p>
-
-
-
-<p><em>Shaofeng Wu, The Chinese University of Hong Kong and Microsoft Research Asia</em><a href="https://www.microsoft.com/en-us/research/people/zhniu/"><em>; Zhixiong Niu</em></a><em>, Microsoft Research Asia; Riff Jiang, Lawrence Lee, Junhua Zhai, </em><a href="https://www.microsoft.com/en-us/research/people/zegan/"><em>Ze Gan</em></a><em>, Vasundhara Volam, Prabhat Aravind, Prince Sunny, Prince George, Qi Luo, Evan Langlais, Soumya Tiwari, Venkat Satish Katta, Weixi Chen, Rishiraj Hazarika, Sachin Jain, Deven Jagasia, Michal Zygmunt, Avijit Gupta, Neeraj Motwani, and Pranjal Shrivastava, Microsoft; Qiang Su, The Chinese University of Hong Kong; Anil Reddy Pannala, Kristina Moore, James Grantham, Anupam Pandey, Xin Liu, Guohan Lu, Gerald De Grace, Rishabh Tewari, Lihua Yuan, Erica Lan, Deepak Bansal, and Dave Maltz, Microsoft; </em><a href="https://www.microsoft.com/en-us/research/people/yqx/"><em>Yongqiang Xiong</em></a><em>, Microsoft Research Asia; Hong Xu, The Chinese University of Hong Kong</em></p>
-
-
-
-<p>SONiC DASH SmartSwitch redesigns cloud network offloading with a hardware-friendly pipeline, unified switch architecture, and open development model while addressing key scalability and deployment challenges. Deployed at scale in Azure, it delivers high throughput and connection capacity while significantly improving power and space efficiency.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<p><em>Wednesday, May 6, 3:50–5:30 PM</em></p>
-
-
-
-<h3 class="wp-block-heading h5" id="krakenguard-towards-fine-grained-ebpf-isolation"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.usenix.org/conference/nsdi26/presentation/patel">KRAKENGUARD: Towards Fine-Grained eBPF Isolation<span class="sr-only"> (opens in new tab)</span></a></h3>
-
-
-
-<p><em>Jainil Patel, IIT Roorkee; Lucas Graeff Buhl-Nielsen, Quantco; </em><a href="https://www.microsoft.com/en-us/research/people/adrienghosn/"><em>Adrien Ghosn</em></a><em>, Microsoft; Marios Kogias, Imperial College London</em></p>
-
-
-
-<p>KRAKENGUARD enforces fine-grained, policy-based controls on eBPF programs at load time using symbolic execution, enabling safe use in multi-tenant environments without relying on coarse Linux capabilities. It prevents malicious behavior, detects vulnerabilities, and allows for secure execution of untrusted programs with strong isolation guarantees.</p>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<h2 class="wp-block-heading" id="symposium-organizers-from-microsoft">Symposium organizers from Microsoft</h2>
-
-
-
-<h3 class="wp-block-heading" id="program-committee">Program Committee</h3>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/people/ga/">Ganesh Ananthanarayanan</a><br><a href="https://www.microsoft.com/en-us/research/people/bearzani/">Behnaz Arzani</a><br><a href="https://www.microsoft.com/en-us/research/people/hiballan/">Hitesh Ballani</a><br><a href="https://www.microsoft.com/en-us/research/people/rybecket/">Ryan Beckett</a><br><a href="https://www.microsoft.com/en-us/research/people/ranveer/">Ranveer Chandra</a><br><a href="https://www.microsoft.com/en-us/research/people/pcosta/">Paolo Costa</a><br><a href="https://www.microsoft.com/en-us/research/people/rofons/">Rodrigo Fonseca</a><br><a href="https://www.microsoft.com/en-us/research/people/xefouk/">Xenofon Foukas</a><br><a href="https://www.microsoft.com/en-us/research/people/kevhsieh/">Kevin Hsieh</a><br><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/ukrishnas/">Umesh Krishnaswamy<span class="sr-only"> (opens in new tab)</span></a><br><a href="https://www.microsoft.com/en-us/research/people/jingliu3/">Jing Liu</a><br><a href="https://www.microsoft.com/en-us/research/people/jonathanmace/">Jonathan Mace</a><br><a href="https://www.microsoft.com/en-us/research/people/dmaltz/">Dave Maltz</a><br><a href="https://www.microsoft.com/en-us/research/people/samani/">Sathiya Mani</a><br><a href="https://www.microsoft.com/en-us/research/people/dnarayan/">Dushyanth Narayanan</a><br><a href="https://www.microsoft.com/en-us/research/people/sumann/">Suman Nath</a><br><a href="https://www.microsoft.com/en-us/research/people/ramjee/">Ram Ramjee</a><br><a href="https://www.microsoft.com/en-us/research/people/ssaroiu/">Stefan Saroiu</a></p>
-
-
-
-<h3 class="wp-block-heading" id="steering-committee">Steering Committee</h3>
-
-
-
-<p><a href="https://www.microsoft.com/en-us/research/people/sujbanerjee/">Sujata Banerjee</a><br><a href="https://www.microsoft.com/en-us/research/people/lorch/">Jay Lorch</a></p>
-
-
-
-<div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/">Microsoft at NSDI 2026: Advances in large-scale networked systems</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
