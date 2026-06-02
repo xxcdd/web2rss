@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 01 Jun 2026 04:25:21 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 04:18:41 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -175,13 +175,6 @@ Neo is ProjectDiscovery’s AI security copilot for tasks like code review and v
 The practical reality for a security team deploying AI is messier than the headlines or early POC results suggest. Noise compounds fast. Anthropic brought in external security researchers to help validate the vo</description>
     </item>
     <item>
-      <title>How We Cut LLM Costs by 59% With Prompt Caching</title>
-      <link>https://projectdiscovery.io/blog/how-we-cut-llm-cost-with-prompt-caching</link>
-      <description>At ProjectDiscovery, we've been building Neo, an autonomous security testing platform that runs multi-agent, multi-step workflows, routinely executing 20-40+ LLM steps per task. Vulnerability assessments, code reviews, and security audits at scale, enabling continuous testing across the entire development lifecycle.
-
-When we launched, our LLM costs were staggering. A single complex task with Opus 4.5 could consume 60 million tokens. Then we implemented prompt caching. Here's what changed:</description>
-    </item>
-    <item>
       <title>Neo v. DIY: The gap between a single finding and a mature security program</title>
       <link>https://projectdiscovery.io/blog/neo-vs-diy</link>
       <description>In our latest webinar, our Founding Solutions Engineer, Davis Franklin, addressed the massive gap between finding a vulnerability with an LLM and running a mature security program. That gap is what Neo is built to close.
@@ -194,6 +187,11 @@ With the release of Opus 4.6 and the announcement of Mythos, the question we hea
       <description>Since the launch of Neo, we've been steadily expanding what it can do. Neo has found 33+ real CVEs across open-source projects, performed well on white-box security testing where source code is available, and generally proven itself as a capable security engineer when it has context to work with.
 
 What we hadn't shared yet is how Neo does when it's operating purely as a black-box DAST agent no source code, no architecture context, just a URL. The prompt Neo gets is a minimal prompt with no guida</description>
+    </item>
+    <item>
+      <title>Red-Teaming Cloud Infrastructure with Neo</title>
+      <link>https://projectdiscovery.io/blog/red-teaming-cloud-infrastructure-with-neo</link>
+      <description>Most AI security tooling shipped over the last year focuses on one of two workflows, code review at PR time or zero-day research in open-source software. Models in PR pipelines now flag insecure patterns at every commit and autonomous research runs have produced more zero-days across open-source projects than the patch teams behind them can realistically triage. We've been running Neo on both of those workflows at ProjectDiscovery for a while now, surfacing zero-days in production software and t</description>
     </item>
   </channel>
 </rss>
