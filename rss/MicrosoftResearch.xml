@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Fri, 29 May 2026 18:28:19 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 12 Jun 2026 20:30:50 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,169 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.9.4</generator>
 	<item>
+		<title>Ire identifies another LOTUSLITE specimen</title>
+		<link>https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/</link>
+		
+		<dc:creator><![CDATA[Brian Caswell, Bob Fleck, Mike Walker]]></dc:creator>
+		<pubDate>Fri, 12 Jun 2026 20:30:48 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1175369</guid>
+
+					<description><![CDATA[<p>Project Ire examined a timely malware sample and determined its intent through reverse engineering—identifying LOTUSLITE characteristics even as most major EDR tools did not detect it.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/">Ire identifies another LOTUSLITE specimen</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1.jpg" alt="Project Ire | | three white line icons on an abstract purple background | greater than / less than icon, search icon, shield icon" class="wp-image-1175384" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Project Ire identifies a LOTUSLITE variant that shares TTPs (tools, tactics, procedures) with the public family but none of its indicators of compromise (IOC).&nbsp;</li>
+
+
+
+<li>The LLM-driven agent produces a function-by-function behavioral report on the sample without any user interaction to determine whether it is malicious.</li>
+
+
+
+<li>The binary names a threat actor in cleartext; the agent declines to attribute and instead focuses on statically analyzing the behaviors.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p>We pointed <a href="https://www.microsoft.com/en-us/research/project/project-ire/" type="msr-project" id="1144806">Project Ire</a>, Microsoft&#8217;s autonomous malware-classification agent, at a malware sample—blind—and asked for a verdict. The sample is a variant of LOTUSLITE, a Windows DLL backdoor recently documented by Acronis. Our copy&#8217;s hash isn&#8217;t in their IOC list, and as of June 4, most major EDRs (CrowdStrike Falcon, SentinelOne, Sophos, Trellix, Palo Alto, ESET) still don&#8217;t flag it as malware. Ire produced a function-by-function behavioral report—install routine, C2 packet layout, command IDs, persistence mechanism, obfuscation—that lines up with Acronis&#8217;s published analysis. One decompiler-based run, no human priors.</p>
+
+
+
+<p>This is what behavioral, agentic reverse engineering can achieve when signature matching and manual inspections fall short. Variants that share TTPs but not indicators of compromise (IOC) get caught instead of slipping past signature lists. Novel malware classification is a domain with no automatic validator, requiring in-depth investigation and holistic understanding of the software’s behaviors to surface and determine intent. Ire operates without context: no origin metadata, no telemetry, no analyst prompt. It invokes decompilers and binary-analysis tools, builds an auditable chain of evidence, and reaches a malicious-or-benign verdict.</p>
+
+
+
+<p>Acronis&#8217;s Threat Research Unit (TRU) <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.acronis.com/en/tru/posts/lotuslite-targeted-espionage-leveraging-geopolitical-themes/" type="link" id="https://www.acronis.com/en/tru/posts/lotuslite-targeted-espionage-leveraging-geopolitical-themes/" target="_blank" rel="noopener noreferrer">published a writeup<span class="sr-only"> (opens in new tab)</span></a> on LOTUSLITE, a DLL backdoor delivered through a politically themed ZIP, sideloaded through a renamed Tencent KuGou launcher. They attribute it to Mustang Panda at moderate confidence based on infrastructure overlap and the loader/DLL split. Hunting on VirusTotal for samples whose behavior matched the report, we surfaced one whose SHA-256 doesn&#8217;t appear in Acronis&#8217;s IOC list.</p>
+
+
+
+<p>The sample: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653" type="link" id="https://www.virustotal.com/gui/file/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653" target="_blank" rel="noopener noreferrer">47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653<span class="sr-only"> (opens in new tab)</span></a>. When we picked it up on May 28, VirusTotal showed 1 of 72 vendors flagging it.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="1120" height="272" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial.png" alt="A screenshot of a 253 KB sample on VirusTotal taken on May 28, 2026 showing that only one of 72 vendors flagged this as malicious. " class="wp-image-1175443" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial.png 1120w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-300x73.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-1024x249.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-768x187.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-240x58.png 240w" sizes="(max-width: 1120px) 100vw, 1120px" /><figcaption class="wp-element-caption">Figure 1. File Sample 47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653 detection state on VirusTotal on May 28, 2026.</figcaption></figure>
+
+
+
+<p>A week later, that rose to 7 of 70. The cluster: Microsoft Trojan:Win32/Malgent!MSR, Kaspersky HEUR:Trojan-Dropper.Win32.Dorifel.gen, Rising Dropper.Dorifel!8.31E (CLOUD), Cynet (score 100), Elastic (moderate confidence), Kingsoft, TrendMicro-HouseCall. With Microsoft now flagging, VT&#8217;s popular threat label has shifted to dropper.dorifel / malgent. CrowdStrike Falcon, SentinelOne, Sophos, Trellix, Palo Alto, and ESET still miss it. VT lists the file type as pedll (PE DLL) and the filename as SmartPrintScreen.Print.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="1265" height="760" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later.png" alt="A screenshot of the same 253KB sample on June 4, 2026 showing that 7 of 70 security vendors have identified this sample as malicious: Cynet, Kaspersky, Microsoft, TrendMicro-HouseCall, Elastic, Kingsoft, Rising, and Acronis (Static MIL). " class="wp-image-1175447" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later.png 1265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-300x180.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-1024x615.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-768x461.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-240x144.png 240w" sizes="(max-width: 1265px) 100vw, 1265px" /><figcaption class="wp-element-caption">Figure 2. File Sample 47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653 detection state on VirusTotal on June 4, 2026.</figcaption></figure>
+
+
+
+<p>We analyzed the sample with Ire, using only its decompiler-based tools through a single tool call. Ire&#8217;s verdict was “malicious”; you can review the complete report <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fproject-ire%2Fblob%2Fmain%2Freports%2F47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md&data=05%7C02%7Csmithsarah%40microsoft.com%7Cabbc5bb6be7e4ddca50b08dec7d70737%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639167923516521150%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=rr4gCWnGCAHITM4ARAtVXqu66UzUVqByMacq%2BsOmNQ8%3D&reserved=0" target="_blank" rel="noopener noreferrer">on Github<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<h2 class="wp-block-heading" id="on-ire-s-calibration">On Ire&#8217;s calibration</h2>
+
+
+
+<p>One noteworthy observation in <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" type="link" id="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" target="_blank" rel="noopener noreferrer">Ire’s report<span class="sr-only"> (opens in new tab)</span></a> is worth highlighting first. Ire flagged the nfapi::nf_unRegisterDriver and NetFilter naming as suspicious but explicitly did not claim active packet interception. The function in question writes the Run key; it does not install a driver. This is where LLM-driven analysis can go wrong: suggestive strings can steer the verdict. A function called nf_unRegisterDriver sounds like it does kernel-level work, and a less thorough agent would write that into the report. Downstream defenders would then chase a phantom, building detection rules for behavior that may or may not be there. Ire flagged the misleading name and considered the behavior as one piece of the evidence during its final adjudication of malice.</p>
+
+
+
+<h2 class="wp-block-heading" id="comparing-the-two-reports">Comparing the two reports</h2>
+
+
+
+<figure class="wp-block-table is-style-stripes"><table><thead><tr><th></th><th>Acronis specimen</th><th>Our sample</th></tr></thead><tbody><tr><td>Sample type</td><td>loader EXE + kugou.dll</td><td>the malicious DLL itself: AMPV.dll (VT type pedll)</td></tr><tr><td>Install dir</td><td>C:\ProgramData\Technology360NB\</td><td>C:\ProgramData\SmartPrint\</td></tr><tr><td>Installed exe</td><td>DataTechnology.exe</td><td>SmartPrintScreen.exe</td></tr><tr><td>Run-key value</td><td>Lite360</td><td>DadaBank</td></tr><tr><td>Marker arg</td><td>&#8211;DATA</td><td>&#8211;DaDaBar</td></tr><tr><td>C2 magic</td><td>0x8899AABB</td><td>0xB2EBCFDF</td></tr><tr><td>Lure</td><td>politically themed ZIP, Venezuela-themed launcher</td><td>fake &#8220;PDF corrupted&#8221; message box</td></tr><tr><td>Mustang Panda link</td><td>infra and TTP overlap, moderate confidence (Acronis&#8217;s call)</td><td>not independently assessed; binary contains the literal string BelievemeIamMustang-Panda</td></tr></tbody></table></figure>
+
+
+
+<p>Comparing Ire’s output with Acronis’ report, the sample we analyzed matches the behavioral profile of the LOTUSLITE family of malware. Both show a loader/DLL split, HTTPS C2 carrying a custom binary protocol with a magic DWORD, interactive shell over pipes, directory enumeration, file primitives, chunked upload, HKCU persistence, and traffic camouflaged as Google and Microsoft services. The surface details differ—filenames, paths, magic value—but the underlying behaviors align. Ire correctly identified this sample as part of the same family of malware because of the behaviors it was able to identify through decompilation and reverse engineering, not on string match alone.</p>
+
+
+
+<p>Because the sample is a DLL (pedll per VT), the sample&#8217;s install routine reads differently than it might look at first. The DLL copies two files into C:\ProgramData\SmartPrint\: the loader EXE that sideloaded it (its host process, obtained via GetModuleFileName(NULL), written as SmartPrintScreen.exe) and itself (AMPV.dll, the analyzed sample). The Run key points at the loader with &#8211;DaDaBar. On the next logon, the loader runs and sideloads AMPV.dll from the install path. This is the same Acronis-identified pattern but with different filenames.</p>
+
+
+
+<p>This also explains the binary&#8217;s strange export surface. The DLL exports a long list of banking and QR-themed names (Query_Bank, BankSepah_Iran, BankToman_BMI, BankofChina, qrBankInit, JpgSymbolToBMP, and others), most of which resolve to a message box or ExitProcess. The shape suggests a hijacked banking/QR SDK shell, repurposed so the host EXE can call any one of those exports via GetProcAddress and reach the LOTUSLITE entry point. Acronis names theirs DataImporterMain. The Ire report does not surface a matching entry-point name, but it identifies that the behavioral shape is the same.</p>
+
+
+
+<p>Acronis attributes the malware family to Mustang Panda at moderate confidence based on infrastructure and TTPs we don&#8217;t have access to, while our sample directly contains a literal actor-name string “BelievemeIamMustang-Panda” with no obfuscation. A string isn&#8217;t direct proof of authorship; it could be a developer artifact, a trophy, or a deliberate plant. While we are not making an attribution call, we note that the binary names the same actor that Acronis named through other means, and we leave the question open. Another consideration to make for this finding: a string like this can function as adversarial input to LLM-driven analysis, biasing the verdict.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">On Second Thought</h2>
+				
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 class="wp-block-heading" id="why-this-matters">Why this matters</h2>
+
+
+
+<p>Ire statically reverse-engineers binaries and identifies the behavior from the function to the system level to describe what the software does and determine a verdict. The verdict of this sample came from a single Ire run because of the specific detail Ire was able to surface: function roles, packet layout, command IDs, persistence registry keys, and decoy strings. Ire never named LOTUSLITE in its report or chain of evidence. The family mapping is ours, after the fact, comparing Ire’s report against Acronis report. Ire described the behavior precisely enough to make the mapping straightforward of this sample to LOTUSLITE.</p>
+
+
+
+<p>Stay up to date on the latest findings and other interesting sample detections from Project Ire by following along on our <a href="https://www.microsoft.com/en-us/research/project/project-ire/" type="msr-project" id="1144806">project page</a>.</p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" target="_blank" rel="noreferrer noopener">View Ire&#8217;s system output report</a></div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/">Ire identifies another LOTUSLITE specimen</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Data Formulator 0.7: AI-powered data analytics for enterprise data</title>
 		<link>https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/</link>
 		
@@ -32,7 +195,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/">Data Formulator 0.7: AI-powered data analytics for enterprise data</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a textured blue‑green gradient background: a rising bar chart on the left, a central hub‑and‑spoke network diagram in the middle, and a checkmark inside a circle on the right." class="wp-image-1173551" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a textured blue‑green gradient background: a rising bar chart on the left, a central hub‑and‑spoke network diagram in the middle, and a checkmark inside a circle on the right." class="wp-image-1173551" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -81,30 +244,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cN="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -121,7 +284,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1059" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg" alt="Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data." class="wp-image-1173869" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-300x124.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1024x424.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-768x318.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1536x636.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-2048x848.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-240x99.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1059" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg" alt="Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data." class="wp-image-1173869" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-300x124.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1024x424.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-768x318.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1536x636.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-2048x848.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-240x99.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data.</figcaption></figure>
 
 
 
@@ -149,7 +312,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1440" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png" alt="Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side." class="wp-image-1173492" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1536x864.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-2048x1152.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1920x1080.png 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1440" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png" alt="Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side." class="wp-image-1173492" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1536x864.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-2048x1152.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1920x1080.png 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side.</figcaption></figure>
 
 
 
@@ -254,30 +417,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -419,30 +579,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -764,30 +921,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -948,27 +1105,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1193,7 +1353,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1202,20 +1362,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -1372,30 +1532,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1721,30 +1878,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cN="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cN="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cN="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2186,255 +2343,6 @@
 
 <p>We would like to thank&nbsp;<a href="https://www.microsoft.com/en-us/research/people/brlucier/" target="_blank" rel="noreferrer noopener">Brendan Lucier</a>,&nbsp;<a href="https://www.microsoft.com/en-us/research/people/adamfo/" target="_blank" rel="noreferrer noopener">Adam Fourney</a>,&nbsp;<a href="https://www.microsoft.com/en-us/research/people/aswearngin/" target="_blank" rel="noreferrer noopener">Amanda Swearngin</a>, and&nbsp;<a href="https://www.microsoft.com/en-us/research/people/eckamar/" target="_blank" rel="noreferrer noopener">Ece Kamar</a>&nbsp;for&nbsp;their helpful feedback, discussions, and support of this work.&nbsp;</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/">SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Building realistic electric transmission grid dataset at scale: a pipeline from open dataset</title>
-		<link>https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/</link>
-		
-		<dc:creator><![CDATA[Andrea Britto Mattos Lima, Thiago Vallin Spina, Weiwei Yang, Spencer Fowers, Ruslan Nagimov, Baosen   Zhang]]></dc:creator>
-		<pubDate>Fri, 08 May 2026 19:53:56 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1170857</guid>
-
-					<description><![CDATA[<p>Microsoft Research is excited to release an open dataset of approximate transmission topology of the U.S. power grid derived from publicly available data. The ability to study transmission-level power grid behavior is essential for modern power systems research. Analyses of congestion, transmission expansion, demand growth, and system resilience all depend on network models with realistic [&#8230;]</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/">Building realistic electric transmission grid dataset at scale: a pipeline from open dataset</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a blue-to-green gradient background: a connected globe with signal waves (left), a map location pin (center), and a lightbulb with rays (right), representing connectivity, location, and ideas." class="wp-image-1171061" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSage-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0; padding-top:0" class="wp-block-msr-immersive-section alignfull row wp-block-msr-immersive-section">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>We construct geographically grounded, electrically coherent power grid models entirely from publicly available data and release a dataset spanning 48 U.S. states and multi-state interconnections.</li>
-
-
-
-<li>The models support AC optimal power flow (AC‑OPF) analysis, enabling physics-based study of congestion, capacity, and demand siting without restricted data.</li>
-
-
-
-<li>We demonstrate applications including transmission expansion potential, targeted line upgrades, and placement of large datacenter loads.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p><strong>Microsoft Research is excited to release an open dataset of approximate transmission topology of the U.S. power grid derived from publicly available data.</strong></p>
-
-
-
-<p>The ability to study transmission-level power grid behavior is essential for modern power systems research. Analyses of congestion, transmission expansion, demand growth, and system resilience all depend on network models with realistic topology, electrical parameters, and geographic grounding.</p>
-
-
-
-<p>In most of the world, including the United States, realistic transmission-level grid data is classified as critical infrastructure information and subject to strict access controls. These restrictions exist for good reasons, but the resulting lack of realistic grid models is increasingly exacerbating the challenges power systems face. Decisions about where new load can be added – and how additional transmission assets can be deployed to support it – are often gated behind lengthy and opaque processes that can take years. For researchers developing new tools and algorithms, access typically requires long approval cycles, strict non-redistribution agreements, or costly commercial licenses.</p>
-
-
-
-<p>As a result, many are left choosing between small “toy” networks with dozens of buses, or synthetic models that do not correspond to real infrastructure. This lack of realistic, shareable models is particularly limiting for data-driven and AI-based approaches, which require large volumes of physically plausible grid data for training and evaluation methods for grid analysis and planning.</p>
-
-
-
-<p>Against this backdrop, a natural question arises:</p>
-
-
-
-<p><strong>Can we meaningfully understand how the U.S. power grid responds to modern stresses – and facilitate the development of actionable solutions for the system – using only open data?</strong></p>
-
-
-
-<p>In this work, we introduce an open-data-derived pipeline for constructing large-scale, transmission-level power grid models that realistically approximate existing networks without relying on proprietary or restricted datasets. We provide an open dataset derived from this process, consisting of transmission-level models spanning 48 U.S. states as well as interconnection-scale networks, ranging in size from small systems with as few as 11 buses to the full Eastern Interconnection grid connecting 21,697 buses. The pipeline has been validated across the continental United States, where sufficient open geographic, energy, and demographic data are available, and is designed to generalize to other regions with comparable public data sources.&nbsp;</p>
-
-
-
-<p>Using only publicly accessible datasets, the pipeline produces geographically grounded, electrically coherent transmission models at state, multi-state, and interconnection scales. These models preserve the geographic structure of transmission corridors, substations, and generators inferred from open data, while explicitly accounting for uncertainty where detailed operational parameters are unavailable through transparent feasibility reporting.</p>
-
-
-
-<p>Importantly, these are not toy networks or abstract benchmarks. The resulting models support alternating current optimal power flow (AC-OPF) analysis across a wide range of scales, enabling physics-based investigation of questions such as where transmission capacity is physically constrained; where new demand can be absorbed; and how infrastructure changes propagate through realistic network layouts – using only open data.</p>
-
-
-
-<p>In this post, we describe the approach at a high level and highlight the system level questions it enables.</p>
-
-
-
-<h2 class="wp-block-heading" id="how-the-pipeline-works">How the pipeline works</h2>
-
-
-
-<p>The pipeline turns publicly available geographic and energy data into transmission-level grid models that are geographically grounded and usable for power flow analysis.</p>
-
-
-
-<p>The starting point is <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap<span class="sr-only"> (opens in new tab)</span></a>, which encodes the physical layout of transmission corridors, substations, and power plants. This geographic skeleton is then augmented with open datasets describing generation capacity, fuel mix, demand, and operational boundaries (including U.S. EIA energy statistics and U.S. Census data), allowing the models to go beyond topology and represent how electricity is produced and consumed.</p>
-
-
-
-<p>The key test is solvability. In power system analysis, solving&nbsp;optimal&nbsp;power flow (OPF) problems is a practical check on whether a network description is electrically coherent and&nbsp;practically relevant. OPF&nbsp;determines&nbsp;how generation can be dispatched to meet demand while respecting physical constraints such as transmission line capacities, voltage limits, and generator capabilities. Many inferred or synthetic networks fail this test outright: the topology may appear&nbsp;roughly correct, but other important engineering parameters are not.&nbsp;</p>
-
-
-
-<p>Crucially, this approach moves beyond small benchmark or “toy” networks.&nbsp;In particular, we solve AC-OPF across the entire Eastern Interconnection, spanning 36 states and more than 20,000 buses, derived exclusively from public data sources.&nbsp;This&nbsp;demonstrates&nbsp;that open-data-derived models can&nbsp;produce&nbsp;convergent AC-OPF solutions&nbsp;at&nbsp;a&nbsp;continental scale.&nbsp;</p>
-
-
-
-<p>To be clear, these models are not exact replicas of the operational grid, nor are they intended for market forecasting or real-time operational decision making by power balancing authorities. Electrical parameters are estimated from standard engineering references, parallel circuits are approximated rather than exhaustively enumerated, and demand is allocated using public proxies derived from open data.</p>
-
-
-
-<p>The goal is to produce structurally and electrically realistic models that preserve geographic structure and scale from individual states to large multi-region systems using only open data. Full methodological details, validation results, and limitations are described in a&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/building-power-grid-models-from-open-data-a-complete-pipeline-from-openstreetmap-to-optimal-power-flow/" target="_blank" rel="noreferrer noopener">companion research paper.</a>&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="why-this-matters-for-today-s-energy-challenges">Why this matters for today’s energy challenges</h2>
-
-
-
-<p>Access to solvable, geographically grounded grid models unlocks questions that have become increasingly urgent as the energy system evolves, driven by large-scale datacenters, AI workloads, renewable generation, and extreme weather events. We illustrate these capabilities with concrete analyses on models derived from our pipeline.</p>
-
-
-
-<h3 class="wp-block-heading" id="where-can-new-transmission-physically-fit">Where can new transmission physically fit?</h3>
-
-
-
-<p>Before asking how much new capacity the grid needs, planners must first ask where more wires are even possible. Transmission corridors have a physical limit on how many circuits they can carry: each circuit&nbsp;requires&nbsp;three conductors, and most tower structures accommodate one to three circuits (three to nine conductors). Beyond that, adding capacity typically requires acquiring entirely new rights-of-way – which is expensive, legally complex, and often politically infeasible in urban areas.&nbsp;</p>
-
-
-
-<p>Because our models preserve the geographic structure of real transmission corridors from OpenStreetMap, we can count the number of parallel circuits along each path and visualize where the grid is already physically saturated.</p>
-
-
-
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="545" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1024x545.png" alt="Transmission corridor density across the contiguous United States, showing most corridors carry a single circuit with denser multi-circuit regions near major cities. " class="wp-image-1170873" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1024x545.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-300x160.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-768x409.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-1536x818.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-2048x1091.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1a_continental_us_circuit_density-240x128.png 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1363" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-scaled.png" alt="Zoomed view of California showing dense multi-circuit corridors near urban areas and lower-density radial lines in rural regions." class="wp-image-1170874" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-300x160.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-1024x545.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-768x409.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-1536x818.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-2048x1091.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig1b_continental_us_circuit_density_california-240x128.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1. Across the contiguous United States (top), the model identifies 31,488 distinct transmission corridors. The overwhelming majority (27,506) carry a single circuit (green), making parallel lines easier. The roughly 4,000 corridors in orange through red already carry two or more parallel circuits, with the densest packing ten circuits (30 conductors) onto a single path. Zooming into California (bottom), the pattern becomes more discernable. The red corridor north of Sacramento and the orange clusters around the Bay Area and LA basin show where the grid is already physically dense, while the long green radials across the Mojave and into Nevada still have room to grow.</em></figcaption></figure>
-
-
-
-<p>Identifying where the grid is physically boxed in, regardless of generation or demand, is not an optimization problem. It is a spatial feasibility question that geographically grounded models are uniquely positioned to answer.</p>
-
-
-
-<h3 class="wp-block-heading" id="what-if-we-add-capacity-where-it-is-needed-most">What if we add capacity where it is needed most?</h3>
-
-
-
-<p>In dense urban areas, adding new traditional transmission lines is often impractical. The combination of tightly packed buildings, roadways, and complex underground infrastructure leaves little room to establish rights-of-way for high-voltage lines. Alternative power‑transmission solutions are sometimes explored to support urban grid expansion. For example, high-temperature superconducting (HTS) cable systems offer an order-of-magnitude higher ampacity for a given cross-section, enabling the transfer of large amounts of power at lower voltages and simplifying permitting requirements.</p>
-
-
-
-<p>Short point-to-point superconducting power links have already been demonstrated in U.S. cities: Columbus, Ohio, Albany, New York, Long Island, New York (decommissioned), and Chicago (operational).</p>
-
-
-
-<p>To explore what such connections might accomplish, we modeled two hypothetical HTS links in the Massachusetts grid, each connecting a substation northwest of Boston to load centers closer to the city. We then re-solved AC-OPF and compared the results to the unmodified baseline.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-large"><img loading="lazy" decoding="async" width="1024" height="565" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-1024x565.png" alt="Baseline transmission line loading in Massachusetts showing one line exceeding its thermal limit and others operating near capacity. " class="wp-image-1170872" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-1024x565.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-768x424.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-1536x847.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-2048x1130.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2a_hts_baseline_congestion_corridor-240x132.png 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-large"><img loading="lazy" decoding="async" width="1024" height="565" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-1024x565.png" alt="Transmission line loading after adding two superconducting links, with no overloads. " class="wp-image-1170879" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-1024x565.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-768x424.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-1536x847.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-2048x1130.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig2b_hts_scenario_congestion_corridor-240x132.png 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption"><em>Figure 2. In the baseline (top), one transmission line exceeds its thermal rating (≥100%, dark red) and two more operate above 90%. After adding two HTS links (bottom, dashed lines), every line in the network drops below 90% loading. The energy price falls 42%, from $22.7/MWh to $13.1/MWh, as generation that was previously bottlenecked behind constrained corridors becomes deliverable.</em></figcaption></figure>
-
-
-
-<p>This is precisely the kind of insight that publicly available price data cannot provide. Wholesale electricity prices reflect whether congestion exists, but not how close the system is to congestion nor how power flows change when new assets are added. A line operating at 95% of its thermal limit and one at 50% look identical in market data – until one of them reaches capacity. Physics-based models expose that margin directly, making it possible to evaluate interventions before they are built. </p>
-
-
-
-<h3 class="wp-block-heading" id="where-should-new-demand-go">Where should new demand go?</h3>
-
-
-
-<p>Rapid growth in electricity demand raises a question that existing market signals answer poorly: where on the network can new consumption be absorbed without triggering congestion?</p>
-
-
-
-<p>Wholesale electricity prices reflect marginal generation costs, current congestion patterns in the transmission grid, and transmission losses, which are typically small – but they do not capture how close the system is to its limits. Siting decisions based solely on price therefore miss the physical margin that determines whether new demand can be served without infrastructure upgrades.</p>
-
-
-
-<p>To illustrate this, we placed the same hypothetical 500&nbsp;MW datacenter at two locations in the Maryland grid and re-solved AC-OPF for each (locations were chosen arbitrarily and do not reflect Microsoft’s datacenter portfolio or expansion plans). The two sites are plausible alternatives from a market perspective, with similar population density, comparable electricity prices, and proximity to major load centers:</p>
-
-
-
-<ul class="wp-block-list">
-<li>Site&nbsp;A (Baltimore area): a substation in the Baltimore metropolitan region, near an existing generation complex and dense transmission infrastructure</li>
-
-
-
-<li>Site&nbsp;B (Washington, DC suburbs): a substation in Montgomery County, serving a similarly dense suburban area within the Washington–Baltimore corridor</li>
-</ul>
-
-
-
-<p>Despite these similarities, the physical outcomes differ. Adding the datacenter at Site&nbsp;A pushes a nearby transmission line into thermal overload, while placing the same load at Site&nbsp;B is absorbed by the existing network without violating line limits. The two sites are less than 50&nbsp;miles apart, yet one would require transmission reinforcement and the other would not.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1412" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-scaled.png" alt="Datacenter placement near Baltimore causing a transmission line to exceed its thermal limit. " class="wp-image-1170880" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-1024x565.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-768x424.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-1536x847.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-2048x1130.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3a_dc_siteA_congestion_md-240x132.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-large"><img loading="lazy" decoding="async" width="1024" height="565" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-1024x565.png" alt="Datacenter placement near Washington DC that is absorbed without violating transmission line limits. " class="wp-image-1170881" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-1024x565.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-768x424.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-1536x847.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-2048x1130.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/fig3b_dc_siteB_congestion_md-240x132.png 240w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption"><em>Figure 3. Placing the datacenter near Baltimore (top) pushes one transmission line into overload (≥100%) and raises the energy price from $24.6/MWh (baseline) to $28.6/MWh (+16.1%). The same load placed near the DC suburbs (bottom) keeps all lines below 95% and raises the price to $26.4/MWh (+7.4%). The Baltimore site yields a price $2.1/MWh higher – a difference that, across the 500 MW load, amounts to roughly $9,100 per hour or ~$80 million per year.</em></figcaption></figure>
-
-
-
-<p>This distinction – largely invisible in price data – emerges directly from a more direct first-principle transmission-level power flow analysis. It highlights why geographically grounded, physics-based models are necessary for demand-siting decisions in a stressed grid.</p>
-
-
-
-<h2 class="wp-block-heading" id="looking-ahead">Looking ahead</h2>
-
-
-
-<p>This work shows that it is possible to study transmission-level grid behavior at realistic scales without access to restricted infrastructure data. By grounding models in real geography and making uncertainty explicit, open-data-derived grids can support analyses that are difficult or impossible with small benchmarks or purely synthetic networks.</p>
-
-
-
-<p>While the examples here focus on the United States, the approach generalizes to other regions where comparable open data is available. More broadly, we see this capability as an enabling layer: a way to improve the study of congestion, feasibility, and system stress – whether for planning studies, scenario analysis, or data-driven methods that require realistic grid structure.</p>
-
-
-
-<p>We are releasing an open dataset of grid models spanning 48 U.S. states and six multi-state interconnections, ranging from small systems with tens of buses to continental-scale networks. All models can be solved under AC-OPF, with controlled relaxations applied when necessary to account for uncertainty in open data inputs. These models are solved for both peak and off-peak demand conditions, enabling consistent analysis across a range of operating scenarios.</p>
-
-
-
-<p>This post is the first in a two-part series. In the second post, we introduce GridSFM, a learning-based AC-OPF surrogate trained on these grid models. We show how it predicts a full AC operating point in milliseconds, classifies feasibility for fast screening at planning scale, and serves as a warm-start seed that accelerates downstream numerical solvers.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-16018d1d wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/GridSFM">GitHub</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/collections/microsoft/gridsfm">Hugging Face</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/">Building realistic electric transmission grid dataset at scale: a pipeline from open dataset</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
