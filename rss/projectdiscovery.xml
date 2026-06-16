@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Mon, 15 Jun 2026 04:48:10 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 04:44:58 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -175,13 +175,6 @@ Neo is ProjectDiscovery’s AI security copilot for tasks like code review and v
 The practical reality for a security team deploying AI is messier than the headlines or early POC results suggest. Noise compounds fast. Anthropic brought in external security researchers to help validate the vo</description>
     </item>
     <item>
-      <title>Neo v. DIY: The gap between a single finding and a mature security program</title>
-      <link>https://projectdiscovery.io/blog/neo-vs-diy</link>
-      <description>In our latest webinar, our Founding Solutions Engineer, Davis Franklin, addressed the massive gap between finding a vulnerability with an LLM and running a mature security program. That gap is what Neo is built to close.
-
-With the release of Opus 4.6 and the announcement of Mythos, the question we hear constantly has gotten louder: Can I just build this with Claude Code? The short answer is yes. You can spin up a working PoC in about half an hour, find a real vulnerability, and feel genuinely co</description>
-    </item>
-    <item>
       <title>Benchmarking Neo's Black-Box DAST Capabilities</title>
       <link>https://projectdiscovery.io/blog/neo-black-box-dast-capabilities</link>
       <description>Since the launch of Neo, we've been steadily expanding what it can do. Neo has found 33+ real CVEs across open-source projects, performed well on white-box security testing where source code is available, and generally proven itself as a capable security engineer when it has context to work with.
@@ -192,6 +185,17 @@ What we hadn't shared yet is how Neo does when it's operating purely as a black-
       <title>Red-Teaming Cloud Infrastructure with Neo</title>
       <link>https://projectdiscovery.io/blog/red-teaming-cloud-infrastructure-with-neo</link>
       <description>Most AI security tooling shipped over the last year focuses on one of two workflows, code review at PR time or zero-day research in open-source software. Models in PR pipelines now flag insecure patterns at every commit and autonomous research runs have produced more zero-days across open-source projects than the patch teams behind them can realistically triage. We've been running Neo on both of those workflows at ProjectDiscovery for a while now, surfacing zero-days in production software and t</description>
+    </item>
+    <item>
+      <title>How Neo's Agent Architecture Evolved: From One Agent → Plan, Execute &amp; Verify</title>
+      <link>https://projectdiscovery.io/blog/neo-agent-architecture</link>
+      <description>Our first engineering post covered prompt caching, the infrastructure change that made long-running agentic tasks economically viable. That post assumed a multi-step, multi-agent system already existed.
+
+
+It did not exist on day one.
+
+
+When we started building Neo, the product was a single agent with a sandbox and a large toolset. Today, a typical task runs through optional planning, an Execution agent that delegates to parallel specialized subagents, and a verification loop that can re-run w</description>
     </item>
   </channel>
 </rss>
