@@ -20,6 +20,163 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0</generator>
 	<item>
+		<title>Understanding the brain with AI-driven explanations and experiments</title>
+		<link>https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/</link>
+		
+		<dc:creator><![CDATA[Chandan Singh, Jianfeng Gao]]></dc:creator>
+		<pubDate>Thu, 25 Jun 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1176573</guid>
+
+					<description><![CDATA[<p>Researchers introduce generative causal testing, which translates black box models into clear hypotheses and verifies them in the scanner, revealing what specific brain regions respond to in language.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/">Understanding the brain with AI-driven explanations and experiments</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Understanding the brain | four white line icons on an abstract purple background: brain icon, chat bubble icon, circle with a checkmark icon, search icon" class="wp-image-1176579" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>LLM-based models can predict the human brain’s responses to language with high accuracy. But what drives that performance is essentially unreadable: a vast collection of learned parameters, not scientific theories anyone can read.</li>
+
+
+
+<li>Generative causal testing (GCT), developed in a collaboration between Microsoft Research, the University of California, Berkeley, the University of California, San Francisco, and Columbia University, distills these brain-prediction models into short verbal explanations of what each patch of cortex responds to: phrases like “food preparation” or “location names.”</li>
+
+
+
+<li>GCT then closes the loop: an LLM writes new stories designed to activate a targeted brain area, subjects hear them in the scanner, and the region lights up only if the explanation is right.</li>
+
+
+
+<li>In experiments, GCT confirmed known selectivity, teased apart neighboring place-processing regions long thought interchangeable, and revealed tiny prefrontal “micro-regions” tuned to specific concepts like dialogue, clock times, and measurements.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<h2 id="the-explainability-problem-in-language-neuroscience" class="wp-block-heading">The explainability problem in language neuroscience</h2>
+
+
+
+<p class="wp-block-paragraph">Over the past decade, LLMs have become the most accurate tools we have for predicting how the human brain responds to language. Feed an LLM the same story a person hears in an fMRI scanner, and the model’s internal representations can predict the activity of individual patches of cortex with remarkable fidelity. But this success comes with a catch: nobody can read these models. They are millions of inscrutable parameters that can’t be directly translated into interpretations. A model that predicts brain activity tells us that a region responds to language, but not what it is actually picking up on, whether it’s food, places, numbers, or something else entirely. As black-box models spread, the gap between prediction and understanding has become one of the central problems in computational neuroscience.</p>
+
+
+
+<h2 id="turning-black-boxes-into-testable-theories" class="wp-block-heading">Turning black boxes into testable theories</h2>
+
+
+
+<p class="wp-block-paragraph">In a <a href="https://www.microsoft.com/en-us/research/publication/generative-causal-testing-to-bridge-data-driven-models-and-scientific-theories-in-language-neuroscience/" type="link" id="https://arxiv.org/abs/2410.00812" target="_blank" rel="noreferrer noopener">new paper</a> accepted in <em>Nature Neuroscience</em>, Microsoft Research scientists, in collaboration with scientists at the University of California, Berkeley, University of California, San Francisco, and Columbia University, introduce a framework to overcome this explainability crisis: generative causal testing (GCT). GCT distills brain-prediction models into short, readable accounts of what each patch of cortex responds to, then tests those claims. An LLM writes new stories engineered to activate a specific brain area, subjects hear them in the scanner, and if the explanation is correct, the targeted region lights up. The result is a method that translates uninterpretable predictive models back into the currency of science: concise hypotheses that can be confirmed or refuted in a follow-up experiment. An LLM writes new stories engineered to activate a specific brain area, subjects hear them in the scanner, and if the explanation is correct, the targeted region lights up. The result is a method that translates uninterpretable predictive models back into the currency of science: concise hypotheses that can be confirmed or refuted in a follow-up experiment.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1126" height="676" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1.png" alt="Figure 1: Diagram showing a 2-step process. At the top, in the first step a pipeline of arrows shows the progression from story ngrams to a voxel explanation that reads “Food preparation”. The bottom shows the second step with an AI chat and images of brain regions and line plots of their responses." class="wp-image-1176577" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1.png 1126w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-300x180.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-1024x615.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-768x461.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-240x144.png 240w" sizes="(max-width: 1126px) 100vw, 1126px" /><figcaption class="wp-element-caption">Figure 1. The two steps of generative causal testing (GCT). In Step 1, the phrases that most strongly drive a brain region’s predictive model are summarized by an LLM into a short candidate explanation, such as “food preparation.” In Step 2, an LLM writes new stories designed to match that explanation, and the region’s response to these “driving” stories is measured in the scanner and compared against baseline.&nbsp;</figcaption></figure>
+
+
+
+<h2 id="how-gct-works" class="wp-block-heading">How GCT works</h2>
+
+
+
+<p class="wp-block-paragraph">GCT has two steps: explanation, then verification. To generate an explanation, the method starts from a predictive model for a single voxel or region and identifies the short phrases that most strongly drive its predicted response. An LLM then summarizes those words into a concise verbal explanation, often a single phrase such as “food preparation” or “location names.”</p>
+
+
+
+<p class="wp-block-paragraph">The crucial second stage closes the loop. To build trust in the explanation, GCT uses an LLM to write new stories in which each paragraph is carefully constructed to drive a brain region according to its explanation. Three subjects returned to the scanner to read these synthetic stories. If a region’s activity to its “driving” paragraphs was significantly greater than to baseline text, the explanation passed a genuine causal test, not just a correlational one.</p>
+
+
+
+<p class="wp-block-paragraph">Across all three subjects, the core approach held up: the synthetic stories reliably drove their target regions above baseline, confirming that GCT’s short explanations capture something the cortex genuinely responds to. The explanations were also most trustworthy where the underlying brain-prediction models were strongest (the more stable the model, the more reliably its explanation could be confirmed in the scanner). With the method validated on regions whose selectivity was already known, the researchers turned GCT on harder questions.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1442" height="677" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2.png" alt="Figure 2: Six visualizations of brain surfaces show the normalized bold response for different categories including Locations and Food Preparation." class="wp-image-1176578" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2.png 1442w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-240x113.png 240w" sizes="(max-width: 1442px) 100vw, 1442px" /><figcaption class="wp-element-caption">Figure 2. Brain response maps to GCT stories for different topics. Some maps recover well-established findings: the explanation “Locations” produces strong responses in the place areas RSC, OPA, and PPA. Others independently confirm newer hypotheses: “Food Preparation” activates a region in ventral occipital cortex near the fusiform face area (FFA). Some like (“Birthdays”) do not map cleanly onto any known result, pointing toward directions for future research. </figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">GCT also proved sharp enough to settle long-standing ambiguities. Three neighboring regions involved in processing places have often been treated as functionally similar: the retrosplenial cortex (RSC), the parahippocampal place area (PPA), and the occipital place area (OPA). At first, stories written for one region also activated the others. But by generating differential stimuli (stories designed to switch one region on while keeping its neighbors quiet), GCT teased the three apart. For example, RSC responds more strongly to proper noun location names, like Tokyo or Connecticut, rather than general location. This is the kind of nuanced, region-specific theory that a raw predictive model cannot provide on its own.</p>
+
+
+
+<p class="wp-block-paragraph">Beyond known regions, the authors discovered new prefrontal “micro-regions.” By scanning a grid of candidate locations and keeping only the most stable ones, GCT surfaced these previously unmapped regions tuned to remarkably specific concepts: one selective for dialogue between people (words like “said” or “told”), one for mentions of clock times (“one o’clock”), and one for numeric measurements (“50 feet”). These are distinctions no one had gone looking for; they emerged because the method could propose a hypothesis and immediately test it.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="implications-and-looking-forward" class="wp-block-heading">Implications and looking forward</h2>
+
+
+
+<p class="wp-block-paragraph">The significance of GCT reaches well beyond neuroscience. Researchers increasingly face the same dilemma: a model that predicts beautifully but explains nothing. GCT shows that a data-driven model need not be the end of inquiry; it can be distilled into a readable, experimentally testable theory, and that theory can be checked against reality by generating new experiments on demand.</p>
+
+
+
+<p class="wp-block-paragraph">For neuroscience specifically, GCT points toward a faster, more hypothesis-rich way of mapping the cortex—one where an AI system proposes what a brain region might encode and a closed-loop experiment confirms or rejects it within a single study. The same generate-and-verify philosophy could extend to other domains where powerful predictive models have outrun our ability to understand them. The broader lesson is hopeful: the rise of black-box models in science does not necessarily mean the retreat of human-readable theory. With the right framework, the two can advance together.</p>
+
+
+
+<h2 id="acknowledgements" class="wp-block-heading">Acknowledgements</h2>
+
+
+
+<p class="wp-block-paragraph">This work was a collaboration across Microsoft Research, UC Berkeley (Alex Huth, Bin Yu, Sihang Guo, and Aliyah Hsu), Columbia University (RJ Antonello, co-lead), and UCSF (Shailee Jain). We also thank the study participants and the broader language-neuroscience community whose tools and datasets made this research possible.</p>
+
+
+
+<p class="wp-block-paragraph">Read <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2410.00812" type="link" id="https://arxiv.org/abs/2410.00812" target="_blank" rel="noopener noreferrer">the paper<span class="sr-only"> (opens in new tab)</span></a>: “Generative causal testing to bridge data-driven models and scientific theories in language neuroscience,” accepted in <em>Nature Neuroscience</em> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/automated-brain-explanations" type="link" id="https://github.com/microsoft/automated-brain-explanations" target="_blank" rel="noopener noreferrer">the code on Github<span class="sr-only"> (opens in new tab)</span></a>.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/">Understanding the brain with AI-driven explanations and experiments</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis</title>
 		<link>https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/</link>
 		
@@ -32,7 +189,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/">Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Talos | four white line icons on an abstract green background | DNA icon, shield icon, document icon, calendar icon" class="wp-image-1175006" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Talos | four white line icons on an abstract green background | DNA icon, shield icon, document icon, calendar icon" class="wp-image-1175006" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -97,7 +254,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="657" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1.png" alt="Figure 1 - The Talos workflow showing three stages: static variant annotation, dynamic annotation and variant prioritization/filtering, and reporting to clinical teams." class="wp-image-1175007" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-768x360.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-240x113.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption"><em><strong><em>Figure 1 &#8211; Talos overview.</em></strong><em> Talos operates in multiple stages, first collecting unchanging information about genetic variants and the patients who possess them, then applying up to date knowledge to filter and prioritize variants that are likely to be clinically relevant, then finally surfacing those variants to clinicians alongside supporting evidence.</em>&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="657" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1.png" alt="Figure 1 - The Talos workflow showing three stages: static variant annotation, dynamic annotation and variant prioritization/filtering, and reporting to clinical teams." class="wp-image-1175007" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-768x360.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-240x113.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption"><em><strong><em>Figure 1 &#8211; Talos overview.</em></strong><em> Talos operates in multiple stages, first collecting unchanging information about genetic variants and the patients who possess them, then applying up to date knowledge to filter and prioritize variants that are likely to be clinically relevant, then finally surfacing those variants to clinicians alongside supporting evidence.</em>&nbsp;</em></figcaption></figure>
 
 
 
@@ -129,30 +286,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -203,7 +360,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1045" height="534" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2.png" alt="Figure 2 - Example diagnostic odysseys solved through continuous reanalysis within months of entering the program or the publication of relevant scientific findings. " class="wp-image-1175008" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2.png 1045w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-1024x523.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-768x392.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-240x123.png 240w" sizes="(max-width: 1045px) 100vw, 1045px" /><figcaption class="wp-element-caption"><em><em>Figure 2 &#8211; Diagnostic odyssey for three example patients. Each patient spent years after genetic sequencing waiting for a diagnosis. For Patient 1, the scientific discovery enabling their diagnosis happened one month after their testing, but no diagnosis was made until the first time their genetic data was reanalyzed using Talos. For patients 2 and 3, diagnoses were made within a month of the relevant scientific findings because the patients were already in the reanalysis pipeline.</em>&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1045" height="534" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2.png" alt="Figure 2 - Example diagnostic odysseys solved through continuous reanalysis within months of entering the program or the publication of relevant scientific findings. " class="wp-image-1175008" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2.png 1045w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-1024x523.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-768x392.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-240x123.png 240w" sizes="auto, (max-width: 1045px) 100vw, 1045px" /><figcaption class="wp-element-caption"><em><em>Figure 2 &#8211; Diagnostic odyssey for three example patients. Each patient spent years after genetic sequencing waiting for a diagnosis. For Patient 1, the scientific discovery enabling their diagnosis happened one month after their testing, but no diagnosis was made until the first time their genetic data was reanalyzed using Talos. For patients 2 and 3, diagnoses were made within a month of the relevant scientific findings because the patients were already in the reanalysis pipeline.</em>&nbsp;</em></figcaption></figure>
 
 
 
@@ -346,30 +503,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -631,30 +788,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -796,30 +953,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1325,30 +1479,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1573,30 +1727,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1752,7 +1903,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1761,20 +1912,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -2006,205 +2157,6 @@
 
 <p class="wp-block-paragraph"><strong>A note on GridSFM-Premier.</strong> The larger production-scale tier is not part of this open release. If you are interested in evaluating it, collaborating with us, or otherwise getting access, please contact us at <a href="mailto:gridFM@microsoft.com" target="_blank" rel="noreferrer noopener"><strong>gridFM@microsoft.com</strong></a>.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/">GridSFM: A new, small foundation model for the electric grid</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models</title>
-		<link>https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/</link>
-		
-		<dc:creator><![CDATA[Andrew Fowler, Claudio Zeni, Daniel Zügner, Fabian Thiemann, Robert Pinsler, Shoko Ueda, Kenji Takeda]]></dc:creator>
-		<pubDate>Tue, 12 May 2026 13:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1171172</guid>
-
-					<description><![CDATA[<p>MatterSim is expanding what AI can do for materials science—from faster large-scale simulations to MatterSim-MT, a new multi-task model for simulating properties beyond potential energy surfaces alone.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/">Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a blue-to-purple-to-pink gradient background: honeycomb, flowchart icon, scientific beaker with circled checkmark" class="wp-image-1171177" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSimv1_5-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Experimental validation</strong>: Using high-throughput screening with MatterSim-v1, we <a href="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/" type="link" id="https://www.microsoft.com/en-us/research/podcast/abstracts-heat-transfer-and-deep-learning-with-hongxia-hao-and-bing-lv/">previously</a> identified tetragonal tantalum phosphorus (TaP) as a potential high-performance thermal conductor. Now we have experimentally synthesized it and measured its thermal conductivity (152 W/m/K) to be close to the thermal conductivity of silicon.</li>
-
-
-
-<li><strong>Faster simulation</strong>: We have accelerated MatterSim-v1 model inference by 3-5x and integrated it with the LAMMPS software package, enabling large-scale simulations across multiple GPUs.</li>
-
-
-
-<li><strong>New model release</strong>: We are introducing MatterSim-MT, a multi-task foundation model for in silico materials characterization that enables the simulation of complex, multi-property phenomena beyond what potential energy surfaces alone can capture.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Materials design underpins a wide range of technological advances, from nanoelectronics to semiconductor design and energy storage. Yet development cycles for novel materials remain slow and costly. Universal machine learning interatomic potentials aim to accelerate the materials design process by providing accurate stability and property predictions for a wide range of materials. These models are orders of magnitude faster than traditional first-principles simulations, turning previously impractical problems into routine computations that can be completed in a few hours. Since we <a href="https://www.microsoft.com/en-us/research/publication/mattersim-a-deep-learning-atomistic-model-across-elements-temperatures-and-pressures/" type="msr-research-item" id="1033005">launched</a> our MatterSim-v1 model, it has gained popularity in the materials science community for its ability to accurately simulate materials under realistic conditions, including finite temperature and pressure.</p>
-
-
-
-<p class="wp-block-paragraph">Today, we have several exciting MatterSim updates to share. These include experimental validation of MatterSim predictions for thermal conductors, performance improvements for faster simulation, and the introduction of a new multi-task foundation model for materials characterization.</p>
-
-
-
-<h2 class="wp-block-heading" id="experimental-validation">Experimental validation</h2>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="800" height="264" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2.png" alt="Right: Scatter plot of MatterSim's thermal conductivity predictions compared to ground-truth simulation and experiment. The plot shows a good agreement. | Left: Different views of the experimentally synthesized tetragonal tantalum phosphorus sample." class="wp-image-1171414" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2.png 800w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2-300x99.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2-768x253.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MatterSim_fig1_v2-240x79.png 240w" sizes="auto, (max-width: 800px) 100vw, 800px" /><figcaption class="wp-element-caption">Figure 1: Based on MatterSim’s computational predictions, we have synthesized a potential high thermal conductor. Left: MatterSim predictions of thermal conductivity compared to ground-truth simulation and experiment (with ±50% error band shown for reference). Right: Different views of the experimentally synthesized tetragonal tantalum phosphorus (TaP) sample with measured thermal conductivity of <strong>152</strong> W/m/K.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Materials with high thermal conductivity play a critical role in heat management, preventing overheating and improving energy efficiency. For example, established high thermal conductors like diamond, copper and silicon are widely used across a broad range of cooling applications. Designing next-generation thermal conductors may enable advances in computing, power electronics, and aerospace technologies. However, doing so requires accurate predictions of thermal conductivity values for candidate materials.</p>
-
-
-
-<p class="wp-block-paragraph">In solids, heat is carried in two main ways: by vibrating atoms (phonons) and by moving electrons. The phonon contribution can be estimated using machine-learning interatomic potentials to enable screening of thousands of candidates, narrowing the search space to the most promising materials before expensive experimental validation.</p>
-
-
-
-<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p class="wp-block-paragraph">“MatterSim has generated by far the largest database of computational thermal conductivities. This opens the door to exploring a far broader materials space than before […].”</p>
-<cite>– Prof. Bing Lv, University of Texas Dallas</cite></blockquote>
-
-
-
-<p class="wp-block-paragraph">In collaboration with the University of Texas Dallas (UT Dallas), University of Illinois Urbana-Champaign, and University of California Davis (UC Davis), we have used MatterSim-v1 to screen over 240,000 candidate materials for high thermal conductors. As shown in Fig. 1 (left), MatterSim’s predictions have good agreement with first-principles simulations. Prof. Davide Donadio from UC Davis: &#8220;I was amazed by how the MatterSim model combined accuracy and computational efficiency to predict such a sensitive property as thermal conductivity. That was the key that unlocked screening at this scale, hundreds of thousands of crystals, that would have been completely out of reach with conventional methods.&#8221; Prof. Bing Lv from UT Dallas adds: “MatterSim has generated by far the largest database of computational thermal conductivities. This opens the door to exploring a far broader materials space than before, enabling the community to uncover a broader set of viable materials even after imposing practical requirements.”</p>
-
-
-
-<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p class="wp-block-paragraph">“For the first time, we can test conventional understanding of what controls thermal conductivity at scale […]”</p>
-<cite>– Prof. David Cahill, University of Illinois Urbana-Champaign</cite></blockquote>
-
-
-
-<p class="wp-block-paragraph">Based on these predictions, we have identified tetragonal tantalum phosphorus (TaP) as a potential high thermal conductor. We have experimentally synthesized tetragonal tantalum phosphorus (TaP) at UT Dallas and measured its thermal conductivity at University of Illinois Urbana-Champaign (152 W/m/K for our best samples), close to the thermal conductivity of silicon. While we are not the first to synthesize tetragonal TaP, the material has not been considered as a thermal conductor before. These results demonstrate how MatterSim can enable the identification of functional materials: &#8220;For the first time, we can test conventional understanding of what controls thermal conductivity at scale, while enabling the discovery of new functional materials that balance it with other important constraints such as mass density, elemental abundance, and environmental stability&#8221;, says Prof. David Cahill from University of Illinois Urbana-Champaign.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">On Second Thought</h2>
-				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="performance-improvements">Performance improvements</h2>
-
-
-
-<p class="wp-block-paragraph">We are making MatterSim-v1 significantly faster by releasing several open-source performance and usability improvements. First, we speed up model inference through a combination of faster graph construction, ahead-of-time compilation and reduced conversion between atomic representations, resulting in a 3x speed-up of MatterSim-v1.0.0-5M and a 5x speed-up of MatterSim-v1.0.0-1M (see Fig. 2). To make MatterSim-v1 easier to use, we have integrated it into the widely used LAMMPS simulation software, allowing users to easily scale model inference across multiple GPUs in their existing workflows.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2134" height="1534" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup.png" alt="Bar charts comparing the inference time of the previous and updated MatterSim versions. The plot shows 3 times speed-up for the 5 million parameter model and 5 times speed-up for the 1 million parameter model." class="wp-image-1171180" style="aspect-ratio:1.3911699352719544;object-fit:cover;width:600px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup.png 2134w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-1024x736.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-768x552.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-1536x1104.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-2048x1472.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_speedup-240x173.png 240w" sizes="auto, (max-width: 2134px) 100vw, 2134px" /><figcaption class="wp-element-caption">Figure 2: 3x inference speed-up of MatterSim-v1.0.0-5M and 5x inference speedup of MatterSim-v1.0.0-1M (python). </figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="new-model-release">New model release</h2>
-
-
-
-<p class="wp-block-paragraph">Building on the success of MatterSim-v1, today we extend the MatterSim model family by announcing MatterSim-MT: a multi-task (MT) foundation model for in silico materials simulation and property characterization. The model natively predicts energies, forces, stress and several important materials properties.</p>
-
-
-
-<p class="wp-block-paragraph">MatterSim-MT is pretrained on over 35 million first-principles-labelled structures covering 89 elements, temperatures up to 5000 K and pressures up to 1000 GPa. It is further fine-tuned on various properties including Bader charges, magnetic moments, Born effective charges, and dielectric matrices. Out of the box, MatterSim-MT serves as a foundation model for predicting material structure, dynamics and thermodynamics. Its multi-task architecture also enables a wide range of complex simulations that cannot be captured by potential energy surfaces alone. The ability to accurately simulate these phenomena is crucial for applications such as catalysis and energy storage.</p>
-
-
-
-<p class="wp-block-paragraph">Here, we illustrate these multi-task capabilities through three case studies: vibrational spectroscopy, ferroelectric switching, and electrochemical redox. Each example requires a distinct combination of property predictions. <a href="https://www.microsoft.com/en-us/research/publication/mattersim-mt-a-multi-task-foundation-model-for-in-silico-materials-characterization/">In the full manuscript</a>, we also show that MatterSim-MT scales well with more data and parameters, can be efficiently fine-tuned to higher levels of theory, and can be systematically extended to new systems via active learning.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1024" height="927" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask.png" alt="Top left: Atomic representation of a material along with an overview of the multi-task capabilities of the model. Top right: Pressure-dependent phonon spectrum of Silicon Carbide (SiC) up to 100 GPa. Bottom left: Predicted hysteresis curve of the polarization density as a function of the electrical field along the z direction in the ferroelectric tetragonal Barium titanate material. Bottom right: Evolution of oxygen Bader charge distributions in Lithium Manganese dioxide during delithiation, with arrows indicating the formation of an oxygen molecule." class="wp-image-1171183" style="aspect-ratio:1.1046545077958692;object-fit:cover;width:600px" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask-300x272.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask-768x695.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/mattersim_mt_multitask-199x180.png 199w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">Figure 3: MatterSim‑MT’s multi-task prediction ability enables simulating complex material phenomena. (a) Illustration of the multi-task inference capabilities of MatterSim-MT, including predictions of energy (E), forces (F), stress (S), magnetic moments (μ), Born effective charges (Z∗), and dielectric matrices (ε∞) from atomic structures. (b) Pressure-dependent phonon spectrum of silicon carbide (SiC) up to 100 GPa, with inset comparing MatterSim’s predicted longitudinal optical (LO) and transverse optical (TO) splitting against experimental measurements. (c) Predicted hysteresis curve of polarization density as a function of the electrical field along the z direction in the ferroelectric tetragonal BaTiO3 material. (d) Evolution of oxygen Bader charge distributions in Li<sub>1.2 – x</sub>Mn<sub>0.8</sub>O<sub>2</sub> during delithiation, with arrows indicating the formation of an O<sub>2</sub> molecule. </figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">First, we focus on vibrational spectroscopy, a technique that identifies substances by measuring how their atomic bonds naturally vibrate. We demonstrate how predictions of Born effective charges and dielectric properties enable the computation of phonon spectra in polar crystals. In these materials, oppositely charged ions vibrate against each other. Depending on the direction of vibration, this can lead to a buildup of charge that creates a macroscopic electric field, splitting the optical phonon modes into higher-frequency longitudinal (LO) and lower-frequency transverse (TO) branches. As a case study, we simulated this behavior in 3c-silicon carbide (3c-SiC), a material used in high-power electronics, under extreme pressures. As shown in Fig. 3(b), MatterSim-MT predicts a Born effective charge in close agreement with both theoretical and experimental values. The resulting LO-TO splitting of 5.26 THz deviates by only 0.06 THz from ab initio calculations and 0.03 THz from experimental measurements.</p>
-
-
-
-<p class="wp-block-paragraph">The predicted Born effective charges also allow us to simulate how systems respond to an external electric field. In ferroelectric materials, ions adopt an asymmetric arrangement that gives the crystal a net electric polarization that can be flipped by an applied field. In Fig.&nbsp;3(c), we&nbsp;demonstrate&nbsp;this by&nbsp;simulating&nbsp;barium&nbsp;titanate (BaTiO<sub>3</sub>) under an applied&nbsp;electric&nbsp;field, reproducing&nbsp;the switching of&nbsp;its&nbsp;polarization. The&nbsp;resulting&nbsp;hysteresis curve&nbsp;correctly shows that&nbsp;finite-temperature effects&nbsp;at 300 K&nbsp;make it easier to flip&nbsp;the&nbsp;polarization, even though the predicted spontaneous polarization&nbsp;(38&nbsp;μC/cm<sup>2</sup>)&nbsp;is slightly higher than&nbsp;the experimental value (26&nbsp;μC/cm<sup>2</sup>).&nbsp;This discrepancy is likely due to the well-known&nbsp;underbinding&nbsp;of the underlying first-principles calculations.</p>
-
-
-
-<p class="wp-block-paragraph">Finally, we predict atomic charges to study the electronic degrees of freedom in chemical bonding and redox processes. We examine the behavior of the cathode material Li<sub>1.2 – x</sub>Mn<sub>0.8</sub>O<sub>2</sub> during a simulated battery charging process. These lithium-rich transition-metal oxides are promising next-generation batteries due to their high energy density but suffer from irreversible capacity loss associated with the anionic oxygen redox mechanism. We reproduced this phenomenon by running molecular dynamics simulations at 1000 K and progressively extracting Lithium to mimic battery charging. We observe a clear shift over time: at first, the manganese (Mn) atoms supply the electrons needed for charging, but as more lithium is removed, oxygen atoms are forced to give up electrons instead (cationic to anionic redox), as shown by the shift to less negative Bader charges over time (Fig. 3(d)). This destabilises the structure with oxygen atoms pairing up to form O<sub>2</sub> dimers (Fig. 3(d), inset). Notably, this comprehensive picture of the cationic-to-anionic redox transition and lattice degradation naturally emerges from the multi-task predictions, without any task-specific training on battery materials.</p>
-
-
-
-<h2 class="wp-block-heading" id="next-steps">Next steps</h2>
-
-
-
-<p class="wp-block-paragraph">With experimental validation, substantial performance improvements, and new multi-task capabilities, MatterSim is advancing toward more practical, decision-relevant use in materials design. Together, these developments are helping materials scientists move more quickly from large-scale computational screening to targeted experimental follow-up and decision-relevant scientific workflows. We are excited to see how the materials science community applies these advances in their own domains.</p>
-
-
-
-<p class="wp-block-paragraph">We look forward to continued collaboration as MatterSim is tested, extended, and integrated into real-world materials discovery pipelines.</p>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/mattersim" target="_blank" rel="noreferrer noopener">MatterSim updated</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://arxiv.org/abs/2605.07927v1">MatterSim-MT Pre-Print</a></div>
-</div>
-
-
-
-<h2 class="wp-block-heading" id="acknowledgements">Acknowledgements</h2>
-
-
-
-<p class="wp-block-paragraph">This work is the product of a highly collaborative and interdisciplinary effort led by Microsoft Research AI for Science in partnership with Microsoft Research Accelerator and collaborators at the University of Texas Dallas (supported by MSR Accelerator), University of Illinois Urbana-Champaign and University of California Davis. Contributors to this work include Han Yang, Xixian Liu, Chenxi Hu, Yichi Zhou, Yu Shi, Chang Liu, Junfu Tan, Jielan Li, Guanzhi Li, Qian Wang, Yu Zhu, Zekun Chen, Shuizhou Chen, Fabian Thiemann, Claudio Zeni, Matthew Horton, Robert Pinsler, Andrew Fowler, Daniel Zügner, Tian Xie, Lixin Sun, Yicheng Chen, Lingyu Kong, Yeqi Bai, Deniz Gunceler, Frank Noé, Hongxia Hao, Ziheng Lu, Zixin Zhai, Mengfan Wu, Haoke Qiu, Mingfa Tang, Tie-Yan Liu, Haiguang Liu, Tao Qin, David G. Cahill, Bing Lv, Davide Donadio, Shoko Ueda, and Kenji Takeda.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/">Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
