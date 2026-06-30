@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 24 Jun 2026 14:00:16 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 29 Jun 2026 23:55:24 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,163 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0</generator>
 	<item>
+		<title>Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity</title>
+		<link>https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/</link>
+		
+		<dc:creator><![CDATA[Xuchao Zhang, Molly Xia, Mayukh Das, Anson Bastos, Rujia Wang, Chetan Bansal, Saravan Rajmohan]]></dc:creator>
+		<pubDate>Mon, 29 Jun 2026 21:14:22 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1176834</guid>
+
+					<description><![CDATA[<p>AI agents can't remember past conversations. They must constantly reload or retrieve context, which grows less efficient as tasks get longer and more complex. Memora solves this with a scalable memory system separating what’s stored from how it's retrieved.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/">Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three minimalist white icons on a purple-to-pink gradient background. From left to right: an hourglass, a circular gauge, and a pair of angle brackets with a slash." class="wp-image-1177050" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Today&#8217;s AI agents don&#8217;t remember past interactions. They must repeatedly be fed relevant information or retrieve it from external sources, which becomes less efficient as they handle longer and more complex tasks. To scale agent capabilities, we need a more efficient way to retain and access information over time.</li>
+
+
+
+<li><strong>Memora</strong> is a scalable memory system that dramatically increases agent productivity on long-horizon tasks by decoupling <em><strong>what</strong></em> is stored (rich memory content) from <em><strong>how</strong></em> it&#8217;s retrieved (lightweight abstractions and cue anchors), balancing abstraction and specificity.</li>
+
+
+
+<li>Memora sets new state-of-the-art on LoCoMo and LongMemEval, outperforming Mem0, RAG, and full-context inference while using up to 98% fewer context tokens.</li>
+
+
+
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2602.03315" type="link" id="https://arxiv.org/abs/2602.03315" target="_blank" rel="noopener noreferrer">Memora paper<span class="sr-only"> (opens in new tab)</span></a> is published at ICML 2026. Memora code is available at <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://github.com/microsoft/Memora">https://github.com/microsoft/Memora<span class="sr-only"> (opens in new tab)</span></a>.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Imagine a workplace AI assistant helping you run a multi-month project. Over weeks of conversations, you share constraints, agree on milestones, revise deadlines, and surface dozens of stakeholder preferences. When you later ask it to draft an update for a colleague, it should recall not just the latest decision but the journey that got you there: what was tried, what was ruled out, who weighed in. Today&#8217;s AI agents struggle with this. Modern large language models (LLMs) are powerful reasoners, but they are effectively stateless: every session starts from zero, every long conversation forces the model to re-read its entire history, and every new piece of information is either stored as raw text (fragmented and noisy) or compressed into a vague summary (precise details lost). As AI assistants and autonomous agents move into long-horizon deployments, such as copilots that tracks a project for many months or even research agents that build up domain expertise with long horizon usage, the absence of principled memory system has become the critical bottleneck.</p>
+
+
+
+<p class="wp-block-paragraph">A growing line of work has begun to fill this gap. Systems like Mem0 extract atomic facts from conversations; retrieval-augmented (RAG) approaches index raw text fragments for later recall; and graph-based memory systems such as Zep and GraphRAG impose structure through entity relations. Each represents real progress, yet each runs into the same wall: existing designs force an unavoidable tradeoff between specificity (preserving fine-grained detail) and abstraction (organizing memory efficiently as it grows). Memora is built to give agents both.</p>
+
+
+
+<h2 id="what-is-memora" class="wp-block-heading">What is Memora</h2>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/publication/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/" target="_blank" rel="noreferrer noopener"><strong>Memora</strong></a> is an agentic memory framework designed for long-horizon AI agents. Memora&#8217;s central insight is to decouple what is stored from how it is retrieved. Memory content can remain rich and expressive, such as a project timeline, a multi-turn discussion about constraints, while a separate, lightweight <em>structural </em>layer handles indexing and retrieval. The result is a memory system that scales: it consolidates related information into stable units, surfaces fine-grained details when they matter, and lets the agent navigate its own history without re-reading everything. On standard long-conversation benchmarks, Memora sets new state-of-the-art performance while using up to 98% fewer tokens than would be consumed by dumping the full history into context.</p>
+
+
+
+<h3 id="why-this-is-hard-the-abstraction-specificity-tension" class="wp-block-heading">Why this is hard: the abstraction–specificity tension</h3>
+
+
+
+<p class="wp-block-paragraph">Existing memory systems fall into two extremes. <strong>Content-fragmentation systems</strong>, such as RAG and Mem0, embed extracted facts or text fragments directly. This preserves detail but produces brittle, isolated entries that lose narrative coherence. <strong>Coarse-abstraction systems</strong> compress experience into compact summaries. They are efficient, but summarization strips away the constraints, edge cases, and numeric details that make memory useful in the first place. Graph-based systems add structure on top of content, yet still rely on the content itself for retrieval and typically require rigid ontologies that don&#8217;t generalize across domains. None of these resolves the underlying tension between <strong>abstraction</strong> (which keeps memory efficient) and <strong>specificity</strong> (which gives memory utility).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1396" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-scaled.png" alt="Overview of the Memora architecture showing how multimodal data is segmented, converted into structured memory entries and an implicit memory graph, then retrieved through a policy-driven process optimized with group-relative learning to return relevant episodic memories." class="wp-image-1177052" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-300x164.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-1024x559.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-768x419.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-1536x838.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-2048x1117.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-240x131.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1: Architecture overview of Memora.</figcaption></figure>
+
+
+
+<h2 id="how-memora-works" class="wp-block-heading">How Memora works</h2>
+
+
+
+<p class="wp-block-paragraph">Memora resolves this tension through a harmonic organization. Each memory entry has two components: a <strong>primary abstraction</strong>, which a short phrase (6–8 words) that captures what the memory is fundamentally about, and a <strong>memory value</strong> holding the rich content itself. Crucially, only the primary abstraction is embedded for similarity search; the value is never directly retrieved through its own content. This separation means new information about an evolving topic merges into the existing memory entry under the same primary abstraction, rather than fragmenting into a chain of partial duplicates. Complementing primary abstractions, cue anchors are short, context-aware tags extracted from each memory&#8217;s value, providing alternative access paths to the same memory. They function as flexible, organically-generated metadata.</p>
+
+
+
+<p class="wp-block-paragraph">To make this concrete: suppose a user says, &#8220;Dave and Sarah agreed to push the prototype to April 1, the pilot to May 2, and the MVP to May 30.&#8221; A knowledge-graph system would need predefined entity types and relation schemas: Person → agreed_on → Milestone → has_date → Date,&nbsp;and any new relation type would require schema extension. In&nbsp;Memora, the primary abstraction&nbsp;Updated Project Orion timeline agreed by Dave and Sarah&nbsp;serves as the&nbsp;canonical&nbsp;access point, while cue anchors like&nbsp;Dave Project Orion update,&nbsp;Project Orion prototype schedule, and&nbsp;Project Orion pilot timeline&nbsp;provide alternative retrieval paths&nbsp;&#8212;&nbsp;all without committing to an ontology. A later query about Dave&#8217;s recent contributions, or the prototype schedule, or pilot timing can all route to the same underlying memory through different cues, with the full detail preserved in the memory value.</p>
+
+
+
+<p class="wp-block-paragraph">On top of this representation, Memora introduces a <em>policy-guided retriever</em> that treats memory access as an active reasoning process. Rather than returning the top-k semantically similar items in a single shot, the policy retriever iteratively refines its query, expands through cue anchors to surface related-but-not-similar memories, and decides when to stop. This lets the agent navigate to relevant non-local context that pure semantic search would miss, chasing multi-hop dependencies the way a human would when recalling connected events. The retrieval policy can be either hand-prompted with a strong LLM or distilled into a much smaller model via reinforcement learning.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research Forum</h2>
+				
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="results" class="wp-block-heading">Results</h2>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1843" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-scaled.png" alt="Bar chart comparing LoCoMo overall scores across memory systems using LLM-judge, F1, and BLEU metrics. Memora (P) achieves the highest LLM-judge score (0.863), followed by Memora (S) (0.849) and Full Context (0.825). Memora variants outperform other memory-based approaches across all three metrics." class="wp-image-1177055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-1024x737.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-768x553.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-1536x1106.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-2048x1475.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-240x173.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2: Memora performance on LoCoMo dataset.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">We evaluate Memora on two long-context benchmarks: <strong>LoCoMo</strong>, where dialogues average 600 turns, and <strong>LongMemEval</strong>, with 115,000-token contexts. Memora achieves new state-of-the-art performance on both: 86.3% LLM-judge accuracy on LoCoMo and 87.4% on LongMemEval, outperforming RAG, Mem0, Nemori, Zep, LangMem, and even full-context inference. The gap is largest on multi-hop reasoning, where Memora&#8217;s ability to traverse cue anchors pays the biggest dividends. The efficiency story is just as striking: Memora stores roughly half the memory entries per conversation that Mem0 does (344 vs. 651) and reduces token consumption by up to 98% relative to full-context inference. Less to read, less to store, better answers.</p>
+
+
+
+<h2 id="looking-forward" class="wp-block-heading">Looking forward</h2>
+
+
+
+<p class="wp-block-paragraph">Memora&#8217;s design has implications beyond benchmark performance. We see this work as a step toward AI agents that can sustain long-term collaboration with users and accumulate organizational knowledge over months and years, not just within a single session. Building on this foundation, we are pursuing several complementary directions. MemLoop explores how memory systems can learn from retrieval and task failures, attribute errors to specific stages of the memory pipeline, and improve themselves over time. Deferred Memory investigates when memory construction should be postponed until sufficient context, evidence, or future utility becomes available, rather than committing prematurely to what should be stored. Group Memory examines how knowledge can be shared across teams and agents while preserving provenance, access boundaries, ownership, and sensitive context. We release our code alongside the paper and invite the community to build on this representation and explore what becomes possible when AI agents are no longer stateless.</p>
+
+
+
+<h3 id="acknowledgements" class="wp-block-heading">Acknowledgements</h3>
+
+
+
+<p class="wp-block-paragraph">We would like to thank Shantanu Dixit (Research Fellow)&nbsp;Paramaguru&nbsp;Harimurugan (Research Fellow),&nbsp;<a href="https://www.microsoft.com/en-us/research/people/rujiawang/" target="_blank" rel="noreferrer noopener">Rujia Wang</a>, <a href="https://www.microsoft.com/en-us/research/people/virueh/" target="_blank" rel="noreferrer noopener">Victor Rühle</a>, and&nbsp;<a href="https://www.microsoft.com/en-us/research/people/rsim/" target="_blank" rel="noreferrer noopener">Robert Sim</a> for contributing to this project.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/">Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Understanding the brain with AI-driven explanations and experiments</title>
 		<link>https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/</link>
 		
@@ -32,7 +189,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/">Understanding the brain with AI-driven explanations and experiments</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Understanding the brain | four white line icons on an abstract purple background: brain icon, chat bubble icon, circle with a checkmark icon, search icon" class="wp-image-1176579" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Understanding the brain | four white line icons on an abstract purple background: brain icon, chat bubble icon, circle with a checkmark icon, search icon" class="wp-image-1176579" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -85,7 +242,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1126" height="676" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1.png" alt="Figure 1: Diagram showing a 2-step process. At the top, in the first step a pipeline of arrows shows the progression from story ngrams to a voxel explanation that reads “Food preparation”. The bottom shows the second step with an AI chat and images of brain regions and line plots of their responses." class="wp-image-1176577" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1.png 1126w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-300x180.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-1024x615.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-768x461.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-240x144.png 240w" sizes="(max-width: 1126px) 100vw, 1126px" /><figcaption class="wp-element-caption">Figure 1. The two steps of generative causal testing (GCT). In Step 1, the phrases that most strongly drive a brain region’s predictive model are summarized by an LLM into a short candidate explanation, such as “food preparation.” In Step 2, an LLM writes new stories designed to match that explanation, and the region’s response to these “driving” stories is measured in the scanner and compared against baseline.&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1126" height="676" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1.png" alt="Figure 1: Diagram showing a 2-step process. At the top, in the first step a pipeline of arrows shows the progression from story ngrams to a voxel explanation that reads “Food preparation”. The bottom shows the second step with an AI chat and images of brain regions and line plots of their responses." class="wp-image-1176577" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1.png 1126w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-300x180.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-1024x615.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-768x461.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig1-240x144.png 240w" sizes="auto, (max-width: 1126px) 100vw, 1126px" /><figcaption class="wp-element-caption">Figure 1. The two steps of generative causal testing (GCT). In Step 1, the phrases that most strongly drive a brain region’s predictive model are summarized by an LLM into a short candidate explanation, such as “food preparation.” In Step 2, an LLM writes new stories designed to match that explanation, and the region’s response to these “driving” stories is measured in the scanner and compared against baseline.&nbsp;</figcaption></figure>
 
 
 
@@ -105,7 +262,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1442" height="677" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2.png" alt="Figure 2: Six visualizations of brain surfaces show the normalized bold response for different categories including Locations and Food Preparation." class="wp-image-1176578" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2.png 1442w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-240x113.png 240w" sizes="(max-width: 1442px) 100vw, 1442px" /><figcaption class="wp-element-caption">Figure 2. Brain response maps to GCT stories for different topics. Some maps recover well-established findings: the explanation “Locations” produces strong responses in the place areas RSC, OPA, and PPA. Others independently confirm newer hypotheses: “Food Preparation” activates a region in ventral occipital cortex near the fusiform face area (FFA). Some like (“Birthdays”) do not map cleanly onto any known result, pointing toward directions for future research. </figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1442" height="677" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2.png" alt="Figure 2: Six visualizations of brain surfaces show the normalized bold response for different categories including Locations and Food Preparation." class="wp-image-1176578" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2.png 1442w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-768x361.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/UnderstandingtheBrain-Blog-fig2-240x113.png 240w" sizes="auto, (max-width: 1442px) 100vw, 1442px" /><figcaption class="wp-element-caption">Figure 2. Brain response maps to GCT stories for different topics. Some maps recover well-established findings: the explanation “Locations” produces strong responses in the place areas RSC, OPA, and PPA. Others independently confirm newer hypotheses: “Food Preparation” activates a region in ventral occipital cortex near the fusiform face area (FFA). Some like (“Birthdays”) do not map cleanly onto any known result, pointing toward directions for future research. </figcaption></figure>
 
 
 
@@ -117,27 +274,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -283,30 +443,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -500,27 +657,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -612,30 +772,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -785,7 +945,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -794,20 +954,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -950,27 +1110,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1292,30 +1455,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1476,30 +1639,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1724,30 +1887,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1836,327 +1999,6 @@
 
 <p class="wp-block-paragraph">These improvements were made in close collaboration with the Azure Cosmos DB team at Microsoft. A precise description is beyond the scope of this blog, but we will publish a technical report soon—stay tuned.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/">mimalloc: A new, high-performance, scalable memory allocator for the modern era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>GridSFM: A new, small foundation model for the electric grid</title>
-		<link>https://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/</link>
-		
-		<dc:creator><![CDATA[Weiwei Yang, Andrea Britto Mattos Lima, Thiago Vallin Spina, Spencer Fowers, Baosen   Zhang]]></dc:creator>
-		<pubDate>Wed, 13 May 2026 16:00:20 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1171470</guid>
-
-					<description><![CDATA[<p>Introducing GridSFM, a small foundation model that can predict AC optimal power flow in milliseconds, boosting efficiency and unlocking cost savings. Learn how GridSFM gives grid operators direct visibility into congestion, stability, and system health.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/">GridSFM: A new, small foundation model for the electric grid</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three white line icons—a transmission tower, a lightning bolt, and a stopwatch—displayed on a teal-to-green gradient background with a subtle textured pattern." class="wp-image-1171570" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/GridSFM-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<h2 class="wp-block-heading h4" id="microsoft-releases-a-lightweight-foundation-model-that-can-predict-ac-optimal-power-flow-in-milliseconds-boosting-efficiency-and-unlocking-cost-savings-in-grid-analysis">Microsoft releases a lightweight foundation model that can predict AC optimal power flow in milliseconds, boosting efficiency and unlocking cost savings in grid analysis.</h2>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Microsoft introduces GridSFM, a small foundation model that approximates AC optimal power flow in milliseconds, unlocking decisions that can directly impact up to $20B/year in congestion losses and 3.4 TWh of renewable curtailment.</li>
-
-
-
-<li>Beyond estimating generator dispatch and costs, GridSFM produces full AC system states, giving operators direct visibility into congestion, stability, and overall system health.</li>
-
-
-
-<li>It provides a foundation for the community to build advanced power grid simulators and planning tools without recreating data or models from scratch.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Microsoft introduces <strong>GridSFM</strong>, a small foundation model for solving AC optimal power flow (AC-OPF) problems in transmission power grids. This follows our <a href="https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/">earlier release</a> of a U.S.-based open transmission-topology dataset that powers GridSFM.</p>
-
-
-
-<p class="wp-block-paragraph">Power grids face increasing strain from surging demand, the need to integrate renewable energy sources, transportation electrification, and extreme weather events. Across all these challenges, the core question is the same: what are the optimal operating points that keep the grid functioning under each new condition?</p>
-
-
-
-<p class="wp-block-paragraph">Answering this requires solving AC optimal power flow (AC‑OPF), a complex, non-convex optimization problem that computes the cheapest generator dispatch (how much each generator produces) that meets demands while respecting power flow physics, voltage limits, thermal constraints, and stability requirements, and underpins core power system operations including reliability, real-time dispatch, market clearing, and contingency analysis. These decisions directly govern outcomes at the scale of up <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://gridstrategiesllc.com/wp-content/uploads/GS_Transmission-Congestion-for-2024.pdf" target="_blank" rel="noopener noreferrer"><em>$20 billion per year in congestion costs</em><span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.eia.gov/todayinenergy/detail.php?id=65364" target="_blank" rel="noopener noreferrer"><em>multi‑terawatt‑hour renewable curtailment</em><span class="sr-only"> (opens in new tab)</span></a> (lost renewable energy due to congestion), making both economic efficiency and grid reliability highly sensitive to how well these operating points are found. However, AC‑OPF is computationally expensive: power utility scale grid can take up to hours solve, forcing a trade-off between solving a small number of carefully selected scenarios or relying on approximations that ignore critical physics, which can misestimate power flows and binding constraints and lead to suboptimal dispatch and degraded reliability under stressed conditions.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Forum</h2>
-				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<p class="wp-block-paragraph">To address this limitation, we introduce <strong>GridSFM, a single neural network that approximates AC‑OPF in milliseconds across grids ranging from 500 to 80,000 buses</strong>. It takes standard AC‑OPF inputs (grid topology, generator and load specifications, transmission line constraints) and produces an operating point and a feasibility verdict (whether the system satisfies all physical and operational constraints). By removing the compute bottleneck, GridSFM makes it possible to evaluate orders of magnitude more scenarios in real time, enabling more informed decisions and shifting grid operations from reactive response to proactive optimization.</p>
-
-
-
-<p class="wp-block-paragraph">In this initial release we offer two tiers:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>GridSFM-Open</strong> for research-scale grids up to 4,000 buses.</li>
-
-
-
-<li><strong>GridSFM-Premier</strong> for production-scale systems up to 80,000 buses.</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">The model is built as a block-structured discrete neural operator (Figure 1), representing each grid as a directed graph, with buses (connection points in the grid) and generators as vertices, and transmission and AC lines as edges. It is trained using both <strong>solver supervision</strong>, where reference solutions are generated using the AC-OPF solver (<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://lanl-ansi.github.io/PowerModels.jl/stable/quickguide/" target="_blank" rel="noopener noreferrer"><em>IPOPT in PowerModels.jl</em><span class="sr-only"> (opens in new tab)</span></a>), and <strong>physics-based constraints</strong> that penalize violations of fundamental physical laws such as Kirchhoff’s voltage and current laws, as well as operating constraints like thermal limits. This enables the model to learn from both feasible and infeasible regimes. Most learning-based AC-OPF surrogates train one model per grid on a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2406.07234" target="_blank" rel="noopener noreferrer"><em>narrow distribution</em><span class="sr-only"> (opens in new tab)</span></a>.&nbsp;GridSFM&nbsp;takes the opposite approach: in this release a single model trained across&nbsp;<strong>150+&nbsp;base grid topologies</strong>&nbsp;(network structures)<strong>&nbsp;and&nbsp;roughly&nbsp;half a million&nbsp;scenarios</strong>&nbsp;spanning varying load profiles, multi-element outages, line-rating derates, voltage-bound tightening, and&nbsp;different&nbsp;generator cost coefficients, so the model is forced to generalize rather than memorize. Across the 54-grid mix&nbsp;test scenarios&nbsp;for&nbsp;GridSFM-Open,&nbsp;our model&nbsp;achieves a&nbsp;<strong>median cost gap of&nbsp;2.23% vs solver ground truth labels</strong>&nbsp;(mean 3.41%; <5% gap on&nbsp;83&nbsp;%&nbsp;of scenarios). When&nbsp;more&nbsp;precision&nbsp;is needed,&nbsp;GridSFM’s&nbsp;prediction also serves as a&nbsp;<strong>warm start</strong>&nbsp;seed for traditional numerical solvers,&nbsp;GridSFM-seeded-warm beats cold solve by&nbsp;1.66×&nbsp;geometric&nbsp;mean&nbsp;across the same&nbsp;test&nbsp;scenarios&nbsp;and beats the industry-standard DC-OPF warm-start by&nbsp;1.59×&nbsp;geomean (per-grid breakdown and full white-paper analysis to follow).&nbsp;&nbsp;Geometric&nbsp;mean, otherwise known as&nbsp;the multiplicative&nbsp;average,&nbsp;is&nbsp;used here&nbsp;since it is more robust to outliers.&nbsp;Our model also&nbsp;demonstrates&nbsp;the ability to adapt to new grids with just a handful of fine-tune scenarios.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="804" height="551" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-2.jpg" alt="diagram" class="wp-image-1171471" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-2.jpg 804w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-2-300x206.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-2-768x526.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-2-240x164.jpg 240w" sizes="auto, (max-width: 804px) 100vw, 804px" /><figcaption class="wp-element-caption"><strong>Figure 1.</strong> GridSFM architecture. Bus, generator, and branch features are embedded into a shared latent space, then refined by a stack of attention blocks operating directly on the grid topology. Output heads decode the latent state into (i) a full AC-OPF operating point, bus voltages and angles, generator dispatch, branch flows, and (ii) a per-scenario feasibility score.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="what-it-enables">What it enables</h2>
-
-
-
-<p class="wp-block-paragraph">A common pattern in grid operations and planning is having to choose between solving a small, hand-picked set of scenarios accurately with full AC-OPF or running thousands of scenarios through a faster approximation that drops parts of the physics. For example, a commonly used tool is the DC-OPF approximation, a linearized version that assumes flat voltage magnitudes and small angle differences and ignores reactive power and losses. DC-approximation solves in seconds what takes full AC minutes to hours, which is why most contingency screens, market-clearing pre-stages, and planning sweeps run on DC-approximation today. The cost is real: DC-approximation ignores voltage and reactive constraints entirely, and its dispatch cost can run >10% off the AC optimum on stressed scenarios (with worst-case grids out past 20% in our test benchmark).</p>
-
-
-
-<p class="wp-block-paragraph">GridSFM is designed as a drop-in alternative to DC-approximation in that fast approximation slot, and unlike most existing AC-OPF neural surrogates, which require a fresh training run for every new topology, GridSFM generalizes across grids in its supported size range without per-topology retraining, so it slots in as universally as DC-approximation. Especially when compared with DC-OPF, GridSFM has three concrete advantages:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Same accuracy class as DC-approximation on standalone dispatch cost.</strong> GridSFM and DC fall within the same per-scenario cost-gap distribution (§2 / Figure 6), with complementary failure modes: DC fails on grids where its no-loss / no-reactive linearization is structurally wrong; GridSFM fails on grids outside its training distribution. The two limitations close along orthogonal axes. DC’s ceiling is fixed by the linearization, whereas GridSFM’s tail closes with more training data.</li>
-
-
-
-<li><strong>1,000× faster than a full AC solver and approximately 100× faster than DC-approximation at the inference step</strong>, fast enough to sweep thousands of contingencies (e.g., line or generator outages) in minutes on a single commodity GPU.</li>
-
-
-
-<li><strong>A real AC operating point, not a linear approximation.</strong> GridSFM produces voltages and reactive power, so the same prediction can be handed to a traditional numerical solver as an <strong>AC warm-start</strong>, opening a workflow DC-approximation cannot.</li>
-</ul>
-
-
-
-<h3 class="wp-block-heading" id="1-feasibility-screening-stress-score-triage">1. Feasibility screening: stress-score triage</h3>
-
-
-
-<p class="wp-block-paragraph">A scenario is <strong>infeasible</strong> when no dispatch satisfies all constraints simultaneously: the requested load cannot be served within voltage bounds, thermal limits or generator capacities. Operationally, infeasibility is the most consequential failure signal: the requested operating condition cannot be served at all, and the response is intervention (load shedding, redispatch, relaxing thermal limits). It is also the most expensive class of scenario to screen, because the solver only learns a scenario is infeasible after iterating to non-convergence: each infeasible case costs a full solver run, often longer than a feasible one. Sweeping thousands of contingencies or stress cases to identify the infeasible ones is therefore one of the worst-case budgets in any planning workflow.</p>
-
-
-
-<p class="wp-block-paragraph">GridSFM addresses this with a per-scenario stress score trained jointly with the dispatch head. We evaluate the score on three classes of scenarios on each grid: real-feas are scenarios the AC-OPF solver successfully converged on (i.e., genuinely feasible operating points), real-infeas are scenarios the solver failed to converge on (genuinely infeasible operating points), and synth-infeas are feasible base points we deliberately perturbed to violate a specific constraint (voltage squeeze, thermal bottleneck, angle tightening, or DC-thermal congestion). Across the 54-grid test scenarios, the stress score&#8217;s per-grid binary accuracy is broadly uniform across classes: real-feas (green) mean 94.5%, real-infeas (red) mean 96.1%, synth-infeas (orange) mean 90.4%. Most grids cluster within a few points of the means; outliers below 80% are the same hard grids that show up in cost-gap analysis below.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="517" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-11.png" alt="chart, line chart" class="wp-image-1171486" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-11.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-11-300x166.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-11-768x424.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-11-240x133.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption"><strong>Figure 2.</strong> GridSM per-grid feasibility prediction accuracy across the 54-grid test scenarios, broken out by class (real-feas, real-infeas, synth_infesible). Filled KDE + per-grid dots, with mean (–) and median (:) light dashed lines. The three distributions overlap heavily, the model’s quality is broadly uniform across classes, with a small failing tail of structurally hard grids.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph"><strong>Drilling into a case study.</strong> Let’s zoom into a single representative grid, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://electricgrids.engr.tamu.edu/electric-grid-test-cases/activsg2000/" target="_blank" rel="noopener noreferrer"><em>Texas2k summer-peak grid</em><span class="sr-only"> (opens in new tab)</span></a>, to show how the learned representation separates feasibility and ROC for predicting.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Representation.</strong>&nbsp;Figure 3 visualizes the model&#8217;s learned representation of each&nbsp;Texas2k&nbsp;scenario. We project the per-graph representation (128-dimensional)&nbsp;onto two axes (LD1, LD2) chosen to maximally separate the scenario&nbsp;classes: real-feasible, real-infeasible, and synthetic-infeasible.&nbsp;Squeezing 128 dimensions into 2 inevitably loses information, so this&nbsp;view exaggerates&nbsp;apparent&nbsp;overlap:&nbsp;classes that look mixed here may&nbsp;still be cleanly separable in the full 128-dimensional space the&nbsp;model&nbsp;uses. The shaded cloud shows where graphs of each&nbsp;class concentrate, and the cross at the center of each cloud marks&nbsp;the class centroid, the average position of all graphs of that&nbsp;class. Centroids that sit far apart mean the model treats those&nbsp;classes as clearly distinguishable. Where two shaded clouds overlap, the model&nbsp;is producing&nbsp;similar embeddings for graphs with different&nbsp;labels.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="673" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-12.png" alt="diagram" class="wp-image-1171487" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-12.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-12-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-12-768x552.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-12-240x173.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption"><strong>Figure 3.</strong> Linear discriminant projection of grid embeddings on the Texas2k scenarios. Real feasibles (green), real infeasibles (red), and synthetic infeasibles (orange), projected onto two axes (LD1, LD2) chosen to maximize between-class separation. Crosses mark class centroids; shaded clouds show where each class concentrates. Overlap between clouds means the model produces similar embeddings for graphs in those classes; in the full 128-dimensional space the model may still separate them along directions not shown.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph"><strong>Operation and ROC.</strong> The score itself is continuous and ranking-calibrated. Figure 4 shows the ROC over its test mix: <strong>AUC = 0.986</strong>. At the natural operating point the same score, thresholded as a binary classifier, yields <strong>95.5% accuracy</strong>. Per-mode detection at that threshold is 99–100% on the three perturbation modes that drive a constraint cleanly past its limit.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="590" height="489" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-10.png" alt="chart, line chart" class="wp-image-1171472" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-10.png 590w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-10-300x249.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-10-217x180.png 217w" sizes="auto, (max-width: 590px) 100vw, 590px" /><figcaption class="wp-element-caption"><strong><em>Figure 4.</em></strong><em>&nbsp;ROC curve of the&nbsp;GridSFM&nbsp;stress score&nbsp;for feasibility&nbsp;on the Texas2k summer-peak test mix (real&nbsp;feasibles&nbsp;+ solver-labeled&nbsp;infeasibles&nbsp;+ synthetic perturbation modes that drive a constraint past its limit). Area under the curve =&nbsp;0.986,&nbsp;binary accuracy&nbsp;95.5%&nbsp;at the natural operating point. The score is calibrated for ranking; where to draw the binary cutoff is an&nbsp;operator&nbsp;choice.&nbsp;</em></figcaption></figure>
-
-
-
-<p class="wp-block-paragraph"><strong>Triage cutoff.</strong> For routing scenarios into action buckets, Figure 5 shows the stress-score distribution per population. Operators pick the cutoff that matches their workflow: very-confident feasibles pass through to indicative dispatch; very-confident-stressed scenarios are flagged for engineering review; the borderline middle band is sent to the solver for verification. The cutoff sets the balance between solver budget and screening miss-rate.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="935" height="330" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-3.jpg" alt="chart, histogram" class="wp-image-1171476" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-3.jpg 935w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-3-300x106.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-3-768x271.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-3-240x85.jpg 240w" sizes="auto, (max-width: 935px) 100vw, 935px" /><figcaption class="wp-element-caption"><strong>Figure 5.</strong> Distribution of the model&#8217;s feasibility logit on the same Texas2k test scenarios, split by population: real-feasibles (green), real-infeasibles (red), and synth-infeasibles (orange). The dashed vertical line is the decision boundary where logit=0. Samples to the right are predicted feasible. At this operating threshold, real-feasible pass through at 99.5%, real-infeas are correctly flagged at 90.4%, and the synthetic perturbation are caught at 88-100%.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="2-gridsfm-as-a-fast-approximation">2. GridSFM as a fast approximation</h3>
-
-
-
-<p class="wp-block-paragraph">GridSFM’s prediction can be used in two ways without producing an exact AC-OPF solution from scratch: as a standalone dispatch and cost estimate, or as the initial guess (warm-start) for an exact numerical solver. We compare both against the same two reference points throughout: full AC-OPF (the ground-truth optimum) and DC-approximation (the established fast baseline). All numbers below come from the same test set of 54 grids scenarios GridSFM-Open, with solver solve_time measured per scenario under single-core CPU pinning.</p>
-
-
-
-<h4 class="wp-block-heading" id="standalone-cost-estimate">Standalone cost estimate</h4>
-
-
-
-<p class="wp-block-paragraph">When an exact solver round-trip is not required, GridSFM’s predicted dispatch can be costed directly. In our test set, <strong>GridSFM-Open and DC-approximation fall in the same accuracy class</strong>: comparable means (DC 2.80%, GridSFM 3.41%), comparable medians (DC 1.81% vs GridSFM 2.23%), and overlapping per-scenario distributions across two decades of cost gap (Figure 6). They have complementary failure modes rather than one dominating the other.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="487" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-13.png" alt="chart" class="wp-image-1171488" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-13.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-13-300x156.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-13-768x400.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-13-240x125.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption"><strong>Figure 6.</strong> Per-scenario cost-gap distribution from AC-OPF ground truth: DC-approximation (blue) and GridSFM (green) across the 54-grid GridSFM-Open benchmark. Filled KDE + per-scenario dots underneath; light dashed lines mark mean (–) and median (:). DC: mean 2.8%, median 1.81%, <5% gap on 90% of scenarios. GridSFM: mean 3.41%, median 2.23%, <5% gap on 90% of scenarios. The two distributions overlap heavily in the body — methods are in the same accuracy class with complementary failure modes. Reference dashed line at 5%.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Both distributions look the same in shape: a single peak in the 2–3% gap range, with the bulk of scenarios under 5% and a small tail of outliers extending out into the >25% range. The outlier tails come from different sources: DC fails on grids where its no-reactive linearization is structurally wrong (case1803_snem and a handful of meshed transmission grids); GridSFM’s outliers are concentrated on a few of our open sourced grids whose AC-OPF reference itself required <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2605.04289" target="_blank" rel="noopener noreferrer"><em>additional constraint relaxation to become feasible</em><span class="sr-only"> (opens in new tab)</span></a>, so the ground-truth target on those grids is noisier and the gap partly reflects reference-side instability. The two limitations close along orthogonal axes: DC’s ceiling is fixed by the linearization and does not improve with more data or compute; GridSFM’s tail closes with cleaner reference labels and more training data on those grid families.</p>
-
-
-
-<p class="wp-block-paragraph">The differentiating value of&nbsp;GridSFM&nbsp;is therefore not the standalone cost number,&nbsp;but that&nbsp;GridSFM&nbsp;produces a full AC operating point including voltages and reactive power. This allows operators to directly assess the state of the grid.&nbsp;This is important since the feasibility and security of a system is often&nbsp;determined&nbsp;by the voltage and reactive power limits,&nbsp;but neither are&nbsp;considered&nbsp;in&nbsp;DC-OPF.&nbsp;&nbsp;At the same time, the operating point&nbsp;also&nbsp;enables the warm-start workflow, as we&nbsp;describe&nbsp;next.</p>
-
-
-
-<h4 class="wp-block-heading" id="warm-start-handoff">Warm-start handoff</h4>
-
-
-
-<p class="wp-block-paragraph">An AC-OPF solver works by iteratively refining an initial guess of the operating point until the optimality conditions are satisfied, and the number of&nbsp;refinement iterations it needs depends directly on how close the initial guess starts to the true optimum: a poor starting point can require thousands&nbsp;of iterations, a near-optimal one only a couple. A&nbsp;<strong>cold start</strong>&nbsp;(also known as a flat start)&nbsp;sets&nbsp;voltage&nbsp;magnitude&nbsp;to&nbsp;1.0 per unit&nbsp;and angle to&nbsp;zero&nbsp;&nbsp;on&nbsp;every bus,&nbsp;so&nbsp;the solver does the full amount of work. A&nbsp;<strong>warm&nbsp;start</strong>&nbsp;replaces&nbsp;that generic value with a closer estimate&nbsp;to make the solver converge faster.&nbsp;DC-approximation warm-start solves the&nbsp;linearized DC-OPF version of the problem first and seeds the AC solver with that solution.&nbsp;Whereas,&nbsp;GridSFM&nbsp;warm-start&nbsp;runs a single forward pass through the model&nbsp;and seeds the solver with its predicted voltage angles and active dispatch. The absolute ceiling on how much any warm-start can help is what we call&nbsp;the&nbsp;<strong>GT (ground-truth) ceiling</strong>: we run the full AC-OPF solve once at high precision to find the true optimum, then re-run the solver with that exact&nbsp;solution as the&nbsp;warm start seed.&nbsp;This&nbsp;is the practical&nbsp;limit&nbsp;on&nbsp;solving&nbsp;time and therefore the&nbsp;ceiling on&nbsp;speedup.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="936" height="486" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-14.png" alt="diagram" class="wp-image-1171490" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-14.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-14-300x156.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-14-768x399.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/image-14-240x125.png 240w" sizes="auto, (max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption"><strong><em>Figure 7.</em></strong><em>&nbsp;Warm-start speedup over AC-OPF cold start, across the 54-grid test set (log-scale&nbsp;x axis).&nbsp;GridSFM&nbsp;(green,&nbsp;sits cleanly right of the cold-start reference)&nbsp;achieves a&nbsp;geomean&nbsp;speedup of&nbsp;1.66×,&nbsp;</em><strong><em>and&nbsp;outperforms cold start&nbsp;</em></strong><em>on&nbsp;41&nbsp;of&nbsp;54 grids&nbsp;; DC-approximation (blue) achieves a&nbsp;geomean&nbsp;speedup of&nbsp;1.04×&nbsp;and improves performance&nbsp;on 34&nbsp;of&nbsp;54 grids; the GT ceiling (gold,&nbsp;&nbsp;geomean&nbsp;2.72×)&nbsp;is the upper bound on warm-start headroom. Each&nbsp;method&#8217;s&nbsp;ratio is computed within&nbsp;</em><strong><em>the same</em></strong><em>&nbsp;Julia process to remove cross-run timing noise.&nbsp;</em></figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Our profile showed that GridSFM warm-start is <strong>1.66× faster than cold start</strong> and <strong>1.59× faster than DC-approximation warm-start</strong> (geometric means across the 54 grids test scenarios) and is faster than both baselines on 41 of 54 grids. The largest per-grid speedups exceed 7× over cold on the meshed transmission grids (Texas2k summer-peak, case2742_goc). DC-approximation warm-start, by contrast, is a wash on average across this broader grid mix (geomean 1.04× vs cold), DC saves on AC iterations on some grids and spends them rebuilding voltage/reactive on others.</p>
-
-
-
-<p class="wp-block-paragraph">The gap between the GridSFM distribution in Figure 7 and the GT-ceiling distribution (2.72× geomean) can be closed by improving GridSFM’s residual reactive-power and voltage prediction error, both targeted by the next release.</p>
-
-
-
-<h4 class="wp-block-heading" id="generalization">Generalization</h4>
-
-
-
-<p class="wp-block-paragraph">We tested whether GridSFM-Open acts like a true foundation model by running it on a grid it had never seen before: the 6,470-bus case6470_rte from <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2406.07234" target="_blank" rel="noopener noreferrer"><em>OPFData</em><span class="sr-only"> (opens in new tab)</span></a>, about 1.4× larger than any grid in training.</p>
-
-
-
-<p class="wp-block-paragraph">In a zero-shot setting, performance drops as expected. Cost error increases from 3.35% in-sample to about 14% on the new grid. Voltage predictions capture only about 27% of the true variation and appear nearly flat. The feasibility classifier flags every scenario as infeasible. Even so, the model still preserves the correct ordering of costs across scenarios.</p>
-
-
-
-<p class="wp-block-paragraph">With light fine-tuning, performance recovers quickly. After 10 epochs on 1,000 scenarios, cost error falls to 1.12%, voltage variation reaches 91% of the true signal, and feasibility detection becomes nearly perfect. An N-1 contingency split that was fully held out during fine-tuning matches the full-topology results within 0.2 percentage points on all metrics, showing that adaptation transfers across contingencies.</p>
-
-
-
-<p class="wp-block-paragraph">The model adapts even with very limited data. With just 10 scenarios, cost errors are 1.76% and feasibility detection exceeds 90%, with strong results already on cost and active power dispatch. Voltage magnitude is slower to recover and needs closer to 1,000 scenarios (see Table 1).</p>
-
-
-
-<p class="wp-block-paragraph">This test showed that GridSFM-Open already captures AC-OPF physics during pre-training. Adapting to a new grid is mostly a matter of calibration rather than relearning. The released checkpoint can therefore serve as a practical starting point for users to fine-tune on their own topology and tasks.</p>
-
-
-
-<figure class="wp-block-table aligncenter"><table class="has-fixed-layout"><thead><tr><th>Fine-tune scenarios</th><th>Cost error</th><th>Feasibility Detection</th></tr></thead><tbody><tr><td>0 (0-shot)</td><td>14%</td><td>0 (Collapsed)</td></tr><tr><td>10</td><td>1.76%</td><td>92%</td></tr><tr><td>100</td><td>0.88%</td><td>97%</td></tr><tr><td>1000</td><td>1.12%</td><td>99%</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1: Few-shot fine-tuning of GridSFM-Open on case6470_rte (held-out test split, 10 epochs per row): even ~10 scenarios already give useful cost and feasibility predictions.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="looking-ahead">Looking ahead</h2>
-
-
-
-<p class="wp-block-paragraph">Active directions for the next release:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Generalization.</strong> Tighter accuracy on grids and operating conditions outside the training mix. The current out-of-distribution analysis is in the white paper.</li>
-
-
-
-<li><strong>Continued accuracy improvements</strong> across all prediction channels, narrowing the residual gap between Figure 7’s GridSFM distribution and the gold GT-ceiling.</li>
-
-
-
-<li><strong>Multi-snapshot extensions.</strong> Unit commitment (discrete on/off generator decisions across time), weather-conditioned scenario generation, dynamic-stability surrogates.</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">We&nbsp;previously&nbsp;released the&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/microsoft/GridSFM_US_power_grid" target="_blank" rel="noopener noreferrer"><em>GridSFM_US&nbsp;_Powergrid_dataset</em><span class="sr-only"> (opens in new tab)</span></a>.&nbsp;This release adds the first open AC-OPF model that supports multiple grid topologies, completing a stack of open topology data, open code, and open weights for ML-driven grid simulation and planning. We see it as a starting point for the community to build richer simulators, planning workflows, and decision-support tools without re-creating the data or the model from scratch. The applications we expect to see most leverage from are the ones where the cost of a single solve has historically forced cherry-picking: contingency screening, transmission expansion planning, demand-siting analysis, and resilience studies under extreme weather.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Everything in the GridSFM-Open tier is released for research use today:</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="http://github.com/microsoft/gridSFM">GitHub</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://huggingface.co/microsoft/GridSFM_Open">Hugging Face</a></div>
-
-
-
-<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/gridsfm-a-foundation-model-for-ac-optimal-power-flow/">White Paper</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/project/gridfm/">Project Page</a></div>
-</div>
-
-
-
-<p class="wp-block-paragraph"><strong>A note on GridSFM-Premier.</strong> The larger production-scale tier is not part of this open release. If you are interested in evaluating it, collaborating with us, or otherwise getting access, please contact us at <a href="mailto:gridFM@microsoft.com" target="_blank" rel="noreferrer noopener"><strong>gridFM@microsoft.com</strong></a>.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/">GridSFM: A new, small foundation model for the electric grid</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
