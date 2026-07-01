@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 29 Jun 2026 23:55:24 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 30 Jun 2026 16:50:04 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,182 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0</generator>
 	<item>
+		<title>SkillOpt: Agent skills as trainable parameters</title>
+		<link>https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/</link>
+		
+		<dc:creator><![CDATA[Yifan Yang, Xuemei Gao, Qi Dai, Bei Liu, Kai Qiu, Dongdong Chen, Chong Luo]]></dc:creator>
+		<pubDate>Tue, 30 Jun 2026 16:50:02 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1176927</guid>
+
+					<description><![CDATA[<p>AI agents often fail because their instructions, or skills, are manually modified with no guarantee of improvement. Learn how SkillOpt turns skill editing into a training process, making agent behavior more reliable without changing model weights.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/">SkillOpt: Agent skills as trainable parameters</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg" alt="SkillOpt blog | three white line icons on an abstract green background | shield icon, gear icon, circle with checkmark icon" class="wp-image-1176928" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>AI agents often fail because their instructions, or skills, are manually modified with no guarantee of improvement. SkillOpt turns skill editing into a training process, making agent behavior more reliable without changing model weights.</li>
+
+
+
+<li>SkillOpt treats an agent skill file as a trainable parameter outside a frozen target model, turning skill writing from one-shot prompting into a controlled optimization process.</li>
+
+
+
+<li>Across six benchmarks, seven target models, and three execution modes, SkillOpt is the best or tied-best method in all 52 evaluation cells, improving performance without updating model weights.</li>
+
+
+
+<li>SkillOpt keeps skills compact and auditable through bounded text edits, validation gating, rejected-edit feedback, and slow/meta updates, avoiding uncontrolled prompt drift.</li>
+
+
+
+<li>The optimized skills transfer across model scales, agent harnesses, and related tasks, suggesting that they capture reusable workflow knowledge rather than benchmark-specific instructions.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Large language models (LLMs) are increasingly deployed as agents that gather evidence, call tools, and execute multi-step tasks. For these agents, the hard problem is no longer whether they can call a tool, but whether they can complete tasks reliably and consistently. Today, agent skills typically come from three sources: experts write them by hand, a frontier model generates them one-shot, or the agent loosely revises them after execution. None of these approaches behaves like a deep-learning optimizer. They lack step-size control, held-out validation, and any memory of revisions that failed. As a result, skills tend to grow longer and drift with each rewrite, and a revision that seems perfectly reasonable can quietly degrade real task performance. This uncontrolled skill evolution has become a major obstacle on the path from agent prototype to dependable, production-grade deployment.</p>
+
+
+
+<p class="wp-block-paragraph">In our recent paper, <a href="https://www.microsoft.com/en-us/research/publication/skillopt-executive-strategy-for-self-evolving-agent-skills/" type="link" id="https://www.microsoft.com/en-us/research/publication/skillopt-executive-strategy-for-self-evolving-agent-skills/">SkillOpt: Executive Strategy for Self-Evolving Agent Skills</a>, we reframe the question from “how do we write a better prompt?” to “how do we train the skill?” SkillOpt treats the skill file as a trainable parameter living outside a frozen target model, bringing a training-style optimization loop, consistent gains across 52 evaluation cells, and a compact skill file that stays readable, auditable, and transferable.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="586" height="291" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png" alt="Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating." class="wp-image-1176930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-240x119.png 240w" sizes="(max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating.</figcaption></figure>
+
+
+
+<h2 id="how-skillopt-works" class="wp-block-heading">How SkillOpt works</h2>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/skillopt.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/skillopt_teaser-1.mp4" playsinline></video><figcaption class="wp-element-caption">Video 1. SkillOpt’s optimization loop, from trajectory collection to the exported skill file.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">SkillOpt organizes skill editing as a forward–backward–update cycle in text space. In the forward pass, the frozen target model executes a batch of training tasks with the current skill; the rollout batch size controls how much evidence each update receives. In the backward pass, a separate optimizer model reads the resulting trajectories in reflection minibatches, distilling patterns to preserve from successful trajectories and patterns to correct from failures.</p>
+
+
+
+<p class="wp-block-paragraph">In the update step, the optimizer proposes small add, delete, and replace edits; candidate edits are merged, deduplicated, ranked, and clipped by a textual learning rate—a per-step edit budget. Every candidate skill must then pass a strict validation gate: it is adopted only if it scores strictly higher than the current skill on the held-out validation split. Rejected edits are not discarded; they enter a rejected-edit buffer that serves as negative feedback for later optimizer calls in the same epoch. On a slower cadence, an epoch-wise slow/meta update consolidates longer-horizon lessons that single batches cannot reveal (Figure 2). Together, bounded edits, validation gating, and best-version selection keep skill optimization controllable and auditable, so the skill converges instead of drifting.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="586" height="322" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png" alt="Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training." class="wp-image-1176931" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-240x132.png 240w" sizes="(max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training.</figcaption></figure>
+
+
+
+<h2 id="consistent-gains-across-benchmarks-models-and-execution-modes" class="wp-block-heading">Consistent gains across benchmarks, models, and execution modes</h2>
+
+
+
+<p class="wp-block-paragraph">We evaluated SkillOpt across six benchmarks (SearchQA, SpreadsheetBench, OfficeQA, DocVQA, LiveMathematicianBench, and ALFWorld), seven target models from frontier-scale GPT-5.5 to the small open-weight Qwen3.5-4B, and three execution modes (direct chat, Codex, and Claude Code). Counting each combination as one evaluation cell, When measured against human-written skills, one-shot LLM skills, Trace2Skill, TextGrad, GEPA, and EvoSkill, SkillOpt delivered the best or tied for -best results on all 52 cells. These performance improvements are unusually large for a method that updates no model weights. With GPT-5.5 in direct chat, SkillOpt raises the six-benchmark average from 58.8 to 82.3, a +23.5-point absolute improvement—and +5.4 points above an oracle that picks the single best competing method per cell. The largest gains appear on procedural benchmarks: SpreadsheetBench rises from 41.8 to 80.7, OfficeQA from 33.1 to 72.1, and LiveMathematicianBench from 37.6 to 66.9. The same interface carries over to agentic loops, lifting GPT-5.5 by +24.8 points inside Codex and +19.1 inside Claude Code over no skill.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="a-small-model-plus-a-skill-file" class="wp-block-heading">A small model plus a skill file</h2>
+
+
+
+<p class="wp-block-paragraph">Approaching the next model tier SkillOpt also narrows the gap between small or open-weight models and frontier models—without changing any weights or adding any extra model calls at inference. After optimization, GPT-5.4-mini’s six-benchmark average (64.3) exceeds the no-skill baseline of the larger GPT-5.4 (59.7), and GPT-5.4-nano (57.4) exceeds the no-skill baseline of GPT-5.2 (51.3). Qwen3.5-4B, a 4-billion-parameter open-weight model, surpasses GPT-5.2’s no-skill baseline as well. Gains that once required a larger model can now be approximated by one optimized skill file.</p>
+
+
+
+<h2 id="skills-that-transfer-train-once-reuse-everywhere" class="wp-block-heading">Skills that transfer: train once, reuse everywhere</h2>
+
+
+
+<p class="wp-block-paragraph">The optimized skill file captures reusable task-solving procedures rather than instructions overfit to a single model, benchmark, or execution environment. This is why the same skill can still improve performance when transferred across model scales, agent harnesses, and related tasks. In our transfer experiments, skills continued to deliver gains when moved across model scales, across execution harnesses, and to a nearby math benchmark. The clearest example is cross-harness transfer: a spreadsheet skill trained inside Codex, dropped into Claude Code with no further optimization, lifts the no-skill baseline from 22.1 to 81.8 (+59.7)—slightly above the 80.4 achieved by training directly inside Claude Code. Because the two harnesses expose different tool surfaces, this suggests SkillOpt learns general workflow logic, not just harness-specific recipes.</p>
+
+
+
+<h2 id="compact-readable-and-built-from-very-few-accepted-edits" class="wp-block-heading">Compact, readable, and built from very few accepted edits</h2>
+
+
+
+<p class="wp-block-paragraph">The deployed artifact, best_ skill.md , is neither an opaque parameter blob nor an ever-growing log. Across six case studies, the median final skill length is roughly 920 tokens, and because the validation gate rejects most proposals, only one to four edits are accepted into the final file. OfficeQA’s +39.0-point gain comes from a single accepted edit. The learned rules read like a seasoned practitioner’s advice. Component ablations confirm that the controls do the work: removing the rejected-edit buffer lowers scores on all three ablation benchmarks, and removing both the meta skill and the slow update drops SpreadsheetBench from 77.5 to 55.0. A new adaptation layer for the agent era SkillOpt points to a lighter-weight path for domain-adapting agents: instead of fine-tuning weights, hard-coding task logic, or hand-tuning prompts, teams can train a small, versionable, auditable natural-language skill layer—wherever automatic evaluation or a reliable verifier exists.</p>
+
+
+
+<p class="wp-block-paragraph">By bringing learning rates, schedules, validation splits, rejected samples, and slow updates to agent skills, SkillOpt suggests that training need not be limited to model weights.&nbsp;Procedural knowledge outside the model can also be optimized.</p>
+
+
+
+<p class="wp-block-paragraph">When that process is controlled, validated, and recorded, a natural-language skill becomes a stable, transferable, and reversible adapter between frontier-model capability and real-world workloads. Read the full paper, visit the project page at&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/skillopt">aka.ms/skillopt<span class="sr-only"> (opens in new tab)</span></a>, or explore the SkillOpt GitHub repository at&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/SkillOpt" target="_blank" rel="noopener noreferrer">github.com/microsoft/SkillOpt<span class="sr-only"> (opens in new tab)</span></a>. Teams building agentic workflows can use SkillOpt as a foundation for training reusable skills against their own tasks and verifiers. See also our companion project, SkillLens.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/skillopt-executive-strategy-for-self-evolving-agent-skills/">Paper</a></div>
+
+
+
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/SkillOpt">GitHub</a></div>
+
+
+
+<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://microsoft.github.io/SkillLens/">SkillLens Project Page</a></div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/">SkillOpt: Agent skills as trainable parameters</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/skillopt_teaser-1.mp4" length="21177671" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity</title>
 		<link>https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/</link>
 		
@@ -32,7 +208,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/">Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three minimalist white icons on a purple-to-pink gradient background. From left to right: an hourglass, a circular gauge, and a pair of angle brackets with a slash." class="wp-image-1177050" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three minimalist white icons on a purple-to-pink gradient background. From left to right: an hourglass, a circular gauge, and a pair of angle brackets with a slash." class="wp-image-1177050" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Memora-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -69,7 +245,7 @@
 
 
 
-<p class="wp-block-paragraph">Imagine a workplace AI assistant helping you run a multi-month project. Over weeks of conversations, you share constraints, agree on milestones, revise deadlines, and surface dozens of stakeholder preferences. When you later ask it to draft an update for a colleague, it should recall not just the latest decision but the journey that got you there: what was tried, what was ruled out, who weighed in. Today&#8217;s AI agents struggle with this. Modern large language models (LLMs) are powerful reasoners, but they are effectively stateless: every session starts from zero, every long conversation forces the model to re-read its entire history, and every new piece of information is either stored as raw text (fragmented and noisy) or compressed into a vague summary (precise details lost). As AI assistants and autonomous agents move into long-horizon deployments, such as copilots that tracks a project for many months or even research agents that build up domain expertise with long horizon usage, the absence of principled memory system has become the critical bottleneck.</p>
+<p class="wp-block-paragraph">Imagine a workplace AI assistant helping you run a multi-month project. Over weeks of conversations, you share constraints, agree on milestones, revise deadlines, and surface dozens of stakeholder preferences. When you later ask it to draft an update for a colleague, it should recall not just the latest decision but the journey that got you there: what was tried, what was ruled out, who weighed in. Today&#8217;s AI agents struggle with this. Modern large language models (LLMs) are powerful reasoners, but they are effectively stateless: every session starts from zero, every long conversation forces the model to re-read its entire history, and every new piece of information is either stored as raw text (fragmented and noisy) or compressed into a vague summary (precise details lost). As AI assistants and autonomous agents move into long-horizon deployments, such as copilots that track a project for many months or even research agents that build up domain expertise with long horizon usage, the absence of principled memory system has become the critical bottleneck.</p>
 
 
 
@@ -93,7 +269,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1396" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-scaled.png" alt="Overview of the Memora architecture showing how multimodal data is segmented, converted into structured memory entries and an implicit memory graph, then retrieved through a policy-driven process optimized with group-relative learning to return relevant episodic memories." class="wp-image-1177052" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-300x164.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-1024x559.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-768x419.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-1536x838.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-2048x1117.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-240x131.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1: Architecture overview of Memora.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1396" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-scaled.png" alt="Overview of the Memora architecture showing how multimodal data is segmented, converted into structured memory entries and an implicit memory graph, then retrieved through a policy-driven process optimized with group-relative learning to return relevant episodic memories." class="wp-image-1177052" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-300x164.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-1024x559.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-768x419.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-1536x838.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-2048x1117.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_1_high_res_Memora-1-240x131.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1: Architecture overview of Memora.</figcaption></figure>
 
 
 
@@ -113,30 +289,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -149,7 +322,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1843" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-scaled.png" alt="Bar chart comparing LoCoMo overall scores across memory systems using LLM-judge, F1, and BLEU metrics. Memora (P) achieves the highest LLM-judge score (0.863), followed by Memora (S) (0.849) and Full Context (0.825). Memora variants outperform other memory-based approaches across all three metrics." class="wp-image-1177055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-1024x737.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-768x553.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-1536x1106.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-2048x1475.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-240x173.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2: Memora performance on LoCoMo dataset.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1843" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-scaled.png" alt="Bar chart comparing LoCoMo overall scores across memory systems using LLM-judge, F1, and BLEU metrics. Memora (P) achieves the highest LLM-judge score (0.863), followed by Memora (S) (0.849) and Full Context (0.825). Memora variants outperform other memory-based approaches across all three metrics." class="wp-image-1177055" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-300x216.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-1024x737.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-768x553.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-1536x1106.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-2048x1475.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/figure_2_high_res_Memora-1-240x173.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2: Memora performance on LoCoMo dataset.</figcaption></figure>
 
 
 
@@ -274,30 +447,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -443,27 +613,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -657,30 +830,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -772,7 +945,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -781,20 +954,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -945,30 +1118,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1110,30 +1283,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1639,30 +1812,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1705,300 +1878,6 @@
 
 <p class="wp-block-paragraph"></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/">Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>mimalloc: A new, high-performance, scalable memory allocator for the modern era</title>
-		<link>https://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/</link>
-		
-		<dc:creator><![CDATA[Daan Leijen]]></dc:creator>
-		<pubDate>Wed, 13 May 2026 17:19:59 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1171325</guid>
-
-					<description><![CDATA[<p>mimalloc is an open-source, modern, scalable memory allocator that is a drop-in replacement for malloc and free. It is relatively small (~12K lines), with clear internal data structures, and is easy to build and integrate into other projects. It provides bounded worst-case allocation times (up to OS primitives), bounded space overhead, low internal fragmentation, and minimal contention by relying almost exclusively on atomic operations.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/">mimalloc: A new, high-performance, scalable memory allocator for the modern era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three white line icons—a monitor with code brackets, interlocking gears, and a speedometer—displayed on a purple‑to‑blue gradient background with a subtle textured pattern." class="wp-image-1171567" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Mimalloc-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Today’s critical services and applications are often highly concurrent, using hundreds of threads. They also operate at large memory scales, frequently hundreds of gigabytes, especially when using large language models.</li>
-
-
-
-<li>mimalloc is an open-source, modern, scalable memory allocator that is a drop-in replacement for malloc and free. It is relatively small (~12K lines), with clear internal data structures, and is easy to build and integrate into other projects. It provides bounded worst-case allocation times (up to OS primitives), bounded space overhead, low internal fragmentation, and minimal contention by relying almost exclusively on atomic operations.</li>
-
-
-
-<li>mimalloc is available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/mimalloc" type="link" id="https://github.com/microsoft/mimalloc" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> and has over 12K stars.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<h2 class="wp-block-heading" id="mimalloc">mimalloc</h2>
-
-
-
-<p class="wp-block-paragraph">At the <a href="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/" type="link" id="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/">RiSE group at Microsoft Research (MSR)</a>, we conduct fundamental research into formal methods, programming languages, and software engineering (including emerging agentic systems), with a particular focus on systems that can be provably correct, secure, and performant. The mimalloc memory allocator was initially designed in 2020 as a fast allocator for the state-of-the-art <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="http://leanprover.github.io/" type="link" id="http://leanprover.github.io/" target="_blank" rel="noopener noreferrer">Lean<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://koka-lang.github.io/koka/doc/book.html" type="link" id="https://koka-lang.github.io/koka/doc/book.html" target="_blank" rel="noopener noreferrer">Koka<span class="sr-only"> (opens in new tab)</span></a> programming languages developed at RiSE, both of which use novel compiler-guided reference counting (see <em><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2021/06/perceus-pldi21.pdf" type="link" id="https://www.microsoft.com/en-us/research/wp-content/uploads/2021/06/perceus-pldi21.pdf" target="_blank" rel="noreferrer noopener">Perceus</a></em>).</p>
-
-
-
-<p class="wp-block-paragraph">The scalable design of mimalloc has also proved to work exceedingly well for large services at Microsoft. Through close cooperation with product teams, mimalloc has significantly improved the response times in services such as Bing. Today, mimalloc is widely used in large services and applications, both within and outside Microsoft. It serves as the allocator for NoGIL CPython 3.13+, is integrated into Unreal Engine, and is used in games such as<em> </em>Death Stranding<em>.</em> The project is open source on GitHub, with over 12K stars its Rust wrapper alone sees over 100K downloads per day.</p>
-
-
-
-<p class="wp-block-paragraph">mimalloc is effective across a wide range of scenarios; from small-scale applications like Koka or Lean, to large services with memory footprints exceeding 500 GiB and hundreds of threads.</p>
-
-
-
-<p class="wp-block-paragraph">Despite this range, the codebase is still&nbsp;compact,&nbsp;at around 12K&nbsp;lines of C.&nbsp;Reflecting its research origins,&nbsp;mimalloc emphasizes&nbsp;clear internal&nbsp;data structures&nbsp;with strong invariants, making it easier to&nbsp;understand&nbsp;and reason about than many industry allocators. As Fred Brooks already remarked in his famous book&nbsp;<em>The Mythical Man-Month</em>: “<em>S</em>how me your flowchart and conceal your tables, and I shall continue to be mystified. Show me your tables, and I&nbsp;won’t&nbsp;need your flowchart;&nbsp;it’ll&nbsp;be obvious.”</p>
-
-
-
-<p class="wp-block-paragraph">As a result, mimalloc has been ported to many platforms—Windows, macOS, Linux, FreeBSD, NetBSD, DragonFly, and various consoles—, and is easy to build and integrate into other projects. For example, the clear data structures enabled Sam Gross and others to adopt mimalloc as the concurrent allocator for NoGIL CPython. The design also makes it relatively straightforward to implement cyclic garbage collection on top of this.</p>
-
-
-
-<h2 class="wp-block-heading" id="the-fast-path">The Fast Path</h2>
-
-
-
-<p class="wp-block-paragraph">As with other scalable allocators (such as tcmalloc and jemalloc), a core design principle of mimalloc is that each thread maintains its own thread-local heap, which we call a “theap”. Each theap owns a set of mimalloc “pages,” which are usually 64 KiB. Each mimalloc page contains blocks of a fixed size, organized into size classes to reduce internal fragmentation. By giving each thread its own theap and set of mimalloc pages, memory allocation and deallocation typically proceed without synchronization. Atomic operations are only required when a thread frees a block allocated by another thread.</p>
-
-
-
-<p class="wp-block-paragraph">Moreover, in practice, most allocations are quite small, often less than 1 KiB. For such small allocations, mimalloc provides a fast path where the main allocation function looks like:</p>
-
-
-
-<pre><code><span style="color:teal">void</span>* mi_malloc( <span style="color:teal">size_t</span> size )  
-{ 
-  <span style="color:teal">mi_theap_t</span>* <span style="color:blue">const</span> theap = mi_get_thread_local_theap(); 
-  <span style="color:blue">if</span> (size > <span style="color:teal">MI_MAX_SMALL_SIZE</span>) <span style="color:blue">return</span> mi_malloc_generic(theap,size);  <span style="color:darkgreen">// slow generic path </span>
- 
-  <span style="color:blue">const</span> <span style="color:teal">size_t</span> index = (size + <span style="color:blue">sizeof</span>(<span style="color:teal">void</span>*))/<span style="color:blue">sizeof</span>(<span style="color:teal">void</span>*);           <span style="color:darkgreen">// round size </span>
-  <span style="color:teal">mi_page_t</span>* <span style="color:blue">const</span> page = theap->small_pages[index];                    
- 
-  <span style="color:teal">mi_block_t</span>* <span style="color:blue">const</span> block = page->free;                                <span style="color:darkgreen">// head of free list </span>
-  <span style="color:blue">if</span> (block == <span style="color:teal">NULL</span>) <span style="color:blue">return</span> mi_malloc_generic(theap,size);             <span style="color:darkgreen">// slow generic path </span>
- 
-  page->free = block->next;                                            <span style="color:darkgreen">// pop free list </span>
-  page->used++;                                        
-  <span style="color:blue">return</span> block; 
-}</code></pre>
-
-
-
-<p class="wp-block-paragraph">By using thread-local theaps, we need no atomic operations or thread synchronization. We also try to minimize the number of branches. In particular, the thread-local theap is never <code>NULL</code>, and we initialize it with a special empty theap with all empty pages. This way, we do not need a separate check if the theap is <code>NULL</code>. Similarly, the pointers in the <code>small_pages</code> array are never <code>NULL</code>, and we use again special empty pages (with page-<code>>free==NULL</code>) to avoid a separate check. Finally, pages are initialized with a free list rather than a separate bump pointer, avoiding special cases and enabling allocation by simply popping blocks from the free list. On x64, this code now translates into few instructions with just two uncommon branches:</p>
-
-
-
-<pre><code>mi_malloc: 
-  movq <span style="color:blue">%rdi</span>, <span style="color:blue">%rsi</span>             <span style="color:darkgreen">;</span><span style="color:darkgreen"> rsi = size</span>
-  movq _mi_theap_default@GOTTPOFF(<span style="color:blue">%rip</span>), <span style="color:blue">%rax</span> 
-  movq <span style="color:blue">%fs</span>:(<span style="color:blue">%rax</span>), <span style="color:blue">%rdi</span>       <span style="color:darkgreen">;</span><span style="color:darkgreen"> rdi = thread local theap</span>
-  cmpq <span class="constant" style="color:purple">$1024</span>, <span style="color:blue">%rsi</span>            <span style="color:darkgreen">;</span><span style="color:darkgreen"> size > MI_MAX_SMALL_SIZE?</span>
-  ja <span class="constant" style="color:purple">.LBB0_generic</span>
-
-  leaq <span class="constant" style="color:purple">7</span>(<span style="color:blue">%rsi</span>), <span style="color:blue">%rax</span>          <span style="color:darkgreen">;</span><span style="color:darkgreen"> round to sizeof(void*)</span>
-  andq <span class="constant" style="color:purple">$-8</span>, <span style="color:blue">%rax</span>
-  movq <span class="constant" style="color:purple">232</span>(<span style="color:blue">%rdi</span>,<span style="color:blue">%rax</span>), <span style="color:blue">%rcx</span>   <span style="color:darkgreen">;</span><span style="color:darkgreen"> rcx = heap->small_pages[index]</span>
-  movq <span class="constant" style="color:purple">8</span>(<span style="color:blue">%rcx</span>), <span style="color:blue">%rax</span>          <span style="color:darkgreen">;</span><span style="color:darkgreen"> block = rax = page->free</span>
-  testq <span style="color:blue">%rax</span>, <span style="color:blue">%rax</span>            <span style="color:darkgreen">;</span><span style="color:darkgreen"> block == NULL?</span>
-  je <span class="constant" style="color:purple">.LBB0_generic</span>
-  
-  movq (<span style="color:blue">%rax</span>), <span style="color:blue">%rdx</span>           <span style="color:darkgreen">;</span><span style="color:darkgreen"> page->free = block->next</span>
-  movq <span style="color:blue">%rdx</span>, <span class="constant" style="color:purple">8</span>(<span style="color:blue">%rcx</span>)
-  incw <span class="constant" style="color:purple">16</span>(<span style="color:blue">%rcx</span>)               <span style="color:darkgreen">;</span><span style="color:darkgreen"> page->used++</span>
-  retq 
-
-<span class="constant" style="color:purple">.LBB0_generic</span>:
-  jmp _mi_malloc_generic@PLT  <span style="color:darkgreen">;</span><span style="color:darkgreen"> tailcall </span>
-</code></pre>
-
-
-
-<p class="wp-block-paragraph">Similarly, mimalloc provides a fast path for freeing blocks. In practice, most blocks are freed by the same thread that allocated the block. We can optimize that case by checking whether the current thread ID matches the thread ID stored in the corresponding mimalloc page. If so, we can just push our block on the page’s free list without requiring atomic operations or locks:</p>
-
-
-
-<pre><code><span style="color:teal">void</span> mi_free(<span style="color:teal">void</span>* p)  
-{ 
-  <span style="color:teal">mi_page_t</span>* <span style="color:blue">const</span> page = mi_ptr_page(p);         <span style="color:darkgreen">// get the page meta-data that contains p </span>
-  <span style="color:blue">if</span> (page==<span style="color:teal">NULL</span>) <span style="color:blue">return</span>; 
- 
-  <span style="color:blue">if</span> (mi_thread_id() == page->thread_id) {        <span style="color:darkgreen">// do we own this page? </span>
-    <span style="color:teal">mi_block_t</span>* <span style="color:blue">const</span> block = (<span style="color:teal">mi_block_t</span>*)p; 
-    block->next = page->local_free;               <span style="color:darkgreen">// push on the `local_free` list </span>
-    page->local_free = block;                      
-    <span style="color:blue">if</span> (--page->used == <span class="constant" style="color:purple">0</span>) mi_page_free(page);    <span style="color:darkgreen">// is the entire page free? </span>
-  } 
-  <span style="color:blue">else</span> { 
-    mi_free_cross_thread(page, p);                <span style="color:darkgreen">// free in a page owned by another thread </span>
-  } 
-} </code></pre>
-
-
-
-<p class="wp-block-paragraph">The&nbsp;<code>mi_ptr_page</code>&nbsp;function in the latest&nbsp;mimalloc&nbsp;v3&nbsp;retrieves&nbsp;page metadata using an on-demand allocated map of the entire memory. In&nbsp;earlier&nbsp;versions this was faster&nbsp;using alignment&nbsp;tricks.&nbsp;However,&nbsp;in practice, invalid pointers are&nbsp;often&nbsp;passed to&nbsp;<code>mi_free</code>&nbsp;when overriding&nbsp;<code>free</code>&nbsp;globally.&nbsp;&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Using a separate map enables&nbsp;such&nbsp;cases to be detected&nbsp;efficiently and return&nbsp;<code>NULL</code>&nbsp;when the pointer is invalid. In particular,&nbsp;<code>mi_ptr_page(NULL) ==&nbsp;NULL</code>, which&nbsp;avoids&nbsp;an extra branch by testing only if the&nbsp;page is&nbsp;<code>NULL</code>.&nbsp;Additionally,&nbsp;used&nbsp;count&nbsp;is&nbsp;used&nbsp;to&nbsp;efficiently&nbsp;detect&nbsp;when all blocks in a page have been freed.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">When a block is freed across threads, we enter the&nbsp;<code>mi_free_cross_thread</code>&nbsp;function—the&nbsp;first path that requires atomic operations:&nbsp;</p>
-
-
-
-<pre><code><span style="color:teal">void</span> mi_free_cross_thread(<span style="color:teal">mi_page_t</span>* page, <span style="color:teal">mi_block_t</span>* block)  
-{ 
-  <span style="color:teal">mi_block_t</span>* tfree = mi_atomic_load(&page->thread_free);  <span style="color:darkgreen">// head of the thread free list </span>
-  <span style="color:blue">do</span> { 
-    block->next = tfree;                                   <span style="color:darkgreen">// push our block in front </span>
-  } <span style="color:blue">while</span> (!mi_atomic_compare_and_swap(&page->thread_free, &tfree <span style="color:darkgreen">/*</span><span style="color:darkgreen">expect</span><span style="color:darkgreen">*/</span>, block <span style="color:darkgreen">/*</span><span style="color:darkgreen">new</span><span style="color:darkgreen">*/</span>))  
-}</code></pre>
-
-
-
-<p class="wp-block-paragraph">The block can be freed by pushing it onto the thread-free list of the page. Since this is multi-threaded, it requires an atomic compare-and-swap operation to push the block atomically. Still, on modern hardware such operations are efficient when uncontended, as their operation is integrated with the cache coherence protocol (MOESI).</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Forum</h2>
-				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="free-list-mayhem">Free list mayhem</h2>
-
-
-
-<p class="wp-block-paragraph">There are three free lists per page: the free list for allocations, the <code>local_free</code> list for freed blocks, and the <code>thread_free</code> (atomic) list for blocks that were freed across threads. This guarantees that after a fixed number of allocations, the free list is exhausted, ensuring we occasionally take the slower generic allocation path. This is also used to clean up the free lists by moving thread-local and local free lists back to the main free list. (Note: Actual implementation requires more care to handle cases where the owning thread never allocates again or is blocked for a long time).</p>
-
-
-
-<p class="wp-block-paragraph">Thus, mimalloc has three free lists per (64 KiB) mimalloc page, and effectively that means that a program can easily have thousands of free lists. This is essential to the scalability and cache locality of mimalloc.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="766" height="342" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree1.png" alt="A height-balanced tree" class="wp-image-1171406" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree1.png 766w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree1-300x134.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree1-240x107.png 240w" sizes="auto, (max-width: 766px) 100vw, 766px" /><figcaption class="wp-element-caption">A height-balanced tree</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="891" height="686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree2.jpg" alt="Photo of a random tree" class="wp-image-1171407" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree2.jpg 891w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree2-300x231.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree2-768x591.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/btree2-234x180.jpg 234w" sizes="auto, (max-width: 891px) 100vw, 891px" /><figcaption class="wp-element-caption">A randomized tree</figcaption></figure>
-</div>
-</div>
-
-
-
-<p class="wp-block-paragraph">For this design, we took inspiration from randomized algorithms. For example, to balance a binary tree we can use smart strategies based on weight or depth, and perform specific rotations to keep it balanced. Such algorithms are usually quite complicated. However, we can also simplify the process and randomly decide on splits during insertion, and by sheer chance, we also end up with trees that are balanced enough.</p>
-
-
-
-<p class="wp-block-paragraph">Similarly, many multi-threaded allocators rely on sophisticated concurrent data structures to synchronize access to shared free lists. In contrast, mimalloc uses a per-page thread-free list, where any thread can push a block using a simple atomic compare-and-swap. Because there are thousands of such lists, the probability that multiple threads concurrently free blocks to the same page is low. As a result, most push operations are uncontended atomic updates. By organizing these lists per 64 KiB mimalloc page, cache locality is improved, as allocation tends to stay within the same page until it is full, regardless of freed objects in other pages.</p>
-
-
-
-<p class="wp-block-paragraph">In contrast, consider a design with a single free list per thread or process. When allocating a new structure while freeing objects of the same size—a common pattern in workloads such as tree transformations—allocation may reuse recently freed blocks scattered throughout memory, leading to reduced locality.</p>
-
-
-
-<h2 class="wp-block-heading" id="sharing-between-threads">Sharing between threads</h2>
-
-
-
-<p class="wp-block-paragraph">There is a fundamental tension between scalability and efficient memory sharing between threads. To scale optimally, we would give each thread exclusive ownership to its own pages to minimize any thread synchronization. On the other hand, that may lead to wasted memory: suppose a thread has large quantities of free blocks and another thread needs to allocate blocks of that size –without being able to share or steal those pages, we need to allocate fresh memory instead. In the other extreme, we could share all pages between all threads with a single lock: now memory use is optimal, but we no longer scale. The following benchmark results illustrate this tension:</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1425" height="912" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-windows.png" alt="chart, line chart" class="wp-image-1171397" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-windows.png 1425w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-windows-300x192.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-windows-1024x655.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-windows-768x492.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-windows-240x154.png 240w" sizes="auto, (max-width: 1425px) 100vw, 1425px" /><figcaption class="wp-element-caption">1.1x commit, 56 Gib total</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1388" height="907" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v2.png" alt="chart, line chart" class="wp-image-1171399" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v2.png 1388w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v2-300x196.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v2-1024x669.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v2-768x502.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v2-240x157.png 240w" sizes="auto, (max-width: 1388px) 100vw, 1388px" /><figcaption class="wp-element-caption">4x commit, 262 GiB total</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1462" height="902" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v3.png" alt="chart, line chart, scatter chart" class="wp-image-1171400" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v3.png 1462w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v3-300x185.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v3-1024x632.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v3-768x474.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/bench-mimalloc-v3-240x148.png 240w" sizes="auto, (max-width: 1462px) 100vw, 1462px" /><figcaption class="wp-element-caption">1.3x commit, 262 GiB Total</figcaption></figure>
-</div>
-</div>
-
-
-
-<p class="wp-block-paragraph">The benchmark runs many tasks&nbsp;for a fixed amount of time&nbsp;using the Windows thread&nbsp;pool with about 800 active threads. The tasks&nbsp;alternate between&nbsp;allocation,&nbsp;deallocation, and&nbsp;brief&nbsp;blocking periods,&nbsp;simulating typical service workloads. In the graphs, the blue line&nbsp;represents&nbsp;the total live data, while the red line&nbsp;represents&nbsp;total committed memory by the allocator. The ideal situation is to have the red line as close as possible to the blue line. This is&nbsp;almost the&nbsp;case for the first graph,&nbsp;which uses the standard&nbsp;&nbsp;system&nbsp;allocator: at the end there is just 1.1x more committed than live data&nbsp;– an excellent result! However, over the benchmark duration,&nbsp;it allocated a total of only 56 GiB data.</p>
-
-
-
-<p class="wp-block-paragraph">Contrast that with another highly concurrent allocator in the second graph, which was able to allocate 262 GiB over the benchmark duration—almost 4x as much. However, it also committed 4x more memory than the live data. In real workloads with larger memory footprints, such a ratio can quickly become unacceptable. Here we see that the standard allocator didn’t scale as well, but showed better cross-thread memory sharing.</p>
-
-
-
-<p class="wp-block-paragraph">The final graph shows the most recent mimalloc allocator. Like the second allocator, it allocates 262 GiB over the benchmark duration, while reducing committed memory to 1.3xthe live data, which achieves scalability and efficient memory sharing between threads. Similar to work-stealing in modern thread pool implementations, mimalloc uses a “page stealing” technique, allowing threads to take ownership of pages without expensive cross-thread synchronization.</p>
-
-
-
-<p class="wp-block-paragraph">These improvements were made in close collaboration with the Azure Cosmos DB team at Microsoft. A precise description is beyond the scope of this blog, but we will publish a technical report soon—stay tuned.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/">mimalloc: A new, high-performance, scalable memory allocator for the modern era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
