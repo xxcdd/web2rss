@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 30 Jun 2026 16:50:04 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 08 Jul 2026 13:11:52 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,185 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0</generator>
 	<item>
+		<title>Flint: A visualization language for the AI era</title>
+		<link>https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/</link>
+		
+		<dc:creator><![CDATA[Chenglong Wang, Alper Sarikaya, Scott Tsukamaki, Michel Galley, Jianfeng Gao]]></dc:creator>
+		<pubDate>Wed, 08 Jul 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1177589</guid>
+
+					<description><![CDATA[<p>Short chart specifications are easy to write, but often produce uninspiring results. Flint is an open-source visualization language that offers a middle path, letting AI agents create expressive charts from compact, human-editable specifications.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/">Flint: A visualization language for the AI era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg" alt="Flint blog | three white line icons on an abstract green background; bar chart icon, connected nodes icon, flowchart icon" class="wp-image-1177592" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Polished charts from simple specs</strong>. Flint allows AI agents to reliably generate expressive, visually polished charts from simple, human-editable specifications.</li>
+
+
+
+<li><strong>Semantic types guide design</strong>. Flint leverages semantic data types to express meanings of data. They help the compiler choose appropriate scales, baselines, formatting, and color schemes.</li>
+
+
+
+<li><strong>Layouts adapt to the data</strong>. Flint automatically manages sizing, spacing, labels, and layout so charts remain readable as cardinality and density change, without explicit user configurations.</li>
+
+
+
+<li><strong>One spec can target multiple backends</strong>. A single Flint specification can compile to Vega-Lite, Apache ECharts, or Chart.js without rewriting the chart from scratch.</li>
+
+
+
+<li><strong>Built for agent workflows</strong>. The open-source project includes the <em>flint-chart library</em> and the <em>flint-chart-mcp server</em>, so agents can create, validate, and render charts directly in chat or coding environments.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="764" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png" alt="A dense grid displaying a diverse gallery of data visualizations. The collection showcases over twenty different chart types, including stacked area charts, line graphs, sunburst charts, stacked bar charts, treemaps, radar charts, Sankey diagrams, dense heatmaps, diverging bar charts, candlestick charts, violin plots, a choropleth map of the United States, scatter plots, grouped bar charts, waterfall charts, and parallel coordinate plots." class="wp-image-1178156" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-300x90.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1024x306.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-768x229.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1536x458.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-2048x611.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-240x72.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Flint supports a diverse collection of visualizations with its simple spec, which can be rendered with visualization libraries like Vega-Lite, Echarts, and Chart.js.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Creating a good chart requires many design decisions: how dates should be parsed, whether a scale should start at zero, how values should be formatted, how much room labels need, and which colors make the data easier to read. Modern visualization libraries such as Vega-Lite, Apache ECharts, and Chart.js expose these controls, but there is a trade-off: Short specifications that rely on system defaults often produce uninspiring charts, while polished visualizations require detailed specifications with purposely chosen parameters that are often verbose, fragile, and error-prone.</p>
+
+
+
+<p class="wp-block-paragraph">This trade-off becomes sharper as large language models (LLMs) and AI agents take on more visualization work. Agents are especially prone to errors when they must manage complex, low-level specification details, and the resulting fragile code can be difficult for people to inspect, repair, or reuse. Ideally, we need something in between: a compact specification that agents can produce reliably, people can edit directly, and a system can compile into a well-designed chart.</p>
+
+
+
+<p class="wp-block-paragraph">To address this challenge, we introduce <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/flint-chart/" type="link" id="https://microsoft.github.io/flint-chart/" target="_blank" rel="noopener noreferrer">Flint<span class="sr-only"> (opens in new tab)</span></a>, a visualization intermediate language for AI-driven chart creation. Flint helps AI agents create expressive, attractive charts from simple, human-editable chart specs. Instead of requiring verbose low-level parameters for scales, axes, spacing, and layout, the Flint compiler derives optimized chart settings from the data, semantic types, chart type, and encodings. The same Flint spec can render through multiple backends, including Vega-Lite, Apache ECharts, and Chart.js.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1260" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png" alt="A three-step diagram illustrating the Flint workflow from left to right. It starts with a short JSON code snippet labeled "FLINT SPEC," which flows into a significantly longer, more detailed JSON code snippet labeled "COMPILED SPEC (VEGA-LITE)." This final specification then points to the end result under "VISUALIZATION," displaying a rendered heatmap chart showing data across different games and periods." class="wp-image-1178168" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-300x148.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1024x504.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-768x378.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1536x756.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-2048x1008.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-240x118.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Flint compiles a compact, human-editable chart specification into a complete backend-native specification and rendered visualization. In this heatmap example, the Flint spec names semantic types (period as YearMonth, newUsers as Profit) and maps fields to visual channels. The compiler derives the Vega-Lite details, including temporal parsing, axis formatting, color scale, cell sizing, legend configuration, and layout.</figcaption></figure>
+
+
+
+<h2 id="how-flint-works" class="wp-block-heading">How Flint works</h2>
+
+
+
+<p class="wp-block-paragraph">Figure 2 illustrates the how the Flint compiler turns a compact chart specification into a refined heatmap.</p>
+
+
+
+<p class="wp-block-paragraph">To produce a high-quality heatmap, traditionally, we need to explicitly tell the system with low-level chart properties about how to process the period field, how to properly label MonthYear values, size individual heatmap cells, and choose a color scale that appropriately represents positive and negative newUsers values. Without these configurations, visualization libraries must guess from field names and raw values, which can lead to charts that are technically valid but potentially misleading. While they are important, hard-coding these details can be difficult and error-prone, and they make specification fragile and hard for users to understand or adapt.</p>
+
+
+
+<p class="wp-block-paragraph">In Flint, these low-level details are systematically managed, where the compiler infers them from high-level data and chart specifications. Here, the <strong>data specification</strong> captures semantic types and optional metadata, and the <strong>chart specification</strong> defines the chart type and maps fields to visual channels such as x, y, color, size, or facet. From this information, the compiler derives the parsing rules, scales, axes, aggregations, formatting, color schemes, layout, and generates the backend-native specification, which is used to render the final polished visualization. This frees users from explicitly setting fragile and error-prone low-level details.</p>
+
+
+
+<p class="wp-block-paragraph">Furthermore, because the intermediate representation is separate from any single rendering library, Flint can target backends with very different APIs and programming models. Users can keep the same compact chart intent while compiling to Vega-Lite, ECharts, or Chart.js, and choose the backend whose capabilities best fit the visualization.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+				
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="flint-for-ai-assisted-visualization" class="wp-block-heading">Flint for AI-assisted visualization</h2>
+
+
+
+<p class="wp-block-paragraph">Flint is well suited to LLM-based chart generation because semantic types are often easier for models to infer than the full set of low-level visualization parameters. Field names, value patterns, and common data knowledge can help an agent recognize whether a column represents a date, price, percentage, country, ranking, or correlation. Once those meanings are explicit, the compiler can handle many design decisions that would otherwise appear as brittle, library-specific code.</p>
+
+
+
+<p class="wp-block-paragraph">In our research study, we compared Flint with DirectVL, a baseline that asks the model to directly generate full (more complex) Vega-Lite specifications in a LLM self-evaluation pipeline. Across three tested models based on testing data from Tidy Tuesdays, Flint received higher overall LLM-judge scores: 16.27 vs. 15.91 with GPT-5.1, 16.16 vs. 15.60 with GPT-5-mini, and 15.91 vs. 15.34 with GPT-4.1. In fact, Flint has been so powerful and reliable that it is now used to power <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/data-formulator" type="link" id="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener noreferrer">Data Formulator<span class="sr-only"> (opens in new tab)</span></a>, a Microsoft Research project for AI-assisted data analysis and visualization.</p>
+
+
+
+<p class="wp-block-paragraph">To make Flint easy for your agents to access, we also release <strong><em>flint-chart-mcp</em></strong>, a Model Context Protocol (MCP) server that allows agents to create, validate, and render charts inside a chat or coding environment. MCP calls can embed data inline or read configured local files, and the server can open an interactive chart view so users can inspect and refine the results.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1628" height="1338" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT.png" alt="A mockup of an AI agent chat interface. A user sends the message, "Show me quarterly revenue by region as a grouped bar chart." The AI responds with an interactive widget labeled "Flint Chart MCP APP" displaying a grouped bar chart of revenue by quarter, color-coded by region (North, South, West). Below the chart are interactive UI controls for adjusting the corner radius, sorting, toggling values on or off, and a button to "Copy spec to chat."" class="wp-image-1178170" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT.png 1628w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-300x247.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-1024x842.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-768x631.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-1536x1262.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-219x180.png 219w" sizes="auto, (max-width: 1628px) 100vw, 1628px" /><figcaption class="wp-element-caption">Figure 3. Once you set up the flint-chart-mcp with your favorite AI client, the agent can generate interactive visualizations powered by Flint to answer your data exploration questions. </figcaption></figure>
+
+
+
+<h2 id="try-flint" class="wp-block-heading">Try Flint</h2>
+
+
+
+<p class="wp-block-paragraph">Flint is open source and ready to use:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Project site: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/flint-chart/" target="_blank" rel="noopener noreferrer">https://microsoft.github.io/flint-chart/<span class="sr-only"> (opens in new tab)</span></a></li>
+
+
+
+<li>GitHub: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/flint-chart" target="_blank" rel="noopener noreferrer">https://github.com/microsoft/flint-chart<span class="sr-only"> (opens in new tab)</span></a></li>
+
+
+
+<li>Flint MCP server instruction: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/flint-chart/#/mcp" target="_blank" rel="noopener noreferrer">https://microsoft.github.io/flint-chart/#/mcp<span class="sr-only"> (opens in new tab)</span></a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Flint points toward a shared semantic layer for visualization, where people and AI agents can work with compact chart intent while a compiler handles the careful low-level details. We invite the community to explore the project and build on it.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/">Flint: A visualization language for the AI era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>SkillOpt: Agent skills as trainable parameters</title>
 		<link>https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/</link>
 		
@@ -32,7 +211,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/">SkillOpt: Agent skills as trainable parameters</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg" alt="SkillOpt blog | three white line icons on an abstract green background | shield icon, gear icon, circle with checkmark icon" class="wp-image-1176928" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg" alt="SkillOpt blog | three white line icons on an abstract green background | shield icon, gear icon, circle with checkmark icon" class="wp-image-1176928" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
 
 
 
@@ -81,7 +260,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="586" height="291" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png" alt="Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating." class="wp-image-1176930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-240x119.png 240w" sizes="(max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="586" height="291" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png" alt="Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating." class="wp-image-1176930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-240x119.png 240w" sizes="auto, (max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating.</figcaption></figure>
 
 
 
@@ -101,7 +280,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="586" height="322" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png" alt="Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training." class="wp-image-1176931" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-240x132.png 240w" sizes="(max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="586" height="322" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png" alt="Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training." class="wp-image-1176931" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-240x132.png 240w" sizes="auto, (max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training.</figcaption></figure>
 
 
 
@@ -113,30 +292,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -289,30 +468,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -450,30 +629,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -619,30 +798,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -836,30 +1012,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1124,30 +1300,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1289,30 +1465,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1634,30 +1810,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1772,115 +1948,6 @@
 
 <p class="wp-block-paragraph">As digital identity mandates expand and AI reshapes how humans and agents establish trust, the need for privacy-preserving credential verification will only grow. We see Vega as one step in a broader shift: from a world where proving a fact about yourself requires giving up your identity, to one where cryptography lets you keep it.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/">Vega: Zero-knowledge proofs for digital identity in the age of AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</title>
-		<link>https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/</link>
-		
-		<dc:creator><![CDATA[Philippe Laban, Tobias Schnabel, Jennifer Neville]]></dc:creator>
-		<pubDate>Fri, 15 May 2026 18:06:57 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1172154</guid>
-
-					<description><![CDATA[<p>Our recent paper, “LLMs Corrupt Your Documents When You Delegate”, has generated discussion about the reliability of AI systems in delegated workflows. We appreciate the interest in this work and want to clarify several important points about what the paper does—and does not—claim. The research aims to develop robust evaluation methods for long-horizon delegated and [&#8230;]</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/">Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<p class="wp-block-paragraph">Our recent paper, “<a href="https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/">LLMs Corrupt Your Documents When You Delegate</a>”, has generated discussion about the reliability of AI systems in delegated workflows. We appreciate the interest in this work and want to clarify several important points about what the paper does—and does not—claim.</p>
-
-
-
-<p class="wp-block-paragraph">The research aims to develop robust evaluation methods for long-horizon delegated and collaborative tasks. More broadly, this work reflects an ongoing effort to better understand the gap between strong benchmark performance and certain real-world tasks. Using a controlled evaluation methodology, we examine how well information is preserved across these extended workflows. Within this constrained setting, we observe that models can accumulate fidelity degradation over repeated edits. Note however, that current production systems can mitigate these effects through verification loops, orchestration, and domain-specific tooling.</p>
-
-
-
-<p class="wp-block-paragraph">Our goal is not to argue against the use of AI systems in professional workflows, but rather to identify where current systems need further research and engineering to help make them more trustworthy collaborators. This benchmark is intended as a diagnostic tool for examining delegation patterns, not a measure of overall model capability, task success, or user outcomes.</p>
-
-
-
-<h2 class="wp-block-heading" id="main-results">Main results</h2>
-
-
-
-<p class="wp-block-paragraph">The paper evaluates a specific interaction pattern we call delegated work—situations where a user entrusts an AI system to carry out multi-step modifications to important artifacts such as documents, spreadsheets, code, or structured files with limited human verification between steps.</p>
-
-
-
-<p class="wp-block-paragraph">We use chained transformation-and-inversion tasks that evaluate whether semantic content is preserved accurately across extended delegated workflows. Our evaluation uses domain-specific semantic parsing to focus on meaningful changes to the underlying artifact rather than superficial formatting or stylistic differences. The errors we report thus correspond to degradation in the underlying semantic content but, our measure of “corruption” did not include task completion or user satisfaction.</p>
-
-
-
-<p class="wp-block-paragraph">Using this methodology, we find that current frontier models can introduce sparse but consequential errors during long-horizon workflows, and that these errors may accumulate over repeated interactions. Across the evaluated settings, strong state-of-the-art models showed roughly a 19–34% degradation in artifact fidelity over 20 delegated iterations. Notably, Python workflows generally exhibited stronger robustness under extended delegated interactions, with less than 1% degradation on average.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
-		
-
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Azure AI Foundry Labs</h2>
-				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="methodological-limitations">Methodological limitations</h2>
-
-
-
-<p class="wp-block-paragraph">DELEGATE-52 was intentionally designed as a stress test for long-horizon delegated execution. The benchmark evaluates whether systems preserve artifact integrity across extended sequences of transformations and inversions.</p>
-
-
-
-<p class="wp-block-paragraph">The study focuses specifically on delegated execution with limited human intervention between steps. It does not attempt to measure the full range of real-world AI deployments, many of which involve substantially more oversight, verification, and workflow structure.</p>
-
-
-
-<p class="wp-block-paragraph">The paper also evaluated a simplified agentic harness with tool use capabilities such as Python execution and file operations. While this setup did not eliminate the observed degradation, it should not be interpreted as representative of production-grade systems optimized for specific workflows or enterprise domains.</p>
-
-
-
-<h2 class="wp-block-heading" id="implications">Implications</h2>
-
-
-
-<p class="wp-block-paragraph">We believe the primary implication of this work is that reliable long-horizon delegation remains an important open research and engineering challenge.</p>
-
-
-
-<p class="wp-block-paragraph">The results suggest that strong short-horizon benchmark performance alone may not guarantee dependable delegated execution over extended workflows. At the same time, the findings should not be interpreted as evidence that AI systems lack practical value in real-world work today.</p>
-
-
-
-<p class="wp-block-paragraph">In practice, many deployed AI systems combine models with specialized harnesses, orchestration layers, retrieval systems, verification procedures, memory mechanisms, and human oversight designed to improve reliability and deliver useful user outcomes despite underlying model limitations. We expect continued improvements in models, workflow-aware training, memory systems, and production-grade agentic harnesses to further reduce these failure modes over time.</p>
-
-
-
-<p class="wp-block-paragraph"></p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/">Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
