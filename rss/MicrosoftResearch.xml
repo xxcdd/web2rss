@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 08 Jul 2026 13:11:52 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 09 Jul 2026 18:36:37 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,235 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0</generator>
 	<item>
+		<title>Aurora 1.5: Extending open foundation models for weather and Earth-system applications</title>
+		<link>https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/</link>
+		
+		<dc:creator><![CDATA[Kenji Takeda, Haiyu Dong, Jonathan Weyn, Amit Misra, Matt Corey, Kevin White, Shannon Monroe, Juan M. Lavista Ferres, Ashley Llorens, Bonnie Kruft]]></dc:creator>
+		<pubDate>Thu, 09 Jul 2026 16:46:22 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/</guid>
+
+					<description><![CDATA[<p>Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for real-world weather, climate, and energy applications.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg" alt="Aurora 1.5 | three white line icons on an abstract blue and purple background: globe, thunder cloud, tree" class="wp-image-1173975" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Aurora 1.5 is a major extension of Microsoft’s Aurora Earth System foundation model that adds 22 more weather variables relevant to energy, agriculture, transport, and climate risk, along with hourly temporal resolution and probabilistic ensemble forecasting.</li>
+
+
+
+<li>Released as open source on GitHub with model checkpoints on Hugging Face, Aurora 1.5 enables researchers and developers to use, evaluate, and build on the model.</li>
+
+
+
+<li>Aurora 1.5 connects open research to Microsoft Weather services, linking the model with data, infrastructure, managed access, and operational use for weather and Earth-system applications.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Aurora 1.5 is a major update to the open Aurora Earth-system foundation model, adding 22 new weather variables for a broader view of atmospheric conditions, hourly forecasts, and probabilistic ensemble forecasting. Developed by Microsoft Weather as an extension of the original model from Microsoft Research AI for Science, Aurora 1.5 shows how frontier research can move into broader use: open for researchers and developers to evaluate and extend, and designed to support customers where additional data, infrastructure, and operational assurance is needed.&nbsp;As climate and weather-related risks continue to affect communities, infrastructure, and economies worldwide, advances in Earth-system forecasting can help improve preparedness and decision-making.</p>
+
+
+
+<h2 id="what-is-aurora" class="wp-block-heading">What is Aurora?</h2>
+
+
+
+<p class="wp-block-paragraph">Aurora is a foundation model for the Earth system developed by Microsoft Research AI for Science, first introduced in 2024 and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41586-025-09005-y" target="_blank" rel="noopener noreferrer">published in Nature<span class="sr-only"> (opens in new tab)</span></a> in 2025. It showed that a single model could be adapted to medium-range weather, ocean waves, atmospheric chemistry, and emerging climate applications, including high-resolution weather forecasting through fine-tuning. Its growing use has reinforced the value of an open, collaborative model that is easier to adapt, evaluate, and put to use.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">This <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bing.com/ck/a?!&&p=f9c93e7b19f62b3737c7c3282badddf1233badf5058fb7d7861ef84db05d08e0JmltdHM9MTc4MjQzMjAwMA&ptn=3&ver=2&hsh=4&fclid=24451b10-f799-6468-1027-0c47f6ba6571&psq=microsoft+aurora+ai+weather+2024&u=a1aHR0cHM6Ly9ibG9ncy5taWNyb3NvZnQuY29tL29uLXRoZS1pc3N1ZXMvMjAyNS8xMS8xMy90aGUtbmV4dC1waGFzZS1vZi1hdXJvcmEtb3Blbi1hbmQtY29sbGFib3JhdGl2ZS1haS1mb3Itd2VhdGhlci1hbmQtY2xpbWF0ZS1mb3JlY2FzdGluZy8" target="_blank" rel="noopener noreferrer">next phase of Aurora<span class="sr-only"> (opens in new tab)</span></a> builds on that foundation by making the model openly available for the global community to adapt, extend, and build on.&nbsp;</p>
+
+
+
+<h2 id="what-is-new-in-aurora-1-5" class="wp-block-heading">What is new in Aurora 1.5?</h2>
+
+
+
+<p class="wp-block-paragraph">Aurora 1.5 advances the broader effort to make open weather foundation models practical and scalable for organizations that rely on atmospheric and Earth-system intelligence. Alongside new variables and higher temporal resolution, Aurora 1.5 adds one of the most requested capabilities from users: ensemble forecasting. Because forecasts are sensitive to initial conditions and model uncertainty, ensembles run multiple simulations to show the range and likelihood of possible outcomes. Aurora 1.5 builds on Microsoft Research’s scientific foundation with new product engineering, cloud infrastructure, managed access, and decision-support capabilities. Together, these advances make Aurora 1.5 a valuable enterprise-grade weather solution for organizations.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2133" height="2414" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png" alt="Aurora 1.5 ensemble forecast example showing mean and ensemble uncertainty for total cloud cover and surface solar radiation (SSRD) over the Atlantic and Europe region at a 2–3 day forecast range. Four globe maps display the ensemble mean and standard deviation for each variable, illustrating Aurora's ability to predict both expected conditions and forecast uncertainty for cloud cover and solar radiation. " class="wp-image-1178260" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png 2133w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-265x300.png 265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-905x1024.png 905w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-768x869.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1357x1536.png 1357w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1810x2048.png 1810w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-159x180.png 159w" sizes="(max-width: 2133px) 100vw, 2133px" /><figcaption class="wp-element-caption">Figure 1: Illustration of the capabilities of Aurora 1.5 ensemble for predicting new impactful parameters such as total cloud cover and solar radiation. Ensemble mean and standard deviation are shown<em><em>.</em>&nbsp;</em></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The breadth update adds 22 new variables to Aurora’s original 4, including representative surface, pressure-level, wind, temperature, humidity, precipitation, and radiation fields. That broader coverage makes the model more relevant for sectors that depend on integrated Earth-system signals, from energy and agriculture to transport and resilience planning.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The update to hourly temporal resolution enables fine-grained detail for precision operational guidance, such as the onset of precipitation, trade decisions, or a landfalling tropical cyclone.&nbsp;</p>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph"><em>“Aurora 1.5 is a meaningful step toward making weather foundation models more open, useful, and practical. By releasing the model openly, we give researchers, developers, and organizations a clearer path to evaluate it, adapt it, and understand where it can help. Microsoft Weather’s role is to connect that open research foundation with the data, infrastructure, and applied workflows required by enterprises to use weather intelligence responsibly and with confidence.”</em></p>
+<cite><strong>Sridhar Iyer, Corporate Vice President, Microsoft AI</strong></cite></blockquote>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+				
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="ensemble-forecasting-in-aurora-1-5-unlocks-more-confident-decisions-in-the-face-of-weather-uncertainty" class="wp-block-heading">Ensemble Forecasting in Aurora 1.5 Unlocks More Confident Decisions in the Face of Weather Uncertainty</h2>
+
+
+
+<p class="wp-block-paragraph">The ensemble version of Aurora 1.5 introduces stochastic perturbations to represent model uncertainty, allowing the generation of multiple forecast members to estimate the spread of possible futures. For a multitude of applications including power systems, transport, agriculture, extreme-weather planning, and climate risk, the model distribution matters as much as the best estimate.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">This ensemble capability was developed through multi-stage fine-tuning on top of the original Aurora model. After expanding the variable set and adding hourly temporal resolution, the team introduced controlled perturbations into the model’s latent conditioning pathway and optimized the ensemble for probabilistic forecast quality. A final round of auto-regressive fine-tuning on ECMWF High Resolution (HRES) analysis data from 2018 to 2023 improved rollout behavior and stability.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1020" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png" alt="Heat maps comparing Aurora 1.5 and ECMWF ensemble forecast skill. Aurora 1.5 achieves lower probabilistic forecast error across most variables and forecast lead times. " class="wp-image-1178119" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1024x408.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-768x306.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1536x612.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-2048x816.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-240x96.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Comparing Aurora 1.5’s probabilistic forecasts with the ECMWF ensemble forecast. The shading shows relative probabilistic forecast error, using ECMWF ENS as the baseline: blue areas indicate where Aurora 1.5 performs better, and red areas indicate where it performs worse. Across upper-air geopotential, temperature, and humidity, together with five surface variables, Aurora 1.5 outperforms ECMWF ENS on 88.9% of the evaluated variable-and-lead-time targets.&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Aurora’s ensemble approach summarizes uncertainty across multiple model runs. Its probabilistic forecasts outperform those of the state-of-the-art ECWMF dynamical ensemble on 88.9% of evaluated targets (Figure 1). In evaluations on all 2024–2025 tropical cyclones, Aurora 1.5 substantially reduced track errors, including roughly one-third lower track error when comparing the ensemble median to the original Aurora. An example for the devastating Hurricane Helene shows how Aurora 1.5’s skill translates to high-impact weather applications.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="967" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px.png" alt="Aurora 1.5 ensemble forecasts for Hurricane Helene compared with operational and observed storm tracks. The ensemble forecasts closely follow the observed path while representing uncertainty through multiple plausible trajectories. " class="wp-image-1173971" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px-186x300.png 186w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px-112x180.png 112w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 3. Hurricane Helene ensemble forecast from Aurora 1.5, showing multiple plausible storm tracks starting at 0 UTC on September 24, 2024. The probabilistic ensemble forecast envelops the verified track, effectively capturing uncertainty in the storm’s progression.</figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="938" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged.png" alt="Track-error reductions for Aurora 1.5 relative to the original Aurora model. Error decreases across all forecast lead times, with the largest improvements from the ensemble median forecast. " class="wp-image-1178271" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-300x201.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-1024x686.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-768x515.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-240x161.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 4. Aurora 1.5 reduces track error relative to the original model across lead times. Ensemble mean and median tracks are used for diagnostics, with the median showing the strongest gains, reaching roughly one-third lower error by day 5. Results reflect track position only.&nbsp;</figcaption></figure>
+
+
+
+<h2 id="beyond-weather-aurora-as-an-earth-system-foundation" class="wp-block-heading">Beyond weather: Aurora as an Earth-system foundation</h2>
+
+
+
+<p class="wp-block-paragraph">Beyond medium-range weather applications, Terradot – part of the Microsoft Climate Innovation Fund portfolio—is working with the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://iclr.cc/virtual/2026/10014507" target="_blank" rel="noopener noreferrer">AI for Good Lab<span class="sr-only"> (opens in new tab)</span></a> and the Microsoft Research Accelerator on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://iclr.cc/virtual/2026/10014507" target="_blank" rel="noopener noreferrer">TerraNova, using Aurora-derived weather representations<span class="sr-only"> (opens in new tab)</span></a> to estimate and optimize carbon dioxide removal from enhanced rock weathering under real field conditions. Sasankh Munukutla, Co-Founder of Terradot, highlights<em>, &#8220;By building on Aurora, we&#8217;re significantly advancing our R&D timelines and accelerating our path towards gigaton-scale carbon removal.&#8221; </em>This work shows how Earth-system foundation models can support climate mitigation and public-interest science beyond forecasting, including settings where rigorous evaluation and responsible deployment matter.</p>
+
+
+
+<p class="wp-block-paragraph">Aurora is also being explored with partners such as the UK Met Office, exploring how foundation models can work alongside established physics-based systems to tackle problems from weather to climate time scales. The aim is faster, more flexible forecasts that support decision-making without replacing the science behind trusted prediction.&nbsp;</p>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph"><em>“Microsoft’s Aurora model is an exciting and promising tool, enabling Met Office scientists to bring their data and expertise to help solve climate problems and provide new kinds of climate information. Met Office and Microsoft scientists and engineers are working together every day to translate lessons from AI weather prediction into the climate information space, sharing expertise in data science and climate science. Aurora is a great platform for learning how to translate these tools for use in climate projection to make the AI climate models of the future.”</em></p>
+<cite>— Doug McNeall, Science lead for Data-Driven Climate Modelling, Met Office Hadley Centre&nbsp;</cite></blockquote>
+
+
+
+<h2 id="connecting-open-models-to-operational-use" class="wp-block-heading">Connecting open models to operational use</h2>
+
+
+
+<p class="wp-block-paragraph">Microsoft connects open research, product engineering, responsible deployment, and partner ecosystems so that models can move from scientific advance to evaluated operational use. As an example, Aurora began in Microsoft Research AI for Science and is now being built on for operational use by Microsoft Weather, with AI for Good helping to evaluate public-interest applications. The platform path brings <a href="https://www.microsoft.com/en/customers/story/26785-bkw-fmb-energie-ag-foundry-models" target="_blank" rel="noreferrer noopener">Aurora into Microsoft Foundry and Planetary Computer Pro</a>, alongside Agent skills and Azure services that connect models with geospatial data, scalable infrastructure, and applied workflows. <a href="https://www.microsoft.com/en/customers/story/26785-bkw-fmb-energie-ag-foundry-models" target="_blank" rel="noreferrer noopener">BKW provides an early proof point</a>: the company is using Aurora 1.5 alongside existing operational Microsoft Weather models to support energy operations where weather-dependent generation, infrastructure planning, and environmental data need to come together.&nbsp;</p>
+
+
+
+<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph"><em>“This collaboration demonstrates how advanced AI capabilities and robust cloud infrastructure can be applied to one of the most strategic domains — energy, where weather plays a fundamental role. In a time of accelerated transformation, it supports our ambition to operate increasingly renewable-based systems, where generation is inherently weather-dependent, and to better anticipate and manage this variability with greater confidence and precision.”</em>&nbsp;</p>
+<cite>Farhat Quiñones Yamshid, Lead, AI and Technology, BKW&nbsp;</cite></blockquote>
+
+
+
+<h2 id="from-open-research-to-broader-impact" class="wp-block-heading">From open research to broader impact</h2>
+
+
+
+<p class="wp-block-paragraph">Aurora’s open-source availability is intended to help researchers, agencies, companies, and civil society evaluate, apply, and extend the model. Microsoft Weather is building on that open foundation to deliver easier access to Aurora forecasts through managed services, integrations, and responsible deployment paths for organizations that depend on weather and Earth-system intelligence.</p>
+
+
+
+<p class="wp-block-paragraph">Foundation models should complement—not replace—physics-based models and domain expertise. The opportunity is to use them responsibly, with careful evaluation and transparency, and to invite researchers, agencies, companies, and public-interest partners to test where Aurora and related Microsoft Weather capabilities can improve forecasting, planning, and climate resilience in their own settings.</p>
+
+
+
+<h2 id="about-microsoft-weather" class="wp-block-heading">About Microsoft Weather&nbsp;</h2>
+
+
+
+<p class="wp-block-paragraph">Microsoft Weather is the AI-based forecasting team behind weather experiences across Windows, Bing, Copilot, Edge, and MSN, reaching more than a billion devices across 180 countries. The team has been applying AI to operational weather forecasting for more than seven years and has built a proven track record of delivering high-quality forecasts at global scale. Microsoft Weather has won multiple forecasting competitions and was ranked the world’s most accurate global forecast provider by an independent third party for three consecutive years from 2022 to 2024. Building on today’s Aurora 1.5 announcement, the team plans to extend this work in the coming months with additional fit-for-purpose AI weather models designed for enterprise scenarios where forecast quality, speed, uncertainty, and operational decision support matter most.</p>
+
+
+
+<p class="wp-block-paragraph">If you are interested in exploring Aurora and Microsoft Weather solutions for commercial or organizational applications, please contact us at <a href="mailto:AIWeatherClimate@microsoft.com" target="_blank" rel="noreferrer noopener">AIWeatherClimate@microsoft.com</a>&nbsp;</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/Aurora-1.5">Aurora 1.5 on Microsoft Foundry</a></div>
+
+
+
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/aurora">Aurora 1.5 on GitHub</a></div>
+
+
+
+<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/aurora-1-5-fine-tuning-a-foundation-model-for-medium-range-ensemble-weather-prediction/">Aurora 1.5 paper</a></div>
+
+
+
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/vibe-kit/tree/main/skills/msresearch-aurora" target="_blank" rel="noreferrer noopener">Agent Skills for adapting Aurora to new applications</a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph"></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Flint: A visualization language for the AI era</title>
 		<link>https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/</link>
 		
@@ -32,7 +261,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/">Flint: A visualization language for the AI era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg" alt="Flint blog | three white line icons on an abstract green background; bar chart icon, connected nodes icon, flowchart icon" class="wp-image-1177592" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg" alt="Flint blog | three white line icons on an abstract green background; bar chart icon, connected nodes icon, flowchart icon" class="wp-image-1177592" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -77,7 +306,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="764" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png" alt="A dense grid displaying a diverse gallery of data visualizations. The collection showcases over twenty different chart types, including stacked area charts, line graphs, sunburst charts, stacked bar charts, treemaps, radar charts, Sankey diagrams, dense heatmaps, diverging bar charts, candlestick charts, violin plots, a choropleth map of the United States, scatter plots, grouped bar charts, waterfall charts, and parallel coordinate plots." class="wp-image-1178156" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-300x90.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1024x306.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-768x229.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1536x458.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-2048x611.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-240x72.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Flint supports a diverse collection of visualizations with its simple spec, which can be rendered with visualization libraries like Vega-Lite, Echarts, and Chart.js.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="764" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png" alt="A dense grid displaying a diverse gallery of data visualizations. The collection showcases over twenty different chart types, including stacked area charts, line graphs, sunburst charts, stacked bar charts, treemaps, radar charts, Sankey diagrams, dense heatmaps, diverging bar charts, candlestick charts, violin plots, a choropleth map of the United States, scatter plots, grouped bar charts, waterfall charts, and parallel coordinate plots." class="wp-image-1178156" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-300x90.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1024x306.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-768x229.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1536x458.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-2048x611.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-240x72.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Flint supports a diverse collection of visualizations with its simple spec, which can be rendered with visualization libraries like Vega-Lite, Echarts, and Chart.js.</figcaption></figure>
 
 
 
@@ -93,7 +322,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1260" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png" alt="A three-step diagram illustrating the Flint workflow from left to right. It starts with a short JSON code snippet labeled "FLINT SPEC," which flows into a significantly longer, more detailed JSON code snippet labeled "COMPILED SPEC (VEGA-LITE)." This final specification then points to the end result under "VISUALIZATION," displaying a rendered heatmap chart showing data across different games and periods." class="wp-image-1178168" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-300x148.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1024x504.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-768x378.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1536x756.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-2048x1008.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-240x118.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Flint compiles a compact, human-editable chart specification into a complete backend-native specification and rendered visualization. In this heatmap example, the Flint spec names semantic types (period as YearMonth, newUsers as Profit) and maps fields to visual channels. The compiler derives the Vega-Lite details, including temporal parsing, axis formatting, color scale, cell sizing, legend configuration, and layout.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1260" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png" alt="A three-step diagram illustrating the Flint workflow from left to right. It starts with a short JSON code snippet labeled "FLINT SPEC," which flows into a significantly longer, more detailed JSON code snippet labeled "COMPILED SPEC (VEGA-LITE)." This final specification then points to the end result under "VISUALIZATION," displaying a rendered heatmap chart showing data across different games and periods." class="wp-image-1178168" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-300x148.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1024x504.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-768x378.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1536x756.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-2048x1008.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-240x118.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Flint compiles a compact, human-editable chart specification into a complete backend-native specification and rendered visualization. In this heatmap example, the Flint spec names semantic types (period as YearMonth, newUsers as Profit) and maps fields to visual channels. The compiler derives the Vega-Lite details, including temporal parsing, axis formatting, color scale, cell sizing, legend configuration, and layout.</figcaption></figure>
 
 
 
@@ -117,7 +346,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -126,20 +355,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -292,30 +521,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -629,30 +858,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -798,27 +1027,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1012,30 +1244,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1127,30 +1359,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1300,30 +1529,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1465,7 +1694,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1474,20 +1703,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -1697,261 +1926,6 @@
 <enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Find-Prices-for-Recipe-Ingredients-Final-Demo.mp4" length="9508351" type="video/mp4" />
 <enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Organize-Local-Files-Final-Demo.mp4" length="7385568" type="video/mp4" />
 
-			</item>
-		<item>
-		<title>Vega: Zero-knowledge proofs for digital identity in the age of AI</title>
-		<link>https://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/</link>
-		
-		<dc:creator><![CDATA[Srinath Setty]]></dc:creator>
-		<pubDate>Thu, 21 May 2026 13:48:40 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1171880</guid>
-
-					<description><![CDATA[<p>Vega turns a full credential into a single proof, sharing only what is needed and nothing more, with performance that works in real apps. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/">Vega: Zero-knowledge proofs for digital identity in the age of AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Three white line-style icons centered on a textured blue-to-green gradient background: a shield, a checkmark inside a circle, and an ID card with a user silhouette—representing security, verification, and digital identity." class="wp-image-1171918" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Vega lets users prove facts from government-issued credentials — age, personhood, professional&nbsp;status — without revealing the credential itself. The credential never leaves the device.&nbsp;</li>
-
-
-
-<li>Zero-knowledge proofs are&nbsp;generated in&nbsp;under 100&nbsp;ms&nbsp;on a commodity client device with no trusted setup, making private identity verification practical at scale.&nbsp;</li>
-
-
-
-<li>Fold-and-reuse proving means repeated presentations — to different services or through AI agents — skip most of the expensive work after the first proof.&nbsp;</li>
-
-
-
-<li>Vega targets real-world formats like mobile driver&#8217;s licenses and the EU Digital Identity Wallet, is built in Rust, and will be open sourced soon.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">AI is transforming how people interact with digital services, from AI-powered assistants to autonomous agents that act on a user’s behalf. As these capabilities grow, so does the value of strong digital identity: users need reliable ways to establish trust, whether proving they are human or sharing a credential with an AI-mediated service. Government-issued credentials are still the strongest foundation for trust, but today’s verification methods often require people to hand them over. As AI agents begin acting on behalf of humans and interacting with decentralized systems, the need for fast, privacy-preserving ways to prove credentials will only grow.</p>
-
-
-
-<p class="wp-block-paragraph">These needs are already materializing in policy. Governments are moving quickly to formalize digital identity. The EU Digital Identity (EUDI) framework aims to make digital wallets available to all EU citizens, and efforts like the EU’s age-verification blueprint and the UK’s Online Safety Act mandate government ID-based methods for age checks. Application providers face a double bind: they must either use less accurate approaches like AI-based age estimation, or compromise user privacy by requiring ID uploads.</p>
-
-
-
-<p class="wp-block-paragraph">The credential gets uploaded, processed, sometimes stored, and eventually (hopefully) deleted. But high-profile breaches have repeatedly exposed government IDs that users shared for routine verification. These are not edge cases. They are the predictable consequence of a system that asks users to share their most sensitive documents to prove a single bit of information.</p>
-
-
-
-<p class="wp-block-paragraph">This is the question we set out to answer with Vega: Can we make it practical to prove something about a credential without ever revealing the credential itself?</p>
-
-
-
-<h2 class="wp-block-heading" id="the-path-to-vega-from-idea-to-practice">The path to Vega: From idea to practice</h2>
-
-
-
-<p class="wp-block-paragraph">Zero-knowledge proofs (ZKPs) are the cryptographic tool that makes this possible. The idea is simple: they allow a user to prove a claim, such as “I am over 21”, without revealing anything else. In practice, this means a user could prove their age from their driver’s license without the verifier ever seeing the license, whether to a website, an app, or a service mediated by an AI agent.  The proof works directly on the credential as issued, so the issuer does not need to change anything.</p>
-
-
-
-<p class="wp-block-paragraph">This is not a new idea. The challenge has always been&nbsp;practicality. Prior systems either require a trusted setup&nbsp;that had to be repeated whenever the logic changed,&nbsp;or they sacrificed&nbsp;performance to avoid the trusted setup, often producing large proofs in the process. For real-world use, the proof needs to&nbsp;be fast to generate, small enough to&nbsp;transmit&nbsp;quickly, and efficient&nbsp;enough to&nbsp;run&nbsp;on a mobile device.</p>
-
-
-
-<p class="wp-block-paragraph">We have spent several years working toward a practical solution. Privacy-preserving identity has been a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/blog/microsoft-security-blog/advancing-privacy-with-zero-knowledge-proof-credentials/1441554" type="link" id="https://techcommunity.microsoft.com/blog/microsoft-security-blog/advancing-privacy-with-zero-knowledge-proof-credentials/1441554" target="_blank" rel="noopener noreferrer">motivating application<span class="sr-only"> (opens in new tab)</span></a> throughout, and Vega’s proof system draws on several building blocks from that line of work:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2019/550" type="link" id="https://eprint.iacr.org/2019/550" target="_blank" rel="noopener noreferrer">Spartan<span class="sr-only"> (opens in new tab)</span></a></strong> showed how to efficiently prove R1CS, a standard way to express statements for a general-purpose proof system, with succinct proofs and without a trusted setup.</li>
-
-
-
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2021/370" target="_blank" rel="noopener noreferrer"><strong>Nova</strong><span class="sr-only"> (opens in new tab)</span></a>&nbsp;introduced folding schemes, which let a prover compress many instances of a computation into one.&nbsp;</li>
-
-
-
-<li><strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2023/573" target="_blank" rel="noopener noreferrer">HyperNova<span class="sr-only"> (opens in new tab)</span></a></strong> showed that Nova’s folding also provides a key building block for zero-knowledge: folding a real instance with a random instance hides the underlying secret data, a technique dubbed &#8220;NovaBlindFold.”</li>
-
-
-
-<li><strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/1605" type="link" id="https://eprint.iacr.org/2024/1605" target="_blank" rel="noopener noreferrer">NeutronNova<span class="sr-only"> (opens in new tab)</span></a></strong> provided the most efficient folding scheme for handling a batch of instances at once.</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">Vega puts these building blocks together into a single proof system. A key design goal is simplicity. Spartan, Nova, and NeutronNova are composed in a direct way, and the circuit is built from a small number of standard components, with no exotic multi-field constructions and no trusted setup. On top of this simple foundation, Vega adds the ability to reuse work across multiple proofs of the same credential and a new way to achieve zero-knowledge with minimal overhead. The result is a system that is easy to audit, extend to new credential formats, and deploy.</p>
-
-
-
-<h3 class="wp-block-heading" id="performance">Performance</h3>
-
-
-
-<p class="wp-block-paragraph">Vega generates a zero-knowledge proof of age from a typical mobile driver’s license, about 2 kilobytes (KB), in 92 miliseconds (ms) on a commodity client device. The resulting proof is 108 KB and can be verified in 23 ms. No trusted setup is required. The prover key is 464 KB; it fits comfortably on any phone. For smaller credentials, proving drops to 62 ms, with 83 KB proofs, and 17 ms verification. In practice, a user taps a button to present a credential, and 92 ms later the proof is done. The service learns only the requested fact; the credential never leaves the phone.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">On Second Thought</h2>
-				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="under-the-hood-fold-reuse-and-lookup">Under the hood: Fold, reuse, and lookup</h2>
-
-
-
-<p class="wp-block-paragraph">Vega’s speed comes from two ideas: fold-and-reuse proving and lookup-centric circuit design. The figure below shows the proving pipeline end to end.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1532" height="1180" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA_high_res.png" alt="Diagram showing a two-phase zero-knowledge proof workflow. In the “once per credential” phase, a credential input is split into step and core circuits, then reusable data is committed and cached. In the “once per presentation” phase, session-specific data is re-randomized and committed using cached commitments, producing step instances and a core instance. Step instances are folded into one using NeutronNova, combined with the core instance in a Spartan proving step, then processed through NovaBlindFold to add zero-knowledge, resulting in a final ZK proof with size and performance metrics." class="wp-image-1172822" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA_high_res.png 1532w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA_high_res-300x231.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA_high_res-1024x789.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA_high_res-768x592.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/VEGA_high_res-234x180.png 234w" sizes="auto, (max-width: 1532px) 100vw, 1532px" /><figcaption class="wp-element-caption"><strong>Vega&#8217;s proving pipeline.&nbsp;</strong>Work is split into two phases. The once-per-credential phase splits the credential into step and core circuits and commits reusable data. The&nbsp;once-per-presentation phase re-randomizes cached commitments for&nbsp;unlinkability, folds all SHA-256 step instances into one via&nbsp;NeutronNova, proves the folded step and core circuits with Spartan, and applies zero-knowledge via&nbsp;NovaBlindFold. The final output is a 108 kB proof generated in 92&nbsp;ms&nbsp;and&nbsp;can be verified in 23&nbsp;ms.&nbsp;</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="the-hashing-problem-and-how-folding-solves-it">The hashing problem, and how folding solves it</h3>
-
-
-
-<p class="wp-block-paragraph">A credential proof must do two expensive things: hash the credential bytes with SHA-256 and verify the issuer’s digital signature. Signature verification would normally be the bottleneck, but Vega avoids that cost by working in a field where the signature arithmetic is native. As a result, hashing becomes the dominant cost. SHA-256 works by applying the same compression function to one 64-byte block at a time. A straightforward circuit simply unrolls all of these iterations, so its size grows with the length of the credential. For a typical mobile driver’s license, that is 30 blocks of compression, all captured in a single circuit.</p>
-
-
-
-<p class="wp-block-paragraph">We take a different approach. Instead of unrolling the entire hash, we define one small “step” circuit that proves a single SHA-256 compression step, and we instantiate it once per block. Because these step instances are structurally identical, we can use NeutronNova’s folding scheme to collapse them into a single instance. The prover does work to fold the 30 step instances into one, but this folding cost is modest. Spartan then only needs to prove a single step-sized circuit alongside a separate “core” circuit that handles the rest of the checks, including signature verification and age predicates, rather than a monolithic circuit with 30 unrolled blocks. The proving key only needs to describe one step and one core, so it stays small regardless of credential length.</p>
-
-
-
-<p class="wp-block-paragraph">There is a subtle privacy issue here to address. Credentials vary in length, and if the circuit size varied with the credential, that would leak information. To prevent this, all step circuits share a committed table of intermediate digests. The core circuit selects the appropriate digest using a private index. If the prover selects the wrong entry, the issuer’s signature check fails.</p>
-
-
-
-<h3 class="wp-block-heading" id="making-it-zero-knowledge-cheaply">Making it zero-knowledge, cheaply</h3>
-
-
-
-<p class="wp-block-paragraph">A proof system needs to be zero-knowledge: the verifier should learn nothing beyond the claim being proved. Existing approaches to achieve this are often complex to engineer and can add significant overhead to the prover. We found a simpler way.</p>
-
-
-
-<p class="wp-block-paragraph">A standard first step is to commit to every message the prover sends using hiding cryptographic commitments, so the verifier sees commitments rather than values. The harder question is to prove that those hidden values would have passed the verifier’s checks. We express those checks as a small constraint system, just a few hundred constraints, since the verifier only performs a logarithmic number of operations. We then fold this constraint system with a random instance via Nova’s folding scheme. This step hides the underlying data, so the zero-knowledge overhead scales with this small constraint system, not the full secret data.</p>
-
-
-
-<h3 class="wp-block-heading" id="proving-once-presenting-many-times">Proving once, presenting many times</h3>
-
-
-
-<p class="wp-block-paragraph">A user who presents their credential to one website will likely present it again to another, and another. In a world where AI agents handle many of these interactions on a user’s behalf, the same credential may need to be presented dozens of times a day. The credential itself does not change between these presentations. What changes is the session nonce, a fresh random value from the verifier, and possibly the date or the predicate threshold.</p>
-
-
-
-<p class="wp-block-paragraph">Vega takes advantage of this structure by splitting the prover’s secret data into three parts. The <em>shared</em> data (SHA-256 tables) and the <em>precommitted</em> part, such as the issuer signature and field locations are computed and committed once when the credential is first loaded. The <em>online</em> part, such as the device signature and today’s date, is committed fresh each time. Before each proof, the precomputed commitments are refreshed with new randomness, which is cheaper than recomputing them and ensures that two proofs about the same credential cannot be linked.</p>
-
-
-
-<h3 class="wp-block-heading" id="avoiding-the-parser">Avoiding the parser</h3>
-
-
-
-<p class="wp-block-paragraph">Another important part of Vega’s efficiency comes from how it handles the credential format. A&nbsp;mobile driver’s license&nbsp;is encoded in&nbsp;Concise Binary Object Representation&nbsp;(CBOR), and building a full CBOR parser as a circuit would be both complex and expensive. But we realized we do not actually need a parser. The credential bytes are signed by a trusted issuer, so we know they are well-formed. We only need to&nbsp;reach&nbsp;in&nbsp;and grab specific fields.</p>
-
-
-
-<p class="wp-block-paragraph">We treat the credential as a byte-addressable lookup table. The prover says, “the device public key starts at byte 847” and supplies the bytes. The circuit checks three things: that the bytes actually match the authenticated credential, that the right CBOR prefix appears at the start of the field so the prover cannot claim the wrong field, and that the addresses are contiguous so the prover cannot splice bytes from unrelated locations. This replaces an entire parser with a handful of lookups.</p>
-
-
-
-<p class="wp-block-paragraph">The same lookup idea powers length-hiding hashing, as described above: the circuit builds a table of all intermediate SHA-256 digests and picks the correct one at the point where the real message ends.</p>
-
-
-
-<h3 class="wp-block-heading" id="device-binding">Device binding</h3>
-
-
-
-<p class="wp-block-paragraph">A zero-knowledge credential proof is only useful if it is tied to the person holding the credential. Without device binding, someone who obtains a leaked credential could generate valid proofs for any session. This matters even more in a world of AI agents: if an agent can present a proof on behalf of a user, we need cryptographic assurance that the proof originated from the user’s device, not from an attacker or an unauthorized agent.</p>
-
-
-
-<p class="wp-block-paragraph">Vega addresses this by requiring the holder’s device to sign a fresh session nonce with the device private key, which is bound to the phone’s secure element. The circuit extracts the device public key from the credential via lookup and verifies the device signature over the session nonce hash. Because the device private key never leaves the secure hardware, possession of the signed credential alone is not sufficient to produce a valid proof.</p>
-
-
-
-<h2 class="wp-block-heading" id="where-this-leads">Where this leads</h2>
-
-
-
-<p class="wp-block-paragraph">Vega is implemented in Rust and will be open sourced soon. The proof system powering Vega is already available as the&nbsp;open-source&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/spartan2" target="_blank" rel="noopener noreferrer">spartan2<span class="sr-only"> (opens in new tab)</span></a>&nbsp;project on GitHub.&nbsp;The&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/vega-low-latency-zero-knowledge-proofs-over-existing-credentials/" target="_blank" rel="noreferrer noopener">paper,</a>&nbsp;joint work with Darya Kaviani,&nbsp;will be presented at the upcoming IEEE Symposium on Security and Privacy in San Francisco.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">While we focused on mobile driver’s licenses as a concrete and timely application, especially given emerging frameworks like the EU Digital Identity wallet, the proof system and circuit techniques are general. They apply to any credential format with a stable byte encoding and a digital signature.</p>
-
-
-
-<p class="wp-block-paragraph">We see several directions where the same primitive becomes increasingly important.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Agents carrying identity on behalf of humans</strong>. As autonomous AI agents begin acting on behalf of people, whether booking travel, interacting with services, or entering agreements, those agents will need to prove facts about the human they represent. For example, “my principal is over 18” or “my principal is a licensed physician.” The agent should be able to carry these proofs without ever holding the underlying credential. A zero-knowledge proof generated on the human’s device, bound to the agent’s session via device binding, lets the agent present identity signals without holding secrets.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Bridging off-chain identity to on-chain systems</strong>. Decentralized systems increasingly need real-world identity signals, such as KYC compliance, accredited investor status, and jurisdiction checks. Today, this is handled by uploading documents to a centralized intermediary, who then issues an on-chain attestation. The user loses privacy twice: once to the intermediary, and again on chain, where the attestation may be linkable across interactions. A ZKP over an off-chain credential could bridge this directly: the user proves a fact from their government-issued credential, and the on-chain verifier receives only the proof. No intermediary sees the credential, and rerandomization ensures repeated proofs are unlinkable.</p>
-
-
-
-<p class="wp-block-paragraph">As digital identity mandates expand and AI reshapes how humans and agents establish trust, the need for privacy-preserving credential verification will only grow. We see Vega as one step in a broader shift: from a world where proving a fact about yourself requires giving up your identity, to one where cryptography lets you keep it.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/">Vega: Zero-knowledge proofs for digital identity in the age of AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
 			</item>
 	</channel>
 </rss>
