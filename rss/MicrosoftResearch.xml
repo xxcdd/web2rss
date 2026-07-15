@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 09 Jul 2026 18:36:37 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 13 Jul 2026 15:48:45 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,293 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0</generator>
 	<item>
+		<title>Verifying Rust cryptography in SymCrypt, from standards to code</title>
+		<link>https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/</link>
+		
+		<dc:creator><![CDATA[Son Ho, Cédric Fournet, Antoine Delignat-Lavaud, Samuel Lee, Jason Fisher, Jessica Krynitsky]]></dc:creator>
+		<pubDate>Mon, 13 Jul 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false"></guid>
+
+					<description><![CDATA[<p>Cryptographic code supports vital protections in modern computing systems. Learn how a new method helps verify code as developers write it while preserving speed and adaptability as it gets implemented and evolves.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/">Verifying Rust cryptography in SymCrypt, from standards to code</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<h2 id="how-rust-lean-aeneas-and-ai-agents-are-helping-scale-formal-verification-for-production-cryptographic-algorithms" class="wp-block-heading h3">How Rust, Lean, Aeneas, and AI agents are helping scale formal verification for production cryptographic algorithms</h2>
+
+
+
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Diagram showing the process of verifying cryptographic code. An algorithm from a standard is converted into a formal specification, while Rust code is converted into a code model. The specification and code model are then compared through proof and verification steps." class="wp-image-1178491" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>SymCrypt develops new verified cryptography using Rust, Aeneas, and Lean to provide higher security assurance.</li>
+
+
+
+<li>We prove that their code safely and correctly implements standard algorithms, notably for post-quantum cryptography.</li>
+
+
+
+<li>We are releasing verified code, specs, properties, and proofs initially for SHA-3 and ML-KEM.&nbsp;</li>
+
+
+
+<li>Aeneas allows verifying a large subset of Rust code and provides efficient automation in Lean to support the proof effort.</li>
+
+
+
+<li>Agents allow scaling automation by writing proofs that are independently-verifiable.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<h2 id="introduction-and-motivation-for-formal-verification" class="wp-block-heading">Introduction and motivation for formal verification</h2>
+
+
+
+<p class="wp-block-paragraph">Cryptographic code sits at the foundation of modern computing. It protects operating systems, cloud services, firmware, messaging systems, and the protocols that connect them. Small mistakes can have outsized consequences: a single arithmetic slip, missing bounds check, or incorrect state transition can undermine the security of an otherwise sound design.</p>
+
+
+
+<p class="wp-block-paragraph">Testing and auditing remain essential, but they are not enough on their own. Cryptographic implementations are often optimized, constant-time, architecture-specific, and deliberately low level. The code that ships rarely looks like the clean algorithm in a standard: it contains reductions, bit manipulations, SIMD intrinsics, carefully shaped loops, and portability layers for many environments.</p>
+
+
+
+<p class="wp-block-paragraph">Formal verification addresses this gap by deploying machine-checked proofs instead of relying on testing alone. Rather than merely checking that the code usually behaves correctly, verification implements a precise mathematical specification for all inputs that satisfy the stated preconditions.</p>
+
+
+
+<p class="wp-block-paragraph">In June last year, Microsoft announced we would <a href="https://www.microsoft.com/en-us/research/blog/rewriting-symcrypt-in-rust-to-modernize-microsofts-cryptographic-library/">formally verify new algorithms written in Rust in SymCrypt</a>, the cryptographic provider used across products and services including Windows and Azure. New cryptographic implementations are being written in safe Rust, then verified in the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://lean-lang.org/" target="_blank" rel="noopener noreferrer">Lean<span class="sr-only"> (opens in new tab)</span></a> formal proof framework using the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/AeneasVerif/aeneas" target="_blank" rel="noopener noreferrer">Aeneas<span class="sr-only"> (opens in new tab)</span></a> toolchain. This applies in particular to post-quantum cryptography, which require fast secure implementations of complex algorithms. This combination gives us two layers of assurance: Rust rules out broad classes of memory-safety bugs, while Lean proofs establish functional correctness against formal specifications derived from standards.</p>
+
+
+
+<p class="wp-block-paragraph">The result is a new verification methodology for production cryptography: verify code as developers write it, preserve performance-oriented implementation choices, and make the proof process scalable enough to keep up with an evolving codebase.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="847" height="489" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1.png" alt="Agents (stochastic, in blue) and tools (algorithmic, in green) for software verification. Human effort focuses on reviewing formalization of standards and main properties. Agents write proofs and intermediate properties. Compilation, code extraction, and proof verification are deterministic, not agentic." class="wp-image-1178356" style="width:667px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1.png 847w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-300x173.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-768x443.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-240x139.png 240w" sizes="(max-width: 847px) 100vw, 847px" /><figcaption class="wp-element-caption">Figure 1. Agents (stochastic, in blue) and tools (algorithmic, in green) for software verification. Human effort focuses on reviewing formalization of standards and main properties. Agents write proofs and intermediate properties. Compilation, code extraction, and proof verification are deterministic, not agentic.</figcaption></figure>
+
+
+
+<h2 id="status-of-verification-in-symcrypt" class="wp-block-heading">Status of verification in SymCrypt</h2>
+
+
+
+<p class="wp-block-paragraph">We have open sourced a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/SymCrypt/tree/feature/verifiedcrypto" target="_blank" rel="noopener noreferrer">SymCrypt branch<span class="sr-only"> (opens in new tab)</span></a> that includes formal specifications and proofs. This public branch makes the proof artifacts available alongside the Rust algorithm implementations they validate, showing how the methodology applies to production cryptographic code. SymCrypt is not a standalone research prototype; it is Microsoft’s open-source cryptographic library used across products and services including Windows and Azure Linux.</p>
+
+
+
+<p class="wp-block-paragraph">This first release includes complete proofs for the Rust ML-KEM and SHA3 code that is being used in insiders builds of Windows today. SymCrypt is extending the same Rust, Lean, and Aeneas-based workflow to more Rust-native algorithms and integrating them into production versions for Windows and Linux, including for instance verified Rust code for, e.g., AES-GCM, FrodoKEM, and ML-DSA. The rest of this post uses this SymCrypt work as a concrete example, starting with how public standards become executable Lean specifications.</p>
+
+
+
+<h2 id="turning-standards-into-formal-lean-specifications" class="wp-block-heading">Turning standards into formal Lean specifications</h2>
+
+
+
+<p class="wp-block-paragraph">The first step is to formalize what the algorithm is supposed to do. For cryptographic primitives, the source of truth is usually a public standard: a NIST specification, an IETF RFC, or another carefully reviewed algorithm description.</p>
+
+
+
+<p class="wp-block-paragraph">In our approach, the Lean specification is designed to stay close to the standard. When the standard describes a loop, an array update, or a mathematical operation, the Lean model follows the same structure wherever possible. This syntactic proximity matters: it makes the formal specification easier to audit because reviewers can compare the standard and the Lean side by side.</p>
+
+
+
+<p class="wp-block-paragraph">Lean also lets us write executable specifications. That means we can run the formal model against official test vectors to catch transcription errors, off-by-one mistakes, or misunderstandings of the standard. For algorithms such as ML-KEM, we can go further and prove high-level mathematical properties, such as showing that the formal model of the number-theoretic transform corresponds to the intended operation over the relevant polynomial ring.</p>
+
+
+
+<p class="wp-block-paragraph">A representative example is the number-theoretic transform (NTT) from ML-KEM. The standard describes the algorithm as an in-place transformation over 256 coefficients modulo q, with three nested loops that update pairs of coefficients using successive powers of the constant ζ (= 17). </p>
+
+
+
+<script src="https://gist.github.com/fournet/49988a5ea726483f06d315d68a08c074.js"></script>
+
+
+
+<p class="wp-block-paragraph">Here is a direct translation of the NIST standard in Lean, trying to stick as close as possible to the original syntax:</p>
+
+
+
+<script src="https://gist.github.com/fournet/a1e50e3a280d59a86d43975e2aac3cff.js"></script>
+
+
+
+<p class="wp-block-paragraph">The Lean version deliberately mirrors the structure of the standard: the same loop nest, the same zeta selection, and the same coefficient updates, allowing easy line-by-line human review. At the same time, it is executable and uses mathematical types, so it can be tested against known vectors and connected to higher-level theorems about the NTT’s algebraic meaning. In summary, the Lean specification is a concise, executable, mathematically meaningful model that tracks the standard closely enough to be reviewed by cryptographers and proof engineers alike.</p>
+
+
+
+<h2 id="connecting-the-formal-specification-to-the-code" class="wp-block-heading">Connecting the formal specification to the code</h2>
+
+
+
+<p class="wp-block-paragraph">Once the specification is formalized, the next challenge is to connect it to the implementation. We do not ask developers to rewrite production cryptographic code in a verification-oriented language, nor do we generate code that product teams must then own. Instead, we verify the Rust code that engineers write, exactly as they write it.</p>
+
+
+
+<p class="wp-block-paragraph">Aeneas makes this possible by translating Rust’s mid-level representation into a pure Lean model. Rust’s ownership and borrowing discipline are crucial here. They let Aeneas safely eliminate much of the reasoning about pointer aliasing, liveness, and mutation that makes verification of C-style code so expensive.</p>
+
+
+
+<p class="wp-block-paragraph">For example, a Rust function that updates an array in place becomes, in Lean, a function that explicitly takes and returns a functional array. Mutable borrows are translated into value transformations. This preserves the behaviour that matters while presenting proof engineers with a functional model that is far easier to reason about.</p>
+
+
+
+<p class="wp-block-paragraph">Once in Lean, the function can be equipped with a theorem that states that it refines a formal specification. In other words, for every input satisfying the required bounds and well-formedness conditions, the implementation function returns the same mathematical result as the standard-derived Lean specification.</p>
+
+
+
+<p class="wp-block-paragraph">This style keeps responsibilities cleanly separated. Software engineers continue to write idiomatic, performant Rust. Verification engineers work against generated Lean models and prove theorems about them. The Rust code and the proofs live side by side, but the proof burden does not shape the code into something unnatural.</p>
+
+
+
+<p class="wp-block-paragraph">Going back to the NTT example, its Rust implementation is a function fn ntt(&mut [u16; 256]) that uses a mutable borrow to update an array in-place. The Lean translation purifies it into a function ntt : Array U16 256#usize → Result (Array U16 256#usize) that directly outputs the updated array, while wrapping it into a Result type to explicitly capture the fact that Rust functions may panic.</p>
+
+
+
+<p class="wp-block-paragraph">In this case, the theorem states that, if the array satisfies a well-formedness invariant (ensuring it represents a valid polynomial), then running the Rust model ntt returns the well-formed representation of the result of the mathematical specification Spec.ntt, modulo conversion from low-level arrays to high-level polynomials.</p>
+
+
+
+<script src="https://gist.github.com/fournet/7f67e3604972d43b0f06a493305d1897.js"></script>
+
+
+
+<p class="wp-block-paragraph">Scaling this to every function in real cryptographic code required substantial automation. Lean’s extensibility lets us build a gradient of automation with tactics for symbolic execution, arithmetic, arrays, and bit-vector reasoning. The experience becomes closer to debugging: automation handles the routine proof obligations, while engineers can inspect and refine the proof when a goal does not close automatically.</p>
+
+
+
+<h2 id="supporting-intrinsics-and-multiple-architectures" class="wp-block-heading">Supporting intrinsics and multiple architectures</h2>
+
+
+
+<p class="wp-block-paragraph">Production cryptography cannot ignore hardware. SymCrypt must run across environments ranging from embedded and kernel contexts to cloud services. It also needs to take advantage of platform-specific instructions when they are available, including SIMD intrinsics and architecture-specific optimized paths.</p>
+
+
+
+<p class="wp-block-paragraph">A verification story that only works for a portable reference implementation is therefore incomplete. We need to verify the code that actually ships: dispatch logic, optimized routines, and target-specific variants included.</p>
+
+
+
+<p class="wp-block-paragraph">The code below is adapted from the ntt_layer&nbsp; function that is internally used by the NTT. This function is compiled differently for x86-64 and aarch64, allowing dynamic dispatch to target-specific or portable implementations. On x86-64, it checks the availability of SSE2 instructions, while on aarch64 it checks for Neon.</p>
+
+
+
+<style data-wp-block-html="css">
+.gist .gist-meta {
+  display: none !important;
+}
+</style>
+
+<div class="gist" data-gist-id="your-gist-id"><script src="https://gist.github.com/fournet/8f94607c600e0d78d640148003f021f6.js"></script></div>
+
+
+
+<p class="wp-block-paragraph">As rustc’s output is inherently target specific, our toolchain compiles the code several times, one per compilation target for which verification is required, before merging the corresponding models. In effect, this merge operation turns the static dispatch permitted by the cfg attributes in the Rust code into a first layer of dynamic dispatch between x86-64 and aarch64 in the Lean model. Following what the Rust code does, these target specific models then themselves dynamically dispatch to the models of the XMM, Neon, and generic implementations.</p>
+
+
+
+<p class="wp-block-paragraph">Intrinsics require a slightly different treatment. Some low-level wrappers, especially those that manipulate raw pointers or expose platform instructions, are modelled by small, carefully reviewed Lean specifications. Others can be modelled using Rust code, which can be tested against hardware reference documentation, then translated and verified. The surrounding safe Rust code is then verified against those models. This keeps the trusted surface narrow while preserving the performance benefits of hardware acceleration.</p>
+
+
+
+<p class="wp-block-paragraph">The important point is that verification does not require giving up optimization. The methodology is designed to preserve the complexities of production code &#8211; including intrinsics, dispatch, and platform-specific implementations &#8211; while still proving a single, auditable correctness statement.</p>
+
+
+
+<h2 id="reflecting-formal-guarantees-to-the-code-developer" class="wp-block-heading">Reflecting formal guarantees to the code developer</h2>
+
+
+
+<p class="wp-block-paragraph">Formal verification only scales in an engineering organization if developers can understand what has been proved. It is not enough for a proof to exist in a repository; the guarantee must be visible, reviewable, and synchronized to the code that engineers maintain.</p>
+
+
+
+<p class="wp-block-paragraph">To support this, we expose verification results through automatically generated dashboards. These dashboards summarize theorems in developer-facing terms: preconditions, postconditions, covered functions, trusted models, and remaining assumptions. Engineers do not need to open Lean to see what has been verified. For instance, below is the page displayed by the dashboard for our ntt function.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1048" height="585" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt.png" alt="Screenshot of a verified formal specification for the symcrust::mlkem::ntt function. The page shows a green “Verified” badge, links to the Lean model and source code, and a specification stating the mathematical conditions the NTT implementation must satisfy." class="wp-image-1178444" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt.png 1048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-300x167.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-240x134.png 240w" sizes="(max-width: 1048px) 100vw, 1048px" /><figcaption class="wp-element-caption">Figure 2. Dashboard page for the theorem that shows the Rust function mlkem.ntt correctly implements the NTT specified in the NIST standard.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The specification clearly presents the theorem statement included in the Lean formal development: it separates the function input and preconditions from the post-condition by putting them above a horizontal line, and use fully qualified names with links to navigate to Rust and Lean definitions.</p>
+
+
+
+<p class="wp-block-paragraph">This feedback loop is especially useful for reviewing assumptions around intrinsics, target-specific code, and boundary conditions. A cryptographic developer can for example check whether the theorem fully captures what they expect their code to guarantee, and notice a formal statement is too weak, or a precondition is wrong.</p>
+
+
+
+<p class="wp-block-paragraph">The dashboards also aligns verification with continuous development. As Rust code changes, Lean models and proofs can be regenerated and replayed. When a proof breaks, that failure becomes a signal: either the implementation changed in a way that needs a proof update, or the change has exposed a real discrepancy with the specification.</p>
+
+
+
+<p class="wp-block-paragraph">This turns formal verification from a one-time research artifact into part of the engineering workflow.</p>
+
+
+
+<h2 id="agentic-proofs" class="wp-block-heading">Agentic proofs</h2>
+
+
+
+<p class="wp-block-paragraph">The final ingredient is automation beyond traditional tactics: AI agents. Lean is well suited to this because proofs are machine-checked by a small trusted kernel. An agent may propose a proof script, but Lean independently verifies whether the proof is valid.</p>
+
+
+
+<p class="wp-block-paragraph">We use agents in two places. First, they help translate standards into Lean specifications. Because the resulting specification is executable, aligned to the original standard, tested against official vectors, supported by mathematical theorems, and much simpler than an implementation, it can be thoroughly audited even when an agent helped draft it.</p>
+
+
+
+<p class="wp-block-paragraph">Second, agents help write and maintain proofs. With the right libraries, tactics, examples, and documentation, agents can handle large amounts of proof work: unfolding generated models, applying specifications for helper functions, discharging arithmetic obligations, and repairing proofs after refactors.</p>
+
+
+
+<p class="wp-block-paragraph">This is particularly powerful because the Rust code and Lean proofs are separated. Agents do not need to annotate or modify the production Rust implementation to make a proof go through. They operate on the proof side, and the result is accepted only if Lean validates it and the final theorem states the desired guarantee without introducing unreviewed assumptions.</p>
+
+
+
+<p class="wp-block-paragraph">In practice, this changes the economics of verification. Work that previously required months of specialist effort can be accelerated dramatically. The proof engineer’s role shifts from writing every proof by hand to designing specifications, curating automation, reviewing theorem statements, and steering agents to complete their proofs.</p>
+
+
+
+<h2 id="conclusion" class="wp-block-heading">Conclusion</h2>
+
+
+
+<p class="wp-block-paragraph">Verified cryptography has often faced a difficult trade-off: the strongest guarantees came from specialized toolchains, generated code, and workflows that were hard for product teams to adopt. Rust, Lean, Aeneas, and agentic proof automation let us revisit that tradeoff.</p>
+
+
+
+<p class="wp-block-paragraph">By verifying Rust as written, deriving auditable specifications from standards, supporting optimized multi-architecture implementations, and reflecting proof results back to developers, formal verification can become part of normal cryptographic engineering rather than an after-the-fact research exercise.</p>
+
+
+
+<p class="wp-block-paragraph">That is the long-term promise: cryptographic code that remains fast, portable, maintainable, and developer-owned, while carrying machine-checked evidence that it implements the standards it is meant to realize.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/">Verifying Rust cryptography in SymCrypt, from standards to code</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Aurora 1.5: Extending open foundation models for weather and Earth-system applications</title>
 		<link>https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/</link>
 		
@@ -32,7 +319,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg" alt="Aurora 1.5 | three white line icons on an abstract blue and purple background: globe, thunder cloud, tree" class="wp-image-1173975" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg" alt="Aurora 1.5 | three white line icons on an abstract blue and purple background: globe, thunder cloud, tree" class="wp-image-1173975" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -89,7 +376,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2133" height="2414" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png" alt="Aurora 1.5 ensemble forecast example showing mean and ensemble uncertainty for total cloud cover and surface solar radiation (SSRD) over the Atlantic and Europe region at a 2–3 day forecast range. Four globe maps display the ensemble mean and standard deviation for each variable, illustrating Aurora's ability to predict both expected conditions and forecast uncertainty for cloud cover and solar radiation. " class="wp-image-1178260" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png 2133w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-265x300.png 265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-905x1024.png 905w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-768x869.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1357x1536.png 1357w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1810x2048.png 1810w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-159x180.png 159w" sizes="(max-width: 2133px) 100vw, 2133px" /><figcaption class="wp-element-caption">Figure 1: Illustration of the capabilities of Aurora 1.5 ensemble for predicting new impactful parameters such as total cloud cover and solar radiation. Ensemble mean and standard deviation are shown<em><em>.</em>&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2133" height="2414" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png" alt="Aurora 1.5 ensemble forecast example showing mean and ensemble uncertainty for total cloud cover and surface solar radiation (SSRD) over the Atlantic and Europe region at a 2–3 day forecast range. Four globe maps display the ensemble mean and standard deviation for each variable, illustrating Aurora's ability to predict both expected conditions and forecast uncertainty for cloud cover and solar radiation. " class="wp-image-1178260" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png 2133w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-265x300.png 265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-905x1024.png 905w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-768x869.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1357x1536.png 1357w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1810x2048.png 1810w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-159x180.png 159w" sizes="auto, (max-width: 2133px) 100vw, 2133px" /><figcaption class="wp-element-caption">Figure 1: Illustration of the capabilities of Aurora 1.5 ensemble for predicting new impactful parameters such as total cloud cover and solar radiation. Ensemble mean and standard deviation are shown<em><em>.</em>&nbsp;</em></figcaption></figure>
 
 
 
@@ -107,30 +394,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -151,7 +438,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1020" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png" alt="Heat maps comparing Aurora 1.5 and ECMWF ensemble forecast skill. Aurora 1.5 achieves lower probabilistic forecast error across most variables and forecast lead times. " class="wp-image-1178119" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1024x408.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-768x306.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1536x612.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-2048x816.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-240x96.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Comparing Aurora 1.5’s probabilistic forecasts with the ECMWF ensemble forecast. The shading shows relative probabilistic forecast error, using ECMWF ENS as the baseline: blue areas indicate where Aurora 1.5 performs better, and red areas indicate where it performs worse. Across upper-air geopotential, temperature, and humidity, together with five surface variables, Aurora 1.5 outperforms ECMWF ENS on 88.9% of the evaluated variable-and-lead-time targets.&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1020" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png" alt="Heat maps comparing Aurora 1.5 and ECMWF ensemble forecast skill. Aurora 1.5 achieves lower probabilistic forecast error across most variables and forecast lead times. " class="wp-image-1178119" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1024x408.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-768x306.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1536x612.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-2048x816.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-240x96.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Comparing Aurora 1.5’s probabilistic forecasts with the ECMWF ensemble forecast. The shading shows relative probabilistic forecast error, using ECMWF ENS as the baseline: blue areas indicate where Aurora 1.5 performs better, and red areas indicate where it performs worse. Across upper-air geopotential, temperature, and humidity, together with five surface variables, Aurora 1.5 outperforms ECMWF ENS on 88.9% of the evaluated variable-and-lead-time targets.&nbsp;</figcaption></figure>
 
 
 
@@ -346,30 +633,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -521,30 +808,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -697,30 +984,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -858,30 +1145,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1027,7 +1314,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1036,20 +1323,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -1244,30 +1531,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1359,7 +1646,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1368,20 +1655,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -1532,27 +1819,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1571,361 +1861,6 @@
 					
 		
 		
-			</item>
-		<item>
-		<title>MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models</title>
-		<link>https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/</link>
-		
-		<dc:creator><![CDATA[Microsoft Research AI Frontiers]]></dc:creator>
-		<pubDate>Thu, 21 May 2026 17:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false"></guid>
-
-					<description><![CDATA[<p>MagenticLite is an agentic system for small models that works across the browser and local file system in a single workflow. It combines specialized models and orchestration to support efficient agentic performance on everyday tasks.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/">MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-scaled.jpg" alt="MagenticLite" class="wp-image-1171504" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>MagenticLite is an agentic application that works across both the browser and local file system in a single workflow. Built as the next generation of Magentic-UI, it combines a redesigned app with a harness optimized for small models.</li>
-
-
-
-<li>MagenticBrain and Fara1.5 are small models designed for orchestration and computer-use tasks, respectively. Fara1.5 is the next iteration of Fara and delivers measurable gains on real-world browser tasks.</li>
-
-
-
-<li>Together, these releases explore how far agentic performance can be pushed with smaller models, codesigned tools, and an optimized execution harness.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Today, <a href="https://www.microsoft.com/en-us/research/lab/ai-frontiers/">Microsoft Research AI Frontiers</a> releases <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/MagenticLite" type="link" id="https://aka.ms/MagenticLite" target="_blank" rel="noopener noreferrer">MagenticLite<span class="sr-only"> (opens in new tab)</span></a>, an experimental agentic application designed for small models. As the next generation of Magentic-UI, it works across the browser and local file system in a single workflow.</p>
-
-
-
-<p class="wp-block-paragraph">MagenticLite is powered by two purpose-built models: MagenticBrain, for reasoning, delegation, and terminal use, and Fara1.5, a computer-use model family for browser-based tasks. The three components were designed to work together as a single system. The result is an agent that runs efficiently, keeps data on the user’s machine, and supports a broad range of agentic tasks. It also points toward a broader goal: capable agents that can run directly on users’ hardware.</p>
-
-
-
-<p class="wp-block-paragraph">The project is built around a key research bet: that agentic capability depends on tool orchestration and action rather than knowledge alone. That insight makes it possible to use smaller models while still enabling a broad range of agentic tasks at a fraction of the cost.</p>
-
-
-
-<p class="wp-block-paragraph">MagenticLite also reflects how we approach agentic AI end-to-end—from training data and model design to orchestration, interaction design, and human oversight throughout the experience.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1560" height="780" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases.png" alt="Figure 1 – One experience, three components.png | A diagram titled "3 Related Releases" showing three side-by-side panels, each representing one component of a unified agentic system. The first panel (pink) is labeled "Agentic Application" and features MagenticLite, described as an agentic experience optimized for SLMs that works across Browser and File System. The second panel (purple) is labeled "Orchestrator Model" and features MagenticBrain, described as handling reasoning, coding, and delegation, and introduced as a new orchestrator model. The third panel (teal) is labeled "Computer Use Model" and features Fara1.5, described as handling web navigation and the browser, and achieving new state-of-the-art performance on web tasks in its weight class. Arrows from all three panels converge downward to the text "One efficient agentic experience."" class="wp-image-1172866" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases.png 1560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases-1024x512.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases-768x384.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases-1536x768.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/magentic_releases-240x120.png 240w" sizes="auto, (max-width: 1560px) 100vw, 1560px" /><figcaption class="wp-element-caption">Figure 1. One experience, three components: MagenticLite, MagenticBrain, and Fara1.5. </figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="included-in-this-release">Included in this release</h2>
-
-
-
-<p class="wp-block-paragraph" id="magenticlite"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/MagenticLite" target="_blank" rel="noopener noreferrer"><strong>MagenticLite</strong><span class="sr-only"> (opens in new tab)</span></a></p>
-
-
-
-<p class="wp-block-paragraph">The next generation of <a href="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/" type="link" id="https://www.microsoft.com/en-us/research/blog/magentic-ui-an-experimental-human-centered-web-agent/">Magentic-UI</a>, our experimental agentic experience, is powered by an agent harness rebuilt for small models, with an updated user interface informed by community feedback. It works across users’ browsers and local file systems in a single workflow.</p>
-
-
-
-<p class="wp-block-paragraph" id="magenticbrain"><strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/MagenticBrain-foundry">MagenticBrain<span class="sr-only"> (opens in new tab)</span></a></strong></p>
-
-
-
-<p class="wp-block-paragraph">MagenticBrain&nbsp;is&nbsp;MagenticLite’s&nbsp;planner, coder, and delegator in one.&nbsp;It&nbsp;turns&nbsp;vague&nbsp;requests&nbsp;into concrete plans,&nbsp;selects&nbsp;the right tool or subagent for each step,&nbsp;writes&nbsp;code when&nbsp;needed, and recovers&nbsp;should&nbsp;something break mid-task.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph" id="fara1-5"><a href="https://www.microsoft.com/en-us/research/articles/fara1-5-computer-use-agent/" type="link" id="https://aka.ms/fara" target="_blank" rel="noreferrer noopener"><strong>Fara1.5</strong></a></p>
-
-
-
-<p class="wp-block-paragraph">The next generation of our computer-use model family,&nbsp;Fara1.5&nbsp;comes&nbsp;&nbsp;in&nbsp;three sizes,&nbsp;with a&nbsp;flagship 9-billion-parameter&nbsp;model&nbsp;for&nbsp;most use cases.&nbsp;Fara1.5 sets new&nbsp;state-of-the-art&nbsp;(SOTA)&nbsp;results among small computer-use models and nearly doubles Fara-7B&#8217;s performance on web navigation, with sharper handling of forms, credentialed sites, and long-running tasks.</p>
-
-
-
-<p class="wp-block-paragraph">Each component is useful on its own, but they work best together. Codesigning the app, models, and the harness enables capable and reliable agentic performance at this scale.</p>
-
-
-
-<h3 class="wp-block-heading" id="our-research-approach-doing-more-with-less">Our research approach: Doing more with less</h3>
-
-
-
-<p class="wp-block-paragraph">We started with a simple question: what does it take to make a small model genuinely good at agentic tasks? The answer spanned the full lifecycle—data generation, training objectives, model design, and orchestration had to be redesigned together rather than in isolation.</p>
-
-
-
-<p class="wp-block-paragraph">We identified requirements from real-world use cases like filling out forms, conducting browser research, and managing files locally, and built an evaluation dataset around them. Standard benchmarks capture part of the picture, but they are not always a direct measure of real-world usefulness. Scenario-based evaluations complemented those benchmarks and became a key signal for iterative improvement across both the models and the harness, as shown in Figure 2.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1560" height="933" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105.png" alt="Figure 2 – Eval flywheel.png | A flowchart titled "Eval-Driven Improvement Flywheel" illustrating a three-stage iterative loop for building agentic systems. At the top, a box labeled "Define Success" describes it as the north star orienting every decision, encompassing Scenarios, Tasks, and Metrics. An arrow leads down to a central box labeled "Evaluate & Diagnose," which involves evaluating each component and the stack as a whole, and diagnosing failures to attribute root causes. From this central box, bidirectional arrows connect to two parallel boxes at the bottom: "Improve Harness" on the left (optimizing the agentic layer wrapping models, covering Instructions, Context management, and Tool handling) and "Train Models" on the right (identifying and creating data to close key gaps, referencing MagenticBrain and Fara1.5). Dashed arrows from both bottom boxes feed back into the Evaluate & Diagnose stage, forming a continuous loop." class="wp-image-1171808" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105.png 1560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105-300x179.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105-1024x612.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105-768x459.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105-1536x919.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-2-Eval-flywheel-e1778687653105-240x144.png 240w" sizes="auto, (max-width: 1560px) 100vw, 1560px" /><figcaption class="wp-element-caption">Figure 2. An iterative process for building agentic systems involves defining success criteria, evaluating performance, and refining the models or system design (or both). Then repeat.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">For the user experience, we retained key elements from Magentic-UI, including visibility into the agent&#8217;s reasoning and actions, the ability for users to take direct control, and explicit approval at critical points. Based on <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/magentic-ui-report.pdf?msockid=1d972c2941d266e30aae39e740b967e6" type="link" id="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/07/magentic-ui-report.pdf?msockid=1d972c2941d266e30aae39e740b967e6" target="_blank" rel="noreferrer noopener">recent user studies</a>, we also made MagenticLite easier to learn and collaborate with through updated browser and chat views, designed to make it easier for users to understand the agent’s actions and intervene when needed. This is illustrated in Figure 3.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2496" height="1425" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569.png" alt="Figure 3 – MAGUI new interface.png | A screenshot of the MagenticLite 2.0.063 application interface. The left sidebar shows a session history with task names and statuses, including one active task highlighted in pink. The central panel displays an ongoing agent session with a sequential log of actions—including "Used web browser," "Memorized a fact," and another "Used web browser" entry—along with a text input field at the bottom. The right panel shows a live Browser History view with a web search results page rendered inside it. A disclaimer at the bottom of the interface reads: "MagenticLite can make mistakes. Please monitor its work and intervene if necessary."" class="wp-image-1171810" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569.png 2496w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569-300x171.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569-1024x585.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569-768x438.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569-1536x877.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569-2048x1169.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-3-MAGUI-new-interface-scaled-e1778687236569-240x137.png 240w" sizes="auto, (max-width: 2496px) 100vw, 2496px" /><figcaption class="wp-element-caption">Figure 3. MagenticLite’s interface includes updated browser and chat views designed to make it easier to understand agent actions and intervene when needed.</figcaption></figure>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
-				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="system-components">System components</h2>
-
-
-
-<h3 class="wp-block-heading" id="fara1-5-a-computer-use-model-that-outperforms-its-weight-class">Fara1.5: A&nbsp;computer-use&nbsp;model&nbsp;that&nbsp;outperforms&nbsp;its&nbsp;weight&nbsp;class</h3>
-
-
-
-<p class="wp-block-paragraph">Fara1.5&nbsp;is the next generation of our computer-use model family,&nbsp;which is available&nbsp;in three sizes,&nbsp;with a&nbsp;flagship&nbsp;9B&nbsp;model&nbsp;recommended&nbsp;for most use cases.&nbsp;Fara1.5&nbsp;achieves&nbsp;new SOTA&nbsp;performance&nbsp;among small computer-use models and nearly doubles Fara-7B&#8217;s performance on web navigation, with&nbsp;better&nbsp;handling of forms, credentialed sites, and long-running tasks.</p>
-
-
-
-<p class="wp-block-paragraph">Last November, <a href="https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/" type="link" id="https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use/">we released Fara-7B</a>, a small agentic model built for completing tasks in a web browser. It was trained using a novel synthetic data generation engine that enabled best-in-class performance. Fara1.5 is the next step in that bet: a family of three models (4B, 9B, 27B) based on Qwen 3.5, designed to close the gaps we saw in the prior release.</p>
-
-
-
-<h3 class="wp-block-heading" id="what-s-new">What&#8217;s new</h3>
-
-
-
-<p class="wp-block-paragraph"><strong>State-of-the-art results</strong>. On the popular Online-Mind2Web benchmark, which contains 300 tasks across widely used web domains, Fara1.5 sets new SOTA results for models in its size class. Fara1.5 outperforms all similarly sized models and nearly doubles the performance of Fara-7B. The larger Fara1.5-27B variant achieves more than 90% performance on the same benchmark.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="2048" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-scaled.png" alt="Figure 4 – Fara-1.5 latest results.png | A bar chart titled "Online-Mind2Web" measuring Task Success Rate (%, higher is better) across four models in a comparable size class. Fara (7B) scores 34%, MolmoWeb (8B) scores 35%, GUI-Owl-1.5 (8B) scores 49%, and Fara1.5 (9B) scores 63%. A curved arrow labeled "+29 pts" highlights the gap between GUI-Owl-1.5 and Fara1.5, illustrating that Fara1.5 achieves state-of-the-art performance among models in its weight class." class="wp-image-1171905" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-300x240.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-1024x819.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-768x614.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-1536x1229.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-2048x1638.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure4-high-res_magenticlite-225x180.png 225w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 4.&nbsp;On the&nbsp;OnlineMind2Web&nbsp;benchmark,&nbsp;Fara‑1.5-9B&nbsp;achieves&nbsp;state-of-the-art&nbsp;performance&nbsp;among models in its size class&nbsp;and&nbsp;substantially&nbsp;outperforms&nbsp;prior models.&nbsp;</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph"><strong>Improved user experience</strong>. In addition to improvements on benchmarks, we improved the user experience of Fara1.5. Users should observe stronger performance on everyday tasks like filling out forms, handling logins for credentialed sites, and booking appointments. These improvements are driven by the next evolution of our FaraGen data generation pipeline. Alongside training on live websites, we also trained the model on highly realistic synthetic environments designed to simulate scenarios like logins and irreversible actions.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>A native action space tuned for long-running tasks</strong>. Beyond clicks and keyboard actions, Fara1.5 has built-in tools to store key information in its context across hundreds of steps and ask the user for permission or preferences when needed, helping it stay coherent on tasks that span many minutes of real work.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Recalibrated critical points</strong>. Fara-7B was trained to detect critical points for activities like transactions, login flows, or irreversible submissions and flag them. In Fara1.5, we refined our design around critical points based on our learnings from real use, so safety triggers still occur when they should but do not block useful tasks, such as form-filling.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1536" height="1014" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure5-Critical-points-high-res_magenticlite.png" alt="Figure 5 – Critical point.png | A screenshot of Fara1.5's browser interface showing a live view of the LinkedIn sign-up and sign-in page, with fields for email and password visible. Below the browser panel, a section titled "Input Request" (in orange) displays the message: "I'm at the LinkedIn login page, but I don't have the LinkedIn email and password needed to sign in. Please provide the account credentials to continue." This illustrates Fara1.5 pausing and prompting the user for intervention when it reaches a critical decision point requiring sensitive credentials." class="wp-image-1171909" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure5-Critical-points-high-res_magenticlite.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure5-Critical-points-high-res_magenticlite-300x198.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure5-Critical-points-high-res_magenticlite-1024x676.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure5-Critical-points-high-res_magenticlite-768x507.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure5-Critical-points-high-res_magenticlite-240x158.png 240w" sizes="auto, (max-width: 1536px) 100vw, 1536px" /><figcaption class="wp-element-caption">Figure&nbsp;5.&nbsp;Fara1.5&nbsp;pauses and requests&nbsp;user intervention&nbsp;when&nbsp;it detects&nbsp;a critical point, in this case&nbsp;during a&nbsp;sign-in to&nbsp;a&nbsp;LinkedIn account using&nbsp;email&nbsp;credentials.&nbsp;</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="magenticbrain-the-orchestrator-model">MagenticBrain: The orchestrator model</h3>
-
-
-
-<p class="wp-block-paragraph">MagenticBrain&nbsp;is&nbsp;a&nbsp;14B-parameter orchestration&nbsp;model—planner, coder, and delegator in one.&nbsp;Fine-tuned from Qwen 3&nbsp;14B,&nbsp;MagenticBrain&nbsp;was trained end-to-end within the&nbsp;MagenticLite&nbsp;harness&nbsp;with&nbsp;the same tool schemas&nbsp;and&nbsp;execution environment&nbsp;it&nbsp;will&nbsp;encounter&nbsp;at inference time.&nbsp;As a result,&nbsp;there&nbsp;is&nbsp;no gap between how it learned to orchestrate and how it runs.</p>
-
-
-
-<p class="wp-block-paragraph">In many agentic systems, orchestration (planning and coordination) is the most reasoning-intensive component, so teams have historically relied on their most capable models for this role. Our bet is that small models can handle this role without sacrificing capability. Two design choices make that possible.</p>
-
-
-
-<p class="wp-block-paragraph">The first involves combining multistep tool-calling trajectories—where the model learns to pick the right tool and call it correctly—with coding and terminal trajectories—where the right answer is sometimes five lines of Python, not a tool call. This is paired with tight coupling between the tool format used during training and inference.</p>
-
-
-
-<p class="wp-block-paragraph">The second is&nbsp;computer-use agent (CUA)&nbsp;delegation. A key part of the orchestrator&#8217;s job is knowing when&nbsp;not&nbsp;to act itself and instead handing&nbsp;off&nbsp;a&nbsp;task&nbsp;to&nbsp;Fara1.5. Our data pipeline includes explicit delegation trajectories: sequences where the orchestrator recognizes a browser or&nbsp;user interface (UI)&nbsp;task, issues a structured handoff to the CUA model, waits&nbsp;for&nbsp;the result, and resumes&nbsp;the task.&nbsp;The&nbsp;result is an orchestrator&nbsp;model&nbsp;that reasons, codes, calls tools, and delegates fluidly within a single&nbsp;14B footprint.&nbsp;We are releasing&nbsp;MagenticBrain&nbsp;which is designed&nbsp;for&nbsp;use&nbsp;with&nbsp;MagenticLite.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="960" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain.png" alt="Figure 6 – MagenticBrain.png | A flow diagram illustrating MagenticBrain's role as an orchestration model. At the top, a box represents the user's natural-language request: "Book me a dentist appointment Tuesday afternoon and add it to my calendar." An arrow points down to a central box labeled "MagenticBrain (14B model)." From there, four arrows branch outward to four action boxes: "Plan steps (break it down)," "Call tools (calendar, web)," "Write code (when needed)," and "Delegate (hand to Fara1.5)." A footer bar at the bottom summarizes MagenticBrain's capabilities: "Plan · pick tools · code · recover when it breaks."" class="wp-image-1171817" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain-300x206.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain-1024x702.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain-768x527.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain-800x550.png 800w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-6-MagenticBrain-240x165.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 6. MagenticBrain is a small orchestration model that can break down a natural-language request into smaller steps, select the right tools, write code when needed, and delegate browser tasks to Fara1.5.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="the-harness-built-for-small-models">The Harness: Built for small models</h3>
-
-
-
-<p class="wp-block-paragraph">The harness combines the orchestrator and browser-use models into a single workflow. Three design choices matter most:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Step-by-step planning</strong>. The harness plans incrementally, keeping the system flexible and enabling smoother course correction and recovery throughout long-running tasks.</li>
-
-
-
-<li><strong>Active context management</strong>. Small models have smaller effective context windows and degrade faster as context grows. The harness actively curates what each model receives at each step, keeping prompts focused, surfacing only the necessary information, condensing earlier interactions into concise summaries, and offloading the rest, so the orchestrator and Fara1.5 remain effective across long tasks.</li>
-
-
-
-<li><strong>Delegation through subagents</strong>. Rather than relying on a single small model for every task, the orchestrator acts as the main agent and delegates specialized work to subagents. This means handing off browser tasks to Fara1.5. This pattern plays to the strengths of small language models by allowing each model to handle a narrower, more specialized part of the problem. It also lays the foundation for future expansion: later versions could introduce additional subagents and run them in parallel for richer, more efficient workflows.</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">The harness preserves the human-in-the-loop guarantees from Magentic-UI 1.0. Critical points across both browser and code actions still pause for explicit user approval, and the entire system runs inside <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/quicksand" type="link" id="https://github.com/microsoft/quicksand" target="_blank" rel="noopener noreferrer">Quicksand<span class="sr-only"> (opens in new tab)</span></a>, an open-source wrapper created for a QEMU-based sandbox, which isolates browser sessions and code execution from the host system.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1030" height="1027" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram.png" alt="Figure 7 – MagenticLite architecture diagram | A layered system architecture diagram for MagenticLite, organized top to bottom across four labeled sections. The topmost layer, User Interface, contains the Frontend (React SPA) with four components: Chat (conversational task input), Live Browser (noVNC stream of agent session), Approvals (human-in-the-loop gates), and Files (inputs and generated outputs). Below it, connected via WebSocket and REST, is the Orchestration layer containing the Agentic Harness (FastAPI + WebSocket). It includes four components: Orchestration (run lifecycle, streaming), Context Compaction (summarize and prune long contexts), Pause/Resume (user-in-the-loop control), and Critical Points (detection of critical code actions), which is visually highlighted in yellow to signal its importance. The next layer is reached via a Dispatch connector and contains two parallel model components. On the left, MagenticBrain (14B model, purple) handles reasoning, coding, and delegation, with two sub-components: Reasoning Loop (think → tool → result) and Tool Dispatch (bash, edit, search, open). On the right, Fara 1.5 (9B model, teal) handles web navigation and browser use, with three sub-components: Screenshot → Action (vision-driven loop), Browser Actions (navigate, click, type, scroll), and Critical Points (forms, payments, logins). An arrow labeled "MagenticBrain → Fara 1.5 · delegate_cua" connects the two models. The bottommost layer, Isolation, contains Quicksand (QEMU VM Isolation), reached via an "Execute Inside VM" connector. It is divided into two sections: a Sandbox with Guest Runtime (Bash, Python, Files) and CIFS Mounts (per-session workspaces); and a Browser Pool with Chromium Slots (CDP and noVNC) and Persistent Profiles (cookies and sessions)." class="wp-image-1171820" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram.png 1030w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-1024x1021.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-768x766.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-360x360.png 360w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/Figure-7-MagenticLite-Architecture-Diagram-181x180.png 181w" sizes="auto, (max-width: 1030px) 100vw, 1030px" /><figcaption class="wp-element-caption">Figure 7. Overview of the MagenticLite architecture. The system uses a layered architecture spanning the front end, harness, models, and sandboxed execution environment.</figcaption></figure>
-
-
-
-<h3 class="wp-block-heading" id="see-it-in-action">See it in action</h3>
-
-
-
-<p class="wp-block-paragraph">MagenticLite can perform a wide range of tasks across the browser and local file system, such as filling out forms, making appointments, organizing local files, and searching for and analyzing information.</p>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video height="960" style="aspect-ratio: 960 / 960;" width="960" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Fill-Expenses-Forms-Final-Demo.mp4"></video><figcaption class="wp-element-caption">MagenticLite | Fill expense forms demo</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video height="960" style="aspect-ratio: 960 / 960;" width="960" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Finding-and-Booking-a-Restaurant-Final-Demo.mp4"></video><figcaption class="wp-element-caption">MagenticLite | Find and book a restaurant demo</figcaption></figure>
-</div>
-</div>
-
-
-
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video height="960" style="aspect-ratio: 960 / 960;" width="960" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Find-Prices-for-Recipe-Ingredients-Final-Demo.mp4"></video><figcaption class="wp-element-caption">MagenticLite | Find prices for recipe ingredients demo</figcaption></figure>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<figure class="wp-block-video"><video height="960" style="aspect-ratio: 960 / 960;" width="960" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Organize-Local-Files-Final-Demo.mp4"></video><figcaption class="wp-element-caption">MagenticLite | Organize local files demo</figcaption></figure>
-</div>
-</div>
-
-
-
-<h2 class="wp-block-heading" id="try-it-and-build-with-us">Try it, and build with us</h2>
-
-
-
-<p class="wp-block-paragraph">MagenticLite, MagenticBrain, and Fara1.5 are research releases intended to support continued exploration and development. We are releasing them to encourage experimentation, evaluation, and feedback from the broader community.</p>
-
-
-
-<ul class="wp-block-list">
-<li>MagenticLite&nbsp;is&nbsp;an updated release of&nbsp;Magentic-UI,&nbsp;it’s&nbsp;available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/magenticlite" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</li>
-
-
-
-<li>MagenticBrain&nbsp;is available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/MagenticBrain-foundry">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</li>
-
-
-
-<li>Fara1.5&nbsp;models are available on&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/fara-foundry">Microsoft&nbsp;Foundry<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</li>
-</ul>
-
-
-
-<h2 class="wp-block-heading" id="contributors">Contributors</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Agentic experience</strong>: <a href="https://www.microsoft.com/en-us/research/people/chetan/">Cheng Tan</a>, <a href="https://www.microsoft.com/en-us/research/people/mayamurad/">Maya Murad</a>, <a href="https://www.microsoft.com/en-us/research/people/weilishi/">Weili Shi</a></li>
-
-
-
-<li><strong>Agentic harness</strong>: <a href="https://www.microsoft.com/en-us/research/people/adamfo/">Adam Fourney</a>, <a href="https://www.microsoft.com/en-us/research/people/tylerpayne/">Tyler Payne</a></li>
-
-
-
-<li><strong>Fara1.5</strong>: <a href="https://www.microsoft.com/en-us/research/people/ataymano/">Alexey Taymanov</a>, <a href="https://www.microsoft.com/en-us/research/people/andrewzhao/">Andrew Zhao</a>, <a href="https://www.microsoft.com/en-us/research/people/arrajeswaran/">Aravind Rajeswaran</a>, <a href="https://www.microsoft.com/en-us/research/people/corbyrosset/">Corby Rosset</a>, <a href="https://www.microsoft.com/en-us/research/people/hmozannar/">Hussein Mozannar</a>, <a href="https://www.microsoft.com/en-us/research/people/luizdovalle/">Luiz Do Valle</a>, <a href="https://www.microsoft.com/en-us/research/people/spwhitehead/">Spencer Whitehead</a>, <a href="https://www.microsoft.com/en-us/research/people/vivineet/">Vibhav Vineet</a>, Zach Nussbaum, <a href="https://www.microsoft.com/en-us/research/people/t-sahilgupta/">Sahil Gupta</a>, <a href="https://www.microsoft.com/en-us/research/people/luyadong/">Yadong Lu</a></li>
-
-
-
-<li><strong>MagenticBrain</strong>: <a href="https://www.microsoft.com/en-us/research/people/ahmedghoneim/">Ahmed Elgohary Ghoneim</a>, <a href="https://www.microsoft.com/en-us/research/people/akshayn/">Akshay Nambi</a>, Amir Saeidi, Caio César Teodoro Mendes, <a href="https://www.microsoft.com/en-us/research/people/hbehl/">Harkirat Behl</a>, Karan Gupta, <a href="https://www.microsoft.com/en-us/research/people/pcameron/">Pashmina Cameron</a>, Pranav Vajreshwari, <a href="https://www.microsoft.com/en-us/research/people/shitals/">Shital Shah</a>, <a href="https://www.microsoft.com/en-us/research/people/yashlara/">Yash Lara</a>, <a href="https://www.microsoft.com/en-us/research/people/yashpandya/">Yash Pandya</a></li>
-
-
-
-<li><strong>Collaborators</strong>: Abhishek Gowami, <a href="https://www.microsoft.com/en-us/research/people/aswearngin/">Amanda Swearngin</a>, <a href="https://www.microsoft.com/en-us/research/people/mharrison/">Michael Harrison</a>, <a href="https://www.microsoft.com/en-us/research/people/saraabdali/">Sara Abdali</a>, Sarthak Harne, <a href="https://www.microsoft.com/en-us/research/people/vidhishab/">Vidhisha Balachandran</a></li>
-
-
-
-<li><strong>Project leads</strong>: <a href="https://www.microsoft.com/en-us/research/people/hassanam/">Ahmed Awadallah</a>, <a href="https://www.microsoft.com/en-us/research/people/raaboulh/">Rafah Hosn</a></li>
-
-
-
-<li><strong>Sponsors</strong>: <a href="https://www.microsoft.com/en-us/research/people/hassanam/">Ahmed Awadallah</a>, <a href="https://www.microsoft.com/en-us/research/people/eckamar/">Ece Kamar</a>, <a href="https://www.microsoft.com/en-us/research/people/raaboulh/">Rafah Hosn</a>, <a href="https://www.microsoft.com/en-us/research/people/samershi/">Saleema Amershi,</a> <a href="https://www.microsoft.com/en-us/research/people/shitals/">Shital Shah</a></li>
-</ul>
-
-
-
-<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/">MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Fill-Expenses-Forms-Final-Demo.mp4" length="9321901" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Finding-and-Booking-a-Restaurant-Final-Demo.mp4" length="10552750" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Find-Prices-for-Recipe-Ingredients-Final-Demo.mp4" length="9508351" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/MagenticLite-Organize-Local-Files-Final-Demo.mp4" length="7385568" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
