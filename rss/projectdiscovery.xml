@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Tue, 21 Jul 2026 02:56:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 02:53:43 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -75,19 +75,6 @@ Last month we talked about bug bounty etiquette and how to be a good bug bounty 
       <description>Before going all-in on ProjectDiscovery Cloud, Elastic had already embraced Nuclei, the open-source vulnerability scanner built for customization and speed, along with other ProjectDiscovery tools like naabu and httpx.</description>
     </item>
     <item>
-      <title>Advancing Asset Management - PDCP v0.8.9</title>
-      <link>https://projectdiscovery.io/blog/advancing-asset-management-pdcp-v0-8-9-2</link>
-      <description>We're excited to announce the release of version 0.8.9 of the ProjectDiscovery Cloud Platform. This update introduces significant enhancements to our asset management capabilities, focusing on asset inventory, AI-powered search, and improved user experience.
-
-
-Key Features in v0.8.9
-
-
-Asset Inventory and Technologies
-
-The new interface for cataloging and organizing all assets along with their associated technologies in one place represents a significant advancement in asset management. Now, rega</description>
-    </item>
-    <item>
       <title>The Coverage Lie: Why Current Vulnerability Scanners Fail to Stop Breaches</title>
       <link>https://projectdiscovery.io/blog/why-current-vuln-scanners-fail-to-stop-breaches</link>
       <description>First-generation scanners drown teams in noise. Only 6% of CVEs are ever exploited, yet attackers weaponize them in hours. ProjectDiscovery, the RSA Sandbox winner, delivers runtime validation and detections within hours so you can act fast, cut false positives, and close real risk.</description>
@@ -96,6 +83,13 @@ The new interface for cataloging and organizing all assets along with their asso
       <title>From Detection to Validation: Fixing Broken Vulnerability Workflows</title>
       <link>https://projectdiscovery.io/blog/from-detection-to-validation-fixing-broken-vulnerability-workflows</link>
       <description>By going beyond version checks, you’ll reduce noise, speed up critical fixes, and keep engineering smiling.</description>
+    </item>
+    <item>
+      <title>Introducing Internal Network Scanning: see your network the way an attacker inside it would</title>
+      <link>https://projectdiscovery.io/blog/introducing-internal-network-scanning-see-your-network-the-way-an-attacker-inside-it-would</link>
+      <description>Most breaches don't begin with a zero-day but with something ordinary like a forgotten server, an unmanaged network device, a service reachable across a segment that was supposed to be isolated. Internal scanning was supposed to catch exactly that but most scanners match a host's banner and version against a CVE list and flag everything potentially affected, so the few reachable exposures sit lost among thousands that were never exploitable.
+
+That noise is expensive now that the window to respon</description>
     </item>
     <item>
       <title>Nuclei Templates Monthly - May 2025</title>
@@ -175,13 +169,6 @@ Neo is ProjectDiscovery’s AI security copilot for tasks like code review and v
 The practical reality for a security team deploying AI is messier than the headlines or early POC results suggest. Noise compounds fast. Anthropic brought in external security researchers to help validate the vo</description>
     </item>
     <item>
-      <title>Benchmarking Neo's Black-Box DAST Capabilities</title>
-      <link>https://projectdiscovery.io/blog/neo-black-box-dast-capabilities</link>
-      <description>Since the launch of Neo, we've been steadily expanding what it can do. Neo has found 33+ real CVEs across open-source projects, performed well on white-box security testing where source code is available, and generally proven itself as a capable security engineer when it has context to work with.
-
-What we hadn't shared yet is how Neo does when it's operating purely as a black-box DAST agent no source code, no architecture context, just a URL. The prompt Neo gets is a minimal prompt with no guida</description>
-    </item>
-    <item>
       <title>Red-Teaming Cloud Infrastructure with Neo</title>
       <link>https://projectdiscovery.io/blog/red-teaming-cloud-infrastructure-with-neo</link>
       <description>Most AI security tooling shipped over the last year focuses on one of two workflows, code review at PR time or zero-day research in open-source software. Models in PR pipelines now flag insecure patterns at every commit and autonomous research runs have produced more zero-days across open-source projects than the patch teams behind them can realistically triage. We've been running Neo on both of those workflows at ProjectDiscovery for a while now, surfacing zero-days in production software and t</description>
@@ -196,6 +183,13 @@ It did not exist on day one.
 
 
 When we started building Neo, the product was a single agent with a sandbox and a large toolset. Today, a typical task runs through optional planning, an Execution agent that delegates to parallel specialized subagents, and a verification loop that can re-run w</description>
+    </item>
+    <item>
+      <title>Continuous PR Security Review</title>
+      <link>https://projectdiscovery.io/blog/continuous-pr-security-review</link>
+      <description>The security findings that end up in incident post-mortems rarely looked dangerous in the PR that introduced them. Not because anyone was careless but because there's nothing in the change that looks wrong. The code does exactly what it says but the problem is in how the app behaves once it's running.
+
+A new endpoint ships without a permission check but every other route in the file handles permissions correctly, so nothing about it stands out. Or a response comes back carrying more of a user's</description>
     </item>
   </channel>
 </rss>
