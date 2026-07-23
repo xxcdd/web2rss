@@ -6,7 +6,7 @@
     <description>Latest posts from https://projectdiscovery.io/blog. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 22 Jul 2026 02:53:43 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 03:00:24 +0000</lastBuildDate>
     <item>
       <title>ProjectDiscovery v1.3: New navigation, dashboard, and improvements</title>
       <link>https://projectdiscovery.io/blog/projectdiscovery-v1-3-new-navigation-dashboard-and-improvements</link>
@@ -169,11 +169,6 @@ Neo is ProjectDiscovery’s AI security copilot for tasks like code review and v
 The practical reality for a security team deploying AI is messier than the headlines or early POC results suggest. Noise compounds fast. Anthropic brought in external security researchers to help validate the vo</description>
     </item>
     <item>
-      <title>Red-Teaming Cloud Infrastructure with Neo</title>
-      <link>https://projectdiscovery.io/blog/red-teaming-cloud-infrastructure-with-neo</link>
-      <description>Most AI security tooling shipped over the last year focuses on one of two workflows, code review at PR time or zero-day research in open-source software. Models in PR pipelines now flag insecure patterns at every commit and autonomous research runs have produced more zero-days across open-source projects than the patch teams behind them can realistically triage. We've been running Neo on both of those workflows at ProjectDiscovery for a while now, surfacing zero-days in production software and t</description>
-    </item>
-    <item>
       <title>How Neo's Agent Architecture Evolved: From One Agent → Plan, Execute &amp; Verify</title>
       <link>https://projectdiscovery.io/blog/neo-agent-architecture</link>
       <description>Our first engineering post covered prompt caching, the infrastructure change that made long-running agentic tasks economically viable. That post assumed a multi-step, multi-agent system already existed.
@@ -190,6 +185,13 @@ When we started building Neo, the product was a single agent with a sandbox and 
       <description>The security findings that end up in incident post-mortems rarely looked dangerous in the PR that introduced them. Not because anyone was careless but because there's nothing in the change that looks wrong. The code does exactly what it says but the problem is in how the app behaves once it's running.
 
 A new endpoint ships without a permission check but every other route in the file handles permissions correctly, so nothing about it stands out. Or a response comes back carrying more of a user's</description>
+    </item>
+    <item>
+      <title>Introducing Internal Network Scanning: see your network the way an attacker inside it would</title>
+      <link>https://projectdiscovery.io/blog/introducing-internal-network-scanning-see-your-network-the-way-an-attacker-inside-it-would</link>
+      <description>Most breaches don't begin with a zero-day but with something ordinary like a forgotten server, an unmanaged network device, a service reachable across a segment that was supposed to be isolated. Internal scanning was supposed to catch exactly that but most scanners match a host's banner and version against a CVE list and flag everything potentially affected, so the few reachable exposures sit lost among thousands that were never exploitable.
+
+That noise is expensive now that the window to respon</description>
     </item>
   </channel>
 </rss>
