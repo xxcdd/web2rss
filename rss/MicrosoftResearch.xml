@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 13 Jul 2026 15:48:45 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 30 Jul 2026 17:58:23 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,521 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0.2</generator>
 	<item>
+		<title>Echoverse: Deep, evolving environments for computer-use agents</title>
+		<link>https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/</link>
+		
+		<dc:creator><![CDATA[Akshay Nambi, Yash Pandya, Sahil Gupta, Sarthak Harne, Archana Yadav, Kavyansh Chourasia, Yash Lara, Ahmed Awadallah, Ece Kamar]]></dc:creator>
+		<pubDate>Thu, 30 Jul 2026 17:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1179908</guid>
+
+					<description><![CDATA[<p>Computer-use AI agents struggle with multi-step workflows like email and customer support. Echoverse trains agents in realistic environments rather than simply providing more training tasks, helping them improve as the tasks, tests, and environments evolve.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/">Echoverse: Deep, evolving environments for computer-use agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<h2 id="scaling-fidelity-over-sheer-count-targeting-the-capabilities-agents-actually-lack-and-evolving-with-the-models-they-train" class="wp-block-heading h3">Scaling fidelity over sheer count, targeting the capabilities agents actually lack, and evolving with the models they train.</h2>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1.jpg" alt="Diagram of an iterative training loop where a model generates a world, the world produces a graded run, and feedback updates both the world and the model." class="wp-image-1180136" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<p class="wp-block-paragraph">We built twelve training worlds for computer-use agents: ten deep domain worlds and two capability worlds, each drilling a single control rendered in many forms (date pickers and nested filters). Depth is what makes them worth training on: these worlds reproduce an application’s real behavior, come seeded with realistic data, and keep state coherent across screens and users. Trained on all twelve, a 9B model nearly doubles its base score (36.5% to 67.1%), coming within fourteen points of GPT-5.4. The experiment taught us several lessons:&nbsp;</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>High simulation fidelity is a must-have; shallow worlds hurt the agent.</strong> Trained on shallow and deep builds of the same sites, the model regressed on the shallow ones but improved on the deep ones.</li>
+
+
+
+<li><strong>Agents often struggle with the same challenging UI elements, like date pickers and nested filters.</strong> Drilling those controls in varied forms taught the model to operate them in domains it never saw in training.</li>
+
+
+
+<li><strong>Co-evolving the model, the world, and the verifier improves all of them.</strong> As the world grows more correct and its tasks grow harder, the model climbs with it.</li>
+
+
+
+<li><strong>Reinforcement learning against the worlds pushes the agent past imitation.</strong> Using the grounded verifier as the reward, RL lifts held-out performance and teaches the agent to reach the goal in fewer steps.</li>
+
+
+
+<li>We’re releasing four of the worlds with their code, data, and grounded graders, to support research on high-fidelity computer-use worlds. <br>Github: &nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2FEchoverse&data=05%7C02%7Cv-amablack%40microsoft.com%7C8672491a049240e2d0cb08deecf33ea2%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639208726637682797%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=4%2F8FD0oWevHazXLVAGUwE0XnoLqVfLDC2g5TPUB94V0%3D&reserved=0"><u>microsoft/Echoverse: Deep, Evolving Environments for Computer-Use Agents</u><span class="sr-only"> (opens in new tab)</span></a> <br>Hugging Face: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhuggingface.co%2Fdatasets%2Fmicrosoft%2FEchoverse&data=05%7C02%7Cv-amablack%40microsoft.com%7C8672491a049240e2d0cb08deecf33ea2%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639208726637691838%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=TkzGRz7uZIS97yPjvNP7a9Kp1BhmOR2WZOOxnv1GOgA%3D&reserved=0"><u>microsoft/Echoverse · Datasets at Hugging Face</u><span class="sr-only"> (opens in new tab)</span></a><br>Technical Report:&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/echoverse-deep-evolving-environments-for-training-computer-use-agents-at-scale/" target="_blank" rel="noreferrer noopener">https://www.microsoft.com/en-us/research/publication/echoverse-deep-evolving-environments-for-training-computer-use-agents-at-scale/</a></li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">A computer-use agent learns the results of what its actions do only where they have real consequences. A click changes saved state, a message reaches a real person, or a page that refuses to move tells the agent its last move did nothing. A screenshot can show what an interface looks like, but only a working world shows what an action caused.</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1200" style="aspect-ratio: 3840 / 1200;" width="3840" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Hero-video.mp4"></video></figure>
+
+
+
+<p class="wp-block-paragraph">The consequences worth learning from are stateful, and most of them sit behind a login. The work people want automated lives in closed systems: email and chat, banking, health records, the internal consoles for cloud and ML. You cannot train an agent against the live versions of these. Every attempt writes to a real account, there is no reset between tries, and the true state stays hidden behind the screen. So you rebuild the system as a synthetic world where the database is yours: the state is real and changes for real, but it is safe to break, quick to reset, and graded from the data rather than a screenshot.</p>
+
+
+
+<p class="wp-block-paragraph">By a world we mean three things bound together: an environment (the application, its state, and the actions that change it), the tasks that set goals in it, and a verifier that grades the outcome against ground truth. The community is now good at making them: pipelines stand up an application, seed it, generate tasks, and attach verifiers, yielding hundreds of environments and thousands of checkable tasks. This work builds on that progress. However, once worlds are plentiful and its internal structure becomes the bottleneck: regardless of whether state stays coherent across users and screens, workflows keep their dependencies, a weak skill recurs in enough forms to generalize, and success is judged by outcome or by appearance.</p>
+
+
+
+<p class="wp-block-paragraph">Our bet, the one <strong>Echoverse </strong>tests, is that the real leverage comes less from adding worlds than from a loop that keeps improving the ones you already have. It treats building the environment and training the model as one process, not two stages: run a model in a world, find where it fails, make the world, its tasks, and its verifiers more faithful or more demanding there, train on the sharper signal, and repeat. Ordinary fine-tuning improves only the model. Here the same graded run that measures the model also improves the world that judged it, so a static benchmark saturates while the loop compounds.</p>
+
+
+
+<p class="wp-block-paragraph">Three levers keep that loop productive, none of them raw environment count. <strong>Depth</strong>: behaviorally faithful worlds for the domains that matter, including the closed and proprietary ones. <strong>Capability targeting</strong>: narrow worlds built around the exact interaction a model keeps failing. <strong>Co-evolution</strong>: improving the environment, its tasks, and its verifiers on every graded run, not just the model.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="931" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-scaled.png" alt="Circular diagram of the learning loop. A model runs a task in a world and every rollout is graded against database ground truth. Two arrows branch from the graded run: surviving failures flow to model training data, while defects flow to repairs of the environment, its tasks, and its verifier, so model and world improve on the same run. " class="wp-image-1179929" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-1024x372.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-768x279.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-1536x558.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-2048x745.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-240x87.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1: The learning loop: every graded run is read twice. Surviving failures become model training data, and defects in the world, its tasks, or its verifier become repairs. The same graded run that measures the model also sharpens the world.</figcaption></figure>
+
+
+
+<h2 id="why-synthetic-and-why-deep" class="wp-block-heading">Why synthetic, and why deep?</h2>
+
+
+
+<p class="wp-block-paragraph">Open, login-free sites might seem to remove the need for synthetic worlds, but they make a poor training ground for a different reason: they will not hold still. Pages get redesigned, listings and dates roll forward, and hosts throttle or block automated traffic, so a benchmark that is pinned to them drifts, and no two runs face the same site. An occasional evaluation can absorb that; training cannot, since it runs the same task thousands of times and needs the same world each time. A synthetic world is fixed in time and data: the calendar does not move, the seed data does not churn, and a task means the same thing on the thousandth rollout as on the first. We trade a little surface realism for a world we fully control.</p>
+
+
+
+<p class="wp-block-paragraph">Control is only the floor. A world can be perfectly stable and still be hollow, so what earns training time is depth: not its page count but how faithfully it preserves the causal structure of the work.&nbsp;&nbsp; Five properties set the bar: <strong>behavioral fidelity</strong> (controls, permissions, and errors follow the product’s logic); <strong>coherent state</strong> (a sent message appears for its recipient, a cancelled meeting clears both calendars); <strong>workflow depth</strong> (an early choice constrains what happens later); <strong>authoritative verification</strong> (application state, not pixels); and <strong>domain value</strong> (the workflow is worth improving). In the systems that matter most, the difficulty lives in permissions, shared state, and audit histories: exactly the structure a shallow clone skips. Above this bar, more environments add variety; below it, they add noise.</p>
+
+
+
+<h2 id="how-the-echoverse-factory-works" class="wp-block-heading">How the Echoverse factory works?</h2>
+
+
+
+<p class="wp-block-paragraph">Echoverse is a single pipeline with two outputs: full domain worlds that preserve workflow depth, and capability worlds that vary one diagnosed interaction. Both lean on the fact that we own the database underneath, so success is a property of the app’s own state, not a model’s read of a screenshot.</p>
+
+
+
+<h3 id="building-the-world" class="wp-block-heading">Building the world</h3>
+
+
+
+<p class="wp-block-paragraph">The pipeline expands a handful of seed scenarios into a spec, then compiles it into machine-checkable claims about routes, state, and behavior. Only then does it generate the app: a FastAPI and SQLite backend under a React interface. A fresh app is a hypothesis, not a world: the builder runs every claim against the running environment, repairing the database, backend, or frontend until each passes, then writes a readiness record that separates hard blockers from advisory risks. A world with open blockers does not advance. Depth here is not a promise in a prompt; it is the list of claims the world has been shown to pass.</p>
+
+
+
+<h3 id="growing-the-corpus" class="wp-block-heading">Growing the corpus</h3>
+
+
+
+<p class="wp-block-paragraph">A world that builds cleanly is still not training data. We reground each task on the live database, drawing goals from entities that actually exist, then send every goal through a panel of analyzers: are its entities real, is the goal plausible, does its difficulty match the work, and, the sharpest test, can an agent driving the real UI complete it? That last check runs in the browser, catching goals no interface can satisfy before a model ever sees them. A generated goal is a claim; a solve against the real app is proof.</p>
+
+
+
+<p class="wp-block-paragraph">Every failure becomes an issue tagged by the layer that must change: database, backend, frontend, task text, or verifier. Layer-specific fixers apply the repair, re-check it against the running app, and roll it back if it regresses. The loop re-scores against database ground truth until the pass rate stops climbing, and each surviving task is exported carrying the exact check that grades it. Those tasks become training data through one process: GPT-5.4 solves each task, a verifier keeps the trajectories that pass ground truth, and those become the supervised fine-tuning (SFT) data behind every experiment below.</p>
+
+
+
+<p class="wp-block-paragraph">Building the world and growing the corpus are not two stages but rather one loop: most defects belong to the world, so we re-version the environment with every iteration. Harder tasks expose gaps in the world, and a sturdier world can carry harder tasks, so each round leaves both stronger.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="970" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-scaled.png" alt="Two-phase pipeline diagram. Phase 1 expands seed scenarios into an app and repairs its database, backend, and frontend until it passes machine-checkable claims. Phase 2 regrounds tasks on live data and iterates a loop of analyzer and fixer agents, then re-scores against database ground truth until the pass rate plateaus. A dashed arrow shows many task-loop fixes landing back in the world." class="wp-image-1179930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-300x114.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-1024x388.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-768x291.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-1536x582.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-2048x776.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-240x91.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2:&nbsp;The environment factory: the two loops behind every world. Phase 1 expands a handful of seeds into an app, then repairs the database, backend, and frontend until it passes machine-checkable claims. Phase 2 regrounds tasks on live data, runs a panel of analyzer and layer-specific fixer agents, and re-scores against database ground truth until the pass rate plateaus. Many of those fixes land in the world itself (dashed arrow).&nbsp;</figcaption></figure>
+
+
+
+<h3 id="the-verifier-is-grounded-in-the-database" class="wp-block-heading">The verifier is grounded in the database</h3>
+
+
+
+<p class="wp-block-paragraph">Every task carries its own answer key, a value or a state change minted from the real database by a SQL query at generation, true by construction and re-checked after the agent finishes. A <em>read</em> is graded on semantic equivalence to the stored value ($288 for $287.62 passes); a <em>write</em> on a real before/after database diff, so claiming a ticket was closed fails unless the row flipped; a <em>read_write</em> scores the lower of the two. Grading is hard to game, grounded rather than labelled, and uniform across an EchoStay booking, an EchoForge issue, and an EchoBank transfer.</p>
+
+
+
+<h3 id="full-domains-carry-the-workflow" class="wp-block-heading">Full domains carry the workflow</h3>
+
+
+
+<p class="wp-block-paragraph">The domains with the most consequential work are the hardest for public benchmarks to reach: closed, proprietary systems where the difficulty lives in permissions, shared state, and history, not layout. A faithful clone has to reproduce that. What matters is not the pixels but that an action’s consequences reach across screens and users, so a task can run a real workflow and be graded on the state it leaves behind.</p>
+
+
+
+<p class="wp-block-paragraph">The ten Echo domains span communication, technical work, regulated records, community, media, and travel. Where a rich public dataset exists we build on it: EchoStay is seeded from InsideAirbnb, so its listings, hosts, reviews, and amenities are real rather than invented, and EchoForum sits on a public forum corpus of 2.55 million comments. Where none exists, as with mail, calendar, banking, and health records, a seeding pipeline generates the state under strict constraints, dense and internally consistent, not a handful of placeholder rows.</p>
+
+
+
+<figure class="wp-block-table aligncenter"><table class="has-fixed-layout"><thead><tr><th>Workflow category</th><th>Environments</th><th>Depth the world has to carry</th></tr></thead><tbody><tr><td><strong>Communication & coordination</strong></td><td>EchoMail, EchoCalendar, EchoChat</td><td>Shared threads, schedules, participants, permissions, histories</td></tr><tr><td><strong>Technical creation & operations</strong></td><td>EchoML, EchoForge</td><td>Artifacts, configuration, dependencies, roles, multi-stage changes</td></tr><tr><td><strong>Regulated records & transactions</strong></td><td>EchoBank, EchoCare</td><td>Balances or records, authorization, audit history, consequential writes</td></tr><tr><td><strong>Community, media & travel</strong></td><td>EchoForum, EchoTunes, EchoStay</td><td>Persistent preferences, social state, search, booking, account actions</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1: The ten full-domain environments of the Echo family, grouped by the work they represent. Each is a faithful stand-in for a widely used product, named for the workflow rather than the brand.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">That accumulated state is what makes an action’s consequences reach across screens and users. A booking in EchoStay moves through search, listing, availability, and payment across roughly 87 routes and 23 tables, but not a single confirmation screen; an EchoMail thread carries intent from draft through delivery, reply, and label state; an EchoCare order writes each change to an audit trail. The tasks are expensive because of it, often five to twenty actions deep, and finished only when the underlying state has changed.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="2123" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-scaled.png" alt="Grid of per-domain cards for the Echo suite. Each card names an environment and lists grounded database counts for its backend, seeded data, and feature surface, showing each is a self-contained interactive clone rather than a mockup. " class="wp-image-1179931" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-300x249.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-1024x849.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-768x637.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-1536x1274.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-2048x1698.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-03-domain-cards-217x180.png 217w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 3: Per-domain detail across the Echo suite. Each ships as a self-contained, fully-interactive clone of the app it models, with its own backend, seeded database, and feature surface. Counts are grounded database state, not mockups.</figcaption></figure>
+
+
+
+<h3 id="capability-worlds-isolate-one-skill" class="wp-block-heading">Capability worlds isolate one skill</h3>
+
+
+
+<p class="wp-block-paragraph">Not every weakness represents a missing domain; some are caused by a single control that the agent cannot reliably operate. Picture an agent booking a trip: it searches, filters, opens the right listing, then stalls at the date picker, unable to turn “the second week of March” into the right clicks on an unfamiliar calendar. Building another booking site would not fix that. The skill is learned only when the control itself appears in enough forms, and date pickers and nested filter-and-search are ubiquitous on the live web, rendered a hundred different ways, exactly the variability a single deep app cannot supply.</p>
+
+
+
+<p class="wp-block-paragraph">So we isolate the control and widen the interaction, mass-producing it across layouts, states, and constraints, then generating grounded tasks over each. The datepicker world renders one date control as six core widgets across 10 contexts and holds out 10 new unseen ones, from calendar heatmaps to scroll wheels and fiscal-quarter pickers; its hardest tasks turn transcription into reasoning, resolving “the last Thursday of January 2026” or “10 business days after a start date” to one exact, widget-reachable date. The nested-filter world varies 20 widget families and holds out nine compound-panel families as out-of-distribution, grading every submission by whether the filtered results actually meet the requested conditions, judged by the app’s own logic rather than by appearance.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1793" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-scaled.png" alt="Plain-English catalog of the widget families the capability worlds render. Each entry is a distinct rendering of the same control (a date picker or a nested filter) re-themed across real-world verticals, with several families marked held out for evaluation only. " class="wp-image-1179932" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-300x210.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-1024x717.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-768x538.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-1536x1076.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-2048x1434.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-04-widget-catalog-240x168.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 4: Every widget family the two skills cover, split into training (in-distribution) and evaluation-only (held out): nested filters, 20 families plus 9 held-out compound panels; date pickers, 6 core types across 10 contexts plus 10 held-out widgets.</figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="699" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-scaled.png" alt="Diagram showing the capability controls re-themed across many domains: nested filters across six verticals and date pickers across ten everyday contexts, with the held-out sets reaching 36 further scenarios. " class="wp-image-1179933" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-300x82.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-1024x280.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-768x210.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-1536x419.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-2048x559.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-05-domain-coverage-240x66.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 5: Date pickers and nested filters themed across domains: nested filters over six verticals, from real estate to pet adoption; date pickers over ten contexts, from scheduling to insurance.</figcaption></figure>
+
+
+
+<h2 id="what-deeper-targeted-worlds-change" class="wp-block-heading">What deeper, targeted worlds change</h2>
+
+
+
+<p class="wp-block-paragraph">More trajectories do not automatically provide more training signal. What matters is depth: whether an episode carries a task through the dependent steps of a real workflow rather than just rehearsing an action in isolation. Two experiments make the difference concrete from opposite ends: one goes deeper on a whole domain, the other narrows to a single broken skill.</p>
+
+
+
+<h3 id="shallow-worlds-backfire-deep-worlds-transfer" class="wp-block-heading">Shallow worlds backfire; deep worlds transfer</h3>
+
+
+
+<p class="wp-block-paragraph">A shallow world is the cheap option. It stands up fast and looks convincing, but it only rehearses isolated, correct-looking clicks. Train on that and the model will pick up the wrong reflexes, over-stepping and looping and repeating dead actions, because nothing in the easy world ever punished them. A deep world costs more, but its trajectories carry the dependent structure that transfers to the live site.</p>
+
+
+
+<p class="wp-block-paragraph">To isolate that, take two live WebVoyager domains, Allrecipes and Hugging Face, and compare three checkpoints: the base model and two trained on shallow-world and deep-world trajectories built for those domains. The shallow world poses short, self-contained tasks; the deep world poses tasks that run across dependent steps, where an early action changes the state, options, and verification available later. Both give the model the same domain exposure, so only depth differs, and evaluation uses tasks from the public WebVoyager benchmark for these domains, run on the live sites outside any training world.</p>
+
+
+
+<p class="wp-block-paragraph">On Allrecipes, the shallow world pulls the model down, 80.0% to 75.0%; on Hugging Face it stays flat at 48.0%. Only the deep world improves both, lifting Allrecipes to 85.0% and the harder Hugging Face split to 65.0%. With exposure held equal, the gap is depth: the deep model loops less, and of the 37 Hugging Face tasks, those that exhaust their step budget fall from 15 to nine. What separated the two was not how much the model saw, but whether what it saw preserved the structure of the work.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="955" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-scaled.png" alt="Grouped bar chart on two live WebVoyager domains, Allrecipes and Hugging Face, comparing base, shallow-world-trained, and deep-world-trained models. Shallow drops Allrecipes from 80.0% to 75.0% and leaves Hugging Face flat at 48.0%; the deep world lifts them to 85.0% and 65.0%. " class="wp-image-1179935" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-300x112.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-1024x382.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-768x287.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-1536x573.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-2048x764.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-06-deep-vs-shallow-240x90.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 6: Deep versus shallow worlds for two live WebVoyager domains, with identical domain exposure and different task depth. Deep lifts both; shallow drops below base on Allrecipes and stalls on Hugging Face.</figcaption></figure>
+
+
+
+<h3 id="precision-about-one-skill" class="wp-block-heading">Precision about one skill</h3>
+
+
+
+<p class="wp-block-paragraph">The datepicker and nested-filter worlds drill exactly the controls our evaluations flagged, and the two skills reinforce each other. Datepicker training lifts datepicker evaluations (in-distribution 60.0% to 82.6%, held-out layouts 34.0% to 54.0%); filter training lifts held-out filters 62.8% to 84.1%. Gains that hold on forms never trained on indicate that the model learned a rule, not a layout. The skills transfer across each other rather than competing: training either one alone still lifts the other, and training both is the best all-rounder on every split. Against GPT-5.4 as a frontier reference, that combined model already edges ahead on nested filters and closes most of the datepicker in-distribution gap, trailing clearly only on held-out datepickers. And the rule reaches the open web, lifting Online-Mind2Web 29.5% to 34.3% on sites it never saw.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1045" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-scaled.png" alt="Grouped bar chart across four capability splits (datepicker in-distribution and held-out, nested-filter in-distribution and held-out) comparing base, plus-datepicker, plus-nested-filter, and plus-both models. Training either skill lifts both controls, and training both is the best all-rounder on every split. " class="wp-image-1180128" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-300x122.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-1024x418.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-768x313.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-1536x627.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-2048x836.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-07-targeted-training_NEW-240x98.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 7: Targeted training, targeted gains: training either date pickers or nested filters lifts both controls, including held-out widgets and compositions neither was trained on, and training both is the best all-rounder on every split. Higher is better.</figcaption></figure>
+
+
+
+<h2 id="from-synthetic-worlds-to-the-live-web" class="wp-block-heading">From synthetic worlds to the live web</h2>
+
+
+
+<p class="wp-block-paragraph">Three models run through the rest of this section. Base is Qwen3.5-9B given only a handful of synthetic trajectories, just enough to align a general model to the browser action space. Our model is that same 9-billion-parameter network trained on the full synthetic corpus. GPT-5.4 is a far larger frontier model, included as a reference ceiling.</p>
+
+
+
+<p class="wp-block-paragraph">Does the skill survive the open web? We evaluate our model, unchanged, on WebVoyager and Online-Mind2Web, benchmarks it never trained on. They barely overlap with what we built: both are dominated by open, public sites and read-mostly browsing, while our worlds train login-gated, write-heavy workflows. A large jump was never the point; direction is. The frozen model clears base on both, WebVoyager 66.5% to 71.5% and Online-Mind2Web 40.5% to 43.4% (without BrowserBase, 50.9% to 55.6% and 29.5% to 37.2%), reported through BrowserBase because a hosted browser strips the datacenter bot-blocks and rate limits that otherwise depress every agent’s score. With no live-web data in the mix, this is transfer, not memorization.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="954" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-scaled.png" alt="Bar chart on two live benchmarks scored through BrowserBase. The full-corpus model beats base on WebVoyager (66.5% to 71.5%) and Online-Mind2Web (40.5% to 43.4%), showing synthetic training transfers to sites it never trained on." class="wp-image-1179937" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-300x112.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-1024x382.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-768x286.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-1536x572.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-2048x763.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-08-live-transfer-240x89.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 8: Synthetic training transfers to the live web. The full-corpus model, on two benchmarks it never trained on, clears base on both; scores run through BrowserBase to remove datacenter bot-blocks.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The modest live-web gain is a coverage effect, not a ceiling: aim at a live domain and it grows. EchoForge, our code-hosting world, is the same kind of app as GitHub, one of the live sites WebVoyager tests. Add EchoForge to the training mix and the live GitHub score climbs 58.5% to 63.4%, with the overall live scores rising too (WebVoyager 50.9% to 52.9%, Online-Mind2Web 29.5% to 31.1%). The average simply reflects that most of what we built sits in domains these benchmarks never touch.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1442" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-scaled.png" alt="Dumbbell chart, per environment, of closing the gap to the frontier. For each of fourteen domains a grey dot marks base, a green dot our full-corpus model, and an amber diamond GPT-5.4; the green bar is the gain from base and the faded remainder is the distance still to GPT-5.4. A right-hand strip lists each model's exact Base, Our, and GPT score. Our model nearly doubles the base average to 67.1% and its green dot sits past the diamond on EchoBank and both nested filters, surpassing GPT-5.4. " class="wp-image-1180130" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-1024x577.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-1536x865.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-2048x1153.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-09-scorecard-gap_NEW-1280x720.png 1280w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 9: Closing the gap to the frontier, per environment. The green bar is the gain from base to our model; the faded remainder is the distance still to GPT-5.4. Our model surpasses GPT-5.4 on EchoBank and both nested filters and closes most of the gap elsewhere; each model’s exact score is labelled on the right.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The domains we built, most of them closed and login-gated, tell the opposite story. Across all fourteen, the model nearly doubles base, 36.5% to 67.1%, and where base was weakest it climbs three- to nine-fold, with EchoCalendar, EchoML, EchoChat, EchoCare, EchoForge, and EchoForum all moving from single or low double digits into the forties through sixties. That puts a 9-billion-parameter model within fourteen points of GPT-5.4 on the average (67.1% against 80.7%). On EchoMail, EchoBank, and both nested filters, it matches or beats the far larger frontier model outright, trailing by only a few points on in-distribution datepickers. What gets a 9B model this close is not scale but training data that is deep, targeted, and checkable, exactly what the factory is built to produce.&nbsp;</p>
+
+
+
+<h3 id="what-scaling-buys-and-what-it-doesn-t" class="wp-block-heading">What scaling buys, and what it doesn’t</h3>
+
+
+
+<p class="wp-block-paragraph">We scaled two axes separately: more trajectories through a fixed set of environments, drawn in equal numbers from each, and more distinct environments. They behave differently. More trajectories on the same worlds keep lifting the in-domain average, though the gains keep shrinking, while transfer to the live web flattens outright: from 6,400 to 20,000 trajectories, WebVoyager holds steady (54.8% to 55.6%) and Online-Mind2Web slips (40.1% to 37.2%). Since every point samples the worlds equally, this is no artifact: each environment holds only so much transferable skill, and once a model has drawn it out, more rollouts mostly polish what it already does.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Scaling environments produces the opposite result. The average keeps climbing as breadth grows, and WebVoyager reaches its best only with the full set. For generalization, the lever is diversity, not volume. A model reaches sites it never saw by training across many kinds of work, not by seeing one kind many more times.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Even so, scale itself is not the lever on either axis. A large trajectory budget spent on shallow worlds, or graded against the wrong answer, moves the synthetic number and goes nowhere on the live web. What travels is inside each trajectory: depth that preserves a real workflow, targeting that drills the control an agent fails, and database-grounded grading that keeps the signal honest.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="885" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-scaled.png" alt="Two line charts of scaling, each plotting average synthetic score, WebVoyager, and Online-Mind2Web. Left, more trajectories through a fixed set of worlds, with the x-axis spaced by actual trajectory count so the points bunch at low counts and stretch out toward 20,000; the curves rise steeply then flatten, WebVoyager going flat and Online-Mind2Web slipping over the final stretch while the synthetic average climbs only gently. Right, more environments from two to twelve domains, where the synthetic average and WebVoyager keep climbing with breadth. The contrast shows that diversity of environments, not sheer trajectory volume, carries skill to unseen sites. " class="wp-image-1180132" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-300x104.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-1024x354.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-768x265.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-1536x531.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-2048x708.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-10-scaling_NEW-240x83.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 10: Two scaling axes, scored without BrowserBase. Left: more trajectories on a fixed set of worlds, drawn in equal numbers from each, with the x-axis spaced by actual trajectory count. The synthetic average keeps rising, but live-web transfer saturates, WebVoyager flat and Online-Mind2Web slipping past 6,400 trajectories. Right: more environments, where breadth keeps the synthetic average and WebVoyager climbing. Diversity of environments, not trajectory volume, is what carries skill to unseen sites.</figcaption></figure>
+
+
+
+<h2 id="the-model-is-not-the-only-thing-that-learns" class="wp-block-heading">The model is not the only thing that learns</h2>
+
+
+
+<p class="wp-block-paragraph">The score an agent earns is never the model alone. It comes from a coupled stack: the agent, the environment, the task, and the verifier. A zero can mean the agent failed, or the control is broken, or the requested state is impossible, or the verifier checks the wrong thing. Reading every zero as model supervision trains on defects that should have been repaired. So, we read every graded rollout as a test of the whole stack and let the whole stack learn. The environment improves as broken controls and wiring get fixed, the tasks as goals are re-grounded and made harder, the verifier is fixed when it drifts out of sync with the data. Only failures that survive all three become model curriculum.</p>
+
+
+
+<p class="wp-block-paragraph">EchoStay made this visible. Its failures traced to the world, not the agent: a guest-count control silently broke booking tasks, so a correct booking could never register. Fixing it raised the share of those bookings that could be completed at all from 48% to 78%, recovering 15 of the 24 that had been blocked. The same loop finds different faults elsewhere: EchoForum needed frontend fixes and a page-load speedup, which took one failing set of 37 tasks from 0 solved to 36; EchoChat’s verifier had drifted out of sync with the data, and realigning it lifted the share of gradable tasks from 34% to 99%; EchoCare needed one state-wiring fix; EchoForge had the backend logic but no UI control to reach it.</p>
+
+
+
+<p class="wp-block-paragraph">As the world sharpens, the model climbs with it. Re-running the loop on EchoStay across two rounds, the model trained on its corpus more than doubles, from 16.2% to 38.5%, two-thirds of the distance to GPT-5.4’s 50.4%. The model is not the only thing that learns; it is the thing that compounds once everything under it learns.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1317" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-scaled.png" alt="Bar chart of the model's score on EchoStay before and after one co-evolution round. As the world went from v1 to v2 the model more than doubled, from 16.2% to 38.5%, shown against GPT-5.4's 50.4% reference. " class="wp-image-1179942" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-300x154.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-1024x527.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-768x395.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-1536x790.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-2048x1054.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-11-coevolution-240x123.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 11: Co-evolution lifts the model on EchoStay. As the world went from v1 to v2, the model trained on it more than doubled, from 16.2% to 38.5%, a separate measure from the world’s own solve rate. Higher is better.&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">That boundary between repairing the world and teaching the model is easy to hold inside a controlled environment, where both are inspectable. The live web erases it: there is no world to repair mid-task, so when an action lands on nothing, correctness rests entirely on the agent noticing and choosing differently. That is the last thing a world has to teach, and where the live web is least forgiving.</p>
+
+
+
+<h2 id="from-sft-to-rl-turning-worlds-into-rles" class="wp-block-heading">From SFT to RL: Turning worlds into RLEs</h2>
+
+
+
+<p class="wp-block-paragraph">Every result so far comes from imitation: the 9B model copies the trajectories GPT-5.4 got right. Imitation inherits a ceiling, though: a clean demonstration never shows how to recover from a mistake or when to stop, the failures that break agents in the wild. Reinforcement learning optimizes the outcome we grade and lets the model learn from its own trajectories, not a teacher’s.</p>
+
+
+
+<p class="wp-block-paragraph">But reinforcement learning needs an RL environment (RLE) it can drive at scale. Each rollout needs a reset to a known state, throughput to sample in parallel, and a reward it can trust, and a run replays the same task thousands of times. The live web is not an RLE: it will not reset, so no two rollouts begin alike; it throttles and blocks automated traffic well before RL’s scale; and it exposes no ground truth, only a screenshot a second model must judge, so the reward is as noisy as the judge and a policy learns the judge’s blind spots rather than the task. Echoverse is an RLE by construction. Every world is a self-contained app we snapshot and reset per rollout, run in parallel, and grade from its own database, so the verifier that filtered the SFT data returns a grounded, verifiable reward rather than one inferred from pixels. The same worlds that benchmark an agent train one.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1171" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-scaled.png" alt="Left-to-right block diagram of reinforcement learning on an Echoverse RL environment. A policy pi-theta, initialised from the SFT checkpoint, rolls out a group of G trajectories inside an Echoverse RLE drawn as a stack of worlds; within one world the agent repeats act and execute steps that change a database. Outside the environment, a grader, the grounded verifier, reads each rollout's final database state and returns a reward. The group of rewards updates the policy with a policy-gradient step and a KL penalty to a reference, and the loop repeats across every training world. " class="wp-image-1179943" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-300x137.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-1024x468.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-768x351.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-1536x702.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-2048x937.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-12-rl-echoverse-240x110.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 12: Reinforcement learning on an Echoverse RLE. From the SFT policy we roll out a group of trajectories in one world; each is a sequence of act and execute steps that changes the database. A grader, the same grounded verifier that filtered the SFT data, sits outside the environment and scores each rollout’s final database state into a reward. The group of rewards updates the policy, and the loop repeats across every training world.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">We take the SFT model as the starting policy and run RL against five worlds: EchoBank, EchoForge, EchoForum, EchoStay, and EchoTunes. Tasks come from the harder end of each world, where the SFT policy still leaves headroom, and each update draws on several graded rollouts. Each rollout earns two rewards: a trajectory reward from our database-grounded verifier (LLM judge GPT-4.1), and a dense per-step reward from a multimodal judge that grades each screenshot (GPT-4.1 vision). We train on roughly 100 tasks per world beyond the SFT data, for two epochs. On a held-out set of 25 tasks per world, the judged score rises from 58% to 69%. The teacher taught it what to do; the world taught it when to stop, when to recover, and when to give up.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="849" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-scaled.png" alt="Two line charts of reinforcement-learning training on five worlds. Left, the
+held-out validation judge score (25 tasks per world) rises from 58.8% to a peak of
+69.6% and settles near 68% over the training steps. Right, the critic's mean score,
+the RL reward signal, with its five-step moving average trends upward from
+about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-300x99.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-1024x340.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-768x255.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-1536x509.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-2048x679.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-13-rl-training-240x80.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 13: Reinforcement learning on five worlds, over twoepochs. Left: the held-out judge score (25 tasks per world) climbs from 58% to 69%. Right: the critic&#8217;s mean score, the RL reward signal, trends up through training. The reward sums a trajectory reward from our database-grounded verifier (LLM judge GPT-4.1) and a dense per-step reward from a multimodal judge (GPT-4.1 vision).</figcaption></figure>
+
+
+
+<h2 id="where-this-leaves-us" class="wp-block-heading">Where this leaves us</h2>
+
+
+
+<p class="wp-block-paragraph">A world is no longer a fixed benchmark you score against; it is a training surface you keep improving, where the same graded run that measures the model also sharpens the world that judged it. Deep worlds transferred where shallow clones pulled capability down; one widget rebuilt in a hundred forms taught a skill that reached the live web; co-evolution moved both sides at once; and reinforcement against the same worlds pushed the agent past imitation, lifting held-out performance and trimming wasted steps.</p>
+
+
+
+<p class="wp-block-paragraph">The durable advantage is not the largest inventory of synthetic websites. It is a factory that diagnoses what an agent cannot yet do, builds or repairs the world that teaches it, protects the capability already earned, and runs the loop again. The next turns scale three fronts at once. First, more deep worlds for the closed domains public benchmarks cannot reach. Second, more capability worlds for the interactions models keep failing. And, above all, more reinforcement against those grounded worlds: longer runs, harder tasks, and wider reward exploration that push the agent’s behavior and its performance further than imitation ever could. The levers compound: deeper and broader worlds make stronger RL, stronger RL boosts the agent, and every round exposes the next capability to build.</p>
+
+
+
+<p class="wp-block-paragraph">We are releasing a piece of the factory: environment code and graded test tasks for four worlds, two deep domains (EchoStay and EchoForge) and two capability worlds (the datepicker and nested-filter, each with an in-distribution and a held-out split). Every task carries the database-grounded verifier that scores it, so the same worlds can benchmark an agent or train one. Code and tasks: https://aka.ms/echoverse</p>
+
+
+
+<p class="wp-block-paragraph">When worlds grow at the frontier of an agent’s competence, evaluation stops being a scoreboard and becomes the engine that decides what to build next: worlds that keep learning alongside the agents they train.</p>
+
+
+
+<h2 id="acknowledgments" class="wp-block-heading">Acknowledgments</h2>
+
+
+
+<p class="wp-block-paragraph">We thank Alexey Taymanov, Andrew Zhao, Aravind Rajeswaran, Corby Rosset, Hussein Mozannar, Luiz Do Valle, Sara Abdali, Spencer Whitehead, Vibhav Vineet, Zach Nussbaum, Yadong Lu, Pashmina Cameron, Rafah Hosn, and Chinmay Karkar for their valuable help, insightful discussions, and continued support throughout this work.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/">Echoverse: Deep, evolving environments for computer-use agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Hero-video.mp4" length="84092742" type="video/mp4" />
+
+			</item>
+		<item>
+		<title>EvoLib: Turning experience into evolving knowledge</title>
+		<link>https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/</link>
+		
+		<dc:creator><![CDATA[Weijia Xu, Alessandro Sordoni, Zelalem Gero, Michel Galley, Eric Yuan, Jianfeng Gao]]></dc:creator>
+		<pubDate>Thu, 30 Jul 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1179889</guid>
+
+					<description><![CDATA[<p>LLMs do not get smarter just by remembering more. EvoLib turns experience into evolving knowledge, taking reusable skills and insights that help models learn and adapt across tasks long after deployment. </p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/">EvoLib: Turning experience into evolving knowledge</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Figure 1. EvoLib transforms raw experiences into reusable skills and insights, then continually evolves them through consolidation and dynamic weighting. " class="wp-image-1180176" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Self-supervised.</strong> EvoLib enables large language models to learn from their own experience during inference, without requiring ground-truth labels or external feedback.</li>
+
+
+
+<li><strong>From experience to knowledge.</strong> EvoLib transforms past attempts into reusable skills and reflective insights that can be applied to future tasks.</li>
+
+
+
+<li><strong>Knowledge that evolves.</strong> Useful skills and insights are continually refined, consolidated, and reweighted, turning instance-specific observations into increasingly general knowledge over time.</li>
+
+
+
+<li><strong>Learning that transfers across tasks.</strong> By turning experience into reusable knowledge, EvoLib helps AI models learn from past successes and failures and evolve the knowledge that has the highest potential on improving future performance.</li>
+
+
+
+<li><strong>Built for today&#8217;s AI models.</strong> As EvoLib does not require model updates, it can be applied to any black-box language models and AI systems deployed through APIs.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Memory has become an important AI agent capability: the ability to store and retrieve past experiences. But memory alone is not learning. A collection of past conversations, reasoning traces, or action histories can quickly grow into a vast archive of experiences, making it difficult to identify the most relevant knowledge for a new task—let alone refine and evolve this knowledge to improve performance over time.</p>
+
+
+
+<p class="wp-block-paragraph">Humans learn differently. We do not remember every detail of our past experiences. Instead, we remember what matters: strategies that work, mistakes to avoid, and skills that transfer across situations. Over time, these lessons are refined into increasingly general and reusable knowledge. This ability to transform experience into transferable, evolving knowledge is one of the foundations of human learning.</p>
+
+
+
+<p class="wp-block-paragraph">In our recent paper, <a href="https://www.microsoft.com/en-us/research/publication/test-time-learning-with-an-evolving-library/" type="link" id="https://www.microsoft.com/en-us/research/publication/test-time-learning-with-an-evolving-library/"><em>Test-Time Learning with an Evolving Library</em></a>, we explore how AI systems can learn from experience in a similar way. We introduce <strong>EvoLib</strong>, a framework that transforms raw experience into an evolving library of knowledge. Rather than treating memory as a growing archive of past experiences, EvoLib extracts reusable knowledge from those experiences and continually refines it as new experiences arrive. Through the evolution of library, skills become more general, insights become more accurate, and downstream performance gets improved consistently over time. In this way, AI agents can continually learn from accumulating experience without updating the underlying model.</p>
+
+
+
+<h2 id="how-evolib-works" class="wp-block-heading">How EvoLib Works</h2>
+
+
+
+<p class="wp-block-paragraph">Unlike traditional AI memory systems that store raw experiences as static information, EvoLib is built around the idea of <strong>evolving knowledge</strong>. In EvoLib, a unit of knowledge can take the form of a reusable skill distilled from a successful solution or a reflective insight learned from mistakes. Rather than simply accumulating more memories over time, EvoLib continually refines, consolidates and reweights existing knowledge as new experiences arrive. Concretely, we design the following mechanisms around knowledge evolution:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Consolidation.</strong> As new knowledge is extracted from recent experience, EvoLib retrieves similar knowledge from the library and tries to consolidate it with the new knowledge into a more general and reusable one. This allows knowledge to move beyond individual experiences and become applicable across tasks.</li>
+
+
+
+<li><strong>Weighting mechanism.</strong> EvoLib continually updates the importance of each knowledge unit based not only on its immediate utility on the current task, but also on how much it contributes to generating useful knowledge on future tasks. Over time, knowledge with the greatest long-term impact naturally becomes more prominent in the library.</li>
+</ul>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="899" height="661" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image.gif" alt="EvoLib transforms raw experiences into reusable skills and insights, then continually evolves them through consolidation and dynamic weighting." class="wp-image-1179891"/><figcaption class="wp-element-caption">Figure 1. EvoLib transforms raw experiences into reusable skills and insights, then continually evolves them through consolidation and dynamic weighting.</figcaption></figure>
+
+
+
+<h2 id="key-results" class="wp-block-heading">Key Results</h2>
+
+
+
+<p class="wp-block-paragraph">To evaluate EvoLib, we tested it across a diverse set of challenging tasks with different types of experiences and demands for learning:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Solving mathematical reasoning problems</li>
+
+
+
+<li>Writing code to perform the given tasks under efficiency constraints</li>
+
+
+
+<li>Making decisions to explore and interact with an environment to perform long-horizon tasks</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Across these tasks, EvoLib consistently outperforms the top retrieval-based memory approaches and other abstract memory mechanisms with more efficient token usage.</p>
+
+
+
+<p class="wp-block-paragraph">We also evaluated how effectively EvoLib converts test-time compute into performance gains through continually evolving knowledge. Figure 2 compares EvoLib against both compute scaling methods that perform each task in isolation and strong memory-based learning approaches. Each curve shows how performance improves as the amount of test-time compute increases.</p>
+
+
+
+<p class="wp-block-paragraph">Across all three benchmarks, EvoLib achieves higher performance throughout most of the compute range and improves performance more rapidly with increasing compute.</p>
+
+
+
+<p class="wp-block-paragraph">These results suggest that the key to better learning may not simply be storing more memories or spending more compute. Instead, the greatest gains come from transforming experience into reusable knowledge that can be continually refined and applied across tasks.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1696" height="375" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2.jpg" alt="Across all tasks, EvoLib converts test-time compute into performance gains more efficiently than existing methods. " class="wp-image-1179901" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2.jpg 1696w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-300x66.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-1024x226.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-768x170.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-1536x340.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-240x53.jpg 240w" sizes="auto, (max-width: 1696px) 100vw, 1696px" /><figcaption class="wp-element-caption">Figure 2. Across all tasks, EvoLib converts test-time compute into performance gains more effectively than existing methods. </figcaption></figure>
+
+
+
+<h2 id="robustness-to-random-task-order" class="wp-block-heading">Robustness to random task order</h2>
+
+
+
+<p class="wp-block-paragraph">A natural question is whether such learning depends heavily on the order in which tasks are encountered. In the real world, an AI system may face diverse types of tasks in arbitrary order, and a useful learning framework should be robust to the randomness in task order. To evaluate this, we measured the task performance on the same set of heterogeneous tasks but with different task orders. We found that EvoLib consistently improves over existing memory-based learning approaches and maintains stable performance across different orderings. This indicates that EvoLib can continually learn from diverse tasks even when they are interleaved, suggesting its practical advantage in real-world scenarios where an agent must handle and learn from a mixed stream of heterogeneous user requests without relying on a structured curriculum.</p>
+
+
+
+<p class="wp-block-paragraph">As AI systems take on longer-running and more complex tasks, learning from experience will become increasingly important. The future of AI may depend not only on larger models and more computation, but also on mechanisms that allow systems to continually accumulate, refine, and reuse knowledge.</p>
+
+
+
+<p class="wp-block-paragraph">EvoLib is one step toward that vision. By transforming experience into evolving knowledge, it enables AI systems to continually improve and adapt after deployment. Rather than repeatedly starting from scratch, future AI systems may be able to build upon an evolving library of reusable skills and insights, much like humans do.</p>
+
+
+
+<p class="wp-block-paragraph">Code and experiment results are available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/EvoLib" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> to support future research on memory and knowledge evolution in AI systems.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/">EvoLib: Turning experience into evolving knowledge</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Verifying Rust cryptography in SymCrypt, from standards to code</title>
 		<link>https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/</link>
 		
@@ -36,7 +551,7 @@
 
 
 
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Diagram showing the process of verifying cryptographic code. An algorithm from a standard is converted into a formal specification, while Rust code is converted into a code model. The specification and code model are then compared through proof and verification steps." class="wp-image-1178491" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Diagram showing the process of verifying cryptographic code. An algorithm from a standard is converted into a formal specification, while Rust code is converted into a code model. The specification and code model are then compared through proof and verification steps." class="wp-image-1178491" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/RustSymCrypt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -101,7 +616,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="847" height="489" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1.png" alt="Agents (stochastic, in blue) and tools (algorithmic, in green) for software verification. Human effort focuses on reviewing formalization of standards and main properties. Agents write proofs and intermediate properties. Compilation, code extraction, and proof verification are deterministic, not agentic." class="wp-image-1178356" style="width:667px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1.png 847w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-300x173.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-768x443.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-240x139.png 240w" sizes="(max-width: 847px) 100vw, 847px" /><figcaption class="wp-element-caption">Figure 1. Agents (stochastic, in blue) and tools (algorithmic, in green) for software verification. Human effort focuses on reviewing formalization of standards and main properties. Agents write proofs and intermediate properties. Compilation, code extraction, and proof verification are deterministic, not agentic.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="847" height="489" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1.png" alt="Agents (stochastic, in blue) and tools (algorithmic, in green) for software verification. Human effort focuses on reviewing formalization of standards and main properties. Agents write proofs and intermediate properties. Compilation, code extraction, and proof verification are deterministic, not agentic." class="wp-image-1178356" style="width:667px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1.png 847w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-300x173.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-768x443.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image-1-240x139.png 240w" sizes="auto, (max-width: 847px) 100vw, 847px" /><figcaption class="wp-element-caption">Figure 1. Agents (stochastic, in blue) and tools (algorithmic, in green) for software verification. Human effort focuses on reviewing formalization of standards and main properties. Agents write proofs and intermediate properties. Compilation, code extraction, and proof verification are deterministic, not agentic.</figcaption></figure>
 
 
 
@@ -243,7 +758,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1048" height="585" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt.png" alt="Screenshot of a verified formal specification for the symcrust::mlkem::ntt function. The page shows a green “Verified” badge, links to the Lean model and source code, and a specification stating the mathematical conditions the NTT implementation must satisfy." class="wp-image-1178444" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt.png 1048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-300x167.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-240x134.png 240w" sizes="(max-width: 1048px) 100vw, 1048px" /><figcaption class="wp-element-caption">Figure 2. Dashboard page for the theorem that shows the Rust function mlkem.ntt correctly implements the NTT specified in the NIST standard.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1048" height="585" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt.png" alt="Screenshot of a verified formal specification for the symcrust::mlkem::ntt function. The page shows a green “Verified” badge, links to the Lean model and source code, and a specification stating the mathematical conditions the NTT implementation must satisfy." class="wp-image-1178444" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt.png 1048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-300x167.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/FIG3_SymCrypt-240x134.png 240w" sizes="auto, (max-width: 1048px) 100vw, 1048px" /><figcaption class="wp-element-caption">Figure 2. Dashboard page for the theorem that shows the Rust function mlkem.ntt correctly implements the NTT specified in the NIST standard.</figcaption></figure>
 
 
 
@@ -394,30 +909,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -808,30 +1320,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -984,30 +1496,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1145,7 +1657,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1154,20 +1666,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -1314,30 +1826,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1531,30 +2040,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1579,284 +2088,6 @@
 <div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" target="_blank" rel="noreferrer noopener">View Ire&#8217;s system output report</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/">Ire identifies another LOTUSLITE specimen</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Data Formulator 0.7: AI-powered data analytics for enterprise data</title>
-		<link>https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/</link>
-		
-		<dc:creator><![CDATA[Chenglong Wang, Scott Tsukamaki, Michel Galley, Jianfeng Gao]]></dc:creator>
-		<pubDate>Thu, 28 May 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1173479</guid>
-
-					<description><![CDATA[<p>Data Formulator introduces AI-powered analytics for enterprise data workflows. Data teams can easily bring enterprise data into an AI-ready workspace where users can explore, analyze, and visualize data with AI agents to turn raw data into actionable insights.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/">Data Formulator 0.7: AI-powered data analytics for enterprise data</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three minimalist white line icons on a textured blue‑green gradient background: a rising bar chart on the left, a central hub‑and‑spoke network diagram in the middle, and a checkmark inside a circle on the right." class="wp-image-1173551" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/DataFormulator-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Data Formulator 0.7 is an open-source AI-powered system for enterprise data analytics that combines data connectivity, agent-guided exploration, and visualization refinement in a shared workspace.</li>
-
-
-
-<li>It includes a Data Connectors feature, which supports governed, reusable connections across databases, warehouses, BI systems, object stores, and local files, reducing integration work for platform teams.</li>
-
-
-
-<li>Context-aware agents help users prepare data, explore analyses, generate visualizations, and navigate long-running and branching analytical workflows.</li>
-
-
-
-<li>An interactive, multimodal interface allows teams to iteratively explore and refine analyses across fragmented data sources, with no SQL or programming expertise required.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Enterprise teams increasingly rely on AI systems for analytics, but enterprise data workflows are often fragmented across storage systems and tools. Before analysis can begin, teams often need to establish governed connections, prepare metadata, manage permissions, and build workflows for combining and reshaping data across multiple systems.</p>
-
-
-
-<p class="wp-block-paragraph">Beyond data connection, analysis itself remains challenging for analysts and domain experts, many of whom lack deep coding expertise. They frequently need to compute new metrics, compare different ways of organizing data, inspect intermediate outputs, and refine visualizations as needs evolve. These workflows are difficult to reproduce inside isolated chat interactions that lack persistent access to enterprise data, workflow history, and visualization context.</p>
-
-
-
-<p class="wp-block-paragraph">Our new release, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener noreferrer">Data Formulator 0.7<span class="sr-only"> (opens in new tab)</span></a>, is designed to address these challenges. It is an open-source AI-powered data analysis system that connects fragmented enterprise data and iterative analytical workflows. It provides a lightweight way to connect across a variety of data sources, context-aware agents that assist with data preparation, exploration, and visualization, and an interactive workspace where users can iteratively refine and share their analyses.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
-				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="connecting-enterprise-data-with-data-connectors">Connecting enterprise data with Data Connectors</h2>
-
-
-
-<p class="wp-block-paragraph">Data Formulator helps teams bring enterprise data into an AI-ready workspace without needing to rebuild the same connections for every source of data. The Data Connectors feature supports authentication, persistent connections, previews, metadata, and a unified workspace model across databases, warehouses, BI systems, object stores, and local files. This reduces integration work for platform teams and allows users to work from centrally managed, reusable data connections rather than relying on repeated manual file uploads, as shown in Figure 1. </p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1059" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg" alt="Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data." class="wp-image-1173869" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-300x124.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1024x424.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-768x318.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-1536x636.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-2048x848.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-1_New-240x99.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Data Connectors provide persistent connections between enterprise data sources and Data Formulator, allowing analysts and AI agents to load, query, and visualize shared data.</figcaption></figure>
-
-
-
-<h2 class="wp-block-heading" id="context-aware-agents-for-data-analysis">Context-aware agents for data analysis</h2>
-
-
-
-<p class="wp-block-paragraph">Context-aware AI agents form the core of Data Formulator. Unlike a single prompt, Data Formulator gives agents access to the full analysis workspace, including connected data sources, loaded tables, prior charts, and the user&#8217;s objective. Agents reason and act through tools rather than text alone. In a single interaction, an agent can inspect data, write and run code in an isolated environment, generate chart specifications, and explain its results while showing intermediate steps.</p>
-
-
-
-<p class="wp-block-paragraph">When a request is ambiguous, the agent asks clarifying questions before proceeding. This allows agents to carry out more complex analytical workflows: aligning analyses with the user&#8217;s goal, preparing and transforming data, suggesting follow-up questions, generating tables and charts in batch, and creating verifiable, reproducible code for every result.</p>
-
-
-
-<h2 class="wp-block-heading" id="a-workspace-for-iterative-data-analysis">A workspace for iterative data analysis</h2>
-
-
-
-<p class="wp-block-paragraph">Data Formulator pairs these agents with a multimodal interface designed for open-ended analysis workflows. Users work with agents through the Data Thread, a structured chat that records every question, intermediate finding, and chart throughout the analysis process. Long sessions stay navigable: users can revisit earlier steps, branch into alternative analyses, and compare them side by side without losing context.</p>
-
-
-
-<p class="wp-block-paragraph">As illustrated in Figure 2, the interactive canvas complements Data Thread by allowing users to directly edit visualizations. When users shift from exploration to communication, they can refine charts directly on the canvas or describe changes in natural language and let the agent adjust labels, annotations, layout, color, and emphasis. Analysts can also generate reports and share their findings with others.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1440" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png" alt="Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side." class="wp-image-1173492" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1536x864.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-2048x1152.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1280x720.png 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/df-blog-figure-2-1920x1080.png 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. (Left) Data Thread allows users to interact with AI agents by asking questions, requesting data visualizations, and exploring follow-up analyses. Threads preserve the history of long analysis sessions, making it possible to revisit, reuse, and build on earlier work. (Right) The interactive canvas allows users to refine visualizations directly by adjusting settings, redesigning charts, and inspecting the underlying data and code side by side.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">View the Data Formulator demo <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://data-formulator.ai" target="_blank" rel="noopener noreferrer">here<span class="sr-only"> (opens in new tab)</span></a>, or explore the Data Formulator <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener noreferrer">GitHub repository<span class="sr-only"> (opens in new tab)</span></a>. Teams developing analytics workflows for enterprise data can use the project as a foundation for adapting these capabilities to their own systems and requirements.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/">Data Formulator 0.7: AI-powered data analytics for enterprise data</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Extending Human Intelligence Through AI</title>
-		<link>https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/</link>
-		
-		<dc:creator><![CDATA[Ken Archer, Harald Wiltsche]]></dc:creator>
-		<pubDate>Wed, 27 May 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/</guid>
-
-					<description><![CDATA[<p>Understanding AI as an extension of human intelligence—not a replacement for it—offers a more grounded path for building trustworthy AI systems.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/">Extending Human Intelligence Through AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Three icons (speech bubble, handshake, and interconnected circles) on a blue and green gradient background.  " class="wp-image-1172711" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ExtendingHIthroughAI-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Modern AI systems are powerful not because they replicate human intelligence, but because they&nbsp;presuppose it, by&nbsp;extending&nbsp;structures already present in human cognition and language.</li>
-
-
-
-<li>This perspective helps explain both AI’s remarkable capabilities and its recurring boundaries, including hallucinations and breakdowns in reasoning.</li>
-
-
-
-<li>This research argues that AI safety is a system-level challenge, shifting attention from “rogue AI” narratives toward harnessing engineering and governance.</li>
-
-
-
-<li>Understanding AI as an extension of human intelligence—not a replacement for it—offers a more grounded path for building trustworthy AI systems.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">AI&nbsp;systems today can write essays, generate code, summarize complex ideas, and carry on conversations with remarkable fluency. Yet those same systems still struggle with tasks humans find intuitive: reliably tracking objects through change, reasoning compositionally in unfamiliar situations, or distinguishing truth from plausible fiction. These contradictions have fueled polarized debates about AI.&nbsp;Some see current systems as early forms of human-like intelligence; others dismiss them as sophisticated autocomplete.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">In recent interdisciplinary work &#8211; including Adam Frank, Marcelo Gleiser, and Evan Thompson&#8217;s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.penguinrandomhouse.com/books/739505/the-blind-spot-by-adam-frank-marcelo-gleiser-and-evan-thompson/" target="_blank" rel="noopener noreferrer"><em>The Blind Spot</em><span class="sr-only"> (opens in new tab)</span></a> and DeepMind researcher Alexander Lerchner&#8217;s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://deepmind.google/research/publications/231971/" target="_blank" rel="noopener noreferrer"><em>The Abstraction Fallacy</em><span class="sr-only"> (opens in new tab)</span></a> &#8211; a different picture is emerging. Rather than asking whether AI systems are becoming intelligent in the human sense, these approaches ask a more basic question: What if AI systems work <em>because</em> they rely on structures that are rooted in human cognition? This shift in perspective, which draws on the phenomenology of Edmund Husserl, helps make sense of both the capabilities and the limits of modern AI. </p>
-
-
-
-<p class="wp-block-paragraph">In our recent paper,&nbsp;<a href="https://www.microsoft.com/en-us/research/publication/the-origins-of-artificial-intelligence-in-natural-intelligence/" target="_blank" rel="noreferrer noopener">The Origins of Artificial Intelligence in Natural Intelligence</a>, we argue that modern AI systems are best understood&nbsp;neither as human minds nor as trivial statistical tricks. Instead, they extend structures that originate in human cognition itself.&nbsp;Further&nbsp;drawing on the phenomenology&nbsp;of Husserl, the paper proposes that language already&nbsp;contains&nbsp;sedimented structures of human understanding&nbsp;—structures that AI systems learn to model and extend. This perspective helps explain both the capabilities and the boundaries of contemporary AI.&nbsp;&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Human perception is not simply passive reception of sensory data. We experience the world as stable things unfolding through change: a cup&nbsp;remains&nbsp;the same cup as we move around it; a melody&nbsp;remains&nbsp;recognizable even as individual notes pass away. Language&nbsp;emerges&nbsp;by expressing these stable structures in conceptual form. Words like “red,” “round,” or “larger than” articulate relationships that originate&nbsp;in&nbsp;lived&nbsp;experience.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Large language models learn statistical relationships within this linguistic world. They capture how concepts tend to relate across enormous bodies of human writing. This explains why AI systems can produce coherent responses across many domains. But it also explains why they&nbsp;hallucinate. Humans&nbsp;remain&nbsp;answerable to the world: experience continually corrects our expectations and beliefs. AI systems, by contrast, extend patterns within text itself. They can continue a line of reasoning with remarkable fluency, but they lack the lived engagement with the world that anchors meaning and truth.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="906" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px.png" alt="How AI extends human cognition | diagram" class="wp-image-1172363" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-300x194.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-1024x663.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-768x497.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/ai_extends_human_cognition@4x_1400px-240x155.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">AI Extends Human Cognition&nbsp;</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">This framework helps explain several recurring challenges in AI research. One is the “compositionality gap”—the tendency for language models to perform well on familiar reasoning patterns while failing when asked to combine concepts in genuinely novel ways. Research increasingly shows that larger models improve fluency and factual recall much faster than they improve true compositional reasoning. From our perspective, this is not simply an engineering limitation but a structural boundary: AI systems can extend patterns already sedimented in language, but they do not&nbsp;possess&nbsp;the world-directed understanding that allows humans to generate genuinely new conceptual relations.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">A similar pattern appears in multimodal systems that combine language and vision. These systems can often label images correctly while still failing at robust reasoning about objects and their parts. They learn correlations between visual patterns and language rather than perceiving stable objects unfolding through time in the way humans do. The result is systems that can appear impressively fluent while&nbsp;remaining surprisingly brittle outside familiar patterns.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">This perspective also&nbsp;reframes&nbsp;debates about AI safety. Public discussion often swings between fears of “rogue superintelligence” and claims that AI poses little meaningful risk. Our research suggests that both extremes misunderstand the nature of current systems. The most immediate risks arise not because AI possesses human-like intentions, but because it can extend patterns of reasoning without reflective responsibility to the world. Systems can generate persuasive but ungrounded outputs, automate flawed decisions at scale, or execute harmful actions if embedded in poorly governed environments.</p>
-
-
-
-<p class="wp-block-paragraph">This helps explain why AI safety is increasingly shifting from model safety to system safety. In practice, organizations already rely on layered safeguards—what the industry increasingly calls “harnesses”—to constrain,&nbsp;validate, and&nbsp;monitor&nbsp;AI behavior. Rather than temporary patches, our paper argues that these mechanisms reflect something fundamental about AI architecture itself:&nbsp;trustworthy behavior&nbsp;emerges&nbsp;from the work of builders of AI systems responsible for their behavior, a responsibility that cannot be delegated to or shared with models.</p>
-
-
-
-<p class="wp-block-paragraph">This interpretation aligns closely with how enterprises increasingly approach trustworthy AI deployment. Organizations need systems that can extend human intelligence while remaining governable, auditable, and aligned with human oversight. Understanding AI as a derived form of intelligence clarifies why layered governance, evaluation, and operational controls matter so deeply.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Forum</h2>
-				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<p class="wp-block-paragraph">Looking ahead, we believe phenomenology offers more than a critique of AI—it offers a framework for understanding its promise. AI systems reveal something profound about human cognition itself: that meaning can be formalized, extended, and scaled in powerful new ways.&nbsp;<s>&nbsp;</s>The central societal risk of AI thus turns out to be kicking away the ladder of its origins in human experience and cognition&nbsp;&#8211;&nbsp;misinterpreting&nbsp;AI as a rival&nbsp;intelligence&nbsp;that diminishes our humanity&nbsp;and thus, in turn, diminishes the&nbsp;true&nbsp;promise of AI itself.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">The question, then, is not whether AI will replace human intelligence. It is how we can responsibly build systems that extend human understanding while remaining grounded in the world from which that understanding arises. If we mistake AI systems for autonomous minds, we risk over-trusting them. If we dismiss them as trivial tricks, we risk overlooking one of the most important technological developments of our time. A more grounded interpretation recognizes both truths at once: AI is a genuine extension of human intelligence—and precisely because of that, humans remain responsible for how it is understood, governed, and used.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/">Extending Human Intelligence Through AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
