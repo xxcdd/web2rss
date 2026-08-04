@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 30 Jul 2026 17:58:23 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 03 Aug 2026 20:36:36 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,213 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0.2</generator>
 	<item>
+		<title>Orchard: An open framework for scalable agentic AI</title>
+		<link>https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/</link>
+		
+		<dc:creator><![CDATA[Baolin Peng, Wenlin Yao, Qianhui Wu, Hao Cheng, Jianfeng Gao]]></dc:creator>
+		<pubDate>Mon, 03 Aug 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false"></guid>
+
+					<description><![CDATA[<p>Orchard is an open-source framework for the research community to train and evaluate AI agents across task types. It reduces complexity while supporting strong performance from smaller models by enabling researchers to reuse the same infrastructure.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Orchard: An open framework for scalable agentic AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg" alt="Three Orchard framework components with benchmark results" class="wp-image-1180738" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Orchard is an open-source framework for scalable and cost-effective agentic AI research, built around Orchard Env, a reusable environment service for training and evaluating agents across task domains.</li>
+
+
+
+<li>The same Orchard infrastructure supports software-engineering, web-navigation, and personal-assistant agents, and can train them directly inside real deployment harnesses such as Codex, OpenClaw, and ZeroClaw—letting researchers reuse environments, data pipelines, and evaluation workflows across tasks.&nbsp;</li>
+
+
+
+<li>Orchard-SWE, Orchard-GUI, and Orchard-Claw demonstrate that relatively small open-weight models can achieve strong results on complex real-world tasks. For example, Orchard-SWE reaches 69.7% on SWE-bench Verified—73.0% with value-model reranking—using only about 3 billion active parameters, approaching frontier systems using more than 10 times larger models.&nbsp;</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Alongside the models and workflows, the project releases training data and evaluation methods intended to help the broader research community build and study open agentic systems.&nbsp;Artificial intelligence is rapidly moving beyond static question-answering toward autonomous agents that can plan, reason, and act across complex, multistep environments. These systems can fix bugs in complex codebases, navigate the web on a user&#8217;s behalf, and manage workflows involving calendars and email.&nbsp;&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">While there is excitement around agentic AI’s capabilities, the research community faces a persistent bottleneck. Building state-of-the-art agentic systems often requires proprietary infrastructure, including custom sandboxes, closed training pipelines, and proprietary datasets that most researchers and practitioners cannot access or reproduce.</p>
+
+
+
+<p class="wp-block-paragraph">To address this gap, we introduce <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/Orchard" target="_blank" rel="noopener noreferrer">Orchard<span class="sr-only"> (opens in new tab)</span></a>, an open-source framework for scalable agentic modeling. At the center of Orchard is Orchard Env, a lightweight, Kubernetes environment that provides reusable isolated components for running and building agents at scale—from collecting training data to reinforcement learning rollouts and evaluation.&nbsp;&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Unlike many existing frameworks, Orchard Env is designed to support different agent systems and task types without modification. The same service can support software-engineering agents, web-browsing agents, and personal-assistant agents across domains.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">To demonstrate this approach, we are releasing three domain-specific training recipes—<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/microsoft/Orchard" target="_blank" rel="noopener noreferrer">Orchard-SWE, Orchard-GUI, and Orchard-Claw.<span class="sr-only"> (opens in new tab)</span></a> We are also releasing the training data and evaluation methods used to build them.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+				
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="environment-layer-that-scales-across-types-of-tasks" class="wp-block-heading">Environment layer that scales across types of tasks</h2>
+
+
+
+<p class="wp-block-paragraph">The central idea behind Orchard is that the runtime environment should be a standalone, reusable service rather than infrastructure embedded inside a specific training framework. Orchard Env’s Kubernetes foundation enables it to create, manage, and remove thousands of isolated components in parallel.</p>
+
+
+
+<p class="wp-block-paragraph">The system is designed to work across tasks like coding, web browsing, using tools. It is also designed to work across different agent systems, along with stages of the training and evaluation process, including data distillation and reinforcement learning rollouts.</p>
+
+
+
+<p class="wp-block-paragraph">This flexibility makes Orchard practical at a research scale. Teams can introduce new benchmarks, agent systems, or training algorithms without rebuilding the underlying infrastructure from scratch.</p>
+
+
+
+<p class="wp-block-paragraph">Orchard also makes it possible to train agents inside any harness. Today’s most capable agents rarely run as a bare model. They operate through sophisticated harnesses—such as Claude Code, Codex, and OpenClaw—that manage multi-turn reasoning, tool use, and connections to external systems. Open training tools usually cannot handle these stateful, multi-process harnesses, forcing researchers to train on a simplified stand-in and then deploy in the real setting, which creates a mismatch. Orchard closes this gap: a lightweight proxy records the harness’s own model calls as training data while each rollout runs in its own container, so an agent can be trained end-to-end directly in the harness that it will be deployed with—OpenClaw, Codex, ZeroClaw, or others—and across several harnesses.</p>
+
+
+
+<h2 id="orchard-swe-advancing-open-source-software-engineering-agents" class="wp-block-heading">Orchard-SWE: Advancing open-source software engineering agents</h2>
+
+
+
+<p class="wp-block-paragraph">Software engineering is one of the most demanding settings for autonomous agents. It requires multi-step reasoning over real codebases, tool use, and the ability to recover from mistakes. Orchard-SWE is our training workflow for this domain. It is built using the Mini-SWE-Agent framework, designed to autonomously solve software engineering tasks, and evaluated on the widely used SWE-bench Verified benchmark, which tests a model’s ability to navigate, diagnose, and repair real-world codebases.</p>
+
+
+
+<p class="wp-block-paragraph">To train the system, we distilled 107,000 agent interactions from two advanced open-weight models (MiniMax-M2.5 and Qwen3.5-397B) covering a broad range of GitHub Issues. The training process uses credit-assignment supervised fine-tuning: rather than discarding attempts where the agent failed to fully resolve an issue, the system learns from the productive portions of those partial attempts, expanding the amount of useful training data available to the model.</p>
+
+
+
+<p class="wp-block-paragraph">Reinforcement learning comes next, but its feedback is sparse—an agent usually learns only whether its final patch passed or failed the hidden tests. We start with Balanced Adaptive Rollout, designed to make the most of these infrequent success signals, and then add two “dense reward” techniques for richer guidance: on-policy distillation, in which a stronger teacher model scores the agent’s decisions step by step, and a process reward model, in which an AI judge rewards sound problem-solving process—writing tests that reproduce the bug, verifying the fix, and checking that existing behavior still works—independent of whether the final tests passed.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Finally, we train a value model on past rollouts to rerank candidate solutions. Reinforcement learning generates many practice trajectories that are normally discarded; instead, trajectories from 20 prior experiments train a compact 4-billion-parameter value model that recognizes high-quality solutions, and at problem-solving time it scores several candidate answers and picks the best one. Together, these techniques take Orchard-SWE from a 61.4% baseline on SWE-bench Verified to 69.1% with Balanced Adaptive Rollout and 69.7% with the dense-reward techniques—a new state of the art among open-source models of comparable size (roughly 3 billion active parameters)—rising to 73% with value-model reranking, approaching frontier systems more than 10 times larger, as shown in Figure 1.&nbsp;</p>
+
+
+
+<h2 id="orchard-gui-a-lightweight-browser-agent-for-real-world-web-tasks" class="wp-block-heading">Orchard-GUI: A lightweight browser agent for real-world web tasks</h2>
+
+
+
+<p class="wp-block-paragraph">Web navigation presents a different set of challenges. Agents must interpret visual layouts, interact with dynamic interfaces, and complete open-ended tasks described only in natural language.</p>
+
+
+
+<p class="wp-block-paragraph">Orchard-GUI trains a 4-billion-parameter vision-language model as a browser agent using a relatively small amount of supervision: 400 distilled demonstrations combined with 2,200 open-ended training tasks. Despite this limited training data, the resulting model achieves strong results across several web-navigation benchmarks: 74.1% on WebVoyager, 67.0% on Online-Mind2Web, and 64.0% on DeepShop, for an average of 68.4%, as shown in Figure 1.</p>
+
+
+
+<figure class="wp-block-gallery aligncenter has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-full"><img decoding="async" width="683" height="602" data-id="1180745" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG-2_LEFT.png" alt="On the left: Orchard-SWE (30B-A3B) reaches 67.5% on SWE-bench Verified, matching frontier systems 10—30x larger. On the right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google." class="wp-image-1180745" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG-2_LEFT.png 683w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG-2_LEFT-300x264.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG-2_LEFT-204x180.png 204w" sizes="(max-width: 683px) 100vw, 683px" /></figure>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="688" height="746" data-id="1180747" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG2_RIGHT.png" alt="On the left: Orchard-SWE (30B-A3B) reaches 67.5% on SWE-bench Verified, matching frontier systems 10—30x larger. On the right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google." class="wp-image-1180747" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG2_RIGHT.png 688w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG2_RIGHT-277x300.png 277w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_NEW_FIG2_RIGHT-166x180.png 166w" sizes="(max-width: 688px) 100vw, 688px" /></figure>
+<figcaption class="blocks-gallery-caption wp-element-caption">Figure 1. Performance comparison. Left: Orchard-SWE (35B-A3B, ~3B active) reaches 69.7% on SWE-bench Verified—73% with value-model reranking—matching frontier systems more than 10x larger. Right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">These results place Orchard-GUI among the strongest open-source web agents to date while remaining competitive with larger proprietary models. The results also suggest that with the right training approach and environment, small open models can perform well on real-world web tasks.</p>
+
+
+
+<h2 id="orchard-claw-personal-assistant-agents-for-everyday-productivity" class="wp-block-heading">Orchard-Claw: Personal assistant agents for everyday productivity</h2>
+
+
+
+<p class="wp-block-paragraph">Many of the most impactful agentic applications involve everyday productivity tasks, including reading and drafting emails, managing calendars, searching for information, and coordinating across tools. Orchard-Claw focuses on personal-assistant tasks by training an agent on just 200 synthetic tasks. Evaluated on Claw-Eval, a benchmark covering realistic productivity workflows, it successfully completes 59.6% of tasks when given up to three attempts. That increases to 73.9% when paired with the stronger ZeroClaw agent system.</p>
+
+
+
+<p class="wp-block-paragraph">Because Orchard can train agents directly inside real deployment harnesses, Orchard-Claw is trained across several of them—including ReACT, ZeroClaw, OpenClaw, and Codex—rather than a single simplified loop. Training inside these real harnesses substantially improves the agent’s reliability; under the Codex harness, for example, its success rate rises from 18.6% for the untrained model to 51.5% after Orchard training.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1032" height="554" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png" alt="Diagram of the Orchard ecosystem showing three benchmark areas (Orchard‑SWE, Orchard‑GUI, Orchard‑Claw) with performance metrics, a modular training pipeline (data curation, curriculum design, SFT, RL, evaluation), and the core Orchard Env service enabling sandboxed execution, file I/O, networking, and APIs. The system supports heterogeneous environments (code, web, desktop, mobile, productivity tools) through a unified interface, emphasizing reusability across domains and efficiency features such as low latency, Kubernetes scaling, and reduced cost." class="wp-image-1180734" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png 1032w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-300x161.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-1024x550.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-768x412.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-710x380.png 710w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-240x129.png 240w" sizes="auto, (max-width: 1032px) 100vw, 1032px" /><figcaption class="wp-element-caption">Figure 2. Overview of the Orchard framework. Orchard Env (center) is a lightweight, Kubernetes-native environment service that provides shared capabilities such as sandbox management, command execution, file access, network controls, a REST API, and agent integration. It supports a range of task environments (bottom row) and is used across three task domains (top row): Orchard-SWE (software engineering), Orchard-GUI (browser navigation), and Orchard-Claw (AI personal assistant).</figcaption></figure>
+
+
+
+<h2 id="implications-and-the-road-ahead" class="wp-block-heading">Implications and the road ahead</h2>
+
+
+
+<p class="wp-block-paragraph">Orchard&#8217;s results reinforce a broader point: the environment layer matters. By making the underlying infrastructure open, lightweight, and reusable, Orchard lowers the cost of agentic AI research. Teams no longer need to build custom isolated environments from scratch or depend on proprietary cloud services. The same Orchard Env can be used to generate training data, run reinforcement learning rollouts, and evaluate final models without rebuilding the system each time.</p>
+
+
+
+<p class="wp-block-paragraph">Looking ahead, we see reusing training experience as a promising direction toward cumulative agent learning. Instead of discarding trajectories once a training run finishes, we treat them as persistent assets—for example, distilling them into reusable value models. This enables agentic experience to accumulate over time, allowing each new generation of agents to inherit and extend the knowledge acquired by previous ones, rather than starting from scratch.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The data efficiency demonstrated by Orchard-GUI suggests that larger-scale web agents could be trained without requiring large amounts of manually created training data.&nbsp;By releasing the complete Orchard stack, including the environment service, training pipelines, and training datasets, we hope to help the broader research community build more capable open agents more quickly.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Acknowledgements</strong></p>
+
+
+
+<p class="wp-block-paragraph">We thank the teams at Microsoft Research and collaborating institutions for their contributions to Orchard, as well as the open-source community whose benchmarks and tools made this research possible.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Orchard: An open framework for scalable agentic AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Echoverse: Deep, evolving environments for computer-use agents</title>
 		<link>https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/</link>
 		
@@ -36,7 +243,7 @@
 
 
 
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1.jpg" alt="Diagram of an iterative training loop where a model generates a world, the world produces a graded run, and feedback updates both the world and the model." class="wp-image-1180136" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1.jpg" alt="Diagram of an iterative training loop where a model generates a world, the world produces a graded run, and feedback updates both the world and the model." class="wp-image-1180136" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/PraxisWorld-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -105,7 +312,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="931" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-scaled.png" alt="Circular diagram of the learning loop. A model runs a task in a world and every rollout is graded against database ground truth. Two arrows branch from the graded run: surviving failures flow to model training data, while defects flow to repairs of the environment, its tasks, and its verifier, so model and world improve on the same run. " class="wp-image-1179929" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-1024x372.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-768x279.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-1536x558.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-2048x745.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-240x87.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1: The learning loop: every graded run is read twice. Surviving failures become model training data, and defects in the world, its tasks, or its verifier become repairs. The same graded run that measures the model also sharpens the world.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="931" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-scaled.png" alt="Circular diagram of the learning loop. A model runs a task in a world and every rollout is graded against database ground truth. Two arrows branch from the graded run: surviving failures flow to model training data, while defects flow to repairs of the environment, its tasks, and its verifier, so model and world improve on the same run. " class="wp-image-1179929" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-300x109.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-1024x372.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-768x279.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-1536x558.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-2048x745.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-01-learning-loop-240x87.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1: The learning loop: every graded run is read twice. Surviving failures become model training data, and defects in the world, its tasks, or its verifier become repairs. The same graded run that measures the model also sharpens the world.</figcaption></figure>
 
 
 
@@ -153,7 +360,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="970" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-scaled.png" alt="Two-phase pipeline diagram. Phase 1 expands seed scenarios into an app and repairs its database, backend, and frontend until it passes machine-checkable claims. Phase 2 regrounds tasks on live data and iterates a loop of analyzer and fixer agents, then re-scores against database ground truth until the pass rate plateaus. A dashed arrow shows many task-loop fixes landing back in the world." class="wp-image-1179930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-300x114.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-1024x388.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-768x291.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-1536x582.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-2048x776.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-240x91.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2:&nbsp;The environment factory: the two loops behind every world. Phase 1 expands a handful of seeds into an app, then repairs the database, backend, and frontend until it passes machine-checkable claims. Phase 2 regrounds tasks on live data, runs a panel of analyzer and layer-specific fixer agents, and re-scores against database ground truth until the pass rate plateaus. Many of those fixes land in the world itself (dashed arrow).&nbsp;</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="970" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-scaled.png" alt="Two-phase pipeline diagram. Phase 1 expands seed scenarios into an app and repairs its database, backend, and frontend until it passes machine-checkable claims. Phase 2 regrounds tasks on live data and iterates a loop of analyzer and fixer agents, then re-scores against database ground truth until the pass rate plateaus. A dashed arrow shows many task-loop fixes landing back in the world." class="wp-image-1179930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-300x114.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-1024x388.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-768x291.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-1536x582.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-2048x776.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/fig-02-pipeline-240x91.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2:&nbsp;The environment factory: the two loops behind every world. Phase 1 expands a handful of seeds into an app, then repairs the database, backend, and frontend until it passes machine-checkable claims. Phase 2 regrounds tasks on live data, runs a panel of analyzer and layer-specific fixer agents, and re-scores against database ground truth until the pass rate plateaus. Many of those fixes land in the world itself (dashed arrow).&nbsp;</figcaption></figure>
 
 
 
@@ -909,30 +1116,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1323,30 +1530,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1499,30 +1706,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1660,30 +1867,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1829,30 +2036,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1931,166 +2138,6 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 <div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.nature.com/articles/s41591-026-04477-5" target="_blank" rel="noreferrer noopener">Nature Publication</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/">Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Ire identifies another LOTUSLITE specimen</title>
-		<link>https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/</link>
-		
-		<dc:creator><![CDATA[Brian Caswell, Bob Fleck, Mike Walker, Sarah Smith]]></dc:creator>
-		<pubDate>Fri, 12 Jun 2026 20:30:48 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1175369</guid>
-
-					<description><![CDATA[<p>Project Ire examined a timely malware sample and determined its intent through reverse engineering—identifying LOTUSLITE characteristics even as most major EDR tools did not detect it.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/">Ire identifies another LOTUSLITE specimen</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1.jpg" alt="Project Ire | | three white line icons on an abstract purple background | greater than / less than icon, search icon, shield icon" class="wp-image-1175384" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/ProjectIre-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 class="wp-block-heading h3" id="at-a-glance">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Project Ire identifies a LOTUSLITE variant that shares TTPs (tools, tactics, procedures) with the public family but none of its indicators of compromise (IOC).&nbsp;</li>
-
-
-
-<li>The LLM-driven agent produces a function-by-function behavioral report on the sample without any user interaction to determine whether it is malicious.</li>
-
-
-
-<li>The binary names a threat actor in cleartext; the agent declines to attribute and instead focuses on statically analyzing the behaviors.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">We pointed <a href="https://www.microsoft.com/en-us/research/project/project-ire/" type="msr-project" id="1144806">Project Ire</a>, Microsoft&#8217;s autonomous malware-classification agent, at a malware sample—blind—and asked for a verdict. The sample is a variant of LOTUSLITE, a Windows DLL backdoor recently documented by Acronis. Our copy&#8217;s hash isn&#8217;t in their IOC list, and as of June 4, most major EDRs (CrowdStrike Falcon, SentinelOne, Sophos, Trellix, Palo Alto, ESET) still don&#8217;t flag it as malware. Ire produced a function-by-function behavioral report—install routine, C2 packet layout, command IDs, persistence mechanism, obfuscation—that lines up with Acronis&#8217;s published analysis. One decompiler-based run, no human priors.</p>
-
-
-
-<p class="wp-block-paragraph">This is what behavioral, agentic reverse engineering can achieve when signature matching and manual inspections fall short. Variants that share TTPs but not indicators of compromise (IOC) get caught instead of slipping past signature lists. Novel malware classification is a domain with no automatic validator, requiring in-depth investigation and holistic understanding of the software’s behaviors to surface and determine intent. Ire operates without context: no origin metadata, no telemetry, no analyst prompt. It invokes decompilers and binary-analysis tools, builds an auditable chain of evidence, and reaches a malicious-or-benign verdict.</p>
-
-
-
-<p class="wp-block-paragraph">Acronis&#8217;s Threat Research Unit (TRU) <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.acronis.com/en/tru/posts/lotuslite-targeted-espionage-leveraging-geopolitical-themes/" type="link" id="https://www.acronis.com/en/tru/posts/lotuslite-targeted-espionage-leveraging-geopolitical-themes/" target="_blank" rel="noopener noreferrer">published a writeup<span class="sr-only"> (opens in new tab)</span></a> on LOTUSLITE, a DLL backdoor delivered through a politically themed ZIP, sideloaded through a renamed Tencent KuGou launcher. They attribute it to Mustang Panda at moderate confidence based on infrastructure overlap and the loader/DLL split. Hunting on VirusTotal for samples whose behavior matched the report, we surfaced one whose SHA-256 doesn&#8217;t appear in Acronis&#8217;s IOC list.</p>
-
-
-
-<p class="wp-block-paragraph">The sample: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.virustotal.com/gui/file/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653" type="link" id="https://www.virustotal.com/gui/file/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653" target="_blank" rel="noopener noreferrer">47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653<span class="sr-only"> (opens in new tab)</span></a>. When we picked it up on May 28, VirusTotal showed 1 of 72 vendors flagging it.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1120" height="272" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial.png" alt="A screenshot of a 253 KB sample on VirusTotal taken on May 28, 2026 showing that only one of 72 vendors flagged this as malicious. " class="wp-image-1175443" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial.png 1120w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-300x73.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-1024x249.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-768x187.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_initial-240x58.png 240w" sizes="auto, (max-width: 1120px) 100vw, 1120px" /><figcaption class="wp-element-caption">Figure 1. File Sample 47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653 detection state on VirusTotal on May 28, 2026.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">A week later, that rose to 7 of 70. The cluster: Microsoft Trojan:Win32/Malgent!MSR, Kaspersky HEUR:Trojan-Dropper.Win32.Dorifel.gen, Rising Dropper.Dorifel!8.31E (CLOUD), Cynet (score 100), Elastic (moderate confidence), Kingsoft, TrendMicro-HouseCall. With Microsoft now flagging, VT&#8217;s popular threat label has shifted to dropper.dorifel / malgent. CrowdStrike Falcon, SentinelOne, Sophos, Trellix, Palo Alto, and ESET still miss it. VT lists the file type as pedll (PE DLL) and the filename as SmartPrintScreen.Print.</p>
-
-
-
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1265" height="760" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later.png" alt="A screenshot of the same 253KB sample on June 4, 2026 showing that 7 of 70 security vendors have identified this sample as malicious: Cynet, Kaspersky, Microsoft, TrendMicro-HouseCall, Elastic, Kingsoft, Rising, and Acronis (Static MIL). " class="wp-image-1175447" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later.png 1265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-300x180.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-1024x615.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-768x461.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/detections_later-240x144.png 240w" sizes="auto, (max-width: 1265px) 100vw, 1265px" /><figcaption class="wp-element-caption">Figure 2. File Sample 47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653 detection state on VirusTotal on June 4, 2026.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">We analyzed the sample with Ire, using only its decompiler-based tools through a single tool call. Ire&#8217;s verdict was “malicious”; you can review the complete report <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fproject-ire%2Fblob%2Fmain%2Freports%2F47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md&data=05%7C02%7Csmithsarah%40microsoft.com%7Cabbc5bb6be7e4ddca50b08dec7d70737%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639167923516521150%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=rr4gCWnGCAHITM4ARAtVXqu66UzUVqByMacq%2BsOmNQ8%3D&reserved=0" target="_blank" rel="noopener noreferrer">on Github<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 class="wp-block-heading" id="on-ire-s-calibration">On Ire&#8217;s calibration</h2>
-
-
-
-<p class="wp-block-paragraph">One noteworthy observation in <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" type="link" id="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" target="_blank" rel="noopener noreferrer">Ire’s report<span class="sr-only"> (opens in new tab)</span></a> is worth highlighting first. Ire flagged the nfapi::nf_unRegisterDriver and NetFilter naming as suspicious but explicitly did not claim active packet interception. The function in question writes the Run key; it does not install a driver. This is where LLM-driven analysis can go wrong: suggestive strings can steer the verdict. A function called nf_unRegisterDriver sounds like it does kernel-level work, and a less thorough agent would write that into the report. Downstream defenders would then chase a phantom, building detection rules for behavior that may or may not be there. Ire flagged the misleading name and considered the behavior as one piece of the evidence during its final adjudication of malice.</p>
-
-
-
-<h2 class="wp-block-heading" id="comparing-the-two-reports">Comparing the two reports</h2>
-
-
-
-<figure class="wp-block-table is-style-stripes"><table><thead><tr><th></th><th>Acronis specimen</th><th>Our sample</th></tr></thead><tbody><tr><td>Sample type</td><td>loader EXE + kugou.dll</td><td>the malicious DLL itself: AMPV.dll (VT type pedll)</td></tr><tr><td>Install dir</td><td>C:\ProgramData\Technology360NB\</td><td>C:\ProgramData\SmartPrint\</td></tr><tr><td>Installed exe</td><td>DataTechnology.exe</td><td>SmartPrintScreen.exe</td></tr><tr><td>Run-key value</td><td>Lite360</td><td>DadaBank</td></tr><tr><td>Marker arg</td><td>&#8211;DATA</td><td>&#8211;DaDaBar</td></tr><tr><td>C2 magic</td><td>0x8899AABB</td><td>0xB2EBCFDF</td></tr><tr><td>Lure</td><td>politically themed ZIP, Venezuela-themed launcher</td><td>fake &#8220;PDF corrupted&#8221; message box</td></tr><tr><td>Mustang Panda link</td><td>infra and TTP overlap, moderate confidence (Acronis&#8217;s call)</td><td>not independently assessed; binary contains the literal string BelievemeIamMustang-Panda</td></tr></tbody></table></figure>
-
-
-
-<p class="wp-block-paragraph">Comparing Ire’s output with Acronis’ report, the sample we analyzed matches the behavioral profile of the LOTUSLITE family of malware. Both show a loader/DLL split, HTTPS C2 carrying a custom binary protocol with a magic DWORD, interactive shell over pipes, directory enumeration, file primitives, chunked upload, HKCU persistence, and traffic camouflaged as Google and Microsoft services. The surface details differ—filenames, paths, magic value—but the underlying behaviors align. Ire correctly identified this sample as part of the same family of malware because of the behaviors it was able to identify through decompilation and reverse engineering, not on string match alone.</p>
-
-
-
-<p class="wp-block-paragraph">Because the sample is a DLL (pedll per VT), the sample&#8217;s install routine reads differently than it might look at first. The DLL copies two files into C:\ProgramData\SmartPrint\: the loader EXE that sideloaded it (its host process, obtained via GetModuleFileName(NULL), written as SmartPrintScreen.exe) and itself (AMPV.dll, the analyzed sample). The Run key points at the loader with &#8211;DaDaBar. On the next logon, the loader runs and sideloads AMPV.dll from the install path. This is the same Acronis-identified pattern but with different filenames.</p>
-
-
-
-<p class="wp-block-paragraph">This also explains the binary&#8217;s strange export surface. The DLL exports a long list of banking and QR-themed names (Query_Bank, BankSepah_Iran, BankToman_BMI, BankofChina, qrBankInit, JpgSymbolToBMP, and others), most of which resolve to a message box or ExitProcess. The shape suggests a hijacked banking/QR SDK shell, repurposed so the host EXE can call any one of those exports via GetProcAddress and reach the LOTUSLITE entry point. Acronis names theirs DataImporterMain. The Ire report does not surface a matching entry-point name, but it identifies that the behavioral shape is the same.</p>
-
-
-
-<p class="wp-block-paragraph">Acronis attributes the malware family to Mustang Panda at moderate confidence based on infrastructure and TTPs we don&#8217;t have access to, while our sample directly contains a literal actor-name string “BelievemeIamMustang-Panda” with no obfuscation. A string isn&#8217;t direct proof of authorship; it could be a developer artifact, a trophy, or a deliberate plant. While we are not making an attribution call, we note that the binary names the same actor that Acronis named through other means, and we leave the question open. Another consideration to make for this finding: a string like this can function as adversarial input to LLM-driven analysis, biasing the verdict.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
-		
-
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Azure AI Foundry Labs</h2>
-				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 class="wp-block-heading" id="why-this-matters">Why this matters</h2>
-
-
-
-<p class="wp-block-paragraph">Ire statically reverse-engineers binaries and identifies the behavior from the function to the system level to describe what the software does and determine a verdict. The verdict of this sample came from a single Ire run because of the specific detail Ire was able to surface: function roles, packet layout, command IDs, persistence registry keys, and decoy strings. Ire never named LOTUSLITE in its report or chain of evidence. The family mapping is ours, after the fact, comparing Ire’s report against Acronis report. Ire described the behavior precisely enough to make the mapping straightforward of this sample to LOTUSLITE.</p>
-
-
-
-<p class="wp-block-paragraph">Stay up to date on the latest findings and other interesting sample detections from Project Ire by following along on our <a href="https://www.microsoft.com/en-us/research/project/project-ire/" type="msr-project" id="1144806">project page</a>.</p>
-
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/project-ire/blob/main/reports/47e51e82229e80a387c3cb100d39d3705e6360bbf9bfa1601dbc484e8d02e653.md" target="_blank" rel="noreferrer noopener">View Ire&#8217;s system output report</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/">Ire identifies another LOTUSLITE specimen</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
