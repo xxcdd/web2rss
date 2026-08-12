@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 04 Aug 2026 15:36:43 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 11 Aug 2026 17:00:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,373 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0.3</generator>
 	<item>
+		<title>Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</title>
+		<link>https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/</link>
+		
+		<dc:creator><![CDATA[Mercy Ranjit, Nikhilesh E, Dr. Abhyuday Kumara  Swamy, Tanuja Ganu]]></dc:creator>
+		<pubDate>Tue, 11 Aug 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/</guid>
+
+					<description><![CDATA[<p> Radiology AI is evolving beyond report generation. CARE-X explores a unified approach that combines flexible reasoning, calibrated predictions, and measurement-based tools for chest X-ray interpretation.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Diagram of a tool-augmented radiology vision-language model (VLM) workflow. An orchestrator routes a user’s image query to a VLM, which performs image analysis, calls measurement tools to calculate cardiac and thoracic widths and the cardiothoracic ratio (CTR), and returns diagnostic metrics with visual overlays." class="wp-image-1181346" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+
+
+
+<p class="wp-block-paragraph">Research Note: CARE-X is a research model and not a Microsoft product offering or medical device. It has not been cleared or approved by any regulatory authority and is not intended for clinical diagnosis, screening, or patient care. The results described below are retrospective research findings and do not establish the safety, effectiveness, or suitability of CARE-X for any clinical use. References to potential workflows describe areas for future research, not currently available capabilities or recommended uses.&nbsp;</p>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>The challenge: Chest X-ray interpretation spans diverse tasks that require both expressive report generation and calibrated diagnostic predictions.</li>
+
+
+
+<li>CARE-X is a unified chest X-ray VLM for diverse clinical interpretation tasks. It combines generation and structured prediction to provide both free-text reasoning and deterministic outputs.</li>
+
+
+
+<li>CARE-X uses reinforcement learning (DAPO) to reward clinical correctness in a multi-task setting.</li>
+
+
+
+<li>In a separate research experiment from CARE-X, we paired Qwen3-VL-4B-Instruct with deterministic measurement tools to evaluate whether direct computation could improve performance on measurement-dependent conditions compared with visual approximation alone.&nbsp;</li>
+
+
+
+<li>Validated on real-world Indian clinical data from Narayana Health, including rare ICU pathologies and CT-confirmed enlargement conditions.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<h2 id="what-radiologists-need-task-diversity-flexibility-and-clinical-fidelity" class="wp-block-heading">What radiologists need: Task diversity, flexibility, and clinical fidelity</h2>
+
+
+
+<p class="wp-block-paragraph">A clinically useful radiology AI system must support a wide range of tasks, adapt to different workflows, and produce outputs that are medically accurate.</p>
+
+
+
+<p class="wp-block-paragraph">Radiologists and other clinicians use chest X-rays for many different purposes. A clinically useful AI system must be able to support that range of tasks. It may be asked to generate detailed findings and concise impressions for a report, answer questions about the presence, absence, or location of a finding, identify medical devices and assess their placement, or pinpoint exactly where an abnormality appears in an image.</p>
+
+
+
+<p class="wp-block-paragraph">These tasks also require different kinds of outputs, from narrative reports to calibrated diagnostic scores. And above all, they require clinical accuracy. A report could ostensibly be perfectly written yet clinically wrong if it misses a finding, reverses a negation, or misidentifies a location. Certain findings could be trivial in one context and vital to identify in another.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/publication/care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">CARE-X</a> was developed as a research model to explore how a unified approach can address these diverse demands. The system combines generative and discriminative capabilities, clinically aligned optimization, and tool-based reasoning to support a broader range of radiology workflows while maintaining clinical fidelity.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="gaps-in-current-radiology-vision-language-models" class="wp-block-heading">Gaps in current radiology vision-language models</h2>
+
+
+
+<p class="wp-block-paragraph">Despite the impressive task breadth of recent models, critical gaps remain between what radiologists need and what current systems deliver:</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li><strong>No calibrated confidence for diagnostic decisions.</strong> Generative VLMs predict diagnoses as free text, but they typically do not provide calibrated confidence scores. In clinical settings, confidence matters. Clinicians cannot tune sensitivity–specificity trade-offs across clinical contexts—an important requirement for real-world deployment. Discriminative models provide these properties but lack the flexibility of open-ended generation.</li>
+
+
+
+<li><strong>Cross-entropy loss does not optimize clinical fidelity.</strong> Standard training methods treat all token-level errors similarly, regardless of their clinical consequences. A coordinate mistake may be penalized no more than a harmless wording change. A &#8220;yes&#8221; can be flipped to a &#8220;no&#8221; even though the clinical meaning is completely different. Missing a life-threatening finding may carry the same training penalty as omitting a minor observation. As a result, models are not explicitly optimized for what matters most in patient care.</li>
+
+
+
+<li><strong>No capability for measurement-dependent findings. </strong>Some radiological findings require more than visual recognition. Radiological signs such as cardiomegaly, mediastinal widening etc. depend on precise measurements. For example, a model may correctly recognize whether a chest radiograph was acquired using an AP or PA view. But determining cardiomegaly requires measuring the cardiac and thoracic widths and determining the cardiothoracic ratio. Those quantities should be measured and computed rather than visually approximated while considering variables such as type of view, exposure, rotation of the patient etc.&nbsp;</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">Together, these gaps call for more than a fluent generative model. The system must combine broad task coverage, structured predictions, clinically aligned optimization, and quantitative tools where direct measurement is required.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 id="care-x-one-model-flexible-outputs" class="wp-block-heading">CARE-X: One model, flexible outputs</h2>
+
+
+
+<p class="wp-block-paragraph">CARE-X brings these diverse interpretation capabilities into one model, using generative or dual inference according to the needs of each task:</p>
+
+
+
+<figure class="wp-block-table is-style-stripes"><table class="has-fixed-layout"><thead><tr><th>Task type</th><th>What CARE-X does</th><th>Inference mode</th></tr></thead><tbody><tr><td>Report generation: Findings</td><td>Produces the detailed findings section</td><td>Generative</td></tr><tr><td>Report generation: Impression</td><td>Produces the concise diagnostic impression</td><td>Generative</td></tr><tr><td>Presence and negation assessment</td><td>Determines whether a pathology is present or absent and handles negation</td><td>Dual: generative + auxiliary head</td></tr><tr><td>Disease location assessment</td><td>Identifies where an abnormality appears</td><td>Generative</td></tr><tr><td>Fine-grained multilabel disease classification</td><td>Categorizes abnormalities across multiple labels</td><td>Generative</td></tr><tr><td>Multilabel tubes and lines classification</td><td>Identifies visible medical devices</td><td>Generative</td></tr><tr><td>Abnormal placement detection of tubes and lines</td><td>Determines whether a device is positioned incorrectly</td><td>Dual: generative + auxiliary head</td></tr><tr><td>Abnormality phrase grounding</td><td>Localizes a described pathological finding</td><td>Dual: generative + auxiliary head</td></tr><tr><td>Anatomical grounding</td><td>Localizes 29 anatomical regions</td><td>Dual: generative + auxiliary head</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1: CARE-X task coverage and inference modes</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Dual inference</strong> means that a single forward pass produces both an autoregressive response and a structured auxiliary-head prediction with a confidence score. This provides free-text flexibility alongside threshold-adjustable outputs for tasks where operating-point control matters.</p>
+
+
+
+<h2 id="the-care-x-architecture-and-training-approach" class="wp-block-heading">The CARE-X architecture and training approach</h2>
+
+
+
+<p class="wp-block-paragraph">CARE-X is built on a SigLIP2-so400M vision encoder and a Phi-4-mini-instruct (3.8B) language model connected through a lightweight adapter. To support both free-text generation and structured clinical predictions, the model augments the shared language backbone with <strong>task-specific auxiliary heads</strong> for classification and visual grounding. These heads provide calibrated diagnostic predictions and spatial localization signals while sharing representations with the generative language model. Rather than being trained independently, they are co-trained with the language-modeling objective, allowing structured supervision to enrich shared representations and improve generative performance on the same tasks.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Training.</strong> CARE-X uses a three-stage supervised fine-tuning pipeline (vision pre-training, adapter/head training, and LoRA adaptation) followed by DAPO-based reinforcement learning. DAPO optimizes task-specific rewards for clinical reporting, diagnostic accuracy, and spatial grounding quality.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2362" height="1824" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated.png" alt="CARE-X architecture with a SigLIP2 vision encoder, Phi-4-mini backbone, classification and grounding auxiliary heads, language modeling, and DAPO alignment for report generation, VQA, and grounding." class="wp-image-1181260" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated.png 2362w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-300x232.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-1024x791.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-768x593.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-1536x1186.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-2048x1582.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-233x180.png 233w" sizes="(max-width: 2362px) 100vw, 2362px" /><figcaption class="wp-element-caption"><em>Figure 1. The CARE-X model. (Left) Supervised fine-tuning with task-specific heads — classification, grounding, and language modeling — sharing the same Phi-4-mini-instruct backbone. The classification head outputs calibrated P(Yes)/P(No) scores; the grounding head outputs bounding box coordinate with confidence; the language modeling head generates free-text responses. (Right) DAPO with task-specific rewards for multi-task reinforcement alignment across report generation, grounding, and VQA.</em>&nbsp;</figcaption></figure>
+
+
+
+<h2 id="auxiliary-supervision-structured-prediction-strengthens-generation" class="wp-block-heading">Auxiliary supervision: Structured prediction strengthens generation</h2>
+
+
+
+<p class="wp-block-paragraph">A central finding of this work is that co-training discriminative auxiliary heads with a generative VLM enriches shared representations, leading to stronger generative performance on the same tasks while also providing calibrated structured predictions.</p>
+
+
+
+<h3 id="grounding-improvements" class="wp-block-heading">Grounding improvements</h3>
+
+
+
+<p class="wp-block-paragraph">The auxiliary grounding head consistently improves localization over generative decoding. On anatomical grounding (Chest ImaGenome), mAP and mIoU increase by +28.2 pp and +6.2 pp, while the largest gains occur on phrase grounding (PadChest), with +24.6 pp mAP and +14.1 pp mIoU. The composite spatial loss enhances geometric precision in shared representations.</p>
+
+
+
+<h3 id="dapo-bridges-the-gap-to-dedicated-detection-heads" class="wp-block-heading">DAPO bridges the gap to dedicated detection heads</h3>
+
+
+
+<p class="wp-block-paragraph">DAPO-trained generative output approaches or exceeds the SFT auxiliary detection head. On Anatomy grounding, CARE-X generative (0.868 mAP) surpasses the SFT detection head (0.865). This is practically significant—it demonstrates that reward-aligned learning can bring autoregressive spatial decoding to parity with structured prediction, offering clinicians a single generative inference mode without requiring auxiliary heads at test time.</p>
+
+
+
+<h3 id="calibrated-classification-with-tunable-operating-points" class="wp-block-heading">Calibrated classification with tunable operating points</h3>
+
+
+
+<p class="wp-block-paragraph">Beyond representation enrichment, the classification head offers a distinct deployment advantage: calibrated probability scores with tunable thresholds allow clinicians to shift between high-sensitivity screening and high-specificity confirmation from a single forward pass—a capability purely generative architectures cannot provide.</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Model</th><th>Inference Setting</th><th>Sensitivity ↑</th><th>PPV ↑</th><th>F1 ↑</th></tr></thead><tbody><tr><td>CARE-X</td><td>Generative</td><td>0.932</td><td>0.895</td><td>0.913</td></tr><tr><td>CARE-X (Th=0.5)</td><td>Auxiliary Head</td><td><strong>0.943</strong></td><td>0.885</td><td><strong>0.913</strong></td></tr><tr><td>CARE-X (Th=0.6)</td><td>Auxiliary Head</td><td>0.855</td><td><strong>0.927</strong></td><td>0.890</td></tr><tr><td>CheXOne</td><td>Generative</td><td>0.878</td><td>0.854</td><td>0.866</td></tr><tr><td>MedGemma</td><td>Generative</td><td>0.798</td><td>0.886</td><td>0.839</td></tr></tbody></table><figcaption class="wp-element-caption">Table 2: Abnormality classification performance on Chest ImaGenome. Adjustable thresholds enable operating-point selection.</figcaption></figure>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 id="strong-report-generation-across-four-benchmarks" class="wp-block-heading">Strong report generation across four benchmarks</h2>
+
+
+
+<p class="wp-block-paragraph">Within the paper’s comparison set, CARE-X achieves the strongest performance on most reported metrics across MIMIC-CXR, IU-Xray, CheXpert-Plus, and ReXGradient. CRIMSON, a held-out metric that evaluates abnormal findings and weights errors by clinical severity, suggests these gains reflect clinically meaningful improvements rather than reward-specific optimization.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1508" height="384" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO.png" alt="CRIMSON scores (↑) for CARE-X against baseline report-generation models across four chest X-ray datasets — ReXGradient, MIMIC-CXR, IU-Xray, and CheXpert-Plus. CARE-X (highlighted) achieves the highest CRIMSON score on every dataset." class="wp-image-1181277" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO.png 1508w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-300x76.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-1024x261.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-768x196.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-240x61.png 240w" sizes="(max-width: 1508px) 100vw, 1508px" /><figcaption class="wp-element-caption"><em>Figure 2. CRIMSON scores (↑) for CARE-X against baseline report-generation models across four chest X-ray datasets — ReXGradient, MIMIC-CXR, IU-Xray, and CheXpert-Plus. CARE-X (highlighted) achieves the highest CRIMSON score on every dataset.</em></figcaption></figure>
+
+
+
+<h2 id="care-x-reaches-94-accuracy-on-rexvqa" class="wp-block-heading">CARE-X reaches 94% accuracy on ReXVQA</h2>
+
+
+
+<p class="wp-block-paragraph"><strong>CARE-X ranks first on the </strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rexrank.ai/" target="_blank" rel="noopener noreferrer"><strong>ReXrank RexVQA leaderboard</strong><span class="sr-only"> (opens in new tab)</span></a> as of August 2026. On the ReXVQA benchmark (41,007 question–answer pairs across five clinically relevant categories), CARE-X reaches <strong>94% overall accuracy</strong>, six percentage points above the next-best publicly reported model. </p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2013" height="2369" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo.png" alt="Radar chart comparing ReXVQA accuracy across six categories for three models: CheXOne-R1, MedGemma, and CARE-X. " class="wp-image-1181280" style="aspect-ratio:0.8411352606831958;width:528px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo.png 2013w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-255x300.png 255w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-870x1024.png 870w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-768x904.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-1305x1536.png 1305w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-1740x2048.png 1740w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-153x180.png 153w" sizes="auto, (max-width: 2013px) 100vw, 2013px" /><figcaption class="wp-element-caption">Figure 3: ReXVQA accuracy across five findings-quality dimensions — negation, presence, location, differential diagnosis, geometric information, and overall. CARE-X consistently outperforms CheXOne-R1 and MedGemma on every axis, with the largest margins in differential diagnosis, location assessment and negation.</figcaption></figure>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 id="tool-augmented-measurement-interleaving-perception-and-computation" class="wp-block-heading">Tool-augmented measurement: Interleaving perception and computation</h2>
+
+
+
+<p class="wp-block-paragraph">Some radiological findings depend on quantitative measurements rather than visual patterns. In a separate research experiment from CARE-X, we built an inference-time pipeline that combines Qwen3-VL-4B-Instruct with deterministic measurement tools, allowing the model to alternate between image understanding and precise computation. Qwen3-VL-4B-Instruct retains visual access to the radiograph throughout inference, invoking tools to identify anatomical landmarks, compute measurements, and evaluate diagnostic thresholds as needed. This creates a multi-turn reasoning loop that interleaves perception and measurement, enabling the model to combine visual context with exact quantitative evidence before reaching a diagnosis.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2000" height="836" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated.png" alt="Diagram illustrating a workflow for a medical assistant using a vision-language model (VLM) to analyze chest X-ray images and provide diagnostic metrics. Key components include orchestrator handling prompts and tool calls, assistant performing perception and tool calls to measure cardiac and thoracic widths, and synthesizing diagnosis with visual overlays and calculated cardiothoracic ratio (CTR) displayed in red and blue." class="wp-image-1181268" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated.png 2000w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-1024x428.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-768x321.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-1536x642.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-240x100.png 240w" sizes="auto, (max-width: 2000px) 100vw, 2000px" /><figcaption class="wp-element-caption"><em>Figure 4. Tool-augmented quantitative reasoning pipeline. The orchestrator mediates a multi-turn loop: the VLM reasons over the image (perception), emits structured tool calls, receives deterministic results, and synthesizes the final diagnosis.</em></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Despite requiring no task-specific training, this approach substantially outperforms perception-only inference across all evaluated measurement-based conditions. The results suggest that for threshold-dependent diagnoses, direct computation of clinically defined measurements is more reliable than visual approximation alone.</p>
+
+
+
+<p class="wp-block-paragraph">More broadly, this measurement-augmented approach could augment clinical workflows by expanding the set of quantitative assessments routinely derived from chest radiographs. For example, aortic dilation is not typically quantified on CXR and is often detected only incidentally on CT scans obtained for other indications. As delayed detection can contribute to adverse cardiovascular outcomes, reliable CXR-based screening could enable earlier identification and follow-up of aortic dilation.</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Condition</th><th>Perception F1</th><th>Tool F1</th><th>Δ F1</th></tr></thead><tbody><tr><td>Cardiomegaly</td><td>74.56</td><td>96.00</td><td>+21.4</td></tr><tr><td>Mediastinal Widening</td><td>72.63</td><td>97.47</td><td>+24.8</td></tr><tr><td>Aortic Knob Enlargement</td><td>60.31</td><td>99.76</td><td>+39.5</td></tr><tr><td>Ascending Aorta Enlargement</td><td>39.33</td><td>100.00</td><td>+60.7</td></tr><tr><td>Descending Aorta Enlargement†</td><td>28.57</td><td>100.00</td><td>+71.4</td></tr><tr><td><strong>Average</strong></td><td></td><td></td><td><strong>+43.6</strong></td></tr></tbody></table><figcaption class="wp-element-caption">Table 3: Perception-only versus tool-augmented measurement. The average F1 improvement is 43.6 percentage points across five conditions.</figcaption></figure>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 id="validation-on-indian-clinical-data-rare-icu-conditions-and-ct-confirmed-enlargement" class="wp-block-heading">Validation on Indian clinical data: Rare ICU conditions and CT-confirmed enlargement</h2>
+
+
+
+<p class="wp-block-paragraph"><strong>Research ethics and data use</strong>: The Narayana Health evaluations used de-identified, retrospective clinical data under applicable institutional ethics review and data-use approvals. Narayana Health approved publication of the study results described here.&nbsp;</p>
+
+
+
+<h3 id="study-1-inpatient-and-icu-conditions" class="wp-block-heading">Study 1: Inpatient and ICU conditions</h3>
+
+
+
+<p class="wp-block-paragraph">To assess real-world generalizability in a research setting, we evaluated CARE-X on 1,047 de-identified chest radiographs from Narayana Health, annotated for five rare, high-acuity conditions with prevalence ranging from 2.6% to 5.2%—reflecting realistic clinical distributions where missed diagnoses carry severe consequences.&nbsp;</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th></th><th>Fracture</th><th>Mediastinal Shift</th><th>Pneumoperitoneum</th><th>Pneumothorax</th><th>Tubes & Lines Abnormal Placement</th></tr></thead><tbody><tr><td><strong>Model</strong></td><td>Sens / Spec</td><td>Sens / Spec</td><td>Sens / Spec</td><td>Sens / Spec</td><td>Sens / Spec</td></tr><tr><td>CheXOne</td><td>0.41 / 0.90</td><td>0.80 / 0.78</td><td>0.67 / 0.98</td><td><strong>0.85</strong> / 0.72</td><td>0.03 / 0.97</td></tr><tr><td>MedGemma</td><td>0.05 / 1.00</td><td><strong>1.00</strong> / 0.53</td><td>0.00 / 1.00</td><td>0.52 / 0.73</td><td>0.18 / 0.87</td></tr><tr><td><strong>CARE-X</strong></td><td><strong>0.62</strong> / 0.64</td><td>0.83 / 0.86</td><td><strong>0.89</strong> / 0.94</td><td>0.83 / 0.75</td><td><strong>0.66</strong> / 0.77</td></tr></tbody></table><figcaption class="wp-element-caption">Table 4: ICU pathology classification on Indian hospital data. CARE-X achieves the most balanced performance.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">CARE-X achieves the highest sensitivity in three out of five conditions while maintaining reasonable specificity, demonstrating generalization to low-prevalence clinical settings.</p>
+
+
+
+<h3 id="study-2-ct-confirmed-enlargement-conditions" class="wp-block-heading">Study 2: CT-confirmed enlargement conditions</h3>
+
+
+
+<p class="wp-block-paragraph">In a retrospective study to measure pure recall efficacy, we evaluated measurement-dependent conditions such as mediastinal widening findings&nbsp;including aortic enlargement, hilar mass, and pulmonary artery enlargement on a outpatient cohort of 122 positive cases with CT-confirmed ground truth, avoiding the subjectivity of radiologist consensus on borderline enlargement findings on CXR. In the overlay setting, the VLM receives the original radiograph alongside a second image with condition-relevant anatomical segmentation masks — offering spatial guidance without direct access to measurement tools.</p>
+
+
+
+<p class="wp-block-paragraph">The tool-augmented variant reached 94.26% recall, a +10.65 percentage-point gain over the best perception-only baseline. Where CT or echocardiography access is limited, reliable triage from a widely available modality like chest X-ray can cut both unnecessary referrals and missed diagnoses.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1750" height="894" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1.jpg" alt="chart" class="wp-image-1181055" style="aspect-ratio:1.9579849071996738;width:701px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1.jpg 1750w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-300x153.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-1024x523.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-768x392.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-1536x785.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-240x123.jpg 240w" sizes="auto, (max-width: 1750px) 100vw, 1750px" /><figcaption class="wp-element-caption">Figure 5: Recall on the CT-confirmed enlargement cohort across perception-only, overlay-assisted, and tool-augmented inference. (Study 2)</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">In a related study (accepted at EACTS conference 2026), for mild aortic dilation, the measurement-driven reasoning approach detected 40 of 43 CT-confirmed cases (93% sensitivity), compared to just 5 of 43 (12%) identified on the initial radiology reads, where aortic enlargement is usually not the primary indication for the chest X-ray. This corresponds to 35 additional mild cases that were surfaced but missed during the initial CXR interpretation. These results suggest that explicit quantitative measurements may help identify borderline enlargement that is difficult to assess through visual inspection alone.&nbsp;</p>
+
+
+
+<h2 id="what-this-does-and-doesn-t-show" class="wp-block-heading">What this does and doesn&#8217;t show&nbsp;</h2>
+
+
+
+<p class="wp-block-paragraph">These numbers are all recall, i.e., how many true positives we catch. This was the focus of the initial study because, in triage, a missed diagnosis is typically the costlier failure mode, and CT-confirmed ground truth gave us a clean way to measure it without relying on radiologist consensus for the difficult cases.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Recall, however, captures only one dimension of diagnostic performance. A model that flags everything achieves perfect recall and is useless in practice. An extended study is underway that includes CT-confirmed negative cohorts as well. Preliminary results are promising, and further studies are planned to explicitly evaluate the viability of quantitative aortic measurements on chest X-ray as a screening tool for aortic dilation.&nbsp;</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 id="care-x-toward-clinically-useful-radiology-ai" class="wp-block-heading">CARE-X: Toward clinically useful radiology AI</h2>
+
+
+
+<p class="wp-block-paragraph">CARE-X demonstrates that discriminative and generative objectives can be effectively combined within a unified radiology AI model. By jointly training classification, grounding, and language capabilities, the model supports both flexible report generation and calibrated, threshold-adjustable predictions. The separate measurement study further highlights a practical division of labor between learned reasoning and deterministic computation: the VLM provides visual understanding and identifies relevant evidence, while measurement-dependent diagnoses are computed through transparent, tool-based calculations. Retrospective evaluation on clinically challenging Narayana Health cohorts provides encouraging evidence of the potential of this approach for real-world radiology applications. The clinical relevance of this research is underscored by the selection of the AI-based aortic dilatation screening application as a finalist for showcase at the <strong>IHF Innovation Hub, World Hospital Congress 2026</strong>, recognizing its potential to support earlier detection and clinical decision-making in cardiovascular care.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Looking ahead, CARE-X can be extended beyond its current capabilities through structured report generation, richer differential diagnosis support, and tighter integration of tools within the model itself. The framework could also benefit from incorporating broader clinical context, including laboratory results and patient history, enabling more comprehensive clinical reasoning.&nbsp;</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<p class="wp-block-paragraph"><em><em>CARE-X is a research model, not a Microsoft product offering or medical device. It has not been cleared or approved by any regulatory authority and is not intended or validated for clinical diagnosis, screening, patient care, or clinical decision-making. The results described are retrospective research findings and do not establish safety, effectiveness, or suitability for clinical use. </em>&nbsp;</em></p>
+
+
+
+<p class="wp-block-paragraph">Paper co-authors:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/people/meranjit/"><em>Mercy Ranjit</em></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/anirban-porya22/" target="_blank" rel="noopener noreferrer"><em>Anirban Porya</em><span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/niharika-vadlamudi/" target="_blank" rel="noopener noreferrer"><em>Niharika Vadlamudi</em><span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/nikhilesh-e-484b21255/" target="_blank" rel="noopener noreferrer"><em>Nikhilesh E</em><span class="sr-only"> (opens in new tab)</span></a>, <em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/sathvik-joel-97524b18b/" type="link" id="https://www.linkedin.com/in/sathvik-joel-97524b18b/" target="_blank" rel="noopener noreferrer">Sathvik Joel<span class="sr-only"> (opens in new tab)</span></a>, </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/prasanthvv/" target="_blank" rel="noopener noreferrer"><em>Prasanth V V</em><span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/taganu/"><em>Tanuja Ganu</em></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/abhyuday-swamy-105173166/" target="_blank" rel="noopener noreferrer"><em>Abhyuday Swamy</em><span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/pranay97/" target="_blank" rel="noopener noreferrer"><em>Pranay Umredkar</em><span class="sr-only"> (opens in new tab)</span></a><em>, </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/dr-pradeep-narayan-9500101b8/" target="_blank" rel="noopener noreferrer"><em>Pradeep Narayan</em><span class="sr-only"> (opens in new tab)</span></a><em>, </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/vivek-rajagopal/" target="_blank" rel="noopener noreferrer"><em>Vivek Rajagopal</em><span class="sr-only"> (opens in new tab)</span></a></p>
+
+
+
+<p class="wp-block-paragraph">Collaborators: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.medha-analytics.ai/">Medha AI<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.narayanahealth.org/" type="link" id="https://www.narayanahealth.org/" target="_blank" rel="noopener noreferrer">Narayana Health<span class="sr-only"> (opens in new tab)</span></a></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Orchard: An open framework for scalable agentic AI</title>
 		<link>https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/</link>
 		
@@ -32,7 +399,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Orchard: An open framework for scalable agentic AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg" alt="Three Orchard framework components with benchmark results" class="wp-image-1180738" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg" alt="Three Orchard framework components with benchmark results" class="wp-image-1180738" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -85,7 +452,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -94,20 +461,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -169,7 +536,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1638" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH.png" alt="On the left: Orchard-SWE (30B-A3B) reaches 67.5% on SWE-bench Verified, matching frontier systems 10—30x larger. On the right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google." class="wp-image-1180847" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH.png 1638w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-300x145.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-1024x494.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-768x370.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-1536x741.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-240x116.png 240w" sizes="(max-width: 1638px) 100vw, 1638px" /><figcaption class="wp-element-caption">Figure 1. Performance comparison. Left: Orchard-SWE (35B-A3B, ~3B active) reaches 69.7% on SWE-bench Verified—73% with value-model reranking—matching frontier systems more than 10x larger. Right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1638" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH.png" alt="On the left: Orchard-SWE (30B-A3B) reaches 67.5% on SWE-bench Verified, matching frontier systems 10—30x larger. On the right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google." class="wp-image-1180847" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH.png 1638w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-300x145.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-1024x494.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-768x370.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-1536x741.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH-240x116.png 240w" sizes="auto, (max-width: 1638px) 100vw, 1638px" /><figcaption class="wp-element-caption">Figure 1. Performance comparison. Left: Orchard-SWE (35B-A3B, ~3B active) reaches 69.7% on SWE-bench Verified—73% with value-model reranking—matching frontier systems more than 10x larger. Right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google.</figcaption></figure>
 
 
 
@@ -189,7 +556,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1032" height="554" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png" alt="Diagram of the Orchard ecosystem showing three benchmark areas (Orchard‑SWE, Orchard‑GUI, Orchard‑Claw) with performance metrics, a modular training pipeline (data curation, curriculum design, SFT, RL, evaluation), and the core Orchard Env service enabling sandboxed execution, file I/O, networking, and APIs. The system supports heterogeneous environments (code, web, desktop, mobile, productivity tools) through a unified interface, emphasizing reusability across domains and efficiency features such as low latency, Kubernetes scaling, and reduced cost." class="wp-image-1180734" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png 1032w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-300x161.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-1024x550.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-768x412.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-710x380.png 710w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-240x129.png 240w" sizes="(max-width: 1032px) 100vw, 1032px" /><figcaption class="wp-element-caption">Figure 2. Overview of the Orchard framework. Orchard Env (center) is a lightweight, Kubernetes-native environment service that provides shared capabilities such as sandbox management, command execution, file access, network controls, a REST API, and agent integration. It supports a range of task environments (bottom row) and is used across three task domains (top row): Orchard-SWE (software engineering), Orchard-GUI (browser navigation), and Orchard-Claw (AI personal assistant).</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1032" height="554" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png" alt="Diagram of the Orchard ecosystem showing three benchmark areas (Orchard‑SWE, Orchard‑GUI, Orchard‑Claw) with performance metrics, a modular training pipeline (data curation, curriculum design, SFT, RL, evaluation), and the core Orchard Env service enabling sandboxed execution, file I/O, networking, and APIs. The system supports heterogeneous environments (code, web, desktop, mobile, productivity tools) through a unified interface, emphasizing reusability across domains and efficiency features such as low latency, Kubernetes scaling, and reduced cost." class="wp-image-1180734" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png 1032w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-300x161.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-1024x550.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-768x412.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-710x380.png 710w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-240x129.png 240w" sizes="auto, (max-width: 1032px) 100vw, 1032px" /><figcaption class="wp-element-caption">Figure 2. Overview of the Orchard framework. Orchard Env (center) is a lightweight, Kubernetes-native environment service that provides shared capabilities such as sandbox management, command execution, file access, network controls, a REST API, and agent integration. It supports a range of task environments (bottom row) and is used across three task domains (top row): Orchard-SWE (software engineering), Orchard-GUI (browser navigation), and Orchard-Claw (AI personal assistant).</figcaption></figure>
 
 
 
@@ -1110,30 +1477,27 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft research copilot experience</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
-							Start now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1349,30 +1713,27 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1524,30 +1885,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1700,30 +2061,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1861,30 +2222,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1915,223 +2276,6 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 <p class="wp-block-paragraph">Read <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2410.00812" type="link" id="https://arxiv.org/abs/2410.00812" target="_blank" rel="noopener noreferrer">the paper<span class="sr-only"> (opens in new tab)</span></a>: “Generative causal testing to bridge data-driven models and scientific theories in language neuroscience,” accepted in <em>Nature Neuroscience</em> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/automated-brain-explanations" type="link" id="https://github.com/microsoft/automated-brain-explanations" target="_blank" rel="noopener noreferrer">the code on Github<span class="sr-only"> (opens in new tab)</span></a>.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/">Understanding the brain with AI-driven explanations and experiments</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis</title>
-		<link>https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/</link>
-		
-		<dc:creator><![CDATA[Jeremiah (Miah) Wander, Cas Simons]]></dc:creator>
-		<pubDate>Wed, 24 Jun 2026 14:00:14 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false"></guid>
-
-					<description><![CDATA[<p>Talos was built to help resolve a major bottleneck in genomic medicine: human review time. The open-source system recovered 90% of in-scope diagnoses while surfacing just 1.3 candidate variants per patient for expert review. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/">Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Talos | four white line icons on an abstract green background | DNA icon, shield icon, document icon, calendar icon" class="wp-image-1175006" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Talos is an open-source tool for automated, iterative reanalysis of genomic data in rare disease. It efficiently re-examines stored sequencing data as scientific knowledge evolves and flags variants with newly actionable evidence.</li>
-
-
-
-<li>Talos is tuned for a low false-positive rate: across a validation set of nearly 1,100 patients, it recovered 90% of in-scope diagnoses while flagging only 1.3 candidate variants per patient for expert review. This is essential to making reanalysis sustainable at scale.</li>
-
-
-
-<li>Deployed across a prospective cohort of almost 5,000 undiagnosed patients, Talos delivered 241 new diagnoses (5.1% additional yield). An average of only 32 days passed between supporting evidence becoming public and the resultant diagnosis.</li>
-
-
-
-<li>On monthly iterative cycles, analysts only needed to review one new variant per 200 patients, demonstrating that frequent, systematic reanalysis can be run sustainably.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<h2 id="why-genome-reanalysis-matters" class="wp-block-heading">Why genome reanalysis matters</h2>
-
-
-
-<p class="wp-block-paragraph">Genomic testing has transformed the diagnosis of rare disease, but even with this advancement, more than half of patients remain undiagnosed after their first test. This is because our knowledge of the genome is still incomplete. Researchers are learning more every day about the function of specific genes and how they relate to disease.</p>
-
-
-
-<p class="wp-block-paragraph">However, unlike most diagnostic investigations, genomic data has a unique property: it can be stored and reexamined indefinitely. Because our understanding of the genome improves constantly, simply rerunning the analysis later can yield a diagnosis that was impossible to make the first time. This is because there are hundreds of new gene–disease associations and thousands of new variant classifications reported every year.</p>
-
-
-
-<p class="wp-block-paragraph">Reanalysis of the genomes of undiagnosed patients is the solution; a meta-analysis of nearly 9,500 undiagnosed patients found that reanalysis lifted diagnostic yield by about 10% over roughly two years. However, the problem is that reanalysis today is overwhelmingly manual. It depends on motivated clinicians, scarce laboratory staff, and inconsistent reimbursement, so the vast majority of stored genomes are never revisited and the data keep accumulating. Automation has long been proposed as the answer, but the developers of automated machinery must navigate hard trade-offs between sensitivity, specificity, how many candidate variants a human must review, and how often the analysis is rerun.</p>
-
-
-
-<p class="wp-block-paragraph"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/populationgenomics/talos" type="link" id="https://github.com/populationgenomics/talos" target="_blank" rel="noopener noreferrer">Talos<span class="sr-only"> (opens in new tab)</span></a>, developed through a collaboration spanning the Centre for Population Genomics, Australian Genomics, the Broad Institute, and Microsoft, was built to resolve those trade-offs and to demonstrate, at international scale, that systematic reanalysis is both feasible and valuable. We have recently published a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.nature.com/articles/s41591-026-04477-5">journal article<span class="sr-only"> (opens in new tab)</span></a> detailing how Talos functions and evaluating its performance on multiple rare disease cohorts.</p>
-
-
-
-<h2 id="how-talos-works" class="wp-block-heading">How Talos works</h2>
-
-
-
-<p class="wp-block-paragraph">Talos re-interprets a patient&#8217;s existing variant calls against the latest community knowledge each time it runs. It draws on two continuously updated public resources: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://panelapp-aus.org/" type="link" id="https://panelapp-aus.org/" target="_blank" rel="noopener noreferrer">PanelApp Australia<span class="sr-only"> (opens in new tab)</span></a> for gene–disease relationships and modes of inheritance, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.be-md.ncbi.nlm.nih.gov/clinvar" type="link" id="https://www.be-md.ncbi.nlm.nih.gov/clinvar" target="_blank" rel="noopener noreferrer">ClinVar<span class="sr-only"> (opens in new tab)</span></a> for variant-level pathogenicity. It then applies a variant-prioritization algorithm designed to surface variants most likely to meet ACMG/AMP criteria for clinical reporting.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="657" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1.png" alt="Figure 1 - The Talos workflow showing three stages: static variant annotation, dynamic annotation and variant prioritization/filtering, and reporting to clinical teams." class="wp-image-1175007" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-300x141.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-1024x481.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-768x360.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig1-240x113.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption"><em><strong><em>Figure 1 &#8211; Talos overview.</em></strong><em> Talos operates in multiple stages, first collecting unchanging information about genetic variants and the patients who possess them, then applying up to date knowledge to filter and prioritize variants that are likely to be clinically relevant, then finally surfacing those variants to clinicians alongside supporting evidence.</em>&nbsp;</em></figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">The pipeline uses newly discovered information to tag and filter variants, then refines the candidate set using family structure (for example, mode of inheritance and de novo status) and, when available, the patient’s phenotype. Talos can be used to interpret single-nucleotide variants, small insertions/deletions, copy number variants, and large structural variants from exome or genome data.</p>
-
-
-
-<p class="wp-block-paragraph">Two design choices distinguish Talos. First, it is deliberately conservative, optimized to return a small set of high confidence variants rather than a long ranked list, because in real-world genomic reanalysis the limiting factor is human review time, not algorithmic recall. Second, on repeat runs, Talos returns only variants whose supporting evidence has changed since the previous cycle, allowing clinicians to focus exclusively on findings that aregenuinely new.</p>
-
-
-
-<h2 id="validated-against-expert-manual-analysis" class="wp-block-heading">Validated against expert manual analysis</h2>
-
-
-
-<p class="wp-block-paragraph">We benchmarked Talos on two independent cohorts that had already undergone careful manual analysis: the Australian Acute Care Genomics (ACG) cohort of critically ill infants and children, and the U.S.-based Rare Genomes Project (RGP) cohort of families with prior uninformative testing. This included 1,089 probands in total.</p>
-
-
-
-<p class="wp-block-paragraph">On ACG trios, Talos recovered 90% of in-scope diagnoses while returning a median of just 1.3 candidate variants per family. The diagnoses it missed were largely a direct consequence of its conservative strategy, for example, recessive variants lacking ClinVar support that human analysts had classified using <em>trans</em> configuration or functional studies.</p>
-
-
-
-<p class="wp-block-paragraph">Crucially, Talos held the same operating point on the very different RGP cohort, agroup of families who had previously had uninformative clinical testing, with probands ranging up to 82 years of age. On RGP trios, it recovered 87% of in-scope diagnoses (47 of 54) at a median of 1.3 candidate variants per trio, showing generalizability across cohorts.</p>
-
-
-
-<p class="wp-block-paragraph">We then benchmarked head-to-head against Exomiser, a widely used prioritization tool. Talos matched its overall sensitivity for small variants, but at a very different operating point: Exomiser ranks and returns a broad list, while Talos returns a short, highly specific one. In a paired comparison, the two tools were statistically indistinguishable when all of Exomiser&#8217;s ranked variants were reviewed, but Talos came out significantly ahead once review was limited to a realistic budget—the top five (p = 0.017) or top one (p < 0.0001) ranked variants. Notably, the two tools surfaced <em>different</em> variants, so they are complementary and should ideally be used together in diagnostic workflows.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Newsletter</h2>
-				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="deployed-on-an-international-scale" class="wp-block-heading">Deployed on an international scale</h2>
-
-
-
-<p class="wp-block-paragraph">The experiment we were most excited about was a tested-but-undiagnosed cohort of 4,735 individuals, drawn from Australian Genomics research studies and a single diagnostic laboratory. Most patients were singletons with neurodevelopmental, cardiac, renal, and/or neurological indications.</p>
-
-
-
-<p class="wp-block-paragraph">Talos produced 241 new diagnoses in 238 individuals—a 5.1% additional yield, with every single likely-causative variant subsequently confirmed as pathogenic or likely pathogenic by accredited labs.</p>
-
-
-
-<p class="wp-block-paragraph">The sources of those diagnoses illustrate why reanalysis is such a powerful paradigm:</p>
-
-
-
-<ul class="wp-block-list">
-<li>32% came from new gene–disease relationships discovered since the original test,</li>
-
-
-
-<li>22% came from new variant-level evidence (reclassifications), and</li>
-
-
-
-<li>45% came from improved filtering and analysis—including variant types such as CNVs and structural variants not examined originally, phenotype filters that had been set too narrowly, and other sources.</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">Yield was consistent across clinical areas (roughly 5–6% for neurodevelopmental, cardiac, and renal indications) but the <em>reasons</em> differed: new gene associations and CNVs dominated neurodevelopmental diagnoses, while variant reclassification drove most cardiac ones. Genome data outperformed exome (6.1% vs 4.8%), partly by reaching non-coding diagnoses such as <em>RNU4-2</em> and a deep-intronic <em>MRPL39</em> variant. A recurring theme was the lag in conventional knowledge bases: 59% of the new gene–disease diagnoses were not yet curated in OMIM at the time of reanalysis, underscoring the value of drawing on a rapidly updated resource like PanelApp Australia.</p>
-
-
-
-<h2 id="from-a-one-off-event-to-a-continuous-program" class="wp-block-heading">From a one-off event to a continuous program</h2>
-
-
-
-<p class="wp-block-paragraph">We then ran Talos for 29 monthly iterative cycles. Most diagnoses (92%) came on a cohort&#8217;s first pass, but the iterative design proved its value on two fronts. First, it demonstrated the scalability of ongoing reanalysis: because later cycles return only newly actionable evidence, they surfaced an average of just one variant per 200 cases over the program. Second, it showed how quickly we can move from scientific discovery to diagnosis: on average just 32 days passed between new knowledge appearing in a public database and a patient receiving a diagnosis, with the fastest case turning around in a single day. Figure 2 provides timelines for three example patients showing how continual reanalysis can bring answers to families within weeks of new scientific findings. The whole pipeline is cheap enough to run continuously: annotating 1,000 genomes cost about $11, and a monthly reanalysis pass ran for a few cents per cohort.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1045" height="534" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2.png" alt="Figure 2 - Example diagnostic odysseys solved through continuous reanalysis within months of entering the program or the publication of relevant scientific findings. " class="wp-image-1175008" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2.png 1045w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-1024x523.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-768x392.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/Talos_Fig2-240x123.png 240w" sizes="auto, (max-width: 1045px) 100vw, 1045px" /><figcaption class="wp-element-caption"><em><em>Figure 2 &#8211; Diagnostic odyssey for three example patients. Each patient spent years after genetic sequencing waiting for a diagnosis. For Patient 1, the scientific discovery enabling their diagnosis happened one month after their testing, but no diagnosis was made until the first time their genetic data was reanalyzed using Talos. For patients 2 and 3, diagnoses were made within a month of the relevant scientific findings because the patients were already in the reanalysis pipeline.</em>&nbsp;</em></figcaption></figure>
-
-
-
-<h2 id="looking-ahead" class="wp-block-heading">Looking ahead</h2>
-
-
-
-<p class="wp-block-paragraph">Talos reframes genomic reanalysis from a rare, labor-intensive event into a continuous, automated program that can keep pace with the science. By optimizing for specificity, it respects the real bottleneck of expert reviewer time, and by drawing on openly shared, frequently updated resources like PanelApp Australia and ClinVar, it turns the global community&#8217;s accumulating knowledge into diagnoses for individual patients, often within weeks.</p>
-
-
-
-<p class="wp-block-paragraph">We believe we’ve established a foundational capability, and we’re excited to see how the community builds on it. In particular, as more advanced AI models for understanding and predicting the consequences of genetic variation become available, we’re looking forward to leveraging them in the reanalysis of unsolved rare disease cases.</p>
-
-
-
-<p class="wp-block-paragraph">Talos is open source and straightforward to deploy in cloud environments like Azure. Our results offer a practical blueprint for health systems aiming to deliver frequent, scalable reanalysis to the many patients still searching for diagnoses.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/populationgenomics/talos">GitHub</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.nature.com/articles/s41591-026-04477-5" target="_blank" rel="noreferrer noopener">Nature Publication</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/">Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
