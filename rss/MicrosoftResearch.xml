@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 25 Aug 2026 13:29:12 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 31 Aug 2026 13:43:23 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,245 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.0.4</generator>
 	<item>
+		<title>GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models</title>
+		<link>https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/</link>
+		
+		<dc:creator><![CDATA[Naoto Usuyama, Jeya Maria Jose Valanarasu, Tristan Naumann]]></dc:creator>
+		<pubDate>Mon, 31 Aug 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false"></guid>
+
+					<description><![CDATA[<p>What if pathology foundation models could do more with less? GigaPath-Flash and GigaTIME-Flash cut computational demands while maintaining strong performance, opening the door to larger studies and broader exploration.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/">GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW.jpg" alt="Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder. " class="wp-image-1184911" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>The Flash family extends GigaPath and GigaTIME with dramatically improved efficiency, making large-scale pathology research more accessible and practical.</li>
+
+
+
+<li>A distilled pathology foundation model backbone reduces computational requirements without sacrificing performance, enabling repeated analyses across larger patient cohorts.</li>
+
+
+
+<li>These open models support population-scale discovery, helping researchers investigate disease biology, biomarkers, and clinical outcomes across diverse cancer datasets.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/gigapath" target="_blank" rel="noopener noreferrer"><em>GigaPath</em><span class="sr-only"> (opens in new tab)</span></a><em> and </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/gigatime" target="_blank" rel="noopener noreferrer"><em>GigaTIME</em><span class="sr-only"> (opens in new tab)</span></a><em> demonstrated how foundation models can support whole-slide analysis and tumor microenvironment modeling from routinely collected pathology data. GigaPath-Flash and GigaTIME-Flash make these capabilities substantially more efficient, enabling researchers to analyze larger cohorts, run more experiments, and move toward population-scale discovery.</em> <em>GigaPath-Flash and GigaTIME-Flash are research models. They are not intended or validated for clinical use, including diagnosis, prognosis, treatment selection, or other patient-care decisions. Performance may vary across datasets, scanners, institutions, populations, and use cases.</em></p>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<h2 id="the-scale-opportunity-in-computational-pathology" class="wp-block-heading">The scale opportunity in computational pathology</h2>
+
+
+
+<p class="wp-block-paragraph">Histopathology is among the richest and most widely available sources of information in cancer research. Every tissue biopsy produces a whole-slide image that captures cellular morphology at subcellular resolution — and hospitals generate millions of these slides each year. This data contains information relevant to diagnosis, prognosis, treatment selection, and the biology of the tumor microenvironment.</p>
+
+
+
+<p class="wp-block-paragraph">Foundation models have begun to unlock this information at scale. But whole-slide images are large — often exceeding a gigapixel — and applying a foundation model to even a single slide requires processing thousands of image tiles. When a research question involves tens of thousands of patients, the computational cost grows quickly. And population-scale discovery is not a single model run: it requires repeated cycles of feature extraction, statistical analysis, hypothesis testing, and validation across patient subgroups, biomarkers, and clinical endpoints. </p>
+
+
+
+<p class="wp-block-paragraph">Computational cost limits the number of patients, datasets, tasks, and hypotheses that researchers can study. To realize the full potential of pathology foundation models, we need models that can be applied repeatedly and affordably across large patient populations.</p>
+
+
+
+<h2 id="from-gigapath-and-gigatime-to-the-flash-family" class="wp-block-heading">From GigaPath and GigaTIME to the -Flash family</h2>
+
+
+
+<p class="wp-block-paragraph"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/gigapath-paper" type="link" id="https://aka.ms/gigapath-paper" target="_blank" rel="noopener noreferrer">GigaPath (Nature, 2024)<span class="sr-only"> (opens in new tab)</span></a> is a whole-slide foundation model pretrained on large-scale real-world histopathology data from Providence. Unlike models that operate only at the tile level, GigaPath learns contextualized representations of entire slides, capturing both local cellular patterns and global tissue architecture.</p>
+
+
+
+<p class="wp-block-paragraph"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/gigatime-paper" type="link" id="https://aka.ms/gigatime-paper" target="_blank" rel="noopener noreferrer">GigaTIME (Cell, 2026)<span class="sr-only"> (opens in new tab)</span></a> extends this line of work to tumor microenvironments. Trained on 40 million cells with paired H&E and multiplex immunofluorescence (mIF) data, GigaTIME translates routine H&E images into virtual spatial proteomics maps across 21 protein channels. Applied to over 14,000 cancer patients, it generated a virtual population that uncovered more than 1,200 statistically significant associations between immune cell states and clinical biomarkers.</p>
+
+
+
+<p class="wp-block-paragraph">GigaPath and GigaTIME addressed the scale of pathology data and biological discovery. And now, the Flash family of models addresses scale of experimentation.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="980" height="417" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF.png" alt="Figure 1: Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder. " class="wp-image-1184838" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF.png 980w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-300x128.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-768x327.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-240x102.png 240w" sizes="(max-width: 980px) 100vw, 980px" /><figcaption class="wp-element-caption">Figure 1: Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder.</figcaption></figure>
+
+
+
+<h2 id="introducing-gigapath-flash-and-gigatime-flash" class="wp-block-heading">Introducing GigaPath-Flash and GigaTIME-Flash</h2>
+
+
+
+<p class="wp-block-paragraph">The Flash family shares a core design goal: preserving useful pathology representations while substantially reducing the computational resources required to generate and use them. Both models are built on a common efficient backbone — a compact ViT-S tile encoder distilled from the original billion-parameter GigaPath encoder — and both are released under the Apache 2.0 license. </p>
+
+
+
+<h3 id="gigapath-flash" class="wp-block-heading">GigaPath-Flash</h3>
+
+
+
+<p class="wp-block-paragraph">GigaPath-Flash is an efficient foundation model for whole-slide representation learning. It combines a 22M-parameter ViT-S tile encoder with a 21M-parameter LongNet slide encoder. The tile encoder is distilled from the original GigaPath ViT-g teacher, transferring the representational capacity of a billion-parameter model into a backbone that is an order of magnitude smaller. The slide encoder contextualizes all tile embeddings via dilated attention, scaling linearly with the number of tiles.</p>
+
+
+
+<p class="wp-block-paragraph">On slide-level classification benchmarks (PANDA prostate grading and EBRAINS brain tumor subtyping), GigaPath-Flash achieves the lowest inference cost among whole-slide pretrained models while retaining competitive performance — scoring within 3% of the original GigaPath at roughly 50 times less compute.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="847" height="536" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF.png" alt="Figure 2: Efficiency–performance trade-off on whole-slide benchmarks. GigaPath-Flash (red, top-left) achieves competitive performance at substantially lower computational cost than other whole-slide pretrained models." class="wp-image-1184839" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF.png 847w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-300x190.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-768x486.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-240x152.png 240w" sizes="(max-width: 847px) 100vw, 847px" /><figcaption class="wp-element-caption">Figure 2: Efficiency–performance trade-off on whole-slide benchmarks. GigaPath-Flash (red, top-left) achieves competitive performance at substantially lower computational cost than other whole-slide pretrained models.</figcaption></figure>
+
+
+
+<h3 id="gigatime-flash" class="wp-block-heading">GigaTIME-Flash</h3>
+
+
+
+<p class="wp-block-paragraph">GigaTIME-Flash replaces the CNN backbone of the original GigaTIME with the GigaPath-Flash ViT-S encoder, paired with a lightweight convolutional decoder for H&E-to-mIF translation. The model is fine-tuned using LoRA adapters, keeping the pretrained encoder weights largely frozen.</p>
+
+
+
+<p class="wp-block-paragraph">On both in-distribution and out-of-distribution cohorts spanning brain, breast, colon, and lung cancers, GigaTIME-Flash matches or improves upon the original GigaTIME in spatial protein prediction quality. The gains are particularly notable on out-of-distribution data, suggesting that the foundation model backbone improves generalization to previously unseen tissue types.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1203" height="612" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_gigatime_mean_pearson_bars_GPF_GTF.png" alt="Figure 3: Mean windowed Pearson correlation for GigaTIME and GigaTIME-Flash on the GigaTIME test set and four out-of-distribution Prov-TMA cohorts. GigaTIME-Flash matches or improves upon the original across all cohorts." class="wp-image-1184840" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_gigatime_mean_pearson_bars_GPF_GTF.png 1203w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_gigatime_mean_pearson_bars_GPF_GTF-300x153.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_gigatime_mean_pearson_bars_GPF_GTF-1024x521.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_gigatime_mean_pearson_bars_GPF_GTF-768x391.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_gigatime_mean_pearson_bars_GPF_GTF-240x122.png 240w" sizes="auto, (max-width: 1203px) 100vw, 1203px" /><figcaption class="wp-element-caption">Figure 3: Mean windowed Pearson correlation for GigaTIME and GigaTIME-Flash on the GigaTIME test set and four out-of-distribution Prov-TMA cohorts. GigaTIME-Flash matches or improves upon the original across all cohorts.</figcaption></figure>
+
+
+
+<h2 id="efficiency-without-giving-up-the-foundation" class="wp-block-heading">Efficiency without giving up the foundation</h2>
+
+
+
+<p class="wp-block-paragraph">The efficiency gains of the Flash models are substantial:</p>
+
+
+
+<figure class="wp-block-table"><table><thead><tr><th>Model</th><th>Type</th><th>Efficiency gain</th></tr></thead><tbody><tr><td>GigaPath-Flash</td><td>Whole-slide Foundation Model</td><td>~50× less compute, 97% of predictive performance compared to GigaPath</td></tr><tr><td>GigaTIME-Flash</td><td>Spatial Proteomics</td><td>~6× faster, ~8× less memory, better predictive performance compared to GigaTIME</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">For a single slide, these differences reduce runtime and hardware requirements. Across tens of thousands of slides, they can determine whether an experiment is practical at all. To illustrate, we estimate the wall-clock time for generating virtual mIF across cohorts of different sizes on a single A100 GPU, assuming approximately 10,000 tiles per slide:</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Model</th><th>1,000 slides</th><th>100K slides</th><th>1M slides</th></tr></thead><tbody><tr><td><strong>GigaTIME-Flash</strong></td><td>~2 GPU-hours</td><td>~7 GPU-days</td><td>~70 GPU-days</td></tr><tr><td>GigaTIME</td><td>~7 GPU-hours</td><td>~30 GPU-days</td><td>~300 GPU-days</td></tr></tbody></table><figcaption class="wp-element-caption">Estimates assume ~10,000 tiles per slide, batch size 128, single NVIDIA A100 GPU. Actual runtime depends on slide size, tiling resolution, and hardware.</figcaption></figure>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="842" height="375" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig4_gigatime_efficiency_plot_GPF_GTF.png" alt="Figure 4: GigaTIME efficiency scaling. Left: throughput (tiles/sec) vs. batch size. Right: peak GPU memory (GB) vs. batch size. GigaTIME-Flash scales to over 1,600 tiles/sec while using a fraction of the memory." class="wp-image-1184841" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig4_gigatime_efficiency_plot_GPF_GTF.png 842w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig4_gigatime_efficiency_plot_GPF_GTF-300x134.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig4_gigatime_efficiency_plot_GPF_GTF-768x342.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig4_gigatime_efficiency_plot_GPF_GTF-240x107.png 240w" sizes="auto, (max-width: 842px) 100vw, 842px" /><figcaption class="wp-element-caption">Figure 4: GigaTIME efficiency scaling. Left: throughput (tiles/sec) vs. batch size. Right: peak GPU memory (GB) vs. batch size. GigaTIME-Flash scales to over 1,600 tiles/sec while using a fraction of the memory.</figcaption></figure>
+
+
+
+<h2 id="an-open-model-release" class="wp-block-heading">An open model release</h2>
+
+
+
+<p class="wp-block-paragraph">Both GigaPath-Flash and GigaTIME-Flash are released as open-weight models under the Apache 2.0 license. Model weights and code are available on HuggingFace:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/GigaPath-Flash" type="link" id="aka.ms/GigaPath-Flash" target="_blank" rel="noopener noreferrer">GigaPath-Flash<span class="sr-only"> (opens in new tab)</span></a></li>
+
+
+
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/GigaTIME-Flash" type="link" id="aka.ms/GigaTIME-Flash" target="_blank" rel="noopener noreferrer">GigaTIME-Flash<span class="sr-only"> (opens in new tab)</span></a></li>
+
+
+
+<li><a href="https://www.microsoft.com/en-us/research/publication/gigapath-flash-and-gigatime-flash-efficient-pathology-foundation-models-for-whole-slide-and-tumor-microenvironment-analysis/" type="msr-research-item" id="1180651">GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">This is an early research release. Our current evaluations cover a limited set of benchmarks and cohorts, and broader validation across tasks, scanners, and patient populations is still needed. We expect the most valuable applications of these models to include scientific questions, cohorts, and use cases beyond those in our initial experiments. We welcome community evaluation, and we are equally interested in reports of where these models work well and where they fall short.</p>
+
+
+
+<p class="wp-block-paragraph">Downstream clinical applications will require additional multi-institutional and prospective validation.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft research copilot experience</h2>
+				
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="efficiency-as-an-enabler-of-discovery" class="wp-block-heading">Efficiency as an enabler of discovery</h2>
+
+
+
+<p class="wp-block-paragraph">GigaPath and GigaTIME demonstrated what pathology foundation models can learn from whole slides and tumor tissue. GigaPath-Flash and GigaTIME-Flash are a step toward making those capabilities usable across larger populations, more experiments, and a broader research community.</p>
+
+
+
+<p class="wp-block-paragraph">By making pathology foundation models more efficient, we hope to expand the scale of the scientific questions researchers can ask.</p>
+
+
+
+<h2 id="acknowledgements" class="wp-block-heading">Acknowledgements</h2>
+
+
+
+<p class="wp-block-paragraph">GigaPath-Flash and GigaTIME-Flash are joint work across Microsoft Research, the University of Washington, and Providence. For technical details, see the <a href="https://www.microsoft.com/en-us/research/publication/gigapath-flash-and-gigatime-flash-efficient-pathology-foundation-models-for-whole-slide-and-tumor-microenvironment-analysis/" type="msr-research-item" id="1180651">paper</a>.</p>
+
+
+
+<p class="wp-block-paragraph"><em><strong>Paper co-authors</strong>: Naoto Usuyama, Jeya Maria Jose Valanarasu, Sicong Yao, Hanwen Xu, Jaspreet Bagga, Guanghui Qin, Robert E. Kramer, Cliff Wong, Soohee Lee, Hao Qiu, Theodore Zhengde Zhao, Racheli Ben Shimol, Angela Crabtree, Kevin Matlock, Eduardo Alejandro Lozano Garcia, Naiteek Sangani, Alberto Santamaria-Pang, Maximilian Rokuss, Yashna Hasija, Naisargi Manishkumar Patel, Jason Entenmann, Alexandra Q. Bartlett, Bill J. Wright, Bernard A. Fox, Brian Piening, Sheng Zhang, Sheng Wang, Tristan Naumann, Carlo Bifulco, Hoifung Poon</em></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/">GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Broadening access to Skala creates a faster path to predictive DFT </title>
 		<link>https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/</link>
 		
@@ -32,7 +271,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/">Broadening access to Skala creates a faster path to predictive DFT </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1.jpg" alt="Schematic of the Skala architecture, showing how meta-GGA electronic features are transformed through point-wise processing and non-local atomic interactions to predict density functional theory energies." class="wp-image-1184452" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1.jpg" alt="Schematic of the Skala architecture, showing how meta-GGA electronic features are transformed through point-wise processing and non-local atomic interactions to predict density functional theory energies." class="wp-image-1184452" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -73,7 +312,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1785" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-scaled.png" alt="Fig. 1: Table of errors for Skala-1.1 and competing density functionals on the 55 subsets of GMTKN55. Skala-1.1 delivers the lowest error on 32 subsets, indicating broad and consistent accuracy across a wide range of chemical properties and reaction types." class="wp-image-1184173" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-scaled.png 1785w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-209x300.png 209w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-714x1024.png 714w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-768x1101.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-1071x1536.png 1071w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-1428x2048.png 1428w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-126x180.png 126w" sizes="(max-width: 1785px) 100vw, 1785px" /><figcaption class="wp-element-caption">Figure 1: Accuracy of Skala-1.1 for thermochemistry, kinetics, and non-covalent interactions. At the computational cost of a meta-GGA functional, Skala 1.1 outperforms the best, most expensive global hybrid functionals, ranking first (earning gold medals) in 32 of the 55 categories of the widely used GMTKN55 benchmark, which spans a broad range of chemical problems.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1785" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-scaled.png" alt="Fig. 1: Table of errors for Skala-1.1 and competing density functionals on the 55 subsets of GMTKN55. Skala-1.1 delivers the lowest error on 32 subsets, indicating broad and consistent accuracy across a wide range of chemical properties and reaction types." class="wp-image-1184173" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-scaled.png 1785w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-209x300.png 209w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-714x1024.png 714w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-768x1101.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-1071x1536.png 1071w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-1428x2048.png 1428w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-126x180.png 126w" sizes="auto, (max-width: 1785px) 100vw, 1785px" /><figcaption class="wp-element-caption">Figure 1: Accuracy of Skala-1.1 for thermochemistry, kinetics, and non-covalent interactions. At the computational cost of a meta-GGA functional, Skala 1.1 outperforms the best, most expensive global hybrid functionals, ranking first (earning gold medals) in 32 of the 55 categories of the widely used GMTKN55 benchmark, which spans a broad range of chemical problems.</figcaption></figure>
 
 
 
@@ -185,7 +424,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2007" height="2007" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA.png" alt="Fig. 2: Plot comparing signed errors for Skala-1.1 using the CP2K and PySCF implementations on a representative subset of GMTKN55. The two implementations show nearly identical results, agreeing within 0.04 kcal/mol and confirming that the CP2K integration reproduces the accuracy of the community release." class="wp-image-1184807" style="width:556px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA.png 2007w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-360x360.png 360w" sizes="(max-width: 2007px) 100vw, 2007px" /><figcaption class="wp-element-caption">Figure 2: Signed errors relative to high-accuracy reference values for a representative subset of GMTKN55, comparing the CP2K and PySCF implementations of Skala-1.1 using as closely matched numerical settings as possible. The two implementations agree to within 0.1 kcal/mol MAD across the entire subset.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2007" height="2007" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA.png" alt="Fig. 2: Plot comparing signed errors for Skala-1.1 using the CP2K and PySCF implementations on a representative subset of GMTKN55. The two implementations show nearly identical results, agreeing within 0.04 kcal/mol and confirming that the CP2K integration reproduces the accuracy of the community release." class="wp-image-1184807" style="width:556px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA.png 2007w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-360x360.png 360w" sizes="auto, (max-width: 2007px) 100vw, 2007px" /><figcaption class="wp-element-caption">Figure 2: Signed errors relative to high-accuracy reference values for a representative subset of GMTKN55, comparing the CP2K and PySCF implementations of Skala-1.1 using as closely matched numerical settings as possible. The two implementations agree to within 0.1 kcal/mol MAD across the entire subset.</figcaption></figure>
 
 
 
@@ -474,30 +713,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -829,30 +1068,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1002645">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: AI-POWERED EXPERIENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-label="Microsoft research copilot experience" data-bi-cn="Microsoft research copilot experience" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2024/01/MSR-Chat-Promo.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft research copilot experience</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-copilot-experience" class="large">Discover more about research at Microsoft through our AI-powered experience</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://aka.ms/research-copilot/?OCID=msr_researchforum_Copilot_MCR_Blog_Promo" aria-describedby="microsoft-research-copilot-experience" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft research copilot experience" target="_blank">
+							Start now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1854,30 +2093,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2093,27 +2332,30 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2170,182 +2412,6 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 					
 		
 		
-			</item>
-		<item>
-		<title>SkillOpt: Agent skills as trainable parameters</title>
-		<link>https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/</link>
-		
-		<dc:creator><![CDATA[Yifan Yang, Xuemei Gao, Qi Dai, Bei Liu, Kai Qiu, Dongdong Chen, Chong Luo]]></dc:creator>
-		<pubDate>Tue, 30 Jun 2026 16:50:02 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1176927</guid>
-
-					<description><![CDATA[<p>AI agents often fail because their instructions, or skills, are manually modified with no guarantee of improvement. Learn how SkillOpt turns skill editing into a training process, making agent behavior more reliable without changing model weights.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/">SkillOpt: Agent skills as trainable parameters</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg" alt="SkillOpt blog | three white line icons on an abstract green background | shield icon, gear icon, circle with checkmark icon" class="wp-image-1176928" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>AI agents often fail because their instructions, or skills, are manually modified with no guarantee of improvement. SkillOpt turns skill editing into a training process, making agent behavior more reliable without changing model weights.</li>
-
-
-
-<li>SkillOpt treats an agent skill file as a trainable parameter outside a frozen target model, turning skill writing from one-shot prompting into a controlled optimization process.</li>
-
-
-
-<li>Across six benchmarks, seven target models, and three execution modes, SkillOpt is the best or tied-best method in all 52 evaluation cells, improving performance without updating model weights.</li>
-
-
-
-<li>SkillOpt keeps skills compact and auditable through bounded text edits, validation gating, rejected-edit feedback, and slow/meta updates, avoiding uncontrolled prompt drift.</li>
-
-
-
-<li>The optimized skills transfer across model scales, agent harnesses, and related tasks, suggesting that they capture reusable workflow knowledge rather than benchmark-specific instructions.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Large language models (LLMs) are increasingly deployed as agents that gather evidence, call tools, and execute multi-step tasks. For these agents, the hard problem is no longer whether they can call a tool, but whether they can complete tasks reliably and consistently. Today, agent skills typically come from three sources: experts write them by hand, a frontier model generates them one-shot, or the agent loosely revises them after execution. None of these approaches behaves like a deep-learning optimizer. They lack step-size control, held-out validation, and any memory of revisions that failed. As a result, skills tend to grow longer and drift with each rewrite, and a revision that seems perfectly reasonable can quietly degrade real task performance. This uncontrolled skill evolution has become a major obstacle on the path from agent prototype to dependable, production-grade deployment.</p>
-
-
-
-<p class="wp-block-paragraph">In our recent paper, <a href="https://www.microsoft.com/en-us/research/publication/skillopt-executive-strategy-for-self-evolving-agent-skills/" type="link" id="https://www.microsoft.com/en-us/research/publication/skillopt-executive-strategy-for-self-evolving-agent-skills/">SkillOpt: Executive Strategy for Self-Evolving Agent Skills</a>, we reframe the question from “how do we write a better prompt?” to “how do we train the skill?” SkillOpt treats the skill file as a trainable parameter living outside a frozen target model, bringing a training-style optimization loop, consistent gains across 52 evaluation cells, and a compact skill file that stays readable, auditable, and transferable.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="586" height="291" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png" alt="Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating." class="wp-image-1176930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-1-240x119.png 240w" sizes="auto, (max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 1. A frozen target model executes tasks while a separate optimizer model trains the skill layer from trajectory feedback, exporting the reusable skill file best_ skill.md through validation gating.</figcaption></figure>
-
-
-
-<h2 id="how-skillopt-works" class="wp-block-heading">How SkillOpt works</h2>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" controls poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/skillopt.jpg" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/skillopt_teaser-1.mp4" playsinline></video><figcaption class="wp-element-caption">Video 1. SkillOpt’s optimization loop, from trajectory collection to the exported skill file.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">SkillOpt organizes skill editing as a forward–backward–update cycle in text space. In the forward pass, the frozen target model executes a batch of training tasks with the current skill; the rollout batch size controls how much evidence each update receives. In the backward pass, a separate optimizer model reads the resulting trajectories in reflection minibatches, distilling patterns to preserve from successful trajectories and patterns to correct from failures.</p>
-
-
-
-<p class="wp-block-paragraph">In the update step, the optimizer proposes small add, delete, and replace edits; candidate edits are merged, deduplicated, ranked, and clipped by a textual learning rate—a per-step edit budget. Every candidate skill must then pass a strict validation gate: it is adopted only if it scores strictly higher than the current skill on the held-out validation split. Rejected edits are not discarded; they enter a rejected-edit buffer that serves as negative feedback for later optimizer calls in the same epoch. On a slower cadence, an epoch-wise slow/meta update consolidates longer-horizon lessons that single batches cannot reveal (Figure 2). Together, bounded edits, validation gating, and best-version selection keep skill optimization controllable and auditable, so the skill converges instead of drifting.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="586" height="322" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png" alt="Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training." class="wp-image-1176931" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2.png 586w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-300x165.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/SkillOpt_EXT_FA_Figure-2-240x132.png 240w" sizes="auto, (max-width: 586px) 100vw, 586px" /><figcaption class="wp-element-caption">Figure 2. The SkillOpt pipeline: trajectory collection, minibatch reflection, bounded text updates, validation gating, and epoch-wise slow/meta updates jointly constrain skill training.</figcaption></figure>
-
-
-
-<h2 id="consistent-gains-across-benchmarks-models-and-execution-modes" class="wp-block-heading">Consistent gains across benchmarks, models, and execution modes</h2>
-
-
-
-<p class="wp-block-paragraph">We evaluated SkillOpt across six benchmarks (SearchQA, SpreadsheetBench, OfficeQA, DocVQA, LiveMathematicianBench, and ALFWorld), seven target models from frontier-scale GPT-5.5 to the small open-weight Qwen3.5-4B, and three execution modes (direct chat, Codex, and Claude Code). Counting each combination as one evaluation cell, When measured against human-written skills, one-shot LLM skills, Trace2Skill, TextGrad, GEPA, and EvoSkill, SkillOpt delivered the best or tied for -best results on all 52 cells. These performance improvements are unusually large for a method that updates no model weights. With GPT-5.5 in direct chat, SkillOpt raises the six-benchmark average from 58.8 to 82.3, a +23.5-point absolute improvement—and +5.4 points above an oracle that picks the single best competing method per cell. The largest gains appear on procedural benchmarks: SpreadsheetBench rises from 41.8 to 80.7, OfficeQA from 33.1 to 72.1, and LiveMathematicianBench from 37.6 to 66.9. The same interface carries over to agentic loops, lifting GPT-5.5 by +24.8 points inside Codex and +19.1 inside Claude Code over no skill.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
-				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="a-small-model-plus-a-skill-file" class="wp-block-heading">A small model plus a skill file</h2>
-
-
-
-<p class="wp-block-paragraph">Approaching the next model tier SkillOpt also narrows the gap between small or open-weight models and frontier models—without changing any weights or adding any extra model calls at inference. After optimization, GPT-5.4-mini’s six-benchmark average (64.3) exceeds the no-skill baseline of the larger GPT-5.4 (59.7), and GPT-5.4-nano (57.4) exceeds the no-skill baseline of GPT-5.2 (51.3). Qwen3.5-4B, a 4-billion-parameter open-weight model, surpasses GPT-5.2’s no-skill baseline as well. Gains that once required a larger model can now be approximated by one optimized skill file.</p>
-
-
-
-<h2 id="skills-that-transfer-train-once-reuse-everywhere" class="wp-block-heading">Skills that transfer: train once, reuse everywhere</h2>
-
-
-
-<p class="wp-block-paragraph">The optimized skill file captures reusable task-solving procedures rather than instructions overfit to a single model, benchmark, or execution environment. This is why the same skill can still improve performance when transferred across model scales, agent harnesses, and related tasks. In our transfer experiments, skills continued to deliver gains when moved across model scales, across execution harnesses, and to a nearby math benchmark. The clearest example is cross-harness transfer: a spreadsheet skill trained inside Codex, dropped into Claude Code with no further optimization, lifts the no-skill baseline from 22.1 to 81.8 (+59.7)—slightly above the 80.4 achieved by training directly inside Claude Code. Because the two harnesses expose different tool surfaces, this suggests SkillOpt learns general workflow logic, not just harness-specific recipes.</p>
-
-
-
-<h2 id="compact-readable-and-built-from-very-few-accepted-edits" class="wp-block-heading">Compact, readable, and built from very few accepted edits</h2>
-
-
-
-<p class="wp-block-paragraph">The deployed artifact, best_ skill.md , is neither an opaque parameter blob nor an ever-growing log. Across six case studies, the median final skill length is roughly 920 tokens, and because the validation gate rejects most proposals, only one to four edits are accepted into the final file. OfficeQA’s +39.0-point gain comes from a single accepted edit. The learned rules read like a seasoned practitioner’s advice. Component ablations confirm that the controls do the work: removing the rejected-edit buffer lowers scores on all three ablation benchmarks, and removing both the meta skill and the slow update drops SpreadsheetBench from 77.5 to 55.0. A new adaptation layer for the agent era SkillOpt points to a lighter-weight path for domain-adapting agents: instead of fine-tuning weights, hard-coding task logic, or hand-tuning prompts, teams can train a small, versionable, auditable natural-language skill layer—wherever automatic evaluation or a reliable verifier exists.</p>
-
-
-
-<p class="wp-block-paragraph">By bringing learning rates, schedules, validation splits, rejected samples, and slow updates to agent skills, SkillOpt suggests that training need not be limited to model weights.&nbsp;Procedural knowledge outside the model can also be optimized.</p>
-
-
-
-<p class="wp-block-paragraph">When that process is controlled, validated, and recorded, a natural-language skill becomes a stable, transferable, and reversible adapter between frontier-model capability and real-world workloads. Read the full paper, visit the project page at&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://aka.ms/skillopt">aka.ms/skillopt<span class="sr-only"> (opens in new tab)</span></a>, or explore the SkillOpt GitHub repository at&nbsp;<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/SkillOpt" target="_blank" rel="noopener noreferrer">github.com/microsoft/SkillOpt<span class="sr-only"> (opens in new tab)</span></a>. Teams building agentic workflows can use SkillOpt as a foundation for training reusable skills against their own tasks and verifiers. See also our companion project, SkillLens.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/skillopt-executive-strategy-for-self-evolving-agent-skills/">Paper</a></div>
-
-
-
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/SkillOpt">GitHub</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://microsoft.github.io/SkillLens/">SkillLens Project Page</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/">SkillOpt: Agent skills as trainable parameters</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/skillopt_teaser-1.mp4" length="21177671" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
