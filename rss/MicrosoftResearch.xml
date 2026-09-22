@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 31 Aug 2026 13:43:23 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 21 Sep 2026 15:56:39 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,135 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.1</generator>
 	<item>
+		<title>Improving synthesis prediction of small molecules at scale with RetroChimera</title>
+		<link>https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/</link>
+		
+		<dc:creator><![CDATA[Felix Pultar, John Gardner, Guoqing Liu, Marwin Segler]]></dc:creator>
+		<pubDate>Mon, 21 Sep 2026 15:30:19 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1186724</guid>
+
+					<description><![CDATA[<p>Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera, a predictive model that helps accelerate chemical synthesis, helping researchers explore a wide range of molecules.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/">Improving synthesis prediction of small molecules at scale with RetroChimera</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1.jpg" alt="Example of a retrosynthesis tree. For a single target molecule, many disconnections are possible, which introduces a high branching factor. The figure shows many incomplete routes in pale colors that contrast a completed route, which connects all the way from the target molecule to purchasable building blocks. " class="wp-image-1186908" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>We report on the recent publication of our retrosynthesis model RetroChimera in the journal <em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41586-026-11160-9" target="_blank" rel="noopener noreferrer">Nature<span class="sr-only"> (opens in new tab)</span></a></em>.</li>
+
+
+
+<li>The paper describes the model’s architecture as well as extensive validation studies, including the model’s ability to recall rare reaction types, and successful zero-shot transfer and fine-tuning on proprietary datasets.</li>
+
+
+
+<li>We open-source RetroChimera’s implementation and weights in the hope that it will enable researchers to accelerate development of new medicinally relevant molecules and advanced materials.&nbsp;</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Developing new medicines and materials requires making new molecules but planning how to make them is still largely manual, time-consuming, and costly. RetroChimera automatically proposes high-quality synthesis routes. The model combines two strong models with complementary strengths, learning how to rank their proposals to produce better predictions than either alone. In blind tests, PhD-level chemists prefer RetroChimera’s individual reaction predictions over preceding models and recorded literature reactions.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Custom-made molecules are unlocking advances in modern medicine, smart materials, and sustainable agriculture. Yet, progress is slowed by chemical synthesis—the time-consuming process of making new molecules from simpler building blocks in the lab. In addition, synthesis is a significant driver of drug development costs. So even as computational methods make it possible to explore large numbers of novel molecules, finding practical ways to synthesize them remains a critical challenge.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2160" height="900" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes.png" alt="Figure 1: 
+
+Example of a retrosynthesis tree. For a single target molecule, many disconnections are possible, which introduces a high branching factor. The figure shows many incomplete routes in pale colors that contrast a completed route, which connects all the way from the target molecule to purchasable building blocks. " class="wp-image-1186740" style="aspect-ratio:2.4015444015444016;object-fit:cover;width:690px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes.png 2160w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1024x427.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-768x320.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1536x640.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-2048x853.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1728x720.png 1728w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1440x600.png 1440w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-240x100.png 240w" sizes="(max-width: 2160px) 100vw, 2160px" /><figcaption class="wp-element-caption">Figure 1: Planning a synthesis by working backward. Retrosynthesis starts with a target molecule and proposes successive disconnections into simpler precursors until purchasable building blocks are reached. The highlighted path shows a complete synthesis route; pale branches illustrate alternatives explored along the way. Circles represent molecules and squares represent reactions. For clarity, only a few branches are illustrated, with chemical structures shown for the target, one intermediate, and selected building blocks.&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Retrosynthesis approaches this problem by working backwards from a target molecule, breaking it down step by step into simpler precursors (Figure 1). This process is comparable to playing strategic board games like chess and Go. It involves contemplating a wide range of possible immediate moves, or&nbsp;individual disconnections, while also requiring high-level strategic thinking to reach the end-to-end synthesis plan. However, the number of possible moves in retrosynthesis is much larger than in board games, and it is not obvious which moves would be available for a given molecule. Existing systems face major challenges, including recalling rare but strategically important reactions, robustness beyond the training distribution, and aligning with chemists’ expectations. As a result, retrosynthesis&nbsp;often requires highly specialized expertise, which hinders scaling and automation of scientific discovery.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2560" height="964" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-scaled.png" alt="Figure 2: 
+
+Outline of the RetroChimera workflow. RetroChimera takes a single target molecule, its sub-models give predictions for a disconnection, and learned voting gives a ranked output. " class="wp-image-1186741" style="aspect-ratio:2.6561085972850678;object-fit:cover;width:722px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-300x113.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-768x289.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1024x385.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1536x578.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1912x720.png 1912w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-2048x771.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1593x600.png 1593w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-240x90.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2: Our framework for ensemble-based retrosynthesis with learned re-ranking which underpins RetroChimera. The ensemble receives a target molecule as the input, which is then processed by the sub-models. The model outputs are aggregated using a learning-to-rank strategy. While in this work we only investigate deep learning models as prediction sources (solid boxes), it is possible to add additional sources, for example calls to reaction databases or human-in-the-loop queries (dashed box).&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">In a paper recently published in the journal <em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41586-026-11160-9" target="_blank" rel="noopener noreferrer">Nature<span class="sr-only"> (opens in new tab)</span></a></em>, we present <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/retrochimera" target="_blank" rel="noopener noreferrer"><em>RetroChimera</em><span class="sr-only"> (opens in new tab)</span></a>, a new framework for retrosynthesis prediction. It is built around two models (Figure 2). <em>R-SMILES 2</em>, a Transformer-based de-novo model, predicts precursor molecules directly from the input molecule. This gives it the flexibility to learn reaction patterns directly from data. However, its unconstrained generation can also make it prone to hallucination.</p>
+
+
+
+<p class="wp-block-paragraph"><em>NeuralLoc</em>, in contrast, is a graph neural network- (GNN) based model that encodes both the target molecule and reaction templates as graphs. It selects reaction templates and predicts where they should be applied to the target molecule. Its predictions are grounded in reaction patterns extracted from the training data, so it tends to produce more accurate and reliable outputs. But it’s more constrained when encountering reactions not covered by the template library.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">These differences actually turn out to be a strength. Rather than making the same kinds of predictions, the two models capture complementary patterns in chemistry and specialize in different reaction types. R-SMILES 2 performs particularly well on reactions that involve large changes over the course of the reaction, while NeuralLoc excels in reactions of low precedence and those involving more localized changes.</p>
+
+
+
+<p class="wp-block-paragraph">RetroChimera combines the ranked predictions of both sub-models using a learned ensembling strategy. Each model assigns a learned, rank-dependent vote to each predicted reactant set, and votes are added when both models propose the same reaction. By learning how much to trust each model at different ranks, RetroChimera can leverage their complementary strengths, approximately matching the better-performing sub-model across reaction classes.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="743" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-scaled.png" alt="Figure 3:  
+
+Outputs of RetroChimera and other models were ranked by PhD-level expert chemists. Retrosynthetic disconnections predicted by RetroChimera had the highest acceptance rate (left). A single incorrect prediction already invalidates an entire synthesis route. As a result, routes suggested by RetroChimera had 90% acceptance rate by experts, while only 20-50% of those predicted by its sub-models or a baseline were deemed acceptable by chemists (right). " class="wp-image-1186742" style="aspect-ratio:3.4419889502762433;object-fit:cover" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-300x87.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-765x222.png 765w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-1024x297.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-1536x446.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-2048x594.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-3_retrochimera-solve_rate_figure_blogpost2-240x70.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 3: Expert assessment of multistep synthesis routes. Left: Ratings of individual reaction steps. Right: Complete routes accepted or rejected for ten challenging targets. RetroChimera succeeded on nine targets, versus five for the de novo model, four for the editing model, and two for NeuralSym, a strong baseline model.&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">As a result, RetroChimera performs strongly across both common and rare reaction classes and produces retrosynthesis predictions that better align with chemists’ judgment (Figure 3). In blind tests, expert chemists preferred disconnections of complex molecules suggested by RetroChimera over those obtained from its constituent sub-models, as well as those from more established approaches, and even from the test set itself.</p>
+
+
+
+<p class="wp-block-paragraph">We believe RetroChimera could help researchers identify promising synthesis route more efficiently, supporting faster design-make-test cycle across molecular science applications, including drug discovery and design of smart materials. RetroChimera could enable chemists to assess more—and more complex—candidate molecules at large scale. Paired with increasing levels of laboratory automation, we expect further acceleration toward closed-loop, self-improving systems for synthesis planning and execution.&nbsp;&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">RetroChimera is available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/retrochimera" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> (MIT license) and accessible via <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ai.azure.com/catalog/models/RetroChimera" target="_blank" rel="noopener noreferrer">Microsoft Foundry<span class="sr-only"> (opens in new tab)</span></a>. For instructions on how to access the checkpoint, we refer to the GitHub repository.</p>
+
+
+
+<p class="wp-block-paragraph">We invite the broader chemistry community to experiment with RetroChimera, helping us identify its strengths and shortcomings so we can enhance it in the future. We are looking forward to hearing how it performs on various targets you care about!</p>
+
+
+
+<p class="wp-block-paragraph">For a deeper look at the findings, including evaluation experiments with our external research collaborators, see the full <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.nature.com/articles/s41586-026-11160-9">Nature publication<span class="sr-only"> (opens in new tab)</span></a> and the accompanying <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/AA13geyg" target="_blank" rel="noopener noreferrer">Microsoft Source article<span class="sr-only"> (opens in new tab)</span></a>. </p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/chemist-aligned-retrosynthesis-by-ensembling-diverse-inductive-bias-models/">Publication</a></div>
+
+
+
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/retrochimera" target="_blank" rel="noopener">OSS repository</a></div>
+
+
+
+<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/RetroChimera" target="_blank" rel="noopener">Microsoft Foundry</a></div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/">Improving synthesis prediction of small molecules at scale with RetroChimera</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models</title>
 		<link>https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/</link>
 		
@@ -32,7 +161,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/">GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW.jpg" alt="Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder. " class="wp-image-1184911" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW.jpg" alt="Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder. " class="wp-image-1184911" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/GigaPathFlash-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -101,7 +230,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="980" height="417" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF.png" alt="Figure 1: Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder. " class="wp-image-1184838" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF.png 980w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-300x128.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-768x327.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-240x102.png 240w" sizes="(max-width: 980px) 100vw, 980px" /><figcaption class="wp-element-caption">Figure 1: Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="980" height="417" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF.png" alt="Figure 1: Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder. " class="wp-image-1184838" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF.png 980w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-300x128.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-768x327.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1_overview_GPF_GTF-240x102.png 240w" sizes="auto, (max-width: 980px) 100vw, 980px" /><figcaption class="wp-element-caption">Figure 1: Overview of the GigaPath/GigaTIME model family. GigaPath-Flash provides efficient tile and slide encoders at 22M parameters. GigaTIME-Flash predicts spatial proteomics from H&E, replacing the CNN backbone with the distilled ViT-S encoder.</figcaption></figure>
 
 
 
@@ -125,7 +254,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="847" height="536" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF.png" alt="Figure 2: Efficiency–performance trade-off on whole-slide benchmarks. GigaPath-Flash (red, top-left) achieves competitive performance at substantially lower computational cost than other whole-slide pretrained models." class="wp-image-1184839" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF.png 847w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-300x190.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-768x486.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-240x152.png 240w" sizes="(max-width: 847px) 100vw, 847px" /><figcaption class="wp-element-caption">Figure 2: Efficiency–performance trade-off on whole-slide benchmarks. GigaPath-Flash (red, top-left) achieves competitive performance at substantially lower computational cost than other whole-slide pretrained models.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="847" height="536" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF.png" alt="Figure 2: Efficiency–performance trade-off on whole-slide benchmarks. GigaPath-Flash (red, top-left) achieves competitive performance at substantially lower computational cost than other whole-slide pretrained models." class="wp-image-1184839" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF.png 847w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-300x190.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-768x486.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig2_gigapath_slide_benchmark_efficiency_GPF_GTF-240x152.png 240w" sizes="auto, (max-width: 847px) 100vw, 847px" /><figcaption class="wp-element-caption">Figure 2: Efficiency–performance trade-off on whole-slide benchmarks. GigaPath-Flash (red, top-left) achieves competitive performance at substantially lower computational cost than other whole-slide pretrained models.</figcaption></figure>
 
 
 
@@ -199,30 +328,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -368,30 +494,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -587,30 +713,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -716,27 +842,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Azure AI Foundry Labs</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
-							Azure AI Foundry						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1068,7 +1197,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1077,20 +1206,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -2093,30 +2222,27 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://ai.azure.com/labs" aria-label="Azure AI Foundry Labs" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Azure AI Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="azure-ai-foundry-labs" class="large">Get a glimpse of potential future directions for AI, with these experimental technologies from Microsoft Research.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://ai.azure.com/labs" aria-describedby="azure-ai-foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Azure AI Foundry Labs" target="_blank">
+							Azure AI Foundry						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2229,185 +2355,6 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 <p class="wp-block-paragraph"></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Flint: A visualization language for the AI era</title>
-		<link>https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/</link>
-		
-		<dc:creator><![CDATA[Chenglong Wang, Alper Sarikaya, Scott Tsukamaki, Michel Galley, Jianfeng Gao]]></dc:creator>
-		<pubDate>Wed, 08 Jul 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1177589</guid>
-
-					<description><![CDATA[<p>Short chart specifications are easy to write, but often produce uninspiring results. Flint is an open-source visualization language that offers a middle path, letting AI agents create expressive charts from compact, human-editable specifications.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/">Flint: A visualization language for the AI era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg" alt="Flint blog | three white line icons on an abstract green background; bar chart icon, connected nodes icon, flowchart icon" class="wp-image-1177592" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Flint-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Polished charts from simple specs</strong>. Flint allows AI agents to reliably generate expressive, visually polished charts from simple, human-editable specifications.</li>
-
-
-
-<li><strong>Semantic types guide design</strong>. Flint leverages semantic data types to express meanings of data. They help the compiler choose appropriate scales, baselines, formatting, and color schemes.</li>
-
-
-
-<li><strong>Layouts adapt to the data</strong>. Flint automatically manages sizing, spacing, labels, and layout so charts remain readable as cardinality and density change, without explicit user configurations.</li>
-
-
-
-<li><strong>One spec can target multiple backends</strong>. A single Flint specification can compile to Vega-Lite, Apache ECharts, or Chart.js without rewriting the chart from scratch.</li>
-
-
-
-<li><strong>Built for agent workflows</strong>. The open-source project includes the <em>flint-chart library</em> and the <em>flint-chart-mcp server</em>, so agents can create, validate, and render charts directly in chat or coding environments.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="764" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png" alt="A dense grid displaying a diverse gallery of data visualizations. The collection showcases over twenty different chart types, including stacked area charts, line graphs, sunburst charts, stacked bar charts, treemaps, radar charts, Sankey diagrams, dense heatmaps, diverging bar charts, candlestick charts, violin plots, a choropleth map of the United States, scatter plots, grouped bar charts, waterfall charts, and parallel coordinate plots." class="wp-image-1178156" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-300x90.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1024x306.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-768x229.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-1536x458.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-2048x611.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/chartwall_FLINT-240x72.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. Flint supports a diverse collection of visualizations with its simple spec, which can be rendered with visualization libraries like Vega-Lite, Echarts, and Chart.js.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Creating a good chart requires many design decisions: how dates should be parsed, whether a scale should start at zero, how values should be formatted, how much room labels need, and which colors make the data easier to read. Modern visualization libraries such as Vega-Lite, Apache ECharts, and Chart.js expose these controls, but there is a trade-off: Short specifications that rely on system defaults often produce uninspiring charts, while polished visualizations require detailed specifications with purposely chosen parameters that are often verbose, fragile, and error-prone.</p>
-
-
-
-<p class="wp-block-paragraph">This trade-off becomes sharper as large language models (LLMs) and AI agents take on more visualization work. Agents are especially prone to errors when they must manage complex, low-level specification details, and the resulting fragile code can be difficult for people to inspect, repair, or reuse. Ideally, we need something in between: a compact specification that agents can produce reliably, people can edit directly, and a system can compile into a well-designed chart.</p>
-
-
-
-<p class="wp-block-paragraph">To address this challenge, we introduce <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/flint-chart/" type="link" id="https://microsoft.github.io/flint-chart/" target="_blank" rel="noopener noreferrer">Flint<span class="sr-only"> (opens in new tab)</span></a>, a visualization intermediate language for AI-driven chart creation. Flint helps AI agents create expressive, attractive charts from simple, human-editable chart specs. Instead of requiring verbose low-level parameters for scales, axes, spacing, and layout, the Flint compiler derives optimized chart settings from the data, semantic types, chart type, and encodings. The same Flint spec can render through multiple backends, including Vega-Lite, Apache ECharts, and Chart.js.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1260" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png" alt="A three-step diagram illustrating the Flint workflow from left to right. It starts with a short JSON code snippet labeled "FLINT SPEC," which flows into a significantly longer, more detailed JSON code snippet labeled "COMPILED SPEC (VEGA-LITE)." This final specification then points to the end result under "VISUALIZATION," displaying a rendered heatmap chart showing data across different games and periods." class="wp-image-1178168" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-300x148.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1024x504.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-768x378.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-1536x756.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-2048x1008.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/compile-demo_FLINT-240x118.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Flint compiles a compact, human-editable chart specification into a complete backend-native specification and rendered visualization. In this heatmap example, the Flint spec names semantic types (period as YearMonth, newUsers as Profit) and maps fields to visual channels. The compiler derives the Vega-Lite details, including temporal parsing, axis formatting, color scale, cell sizing, legend configuration, and layout.</figcaption></figure>
-
-
-
-<h2 id="how-flint-works" class="wp-block-heading">How Flint works</h2>
-
-
-
-<p class="wp-block-paragraph">Figure 2 illustrates the how the Flint compiler turns a compact chart specification into a refined heatmap.</p>
-
-
-
-<p class="wp-block-paragraph">To produce a high-quality heatmap, traditionally, we need to explicitly tell the system with low-level chart properties about how to process the period field, how to properly label MonthYear values, size individual heatmap cells, and choose a color scale that appropriately represents positive and negative newUsers values. Without these configurations, visualization libraries must guess from field names and raw values, which can lead to charts that are technically valid but potentially misleading. While they are important, hard-coding these details can be difficult and error-prone, and they make specification fragile and hard for users to understand or adapt.</p>
-
-
-
-<p class="wp-block-paragraph">In Flint, these low-level details are systematically managed, where the compiler infers them from high-level data and chart specifications. Here, the <strong>data specification</strong> captures semantic types and optional metadata, and the <strong>chart specification</strong> defines the chart type and maps fields to visual channels such as x, y, color, size, or facet. From this information, the compiler derives the parsing rules, scales, axes, aggregations, formatting, color schemes, layout, and generates the backend-native specification, which is used to render the final polished visualization. This frees users from explicitly setting fragile and error-prone low-level details.</p>
-
-
-
-<p class="wp-block-paragraph">Furthermore, because the intermediate representation is separate from any single rendering library, Flint can target backends with very different APIs and programming models. Users can keep the same compact chart intent while compiling to Vega-Lite, ECharts, or Chart.js, and choose the backend whose capabilities best fit the visualization.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">On Second Thought</h2>
-				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="flint-for-ai-assisted-visualization" class="wp-block-heading">Flint for AI-assisted visualization</h2>
-
-
-
-<p class="wp-block-paragraph">Flint is well suited to LLM-based chart generation because semantic types are often easier for models to infer than the full set of low-level visualization parameters. Field names, value patterns, and common data knowledge can help an agent recognize whether a column represents a date, price, percentage, country, ranking, or correlation. Once those meanings are explicit, the compiler can handle many design decisions that would otherwise appear as brittle, library-specific code.</p>
-
-
-
-<p class="wp-block-paragraph">In our research study, we compared Flint with DirectVL, a baseline that asks the model to directly generate full (more complex) Vega-Lite specifications in a LLM self-evaluation pipeline. Across three tested models based on testing data from Tidy Tuesdays, Flint received higher overall LLM-judge scores: 16.27 vs. 15.91 with GPT-5.1, 16.16 vs. 15.60 with GPT-5-mini, and 15.91 vs. 15.34 with GPT-4.1. In fact, Flint has been so powerful and reliable that it is now used to power <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/data-formulator" type="link" id="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener noreferrer">Data Formulator<span class="sr-only"> (opens in new tab)</span></a>, a Microsoft Research project for AI-assisted data analysis and visualization.</p>
-
-
-
-<p class="wp-block-paragraph">To make Flint easy for your agents to access, we also release <strong><em>flint-chart-mcp</em></strong>, a Model Context Protocol (MCP) server that allows agents to create, validate, and render charts inside a chat or coding environment. MCP calls can embed data inline or read configured local files, and the server can open an interactive chart view so users can inspect and refine the results.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1628" height="1338" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT.png" alt="A mockup of an AI agent chat interface. A user sends the message, "Show me quarterly revenue by region as a grouped bar chart." The AI responds with an interactive widget labeled "Flint Chart MCP APP" displaying a grouped bar chart of revenue by quarter, color-coded by region (North, South, West). Below the chart are interactive UI controls for adjusting the corner radius, sorting, toggling values on or off, and a button to "Copy spec to chat."" class="wp-image-1178170" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT.png 1628w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-300x247.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-1024x842.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-768x631.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-1536x1262.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/flint-mcp-experience_FLINT-219x180.png 219w" sizes="auto, (max-width: 1628px) 100vw, 1628px" /><figcaption class="wp-element-caption">Figure 3. Once you set up the flint-chart-mcp with your favorite AI client, the agent can generate interactive visualizations powered by Flint to answer your data exploration questions. </figcaption></figure>
-
-
-
-<h2 id="try-flint" class="wp-block-heading">Try Flint</h2>
-
-
-
-<p class="wp-block-paragraph">Flint is open source and ready to use:</p>
-
-
-
-<ul class="wp-block-list">
-<li>Project site: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/flint-chart/" target="_blank" rel="noopener noreferrer">https://microsoft.github.io/flint-chart/<span class="sr-only"> (opens in new tab)</span></a></li>
-
-
-
-<li>GitHub: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/flint-chart" target="_blank" rel="noopener noreferrer">https://github.com/microsoft/flint-chart<span class="sr-only"> (opens in new tab)</span></a></li>
-
-
-
-<li>Flint MCP server instruction: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/flint-chart/#/mcp" target="_blank" rel="noopener noreferrer">https://microsoft.github.io/flint-chart/#/mcp<span class="sr-only"> (opens in new tab)</span></a></li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">Flint points toward a shared semantic layer for visualization, where people and AI agents can work with compact chart intent while a compiler handles the careful low-level details. We invite the community to explore the project and build on it.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/">Flint: A visualization language for the AI era</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
