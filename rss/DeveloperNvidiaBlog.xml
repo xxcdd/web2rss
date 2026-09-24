@@ -6,42 +6,7 @@
     <description>Latest posts from https://developer.nvidia.com/zh-cn/blog/recent-posts/. follow.is: None</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 23 Sep 2026 03:57:23 +0000</lastBuildDate>
-    <item>
-      <title>GR-Inference：面向生成式推荐的推理系统设计与性能评估</title>
-      <link>https://developer.nvidia.cn/blog/gr-inference-generative-recommendation-inference-system-design-performance-evaluation/</link>
-      <description>2026年 9月 8日GR-Inference：面向生成式推荐的推理系统设计与性能评估基于 Semantic ID（SID）的生成式推荐，将推荐过程转化为短序列自回归生成。这类负载不同于 Chat LLM 的常规生成：2 MIN READ</description>
-    </item>
-    <item>
-      <title>介绍 CUDA Rust：用于编写 GPU 内核的两条轨道</title>
-      <link>https://developer.nvidia.cn/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/</link>
-      <description>2026年 9月 8日介绍 CUDA Rust：用于编写 GPU 内核的两条轨道2026 年 9 月，NVIDIA 宣布将在 Rust 中采用原生 GPU 编程。CUDA C++ 和 CUDA Python…4 MIN READ</description>
-    </item>
-    <item>
-      <title>CUDA 工具包 13.4 在 Arm 上添加了 Windows 支持，并增强了对共享 GPU 的控制</title>
-      <link>https://developer.nvidia.cn/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/</link>
-      <description>2026年 9月 9日CUDA 工具包 13.4 在 Arm 上添加了 Windows 支持，并增强了对共享 GPU 的控制每个 NVIDIA CUDA 工具包版本都增加了功能和性能改进，帮助开发者从 NVIDIA GPU 和更广泛的 NVIDIA…4 MIN READ</description>
-    </item>
-    <item>
-      <title>何时使用“编码-预填充-解码”解耦技术来加速多模态模型服务</title>
-      <link>https://developer.nvidia.cn/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/</link>
-      <description>2026年 9月 9日何时使用“编码-预填充-解码”解耦技术来加速多模态模型服务编码 – 预填充 – 解码 (EPD) 分解是一种适用于多模态模型的推理优化技术，可将视觉编码器阶段与预填充和解码阶段分离开来。4 MIN READ</description>
-    </item>
-    <item>
-      <title>从晶圆到第一个 Token：使用 Nemotron 和 Palantir Foundry 编写供应链专业知识</title>
-      <link>https://developer.nvidia.cn/blog/from-wafer-out-to-first-token-codifying-supply-chain-expertise-with-nemotron-and-palantir-foundry/</link>
-      <description>2026年 9月 10日从晶圆到第一个 Token：使用 Nemotron 和 Palantir Foundry 编写供应链专业知识NVIDIA 拥有世界上最大、最复杂的供应链之一，其性能从晶圆到第一个 token 来衡量。间隔分为两部分。从芯片到机架的运行时间 (…2 MIN READ</description>
-    </item>
-    <item>
-      <title>使用 BioNeMo 推理运行时进行高吞吐量结构预测</title>
-      <link>https://developer.nvidia.cn/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/</link>
-      <description>2026年 9月 10日使用 BioNeMo 推理运行时进行高吞吐量结构预测生物分子结构预测现在通常以蛋白质组规模运行，其目标是高效地将整个工作列表移动到工作流中。3 MIN READ</description>
-    </item>
-    <item>
-      <title>全栈 NIM 优化如何在 Nemotron 3 Ultra 上为用户提供 2.5 倍的提升</title>
-      <link>https://developer.nvidia.cn/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/</link>
-      <description>2026年 9月 10日全栈 NIM 优化如何在 Nemotron 3 Ultra 上为用户提供 2.5 倍的提升部署大语言模型只是实现生产就绪型服务的第一步。制作团队还需要在可用的 GPU 基础架构上为尽可能多的并发用户提供服务，2 MIN READ</description>
-    </item>
+    <lastBuildDate>Thu, 24 Sep 2026 03:50:07 +0000</lastBuildDate>
     <item>
       <title>借助 NVIDIA Transformer 引擎在 JAX 中加速无模型 MoE 训练</title>
       <link>https://developer.nvidia.cn/blog/accelerating-dropless-moe-training-in-jax-with-nvidia-transformer-engine/</link>
@@ -86,6 +51,41 @@
       <title>借助 AIPerf 对 LLM 进行大规模基准测试推理</title>
       <link>https://developer.nvidia.cn/blog/benchmarking-llm-inference-at-scale-with-aiperf/</link>
       <description>2026年 9月 18日借助 AIPerf 对 LLM 进行大规模基准测试推理在系统上部署模型。启动后，提示得到响应。难题是：速度快吗？ 直觉可能会引导您发送 curl 命令、手动滚动异步脚本或另一个一次性负载生成器。3 MIN READ</description>
+    </item>
+    <item>
+      <title>借助 NVIDIA Earth-2，将您的最新观测结果转化为及时的天气决策</title>
+      <link>https://developer.nvidia.cn/blog/turn-your-latest-observations-into-timely-weather-decisions-with-nvidia-earth-2/</link>
+      <description>2026年 9月 21日借助 NVIDIA Earth-2，将您的最新观测结果转化为及时的天气决策越来越多的天气敏感型行业可以获得观测结果，从而更早、更局部地了解不断变化的天气状况。能源公司收集风能和太阳能资产的测量数据，4 MIN READ</description>
+    </item>
+    <item>
+      <title>如何评估从工具调用到任务完成的 AI 智能体</title>
+      <link>https://developer.nvidia.cn/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/</link>
+      <description>2026年 9月 21日如何评估从工具调用到任务完成的 AI 智能体当您发布 AI 智能体 时，关键问题是它能否在实时环境中跨数十次连续工具调用执行工作链，并在步骤失败时恢复。2 MIN READ</description>
+    </item>
+    <item>
+      <title>借助 NVIDIA Dynamo-Triton 中的 NVIDIA TensorRT 多设备集成，简化跨多个 GPU 的模型服务</title>
+      <link>https://developer.nvidia.cn/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/</link>
+      <description>2026年 9月 21日借助 NVIDIA Dynamo-Triton 中的 NVIDIA TensorRT 多设备集成，简化跨多个 GPU 的模型服务生成式 AI 对计算和内存的需求日益超出单个 GPU 的能力。NVIDIA TensorRT 多设备推理是一项新功能，3 MIN READ</description>
+    </item>
+    <item>
+      <title>使用 AI 智能体和 NVIDIA Isaac ROS 加速 ROS 2 节点</title>
+      <link>https://developer.nvidia.cn/blog/accelerating-a-ros-2-node-with-an-ai-agent-and-nvidia-isaac-ros/</link>
+      <description>2026年 9月 22日使用 AI 智能体和 NVIDIA Isaac ROS 加速 ROS 2 节点GPU 加速可以加速计算密集型机器人工作负载，但仅凭快速的 CUDA 内核并不能保证快速的 ROS 2 图形。当消息在节点之间移动时，3 MIN READ</description>
+    </item>
+    <item>
+      <title>面向游戏开发者的新功能：DLSS 5 (支持 3D 引导神经渲染) 、NVIDIA ACE 更新和全新 RTX Kit 功能</title>
+      <link>https://developer.nvidia.cn/blog/whats-new-for-game-developers-dlss-5-with-3d-guided-neural-rendering-nvidia-ace-updates-and-new-rtx-kit-capabilities/</link>
+      <description>2026年 9月 22日面向游戏开发者的新功能：DLSS 5 (支持 3D 引导神经渲染) 、NVIDIA ACE 更新和全新 RTX Kit 功能NVIDIA DLSS 5 引入了 DLSS 3D 引导神经网络渲染和精细控制，可帮助游戏开发者在保留艺术意图的同时添加逼真的照明和材质细节。3 MIN READ</description>
+    </item>
+    <item>
+      <title>借助 NVIDIA Topograph 实现拓扑感知型工作负载调度</title>
+      <link>https://developer.nvidia.cn/blog/topology-aware-workload-scheduling-with-nvidia-topograph/</link>
+      <description>2026年 9月 22日借助 NVIDIA Topograph 实现拓扑感知型工作负载调度AI 工厂是功率受限的系统，在完全优化时可提供最大价值。GPU 工作负载布局是一项关键优化。糟糕的工作负载放置分散了拓扑域，4 MIN READ</description>
+    </item>
+    <item>
+      <title>借助 NVIDIA 机密计算实现私有高性能生产级 AI 推理</title>
+      <link>https://developer.nvidia.cn/blog/enabling-private-high-performance-production-ai-inference-with-nvidia-confidential-computing/</link>
+      <description>2026年 9月 22日借助 NVIDIA 机密计算实现私有高性能生产级 AI 推理随着大语言模型 (LLM) 推理越来越多地在个人、企业和受监管环境中处理敏感信息和专有模型上下文，数据必须在可信环境中处理。2 MIN READ</description>
     </item>
   </channel>
 </rss>

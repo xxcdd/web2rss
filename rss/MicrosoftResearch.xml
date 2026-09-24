@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 21 Sep 2026 15:56:39 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 23 Sep 2026 17:51:37 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,188 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.2</generator>
 	<item>
+		<title>Offloaded inference for real-world physical AI robotics</title>
+		<link>https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/</link>
+		
+		<dc:creator><![CDATA[Ganesh Ananthanarayanan, Matthew Balkwill, Xenofon Foukas, Sanjeev Mehrotra, Bozidar Radunovic, Connor Settle, Ankit Verma, David White, Shawn Cicoria, Mark Martin, Rachel Johnson, Mayur Patel]]></dc:creator>
+		<pubDate>Wed, 23 Sep 2026 16:01:36 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1186774</guid>
+
+					<description><![CDATA[<p>Robots are getting smarter, but how can their hardware match that growth? New Microsoft Research findings show that moving AI inference beyond the robot can improve task success, boost efficiency, and support more advanced physical AI workloads.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/">Offloaded inference for real-world physical AI robotics</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image aligncenter size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1.jpg" alt=" Two images showing the robot performing the same task of handing over a tape from one robot arm to another. The videos show that while the task succeeds when the inference latency is low, the handover fails with high inference latency as is the case with onboard robot GPUs." class="wp-image-1186977" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Challenges a core assumption in robotics AI: Our research shows that running physical AI inference exclusively on onboard GPUs can limit robot performance, battery life, and scalability, and that offloading inference to edge or cloud GPUs can offer significant advantages.</li>
+
+
+
+<li>Demonstrates measurable benefits of inference offloading: Across representative mobile manipulation workloads, offloading improved task success rates, enabled larger AI models, and helped robots respond more effectively in dynamic, real-world environments.</li>
+
+
+
+<li>Extends robot operating time: Replacing power-hungry onboard AI compute with lightweight onboard hardware and remote inference can substantially improve battery life, enabling robots to operate longer between charges.</li>
+
+
+
+<li>Introduces a new capability in the Physical AI Toolchain: Developers can now containerize, deploy, and orchestrate robotics AI workloads across robots, edge infrastructure, and the cloud using Kubernetes-based tooling for distributed inference.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Readily-available physical AI, with robotics assisting users in manufacturing, home, and warehouses scenarios, holds immense potential to improve safety, productivity, and assistance across a wide range of tasks. In many ways, AI for the physical world represents a major frontier for AI . Physical AI must operate in open,&nbsp;unpredictable environments, interact with both other robots and people, and work with a diversity of embodiments. Realizing this vision requires advances along three dimensions: robot hardware, embodied AI models, and systems infrastructure for training and inference. While robot hardware and the AI models have advanced rapidly in recent years, we turn our focus on a relatively under-addressed aspect: <strong>inference infrastructure of physical AI</strong>. Enabling robots to effectively and safely operate in the physical world will require sophisticated systems to handle large volumes of distributed inference compute.</p>
+
+
+
+<p class="wp-block-paragraph">Today, the prevailing approach to physical AI is to provision a GPU <em>onboard</em> the robot, e.g., by wiring a GPU to the robot. In this model, the robot’s inference will be confined to the onboard GPU, and provide the robot with the necessary chunks and sequence of actions for the execution of its tasks. While higher-level planning may be performed in the cloud, task execution typically remains tied to the robot itself. We challenge this assumption.&nbsp; As physical AI models grow in size and sophistication, the constraints of onboard compute become increasingly apparent. GPUs consume significant power, reduce battery life, add cost and weight, and can limit the ability to run the latest generation of AI models.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">To better understand the systems implications of physical AI, we conducted the first systematic study of robotics workloads. We focused on <em>mobile robotic manipulation</em>, with the canonical task such as “check for rubbish in the kitchen and put it in the trash.” Such a task involves planning the path to the kitchen, perceiving the environment to find rubbish, navigating to the rubbish,&nbsp;picking up the rubbish, and navigating back to the trash can for disposal. We evaluated representative models across three core capabilities: semantic mapping and planning, navigation, and manipulation, as summarized in Figure 2.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="543" height="271" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed.png" alt="Mobile robotic manipulation involves the components of semantic mapping & planning, manipulation, and safe navigation. The table above lists the state-of-the-art models used for each of these components in our measurement study." class="wp-image-1187077" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed.png 543w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed-240x120.png 240w" sizes="(max-width: 543px) 100vw, 543px" /><figcaption class="wp-element-caption">Figure 2: Details of the models used for the different components of mobile manipulation.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Offloading physical AI inference out of the robot improved its response time and accuracy, along with battery lifetime and cost. We evaluated the inference models across a range of onboard, edge, and cloud compute configurations. Details of the specific test hardware are available in our <a href="https://www.microsoft.com/en-us/research/publication/offload-or-overload-a-platform-measurement-study-of-mobile-robotic-manipulation-workloads/">technical report</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="723" height="313" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Figure_Physical-AI.png" alt="Diagram showing that offloading Physical AI inference from robots improves performance, battery efficiency, and cost." class="wp-image-1186996" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Figure_Physical-AI.png 723w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Figure_Physical-AI-300x130.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Figure_Physical-AI-240x104.png 240w" sizes="(max-width: 723px) 100vw, 723px" /></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Benefits in task performance</strong>: Our evaluation shows offloading inference can significantly improve robot performance across mapping, planning, navigation, and manipulation workloads. Some smaller GPUs could not accommodate the mobile manipulation stack. On GPUs with sufficient memory, mapping and planning slowed by up to 383% compared to an A100, thus limiting the robot’s abilities in dynamic spaces. Navigation showed a 30% drop in its timely detection of obstacles with lighter GPUs. While the VLA models did not dramatically slow down with smaller GPUs, the slowdown was still sufficient to drop their accuracies by 50%. In other words, onboard GPUs limited the performance of the robots while offloading their inference to an on-premise or cloud GPU boosts their operations, as shown in the videos below and quantified in the graphs. As physical AI models continue to grow in size and complexity, the benefits of offloading are likely to become even more pronounced.</p>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-video"><video height="960" style="aspect-ratio: 1280 / 960;" width="1280" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/SO101-handover-1.mp4"></video><figcaption class="wp-element-caption">Figure 3a: The video shows the handover task with onboard GPUs.</figcaption></figure>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-video"><video height="960" style="aspect-ratio: 1280 / 960;" width="1280" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/SO101-handover-2.mp4"></video><figcaption class="wp-element-caption">Figure 3b: The video shows the handover task when the inference is offloaded.</figcaption></figure>
+</div>
+</div>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1143" height="412" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig4_PhysicalAI.png" alt="Robots can support GPUs such as Jetson Nano and Orin AGX onboard. The graphs above show that the success rate of object handover and navigation are low with onboard GPUs, but increase substantially with beefier GPUs when offloaded such as Jetson Thor and A100." class="wp-image-1186941" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig4_PhysicalAI.png 1143w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig4_PhysicalAI-300x108.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig4_PhysicalAI-1024x369.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig4_PhysicalAI-768x277.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig4_PhysicalAI-240x87.png 240w" sizes="auto, (max-width: 1143px) 100vw, 1143px" /><figcaption class="wp-element-caption">Figure 4: Success rates of robot arms handing over objects to each other when inference is performed with different GPUs (some onboard, and some offloaded). Offloading improves success rates.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>Benefits in battery lifetime</strong>: Beyond performance, onboard GPUs also significantly drained the battery life of the robot. We compared the increase in battery lifetime by replacing an onboard GPU with a Raspberry Pi-5 board and shipping all the data to the offloaded GPU. The larger onboard GPUs, such as Jetson Thor, drained robot batteries by up to 160% (or a few hours) for even the larger robots.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1317" height="400" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig5_PhysicalAI.png" alt="Battery lifetime of the Stretch-3 robot can improve by over 100% when their GPU inference is offloaded out of the robot." class="wp-image-1186943" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig5_PhysicalAI.png 1317w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig5_PhysicalAI-300x91.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig5_PhysicalAI-1024x311.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig5_PhysicalAI-768x233.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig5_PhysicalAI-240x73.png 240w" sizes="auto, (max-width: 1317px) 100vw, 1317px" /><figcaption class="wp-element-caption">Figure 5: Impact of offloading GPU inference on the battery life of the robots; the above numbers are for the Stretch-3 robot.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The above results show that offloading GPU inference out of the robot is critical for functioning in the open world with large models and long battery lifetimes. Nonetheless, offloading inference out of the robot involves a complex tradeoff involving performance, network latency and bandwidth, and available GPU resources. We believe that our <a href="https://www.microsoft.com/en-us/research/publication/offload-or-overload-a-platform-measurement-study-of-mobile-robotic-manipulation-workloads/" data-type="link" data-id="https://www.microsoft.com/en-us/research/publication/offload-or-overload-a-platform-measurement-study-of-mobile-robotic-manipulation-workloads/">measurement study</a> will inform the design of physical AI inference systems.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
+		
+
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
+				
+								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+							Learn more						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="toolset-for-automatic-offload" class="wp-block-heading">Toolset for automatic offload</h2>
+
+
+
+<p class="wp-block-paragraph">We have built a toolset for easy inference offloading out of the robot and distributing inference between the edge GPU and cloud. Kubernetes is a natural platform to provide a uniform abstraction to distribute robotic AI between the robot’s compute, edge GPU, and overflowing to the cloud. The toolset allows automatic containerization and offloading of robotics workloads using declarative specifications, distributes physical AI containers with smart policies using Kubernetes, and integrates with robotic simulators, LeRobot, and ROS2 for easy development. The sequence of steps below shows how the toolset can be prompted with what to offload, and how it creates a separate container for GPU inference and offloads the same.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1546" height="723" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI.png" alt="Toolset to make offloading of physical AI inference easy by automatically generating a container for GPU inference and deploying it using Kubernetes to the machine with GPU." class="wp-image-1186942" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI.png 1546w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI-300x140.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI-1024x479.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI-768x359.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI-1536x718.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Fig6_PhysicalAI-240x112.png 240w" sizes="auto, (max-width: 1546px) 100vw, 1546px" /><figcaption class="wp-element-caption">Figure 6: Steps in the offloading toolset with containerization and deployment.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Microsoft has recently released the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/physical-ai-toolchain/tree/main" data-type="link" data-id="https://github.com/microsoft/physical-ai-toolchain/tree/main" target="_blank" rel="noopener noreferrer">Physical AI Toolchain<span class="sr-only"> (opens in new tab)</span></a> for operationalizing physical intelligence at scale. Physical AI Toolchain is an open-source, production-ready framework that integrates <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://azure.microsoft.com/" target="_blank" rel="noopener noreferrer">Microsoft Azure<span class="sr-only"> (opens in new tab)</span></a> cloud services with <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://developer.nvidia.com/" target="_blank" rel="noopener noreferrer">NVIDIA&#8217;s<span class="sr-only"> (opens in new tab)</span></a> physical AI stack, accelerating robotics and physical AI developers to automate and scale data curation, augmentation, and evaluation across perception, mobility, imitation learning, and reinforcement learning pipelines. We are announcing the addition of an industry-first capability for offloaded physical AI inference for robots as part of the Physical AI Toolchain. This release includes example projects for offloading inference of a SO-101 and a UR10e. The videos below show the offloading of the inference of <a href="https://www.microsoft.com/en-us/research/story/advancing-ai-for-the-physical-world/" target="_blank" rel="noopener">Microsoft’s Rho model</a>, targeted at dual-arm robots, to a Jetson Thor GPU, which controls the actions of the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://mobile-aloha.github.io/" target="_blank" rel="noopener noreferrer">Mobile Aloha robot<span class="sr-only"> (opens in new tab)</span></a>. &nbsp;</p>
+
+
+
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-video"><video height="540" style="aspect-ratio: 960 / 540;" width="960" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Aloha-rho-1.mp4"></video><figcaption class="wp-element-caption">Figure 7a: Offloading of GPU inference of Microsoft’s Rho model controlling the Mobile Aloha robot for interactions with the BusyBox to press the blue button.</figcaption></figure>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<figure class="wp-block-video"><video height="540" style="aspect-ratio: 960 / 540;" width="960" controls src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Aloha-rho-2.mp4"></video><figcaption class="wp-element-caption">Figure 7b: Offloading of GPU inference of Microsoft’s Rho model controlling the Mobile Aloha robot for interactions with the BusyBox to turn the knob to position 4.</figcaption></figure>
+</div>
+</div>
+
+
+
+<p class="wp-block-paragraph">Check out the inference offload feature, look into the source code, and let us know your feedback. We have already tested it with many real-world use cases, and look forward to hearing about your deployment experiences.</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/">Offloaded inference for real-world physical AI robotics</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/SO101-handover-1.mp4" length="5512837" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/SO101-handover-2.mp4" length="8134048" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Aloha-rho-1.mp4" length="1752508" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Aloha-rho-2.mp4" length="2221215" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>Improving synthesis prediction of small molecules at scale with RetroChimera</title>
 		<link>https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/</link>
 		
@@ -32,7 +214,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/">Improving synthesis prediction of small molecules at scale with RetroChimera</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1.jpg" alt="Example of a retrosynthesis tree. For a single target molecule, many disconnections are possible, which introduces a high branching factor. The figure shows many incomplete routes in pale colors that contrast a completed route, which connects all the way from the target molecule to purchasable building blocks. " class="wp-image-1186908" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1.jpg" alt="Example of a retrosynthesis tree. For a single target molecule, many disconnections are possible, which introduces a high branching factor. The figure shows many incomplete routes in pale colors that contrast a completed route, which connects all the way from the target molecule to purchasable building blocks. " class="wp-image-1186908" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/RetroChimera-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -73,9 +255,9 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2160" height="900" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes.png" alt="Figure 1: 
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2160" height="900" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes.png" alt="Figure 1: 
 
-Example of a retrosynthesis tree. For a single target molecule, many disconnections are possible, which introduces a high branching factor. The figure shows many incomplete routes in pale colors that contrast a completed route, which connects all the way from the target molecule to purchasable building blocks. " class="wp-image-1186740" style="aspect-ratio:2.4015444015444016;object-fit:cover;width:690px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes.png 2160w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1024x427.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-768x320.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1536x640.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-2048x853.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1728x720.png 1728w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1440x600.png 1440w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-240x100.png 240w" sizes="(max-width: 2160px) 100vw, 2160px" /><figcaption class="wp-element-caption">Figure 1: Planning a synthesis by working backward. Retrosynthesis starts with a target molecule and proposes successive disconnections into simpler precursors until purchasable building blocks are reached. The highlighted path shows a complete synthesis route; pale branches illustrate alternatives explored along the way. Circles represent molecules and squares represent reactions. For clarity, only a few branches are illustrated, with chemical structures shown for the target, one intermediate, and selected building blocks.&nbsp;</figcaption></figure>
+Example of a retrosynthesis tree. For a single target molecule, many disconnections are possible, which introduces a high branching factor. The figure shows many incomplete routes in pale colors that contrast a completed route, which connects all the way from the target molecule to purchasable building blocks. " class="wp-image-1186740" style="aspect-ratio:2.4015444015444016;object-fit:cover;width:690px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes.png 2160w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1024x427.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-768x320.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1536x640.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-2048x853.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1728x720.png 1728w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-1440x600.png 1440w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-1_retrochimera-retrosynthesis-structure-nodes-240x100.png 240w" sizes="auto, (max-width: 2160px) 100vw, 2160px" /><figcaption class="wp-element-caption">Figure 1: Planning a synthesis by working backward. Retrosynthesis starts with a target molecule and proposes successive disconnections into simpler precursors until purchasable building blocks are reached. The highlighted path shows a complete synthesis route; pale branches illustrate alternatives explored along the way. Circles represent molecules and squares represent reactions. For clarity, only a few branches are illustrated, with chemical structures shown for the target, one intermediate, and selected building blocks.&nbsp;</figcaption></figure>
 
 
 
@@ -83,9 +265,9 @@ Example of a retrosynthesis tree. For a single target molecule, many disconnecti
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2560" height="964" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-scaled.png" alt="Figure 2: 
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2560" height="964" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-scaled.png" alt="Figure 2: 
 
-Outline of the RetroChimera workflow. RetroChimera takes a single target molecule, its sub-models give predictions for a disconnection, and learned voting gives a ranked output. " class="wp-image-1186741" style="aspect-ratio:2.6561085972850678;object-fit:cover;width:722px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-300x113.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-768x289.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1024x385.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1536x578.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1912x720.png 1912w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-2048x771.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1593x600.png 1593w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-240x90.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2: Our framework for ensemble-based retrosynthesis with learned re-ranking which underpins RetroChimera. The ensemble receives a target molecule as the input, which is then processed by the sub-models. The model outputs are aggregated using a learning-to-rank strategy. While in this work we only investigate deep learning models as prediction sources (solid boxes), it is possible to add additional sources, for example calls to reaction databases or human-in-the-loop queries (dashed box).&nbsp;</figcaption></figure>
+Outline of the RetroChimera workflow. RetroChimera takes a single target molecule, its sub-models give predictions for a disconnection, and learned voting gives a ranked output. " class="wp-image-1186741" style="aspect-ratio:2.6561085972850678;object-fit:cover;width:722px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-300x113.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-768x289.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1024x385.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1536x578.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1912x720.png 1912w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-2048x771.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-1593x600.png 1593w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_retrochimera-figure-1c-240x90.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2: Our framework for ensemble-based retrosynthesis with learned re-ranking which underpins RetroChimera. The ensemble receives a target molecule as the input, which is then processed by the sub-models. The model outputs are aggregated using a learning-to-rank strategy. While in this work we only investigate deep learning models as prediction sources (solid boxes), it is possible to add additional sources, for example calls to reaction databases or human-in-the-loop queries (dashed box).&nbsp;</figcaption></figure>
 
 
 
@@ -328,7 +510,7 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -337,20 +519,20 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The Shape of Things to Come</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -716,27 +898,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
+									<h2 class="h4">Ideas</h2>
 				
-								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
+								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
-							Learn more						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -842,30 +1027,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The Shape of Things to Come</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1197,7 +1382,7 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -1206,20 +1391,20 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The Shape of Things to Come</h2>
+									<h2 class="h4">Ideas</h2>
 				
-								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
+								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -2129,232 +2314,6 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 
 <p class="wp-block-paragraph">That is the long-term promise: cryptographic code that remains fast, portable, maintainable, and developer-owned, while carrying machine-checked evidence that it implements the standards it is meant to realize.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/">Verifying Rust cryptography in SymCrypt, from standards to code</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Aurora 1.5: Extending open foundation models for weather and Earth-system applications</title>
-		<link>https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/</link>
-		
-		<dc:creator><![CDATA[Kenji Takeda, Haiyu Dong, Jonathan Weyn, Amit Misra, Matt Corey, Kevin White, Shannon Monroe, Juan M. Lavista Ferres, Ashley Llorens, Bonnie Kruft]]></dc:creator>
-		<pubDate>Thu, 09 Jul 2026 16:46:22 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/</guid>
-
-					<description><![CDATA[<p>Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for real-world weather, climate, and energy applications.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg" alt="Aurora 1.5 | three white line icons on an abstract blue and purple background: globe, thunder cloud, tree" class="wp-image-1173975" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/AuroraUpdate-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Aurora 1.5 is a major extension of Microsoft’s Aurora Earth System foundation model that adds 22 more weather variables relevant to energy, agriculture, transport, and climate risk, along with hourly temporal resolution and probabilistic ensemble forecasting.</li>
-
-
-
-<li>Released as open source on GitHub with model checkpoints on Hugging Face, Aurora 1.5 enables researchers and developers to use, evaluate, and build on the model.</li>
-
-
-
-<li>Aurora 1.5 connects open research to Microsoft Weather services, linking the model with data, infrastructure, managed access, and operational use for weather and Earth-system applications.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Aurora 1.5 is a major update to the open Aurora Earth-system foundation model, adding 22 new weather variables for a broader view of atmospheric conditions, hourly forecasts, and probabilistic ensemble forecasting. Developed by Microsoft Weather as an extension of the original model from Microsoft Research AI for Science, Aurora 1.5 shows how frontier research can move into broader use: open for researchers and developers to evaluate and extend, and designed to support customers where additional data, infrastructure, and operational assurance is needed.&nbsp;As climate and weather-related risks continue to affect communities, infrastructure, and economies worldwide, advances in Earth-system forecasting can help improve preparedness and decision-making.</p>
-
-
-
-<h2 id="what-is-aurora" class="wp-block-heading">What is Aurora?</h2>
-
-
-
-<p class="wp-block-paragraph">Aurora is a foundation model for the Earth system developed by Microsoft Research AI for Science, first introduced in 2024 and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41586-025-09005-y" target="_blank" rel="noopener noreferrer">published in Nature<span class="sr-only"> (opens in new tab)</span></a> in 2025. It showed that a single model could be adapted to medium-range weather, ocean waves, atmospheric chemistry, and emerging climate applications, including high-resolution weather forecasting through fine-tuning. Its growing use has reinforced the value of an open, collaborative model that is easier to adapt, evaluate, and put to use.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">This <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.bing.com/ck/a?!&&p=f9c93e7b19f62b3737c7c3282badddf1233badf5058fb7d7861ef84db05d08e0JmltdHM9MTc4MjQzMjAwMA&ptn=3&ver=2&hsh=4&fclid=24451b10-f799-6468-1027-0c47f6ba6571&psq=microsoft+aurora+ai+weather+2024&u=a1aHR0cHM6Ly9ibG9ncy5taWNyb3NvZnQuY29tL29uLXRoZS1pc3N1ZXMvMjAyNS8xMS8xMy90aGUtbmV4dC1waGFzZS1vZi1hdXJvcmEtb3Blbi1hbmQtY29sbGFib3JhdGl2ZS1haS1mb3Itd2VhdGhlci1hbmQtY2xpbWF0ZS1mb3JlY2FzdGluZy8" target="_blank" rel="noopener noreferrer">next phase of Aurora<span class="sr-only"> (opens in new tab)</span></a> builds on that foundation by making the model openly available for the global community to adapt, extend, and build on.&nbsp;</p>
-
-
-
-<h2 id="what-is-new-in-aurora-1-5" class="wp-block-heading">What is new in Aurora 1.5?</h2>
-
-
-
-<p class="wp-block-paragraph">Aurora 1.5 advances the broader effort to make open weather foundation models practical and scalable for organizations that rely on atmospheric and Earth-system intelligence. Alongside new variables and higher temporal resolution, Aurora 1.5 adds one of the most requested capabilities from users: ensemble forecasting. Because forecasts are sensitive to initial conditions and model uncertainty, ensembles run multiple simulations to show the range and likelihood of possible outcomes. Aurora 1.5 builds on Microsoft Research’s scientific foundation with new product engineering, cloud infrastructure, managed access, and decision-support capabilities. Together, these advances make Aurora 1.5 a valuable enterprise-grade weather solution for organizations.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2133" height="2414" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png" alt="Aurora 1.5 ensemble forecast example showing mean and ensemble uncertainty for total cloud cover and surface solar radiation (SSRD) over the Atlantic and Europe region at a 2–3 day forecast range. Four globe maps display the ensemble mean and standard deviation for each variable, illustrating Aurora's ability to predict both expected conditions and forecast uncertainty for cloud cover and solar radiation. " class="wp-image-1178260" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast.png 2133w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-265x300.png 265w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-905x1024.png 905w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-768x869.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1357x1536.png 1357w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-1810x2048.png 1810w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora_1.5_demo_ensemble_forecast-159x180.png 159w" sizes="auto, (max-width: 2133px) 100vw, 2133px" /><figcaption class="wp-element-caption">Figure 1: Illustration of the capabilities of Aurora 1.5 ensemble for predicting new impactful parameters such as total cloud cover and solar radiation. Ensemble mean and standard deviation are shown<em><em>.</em>&nbsp;</em></figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">The breadth update adds 22 new variables to Aurora’s original 4, including representative surface, pressure-level, wind, temperature, humidity, precipitation, and radiation fields. That broader coverage makes the model more relevant for sectors that depend on integrated Earth-system signals, from energy and agriculture to transport and resilience planning.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">The update to hourly temporal resolution enables fine-grained detail for precision operational guidance, such as the onset of precipitation, trade decisions, or a landfalling tropical cyclone.&nbsp;</p>
-
-
-
-<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
-<p class="wp-block-paragraph"><em>“Aurora 1.5 is a meaningful step toward making weather foundation models more open, useful, and practical. By releasing the model openly, we give researchers, developers, and organizations a clearer path to evaluate it, adapt it, and understand where it can help. Microsoft Weather’s role is to connect that open research foundation with the data, infrastructure, and applied workflows required by enterprises to use weather intelligence responsibly and with confidence.”</em></p>
-<cite><strong>Sridhar Iyer, Corporate Vice President, Microsoft AI</strong></cite></blockquote>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
-		
-
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
-				
-								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
-							Learn more						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="ensemble-forecasting-in-aurora-1-5-unlocks-more-confident-decisions-in-the-face-of-weather-uncertainty" class="wp-block-heading">Ensemble Forecasting in Aurora 1.5 Unlocks More Confident Decisions in the Face of Weather Uncertainty</h2>
-
-
-
-<p class="wp-block-paragraph">The ensemble version of Aurora 1.5 introduces stochastic perturbations to represent model uncertainty, allowing the generation of multiple forecast members to estimate the spread of possible futures. For a multitude of applications including power systems, transport, agriculture, extreme-weather planning, and climate risk, the model distribution matters as much as the best estimate.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">This ensemble capability was developed through multi-stage fine-tuning on top of the original Aurora model. After expanding the variable set and adding hourly temporal resolution, the team introduced controlled perturbations into the model’s latent conditioning pathway and optimized the ensemble for probabilistic forecast quality. A final round of auto-regressive fine-tuning on ECMWF High Resolution (HRES) analysis data from 2018 to 2023 improved rollout behavior and stability.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1020" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png" alt="Heat maps comparing Aurora 1.5 and ECMWF ensemble forecast skill. Aurora 1.5 achieves lower probabilistic forecast error across most variables and forecast lead times. " class="wp-image-1178119" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-300x120.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1024x408.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-768x306.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-1536x612.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-2048x816.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/ensemble_scorecard-240x96.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Comparing Aurora 1.5’s probabilistic forecasts with the ECMWF ensemble forecast. The shading shows relative probabilistic forecast error, using ECMWF ENS as the baseline: blue areas indicate where Aurora 1.5 performs better, and red areas indicate where it performs worse. Across upper-air geopotential, temperature, and humidity, together with five surface variables, Aurora 1.5 outperforms ECMWF ENS on 88.9% of the evaluated variable-and-lead-time targets.&nbsp;</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Aurora’s ensemble approach summarizes uncertainty across multiple model runs. Its probabilistic forecasts outperform those of the state-of-the-art ECWMF dynamical ensemble on 88.9% of evaluated targets (Figure 1). In evaluations on all 2024–2025 tropical cyclones, Aurora 1.5 substantially reduced track errors, including roughly one-third lower track error when comparing the ensemble median to the original Aurora. An example for the devastating Hurricane Helene shows how Aurora 1.5’s skill translates to high-impact weather applications.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="600" height="967" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px.png" alt="Aurora 1.5 ensemble forecasts for Hurricane Helene compared with operational and observed storm tracks. The ensemble forecasts closely follow the observed path while representing uncertainty through multiple plausible trajectories. " class="wp-image-1173971" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px.png 600w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px-186x300.png 186w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/05/helene_aurora15_2024092400_forecast_600px-112x180.png 112w" sizes="auto, (max-width: 600px) 100vw, 600px" /><figcaption class="wp-element-caption">Figure 3. Hurricane Helene ensemble forecast from Aurora 1.5, showing multiple plausible storm tracks starting at 0 UTC on September 24, 2024. The probabilistic ensemble forecast envelops the verified track, effectively capturing uncertainty in the storm’s progression.</figcaption></figure>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="938" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged.png" alt="Track-error reductions for Aurora 1.5 relative to the original Aurora model. Error decreases across all forecast lead times, with the largest improvements from the ensemble median forecast. " class="wp-image-1178271" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-300x201.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-1024x686.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-768x515.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/aurora15_vs_original_merged-240x161.png 240w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 4. Aurora 1.5 reduces track error relative to the original model across lead times. Ensemble mean and median tracks are used for diagnostics, with the median showing the strongest gains, reaching roughly one-third lower error by day 5. Results reflect track position only.&nbsp;</figcaption></figure>
-
-
-
-<h2 id="beyond-weather-aurora-as-an-earth-system-foundation" class="wp-block-heading">Beyond weather: Aurora as an Earth-system foundation</h2>
-
-
-
-<p class="wp-block-paragraph">Beyond medium-range weather applications, Terradot – part of the Microsoft Climate Innovation Fund portfolio—is working with the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://iclr.cc/virtual/2026/10014507" target="_blank" rel="noopener noreferrer">AI for Good Lab<span class="sr-only"> (opens in new tab)</span></a> and the Microsoft Research Accelerator on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://iclr.cc/virtual/2026/10014507" target="_blank" rel="noopener noreferrer">TerraNova, using Aurora-derived weather representations<span class="sr-only"> (opens in new tab)</span></a> to estimate and optimize carbon dioxide removal from enhanced rock weathering under real field conditions. Sasankh Munukutla, Co-Founder of Terradot, highlights<em>, &#8220;By building on Aurora, we&#8217;re significantly advancing our R&D timelines and accelerating our path towards gigaton-scale carbon removal.&#8221; </em>This work shows how Earth-system foundation models can support climate mitigation and public-interest science beyond forecasting, including settings where rigorous evaluation and responsible deployment matter.</p>
-
-
-
-<p class="wp-block-paragraph">Aurora is also being explored with partners such as the UK Met Office, exploring how foundation models can work alongside established physics-based systems to tackle problems from weather to climate time scales. The aim is faster, more flexible forecasts that support decision-making without replacing the science behind trusted prediction.&nbsp;</p>
-
-
-
-<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
-<p class="wp-block-paragraph"><em>“Microsoft’s Aurora model is an exciting and promising tool, enabling Met Office scientists to bring their data and expertise to help solve climate problems and provide new kinds of climate information. Met Office and Microsoft scientists and engineers are working together every day to translate lessons from AI weather prediction into the climate information space, sharing expertise in data science and climate science. Aurora is a great platform for learning how to translate these tools for use in climate projection to make the AI climate models of the future.”</em></p>
-<cite>— Doug McNeall, Science lead for Data-Driven Climate Modelling, Met Office Hadley Centre&nbsp;</cite></blockquote>
-
-
-
-<h2 id="connecting-open-models-to-operational-use" class="wp-block-heading">Connecting open models to operational use</h2>
-
-
-
-<p class="wp-block-paragraph">Microsoft connects open research, product engineering, responsible deployment, and partner ecosystems so that models can move from scientific advance to evaluated operational use. As an example, Aurora began in Microsoft Research AI for Science and is now being built on for operational use by Microsoft Weather, with AI for Good helping to evaluate public-interest applications. The platform path brings <a href="https://www.microsoft.com/en/customers/story/26785-bkw-fmb-energie-ag-foundry-models" target="_blank" rel="noreferrer noopener">Aurora into Microsoft Foundry and Planetary Computer Pro</a>, alongside Agent skills and Azure services that connect models with geospatial data, scalable infrastructure, and applied workflows. <a href="https://www.microsoft.com/en/customers/story/26785-bkw-fmb-energie-ag-foundry-models" target="_blank" rel="noreferrer noopener">BKW provides an early proof point</a>: the company is using Aurora 1.5 alongside existing operational Microsoft Weather models to support energy operations where weather-dependent generation, infrastructure planning, and environmental data need to come together.&nbsp;</p>
-
-
-
-<blockquote class="wp-block-quote is-style-spectrum is-layout-flow wp-block-quote-is-layout-flow">
-<p class="wp-block-paragraph"><em>“This collaboration demonstrates how advanced AI capabilities and robust cloud infrastructure can be applied to one of the most strategic domains — energy, where weather plays a fundamental role. In a time of accelerated transformation, it supports our ambition to operate increasingly renewable-based systems, where generation is inherently weather-dependent, and to better anticipate and manage this variability with greater confidence and precision.”</em>&nbsp;</p>
-<cite>Farhat Quiñones Yamshid, Lead, AI and Technology, BKW&nbsp;</cite></blockquote>
-
-
-
-<h2 id="from-open-research-to-broader-impact" class="wp-block-heading">From open research to broader impact</h2>
-
-
-
-<p class="wp-block-paragraph">Aurora’s open-source availability is intended to help researchers, agencies, companies, and civil society evaluate, apply, and extend the model. Microsoft Weather is building on that open foundation to deliver easier access to Aurora forecasts through managed services, integrations, and responsible deployment paths for organizations that depend on weather and Earth-system intelligence.</p>
-
-
-
-<p class="wp-block-paragraph">Foundation models should complement—not replace—physics-based models and domain expertise. The opportunity is to use them responsibly, with careful evaluation and transparency, and to invite researchers, agencies, companies, and public-interest partners to test where Aurora and related Microsoft Weather capabilities can improve forecasting, planning, and climate resilience in their own settings.</p>
-
-
-
-<h2 id="about-microsoft-weather" class="wp-block-heading">About Microsoft Weather&nbsp;</h2>
-
-
-
-<p class="wp-block-paragraph">Microsoft Weather is the AI-based forecasting team behind weather experiences across Windows, Bing, Copilot, Edge, and MSN, reaching more than a billion devices across 180 countries. The team has been applying AI to operational weather forecasting for more than seven years and has built a proven track record of delivering high-quality forecasts at global scale. Microsoft Weather has won multiple forecasting competitions and was ranked the world’s most accurate global forecast provider by an independent third party for three consecutive years from 2022 to 2024. Building on today’s Aurora 1.5 announcement, the team plans to extend this work in the coming months with additional fit-for-purpose AI weather models designed for enterprise scenarios where forecast quality, speed, uncertainty, and operational decision support matter most.</p>
-
-
-
-<p class="wp-block-paragraph">If you are interested in exploring Aurora and Microsoft Weather solutions for commercial or organizational applications, please contact us at <a href="mailto:AIWeatherClimate@microsoft.com" target="_blank" rel="noreferrer noopener">AIWeatherClimate@microsoft.com</a>&nbsp;</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/Aurora-1.5">Aurora 1.5 on Microsoft Foundry</a></div>
-
-
-
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/aurora">Aurora 1.5 on GitHub</a></div>
-
-
-
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/aurora-1-5-fine-tuning-a-foundation-model-for-medium-range-ensemble-weather-prediction/">Aurora 1.5 paper</a></div>
-
-
-
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/vibe-kit/tree/main/skills/msresearch-aurora" target="_blank" rel="noreferrer noopener">Agent Skills for adapting Aurora to new applications</a></div>
-</div>
-
-
-
-<p class="wp-block-paragraph"></p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/">Aurora 1.5: Extending open foundation models for weather and Earth-system applications</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
