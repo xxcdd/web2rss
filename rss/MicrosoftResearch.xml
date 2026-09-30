@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 28 Sep 2026 20:51:55 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 29 Sep 2026 17:32:58 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,174 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.2</generator>
 	<item>
+		<title>Introducing Quine: An AI research system designed for the complexity of biology</title>
+		<link>https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/</link>
+		
+		<dc:creator><![CDATA[Nicolo Fusi, Jonathan M. Carlson]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 14:00:02 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1186958</guid>
+
+					<description><![CDATA[<p>Biology doesn't operate in silos, and neither should the AI representation of it. Quine is an early-stage research effort to create a multimodal world model of biology. By connecting insights across biological scales and modalities, Quine helps scientists computationally search a space far larger than intuition allows and prioritize hypotheses before they reach the lab. Experimental results provide important feedback, helping researchers sharpen future research directions.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/">Introducing Quine: An AI research system designed for the complexity of biology</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1.jpg" alt="Diagram of Project Quine’s closed-loop approach to biological research. A scientist asks questions that are passed to Quine for in silico computation. Quine combines a world model of biology, spanning genomics, proteins, chemistry, cell state, and bioimaging, with a harness for orchestration and reasoning, supported by knowledge and tools. Quine generates proposals that are tested through real-world wet-lab experiments. Experimental measurements return to the scientist and inform the next question, creating an iterative loop between computational modeling and real-world experimentation." class="wp-image-1187264" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1279x720.jpg 1279w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1065x599-1.jpg 1065w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-653x368.jpg 653w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-675x380.jpg 675w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="http://microsoft.github.io/quine" target="_blank" rel="noopener noreferrer">Quine<span class="sr-only"> (opens in new tab)</span></a> is a research effort to create a multimodal world model of biology and an interactive harness connecting models, scientific tools, literature, and researchers.&nbsp;</li>
+
+
+
+<li>In collaboration with researchers at the Broad Institute of Harvard and MIT, we have used this system to prioritize compounds predicted to drive therapeutic tumor-state shifts and validated several top-ranked candidates across multiple wet-lab assays.&nbsp;</li>
+
+
+
+<li>The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/quine/#fellowship" target="_blank" rel="noopener noreferrer">Quine Fellows program<span class="sr-only"> (opens in new tab)</span></a> will give a cohort of scientists access to the system and an opportunity to accelerate their own research and provide scientific feedback.&nbsp;&nbsp;</li>
+
+
+
+<li>Quine is experimental research technology intended only for research, not clinical or medical use, and its outputs may be incomplete or inaccurate and require review by qualified researchers and appropriate scientific and experimental validation. As the technology matures, we expect to expand access through products like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/category/azure/blog/microsoft-discovery-blog" target="_blank" rel="noopener noreferrer">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">For more than two decades, Microsoft Research has worked at the intersection of computation and biology. <a href="https://www.microsoft.com/en-us/research/publications/?facet%5Bdate%5D%5Bfixed%5D=any&facet%5Btax%5D%5Bmsr-research-area%5D[]=13553&pg=1&sort_by=most-recent">Our research</a> has spanned immunology, virology, genomics, biomedical imaging, cell biology, and protein engineering. That work has produced foundational methods, new science, and technology that reached the clinic, from rare and infectious disease diagnosis to cancer biomarker detection.</p>
+
+
+
+<p class="wp-block-paragraph">Across that work, one lesson has become increasingly clear: biology does not divide itself into the neat boundaries our models and tools often do. Genes influence proteins; proteins interact within cells; cells organize into tissues; and experiments continually reshape what scientists know and what they choose to ask next. Making progress on the hardest biological questions therefore requires more than increasingly capable models of individual datasets or tasks. It requires systems that can connect knowledge across scale and modalities, reason about experiments and evidence, and participate in the iterative process through which science advances.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Today, Microsoft Research is introducing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="http://microsoft.github.io/quine" target="_blank" rel="noopener noreferrer">Quine<span class="sr-only"> (opens in new tab)</span></a>, a research effort designed to work across those boundaries, reflecting our long-term vision for a discovery system that evolves through scientific use. Quine brings together a world model of biology with a harness that connects scientific tools, literature, the wet lab, and the researchers using them.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Introducing Quine: An AI research system designed for the complexity of biology" width="500" height="281" src="https://www.youtube-nocookie.com/embed/ZMJHGeR6GPU?feature=oembed&#038;rel=0&#038;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<h2 id="the-limits-of-experimentation" class="wp-block-heading">The limits of experimentation</h2>
+
+
+
+<p class="wp-block-paragraph">Even as experimental techniques have improved and wet-lab throughput has increased, biology remains fundamentally constrained by time and complexity. Nature cannot be rushed, nor can it be derived from first principles. Experiments are slow, iteration cycles are long, and many of the most important questions involve interactions, combinatorial design spaces, and downstream effects that are simply too large to explore experimentally alone.</p>
+
+
+
+<p class="wp-block-paragraph">At the same time, advances in large-scale machine learning, particularly the emergence of general-purpose foundation models and reasoning models that can iteratively work through problems, suggest a new possibility. These systems are beginning to demonstrate capabilities beyond pattern recognition: integrating information across domains, reasoning over abstractions, and supporting iterative problem-solving. Just as importantly, many of the techniques developed for human language have proven remarkably adaptable to aspects of biology, enabling models to learn representations of biological systems across diverse data types and scales.</p>
+
+
+
+<p class="wp-block-paragraph">This raised a provocative question for us: <strong>what would it take to build a world model for biology?</strong> By <em>world model</em>, we mean a system that can represent the state of a biological system, predict how that state will evolve in response to interventions, and reason over the consequences of those interventions multiple steps into the future. Such a system would not replace experimentation. Rather, it would allow us to use computation to explore, propose, rank, and prioritize potential paths forward before committing scarce laboratory resources. Our north star is a future in which scientists, models, and experiments operate in a continuously accelerating loop.&nbsp;&nbsp;</p>
+
+
+
+<h2 id="what-we-ve-built" class="wp-block-heading">What we’ve built</h2>
+
+
+
+<p class="wp-block-paragraph">Quine is our first step toward that vision. It includes both a world model of biology and a harness that connects the model to orchestration and reasoning models, scientific tools, the literature, and the teams of scientists using them.&nbsp;&nbsp;</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" autoplay controls loop muted poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE_Vis1.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual1_Lite_FinalComp_V2_FIG-1.mp4" playsinline></video><figcaption class="wp-element-caption">Figure 1: Quine&#8217;s two frontier components — a world model of biology and an interactive harness — sit inside a loop that begins and ends with the scientist. A question becomes a set of proposals, proposals become designs worth testing, and the experiment returns measurements that sharpen both the scientist&#8217;s next question and the model itself.&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Core to this effort is the world model, which learns shared representations across biological modalities and scales, including sequence, structure, function, cellular state, and imaging data. By training across these modalities jointly, Quine can use evidence from one modality to inform predictions in another, capturing relationships that would otherwise remain siloed or lost when separate single-domain specialist models are orchestrated by the system. This multimodal design reflects the reality of biology: understanding any one level requires context from the others. Rather than diluting performance, we find that learning across these connected representations strengthens it, enabling the model to generalize more effectively and to support a broader range of biological reasoning tasks.</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" autoplay controls loop muted poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/quine_fig2-updated.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual2_FinalComp_LITE_V4_FIG-2_UPDATED.mp4" playsinline></video><figcaption class="wp-element-caption"><em>&nbsp;</em>Figure 2: Biology is multiscale and multimodal. <em>(A)</em> Biological evidence stacks from molecules to cells to tissues to patients, with scientific language running underneath all of it. <em>(B)</em> The modalities Project Quine trains on — genomics, proteins, chemistry, RNA and cell state, bioimaging — each observe a different span of that range, and they overlap. Reading down is the causal path from genotype to phenotype; reading across is physical scale. Because the model learns these representations jointly rather than orchestrating separate specialists, evidence at one level can inform predictions at another.&nbsp;</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">By integrating this model in a unified system that facilitates computational experimentation and learns from iteration, researchers can generate predictions across modalities and reason about the consequences of biological interventions before they are tested in the lab. Critically, the world model doesn’t need to be perfect—indeed, it will never perfectly model biology—it simply needs to usefully inform experimental design.&nbsp;</p>
+
+
+
+<h2 id="what-this-looks-like-in-cancer-biology" class="wp-block-heading">What this looks like in cancer biology</h2>
+
+
+
+<p class="wp-block-paragraph">A concrete example comes from our work on pancreatic ductal adenocarcinoma (PDAC), the most common form of pancreatic cancer and one of the most challenging to treat. In <a href="https://www.microsoft.com/en-us/research/project/project-ex-vivo/" target="_blank" rel="noopener">collaboration with researchers at the Broad Institute of MIT and Harvard</a>, we have spent years developing and applying patient-derived <em>ex vivo</em> models to investigate a longstanding hypothesis: that tumor behavior and drug response depend not only on genetics, but also on transcriptional cell state. In PDAC, tumor cells can occupy different cellular states associated with how they respond to treatment. &nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">With Quine, we have now put that hypothesis into practice, exploring whether non-genetic features of cancer, particularly cellular state, can serve as actionable therapeutic targets. We used Quine to predict and prioritize thousands of compounds based on their potential to shift tumor cells between therapeutically relevant states. In wet-lab studies focused on the transition from classical to basal cell states, Quine’s highest-ranked compounds produced the largest intended shifts across experimental assays. The entire process—from rapidly narrowing the compound search space to prioritizing a handful of promising candidates to be validated in the lab—took just one weekend, potentially saving months of experimental work and significant research costs. Notably, some of the strongest effects came from compounds with unexpected mechanisms of action, offering early evidence that AI can uncover new opportunities for drug repurposing and discovery.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">While the reverse state transition proved more difficult (from basal to classical cell states), Quine predicted that available compounds would have this weaker effect. More notably, the experiments revealed something we did not fully anticipate: Quine predicted that several compounds would consistently move cells toward a <em>distinct</em> third phenotype—an observation borne out in the lab—suggesting that the pancreatic cancer cell-state landscape is richer than a simple classical-basal axis. The experiments not only tested the model&#8217;s hypotheses but also generated new ones.&nbsp;</p>
+
+
+
+<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" autoplay controls loop muted poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/quine_fig3.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual3_FinalComp_LITE_FIG3.mp4" playsinline></video><figcaption class="wp-element-caption">Figure 3: Quine-guided exploration of pancreatic cancer cell states. In pancreatic ductaladenocarcinoma (PDAC) cell lines, top-ranked compounds produced the largest classical-to-basal transcriptional shifts as validated by wet lab experiments. Weaker reverse shifts and unexpected movement toward an additional phenotype were also consistent with Quine’s predictions.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Our continued work here will use newly integrated RNA datasets and tasks to represent this richer landscape, strengthen state-transition predictions, and provide calibrated confidence estimates that help scientists prioritize the most promising hypotheses for wet-lab testing. And this is exactly the feedback loop Quine was built to support. Each round of experimentation improves our understanding of biology, and each new insight can become training signal for the next generation of the system.&nbsp;&nbsp;</p>
+
+
+
+<h2 id="learning-through-discovery-an-invitation" class="wp-block-heading">Learning through discovery – an invitation</h2>
+
+
+
+<p class="wp-block-paragraph">We created Quine to improve how we do science ourselves. As the system evolved, we embedded it in our ongoing scientific programs. Every research question, experimental result, and unexpected finding became an opportunity to refine the models, improve the workflows, and better understand where AI could meaningfully accelerate our research. Over time, the system became central to how we approached discovery across multiple domains, including in cancer biology, protein engineering, genomics, and bioimaging.</p>
+
+
+
+<p class="wp-block-paragraph">We’d like to continue building on that foundation by introducing Quine at this early stage. Quine grew out of our own research, but we don’t want its continued development to happen in isolation. Many of the questions that will determine where it goes next are not ones we can answer alone; they require the expertise, creativity, and perspectives of the broader scientific community. For this reason, we&#8217;re opening the <strong>Quine Fellows program</strong> to put the system directly into the hands of scientists working at the frontier of biology and medicine.</p>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://microsoft.github.io/quine/#fellowship"><u>Applications for the first Quine Fellows cohort open now</u></a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph">Building responsibly will always come first. We believe progress in AI and biology must go hand in hand with safety, security, and responsible stewardship. We are taking a deliberate, phased approach to Quine&#8217;s development and access, with initial availability limited to the Quine Fellows program and select research collaborations. Ongoing internal review and built-in safeguards will help us maintain appropriate oversight as the system evolves. As the technology matures, we expect to expand access through products like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/category/azure/blog/microsoft-discovery-blog" target="_blank" rel="noopener noreferrer">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.</p>
+
+
+
+<p class="wp-block-paragraph">It’s tempting to frame progress in AI for biology around benchmarks and leaderboards. Those matter, but the real test of Quine is what happens when it encounters science as it’s actually practiced. Can it be useful when evidence is incomplete? When facing questions genuinely never asked before? Can it help make the path from questions to discovery shorter?</p>
+
+
+
+<p class="wp-block-paragraph">Ultimately that’s the standard we care about. The ambition is for Quine to recede into the background of scientific practice, while the science moves faster in the foreground. The protagonists are not the model or the platform. They are the scientists, the experiments, and the discoveries that follow.&nbsp;</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/">Introducing Quine: An AI research system designed for the complexity of biology</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual1_Lite_FinalComp_V2_FIG-1.mp4" length="5497271" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual2_FinalComp_LITE_V4_FIG-2_UPDATED.mp4" length="17665912" type="video/mp4" />
+<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual3_FinalComp_LITE_FIG3.mp4" length="30510030" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact</title>
 		<link>https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/</link>
 		
@@ -32,7 +200,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/">One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Illustrated Singapore skyline at dusk featuring Marina Bay Sands and Gardens by the Bay, with colorful fireworks and confetti overhead. Blue and orange graphic waves frame the scene, with a Merlion outline in the lower left and open space on the left for text." class="wp-image-1187102" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Illustrated Singapore skyline at dusk featuring Marina Bay Sands and Gardens by the Bay, with colorful fireworks and confetti overhead. Blue and orange graphic waves frame the scene, with a Merlion outline in the lower left and open space on the left for text." class="wp-image-1187102" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/1YSingapore-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -204,7 +372,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/">Offloaded inference for real-world physical AI robotics</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1.jpg" alt=" Two images showing the robot performing the same task of handing over a tape from one robot arm to another. The videos show that while the task succeeds when the inference latency is low, the handover fails with high inference latency as is the case with onboard robot GPUs." class="wp-image-1186977" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1.jpg" alt=" Two images showing the robot performing the same task of handing over a tape from one robot arm to another. The videos show that while the task succeeds when the inference latency is low, the handover fails with high inference latency as is the case with onboard robot GPUs." class="wp-image-1186977" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/PhysicalAI-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -253,7 +421,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="543" height="271" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed.png" alt="Mobile robotic manipulation involves the components of semantic mapping & planning, manipulation, and safe navigation. The table above lists the state-of-the-art models used for each of these components in our measurement study." class="wp-image-1187077" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed.png 543w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed-240x120.png 240w" sizes="(max-width: 543px) 100vw, 543px" /><figcaption class="wp-element-caption">Figure 2: Details of the models used for the different components of mobile manipulation.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="543" height="271" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed.png" alt="Mobile robotic manipulation involves the components of semantic mapping & planning, manipulation, and safe navigation. The table above lists the state-of-the-art models used for each of these components in our measurement study." class="wp-image-1187077" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed.png 543w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed-300x150.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/FIG-2_-PhysicalAI_ed-240x120.png 240w" sizes="auto, (max-width: 543px) 100vw, 543px" /><figcaption class="wp-element-caption">Figure 2: Details of the models used for the different components of mobile manipulation.</figcaption></figure>
 
 
 
@@ -299,30 +467,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft at SOSP 2026</h2>
+									<h2 class="h4">The Shape of Things to Come</h2>
 				
-								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
+								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-							Learn more						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -497,7 +665,7 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/RetroChimera" target="_blank" rel="noopener">Microsoft Foundry</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/RetroChimera" target="_blank" rel="noopener">Microsoft Foundry</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/">Improving synthesis prediction of small molecules at scale with RetroChimera</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -685,30 +853,27 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+							Learn more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -854,30 +1019,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Microsoft at SOSP 2026</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+							Learn more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1202,30 +1367,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft at SOSP 2026</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+							Learn more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1557,30 +1722,27 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+							Learn more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2053,159 +2215,6 @@ about 0.5 to 0.6 over sixty steps." class="wp-image-1180257" srcset="https://www
 		
 		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/Hero-video.mp4" length="84092742" type="video/mp4" />
 
-			</item>
-		<item>
-		<title>EvoLib: Turning experience into evolving knowledge</title>
-		<link>https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/</link>
-		
-		<dc:creator><![CDATA[Weijia Xu, Zelalem Gero, Michel Galley, Eric Yuan, Jianfeng Gao]]></dc:creator>
-		<pubDate>Thu, 30 Jul 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1179889</guid>
-
-					<description><![CDATA[<p>LLMs do not get smarter just by remembering more. EvoLib turns experience into evolving knowledge, taking reusable skills and insights that help models learn and adapt across tasks long after deployment. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/">EvoLib: Turning experience into evolving knowledge</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Figure 1. EvoLib transforms raw experiences into reusable skills and insights, then continually evolves them through consolidation and dynamic weighting. " class="wp-image-1180176" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Self-supervised.</strong> EvoLib enables large language models to learn from their own experience during inference, without requiring ground-truth labels or external feedback.</li>
-
-
-
-<li><strong>From experience to knowledge.</strong> EvoLib transforms past attempts into reusable skills and reflective insights that can be applied to future tasks.</li>
-
-
-
-<li><strong>Knowledge that evolves.</strong> Useful skills and insights are continually refined, consolidated, and reweighted, turning instance-specific observations into increasingly general knowledge over time.</li>
-
-
-
-<li><strong>Learning that transfers across tasks.</strong> By turning experience into reusable knowledge, EvoLib helps AI models learn from past successes and failures and evolve the knowledge that has the highest potential on improving future performance.</li>
-
-
-
-<li><strong>Built for today&#8217;s AI models.</strong> As EvoLib does not require model updates, it can be applied to any black-box language models and AI systems deployed through APIs.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Memory has become an important AI agent capability: the ability to store and retrieve past experiences. But memory alone is not learning. A collection of past conversations, reasoning traces, or action histories can quickly grow into a vast archive of experiences, making it difficult to identify the most relevant knowledge for a new task—let alone refine and evolve this knowledge to improve performance over time.</p>
-
-
-
-<p class="wp-block-paragraph">Humans learn differently. We do not remember every detail of our past experiences. Instead, we remember what matters: strategies that work, mistakes to avoid, and skills that transfer across situations. Over time, these lessons are refined into increasingly general and reusable knowledge. This ability to transform experience into transferable, evolving knowledge is one of the foundations of human learning.</p>
-
-
-
-<p class="wp-block-paragraph">In our recent paper, <a href="https://www.microsoft.com/en-us/research/publication/test-time-learning-with-an-evolving-library/" type="link" id="https://www.microsoft.com/en-us/research/publication/test-time-learning-with-an-evolving-library/"><em>Test-Time Learning with an Evolving Library</em></a>, we explore how AI systems can learn from experience in a similar way. We introduce <strong>EvoLib</strong>, a framework that transforms raw experience into an evolving library of knowledge. Rather than treating memory as a growing archive of past experiences, EvoLib extracts reusable knowledge from those experiences and continually refines it as new experiences arrive. Through the evolution of library, skills become more general, insights become more accurate, and downstream performance gets improved consistently over time. In this way, AI agents can continually learn from accumulating experience without updating the underlying model.</p>
-
-
-
-<h2 id="how-evolib-works" class="wp-block-heading">How EvoLib Works</h2>
-
-
-
-<p class="wp-block-paragraph">Unlike traditional AI memory systems that store raw experiences as static information, EvoLib is built around the idea of <strong>evolving knowledge</strong>. In EvoLib, a unit of knowledge can take the form of a reusable skill distilled from a successful solution or a reflective insight learned from mistakes. Rather than simply accumulating more memories over time, EvoLib continually refines, consolidates and reweights existing knowledge as new experiences arrive. Concretely, we design the following mechanisms around knowledge evolution:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Consolidation.</strong> As new knowledge is extracted from recent experience, EvoLib retrieves similar knowledge from the library and tries to consolidate it with the new knowledge into a more general and reusable one. This allows knowledge to move beyond individual experiences and become applicable across tasks.</li>
-
-
-
-<li><strong>Weighting mechanism.</strong> EvoLib continually updates the importance of each knowledge unit based not only on its immediate utility on the current task, but also on how much it contributes to generating useful knowledge on future tasks. Over time, knowledge with the greatest long-term impact naturally becomes more prominent in the library.</li>
-</ul>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="899" height="661" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/image.gif" alt="EvoLib transforms raw experiences into reusable skills and insights, then continually evolves them through consolidation and dynamic weighting." class="wp-image-1179891"/><figcaption class="wp-element-caption">Figure 1. EvoLib transforms raw experiences into reusable skills and insights, then continually evolves them through consolidation and dynamic weighting.</figcaption></figure>
-
-
-
-<h2 id="key-results" class="wp-block-heading">Key Results</h2>
-
-
-
-<p class="wp-block-paragraph">To evaluate EvoLib, we tested it across a diverse set of challenging tasks with different types of experiences and demands for learning:</p>
-
-
-
-<ul class="wp-block-list">
-<li>Solving mathematical reasoning problems</li>
-
-
-
-<li>Writing code to perform the given tasks under efficiency constraints</li>
-
-
-
-<li>Making decisions to explore and interact with an environment to perform long-horizon tasks</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">Across these tasks, EvoLib consistently outperforms the top retrieval-based memory approaches and other abstract memory mechanisms with more efficient token usage.</p>
-
-
-
-<p class="wp-block-paragraph">We also evaluated how effectively EvoLib converts test-time compute into performance gains through continually evolving knowledge. Figure 2 compares EvoLib against both compute scaling methods that perform each task in isolation and strong memory-based learning approaches. Each curve shows how performance improves as the amount of test-time compute increases.</p>
-
-
-
-<p class="wp-block-paragraph">Across all three benchmarks, EvoLib achieves higher performance throughout most of the compute range and improves performance more rapidly with increasing compute.</p>
-
-
-
-<p class="wp-block-paragraph">These results suggest that the key to better learning may not simply be storing more memories or spending more compute. Instead, the greatest gains come from transforming experience into reusable knowledge that can be continually refined and applied across tasks.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1696" height="375" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2.jpg" alt="Across all tasks, EvoLib converts test-time compute into performance gains more efficiently than existing methods. " class="wp-image-1179901" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2.jpg 1696w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-300x66.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-1024x226.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-768x170.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-1536x340.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/07/EvoLib_Fig2-240x53.jpg 240w" sizes="auto, (max-width: 1696px) 100vw, 1696px" /><figcaption class="wp-element-caption">Figure 2. Across all tasks, EvoLib converts test-time compute into performance gains more effectively than existing methods. </figcaption></figure>
-
-
-
-<h2 id="robustness-to-random-task-order" class="wp-block-heading">Robustness to random task order</h2>
-
-
-
-<p class="wp-block-paragraph">A natural question is whether such learning depends heavily on the order in which tasks are encountered. In the real world, an AI system may face diverse types of tasks in arbitrary order, and a useful learning framework should be robust to the randomness in task order. To evaluate this, we measured the task performance on the same set of heterogeneous tasks but with different task orders. We found that EvoLib consistently improves over existing memory-based learning approaches and maintains stable performance across different orderings. This indicates that EvoLib can continually learn from diverse tasks even when they are interleaved, suggesting its practical advantage in real-world scenarios where an agent must handle and learn from a mixed stream of heterogeneous user requests without relying on a structured curriculum.</p>
-
-
-
-<p class="wp-block-paragraph">As AI systems take on longer-running and more complex tasks, learning from experience will become increasingly important. The future of AI may depend not only on larger models and more computation, but also on mechanisms that allow systems to continually accumulate, refine, and reuse knowledge.</p>
-
-
-
-<p class="wp-block-paragraph">EvoLib is one step toward that vision. By transforming experience into evolving knowledge, it enables AI systems to continually improve and adapt after deployment. Rather than repeatedly starting from scratch, future AI systems may be able to build upon an evolving library of reusable skills and insights, much like humans do.</p>
-
-
-
-<p class="wp-block-paragraph">Code and experiment results are available on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/EvoLib" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a> to support future research on memory and knowledge evolution in AI systems.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/">EvoLib: Turning experience into evolving knowledge</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
 			</item>
 	</channel>
 </rss>
