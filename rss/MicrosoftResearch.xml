@@ -12,14 +12,797 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 30 Sep 2026 15:00:07 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 06 Oct 2026 16:19:08 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=7.1.2</generator>
+	<generator>https://wordpress.org/?v=7.1.3</generator>
 	<item>
+		<title>What AI gets wrong and what failure teaches us</title>
+		<link>https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us/</link>
+		
+		<dc:creator><![CDATA[Chad Atalla, Jennifer Neville]]></dc:creator>
+		<pubDate>Tue, 06 Oct 2026 16:19:06 +0000</pubDate>
+				<category><![CDATA[Microsoft Research Podcast]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1188632</guid>
+
+					<description><![CDATA[<p>Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professional sweet spot and her work identifying “surprising failures” making it hard for AI to handle complexity. </p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us/">What AI gets wrong and what failure teaches us</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="What AI gets wrong and what failure teaches us" width="500" height="281" src="https://www.youtube-nocookie.com/embed/Zs-SPS8OQb8?feature=oembed&#038;rel=0&#038;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+<div class="wp-block-msr-podcast-container my-4">
+	<iframe src="https://player.blubrry.com/?podcast_id=155640360&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+</div>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/people/jenneville/?msockid=254de47df4f967cf07e7f346f58f6643" target="_blank" rel="noopener">Jennifer Neville</a> is a partner research manager at Microsoft who’s built a career around understanding and advancing AI for real-world use, and much like the human-AI interactions she’s been studying, her early-career path was multiturn: math, then physics; cognitive science, then work; and finally computer science—despite her best efforts to avoid the field.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">In this conversation with Principal Applied Scientist <a href="https://www.microsoft.com/en-us/research/people/chatalla/?msockid=254de47df4f967cf07e7f346f58f6643" target="_blank" rel="noopener">Chad Atalla</a>, she explores the role evaluation plays in pushing the performance boundaries of today’s AI systems to meet user needs and the “surprising failures” that emerge when models are tested beyond traditional benchmarks. Neville also shares practical guidance for working with current AI systems and discusses why looking closely at data matters when results defy expectations, and what decades of AI progress have taught her about predicting what comes next. </p>
+
+
+
+<p class="wp-block-paragraph">From an unexpected career trajectory to the frontier of AI interaction and learning, this episode asks a larger question: what can we learn when the path—whether human or artificial—doesn’t unfold the way we expect? </p>
+
+
+
+<section class="wp-block-msr-subscribe-to-podcast subscribe-to-podcast">
+	<div class="subscribe-to-podcast__inner border-top border-bottom border-width-2">
+		<h2 class="h5 subscribe-to-podcast__heading">
+			Subscribe to the <a href="https://www.microsoft.com/en-us/research/podcast">Microsoft Research Podcast</a>:		</h2>
+		<ul class="subscribe-to-podcast__list list-unstyled">
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://itunes.apple.com/us/podcast/microsoft-research-a-podcast/id1318021537?mt=2" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 32 32">  <path d="M7.12 0c-3.937-0.011-7.131 3.183-7.12 7.12v17.76c-0.011 3.937 3.183 7.131 7.12 7.12h17.76c3.937 0.011 7.131-3.183 7.12-7.12v-17.76c0.011-3.937-3.183-7.131-7.12-7.12zM15.817 3.421c3.115 0 5.932 1.204 8.079 3.453 1.631 1.693 2.547 3.489 3.016 5.855 0.161 0.787 0.161 2.932 0.009 3.817-0.5 2.817-2.041 5.339-4.317 7.063-0.812 0.615-2.797 1.683-3.115 1.683-0.12 0-0.129-0.12-0.077-0.615 0.099-0.792 0.192-0.953 0.64-1.141 0.713-0.296 1.932-1.167 2.677-1.911 1.301-1.303 2.229-2.932 2.677-4.719 0.281-1.1 0.244-3.543-0.063-4.672-0.969-3.595-3.907-6.385-7.5-7.136-1.041-0.213-2.943-0.213-4 0-3.636 0.751-6.647 3.683-7.563 7.371-0.245 1.004-0.245 3.448 0 4.448 0.609 2.443 2.188 4.681 4.255 6.015 0.407 0.271 0.896 0.547 1.1 0.631 0.447 0.192 0.547 0.355 0.629 1.14 0.052 0.485 0.041 0.62-0.072 0.62-0.073 0-0.62-0.235-1.199-0.511l-0.052-0.041c-3.297-1.62-5.407-4.364-6.177-8.016-0.187-0.943-0.224-3.187-0.036-4.052 0.479-2.323 1.396-4.135 2.921-5.739 2.199-2.319 5.027-3.543 8.172-3.543zM16 7.172c0.541 0.005 1.068 0.052 1.473 0.14 3.715 0.828 6.344 4.543 5.833 8.229-0.203 1.489-0.713 2.709-1.619 3.844-0.448 0.573-1.537 1.532-1.729 1.532-0.032 0-0.063-0.365-0.063-0.803v-0.808l0.552-0.661c2.093-2.505 1.943-6.005-0.339-8.296-0.885-0.896-1.912-1.423-3.235-1.661-0.853-0.161-1.031-0.161-1.927-0.011-1.364 0.219-2.417 0.744-3.355 1.672-2.291 2.271-2.443 5.791-0.348 8.296l0.552 0.661v0.813c0 0.448-0.037 0.807-0.084 0.807-0.036 0-0.349-0.213-0.683-0.479l-0.047-0.016c-1.109-0.885-2.088-2.453-2.495-3.995-0.244-0.932-0.244-2.697 0.011-3.625 0.672-2.505 2.521-4.448 5.079-5.359 0.547-0.193 1.509-0.297 2.416-0.281zM15.823 11.156c0.417 0 0.828 0.084 1.131 0.24 0.645 0.339 1.183 0.989 1.385 1.677 0.62 2.104-1.609 3.948-3.631 3.005h-0.015c-0.953-0.443-1.464-1.276-1.475-2.36 0-0.979 0.541-1.828 1.484-2.328 0.297-0.156 0.709-0.235 1.125-0.235zM15.812 17.464c1.319-0.005 2.271 0.463 2.625 1.291 0.265 0.62 0.167 2.573-0.292 5.735-0.307 2.208-0.479 2.765-0.905 3.141-0.589 0.52-1.417 0.667-2.209 0.385h-0.004c-0.953-0.344-1.157-0.808-1.553-3.527-0.452-3.161-0.552-5.115-0.285-5.735 0.348-0.823 1.296-1.285 2.624-1.291z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Apple Podcasts</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://subscribebyemail.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.4 6a2.392 2.392 0 00-2.372 2.119L16 15.6l11.972-7.481A2.392 2.392 0 0025.6 6H6.4zM4 10.502V22.8a2.4 2.4 0 002.4 2.4h19.2a2.4 2.4 0 002.4-2.4V10.502l-11.365 7.102a1.2 1.2 0 01-1.27 0L4 10.502z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Email</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://subscribeonandroid.com/www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M12.414 4.02c-.062.012-.126.023-.18.06a.489.489 0 00-.12.675L13.149 6.3c-1.6.847-2.792 2.255-3.18 3.944h13.257c-.388-1.69-1.58-3.097-3.179-3.944l1.035-1.545a.489.489 0 00-.12-.675.492.492 0 00-.675.135l-1.14 1.68a7.423 7.423 0 00-2.55-.45c-.899 0-1.758.161-2.549.45l-1.14-1.68a.482.482 0 00-.494-.195zm1.545 3.824a.72.72 0 110 1.44.72.72 0 010-1.44zm5.278 0a.719.719 0 110 1.44.719.719 0 110-1.44zM8.44 11.204A1.44 1.44 0 007 12.644v6.718c0 .795.645 1.44 1.44 1.44.168 0 .33-.036.48-.09v-9.418a1.406 1.406 0 00-.48-.09zm1.44 0V21.76c0 .793.646 1.44 1.44 1.44h10.557c.793 0 1.44-.647 1.44-1.44V11.204H9.878zm14.876 0c-.169 0-.33.035-.48.09v9.418c.15.052.311.09.48.09a1.44 1.44 0 001.44-1.44v-6.719a1.44 1.44 0 00-1.44-1.44zM11.8 24.16v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84zm5.759 0v1.92a1.92 1.92 0 003.84 0v-1.92h-3.84z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Android</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://open.spotify.com/show/4ndjUXyL0hH1FXHgwIiTWU" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4C9.383 4 4 9.383 4 16s5.383 12 12 12 12-5.383 12-12S22.617 4 16 4zm5.08 17.394a.781.781 0 01-1.086.217c-1.29-.86-3.477-1.434-5.303-1.434-1.937.002-3.389.477-3.403.482a.782.782 0 11-.494-1.484c.068-.023 1.71-.56 3.897-.562 1.826 0 4.365.492 6.171 1.696.36.24.457.725.217 1.085zm1.56-3.202a.895.895 0 01-1.234.286c-2.338-1.457-4.742-1.766-6.812-1.747-2.338.02-4.207.466-4.239.476a.895.895 0 11-.488-1.723c.145-.041 2.01-.5 4.564-.521 2.329-.02 5.23.318 7.923 1.995.419.26.547.814.286 1.234zm1.556-3.745a1.043 1.043 0 01-1.428.371c-2.725-1.6-6.039-1.94-8.339-1.942h-.033c-2.781 0-4.923.489-4.944.494a1.044 1.044 0 01-.474-2.031c.096-.023 2.385-.55 5.418-.55h.036c2.558.004 6.264.393 9.393 2.23.497.292.663.931.371 1.428z"/></svg>
+						<span class="subscribe-to-podcast__link-text">Spotify</span>
+					</a>
+				</li>
+			
+							<li class="subscribe-to-podcast__list-item">
+					<a class="subscribe-to-podcast__link" href="https://www.blubrry.com/feeds/microsoftresearch.xml" target="_blank" rel="noreferrer noopener">
+						<svg class="subscribe-to-podcast__svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="currentColor" d="M6.667 4a2.676 2.676 0 00-2.612 2.13v.003c-.036.172-.055.35-.055.534v18.666c0 .183.019.362.055.534v.003a2.676 2.676 0 002.076 2.075h.002c.172.036.35.055.534.055h18.666A2.676 2.676 0 0028 25.333V6.667a2.676 2.676 0 00-2.13-2.612h-.003A2.623 2.623 0 0025.333 4H6.667zM8 8h1.333C17.42 8 24 14.58 24 22.667V24h-2.667v-1.333c0-6.618-5.382-12-12-12H8V8zm0 5.333h1.333c5.146 0 9.334 4.188 9.334 9.334V24H16v-1.333A6.674 6.674 0 009.333 16H8v-2.667zM10 20a2 2 0 11-.001 4.001A2 2 0 0110 20z"/></svg>
+						<span class="subscribe-to-podcast__link-text">RSS Feed</span>
+					</a>
+				</li>
+					</ul>
+	</div>
+</section>
+
+
+<div class="wp-block-msr-show-more">
+	<div class="bg-neutral-100 p-5">
+		<div class="show-more-show-less">
+			<div>
+				<span>
+					
+
+<h2 id="transcript" class="wp-block-heading">Transcript&nbsp;</h2>
+
+
+
+<p class="wp-block-paragraph">[MUSIC]&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>JENNIFER NEVILLE:</strong> There were times that I felt like I was spinning my wheels. Things weren&#8217;t working. I would get, kind of, dejected. And then we&#8217;d get to a point where we <em>did</em> learn something, and it was just the, the emotional thrill of that was, that was really what hooked me. The being able to, kind of, understand something that no one else understood yet &#8230;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>CHAD ATALLA:</strong> Sure …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … because it&#8217;s just at the frontier of what we know about things.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>STANDARD INTRODUCTION:</strong> This is the <em>Microsoft Research Podcast</em>, where Microsoft researchers—driving advancement through fundamental science and technology research—explore the who, how, and what’s next in computing and AI.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">[MUSIC ENDS]&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>CHAD ATALLA:</strong> Hello, and welcome. I’m Chad Atalla, an applied scientist here at Microsoft Research.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Today, I’m joined by Jennifer Neville, a partner research manager at Microsoft Research and the Samuel D. Conte chair professor of computer science and statistics at Purdue.</p>
+
+
+
+<p class="wp-block-paragraph">Her research examines machine learning and AI for interactive domains and structured data, looking at how the data points that AI systems are trained on affect their behaviors and how that aligns with what users actually want.</p>
+
+
+
+<p class="wp-block-paragraph">Across that research, she has published more than 130 papers with over 10,000 citations and received honors such as a National Science Foundation CAREER Award, a spot on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ieeexplore.ieee.org/document/4525138" target="_blank" rel="noopener noreferrer">IEEE’s “10 to Watch” in AI list<span class="sr-only"> (opens in new tab)</span></a>, and best paper awards from the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://ieeexplore.ieee.org/document/5360265" target="_blank" rel="noopener noreferrer">International Conference on Data Mining<span class="sr-only"> (opens in new tab)</span></a> and the <a href="https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/" target="_blank" rel="noopener">International Conference on Learning Representations</a>.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">What amazes me most about Jen’s work is her foresight and ability to have a through line that stays consistent as the field of AI develops, and I&#8217;m excited to hear more about how she got to where she is today.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Jen, thank you for joining me.&nbsp;</p>
+
+
+
+				</span>
+				<span id="show-more-show-less-toggle-1" class="show-more-show-less-toggleable-content">
+					
+
+
+
+<p class="wp-block-paragraph"><strong>JENNIFER NEVILLE:</strong> Thanks for having me.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Awesome. Well, I would love to learn about how you got here today. And let&#8217;s rewind way back. When I was a kid, I wanted to be an astrophysicist, but of course, here I am with a computer science background. When did <em>you</em> know that you wanted to go into computer science?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> That&#8217;s a good question. I … when I was growing up, I wanted to do anything but computer science because that&#8217;s what my dad was in, and I wanted to do anything but what my dad did. So when I went to college, first I majored in math and then in physics, but I really just couldn&#8217;t vibe with those majors.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So I dropped out of college for a while, and when I went back to college again, I majored in cognitive science instead, which also was too squishy for me. Didn&#8217;t have enough math in it. At that point, if somebody had told me, “AI is the thing you should be doing because it combines the cognitive science with the math and computational thinking,” I think I would have saved myself a lot of time, [LAUGHTER] but that didn&#8217;t happen.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And so I worked for a while. And then when I went back to school, I decided to major in computer science because what I wanted to do was think about working with data and dealing with data. And that&#8217;s when I found AI. Just by happenstance. I didn&#8217;t even really realize that it was part of computer science.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Awesome. Well, it&#8217;s one thing to go into computer science and want to work on data or AI and another thing to want to be involved in research on that front. So what sorts of questions or big ideas sparked your research drive?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Yeah, that&#8217;s actually an interesting story, as well. I only got into research because I was in the honors program in my computer science degree, and as part of the honors program, you <em>have</em> to do a research project [LAUGHTER].&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> It’s mandatory, yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> <em>It&#8217;s mandatory.</em> And so when I talked to professors about what the research project should be, they actually said, “Well, <em>you</em> have to decide what topic you want to work on.”&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And at that point, I was interested in data and I was interested in AI, and I thought a lot. I did a lot of reading. And what I decided that I wanted to investigate was how to do data mining on web data that was interconnected, and so that … when I decided that was the question I wanted to work on, I got pointed to a particular faculty member …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Nice.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … who had just started working in this nascent field at the time that was called statistical relational learning. And we did my project in that, I published a paper at a workshop, and I was, kind of, hooked.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> OK, yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> So I hadn&#8217;t planned to go on to grad school, but that experience …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … made me want to go on to grad school and continue.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Nice. What part of it do you think hooked you? Was it, like, the thrill of doing the research? Was it the environment of the conference and what academic publishing looks like?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> It was really the thrill and the process of doing research. So it was a long project. There were times that I felt like I was spinning my wheels. Things weren&#8217;t working. I would get, kind of, dejected. But my adviser would be, kind of, like, you know, supportive and positive, saying, “No, keep going. We&#8217;re learning something.” And then, and then we&#8217;d get to a point where we <em>did</em> learn something, and it was just the emotional thrill of that was, that was really what hooked me. The being able to, kind of, understand something that no one else understood yet …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … because it&#8217;s just at the frontier of what we know about things was, uh, it&#8217;s just, it&#8217;s like a drug almost, right? [LAUGHTER] So it&#8217;s kept me in research for this long, that same, that same … chasing after that same feeling.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Gotcha. Well, love it. Yeah, you joined Microsoft in 2021 from academia. And in fact, you&#8217;re still a professor, and you&#8217;ve been teaching and advising for 20 years. What motivated the shift to part of your professional life being research <em>in industry</em>, and how would you characterize the difference between industry research and academia research?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> My research, kind of, spans the spectrum from theory to application. When I did my first sabbatical after I got tenure, a lot of colleagues that I had at the … that were at the same point in their career went off into industry labs for their sabbatical and never came back to Purdue. I thought about which direction I&#8217;d want to go, either more theory or more applied, and I thought at that point in my career, it&#8217;d be better to explore the theory side because then I might actually go back to Purdue.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And so I went to the Simons Institute in Berkeley for my sabbatical, and that was very theoretical. It was a great experience, but it was kind of seamless to transition back to academia. On my second sabbatical, I went the other way, which was to come to MSR [Microsoft Research] and do a sabbatical here. And of course, being able to see how algorithms in theory, kind of, hit the—where the rubber hits the road with respect to how they behave in practice and real systems and with real users and real data, that&#8217;s hard to turn back from. And so that&#8217;s now why I&#8217;m still here.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Gotcha.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> So I think the difference between research in academia and industry depends on … really is affected by the target of where, where you&#8217;re aiming the research. And so I think fundamentally, it feels very similar, the questions you would ask in academia and industry, but in industry, your ability to apply it at scale in real systems on real data is really very different from academia, and in academia, I think you end up asking questions that are more abstractions that cover applications across a lot of different domains at once. And that&#8217;s how you get funding from places like DARPA [Defense Advanced Research Projects Agency] and NSF [National Science Foundation].&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But in industry, it&#8217;s a little easier to just, you know, actually get your hands dirty and, and do it in the real systems. And then your, kind of, target is the products and the company’s interests. And so as … that sort of changes, maybe the types of questions that you would ask or investigate. So I think it&#8217;s actually great to be …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … in both places, right? Like, there&#8217;s lots of synergies across the two, and I think there&#8217;s lots of opportunities to go to industry and come back to academia or to go start in industry and go to academia. But right now, if you&#8217;re doing work on AI systems, I think that industry is really the place to be.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Gotcha. Yeah. Perhaps useful advice to folks who are deciding which way to take that decision in their career right now.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">I&#8217;ve been here at Microsoft for a little over six years and have been working on AI evaluation for much of that time, and there are, of course, a number of daunting fundamental questions and challenges in the space.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And I initially came across your work and became aware of your work because part of your work proposes some solutions to some of these problems and helps to point out these problems. And my immediate reaction was relief that we have someone wonderful like you working on these things, and you&#8217;re going to take care of it for us. And I really appreciate how you balance critiquing AI evaluation and also providing solutions along the way.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But I understand that that&#8217;s just a small sliver of your broader research agenda. And so how would you describe the current research charter for the team that you&#8217;re leading here?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Our team is called the <a href="https://www.microsoft.com/en-us/research/group/ai-interaction-and-learning/people/" target="_blank" rel="noopener">AI Interaction and Learning team</a>. What we really focus on is trying to push the frontier of behavior of these AI systems in realistic work environments. And so what that entails is studying where&#8217;s the boundary of the performance of the current systems, how do users experience that in practice with real workflows, and then how do we improve that and push the performance of the models for these kind of tasks—complex tasks—that users are working on.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The reason we focus on evaluation is that we find that the standard way that ML and AI people evaluate are through benchmarks that are fairly simple with respect to how people would actually use them in practice. And so we find that the first thing that you really need to do is ask, what do we want out of these systems? And design practical evaluations to put the systems in those kind of environments. So that means things like multiturn behavior, collaborative environments, long-horizon tasks that users are doing.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And then once we can see where the performance gaps or problems that happen in those evaluations [are], then that also gives us the knowledge of where, sort of, theoretically or algorithmically do we need to improve these systems.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So we start with evaluation, but ultimately, what we&#8217;re trying to do is develop better algorithms, models, estimation methods …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … to push the performance of the models.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah, it&#8217;s a gateway to understanding and therefore being able to push the boundary and improve these, these systems.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Yes.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> So you mentioned multiturn interactions and collaborative environments. You have a couple of recent papers that examine these things specifically, like how <a href="https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/" target="_blank" rel="noopener">LLMs may get lost in multiturn conversations</a> or <a href="https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/" target="_blank" rel="noopener">how they may corrupt documents in these, sort of, agentic knowledge work scenarios</a>. Can you tell me a little bit more about those research projects specifically?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Sure. We … those are examples of cases where we had to, sort of, have innovative insights as to how to set up the evaluation to really be able to control and test the model’s behavior in those scenarios.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So for multiturn conversations, what we did is we took single-turn benchmarks—maybe I should back up and say one of the things we observe about users in practice is that they often <em>underspecify</em> what they&#8217;re trying to do. They don&#8217;t know how to give a complete specification to begin with. We sometimes forget this as computer scientists and software engineers, but lay users might not be able to fully specify things in the first turn. And so they, kind of, figure out what they&#8217;re doing over multiple turns and, sort of, add conditions and clarifications throughout the turns.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So what we did was we took single-turn benchmark datasets that are public, and we changed the fully specified single complex turn of instructions and had the, had models that simulated users providing that clarification over multiple turns and then studied how do the models—how do all of the current models that we have—how do they behave when you get this kind of task specified over multiple turns.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And we found that the performance that we see in single-turn scenarios—which is very high because, of course, we&#8217;re optimizing to that as model builders—actually degrades significantly over multiple turns. And so that was something that was a fairly surprising finding because nobody had evaluated in that, …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … in that way before. But when we released that research into the world, the users of the systems all resonated with, …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure … yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … “Well, that&#8217;s been my experience. I knew that that was happening. How do, how do we fix that?” And one of the … so we&#8217;re working on reinforcement learning methods to actually help the models learn better in these environments to, kind of, fix that behavior.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But a practical solution that we talked about in the paper is if you end up having the model, kind of, get confused—if you specified something over multiple turns—just, like, stop the chat, erase everything, go back, and now, given what you know, give it a fully specified single turn, …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> I see, yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … and then it will behave better in that kind of interaction.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So maybe that points out that although fundamentally we&#8217;re looking for algorithmic improvements to the models, sometimes in these projects, we end up coming up with insights of how <em>users</em> could change their behavior …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure. Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … to get better outcomes from the models, like, where they are right now …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … with their performance.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah. Well, we noted that one of the themes of your research is how we can improve these systems to bring them better into alignment with what users actually want. And you mentioned a case here of, “Hey, well, we know that users realistically are often not fully specifying what they want in their first turn, and we do have these long multiturn interactions.” And after you put this paper out, they expressed resonance with this frustration about getting lost in multiturn conversations.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">How do you think about understanding the users’ wants and needs and experience, and how does that relate back to what you do with, as you said, simulating a user, for example, to run these longer multiturn evaluations?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Yeah, that&#8217;s … getting to see at scale what users are trying to do and what kind of failures and successes they have in the systems is one of the advantages I think you get if you&#8217;re in an industry lab and you get to see data at scale like that.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So we have done a lot of work with the product groups here internally at Microsoft analyzing consumer logs at scale to figure out what are the main patterns of failures that, that users are experiencing. And that is the … <em>provides</em> the kind of insight or motivation for a lot of the, a lot of the work that we do. And there&#8217;s a lot of great product groups that are also analyzing the successes that users have, which would allow you to then even recommend to users how … what are the kind of tasks that they&#8217;re going to be able to do successfully in the systems that we have now.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">I think if you think back when search engines first started, people had to learn how to interact with search engines …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … in a way to effectively get the information that they&#8217;re looking for. We might have forgotten that that happened now because it was so much a part of what everybody would do before all these AI systems came out. But now I think there&#8217;s a transition away from the search engines to these chat-based systems, and I think there&#8217;s going to have to be some learning from the users, as well, …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Right, yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … in this new environment. And I think analyzing the things that are successful in terms of what users are doing is a great way to start recommending …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … and tutoring or teaching the users in the same way.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> I love how you&#8217;re pointing out the utility of looking at real data, but what does that actually mean? Are you genuinely looking at real data? How is privacy coming in here? What sort of processes do you have for responsibly leveraging data in the wild?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Oh, yeah, that&#8217;s a good point. Thanks for bringing it up. We&#8217;re not actually looking at the data. We are analyzing the data at scale to extract patterns of failures or successes in a privacy-preserving kind of way. There&#8217;s also a lot of, a lot of restrictions that we can’t actually see the data eyes on. We can only, sort of, push methods to process the data in very restricted environments. And then, um, and then these, sort of, higher-level insights that are privacy preserved are the things that then fuel, like, what we would do algorithmically later on.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So just to be clear, we&#8217;re not fine-tuning on your data or your responses, but the more details you can give in your responses, whether it&#8217;s through donated information, when you give a thumbs down and you give a description of it, or if it&#8217;s in the, sort of, chat interaction you have with the models, those can eventually get distilled into things that are going to improve the models not through people actually looking at what you&#8217;ve been doing.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> And you noted this shift from a search being the dominant modality to these multiturn chat interactions. But now we&#8217;re also seeing agentic and, you know, collaborative knowledge-work-style tasks becoming even more relevant and noted that you did some work on that front, as well. Any other interesting takeaways that you&#8217;d love to share with our listeners?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Yeah. So we have both some theory work that tries to characterize the types of tasks that are fundamentally hard for transformers to compute inside the model as well as more <a href="https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/" target="_blank" rel="noopener">simulation-based work, where we look at complex tasks that are conducted over long-horizon workflows</a>, where you take, for example, documents and you do repeated edits over those documents.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">In those environments, the complexity of the task for the models or even the agents is to track not only what the user’s intending to do over this long-horizon work activity but also understanding what&#8217;s the current state, what information is relevant, what is not relevant, how things have changed. And those are things that agents are starting to be fairly good at, but there&#8217;s particular kinds of tasks that are easier than others.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> And so something that we look at is what are the types of tasks where complexities become too much for the current agents and how to solve that. What is the best way for the tool usage with the agents? Is it better to bring a human in the loop? How can we know that things have gone awry? So having … even having the agents, kind of, monitor themselves and assess whether they answered something correctly or they should, kind of, roll back to a previous state. I think those are all open questions right now.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But we have … we do have some work showing that <em>again</em> we get surprising failures as we get longer and longer into these workflows because errors, if you don&#8217;t catch them, can accumulate …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … <strong></strong>and start to confuse the AI even more as they, as they have to carry out the task over repeated interactions.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah, that phrase “surprising failures” is interesting to me. It implies an expectation of, “Hey, this should do better, and I&#8217;m surprised that it failed in this specific way.” Do you feel that you see more of these surprising errors, or are a lot of the errors, like, expected, you would understand that it would fail in, in this way or that?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Yeah, I think there, I think there definitely are expected failures because those … <em>well</em>, there&#8217;s fewer expected failures, of course, as we work to make the systems better and better.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Right. If we can expect them, then we can fix them.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> That&#8217;s right. But things like hallucinations are the types of failures that have been characterized for a long time in the community and that there are specific benchmarks and methods to try to reduce those things.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">I think that my team ends up looking for things that, that show up as almost surprising failures because they&#8217;re not the traditional failures and they&#8217;re often hard to isolate and show that they&#8217;re happening because they&#8217;re very subtle and don&#8217;t show up as just, kind of, [an] incorrect answer to a math problem or a hallucinated case in a law, you know, a legal opinion but are this sort of subtle loss of semantic content in the documents. And I think that if I look back on what we&#8217;ve, sort of, investigated with the team, we have a kind of hypothesis that, that we think as humans, the things that are hard for us to do are going to be the things that are hard for the model to do. And in fact, that&#8217;s not often the case because we have to think about what&#8217;s hard for the transformers actually to compute, what&#8217;s hard for their retrieval systems to retrieve …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Right.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … from the underlying content.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And so I think where the “surprising” comes from is things that we might think as humans are very simple to do <em>or</em> that we think if there was a task previously that was done correctly, we think reliably now the same task again should be done correctly. But in fact, that&#8217;s not necessarily the case with LLMs. And so the surprising, kind of, creeps in, I think, with our own expectations based on human intelligence about what&#8217;s hard or what&#8217;s easy.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah. And so between that confusion that may exist for users based on what they expect these systems to be good on, perhaps based on reflecting on human intelligence, and all of the hype and marketing that exists out there, what do you want real users to take away from this? Or how would you caution them to think about the capabilities and expectations that they may have for AI systems given your work here? How can they kind of cut through that noise and build better expectations?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Oh, that&#8217;s a good question. I think that, I think the current AI systems have a lot of capabilities that are going to be very useful to people in work environments right now. I think that the takeaway from our work is that you shouldn&#8217;t expect them to be 100% successful across the board. You should be checking the answers that you get back. And if you get back something that you think is incorrect, you shouldn&#8217;t necessarily assume that the model can&#8217;t do that at all. But you should think about asking again or asking it in a different way, and you might get a better answer the next time.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">That is hard to work into the way that we work right now because I think that you can&#8217;t … they&#8217;re not ready for things to be 100% delegated to them. But if you can figure out how to use them in a workflow with you, with oversight and verification, I think they can be very useful to do things, improve, you know, productivity and the speed with which you get things done.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So … and maybe the other thing to say is, you know, sort of bear with us because [LAUGHTER] we&#8217;re developing these systems <em>in real time</em> as they&#8217;re being released. And so your use helps us actually push the boundary of the models because it gives us examples of things that can and can&#8217;t be done.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Maybe another thing I would like to say is that something that maybe users don&#8217;t understand is that in the past, with search-based systems or recommender systems, the kind of feedback that we were able to give as users was just, kind of, like thumbs-up, thumbs-down. But now we&#8217;re in an environment where actually we could give feedback with much higher fidelity that can be super useful to improving the models downstream.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So if you&#8217;re working in, kind of, a chat environment with a model, understand that if something has gone badly, it&#8217;s actually helpful to say how it&#8217;s gone badly, to … and in your textual interaction or speech interaction to really convey, like, exactly what went wrong and what you expected and what you got instead. Because that actually will be used as we update the models. And so you can think of that as users, your role can be to train the models to do the things that you would have wanted it to do, but it couldn&#8217;t do right now.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Awesome. Interesting call to action there.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And I&#8217;m just curious. You talked about the transformer paradigm that we&#8217;re in now for these sorts of large language systems. Where do you see the science of large AI systems going next? <em>Broadly,</em> maybe that&#8217;s a really hard question, but at least in your interest and research directions, where do you see the science of these systems going next?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> That&#8217;s, that&#8217;s a, that&#8217;s a big question. [LAUGHTER] I think we&#8217;re … the research community is simultaneously trying to figure out if the transformer architecture is the right underlying model to use because there are certain known limitations of how computation can work in transformers. A lot of those limitations can be solved by the wrapper around the models—the agentic harnesses that we have around the models right now—and the reasoning that goes on, on the back end.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So I think an open question is, how much can we deal with the limitations of the transformer architecture with this, sort of, wrapper foundation around it and what needs to be addressed with, sort of, a fundamentally different …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … architecture underlying things? I think that we&#8217;re going to see rapid development of, sort of, alternative architectures and models as well as elaborate wrappers around the current models that we have.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">I think that we will see in the next generation of work that we will have to focus on longer-term interactions with the models and having the models understand the world within which they&#8217;re working in a much more tangible way than they&#8217;re doing right now. But I think I&#8217;m very bullish on the research that&#8217;s happening. I think we will, you know, be successful at this.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Maybe going back to when I started, my first internship was at AT&T Labs back in the year 2000. And I remember very clearly sitting at lunch in my internship playing <em>go</em> and talking about how we could get, you know, AI models to be able to, you know, play this game and how it was harder than chess and what could we do.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And, and I was learning how to play <em>go</em> at that point. And I was learning on a 9-by-9 board. I don&#8217;t know if you&#8217;ve ever learned how to play <em>go</em>, …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> I have not.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … but you don&#8217;t learn how to play on the big board …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Wow.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … because it&#8217;s, it&#8217;s too hard even for humans, right. So you start on this 9-by-9 board.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And I was, kind of, watching myself learn how to play and think about how the algorithms would learn how to play. And while we were doing that, we were, you know, sort of, conjecturing about how long it was going to take AI to be able to do this. And so it&#8217;s funny looking back because, you know, at AT&T Labs, a lot of the, sort of, luminaries in, you know, machine learning and AI research were there. People were saying, “Oh, it&#8217;s going to take 50 years to be able to do this.” You know, some people say 100 years. But, of course, now that&#8217;s <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://deepmind.google/research/alphago/" target="_blank" rel="noopener noreferrer">already a solved problem<span class="sr-only"> (opens in new tab)</span></a>.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> And so looking forward, there are things that I might think as a researcher, because it&#8217;s so hard for us to get past this sort of boundaries we see right now in behavior, there&#8217;s a tendency to think, “Oh, it&#8217;s going to take 10 years,” or “It&#8217;s going to take 25 years.”&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But I think given the pace of research and the number of people researching, you know, doing research in this field and the scale at which these models are running, I think it&#8217;s actually going to happen much more quickly than I would have thought as that person, you know, that new AI student in the year 2000. So …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Wow. Well, in the spirit of that, looking back to the year 2000, let&#8217;s imagine now jumping 20 years forward into the future or just 10 because things are moving so fast.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> [LAUGHS] Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> What mark would you like to have left on research in this space?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> I think the, the things that have really been the, sort of, common thread through my research career is thinking about complex systems and how to get AI and machine learning to work in these complex systems. So—and even right now, that&#8217;s what we focus on with collaboration, and we&#8217;re thinking about multi-human, multi-AI interaction. I think … if I think really in terms of sci-fi kind of outcomes, I think we&#8217;d be successful if in the work environment, we start to see organizations of both humans and AI working together on teams to accomplish things and innovate, and if we can get that working correctly, then I will feel like my research has been successful.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Awesome. Well, as we wrap up here, I thought it could be fun to do a lightning round, which means quick questions, quick low-stakes answers, just whatever first comes to your mind. Sound good?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Awesome. What&#8217;s one piece of advice that stuck with you or changed your perspective?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Uh, OK. You said short answers, though. [LAUGHS]&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">When I first started in computer science, I, uh, actually, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://mila.quebec/en/directory/doina-precup" target="_blank" rel="noopener noreferrer">Doina Precup<span class="sr-only"> (opens in new tab)</span></a> was the TA in my first computer science class, and she said to me when I was, sort of, being overwhelmed and feeling like I didn&#8217;t … everybody else knew everything and I didn&#8217;t know anything, she said, you know, don&#8217;t, don&#8217;t be afraid to ask questions because people might appear that they know what&#8217;s going on, but in fact, they don&#8217;t know what&#8217;s going on, and they will actually really appreciate that you&#8217;re courageous enough to ask a question because they&#8217;re probably thinking the same thing. And, and it would help both you and them if you are, if you <em>will</em> ask the question.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And so I&#8217;ve taken that to heart over the course of my career. And it&#8217;s very hard to, you know, you can be afraid and feel like you&#8217;re going to appear stupid to ask the question. But undoubtedly, along the way, whenever I had these feelings of fear and … but had the courage anyways to ask the questions, I did find that people were really appreciative. And, you know, people would say afterwards, “Oh, I was thinking the same thing. I&#8217;m so happy that you asked that question.” So, so be courageous and ask the question.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Awesome. What&#8217;s a lesson that you learned the hard way?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Look at the data. [LAUGHTER] Look at the data.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">So in machine learning we have a tendency—this applies to the benchmarks. We have, we have a test set. We run our model. We learn it. We apply it to this test set. We generally get a number that&#8217;s our metric that we&#8217;re trying to push. And so we think if the number is going higher, we&#8217;re doing good. And if the number doesn&#8217;t move, we think, “Oh, well, then the problem is too hard.”&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">But I have learned the hard way multiple times that when things are not working out, if you take the time to look at the data, you might actually find that there&#8217;s errors in the data. The data is not what you expected. The data is different from the distribution that you train the model on. And so anytime … I guess maybe that makes me a data person. [LAUGHTER] But often when things are not behaving the way that we expect, we go and look at the data to try to understand.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah. Makes sense. It&#8217;s a good one. It&#8217;s a hard one.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> [LAUGHS] Hard to remember.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yes.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> And that … maybe that&#8217;s an important thing is, even though I&#8217;ve learned that lesson, …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Sure.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … I&#8217;ve had to <em>re-learn</em> that lesson at least half a dozen times throughout my career.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah. Well, on the flip side, what&#8217;s an accomplishment that you&#8217;re most proud of?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> I think I would say the fact that I was able to get tenure and raise a toddler at the same time.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Wow, yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> I had my son right before we started—my husband&#8217;s also faculty—so before we started our faculty positions. And so I think the fact that I was able to get tenure, my son was healthy and happy, and I managed to stay married [LAUGHS] …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah, indeed.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … is probably the biggest accomplishment that, uh, yeah …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Big accomplishment, yeah.&nbsp;And last question here. What&#8217;s one way that art or nature has influenced your work?&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Hmm, I&#8217;m not sure if this would really count as nature, but one thing that I&#8217;ve always been observing as an AI person is how kids, people, animals, insects seem to learn about the world and the environment and change their behavior. And so I fully admit that I was very nerdy as a, as a parent with a young child. I would take, you know, ideas that we have from machine learning and try to see if I could help my son learn better.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">For example, if he&#8217;s learning to try to, like, flip over when he was an infant, I&#8217;d say, I&#8217;d say, “OK, let me give you a positive training example. [LAUGHTER] Like, here, take your legs and do this,” and …&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Yeah, yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> … and then see the effect on, you know, how he learned but also then watching him learn and, and then thinking about how that, you know, might be worked into the algorithms and models that we developed. That&#8217;s probably the biggest interaction that I&#8217;ve, like, sort of continually returned to over the course of my career.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> That&#8217;s beautiful. Yeah.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>NEVILLE:</strong> Thanks.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ATALLA:</strong> Well, Jen, thank you for sharing your story and insights. It&#8217;s been a pleasure having you here.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">And to our audience, thank you for tuning in. If you would like to learn more about the work of my colleagues here at Microsoft, check out the Microsoft Research page at <a href="https://www.microsoft.com/en-us/research/" target="_blank" rel="noreferrer noopener">aka.ms/research</a> or [MUSIC] check out the other episodes of this podcast. Thanks.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">[MUSIC ENDS]&nbsp;</p>
+
+				</span>
+			</div>
+			<button
+				class="action-trigger glyph-prepend mt-2 mb-0 show-more-show-less-toggle"
+				aria-expanded="false"
+				data-show-less-text="Show less"
+				type="button"
+				aria-controls="show-more-show-less-toggle-1"
+				aria-label="Show more content"
+				data-alternate-aria-label="Show less content">
+				Show more			</button>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="wp-block-group msr-pattern-link-list is-layout-flow wp-block-group-is-layout-flow">
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 id="learn-more-1" class="wp-block-heading h5">Learn more:</h2>
+
+
+
+<ul class="wp-block-list list-unstyled">
+<li><a href="https://www.microsoft.com/en-us/research/group/ai-interaction-and-learning/" target="_blank" rel="noopener">AI Interaction and Learning</a>&nbsp;<br>Homepage</li>
+
+
+
+<li><a href="https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/" target="_blank" rel="noopener">LLMs Corrupt Your Documents When You Delegate</a>&nbsp;<br>Publication | April 2026&nbsp;</li>
+
+
+
+<li><a href="https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/" target="_blank" rel="noopener">Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability</a></li>
+
+
+
+<li>Microsoft Research blog | May 2026   </li>
+
+
+
+<li><a href="https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/" target="_blank" rel="noopener">LLMs Get Lost In Multi-Turn Conversation</a>&nbsp;<br>Publication | May 2025&nbsp;</li>
+</ul>
+</div>
+
+
+
+<p class="wp-block-paragraph"></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us/">What AI gets wrong and what failure teaches us</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Forecasting space weather risks on power grids</title>
 		<link>https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/</link>
 		
@@ -89,7 +872,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2021" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-scaled.png" alt="End-to-end forecasting pipeline from L1 solar-wind measurements to location-specific risk estimates across 66,935 U.S. substations." class="wp-image-1186617" style="aspect-ratio:0.7904;width:494px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-scaled.png 2021w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-237x300.png 237w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-767x972.png 767w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-808x1024.png 808w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-1212x1536.png 1212w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-1617x2048.png 1617w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-142x180.png 142w" sizes="(max-width: 2021px) 100vw, 2021px" /><figcaption class="wp-element-caption">Figure 1. End-to-end forecasting pipeline from L1 solar-wind measurements to location-specific risk estimates across 66,935 U.S. substations.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2021" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-scaled.png" alt="End-to-end forecasting pipeline from L1 solar-wind measurements to location-specific risk estimates across 66,935 U.S. substations." class="wp-image-1186617" style="aspect-ratio:0.7904;width:494px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-scaled.png 2021w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-237x300.png 237w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-767x972.png 767w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-808x1024.png 808w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-1212x1536.png 1212w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-1617x2048.png 1617w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/GIC-Forecast-Flowchart-142x180.png 142w" sizes="auto, (max-width: 2021px) 100vw, 2021px" /><figcaption class="wp-element-caption">Figure 1. End-to-end forecasting pipeline from L1 solar-wind measurements to location-specific risk estimates across 66,935 U.S. substations.</figcaption></figure>
 
 
 
@@ -109,7 +892,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2560" height="1083" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-scaled.png" alt="chart, bar chart" class="wp-image-1186614" style="aspect-ratio:2.3620071684587813;width:659px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1024x433.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-768x325.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1536x650.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-2048x867.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1701x720.png 1701w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1417x600.png 1417w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-240x102.png 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Detection rates across storm-severity thresholds for regionally different substations, with a comparison between the average POD for each severity tier.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2560" height="1083" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-scaled.png" alt="chart, bar chart" class="wp-image-1186614" style="aspect-ratio:2.3620071684587813;width:659px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-300x127.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1024x433.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-768x325.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1536x650.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-2048x867.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1701x720.png 1701w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-1417x600.png 1417w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/Station-by-Station-Performance-240x102.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. Detection rates across storm-severity thresholds for regionally different substations, with a comparison between the average POD for each severity tier.</figcaption></figure>
 
 
 
@@ -335,7 +1118,7 @@
 
 
 <div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--1"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://microsoft.github.io/quine/#fellowship"><u>Applications for the first Quine Fellows cohort open now</u></a></div>
+<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://microsoft.github.io/quine/#fellowship"><u>Applications for the first Quine Fellows cohort open now</u></a></div>
 </div>
 
 
@@ -638,30 +1421,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Newsletter</h2>
+									<h2 class="h4">The Shape of Things to Come</h2>
 				
-								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
+								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button is-style-fill-chevron">
-						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
-							Subscribe today						</a>
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -836,7 +1619,7 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-<div class="wp-block-button is-style-outline is-style-outline--2"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/RetroChimera" target="_blank" rel="noopener">Microsoft Foundry</a></div>
+<div class="wp-block-button is-style-outline is-style-outline--3"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://ai.azure.com/catalog/models/RetroChimera" target="_blank" rel="noopener">Microsoft Foundry</a></div>
 </div>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/">Improving synthesis prediction of small molecules at scale with RetroChimera</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
@@ -1024,30 +1807,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Microsoft Research Forum</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
+							Watch on-demand						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1412,27 +2195,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://labs.ai.azure.com/" aria-label="Foundry Labs" data-bi-cn="Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Foundry Labs</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="foundry-labs" class="large">Foundry Labs bridges the distance between Microsoft breakthroughs and the builders, scientists, and curious minds who can put them to work.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://labs.ai.azure.com/" aria-describedby="foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Foundry Labs" target="_blank">
-							Foundry Labs						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1538,27 +2324,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
-							Learn more						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1819,207 +2608,6 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 <p class="wp-block-paragraph"></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Orchard: An open framework for scalable agentic AI</title>
-		<link>https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/</link>
-		
-		<dc:creator><![CDATA[Baolin Peng, Wenlin Yao, Qianhui Wu, Hao Cheng, Jianfeng Gao]]></dc:creator>
-		<pubDate>Mon, 03 Aug 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false"></guid>
-
-					<description><![CDATA[<p>Orchard is an open-source framework for the research community to train and evaluate AI agents across task types. It reduces complexity while supporting strong performance from smaller models by enabling researchers to reuse the same infrastructure.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Orchard: An open framework for scalable agentic AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg" alt="Three Orchard framework components with benchmark results" class="wp-image-1180738" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Orchard-BlogHeroFeature-1400x788_NEW-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Orchard is an open-source framework for scalable and cost-effective agentic AI research, built around Orchard Env, a reusable environment service for training and evaluating agents across task domains.</li>
-
-
-
-<li>The same Orchard infrastructure supports software-engineering, web-navigation, and personal-assistant agents, and can train them directly inside real deployment harnesses such as Codex, OpenClaw, and ZeroClaw—letting researchers reuse environments, data pipelines, and evaluation workflows across tasks.&nbsp;</li>
-
-
-
-<li>Orchard-SWE, Orchard-GUI, and Orchard-Claw demonstrate that relatively small open-weight models can achieve strong results on complex real-world tasks. For example, Orchard-SWE reaches 69.7% on SWE-bench Verified—73.0% with value-model reranking—using only about 3 billion active parameters, approaching frontier systems using more than 10 times larger models.&nbsp;</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Alongside the models and workflows, the project releases training data and evaluation methods intended to help the broader research community build and study open agentic systems.&nbsp;Artificial intelligence is rapidly moving beyond static question-answering toward autonomous agents that can plan, reason, and act across complex, multistep environments. These systems can fix bugs in complex codebases, navigate the web on a user&#8217;s behalf, and manage workflows involving calendars and email.&nbsp;&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">While there is excitement around agentic AI’s capabilities, the research community faces a persistent bottleneck. Building state-of-the-art agentic systems often requires proprietary infrastructure, including custom sandboxes, closed training pipelines, and proprietary datasets that most researchers and practitioners cannot access or reproduce.</p>
-
-
-
-<p class="wp-block-paragraph">To address this gap, we introduce <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/Orchard" target="_blank" rel="noopener noreferrer">Orchard<span class="sr-only"> (opens in new tab)</span></a>, an open-source framework for scalable agentic modeling. At the center of Orchard is Orchard Env, a lightweight, Kubernetes environment that provides reusable isolated components for running and building agents at scale—from collecting training data to reinforcement learning rollouts and evaluation.&nbsp;&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Unlike many existing frameworks, Orchard Env is designed to support different agent systems and task types without modification. The same service can support software-engineering agents, web-browsing agents, and personal-assistant agents across domains.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">To demonstrate this approach, we are releasing three domain-specific training recipes—<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://huggingface.co/datasets/microsoft/Orchard" target="_blank" rel="noopener noreferrer">Orchard-SWE, Orchard-GUI, and Orchard-Claw.<span class="sr-only"> (opens in new tab)</span></a> We are also releasing the training data and evaluation methods used to build them.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186969">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research StorY</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/optimind-when-the-system-meets-the-floor/" aria-label="OptiMind: When the system meets the floor" data-bi-cn="OptiMind: When the system meets the floor" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/OptiMind-TWLIFB-1200x627-1.jpg" alt="Abstract teal-toned image of aluminum cans viewed from above, overlaid with a network of connected flowchart shapes (rectangles, rounded nodes, and diamonds) linked by thin line." />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">OptiMind: When the system meets the floor</h2>
-				
-								<p id="optimind-when-the-system-meets-the-floor" class="large">A three‑month pilot in a Midwestern bottling plant shows what happens when AI moves beyond chat and into decision-making, where constraints shift, stakes are real, and answers must hold.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/optimind-when-the-system-meets-the-floor/" aria-describedby="optimind-when-the-system-meets-the-floor" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="OptiMind: When the system meets the floor" target="_blank">
-							Learn more						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="environment-layer-that-scales-across-types-of-tasks" class="wp-block-heading">Environment layer that scales across types of tasks</h2>
-
-
-
-<p class="wp-block-paragraph">The central idea behind Orchard is that the runtime environment should be a standalone, reusable service rather than infrastructure embedded inside a specific training framework. Orchard Env’s Kubernetes foundation enables it to create, manage, and remove thousands of isolated components in parallel.</p>
-
-
-
-<p class="wp-block-paragraph">The system is designed to work across tasks like coding, web browsing, using tools. It is also designed to work across different agent systems, along with stages of the training and evaluation process, including data distillation and reinforcement learning rollouts.</p>
-
-
-
-<p class="wp-block-paragraph">This flexibility makes Orchard practical at a research scale. Teams can introduce new benchmarks, agent systems, or training algorithms without rebuilding the underlying infrastructure from scratch.</p>
-
-
-
-<p class="wp-block-paragraph">Orchard also makes it possible to train agents inside any harness. Today’s most capable agents rarely run as a bare model. They operate through sophisticated harnesses—such as Claude Code, Codex, and OpenClaw—that manage multi-turn reasoning, tool use, and connections to external systems. Open training tools usually cannot handle these stateful, multi-process harnesses, forcing researchers to train on a simplified stand-in and then deploy in the real setting, which creates a mismatch. Orchard closes this gap: a lightweight proxy records the harness’s own model calls as training data while each rollout runs in its own container, so an agent can be trained end-to-end directly in the harness that it will be deployed with—OpenClaw, Codex, ZeroClaw, or others—and across several harnesses.</p>
-
-
-
-<h2 id="orchard-swe-advancing-open-source-software-engineering-agents" class="wp-block-heading">Orchard-SWE: Advancing open-source software engineering agents</h2>
-
-
-
-<p class="wp-block-paragraph">Software engineering is one of the most demanding settings for autonomous agents. It requires multi-step reasoning over real codebases, tool use, and the ability to recover from mistakes. Orchard-SWE is our training workflow for this domain. It is built using the Mini-SWE-Agent framework, designed to autonomously solve software engineering tasks, and evaluated on the widely used SWE-bench Verified benchmark, which tests a model’s ability to navigate, diagnose, and repair real-world codebases.</p>
-
-
-
-<p class="wp-block-paragraph">To train the system, we distilled 107,000 agent interactions from two advanced open-weight models (MiniMax-M2.5 and Qwen3.5-397B) covering a broad range of GitHub Issues. The training process uses credit-assignment supervised fine-tuning: rather than discarding attempts where the agent failed to fully resolve an issue, the system learns from the productive portions of those partial attempts, expanding the amount of useful training data available to the model.</p>
-
-
-
-<p class="wp-block-paragraph">Reinforcement learning comes next, but its feedback is sparse—an agent usually learns only whether its final patch passed or failed the hidden tests. We start with Balanced Adaptive Rollout, designed to make the most of these infrequent success signals, and then add two “dense reward” techniques for richer guidance: on-policy distillation, in which a stronger teacher model scores the agent’s decisions step by step, and a process reward model, in which an AI judge rewards sound problem-solving process—writing tests that reproduce the bug, verifying the fix, and checking that existing behavior still works—independent of whether the final tests passed.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Finally, we train a value model on past rollouts to rerank candidate solutions. Reinforcement learning generates many practice trajectories that are normally discarded; instead, trajectories from 20 prior experiments train a compact 4-billion-parameter value model that recognizes high-quality solutions, and at problem-solving time it scores several candidate answers and picks the best one. Together, these techniques take Orchard-SWE from a 61.4% baseline on SWE-bench Verified to 69.1% with Balanced Adaptive Rollout and 69.7% with the dense-reward techniques—a new state of the art among open-source models of comparable size (roughly 3 billion active parameters)—rising to 73% with value-model reranking, approaching frontier systems more than 10 times larger, as shown in Figure 1.&nbsp;</p>
-
-
-
-<h2 id="orchard-gui-a-lightweight-browser-agent-for-real-world-web-tasks" class="wp-block-heading">Orchard-GUI: A lightweight browser agent for real-world web tasks</h2>
-
-
-
-<p class="wp-block-paragraph">Web navigation presents a different set of challenges. Agents must interpret visual layouts, interact with dynamic interfaces, and complete open-ended tasks described only in natural language.</p>
-
-
-
-<p class="wp-block-paragraph">Orchard-GUI trains a 4-billion-parameter vision-language model as a browser agent using a relatively small amount of supervision: 400 distilled demonstrations combined with 2,200 open-ended training tasks. Despite this limited training data, the resulting model achieves strong results across several web-navigation benchmarks: 74.1% on WebVoyager, 67.0% on Online-Mind2Web, and 64.0% on DeepShop, for an average of 68.4%, as shown in Figure 1.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1638" height="790" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2.jpg" alt="On the left: Orchard-SWE (30B-A3B) reaches 67.5% on SWE-bench Verified, matching frontier systems 10—30x larger. On the right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google." class="wp-image-1184449" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2.jpg 1638w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2-300x145.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2-1024x494.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2-768x370.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2-1536x741.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/ORCHARD_Fig1_AH2-240x116.jpg 240w" sizes="auto, (max-width: 1638px) 100vw, 1638px" /><figcaption class="wp-element-caption">Figure 1. Performance comparison. Left: Orchard-SWE (35B-A3B, ~3B active) reaches 69.7% on SWE-bench Verified—73% with value-model reranking—matching frontier systems more than 10x larger. Right: Orchard-GUI (4B) achieves 68.4% average success across WebVoyager, Online-Mind2web, and DeepShop, making it the strongest open-source GUI agent while staying on par with proprietary systems from OpenAI and Google.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">These results place Orchard-GUI among the strongest open-source web agents to date while remaining competitive with larger proprietary models. The results also suggest that with the right training approach and environment, small open models can perform well on real-world web tasks.</p>
-
-
-
-<h2 id="orchard-claw-personal-assistant-agents-for-everyday-productivity" class="wp-block-heading">Orchard-Claw: Personal assistant agents for everyday productivity</h2>
-
-
-
-<p class="wp-block-paragraph">Many of the most impactful agentic applications involve everyday productivity tasks, including reading and drafting emails, managing calendars, searching for information, and coordinating across tools. Orchard-Claw focuses on personal-assistant tasks by training an agent on just 200 synthetic tasks. Evaluated on Claw-Eval, a benchmark covering realistic productivity workflows, it successfully completes 59.6% of tasks when given up to three attempts. That increases to 73.9% when paired with the stronger ZeroClaw agent system.</p>
-
-
-
-<p class="wp-block-paragraph">Because Orchard can train agents directly inside real deployment harnesses, Orchard-Claw is trained across several of them—including ReACT, ZeroClaw, OpenClaw, and Codex—rather than a single simplified loop. Training inside these real harnesses substantially improves the agent’s reliability; under the Codex harness, for example, its success rate rises from 18.6% for the untrained model to 51.5% after Orchard training.&nbsp;</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1032" height="554" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png" alt="Diagram of the Orchard ecosystem showing three benchmark areas (Orchard‑SWE, Orchard‑GUI, Orchard‑Claw) with performance metrics, a modular training pipeline (data curation, curriculum design, SFT, RL, evaluation), and the core Orchard Env service enabling sandboxed execution, file I/O, networking, and APIs. The system supports heterogeneous environments (code, web, desktop, mobile, productivity tools) through a unified interface, emphasizing reusability across domains and efficiency features such as low latency, Kubernetes scaling, and reduced cost." class="wp-image-1180734" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW.png 1032w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-300x161.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-1024x550.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-768x412.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-710x380.png 710w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_ORCHARD_NEW-240x129.png 240w" sizes="auto, (max-width: 1032px) 100vw, 1032px" /><figcaption class="wp-element-caption">Figure 2. Overview of the Orchard framework. Orchard Env (center) is a lightweight, Kubernetes-native environment service that provides shared capabilities such as sandbox management, command execution, file access, network controls, a REST API, and agent integration. It supports a range of task environments (bottom row) and is used across three task domains (top row): Orchard-SWE (software engineering), Orchard-GUI (browser navigation), and Orchard-Claw (AI personal assistant).</figcaption></figure>
-
-
-
-<h2 id="implications-and-the-road-ahead" class="wp-block-heading">Implications and the road ahead</h2>
-
-
-
-<p class="wp-block-paragraph">Orchard&#8217;s results reinforce a broader point: the environment layer matters. By making the underlying infrastructure open, lightweight, and reusable, Orchard lowers the cost of agentic AI research. Teams no longer need to build custom isolated environments from scratch or depend on proprietary cloud services. The same Orchard Env can be used to generate training data, run reinforcement learning rollouts, and evaluate final models without rebuilding the system each time.</p>
-
-
-
-<p class="wp-block-paragraph">Looking ahead, we see reusing training experience as a promising direction toward cumulative agent learning. Instead of discarding trajectories once a training run finishes, we treat them as persistent assets—for example, distilling them into reusable value models. This enables agentic experience to accumulate over time, allowing each new generation of agents to inherit and extend the knowledge acquired by previous ones, rather than starting from scratch.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">The data efficiency demonstrated by Orchard-GUI suggests that larger-scale web agents could be trained without requiring large amounts of manually created training data.&nbsp;By releasing the complete Orchard stack, including the environment service, training pipelines, and training datasets, we hope to help the broader research community build more capable open agents more quickly.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Acknowledgements</strong></p>
-
-
-
-<p class="wp-block-paragraph">We thank the teams at Microsoft Research and collaborating institutions for their contributions to Orchard, as well as the open-source community whose benchmarks and tools made this research possible.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/">Orchard: An open framework for scalable agentic AI</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
