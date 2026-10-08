@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Tue, 06 Oct 2026 16:19:08 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 07 Oct 2026 13:20:47 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,237 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.3</generator>
 	<item>
+		<title>Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</title>
+		<link>https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/</link>
+		
+		<dc:creator><![CDATA[Zhiyuan He, Yuqing Yang]]></dc:creator>
+		<pubDate>Wed, 07 Oct 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1187920</guid>
+
+					<description><![CDATA[<p>Training AI agents with reinforcement learning can be challenging because their tools, context, and decision-making are managed by complex frameworks. Agent Lightning connects existing agents to RL training, making it easier to improve them without rebuilding them.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/">Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg" alt="System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1188789" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1065x599-1.jpg 1065w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1279x720.jpg 1279w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-653x368.jpg 653w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-675x380.jpg 675w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Harnessed Agentic RL: Microsoft Research Asia introduces a training paradigm in which the same agent harness used in deployment participates directly in reinforcement learning, removing the need to reimplement the agent inside the training framework.</li>
+
+
+
+<li>Lightweight by design: Agent Lightning v1.0 delivers a complete agent RL control plane in roughly 3,500 lines of code.</li>
+
+
+
+<li>Native Kubernetes support: agents run as standard Kubernetes jobs on self-managed clusters, cloud Kubernetes, or local infrastructure, with no dependency on paid commercial sandbox services.</li>
+
+
+
+<li>Data-efficient training recipe: an end-to-end coding agent pipeline raised Qwen3.5-9B from 41.8% to 56.4% Pass@1 on SWE-bench Verified, a 14.6 percentage point gain, using only about 6,000 training samples based on open sourced dataset.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">AI agents have evolved from single models to complex full-stack systems built from models, tools, and execution environments. Their capabilities increasingly depend on the agent harness that coordinates them from outside the model. Reinforcement learning (RL) is an approach where AI systems learn through trial and error, guided by rewards and penalties for their actions. RL can make those agents better, but most agent RL systems require developers to reimplement the agent inside the training framework. That is costly, and it means the agent being trained is not quite the agent that gets deployed.</p>
+
+
+
+<p class="wp-block-paragraph">To address this, researchers at Microsoft Research Asia have introduced the Harnessed Agentic RL training paradigm and open-sourced a fully rebuilt <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener noreferrer">Agent Lightning v1.0<span class="sr-only"> (opens in new tab)</span></a>. Compared with the original, Agent Lightning, v1.0 puts more emphasis on staying lightweight, on integrating with real harnesses, and on a complete, reproducible agent RL training pipeline.</p>
+
+
+
+<p class="wp-block-paragraph">Agent Lightning v1.0 was rebuilt around Harnessed Agentic RL, with key improvements:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Lightweight</strong>: the entire framework is about 3,500 lines of code. Agent Lightning v1.0 implements a complete Harnessed Agentic RL system in a codebase that is small and clear enough to understand, modify, and extend.</li>
+
+
+
+<li><strong>Training on a real agent harness</strong>: agents reach the model through the large language model (LLM) proxy in Agent Lightning v1.0, leaving existing harness code unchanged.</li>
+
+
+
+<li><strong>Native Kubernetes support</strong>: agents run directly as Kubernetes jobs, without external commercial sandbox services. Self-managed clusters and local infrastructure alike can support rollouts at scale.</li>
+
+
+
+<li><strong>A complete coding agent training example</strong>: an end-to-end pipeline built on Qwen3.5-9B raised Pass@1 on SWE-bench Verified from 41.8% to 56.4%, an absolute gain of 14.6 percentage points, using only about 6,000 training samples.</li>
+</ul>
+
+
+
+<h2 id="the-limits-of-traditional-agentic-rl" class="wp-block-heading">The limits of traditional agentic RL</h2>
+
+
+
+<p class="wp-block-paragraph">Traditional agentic RL assumes the training framework owns the interaction loop with the environment. In a ReAct-style loop, the model generates an action, the environment returns an observation, the observation is appended to the context, and the model generates the next action, so the whole rollout maps onto one continuous token trajectory. Early RL systems such as verl, AReaL, and slime were built this way, which meant training an agent required rebuilding its loop inside the RL framework.</p>
+
+
+
+<p class="wp-block-paragraph">Real harnesses have outgrown that assumption. Coding agents such as mini-SWE-agent, OpenHands, OpenCode, Claude Code, and Codex each bring their own context management, tool protocols, execution logic, and dependencies, as do general-purpose agent systems. Rebuilding one for training is expensive, and the rebuilt agent may no longer behave in the same way as the deployed agent.</p>
+
+
+
+<p class="wp-block-paragraph">Agent Lightning takes a different route. It places an LLM proxy between the agent and the model. The agent continues to run as before: simply point the endpoint that previously called the model API at Agent Lightning, and the training framework can observe and record its model calls. In v1.0, the researchers go further and formally define this paradigm as Harnessed Agentic RL: whichever agent harness is used in deployment is the harness that takes part directly in reinforcement learning during training (Figure 1).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1083" height="472" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg" alt="Figure 1: Side-by-side comparison of two training loops. In Agentic RL, the environment exchanges actions and observations with a tokenizer, which passes action and observation tokens to the policy model. In Harnessed Agentic RL, an agent harness handling context and orchestration sits between the environment and an OpenAI-like API, which exchanges input and output tokens with the policy model." class="wp-image-1187926" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg 1083w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-300x131.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-1024x446.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-768x335.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-240x105.jpg 240w" sizes="(max-width: 1083px) 100vw, 1083px" /><figcaption class="wp-element-caption">Figure 1. Traditional agentic RL compared with Harnessed Agentic RL. In traditional agentic RL, the training framework manages the environment and the agent loop. In Harnessed Agentic RL, the harness manages both.</figcaption></figure>
+
+
+
+<h2 id="four-challenges-in-training-with-real-harnesses" class="wp-block-heading">Four challenges in training with real harnesses</h2>
+
+
+
+<p class="wp-block-paragraph">A core difference between Harnessed Agentic RL and traditional agentic RL is that the environment interaction loop is handled by the agent harness rather than the training framework. The training system can only observe a series of LLM request and response pairs, so a single rollout may be split into a variable number of training samples. This brings four key challenges:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Retokenization and sample merging</strong>: Harnesses keep context as text, but RL training needs the token IDs sampled during the rollout. Passing text through the chat template and tokenizer again can shift token boundaries, so adjacent calls cannot always be merged into one sample.</li>
+
+
+
+<li><strong>Advantage calculation</strong>: Retokenization, subagents and context summarization can split one rollout into several samples. Computing baselines and advantages directly at the sample level causes rollouts that produce more samples to be counted repeatedly, which alters the original statistical relationships at the rollout level.</li>
+
+
+
+<li><strong>Loss normalization</strong>: Averaging loss by sample count gives more weight to rollouts that produce more samples. Since sample count is often just a product of harness behavior, loss normalization must also avoid being distorted by it.</li>
+
+
+
+<li><strong>Training backend scheduling</strong>: Sample count and length are known only after the harness finishes, while GPU counts and data/tensor parallel configurations are usually fixed. The backend has to map a variable workload into fixed resources.</li>
+</ul>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">On Second Thought</h2>
+				
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="building-a-complete-agent-rl-control-plane-in-3-500-lines-of-code" class="wp-block-heading">Building a complete agent RL control plane in 3,500 lines of code</h2>
+
+
+
+<p class="wp-block-paragraph">In system design, Agent Lightning v1.0 treats simplicity as its first principle. The entire framework is about 3,500 lines of code, with three core components: the API Gateway, the Rollout Controller, and the Customized Trainer (Figure 2).</p>
+
+
+
+<p class="wp-block-paragraph">The API gateway stores rollouts, models, and events, and serves as an OpenAI-compatible LLM proxy. It links every model call from the harness to its rollout and records the prompts, responses, and log probabilities that training needs. The rollout controller starts and manages agent execution, either as local processes or as standard Kubernetes jobs, keeping agent execution separate from the trainer. The customized trainer, built on verl, creates rollouts, waits for them to finish, collects samples, and assembles the final training samples through a sample adapter. As a result, for an existing agent harness, simply pointing the model endpoint at the Agent Lightning proxy is usually enough to connect quickly to RL training.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="865" height="293" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png" alt="Figure 2: System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1187930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-300x102.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-768x260.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-240x81.png 240w" sizes="(max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2. The Agent Lightning v1.0 system architecture showing the API gateway, rollout controller, and customized trainer.</figcaption></figure>
+
+
+
+<h2 id="collocated-async-rl" class="wp-block-heading">Collocated async RL</h2>
+
+
+
+<p class="wp-block-paragraph">Rollout times vary widely across agents. Synchronous RL waits for the slowest agent in a batch and leaves GPUs idle, while fully asynchronous RL raises utilization but needs separate GPU pools for rollout and training. In response, Agent Lightning v1.0 introduces Collocated Async RL, which lets rollout and model updates share the same set of GPUs.</p>
+
+
+
+<p class="wp-block-paragraph">Once the system has collected enough rollouts, the update begins: the API Gateway pauses accepting new requests and waits for requests already in progress to finish, and rollout resumes after the update completes. The entire state transition is transparent to the external agent harness. In experiments, this approach achieved about a 2x end-to-end speedup over synchronous RL while using fewer GPUs than conventional asynchronous RL (Figure 3).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1196" height="380" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3.jpg" alt="Figure 3: Three GPU scheduling timelines. Synchronous RL uses four GPUs at low efficiency, with long idle gaps before a single update block. Collocated Async RL uses the same four GPUs at high efficiency, interleaving full and partial rollouts with update blocks. Asynchronous RL reaches high efficiency but requires eight GPUs. Bars are colored for full rollout, partial rollout, and update." class="wp-image-1187927" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3.jpg 1196w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-300x95.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-1024x325.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-768x244.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-240x76.jpg 240w" sizes="auto, (max-width: 1196px) 100vw, 1196px" /><figcaption class="wp-element-caption">Figure 3. Synchronous RL, asynchronous RL, and Collocated Async RL compared. Collocated Async RL raises utilization while occupying fewer GPUs.</figcaption></figure>
+
+
+
+<h2 id="running-agents-on-kubernetes" class="wp-block-heading">Running agents on Kubernetes</h2>
+
+
+
+<p class="wp-block-paragraph">Collecting enough rollouts means running many agents at once, which consumes substantial CPU, memory, and compute resources. Other Harnessed Agentic RL frameworks often host those agents on commercial sandbox services such as Modal Sandbox or E2B, where cost climbs quickly with scale. Instead, Agent Lightning v1.0 runs them as standard Kubernetes jobs, reusing existing self-managed clusters, cloud Kubernetes, or local infrastructure (Figure 4). Existing compute resources are used more efficiently, large rollouts cost less, and the whole pipeline stays open source and reproducible.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1217" height="332" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4.jpg" alt="Figure 4: Flow diagram. An API Gateway holds three rollouts, two queueing and one running. The Rollout Controller polls the gateway and uses a Kubernetes reconciler to create jobs on a Kubernetes cluster, and a local reconciler to watch and list local processes. Status updates flow back to the gateway." class="wp-image-1187928" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4.jpg 1217w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-300x82.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-1024x279.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-768x210.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-240x65.jpg 240w" sizes="auto, (max-width: 1217px) 100vw, 1217px" /><figcaption class="wp-element-caption">Figure 4. The Rollout Controller in Agent Lightning v1.0 provides native Kubernetes support, running agents directly as standard Kubernetes jobs.</figcaption></figure>
+
+
+
+<h2 id="6-000-training-samples-a-14-6-point-performance-gain" class="wp-block-heading">6,000 training samples, a 14.6-point performance gain</h2>
+
+
+
+<p class="wp-block-paragraph">To test the approach, researchers built a full pipeline on SWE-smith, mini-SWE-agent, and Qwen3.5-9B, covering data cleaning, environment construction, reward-hacking safeguards, and RL training. The training set holds about 6,000 samples and needs no large-scale compute. RL training alone raised Qwen3.5-9B from 41.8% to 56.4% on SWE-bench Verified, a gain of 14.6 percentage points.</p>
+
+
+
+<p class="wp-block-paragraph">The coding agent experiments further confirm the earlier analysis of two challenges: advantage calculation and loss normalization. Compared with sample-level handling, rollout-level advantage combined with rollout-level normalization achieves a higher validation reward and keeps policy entropy more stable during training (Figure 5).</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1268" height="463" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5.jpg" alt="Figure 5: Two line charts plotting 200 training steps. On the left, validation reward: rollout-level advantage combined with rollout-level normalization reaches the highest reward at about 0.37, above rollout-level advantage alone and sample-level advantage. On the right, policy entropy: rollout-level advantage alone climbs steeply to about 0.65, while the combined method stays lower and steadier." class="wp-image-1187929" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5.jpg 1268w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-300x110.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-1024x374.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-768x280.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-240x88.jpg 240w" sizes="auto, (max-width: 1268px) 100vw, 1268px" /><figcaption class="wp-element-caption">Figure 5. Pass rate and policy entropy for Qwen3.5-9B on the SWE-smith validation set.</figcaption></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/agent-lightning-v1-0-towards-harnessed-agentic-rl/">Technical report</a></div>
+
+
+
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener">GitHub project</a></div>
+</div>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/">Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>What AI gets wrong and what failure teaches us</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us/</link>
 		
@@ -33,12 +264,12 @@
 ]]></description>
 										<content:encoded><![CDATA[
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe title="What AI gets wrong and what failure teaches us" width="500" height="281" src="https://www.youtube-nocookie.com/embed/Zs-SPS8OQb8?feature=oembed&#038;rel=0&#038;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe loading="lazy" title="What AI gets wrong and what failure teaches us" width="500" height="281" src="https://www.youtube-nocookie.com/embed/Zs-SPS8OQb8?feature=oembed&#038;rel=0&#038;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div></figure>
 
 
 <div class="wp-block-msr-podcast-container my-4">
-	<iframe src="https://player.blubrry.com/?podcast_id=155640360&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
+	<iframe loading="lazy" src="https://player.blubrry.com/?podcast_id=155640360&modern=1" class="podcast-player" frameborder="0" height="164px" width="100%" scrolling="no" title="Podcast Player"></iframe>
 </div>
 
 
@@ -815,7 +1046,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/">Forecasting space weather risks on power grids</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1.jpg" alt="GridSFM diagram depicting the workflow" class="wp-image-1187719" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1.jpg" alt="GridSFM diagram depicting the workflow" class="wp-image-1187719" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ForecastingSpace-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -1421,30 +1652,27 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
+				<a class="bg-gray-300 display-block" href="https://labs.ai.azure.com/" aria-label="Foundry Labs" data-bi-cn="Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The Shape of Things to Come</h2>
+									<h2 class="h4">Foundry Labs</h2>
 				
-								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
+								<p id="foundry-labs" class="large">Foundry Labs bridges the distance between Microsoft breakthroughs and the builders, scientists, and curious minds who can put them to work.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
-							Listen now						</a>
+						<a href="https://labs.ai.azure.com/" aria-describedby="foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Foundry Labs" target="_blank">
+							Foundry Labs						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1807,30 +2035,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1976,30 +2204,27 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
+				<a class="bg-gray-300 display-block" href="https://labs.ai.azure.com/" aria-label="Foundry Labs" data-bi-cn="Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Ideas</h2>
+									<h2 class="h4">Foundry Labs</h2>
 				
-								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
+								<p id="foundry-labs" class="large">Foundry Labs bridges the distance between Microsoft breakthroughs and the builders, scientists, and curious minds who can put them to work.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
-							Listen now						</a>
+						<a href="https://labs.ai.azure.com/" aria-describedby="foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Foundry Labs" target="_blank">
+							Foundry Labs						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2241,373 +2466,6 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 <p class="wp-block-paragraph">MindTopo is intended as a controlled diagnostic for this gap. Robots, accessibility tools, and interactive assistants must understand not only where objects are, but also what remains connected, enclosed, ordered, or knotted as actions unfold. Closing that gap may require models that carry an explicit topological state, or world models whose predictions preserve topology by construction.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/">MindTopo reveals VLMs&#8217; spatial reasoning abilities</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</title>
-		<link>https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/</link>
-		
-		<dc:creator><![CDATA[Mercy Ranjit, Nikhilesh E, Dr. Abhyuday Kumara  Swamy, Tanuja Ganu]]></dc:creator>
-		<pubDate>Tue, 11 Aug 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/</guid>
-
-					<description><![CDATA[<p> Radiology AI is evolving beyond report generation. CARE-X explores a unified approach that combines flexible reasoning, calibrated predictions, and measurement-based tools for chest X-ray interpretation.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Diagram of a tool-augmented radiology vision-language model (VLM) workflow. An orchestrator routes a user’s image query to a VLM, which performs image analysis, calls measurement tools to calculate cardiac and thoracic widths and the cardiothoracic ratio (CTR), and returns diagnostic metrics with visual overlays." class="wp-image-1181346" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/CAREX-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<p class="wp-block-paragraph">Research Note: CARE-X is a research model and not a Microsoft product offering or medical device. It has not been cleared or approved by any regulatory authority and is not intended for clinical diagnosis, screening, or patient care. The results described below are retrospective research findings and do not establish the safety, effectiveness, or suitability of CARE-X for any clinical use. References to potential workflows describe areas for future research, not currently available capabilities or recommended uses.&nbsp;</p>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>The challenge: Chest X-ray interpretation spans diverse tasks that require both expressive report generation and calibrated diagnostic predictions.</li>
-
-
-
-<li>CARE-X is a unified chest X-ray VLM for diverse clinical interpretation tasks. It combines generation and structured prediction to provide both free-text reasoning and deterministic outputs.</li>
-
-
-
-<li>CARE-X uses reinforcement learning (DAPO) to reward clinical correctness in a multi-task setting.</li>
-
-
-
-<li>In a separate research experiment from CARE-X, we paired Qwen3-VL-4B-Instruct with deterministic measurement tools to evaluate whether direct computation could improve performance on measurement-dependent conditions compared with visual approximation alone.&nbsp;</li>
-
-
-
-<li>Validated on real-world Indian clinical data from Narayana Health, including rare ICU pathologies and CT-confirmed enlargement conditions.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<h2 id="what-radiologists-need-task-diversity-flexibility-and-clinical-fidelity" class="wp-block-heading">What radiologists need: Task diversity, flexibility, and clinical fidelity</h2>
-
-
-
-<p class="wp-block-paragraph">A clinically useful radiology AI system must support a wide range of tasks, adapt to different workflows, and produce outputs that are medically accurate.</p>
-
-
-
-<p class="wp-block-paragraph">Radiologists and other clinicians use chest X-rays for many different purposes. A clinically useful AI system must be able to support that range of tasks. It may be asked to generate detailed findings and concise impressions for a report, answer questions about the presence, absence, or location of a finding, identify medical devices and assess their placement, or pinpoint exactly where an abnormality appears in an image.</p>
-
-
-
-<p class="wp-block-paragraph">These tasks also require different kinds of outputs, from narrative reports to calibrated diagnostic scores. And above all, they require clinical accuracy. A report could ostensibly be perfectly written yet clinically wrong if it misses a finding, reverses a negation, or misidentifies a location. Certain findings could be trivial in one context and vital to identify in another.</p>
-
-
-
-<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/publication/care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">CARE-X</a> was developed as a research model to explore how a unified approach can address these diverse demands. The system combines generative and discriminative capabilities, clinically aligned optimization, and tool-based reasoning to support a broader range of radiology workflows while maintaining clinical fidelity.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">On Second Thought</h2>
-				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="gaps-in-current-radiology-vision-language-models" class="wp-block-heading">Gaps in current radiology vision-language models</h2>
-
-
-
-<p class="wp-block-paragraph">Despite the impressive task breadth of recent models, critical gaps remain between what radiologists need and what current systems deliver:</p>
-
-
-
-<ol start="1" class="wp-block-list">
-<li><strong>No calibrated confidence for diagnostic decisions.</strong> Generative VLMs predict diagnoses as free text, but they typically do not provide calibrated confidence scores. In clinical settings, confidence matters. Clinicians cannot tune sensitivity–specificity trade-offs across clinical contexts—an important requirement for real-world deployment. Discriminative models provide these properties but lack the flexibility of open-ended generation.</li>
-
-
-
-<li><strong>Cross-entropy loss does not optimize clinical fidelity.</strong> Standard training methods treat all token-level errors similarly, regardless of their clinical consequences. A coordinate mistake may be penalized no more than a harmless wording change. A &#8220;yes&#8221; can be flipped to a &#8220;no&#8221; even though the clinical meaning is completely different. Missing a life-threatening finding may carry the same training penalty as omitting a minor observation. As a result, models are not explicitly optimized for what matters most in patient care.</li>
-
-
-
-<li><strong>No capability for measurement-dependent findings. </strong>Some radiological findings require more than visual recognition. Radiological signs such as cardiomegaly, mediastinal widening etc. depend on precise measurements. For example, a model may correctly recognize whether a chest radiograph was acquired using an AP or PA view. But determining cardiomegaly requires measuring the cardiac and thoracic widths and determining the cardiothoracic ratio. Those quantities should be measured and computed rather than visually approximated while considering variables such as type of view, exposure, rotation of the patient etc.&nbsp;</li>
-</ol>
-
-
-
-<p class="wp-block-paragraph">Together, these gaps call for more than a fluent generative model. The system must combine broad task coverage, structured predictions, clinically aligned optimization, and quantitative tools where direct measurement is required.</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 id="care-x-one-model-flexible-outputs" class="wp-block-heading">CARE-X: One model, flexible outputs</h2>
-
-
-
-<p class="wp-block-paragraph">CARE-X brings these diverse interpretation capabilities into one model, using generative or dual inference according to the needs of each task:</p>
-
-
-
-<figure class="wp-block-table is-style-stripes"><table class="has-fixed-layout"><thead><tr><th>Task type</th><th>What CARE-X does</th><th>Inference mode</th></tr></thead><tbody><tr><td>Report generation: Findings</td><td>Produces the detailed findings section</td><td>Generative</td></tr><tr><td>Report generation: Impression</td><td>Produces the concise diagnostic impression</td><td>Generative</td></tr><tr><td>Presence and negation assessment</td><td>Determines whether a pathology is present or absent and handles negation</td><td>Dual: generative + auxiliary head</td></tr><tr><td>Disease location assessment</td><td>Identifies where an abnormality appears</td><td>Generative</td></tr><tr><td>Fine-grained multilabel disease classification</td><td>Categorizes abnormalities across multiple labels</td><td>Generative</td></tr><tr><td>Multilabel tubes and lines classification</td><td>Identifies visible medical devices</td><td>Generative</td></tr><tr><td>Abnormal placement detection of tubes and lines</td><td>Determines whether a device is positioned incorrectly</td><td>Dual: generative + auxiliary head</td></tr><tr><td>Abnormality phrase grounding</td><td>Localizes a described pathological finding</td><td>Dual: generative + auxiliary head</td></tr><tr><td>Anatomical grounding</td><td>Localizes 29 anatomical regions</td><td>Dual: generative + auxiliary head</td></tr></tbody></table><figcaption class="wp-element-caption">Table 1: CARE-X task coverage and inference modes</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph"><strong>Dual inference</strong> means that a single forward pass produces both an autoregressive response and a structured auxiliary-head prediction with a confidence score. This provides free-text flexibility alongside threshold-adjustable outputs for tasks where operating-point control matters.</p>
-
-
-
-<h2 id="the-care-x-architecture-and-training-approach" class="wp-block-heading">The CARE-X architecture and training approach</h2>
-
-
-
-<p class="wp-block-paragraph">CARE-X is built on a SigLIP2-so400M vision encoder and a Phi-4-mini-instruct (3.8B) language model connected through a lightweight adapter. To support both free-text generation and structured clinical predictions, the model augments the shared language backbone with <strong>task-specific auxiliary heads</strong> for classification and visual grounding. These heads provide calibrated diagnostic predictions and spatial localization signals while sharing representations with the generative language model. Rather than being trained independently, they are co-trained with the language-modeling objective, allowing structured supervision to enrich shared representations and improve generative performance on the same tasks.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Training.</strong> CARE-X uses a three-stage supervised fine-tuning pipeline (vision pre-training, adapter/head training, and LoRA adaptation) followed by DAPO-based reinforcement learning. DAPO optimizes task-specific rewards for clinical reporting, diagnostic accuracy, and spatial grounding quality.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2362" height="1824" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated.png" alt="CARE-X architecture with a SigLIP2 vision encoder, Phi-4-mini backbone, classification and grounding auxiliary heads, language modeling, and DAPO alignment for report generation, VQA, and grounding." class="wp-image-1181260" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated.png 2362w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-300x232.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-1024x791.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-768x593.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-1536x1186.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-2048x1582.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_1_CARE-X_updated-233x180.png 233w" sizes="auto, (max-width: 2362px) 100vw, 2362px" /><figcaption class="wp-element-caption"><em>Figure 1. The CARE-X model. (Left) Supervised fine-tuning with task-specific heads — classification, grounding, and language modeling — sharing the same Phi-4-mini-instruct backbone. The classification head outputs calibrated P(Yes)/P(No) scores; the grounding head outputs bounding box coordinate with confidence; the language modeling head generates free-text responses. (Right) DAPO with task-specific rewards for multi-task reinforcement alignment across report generation, grounding, and VQA.</em>&nbsp;</figcaption></figure>
-
-
-
-<h2 id="auxiliary-supervision-structured-prediction-strengthens-generation" class="wp-block-heading">Auxiliary supervision: Structured prediction strengthens generation</h2>
-
-
-
-<p class="wp-block-paragraph">A central finding of this work is that co-training discriminative auxiliary heads with a generative VLM enriches shared representations, leading to stronger generative performance on the same tasks while also providing calibrated structured predictions.</p>
-
-
-
-<h3 id="grounding-improvements" class="wp-block-heading">Grounding improvements</h3>
-
-
-
-<p class="wp-block-paragraph">The auxiliary grounding head consistently improves localization over generative decoding. On anatomical grounding (Chest ImaGenome), mAP and mIoU increase by +28.2 pp and +6.2 pp, while the largest gains occur on phrase grounding (PadChest), with +24.6 pp mAP and +14.1 pp mIoU. The composite spatial loss enhances geometric precision in shared representations.</p>
-
-
-
-<h3 id="dapo-bridges-the-gap-to-dedicated-detection-heads" class="wp-block-heading">DAPO bridges the gap to dedicated detection heads</h3>
-
-
-
-<p class="wp-block-paragraph">DAPO-trained generative output approaches or exceeds the SFT auxiliary detection head. On Anatomy grounding, CARE-X generative (0.868 mAP) surpasses the SFT detection head (0.865). This is practically significant—it demonstrates that reward-aligned learning can bring autoregressive spatial decoding to parity with structured prediction, offering clinicians a single generative inference mode without requiring auxiliary heads at test time.</p>
-
-
-
-<h3 id="calibrated-classification-with-tunable-operating-points" class="wp-block-heading">Calibrated classification with tunable operating points</h3>
-
-
-
-<p class="wp-block-paragraph">Beyond representation enrichment, the classification head offers a distinct deployment advantage: calibrated probability scores with tunable thresholds allow clinicians to shift between high-sensitivity screening and high-specificity confirmation from a single forward pass—a capability purely generative architectures cannot provide.</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Model</th><th>Inference Setting</th><th>Sensitivity ↑</th><th>PPV ↑</th><th>F1 ↑</th></tr></thead><tbody><tr><td>CARE-X</td><td>Generative</td><td>0.932</td><td>0.895</td><td>0.913</td></tr><tr><td>CARE-X (Th=0.5)</td><td>Auxiliary Head</td><td><strong>0.943</strong></td><td>0.885</td><td><strong>0.913</strong></td></tr><tr><td>CARE-X (Th=0.6)</td><td>Auxiliary Head</td><td>0.855</td><td><strong>0.927</strong></td><td>0.890</td></tr><tr><td>CheXOne</td><td>Generative</td><td>0.878</td><td>0.854</td><td>0.866</td></tr><tr><td>MedGemma</td><td>Generative</td><td>0.798</td><td>0.886</td><td>0.839</td></tr></tbody></table><figcaption class="wp-element-caption">Table 2: Abnormality classification performance on Chest ImaGenome. Adjustable thresholds enable operating-point selection.</figcaption></figure>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 id="strong-report-generation-across-four-benchmarks" class="wp-block-heading">Strong report generation across four benchmarks</h2>
-
-
-
-<p class="wp-block-paragraph">Within the paper’s comparison set, CARE-X achieves the strongest performance on most reported metrics across MIMIC-CXR, IU-Xray, CheXpert-Plus, and ReXGradient. CRIMSON, a held-out metric that evaluates abnormal findings and weights errors by clinical severity, suggests these gains reflect clinically meaningful improvements rather than reward-specific optimization.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1508" height="384" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO.png" alt="CRIMSON scores (↑) for CARE-X against baseline report-generation models across four chest X-ray datasets — ReXGradient, MIMIC-CXR, IU-Xray, and CheXpert-Plus. CARE-X (highlighted) achieves the highest CRIMSON score on every dataset." class="wp-image-1181277" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO.png 1508w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-300x76.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-1024x261.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-768x196.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/FIG2_CARE_NOLOGO-240x61.png 240w" sizes="auto, (max-width: 1508px) 100vw, 1508px" /><figcaption class="wp-element-caption"><em>Figure 2. CRIMSON scores (↑) for CARE-X against baseline report-generation models across four chest X-ray datasets — ReXGradient, MIMIC-CXR, IU-Xray, and CheXpert-Plus. CARE-X (highlighted) achieves the highest CRIMSON score on every dataset.</em></figcaption></figure>
-
-
-
-<h2 id="care-x-reaches-94-accuracy-on-rexvqa" class="wp-block-heading">CARE-X reaches 94% accuracy on ReXVQA</h2>
-
-
-
-<p class="wp-block-paragraph"><strong>CARE-X ranks first on the </strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://rexrank.ai/" target="_blank" rel="noopener noreferrer"><strong>ReXrank RexVQA leaderboard</strong><span class="sr-only"> (opens in new tab)</span></a> as of August 2026. On the ReXVQA benchmark (41,007 question–answer pairs across five clinically relevant categories), CARE-X reaches <strong>94% overall accuracy</strong>, six percentage points above the next-best publicly reported model. </p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2013" height="2369" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo.png" alt="Radar chart comparing ReXVQA accuracy across six categories for three models: CheXOne-R1, MedGemma, and CARE-X. " class="wp-image-1181280" style="aspect-ratio:0.8411352606831958;width:528px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo.png 2013w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-255x300.png 255w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-870x1024.png 870w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-768x904.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-1305x1536.png 1305w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-1740x2048.png 1740w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_3_CARE-X_NoLogo-153x180.png 153w" sizes="auto, (max-width: 2013px) 100vw, 2013px" /><figcaption class="wp-element-caption">Figure 3: ReXVQA accuracy across five findings-quality dimensions — negation, presence, location, differential diagnosis, geometric information, and overall. CARE-X consistently outperforms CheXOne-R1 and MedGemma on every axis, with the largest margins in differential diagnosis, location assessment and negation.</figcaption></figure>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 id="tool-augmented-measurement-interleaving-perception-and-computation" class="wp-block-heading">Tool-augmented measurement: Interleaving perception and computation</h2>
-
-
-
-<p class="wp-block-paragraph">Some radiological findings depend on quantitative measurements rather than visual patterns. In a separate research experiment from CARE-X, we built an inference-time pipeline that combines Qwen3-VL-4B-Instruct with deterministic measurement tools, allowing the model to alternate between image understanding and precise computation. Qwen3-VL-4B-Instruct retains visual access to the radiograph throughout inference, invoking tools to identify anatomical landmarks, compute measurements, and evaluate diagnostic thresholds as needed. This creates a multi-turn reasoning loop that interleaves perception and measurement, enabling the model to combine visual context with exact quantitative evidence before reaching a diagnosis.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2000" height="836" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated.png" alt="Diagram illustrating a workflow for a medical assistant using a vision-language model (VLM) to analyze chest X-ray images and provide diagnostic metrics. Key components include orchestrator handling prompts and tool calls, assistant performing perception and tool calls to measure cardiac and thoracic widths, and synthesizing diagnosis with visual overlays and calculated cardiothoracic ratio (CTR) displayed in red and blue." class="wp-image-1181268" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated.png 2000w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-300x125.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-1024x428.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-768x321.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-1536x642.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_4_CARE-X_updated-240x100.png 240w" sizes="auto, (max-width: 2000px) 100vw, 2000px" /><figcaption class="wp-element-caption"><em>Figure 4. Tool-augmented quantitative reasoning pipeline. The orchestrator mediates a multi-turn loop: the VLM reasons over the image (perception), emits structured tool calls, receives deterministic results, and synthesizes the final diagnosis.</em></figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Despite requiring no task-specific training, this approach substantially outperforms perception-only inference across all evaluated measurement-based conditions. The results suggest that for threshold-dependent diagnoses, direct computation of clinically defined measurements is more reliable than visual approximation alone.</p>
-
-
-
-<p class="wp-block-paragraph">More broadly, this measurement-augmented approach could augment clinical workflows by expanding the set of quantitative assessments routinely derived from chest radiographs. For example, aortic dilation is not typically quantified on CXR and is often detected only incidentally on CT scans obtained for other indications. As delayed detection can contribute to adverse cardiovascular outcomes, reliable CXR-based screening could enable earlier identification and follow-up of aortic dilation.</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>Condition</th><th>Perception F1</th><th>Tool F1</th><th>Δ F1</th></tr></thead><tbody><tr><td>Cardiomegaly</td><td>74.56</td><td>96.00</td><td>+21.4</td></tr><tr><td>Mediastinal Widening</td><td>72.63</td><td>97.47</td><td>+24.8</td></tr><tr><td>Aortic Knob Enlargement</td><td>60.31</td><td>99.76</td><td>+39.5</td></tr><tr><td>Ascending Aorta Enlargement</td><td>39.33</td><td>100.00</td><td>+60.7</td></tr><tr><td>Descending Aorta Enlargement†</td><td>28.57</td><td>100.00</td><td>+71.4</td></tr><tr><td><strong>Average</strong></td><td></td><td></td><td><strong>+43.6</strong></td></tr></tbody></table><figcaption class="wp-element-caption">Table 3: Perception-only versus tool-augmented measurement. The average F1 improvement is 43.6 percentage points across five conditions.</figcaption></figure>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 id="validation-on-indian-clinical-data-rare-icu-conditions-and-ct-confirmed-enlargement" class="wp-block-heading">Validation on Indian clinical data: Rare ICU conditions and CT-confirmed enlargement</h2>
-
-
-
-<p class="wp-block-paragraph"><strong>Research ethics and data use</strong>: The Narayana Health evaluations used de-identified, retrospective clinical data under applicable institutional ethics review and data-use approvals. Narayana Health approved publication of the study results described here.&nbsp;</p>
-
-
-
-<h3 id="study-1-inpatient-and-icu-conditions" class="wp-block-heading">Study 1: Inpatient and ICU conditions</h3>
-
-
-
-<p class="wp-block-paragraph">To assess real-world generalizability in a research setting, we evaluated CARE-X on 1,047 de-identified chest radiographs from Narayana Health, annotated for five rare, high-acuity conditions with prevalence ranging from 2.6% to 5.2%—reflecting realistic clinical distributions where missed diagnoses carry severe consequences.&nbsp;</p>
-
-
-
-<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th></th><th>Fracture</th><th>Mediastinal Shift</th><th>Pneumoperitoneum</th><th>Pneumothorax</th><th>Tubes & Lines Abnormal Placement</th></tr></thead><tbody><tr><td><strong>Model</strong></td><td>Sens / Spec</td><td>Sens / Spec</td><td>Sens / Spec</td><td>Sens / Spec</td><td>Sens / Spec</td></tr><tr><td>CheXOne</td><td>0.41 / 0.90</td><td>0.80 / 0.78</td><td>0.67 / 0.98</td><td><strong>0.85</strong> / 0.72</td><td>0.03 / 0.97</td></tr><tr><td>MedGemma</td><td>0.05 / 1.00</td><td><strong>1.00</strong> / 0.53</td><td>0.00 / 1.00</td><td>0.52 / 0.73</td><td>0.18 / 0.87</td></tr><tr><td><strong>CARE-X</strong></td><td><strong>0.62</strong> / 0.64</td><td>0.83 / 0.86</td><td><strong>0.89</strong> / 0.94</td><td>0.83 / 0.75</td><td><strong>0.66</strong> / 0.77</td></tr></tbody></table><figcaption class="wp-element-caption">Table 4: ICU pathology classification on Indian hospital data. CARE-X achieves the most balanced performance.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">CARE-X achieves the highest sensitivity in three out of five conditions while maintaining reasonable specificity, demonstrating generalization to low-prevalence clinical settings.</p>
-
-
-
-<h3 id="study-2-ct-confirmed-enlargement-conditions" class="wp-block-heading">Study 2: CT-confirmed enlargement conditions</h3>
-
-
-
-<p class="wp-block-paragraph">In a retrospective study to measure pure recall efficacy, we evaluated measurement-dependent conditions such as mediastinal widening findings&nbsp;including aortic enlargement, hilar mass, and pulmonary artery enlargement on a outpatient cohort of 122 positive cases with CT-confirmed ground truth, avoiding the subjectivity of radiologist consensus on borderline enlargement findings on CXR. In the overlay setting, the VLM receives the original radiograph alongside a second image with condition-relevant anatomical segmentation masks — offering spatial guidance without direct access to measurement tools.</p>
-
-
-
-<p class="wp-block-paragraph">The tool-augmented variant reached 94.26% recall, a +10.65 percentage-point gain over the best perception-only baseline. Where CT or echocardiography access is limited, reliable triage from a widely available modality like chest X-ray can cut both unnecessary referrals and missed diagnoses.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1750" height="894" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1.jpg" alt="chart" class="wp-image-1181055" style="aspect-ratio:1.9579849071996738;width:701px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1.jpg 1750w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-300x153.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-1024x523.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-768x392.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-1536x785.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure_5_CARE-X_AH-1-240x123.jpg 240w" sizes="auto, (max-width: 1750px) 100vw, 1750px" /><figcaption class="wp-element-caption">Figure 5: Recall on the CT-confirmed enlargement cohort across perception-only, overlay-assisted, and tool-augmented inference. (Study 2)</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">In a related study (accepted at EACTS conference 2026), for mild aortic dilation, the measurement-driven reasoning approach detected 40 of 43 CT-confirmed cases (93% sensitivity), compared to just 5 of 43 (12%) identified on the initial radiology reads, where aortic enlargement is usually not the primary indication for the chest X-ray. This corresponds to 35 additional mild cases that were surfaced but missed during the initial CXR interpretation. These results suggest that explicit quantitative measurements may help identify borderline enlargement that is difficult to assess through visual inspection alone.&nbsp;</p>
-
-
-
-<h2 id="what-this-does-and-doesn-t-show" class="wp-block-heading">What this does and doesn&#8217;t show&nbsp;</h2>
-
-
-
-<p class="wp-block-paragraph">These numbers are all recall, i.e., how many true positives we catch. This was the focus of the initial study because, in triage, a missed diagnosis is typically the costlier failure mode, and CT-confirmed ground truth gave us a clean way to measure it without relying on radiologist consensus for the difficult cases.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Recall, however, captures only one dimension of diagnostic performance. A model that flags everything achieves perfect recall and is useless in practice. An extended study is underway that includes CT-confirmed negative cohorts as well. Preliminary results are promising, and further studies are planned to explicitly evaluate the viability of quantitative aortic measurements on chest X-ray as a screening tool for aortic dilation.&nbsp;</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<h2 id="care-x-toward-clinically-useful-radiology-ai" class="wp-block-heading">CARE-X: Toward clinically useful radiology AI</h2>
-
-
-
-<p class="wp-block-paragraph">CARE-X demonstrates that discriminative and generative objectives can be effectively combined within a unified radiology AI model. By jointly training classification, grounding, and language capabilities, the model supports both flexible report generation and calibrated, threshold-adjustable predictions. The separate measurement study further highlights a practical division of labor between learned reasoning and deterministic computation: the VLM provides visual understanding and identifies relevant evidence, while measurement-dependent diagnoses are computed through transparent, tool-based calculations. Retrospective evaluation on clinically challenging Narayana Health cohorts provides encouraging evidence of the potential of this approach for real-world radiology applications. The clinical relevance of this research is underscored by the selection of the AI-based aortic dilatation screening application as a finalist for showcase at the <strong>IHF Innovation Hub, World Hospital Congress 2026</strong>, recognizing its potential to support earlier detection and clinical decision-making in cardiovascular care.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Looking ahead, CARE-X can be extended beyond its current capabilities through structured report generation, richer differential diagnosis support, and tighter integration of tools within the model itself. The framework could also benefit from incorporating broader clinical context, including laboratory results and patient history, enabling more comprehensive clinical reasoning.&nbsp;</p>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p class="wp-block-paragraph"><em><em>CARE-X is a research model, not a Microsoft product offering or medical device. It has not been cleared or approved by any regulatory authority and is not intended or validated for clinical diagnosis, screening, patient care, or clinical decision-making. The results described are retrospective research findings and do not establish safety, effectiveness, or suitability for clinical use. </em>&nbsp;</em></p>
-
-
-
-<p class="wp-block-paragraph">Paper co-authors:</p>
-
-
-
-<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/people/meranjit/"><em>Mercy Ranjit</em></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/anirban-porya22/" target="_blank" rel="noopener noreferrer"><em>Anirban Porya</em><span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/niharika-vadlamudi/" target="_blank" rel="noopener noreferrer"><em>Niharika Vadlamudi</em><span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/nikhilesh-e-484b21255/" target="_blank" rel="noopener noreferrer"><em>Nikhilesh E</em><span class="sr-only"> (opens in new tab)</span></a>, <em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/sathvik-joel-97524b18b/" type="link" id="https://www.linkedin.com/in/sathvik-joel-97524b18b/" target="_blank" rel="noopener noreferrer">Sathvik Joel<span class="sr-only"> (opens in new tab)</span></a>, </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/prasanthvv/" target="_blank" rel="noopener noreferrer"><em>Prasanth V V</em><span class="sr-only"> (opens in new tab)</span></a>, <a href="https://www.microsoft.com/en-us/research/people/taganu/"><em>Tanuja Ganu</em></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/abhyuday-swamy-105173166/" target="_blank" rel="noopener noreferrer"><em>Abhyuday Swamy</em><span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/pranay97/" target="_blank" rel="noopener noreferrer"><em>Pranay Umredkar</em><span class="sr-only"> (opens in new tab)</span></a><em>, </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/dr-pradeep-narayan-9500101b8/" target="_blank" rel="noopener noreferrer"><em>Pradeep Narayan</em><span class="sr-only"> (opens in new tab)</span></a><em>, </em><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.linkedin.com/in/vivek-rajagopal/" target="_blank" rel="noopener noreferrer"><em>Vivek Rajagopal</em><span class="sr-only"> (opens in new tab)</span></a></p>
-
-
-
-<p class="wp-block-paragraph">Collaborators: <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://www.medha-analytics.ai/">Medha AI<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.narayanahealth.org/" type="link" id="https://www.narayanahealth.org/" target="_blank" rel="noopener noreferrer">Narayana Health<span class="sr-only"> (opens in new tab)</span></a></p>
-
-
-
-<p class="wp-block-paragraph"></p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/">Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
