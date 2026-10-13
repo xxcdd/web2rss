@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Wed, 07 Oct 2026 13:20:47 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 12 Oct 2026 14:26:52 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,189 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.3</generator>
 	<item>
+		<title>Simulating student learning for better AI tutoring</title>
+		<link>https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/</link>
+		
+		<dc:creator><![CDATA[Ke Yang, Chenglong Wang, Michel Galley, Jeevana Priya Inala, ChengXiang Zhai, Jianfeng Gao]]></dc:creator>
+		<pubDate>Mon, 12 Oct 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1185936</guid>
+
+					<description><![CDATA[<p>StudentSim is a research system for evaluating and improving AI tutoring tools before they are tested with learners. It models how individuals may engage with tutors, giving feedback to improve tutor performance across subjects like chess, writing, and mathematics.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/">Simulating student learning for better AI tutoring</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="A conceptual diagram of the feedback loop required to improve an AI tutor. The middle part of the figure shows that a human teacher gives guidance to a real student and receives the student’s feedback, but this feedback is slow, costly, sparse, and hard to scale. On the right panel of the figure, an AI student simulator is trained from real student feedback and serves as a fast proxy for the student during tutor development." class="wp-image-1185955" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>StudentSim is a research system for evaluating and improving AI tutors before they are tested with real learners; it is not a product, is not deployed in classrooms, and is not intended to replace teachers</li>
+
+
+
+<li>AI tutoring tools need feedback from students to improve, but collecting that feedback through human studies is slow, costly, and difficult to scale&nbsp;</li>
+
+
+
+<li>StudentSim trains personalized AI student simulators from publicly available, de-identified learner records, with one simulator adapted to each student&nbsp;</li>
+
+
+
+<li>The work evaluates simulators along two education-grounded dimensions: whether they respond like a specific student, and whether they update after tutor guidance&nbsp;</li>
+
+
+
+<li>Across chess, second-language English writing, and mathematics, StudentSim outperforms leading baselines and provides a useful feedback signal for training an AI tutor&nbsp;</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">In research settings, teams are exploring how AI-powered tutoring systems can help explain a math problem, suggest an edit to a writing assignment, or guide a learner through a chess position. Yet the quality of teaching cannot be measured only from the tutor’s answer. A tutor needs to know what happens after the guidance reaches a student. Did the student correct the original mistake? Did the hint help them reason toward the answer, or did it give away too much? Would a different student need a different kind of support? In today’s AI tutor research, answering these questions often requires real learner studies. Those studies are valuable, but they are slow and costly to run, which makes it hard to use student feedback during fast model iteration.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/publication/studentsim-training-llm-based-student-simulators/">StudentSim</a> is an AI system that creates personalized simulators of individual students, modeling how they answer questions and how their answers change after receiving a tutor’s guidance. The goal is to make student feedback more available during AI tutor development. This research also introduces StudentSimEval, a benchmark and evaluation protocol spanning chess, second-language English writing, and mathematics. </p>
+
+
+
+<p class="wp-block-paragraph">Importantly, the goal is not to replace teachers or classroom learning. Instead, StudentSim helps researchers evaluate and improve AI tutoring systems during the research and development process before testing them with real learners. The research uses only publicly available learner datasets released for research use with de-identified records; no personally identifying information is used at any stage.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1467" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-scaled.jpg" alt="**Alt text:** A conceptual diagram of the feedback loop required to improve an AI tutor. The middle part of the figure shows that a human teacher gives guidance to a real student and receives the student’s feedback, but this feedback is slow, costly, sparse, and hard to scale. On the right panel of the figure, an AI student simulator is trained from real student feedback and serves as a fast proxy for the student during tutor development." class="wp-image-1186104" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-300x172.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-1024x587.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-768x440.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-1536x880.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-2048x1174.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-240x138.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1:</em> <em>AI tutors need feedback from students to improve. Student simulators can approximate part of that feedback during research-stage training and evaluation.</em> <em>They</em> <em>provide an early-stage research signal, not a replacement for testing with real learners.</em></figcaption></figure>
+
+
+
+<h2 id="measuring-what-a-student-simulator-needs-to-do" class="wp-block-heading">Measuring what a student simulator needs to do</h2>
+
+
+
+<p class="wp-block-paragraph">A simple way&nbsp;to build a student simulator is to ask a large language model to role-play a learner. For example, a prompt might say, “You are an elementary-school student who struggles with math.” The model can change its tone and express uncertainty. The harder part is preserving the learner’s actual ability boundary. A model may speak in a young student’s voice while still relying on knowledge and reasoning far beyond that student’s level. For training an AI tutor, this can produce misleading feedback: the tutor may appear effective because the simulated student is too capable.</p>
+
+
+
+<p class="wp-block-paragraph">Traditional student modeling approaches face&nbsp;a different limitation. Knowledge tracing and behavior prediction models are grounded in real learning records and can estimate a student’s current knowledge, skills, and learning habits. Many of these models, however, were not designed to take natural-language tutor guidance as input. They can help describe what a student has done, but they do not always tell us how a student would respond to a particular explanation, hint, or Socratic question.</p>
+
+
+
+<p class="wp-block-paragraph">StudentSim&nbsp;defines the target through two dimensions inspired by education research. Educators often distinguish what a learner can do independently from what they can do with support. Vygotsky’s zone of proximal development captures this gap between current independent performance and performance with guidance.&nbsp;StudentSim&nbsp;turns this idea into two evaluation goals. <em>Behavioral fidelity</em> measures whether a simulator matches a specific student’s&nbsp;recorded responses on held-out problems. <em>Guidance responsiveness</em> measures whether the simulator updates its response after reading tutor guidance.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2560" height="1686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-scaled.jpg" alt="  **Alt text:** Diagram defining the two evaluation criteria used for student simulators. The upper portion shows a problem, “minus 7.3 times 5 equals what.” The lower portion compares a real student and an AI simulator. Both initially answer 36.5, then receive guidance and revise their answer to negative 36.5. Asking whether a simulator’s responses match the recorded student answers is behavioral fidelity. Matching the guidance-induced change is guidance responsiveness." class="wp-image-1186107" style="aspect-ratio:1.5184267411820531;width:776px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-300x198.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-1024x674.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-768x506.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-1536x1012.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-2048x1349.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-240x158.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em><em>Figure 2: StudentSimEval evaluates whether a simulator matches a student’s independent behavior and whether it responds to guidance.</em>&nbsp;</em></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">These two goals are complementary. A simulator that only matches past student behavior may be useful for prediction, but it does not show whether a teaching intervention helped. A simulator that always follows the tutor may respond fluently, but it may fail to represent a particular student’s strengths, weaknesses, and likely mistakes. AI tutor training needs both signals: the learner’s starting point and how guidance affects the learner’s performance.&nbsp;</p>
+
+
+
+<h2 id="training-personalized-simulators-from-sparse-student-records" class="wp-block-heading">Training personalized simulators from sparse student records</h2>
+
+
+
+<p class="wp-block-paragraph">StudentSimEval is built entirely from publicly available learner datasets that are released for research use with de-identified records. The records carry no personally identifying information, and each personalized simulator is trained only on the de-identified records of the student it represents.</p>
+
+
+
+<p class="wp-block-paragraph">Real student data is often sparse at the individual level. A learner may contribute only a small number of essays, answers, or interactions. Training a separate simulator from scratch for each student would risk overfitting and would require each model to relearn common patterns in the domain. &nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">StudentSim uses a two-stage training pipeline. In the first stage, the model trains on records pooled across many students in the same domain. This stage learns common response formats, common errors, and common ways students revise after guidance. In the second stage, the model is specialized on one student’s own records, producing a personalized simulator for that student.&nbsp;</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1556" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-scaled.jpg" alt=" **Alt text:** A two-stage pipeline for training personalized StudentSim models from sparse student records. At the top, several students each have limited examples of question-answer interactions and answer revisions following tutor guidance. In the middle, stage one training, records from all students are pooled to learn shared behavioral patterns, including the space of possible responses, common mistakes, and typical revisions after guidance. At the bottom, stage two training, the model is adapted separately to each student’s records, producing one personalized simulator per student." class="wp-image-1186136" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-300x182.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-1024x622.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-768x467.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-1536x934.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-2048x1245.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-3_training_pipeline_StudentSim_Updated-240x146.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em><em>Figure 3: StudentSim first learns shared student behavior from pooled records, then adapts to each student’s own data.</em>&nbsp;</em></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The evaluation covers three domains with different response types. In chess, the simulator predicts a player’s next move and how that player may revise after coaching. In second-language English writing, it generates essays with error patterns matching a learner and predicts corrections after teacher feedback. In mathematics, it predicts a student’s multiple-choice answer and whether the student updates after an explanation. Across these domains, StudentSimEval uses the same principle: compare all methods on the same per-student training records and the same held-out evaluation records.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">StudentSim&nbsp;outperforms leading baselines across the three domains. In chess, for example,&nbsp;StudentSim&nbsp;reaches behavioral fidelity of 0.5150 and guidance responsiveness of 0.9067. GPT-5.4 reaches 0.2316 and 0.7186, respectively. Maia2, a chess-specific human move prediction model, reaches 0.4535 and 0.2721. The comparison illustrates the difference between the baseline families: GPT-5.4 can respond to guidance but does not reliably match a specific student’s behavior, while Maia2 predicts human chess moves more closely but lacks a natural-language guidance pathway.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1233" height="1073" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-4_performance_StudentSim_Updated.png" alt=" **Alt text:** Scatter plot comparing three student simulation approaches on behavioral fidelity, shown on the horizontal axis, and guidance responsiveness, shown on the vertical axis. StudentSim is positioned in the upper-right at approximately 0.51 fidelity and 0.91 responsiveness. A prompted GPT-5.4 model has lower fidelity, approximately 0.23, and moderate responsiveness, approximately 0.72. Maia2, a state-tracking model, has moderate fidelity, approximately 0.45, but low responsiveness, approximately 0.27. The plot shows that StudentSim performs strongly on both criteria." class="wp-image-1186116" style="aspect-ratio:1.1491271820448878;width:402px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-4_performance_StudentSim_Updated.png 1233w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-4_performance_StudentSim_Updated-300x261.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-4_performance_StudentSim_Updated-1024x891.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-4_performance_StudentSim_Updated-768x668.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-4_performance_StudentSim_Updated-207x180.png 207w" sizes="auto, (max-width: 1233px) 100vw, 1233px" /><figcaption class="wp-element-caption"><em>Figure 4: In chess, StudentSim improves both behavioral fidelity and guidance responsiveness compared with leading baselines.</em></figcaption></figure>
+
+
+
+<h2 id="using-simulated-feedback-to-improve-ai-tutors" class="wp-block-heading">Using simulated feedback to improve AI tutors</h2>
+
+
+
+<p class="wp-block-paragraph">The research also tests whether a trained student simulator can provide feedback for tutor optimization. In a chess tutor reinforcement learning study, the tutor receives a position and a real student’s previous wrong move, then generates guidance. The student simulator&#8217;s own parameters are held fixed during this process, and it reads the guidance and produces a revised move. The reward is based on the improvement in move quality from the student’s previous move to the simulator’s revised move, using Stockfish as an independent chess engine signal.  </p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="740" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-scaled.jpg" alt="  **Alt text:** Diagram of reinforcement learning for an AI chess tutor using StudentSim as the feedback source. Each episode begins with a real student’s chess position and previous incorrect move. The AI tutor receives this context and generates guidance describing what and how to teach. A frozen, personalized AI student simulator reads the guidance and produces a revised move. The reward equals the improvement in chess evaluation from the student’s original move to the revised move, and this reward updates the AI tutor policy while the simulator remains fixed." class="wp-image-1186119" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-300x87.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-1024x296.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-768x222.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-1536x444.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-2048x592.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-5_rl_setup_StudentSim_Updated-240x69.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 5: StudentSim can provide feedback during AI tutor reinforcement learning by estimating how a student response changes after guidance.</em></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The study compares three conditions: a supervised fine-tuned tutor with no reinforcement learning, a tutor trained with GPT-5.4 as the simulated student reward source, and a tutor trained with&nbsp;StudentSim&nbsp;as the reward source. All conditions use the same tutor policy, supervised starting point, and&nbsp;reinforcement learning setup. Human chess experts then evaluate the&nbsp;tutor&nbsp;responses blind to condition.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The&nbsp;StudentSim&nbsp;reward produces the highest-rated tutor on all reported dimensions. The tutor trained with&nbsp;StudentSim&nbsp;reaches 90.5% accuracy, compared with 75.7% for the no-RL baseline and 71.6% for the GPT-5.4 reward condition. It also receives higher ratings for&nbsp;guidance&nbsp;quality and personalization. The result is a proof of&nbsp;concept&nbsp;that student simulators trained on real learner data can provide useful feedback for improving AI tutors.&nbsp;</p>
+
+
+
+<h2 id="looking-ahead" class="wp-block-heading">Looking ahead</h2>
+
+
+
+<p class="wp-block-paragraph">StudentSim&nbsp;does not remove the need for real learners in education research. Human studies&nbsp;remain&nbsp;essential for measuring learning outcomes, safety, usability, and classroom fit. The role of student simulators is earlier in the development process: they can help researchers test tutor strategies, compare models, and refine training signals before moving to more expensive studies with real students.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The broader direction is to build AI tutor systems that learn from student reactions, not only from expert-written explanations or static correctness labels.&nbsp;StudentSim&nbsp;shows one path: use real learning records to train personalized simulators, evaluate those simulators on both independent behavior and response to guidance, and use them as scalable feedback sources for tutor training. Future work can extend this approach to longer learning trajectories,&nbsp;additional&nbsp;subjects, richer student profiles, and studies that connect simulated feedback with real learning outcomes.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The paper and the StudentSim training and evaluation code, including the StudentSimEval protocol, are publicly available.</p>
+
+
+
+<h2 id="sources" class="wp-block-heading">Sources</h2>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/studentsim-training-llm-based-student-simulators/">Paper</a></div>
+
+
+
+<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/StudentSim" target="_blank" rel="noreferrer noopener">Code</a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph"></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/">Simulating student learning for better AI tutoring</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</title>
 		<link>https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/</link>
 		
@@ -32,7 +215,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/">Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg" alt="System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1188789" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1065x599-1.jpg 1065w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1279x720.jpg 1279w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-653x368.jpg 653w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-675x380.jpg 675w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg" alt="System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1188789" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1065x599-1.jpg 1065w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1279x720.jpg 1279w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-653x368.jpg 653w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-675x380.jpg 675w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -115,7 +298,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1083" height="472" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg" alt="Figure 1: Side-by-side comparison of two training loops. In Agentic RL, the environment exchanges actions and observations with a tokenizer, which passes action and observation tokens to the policy model. In Harnessed Agentic RL, an agent harness handling context and orchestration sits between the environment and an OpenAI-like API, which exchanges input and output tokens with the policy model." class="wp-image-1187926" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg 1083w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-300x131.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-1024x446.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-768x335.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-240x105.jpg 240w" sizes="(max-width: 1083px) 100vw, 1083px" /><figcaption class="wp-element-caption">Figure 1. Traditional agentic RL compared with Harnessed Agentic RL. In traditional agentic RL, the training framework manages the environment and the agent loop. In Harnessed Agentic RL, the harness manages both.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1083" height="472" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg" alt="Figure 1: Side-by-side comparison of two training loops. In Agentic RL, the environment exchanges actions and observations with a tokenizer, which passes action and observation tokens to the policy model. In Harnessed Agentic RL, an agent harness handling context and orchestration sits between the environment and an OpenAI-like API, which exchanges input and output tokens with the policy model." class="wp-image-1187926" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg 1083w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-300x131.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-1024x446.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-768x335.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-240x105.jpg 240w" sizes="auto, (max-width: 1083px) 100vw, 1083px" /><figcaption class="wp-element-caption">Figure 1. Traditional agentic RL compared with Harnessed Agentic RL. In traditional agentic RL, the training framework manages the environment and the agent loop. In Harnessed Agentic RL, the harness manages both.</figcaption></figure>
 
 
 
@@ -145,30 +328,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144027">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-label="AI Testing and Evaluation: Learnings from Science and Industry" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/EP2-AI-TE_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshots of Daniel Carpenter, Timo Minssen, Chad Atalla, and Kathleen Sullivan for the Microsoft Research Podcast" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">AI Testing and Evaluation: Learnings from Science and Industry</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="ai-testing-and-evaluation-learnings-from-science-and-industry" class="large">Discover how Microsoft is learning from other domains to advance evaluation and testing as a pillar of AI governance.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/ai-testing-and-evaluation-learnings-from-science-and-industry/" aria-describedby="ai-testing-and-evaluation-learnings-from-science-and-industry" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="AI Testing and Evaluation: Learnings from Science and Industry" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -189,7 +372,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="865" height="293" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png" alt="Figure 2: System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1187930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-300x102.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-768x260.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-240x81.png 240w" sizes="(max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2. The Agent Lightning v1.0 system architecture showing the API gateway, rollout controller, and customized trainer.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="865" height="293" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png" alt="Figure 2: System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1187930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-300x102.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-768x260.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-240x81.png 240w" sizes="auto, (max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2. The Agent Lightning v1.0 system architecture showing the API gateway, rollout controller, and customized trainer.</figcaption></figure>
 
 
 
@@ -1652,30 +1835,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2038,30 +2221,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186969">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186967">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research StorY</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/optimind-when-the-system-meets-the-floor/" aria-label="OptiMind: When the system meets the floor" data-bi-cn="OptiMind: When the system meets the floor" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/OptiMind-TWLIFB-1200x627-1.jpg" alt="Abstract teal-toned image of aluminum cans viewed from above, overlaid with a network of connected flowchart shapes (rectangles, rounded nodes, and diamonds) linked by thin line." />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-label="The Shape of Things to Come" data-bi-cn="The Shape of Things to Come" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/02/TheShapeofThings_ThumbnailHero_Doug_NoText_1400x788.jpg" alt="Illustration of Doug Burger" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">OptiMind: When the system meets the floor</h2>
+									<h2 class="h4">The Shape of Things to Come</h2>
 				
-								<p id="optimind-when-the-system-meets-the-floor" class="large">A three‑month pilot in a Midwestern bottling plant shows what happens when AI moves beyond chat and into decision-making, where constraints shift, stakes are real, and answers must hold.</p>
+								<p id="the-shape-of-things-to-come" class="large">Join Microsoft’s Doug Burger and guests as they dig into the fundamental truths about AI and how it will reshape the future.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/optimind-when-the-system-meets-the-floor/" aria-describedby="optimind-when-the-system-meets-the-floor" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="OptiMind: When the system meets the floor" target="_blank">
-							Learn more						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/the-shape-of-things-to-come/" aria-describedby="the-shape-of-things-to-come" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The Shape of Things to Come" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2207,30 +2390,27 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://labs.ai.azure.com/" aria-label="Foundry Labs" data-bi-cn="Foundry Labs" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Foundry Labs</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="foundry-labs" class="large">Foundry Labs bridges the distance between Microsoft breakthroughs and the builders, scientists, and curious minds who can put them to work.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://labs.ai.azure.com/" aria-describedby="foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Foundry Labs" target="_blank">
+							Foundry Labs						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2297,181 +2477,6 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 <p class="wp-block-paragraph">Skala is the product of a truly collaborative effort across AI for Science, and we thank our engineering, project management, and business operations teams for making this work possible. We also thank MSR Accelerator for their partnership in advancing data generation efforts and accelerating software integrations that help bring Skala to the broader scientific community.</p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/">Broadening access to Skala creates a faster path to predictive DFT </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>MindTopo reveals VLMs&#8217; spatial reasoning abilities</title>
-		<link>https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/</link>
-		
-		<dc:creator><![CDATA[Yunfei Ge, Anbang Liu, Qineng Wang, Johnalbert Garnica, Zihan Wang, Reuben Tan, Jianfeng Gao, Ruohan Zhang, Yining Hong, Jiajun Wu, Manling Li]]></dc:creator>
-		<pubDate>Wed, 12 Aug 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/</guid>
-
-					<description><![CDATA[<p>A path, a fence, a knot. MindTopo sets a new benchmark for testing how AI understands topological relationships and  highlights new opportunities to strengthen spatial reasoning and planning.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/">MindTopo reveals VLMs&#8217; spatial reasoning abilities</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="2560" height="1441" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-scaled.jpg" alt="Benchmark overview showing ten spatial reasoning and planning tasks grouped into two rows. The top row, labeled “Reasoning,” includes Maze, Assembly, Bead, Sheep, and Knot. The bottom row, labeled “Planning,” includes Pipe, One Stroke, Swap, Chat Noir, and Untangle. The MindTopo logo and title are centered between the two categories." class="wp-image-1181354" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-1536x865.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-2048x1153.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/MindTopo-BlogHeroFeature-1400x788-1-1920x1080.jpg 1920w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>MindTopo is a new benchmark for testing topological reasoning in AI, evaluating whether multimodal models can understand concepts such as connectivity, enclosure, order, separation, and knots.</li>
-
-
-
-<li>The benchmark measures both reasoning and planning, testing not only whether models can recognize topological relationships in static images but also whether they can preserve and manipulate those relationships through a sequence of actions.</li>
-
-
-
-<li>Current multimodal models perform much better on static recognition than interactive tasks, suggesting they struggle to maintain a consistent understanding of topology over time.</li>
-
-
-
-<li>Failures often emerge during planning rather than perception, with models losing track of structural relationships as scenes change or proposing actions that violate physical constraints.</li>
-
-
-
-<li>The findings highlight an important opportunity to advance AI systems for robotics and interactive environments, where understanding what stays connected, enclosed, ordered, or knotted is essential for reliable decision-making.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">Can AI determine whether two rooms remain connected after a wall is added? Can it recognize whether an animal is inside a fence, distinguish a true knot from a tangled loop, or rearrange several ropes without allowing them to pass through one another?</p>
-
-
-
-<p class="wp-block-paragraph">These questions concern 3D topology, a form of spatial understanding based not on exact distances, angles, or shapes, but on structural relationships that persist as objects bend, stretch, or deform. Connectivity, enclosure, ordering, and knottedness are examples of topological properties. These properties are a foundational layer of human spatial understanding in Cognitive Science, yet they remain largely absent from how multimodal AI systems are evaluated.</p>
-
-
-
-<p class="wp-block-paragraph">In a new research study, we introduce <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://mind-topo.github.io/">MindTopo<span class="sr-only"> (opens in new tab)</span></a>, a benchmark designed to evaluate whether multimodal large language models possess this kind of topological intuition. Our findings reveal a substantial gap between recognizing topology in a static image and maintaining an innate understanding of that topology while planning and acting. Current models can sometimes identify a connected path, enclosed region, or knot in a single scene, but that understanding often breaks down once the model must manipulate the scene through a sequence of actions.</p>
-
-
-
-<h2 id="how-mindtopo-defines-topological-space" class="wp-block-heading">How MindTopo defines topological space</h2>
-
-
-
-<p class="wp-block-paragraph">Most spatial evaluations for multimodal models focus on Euclidean properties such as distance, direction, size, and relative position. Inspired by Piaget and other cognitive literature&#8217;s classification of topological ability, MindTopo organizes its tasks around the following five categories:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Continuity</strong> asks whether a path or object remains unbroken.</li>
-
-
-
-<li><strong>Separation</strong> asks whether nearby elements form one structure or distinct parts.</li>
-
-
-
-<li><strong>Order</strong> tracks how elements are arranged along a path or through a transformation.</li>
-
-
-
-<li><strong>Enclosure</strong> tests whether a boundary creates an inside and an outside.</li>
-
-
-
-<li><strong>Knots</strong> tests whether ropes are truly knotted or linked rather than merely tangled in appearance.</li>
-</ul>
-
-
-
-<p class="wp-block-paragraph">Each category is evaluated at two cognitive levels. In reasoning tasks, a model examines one or more rendered scenes and answers a question about their topological structure: whether two points in a maze are connected, whether the sheep are inside the fence, whether a rope is truly knotted. In planning tasks, the model interacts with a simulated environment and selects actions that must create, preserve, or remove a particular relation, such as rotating pipe segments, drawing a separating path, rearranging blocks, trapping a moving agent, or untangling ropes. The environments enforce legal actions, so a model cannot solve a rope puzzle by passing one strand through another.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="828" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-scaled.png" alt="This figure provides an overview of MINDTOPO, a benchmark for evaluating topological reasoning in multimodal large language models. The figure illustrates two evaluation settings: reasoning, where models answer visual questions about rendered scenes, and planning, where models interact with environments to transform an initial state into a goal state. The benchmark spans five topological properties—continuity, separation, order, enclosure, and knots—with representative tasks including Maze and Pipe, IKEA and One Stroke, Bead and Swap, Sheep and Chat Noir, and Knot and Untangle. A radar chart on the right summarizes model performance across these categories and shows that current models still struggle, particularly on topological spatial reasoning that requires planning and maintaining invariants across actions." class="wp-image-1181360" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-300x97.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-1024x331.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-768x248.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-1536x497.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-2048x662.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-1_MINDTOPO-240x78.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 1. MindTopo pairs questions about static scenes with interactive tasks that require models to preserve or change the same topological relations.&nbsp;</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">All scenes are generated from controlled simulators, which provide exact ground truth and adjustable difficulty. That control makes it possible to separate two failure modes that otherwise look alike: a model that fails because a scene is visually complex, and a model that fails because it cannot maintain the underlying relationship as objects move.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1548" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-scaled.png" alt=" This figure provides an overview of the 13 MINDTOPO tasks organized by five topological properties and two cognitive levels. Continuity includes 2D Maze and 3D Maze reasoning tasks and the Pipe planning environment; Separation includes IKEA reasoning and One Stroke planning; Order includes Bead and Origami Point reasoning and Swap planning; Enclosure includes Sheep and Hole reasoning and Chat Noir planning; and Knots includes Knot reasoning and Untangle planning. Reasoning tasks pair rendered scenes with visual questions and example answers, while planning tasks, labeled “Gym Env,” show representative initial, intermediate, and final or goal states of interactive environments." class="wp-image-1181363" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-scaled.png 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-300x181.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-1024x619.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-768x464.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-1536x929.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-2048x1238.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Figure-2_MINDTOPO-240x145.png 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption">Figure 2. MindTopo maps reasoning and planning tasks to continuity, separation, order, enclosure, and knots.&nbsp;</figcaption></figure>
-
-
-
-<h2 id="seeing-topology-is-not-the-same-as-acting-on-it" class="wp-block-heading">Seeing topology is not the same as acting on it</h2>
-
-
-
-<p class="wp-block-paragraph">Across a broad set of proprietary and open-weight models, performance was consistently stronger on static reasoning than on interactive planning, and both remained well below human performance. The contrast was especially clear when success depended on preserving a relationship across many actions.</p>
-
-
-
-<p class="wp-block-paragraph">The error patterns help locate the problem. Static mistakes usually began with perception, such as missing a wall, opening, or crossing. Planning mistakes appeared after the scene had been understood. Models followed a locally plausible move without tracking its later consequences, lost the task over multiple turns, or proposed an action that violated the environment&#8217;s dynamics.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft Research Forum</h2>
-				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="what-generative-tools-reveal" class="wp-block-heading">What generative tools reveal</h2>
-
-
-
-<p class="wp-block-paragraph">We also tested whether image and video generation could help models maintain an understanding of topological relationships. Image generation sometimes helped when the relevant relation was visible in a single frame, but it remained unreliable across a sequence of crossings or moves. Video rollouts frequently altered topology or violated task dynamics. Visual simulation appeared useful only to the extent that it preserved structural constraints over time.</p>
-
-
-
-<h2 id="building-agents-that-preserve-structure" class="wp-block-heading">Building agents that preserve structure</h2>
-
-
-
-<p class="wp-block-paragraph">MindTopo is intended as a controlled diagnostic for this gap. Robots, accessibility tools, and interactive assistants must understand not only where objects are, but also what remains connected, enclosed, ordered, or knotted as actions unfold. Closing that gap may require models that carry an explicit topological state, or world models whose predictions preserve topology by construction.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/">MindTopo reveals VLMs&#8217; spatial reasoning abilities</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
