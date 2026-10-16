@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Mon, 12 Oct 2026 14:26:52 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 15 Oct 2026 16:11:59 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,209 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.3</generator>
 	<item>
+		<title>Proof-based general-purpose computing with Magnetar</title>
+		<link>https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/</link>
+		
+		<dc:creator><![CDATA[Srinath Setty]]></dc:creator>
+		<pubDate>Thu, 15 Oct 2026 16:00:00 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1189337</guid>
+
+					<description><![CDATA[<p>Zero-knowledge proofs can verify computing results without rerunning workloads or exposing sensitive data. Magnetar helps bring them into the mainstream with support for standard programming languages, major speed gains, and quantum-resistant security.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/">Proof-based general-purpose computing with Magnetar</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Magnetar proves a program's execution and returns a small proof that anyone can check, with security resting only on standard hash functions." class="wp-image-1189709" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li><strong>A new form of computing</strong>. Zero-knowledge proofs let you run a workload and receive, alongside the result, a short proof that the program ran correctly. Anyone can check the proof in milliseconds, without rerunning the program, without trusting whoever ran it, and without needing data on which the program was run.</li>
+
+
+
+<li><strong>Three grand challenges have stood in the way of broad adoption</strong>: making proofs fast enough to produce, making them available to normal programs without cryptographic expertise, and resting them on cryptography that will still be trusted many decades from now.</li>
+
+
+
+<li><strong>Magnetar makes major progress on all three challenges.</strong> It proves programs written in Rust, Go, or C, runs 10 to 39 times faster on average than the prior fastest comparable systems, and rests its security only on standard hash functions. It is the latest result of more than a decade of research at Microsoft Research on making zero-knowledge proofs practical.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<h2 id="a-new-form-of-computing" class="wp-block-heading">A new form of computing</h2>
+
+
+
+<p class="wp-block-paragraph">Every result a computer produces comes with an implicit question: did the program run as claimed and produce correct outputs? Today, answering that question often requires a degree of trust alongside verification.&nbsp;We trust the operator, the vendor, the counterparty, or the agent, and we rely on contracts, audits, and logs to establish that trust.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Zero-knowledge proofs offer a fundamentally different approach to establishing trust. A program runs, and along with its output it produces a short proof, a cryptographic certificate that this program, on these inputs, produced this output. The proof is small and fast to check. Whoever receives it can confirm the result in milliseconds without rerunning the program, and can pass the proof on to anyone else who needs the same assurance. With the zero-knowledge property, the proof also reveals nothing about inputs that should stay private.</p>
+
+
+
+<p class="wp-block-paragraph">This changes what correctness means in the real world. A result no longer has to be trusted because of who produced it. It can be checked because of what accompanies it. An AI agent acting on someone&#8217;s behalf could attach a proof that each action complied with the policy it was given. Regulated financial institutions could prove that transactions were processed correctly without making their transactions public. These become possible once producing a proof is as routine as running the program.</p>
+
+
+
+<h2 id="three-grand-challenges" class="wp-block-heading">Three grand challenges</h2>
+
+
+
+<p class="wp-block-paragraph">Zero-knowledge proofs were invented in the 1980s, and the ideas behind proving program execution have been around nearly as long. What has kept them from becoming a general tool is three challenges that have resisted being solved at the same time.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Efficiency</strong>. Producing a proof has historically taken millions of times more computation than running the program itself. Years of research have brought that overhead down, but the fastest systems have achieved their speed by making compromises elsewhere.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Generality and usability.</strong> Many proof systems require developers to manually rewrite their program as a cryptographic circuit, which is a fixed arithmetic description of that exact computation. This takes months. Every change to the application means a new circuit, and the translation is itself a frequent source of security bugs. A general-purpose alternative is to prove the execution of an ordinary processor, so that any compiled program can be proven as written. Until recently, that generality came at a steep cost in speed or security.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Security.</strong> A proof is only as strong as the cryptography beneath it. Many proof systems rest on elliptic curves, which can be broken by a sufficiently powerful quantum computer. Microsoft is addressing this problem with its Quantum Safe Program, which will&nbsp;move its products and services&nbsp;to post-quantum cryptography, a goal it <a href="https://www.microsoft.com/en-us/security/blog/2026/06/30/microsoft-advances-quantum-safe-security-as-the-risk-timeline-shifts/" target="_blank" rel="noopener">recently accelerated to 2029</a>. Post-quantum proof systems already exist, but some rest on lattice assumptions, and most rest on new cryptographic functions invented to reduce the cost of proving. These new cryptographic functions have not faced the decades of scrutiny given to the cryptography protecting today’s internet, and some rest on mathematical conjectures about error-correcting codes that have not been proven. They have bought their speed with strong assumptions.&nbsp;</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">Ideas</h2>
+				
+								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
+							Listen now						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="more-than-a-decade-of-work" class="wp-block-heading">More than a decade of work</h2>
+
+
+
+<p class="wp-block-paragraph">For more than a decade, Microsoft Research has worked on making zero-knowledge proofs and verifiable computing practical. Early research followed two approaches, both practical only for small programs. <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://dl.acm.org/doi/10.1145/2699436">The first<span class="sr-only"> (opens in new tab)</span></a> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dl.acm.org/doi/10.1145/2699436" target="_blank" rel="noopener noreferrer"><span class="sr-only"> (opens in new tab)</span></a>lets a verifier check a long computation through a short conversation with the prover using a technique called <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://dl.acm.org/doi/10.1145/146585.146605" target="_blank" rel="noopener noreferrer">the sum-check protocol<span class="sr-only"> (opens in new tab)</span></a>, but this applied only to computations with a particular layered structure. <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2012/215" target="_blank" rel="noopener noreferrer">The second<span class="sr-only"> (opens in new tab)</span></a> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2012/215" target="_blank" rel="noopener noreferrer"><span class="sr-only"> (opens in new tab)</span></a>used elliptic-curve cryptography to create very small proofs&nbsp;for almost any computation. But this requires a one-time trusted&nbsp;setup involving secret information which, if leaked, could allow anyone to forge proofs. This approach is also vulnerable to quantum computers.</p>
+
+
+
+<p class="wp-block-paragraph">In 2019, a new zero-knowledge proof system called <a href="https://www.microsoft.com/en-us/research/publication/spartan-efficient-and-general-purpose-zksnarks-without-trusted-setup/">Spartan</a> returned to the sum-check approach and made it work for general-purpose programs without a trusted setup. Spartan can also be instantiated with different cryptographic building blocks. That flexibility is what later allowed the proof system to be built on hash functions alone. A sequence of results then filled in the remaining pieces:&nbsp;</p>
+
+
+
+<ul class="wp-block-list">
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2021/1263" target="_blank" rel="noopener noreferrer">Phalanx<span class="sr-only"> (opens in new tab)</span></a>, in 2021, showed how to exploit repetition, such as a processor running the same instruction cycle on every step, to prove computations an order of magnitude faster than Spartan. Magnetar&#8217;s processor description is built on this idea.&nbsp;&nbsp;</li>
+
+
+
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://eprint.iacr.org/2021/370">Nova<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://eprint.iacr.org/2023/573">HyperNova<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://eprint.iacr.org/2024/1606.pdf">NeutronNova<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2026/242" target="_blank" rel="noopener noreferrer">Neo and SuperNeo<span class="sr-only"> (opens in new tab)</span></a> showed that stopping Spartan&#8217;s proving early, and folding the partial results together, makes it practical to prove computations of any size at far lower cost.</li>
+
+
+
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2021/1043" target="_blank" rel="noopener noreferrer">Brakedown<span class="sr-only"> (opens in new tab)</span></a>, in 2021, introduced a fast hash-based commitment scheme and combined it with Spartan, giving the first Spartan variant whose security rests on standard hash functions.&nbsp;</li>
+
+
+
+<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2018/907" target="_blank" rel="noopener noreferrer">Spice<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2023/1216" target="_blank" rel="noopener noreferrer">Lasso<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/1605" target="_blank" rel="noopener noreferrer">Nebula<span class="sr-only"> (opens in new tab)</span></a>, and then <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2025/105" target="_blank" rel="noopener noreferrer">Twist and Shout<span class="sr-only"> (opens in new tab)</span></a> made the memory operations at the heart of a general-purpose processor inexpensive to prove, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2023/1217" target="_blank" rel="noopener noreferrer">Jolt<span class="sr-only"> (opens in new tab)</span></a> showed that combining them with Spartan can efficiently prove the execution of a complete processor.</li>
+
+
+
+<li>Earlier this year, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2025/2094" target="_blank" rel="noopener noreferrer">Vega<span class="sr-only"> (opens in new tab)</span></a> applied this line of work to digital identity, proving facts from a government credential in <a href="https://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/" target="_blank" rel="noopener">under a tenth of a second</a>.</li>
+
+
+
+<li>More recently, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2026/1656" target="_blank" rel="noopener noreferrer">BinarySpartan<span class="sr-only"> (opens in new tab)</span></a> brought Spartan to binary fields, where a processor&#8217;s logic and standard hash functions can be efficiently expressed. BinarySpartan also&nbsp;relies on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2025/1187" target="_blank" rel="noopener noreferrer">Ligerito<span class="sr-only"> (opens in new tab)</span></a>, a Brakedown-style commitment scheme with much shorter proofs, and on <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://eprint.iacr.org/2024/504" target="_blank" rel="noopener noreferrer">ring switching<span class="sr-only"> (opens in new tab)</span></a>, which makes it efficient to commit to vectors of bits.&nbsp;</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">Each of these solved a piece of the problem. Magnetar is where the pieces come together.</p>
+
+
+
+<h2 id="magnetar" class="wp-block-heading">Magnetar</h2>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.microsoft.com/en-us/research/publication/magnetar-high-speed-post-quantumrv64-zkvm-from-standard-hashes/" data-type="link" data-id="https://www.microsoft.com/en-us/research/publication/magnetar-high-speed-post-quantumrv64-zkvm-from-standard-hashes/">Magnetar</a> is a zero-knowledge virtual machine, or zkVM, and it makes major progress on all three challenges at once.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="936" height="320" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar_NEW_Summary_Simple.png" alt="Figure 1. Magnetar proves a program's execution and returns a small proof that anyone can check, with security resting only on standard hash functions. " class="wp-image-1189931" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar_NEW_Summary_Simple.png 936w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar_NEW_Summary_Simple-300x103.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar_NEW_Summary_Simple-766x262.png 766w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Magnetar_NEW_Summary_Simple-240x82.png 240w" sizes="(max-width: 936px) 100vw, 936px" /><figcaption class="wp-element-caption">Figure 1. Magnetar proves a program&#8217;s execution and returns a small proof that anyone can check, with security resting only on standard hash functions. </figcaption></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>It is general-purpose.</strong> Magnetar proves the execution of RISC-V, an open processor architecture with mature compilers for every mainstream language. A developer writes a program in Rust, Go, or C, compiles it as usual, and Magnetar proves it as written. Consider what this means in practice. A business policy, a data pipeline, or an interpreter for the Ethereum Virtual Machine (EVM) is just a program, and the engineers who already maintain it can prove their executions exactly as written. As a result, proving stops being a specialist activity.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>It is&nbsp;faster than prior systems in the same class.</strong> Magnetar proves 7.2 to 8.7 million processor instructions per second on a laptop. Across 15 benchmark programs, from cryptographic hashing to token transfers inside a small EVM interpreter, it is 10 to 39 times faster on average than the fastest existing zkVMs on the same machine, and more than 300 times faster than two others on a token-transfer benchmark. An optimized Magnetar proves 9.5–12.8 million cycles per second, which increases each speedup reported here by about 1.3×. Its proofs verify in about 12 milliseconds.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Its security rests on standard cryptography.</strong> Magnetar depends on a standard hash function such as SHA-256 or SHA-3, the same primitives that already protect every organization&#8217;s systems. It requires no elliptic curves, no lattices, no special-purpose hash functions, no trusted setup, and no unproven conjecture about error-correcting codes. Hash functions are the most thoroughly studied primitives in the cryptographic toolkit, and they are the basis of the stateless hash-based signatures that NIST standardized as its own conservative post-quantum option. For a system that must still be trustworthy in many decades to come, relying only on standard hash functions removes a cryptographic migration from the roadmap.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">The same design decision pays a second dividend. Checking a Magnetar proof consists mostly of evaluating standard hash functions and binary-field arithmetic, which are exactly the operations Magnetar proves efficiently. Verifying a proof is therefore an ordinary workload for it. This is what allows Magnetar to prove computations of any size, by proving them in pieces and then combining the pieces. This also allows Magnetar to prove a long-running system such as a ledger or a blockchain.</p>
+
+
+
+<p class="wp-block-paragraph">The <a href="https://www.microsoft.com/en-us/research/publication/magnetar-high-speed-post-quantumrv64-zkvm-from-standard-hashes/">technical paper</a> gives the full design, security analysis, and measurements.</p>
+
+
+
+<h2 id="looking-ahead" class="wp-block-heading">Looking ahead</h2>
+
+
+
+<p class="wp-block-paragraph">Magnetar advances zero-knowledge proofs and verifiable computing to a stage where they can be built on the cryptography that organizations already trust, at speeds that make it usable, by engineers who write normal code. Magnetar enables a future where cryptographic proofs are a routine output of computation. We expect that technology leaders will stop asking <em>whether proofs of execution are practical</em> and focus instead on <em>which results</em> <em>would</em> <em>they prefer to verify rather than taking on trust</em>.</p>
+
+
+
+<p class="wp-block-paragraph">If you&#8217;re interested in exploring how zero-knowledge proofs can support your use case, we’d love to <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/ZKP/Interest" target="_blank" rel="noopener noreferrer">hear from you<span class="sr-only"> (opens in new tab)</span></a>.</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/">Proof-based general-purpose computing with Magnetar</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Simulating student learning for better AI tutoring</title>
 		<link>https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/</link>
 		
@@ -32,7 +235,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/">Simulating student learning for better AI tutoring</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="A conceptual diagram of the feedback loop required to improve an AI tutor. The middle part of the figure shows that a human teacher gives guidance to a real student and receives the student’s feedback, but this feedback is slow, costly, sparse, and hard to scale. On the right panel of the figure, an AI student simulator is trained from real student feedback and serves as a fast proxy for the student during tutor development." class="wp-image-1185955" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="A conceptual diagram of the feedback loop required to improve an AI tutor. The middle part of the figure shows that a human teacher gives guidance to a real student and receives the student’s feedback, but this feedback is slow, costly, sparse, and hard to scale. On the right panel of the figure, an AI student simulator is trained from real student feedback and serves as a fast proxy for the student during tutor development." class="wp-image-1185955" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/StudentSim-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -85,7 +288,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2560" height="1467" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-scaled.jpg" alt="**Alt text:** A conceptual diagram of the feedback loop required to improve an AI tutor. The middle part of the figure shows that a human teacher gives guidance to a real student and receives the student’s feedback, but this feedback is slow, costly, sparse, and hard to scale. On the right panel of the figure, an AI student simulator is trained from real student feedback and serves as a fast proxy for the student during tutor development." class="wp-image-1186104" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-300x172.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-1024x587.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-768x440.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-1536x880.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-2048x1174.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-240x138.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1:</em> <em>AI tutors need feedback from students to improve. Student simulators can approximate part of that feedback during research-stage training and evaluation.</em> <em>They</em> <em>provide an early-stage research signal, not a replacement for testing with real learners.</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2560" height="1467" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-scaled.jpg" alt="**Alt text:** A conceptual diagram of the feedback loop required to improve an AI tutor. The middle part of the figure shows that a human teacher gives guidance to a real student and receives the student’s feedback, but this feedback is slow, costly, sparse, and hard to scale. On the right panel of the figure, an AI student simulator is trained from real student feedback and serves as a fast proxy for the student during tutor development." class="wp-image-1186104" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-300x172.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-1024x587.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-768x440.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-1536x880.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-2048x1174.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-1_motivation_StudentSim_Updated-240x138.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em>Figure 1:</em> <em>AI tutors need feedback from students to improve. Student simulators can approximate part of that feedback during research-stage training and evaluation.</em> <em>They</em> <em>provide an early-stage research signal, not a replacement for testing with real learners.</em></figcaption></figure>
 
 
 
@@ -105,7 +308,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full is-resized"><img decoding="async" width="2560" height="1686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-scaled.jpg" alt="  **Alt text:** Diagram defining the two evaluation criteria used for student simulators. The upper portion shows a problem, “minus 7.3 times 5 equals what.” The lower portion compares a real student and an AI simulator. Both initially answer 36.5, then receive guidance and revise their answer to negative 36.5. Asking whether a simulator’s responses match the recorded student answers is behavioral fidelity. Matching the guidance-induced change is guidance responsiveness." class="wp-image-1186107" style="aspect-ratio:1.5184267411820531;width:776px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-300x198.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-1024x674.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-768x506.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-1536x1012.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-2048x1349.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-240x158.jpg 240w" sizes="(max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em><em>Figure 2: StudentSimEval evaluates whether a simulator matches a student’s independent behavior and whether it responds to guidance.</em>&nbsp;</em></figcaption></figure>
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2560" height="1686" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-scaled.jpg" alt="  **Alt text:** Diagram defining the two evaluation criteria used for student simulators. The upper portion shows a problem, “minus 7.3 times 5 equals what.” The lower portion compares a real student and an AI simulator. Both initially answer 36.5, then receive guidance and revise their answer to negative 36.5. Asking whether a simulator’s responses match the recorded student answers is behavioral fidelity. Matching the guidance-induced change is guidance responsiveness." class="wp-image-1186107" style="aspect-ratio:1.5184267411820531;width:776px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-scaled.jpg 2560w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-300x198.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-1024x674.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-768x506.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-1536x1012.jpg 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-2048x1349.jpg 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/fig-2_metrics_StudentSim_Updated-240x158.jpg 240w" sizes="auto, (max-width: 2560px) 100vw, 2560px" /><figcaption class="wp-element-caption"><em><em>Figure 2: StudentSimEval evaluates whether a simulator matches a student’s independent behavior and whether it responds to guidance.</em>&nbsp;</em></figcaption></figure>
 
 
 
@@ -328,30 +531,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Ideas</h2>
+									<h2 class="h4">Microsoft at SOSP 2026</h2>
 				
-								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
+								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
-							Listen now						</a>
+						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+							Learn more						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -1835,29 +2038,26 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186970">
 		
 
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
-	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-label="Microsoft Research at BUILD 2026" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/MSRatBuild2026-TWLIFB-1200x627-1.jpg" alt="Microsoft Research at BUILD 2026 | abstract pattern on a purple background" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft at SOSP 2026</h2>
+									<h2 class="h4">Microsoft Research at BUILD 2026</h2>
 				
-								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
+								<p id="microsoft-research-at-build-2026" class="large">Giving developers a hands-on look at some of the many AI-based models and tools they can use to accelerate innovation, enhance their capabilities, and quickly transform ideas into prototypes.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/story/msr-at-build-2026/" aria-describedby="microsoft-research-at-build-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research at BUILD 2026" target="_blank">
 							Learn more						</a>
 					</div>
 				</div>
@@ -2221,30 +2421,30 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="999693">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Event Series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-label="Microsoft Research Forum" data-bi-cn="Microsoft Research Forum" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/05/Research-Forum-hero_1400x788.jpg" alt="Research Forum | abstract background with colorful hexagons" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft Research Forum</h2>
+									<h2 class="h4">Ideas</h2>
 				
-								<p id="microsoft-research-forum" class="large">Join us for a continuous exchange of ideas about research in the era of general AI. Watch the latest episodes on demand.</p>
+								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/microsoft-research-forum/past-episodes/?OCID=msr_researchforum_MCR_Blog_Promo" aria-describedby="microsoft-research-forum" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Forum" target="_blank">
-							Watch on-demand						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2275,208 +2475,6 @@ Outputs of RetroChimera and other models were ranked by PhD-level expert chemist
 
 <p class="wp-block-paragraph"><em><strong>Paper co-authors</strong>: Naoto Usuyama, Jeya Maria Jose Valanarasu, Sicong Yao, Hanwen Xu, Jaspreet Bagga, Guanghui Qin, Robert E. Kramer, Cliff Wong, Soohee Lee, Hao Qiu, Theodore Zhengde Zhao, Racheli Ben Shimol, Angela Crabtree, Kevin Matlock, Eduardo Alejandro Lozano Garcia, Naiteek Sangani, Alberto Santamaria-Pang, Maximilian Rokuss, Yashna Hasija, Naisargi Manishkumar Patel, Jason Entenmann, Alexandra Q. Bartlett, Bill J. Wright, Bernard A. Fox, Brian Piening, Sheng Zhang, Sheng Wang, Tristan Naumann, Carlo Bifulco, Hoifung Poon</em></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/">GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Broadening access to Skala creates a faster path to predictive DFT </title>
-		<link>https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/</link>
-		
-		<dc:creator><![CDATA[Sebastian Ehlert, Stefano Battaglia, Thijs Vogels, Jan Hermann, Jens Wehner, Giulia Luise, Klaas Giesbertz, Chin-Wei Huang, Aaron Kaplan, Kate Milton, Stephanie Marisa Lanius, Derk Kooi, P. Bern&aacute;t Szab&oacute;, Gregor Simm, Rianne van den Berg, Paola Gori Giorgi]]></dc:creator>
-		<pubDate>Thu, 20 Aug 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1184167</guid>
-
-					<description><![CDATA[<p>Skala 1.1, the updated deep-learning exchange-correlation functional from Microsoft Research, provides greater accuracy, expanded accessibility across the computational chemistry ecosystem, and a living benchmark to track computational performance. </p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/">Broadening access to Skala creates a faster path to predictive DFT </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1.jpg" alt="Schematic of the Skala architecture, showing how meta-GGA electronic features are transformed through point-wise processing and non-local atomic interactions to predict density functional theory energies." class="wp-image-1184452" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/Skala-BlogHeroFeature-1400x788-1-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Skala 1.1 demonstrates the continuously improving nature of Microsoft Research&#8217;s deep-learning DFT approach: trained on 2.5× more data than its predecessor, it delivers substantially higher accuracy across key molecular simulation challenges, including thermochemistry, reaction kinetics, and molecular structure prediction.</li>
-
-
-
-<li>Skala is now available in <strong>CP2K</strong> and is being integrated into <strong>Psi4</strong>, <strong>FHI-aims</strong>, <strong>ORCA</strong> and <strong>VASP</strong>, bringing next-generation DFT accuracy closer to the communities that rely on these codes every day.</li>
-
-
-
-<li>Microsoft Research is also introducing a living benchmark that will track the computational performance of successive, increasingly optimized Skala releases to help the community measure and accelerate progress toward ever greater accuracy and efficiency.</li>
-
-
-
-<li>Together, these developments mark another milestone toward a future in which computational chemistry simulations are both predictive and integrated in all relevant scientific and industrial workflows.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph"><strong>Bringing density functional theory (DFT) to predictive accuracy is a journey, not a single breakthrough.</strong> Since <a href="https://www.microsoft.com/en-us/research/blog/breaking-bonds-breaking-ground-advancing-the-accuracy-of-computational-chemistry-with-deep-learning/" target="_blank" rel="noreferrer noopener">introducing Skala</a>, our deep-learning exchange-correlation functional, we have continued to advance along two complementary fronts: improving accuracy and expanding accessibility across the computational chemistry ecosystem.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1785" height="2560" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-scaled.png" alt="Fig. 1: Table of errors for Skala-1.1 and competing density functionals on the 55 subsets of GMTKN55. Skala-1.1 delivers the lowest error on 32 subsets, indicating broad and consistent accuracy across a wide range of chemical properties and reaction types." class="wp-image-1184173" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-scaled.png 1785w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-209x300.png 209w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-714x1024.png 714w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-768x1101.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-1071x1536.png 1071w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-1428x2048.png 1428w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig1-blog_SKALA1.1-126x180.png 126w" sizes="auto, (max-width: 1785px) 100vw, 1785px" /><figcaption class="wp-element-caption">Figure 1: Accuracy of Skala-1.1 for thermochemistry, kinetics, and non-covalent interactions. At the computational cost of a meta-GGA functional, Skala 1.1 outperforms the best, most expensive global hybrid functionals, ranking first (earning gold medals) in 32 of the 55 categories of the widely used GMTKN55 benchmark, which spans a broad range of chemical problems.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">On the accuracy front, the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://arxiv.org/abs/2506.14665" target="_blank" rel="noopener noreferrer">release of <strong>Skala-1.1</strong><span class="sr-only"> (opens in new tab)</span></a> provides the first demonstration of the continuous-improvement paradigm underlying Skala. Trained on 2.5x more data than the first public version of Skala, the updated&nbsp; model delivers substantially improved performance across key challenges in molecular simulation, including main-group thermochemistry, reaction kinetics, and molecular structure prediction.</p>
-
-
-
-<p class="wp-block-paragraph">But accuracy alone is not enough. DFT is the computational engine behind a vast range of scientific and industrial workflows, spanning chemistry, materials science, catalysis, energy technologies, and drug discovery. To have real-world impact, advanced functionals must be accessible where scientists already perform their calculations. That is why we are also expanding the Skala ecosystem through collaborations with leading electronic-structure software developers.</p>
-
-
-
-<p class="wp-block-paragraph">Today, we are announcing that Skala is available in <strong>CP2K</strong> and is being integrated into <strong>Psi4</strong>, <strong>FHI-aims</strong>, <strong>ORCA</strong> and <strong>VASP</strong>,&nbsp; bringing next-generation DFT accuracy closer to the communities that rely on these codes every day. Alongside these integration efforts, we are introducing a living benchmark that tracks the computational performance of successive, increasingly optimized Skala releases. By providing a transparent and continuously updated reference for implementations across software packages and hardware platforms, this resource will help the community measure and accelerate progress toward ever greater accuracy and efficiency.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Together, these developments mark another milestone toward a future in which computational chemistry simulations are both predictive and accessible across a broader range of relevant scientific and industrial workflows.</p>
-
-
-
-<p class="wp-block-paragraph">Want to learn more about Skala and why DFT plays such an important role in in-silico discovery? Read also <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/skaladft/blog" type="link" id="https://aka.ms/skaladft/blog" target="_blank" rel="noopener noreferrer">our first blog post<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<h2 id="skala-as-a-continuously-improving-functional" class="wp-block-heading">Skala as a continuously improving functional</h2>
-
-
-
-<p class="wp-block-paragraph">Unlike the traditional &#8220;functional zoo&#8221;, where new functionals accumulate without replacing older ones, Skala follows a different philosophy: each release is designed to supersede the previous one. As new data, model architectures, and training strategies become available, the model improves while maintaining the same practical computational cost.</p>
-
-
-
-<p class="wp-block-paragraph"><strong>Skala-1.1</strong> is the latest demonstration of this approach. It achieves a weighted average error of <strong>2.8 kcal/mol on GMTKN55</strong>, a widely used benchmark suite comprising 55 categories of chemistry, including thermochemistry, reaction barriers, and noncovalent interactions. This level of accuracy surpasses today&#8217;s leading global (range-separated) hybrid functionals while retaining the efficiency of a semi-local functional. Beyond energies, Skala-1.1 also provides highly accurate electron densities, dipole moments, and molecular geometries.</p>
-
-
-
-<p class="wp-block-paragraph">These advances were enabled by major expansions of the <strong><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.nature.com/articles/s41597-026-07200-8" type="link" id="https://www.nature.com/articles/s41597-026-07200-8" target="_blank" rel="noopener noreferrer">Microsoft Research Accurate Chemistry Collection<span class="sr-only"> (opens in new tab)</span></a> (MSR-ACC)</strong>, our large-scale collection of high-accuracy quantum-chemistry reference data generated with expensive wavefunction methods. For Skala-1.1, we added new categories, including electron affinities and noncovalent clusters, increasing both the size and, crucially, the diversity of the training data. This data-driven approach allows Skala to improve systematically with each generation, moving us closer to a truly scalable and predictive DFT framework.</p>
-
-
-
-<h2 id="available-where-scientists-work" class="wp-block-heading">Available where scientists work</h2>
-
-
-
-<p class="wp-block-paragraph">To fully realize the potential of Skala’s continuously evolving approach to DFT, we need dedicated infrastructure that allows new releases to be rapidly and seamlessly integrated into the major software packages used by scientists in industry and academia. In turn, this will establish the fast feedback loop essential for accelerating Skala’s ongoing development.</p>
-
-
-
-<p class="wp-block-paragraph">We first made Skala available through our <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/skala" type="link" id="https://github.com/microsoft/skala" target="_blank" rel="noopener noreferrer">open-source community release<span class="sr-only"> (opens in new tab)</span></a>, built on (GPU4)<a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://pyscf.org/" type="link" id="https://pyscf.org/" target="_blank" rel="noopener noreferrer">PySCF<span class="sr-only"> (opens in new tab)</span></a> and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/SkalaDFT/ASE" type="link" id="https://aka.ms/SkalaDFT/ASE" target="_blank" rel="noopener noreferrer">integrated with ASE<span class="sr-only"> (opens in new tab)</span></a>. This enables researchers to evaluate and apply Skala with minimal effort while benefiting from highly optimized CPU and GPU performance.</p>
-
-
-
-<p class="wp-block-paragraph">But no single software package can meet the needs of every application or research community. Computational chemistry and materials science rely on a rich ecosystem of electronic-structure codes, each shaped over decades to tackle specific scientific and industrial challenges. Bringing Skala to this broader ecosystem has therefore been a major focus of the past year. We are fortunate to build on the remarkable foundations created by the DFT community and grateful to the many researchers and developers who are helping to make Skala available within the software platforms that scientists use every day.</p>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
-		
-
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://labs.ai.azure.com/" aria-label="Foundry Labs" data-bi-cn="Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Foundry Labs</h2>
-				
-								<p id="foundry-labs" class="large">Foundry Labs bridges the distance between Microsoft breakthroughs and the builders, scientists, and curious minds who can put them to work.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://labs.ai.azure.com/" aria-describedby="foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Foundry Labs" target="_blank">
-							Foundry Labs						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="from-community-release-to-native-integrations" class="wp-block-heading">From community release to native integrations</h2>
-
-
-
-<p class="wp-block-paragraph">In collaboration with the team of Prof. Thomas D. Kühne at the <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://casus.science" type="link" id="https://casus.science" target="_blank" rel="noopener noreferrer">Center for Advanced Systems Understanding (CASUS)<span class="sr-only"> (opens in new tab)</span></a>, Skala has been successfully integrated into the open-source <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.cp2k.org/" type="link" id="https://www.cp2k.org/" target="_blank" rel="noopener noreferrer">CP2K<span class="sr-only"> (opens in new tab)</span></a> package. With more than 25 years of development, CP2K is a powerhouse for DFT simulations, particularly for large-scale systems and long-timescale molecular dynamics, while also providing a rich portfolio of high-accuracy electronic-structure methods. Skala expands the frontiers of what is possible within CP2K, delivering a step change in DFT accuracy while preserving the computational efficiency needed for simulations at scale. We are excited to see how CP2K&#8217;s scale and versatility, combined with Skala&#8217;s continuously improving accuracy, will enable new scientific applications and discoveries in the years ahead.</p>
-
-
-
-<p class="wp-block-paragraph">There is more to come. Together with its vibrant developer’s community , we are actively integrating Skala into the open-source <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://psicode.org/" type="link" id="https://psicode.org/" target="_blank" rel="noopener noreferrer">Psi4<span class="sr-only"> (opens in new tab)</span></a> package, an essential platform for molecular electronic-structure research. Combined with the PySCF-based Skala Community Edition, this will make Skala available in three widely used open-source quantum chemistry packages.</p>
-
-
-
-<p class="wp-block-paragraph">Beyond open-source software, we are working closely with leading developers behind <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.fhi-aims.org/" target="_blank" rel="noopener noreferrer">FHI-aims<span class="sr-only"> (opens in new tab)</span></a>, <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://www.faccts.de/orca/" target="_blank" rel="noopener noreferrer">ORCA<span class="sr-only"> (opens in new tab)</span></a>, and <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://vasp.at/" target="_blank" rel="noopener noreferrer">VASP<span class="sr-only"> (opens in new tab)</span></a>, with the goal of making Skala broadly accessible across the major software platforms used in computational chemistry and materials science.</p>
-
-
-
-<h2 id="validating-accuracy-across-implementations-cp2k-as-case-study" class="wp-block-heading">Validating accuracy across implementations: CP2K as case study</h2>
-
-
-
-<p class="wp-block-paragraph">Thorough testing is essential for any new implementation. We want to ensure that Skala delivers consistent accuracy across different codes and computational settings. Together with the CP2K team, we developed a comprehensive suite of integration tests to verify that Skala produces numerically correct and reliable results. We are particularly grateful to the CASUS team, whose deep expertise in the numerical verification of computational methods was instrumental in designing and validating this testing framework.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="2007" height="2007" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA.png" alt="Fig. 2: Plot comparing signed errors for Skala-1.1 using the CP2K and PySCF implementations on a representative subset of GMTKN55. The two implementations show nearly identical results, agreeing within 0.04 kcal/mol and confirming that the CP2K integration reproduces the accuracy of the community release." class="wp-image-1184807" style="width:556px;height:auto" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA.png 2007w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-1536x1536.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/cp2k_vs_pyscf_error-3_SKALA-360x360.png 360w" sizes="auto, (max-width: 2007px) 100vw, 2007px" /><figcaption class="wp-element-caption">Figure 2: Signed errors relative to high-accuracy reference values for a representative subset of GMTKN55, comparing the CP2K and PySCF implementations of Skala-1.1 using as closely matched numerical settings as possible. The two implementations agree to within 0.1 kcal/mol MAD across the entire subset.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">A detailed discussion of the implementation, validation strategy, and testing infrastructure for Skala in CP2K can be found in our joint paper with the CASUS team: “<a href="https://www.microsoft.com/en-us/research/publication/molecular-implementation-of-the-machine-learned-skalaexchange-correlation-functional-in-cp2k-through-gauxc/">Molecular Implementation of the Machine-Learned Skala Exchange-Correlation Functional in CP2K through GauXC</a>.&#8221;</p>
-
-
-
-<h2 id="a-living-performance-report-for-skala" class="wp-block-heading">A living performance report for Skala</h2>
-
-
-
-<p class="wp-block-paragraph">Accuracy and broad availability only translate into scientific impact if Skala is also fast. Today, Skala can deliver performance comparable to semi-local meta-GGAs on both CPU’s (with an overhead that disappears for molecules with more than 20-30 atoms) and GPUs, and we are committed to preserving that efficiency as it is integrated across the electronic-structure software ecosystem.</p>
-
-
-
-<p class="wp-block-paragraph">But performance is not a fixed property. New Skala releases, improvements in libraries such as GauXC, and hardware-specific optimizations continuously improve efficiency and reveal new opportunities for further gains. Capturing this progress requires more than a single benchmark snapshot.</p>
-
-
-
-<p class="wp-block-paragraph">To provide a transparent and up-to-date view of Skala&#8217;s performance, we are publishing a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/SkalaDFT/timing" type="link" id="https://aka.ms/SkalaDFT/timing" target="_blank" rel="noopener noreferrer">benchmarking harness together with a living performance report<span class="sr-only"> (opens in new tab)</span></a> that will be updated as new optimizations become available. This report tracks performance across a range of tasks and hardware platforms, while the harness enables package developers to benchmark, validate, and improve their own Skala implementations.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2518" height="1108" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1.png" alt="Fig. 3 (figure attached): Benchmark of the computational cost of Skala-1.1 relative to r2SCAN, B3LYP, and M06-2X on GPUs and CPUs. Skala-1.1 achieves performance comparable to r2SCAN on GPUs and approaches semilocal-functional cost on CPUs for larger systems, while remaining significantly less expensive than hybrid functionals." class="wp-image-1184172" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1.png 2518w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1-300x132.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1-1024x451.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1-768x338.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1-1536x676.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1-2048x901.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/08/fig3_SKALA1.1-240x106.png 240w" sizes="auto, (max-width: 2518px) 100vw, 2518px" /><figcaption class="wp-element-caption">Figure 3: Computational cost of Skala on GPU and CPU, compared with a popular metaGGA functional (r2SCAN) and two hybrid functionals (B3LYP and M06-2X). On GPU, Skala 1.1 has the same cost as r2SCAN, and the hybrid functionals become more expensive for systems with more than ~1000 orbitals. On CPU, Skala has an overhead with respect to the other functionals for smaller systems, that disappears for systems with more than ~300 orbitals. </figcaption></figure>
-
-
-
-<h2 id="acknowledgments" class="wp-block-heading">Acknowledgments</h2>
-
-
-
-<p class="wp-block-paragraph">Skala is the product of a truly collaborative effort across AI for Science, and we thank our engineering, project management, and business operations teams for making this work possible. We also thank MSR Accelerator for their partnership in advancing data generation efforts and accelerating software integrations that help bring Skala to the broader scientific community.</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/">Broadening access to Skala creates a faster path to predictive DFT </a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
