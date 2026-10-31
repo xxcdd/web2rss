@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 29 Oct 2026 19:19:18 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 30 Oct 2026 15:14:09 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,337 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.3</generator>
 	<item>
+		<title>From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence</title>
+		<link>https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/</link>
+		
+		<dc:creator><![CDATA[Somya Chatterjee, Harshita Sahijwani, Min Chen, Sushmitha Rajeswari Muppa, Dayquan Julienne, Irene Shaffer, Chandra Inguva, Jenny Chen, Minha Hwang, Sam Ade Jacobs]]></dc:creator>
+		<pubDate>Fri, 30 Oct 2026 13:05:28 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1191770</guid>
+
+					<description><![CDATA[<p>Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances.</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/">From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-1024x576.jpg" alt="Illustration on a purple and blue gradient background showing three white line icons: a hierarchical organizational chart, a checklist with checkmarks, and a shield. The icons visually represent structured data, evaluation criteria, and security or trustworthiness." class="wp-image-1191907" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FromSyntheticEnterprise-BlogHeroFeature-1400x788-1.jpg 1400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
+	
+	<div class="container">
+		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
+			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
+
+
+
+<ul class="wp-block-list">
+<li>Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances.</li>
+
+
+
+<li>To resolve this tension, we built Industry Evaluation Data Generation Platform: full-scale synthetic enterprise environments grounded in publicly available real-world data sources such as O*NET occupational data, online job postings, and SEC filings.</li>
+
+
+
+<li>The synthetic environments mimic real business workflows, helping Microsoft find issues that generic benchmarks would miss.</li>
+
+
+
+<li>Safety and privacy are built into the platform by design. Every environment is fully synthetic and automated content-safety checks keep the generated data free of harmful or personally identifiable material.</li>
+</ul>
+</div>
+</div>		</div>
+	</div>
+
+	</div>
+
+
+
+<p class="wp-block-paragraph">Every day, millions of knowledge workers around the world rely on Microsoft Copilot to draft documents, summarize meetings, surface relevant information, and accelerate productivity. Behind the scenes, this is powered by a network of AI systems, and ensuring they work as intended requires a thoughtful approach to evaluation. At Microsoft, we know that high performance doesn’t come from guesswork. It comes from testing, measuring, and iterating constantly.</p>
+
+
+
+<p class="wp-block-paragraph">Healthcare organizations are constantly synthesizing safety signals from across teams so that they can make faster, better decisions that directly influence patient outcomes and regulatory confidence.</p>
+
+
+
+<p class="wp-block-paragraph">They may ask Copilot to summarize a meeting and extract action items for their teams. Within seconds, Copilot delivers a structured summary citing specific discussion points from the transcript. But how do we ensure this response is accurate, complete, and properly grounded in the meeting content? This is where our evaluation system comes in.</p>
+
+
+
+<p class="wp-block-paragraph">We’ve developed a structured evaluation strategy called <strong>Industry Evaluation Data Generation Platform</strong>, which includes industry specific evaluation datasets designed to test AI systems against realistic enterprise scenarios, grounded in three core pillars:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Synthetic enterprise environments</strong>: simulated Microsoft Copilot environments with realistic users, meetings, emails, documents, and organizational structures that replicate the complexity of real organizations without using any customer data</li>
+
+
+
+<li><strong>Automated query generation pipelines</strong> for rapid, reproducible creation of evaluation datasets</li>
+
+
+
+<li><strong>Structured quality frameworks</strong> to ensure synthetic data meets the bar for meaningful evaluation</li>
+</ul>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1503" height="748" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-1.png" alt="Figure 1: Components of Industry Evaluation Data Generation Platform" class="wp-image-1191777" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-1.png 1503w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-1-300x149.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-1-1024x510.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-1-768x382.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-1-240x119.png 240w" sizes="(max-width: 1503px) 100vw, 1503px" /><figcaption class="wp-element-caption"><span style="font-size: 0.8rem;">Figure 1: Components of Industry Evaluation Data Generation Platform</span></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Together, these pillars help us answer two fundamental questions: <em>Is Microsoft Copilot actually doing what our users need it to do, and can we prove it without ever touching their data</em>?</p>
+
+
+
+<p class="wp-block-paragraph">In this blog post, we’ll walk through our evaluation system and processes, from synthetic environment generation to automated query pipelines, and how it all comes together to establish the first standardized evaluation baseline for Microsoft Copilot.</p>
+
+
+
+<h2 id="synthetic-enterprise-environments" class="wp-block-heading">Synthetic enterprise environments</h2>
+
+
+
+<p class="wp-block-paragraph">Evaluating enterprise AI requires test data that captures the full complexity of real organizations: reporting structures, project histories, communication patterns, and domain specific workflows. But real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. This is the central tension we set out to resolve.</p>
+
+
+
+<p class="wp-block-paragraph">Rather than relying on small, manually curated test fixtures, we generate <strong>full scale synthetic environments</strong>: simulated enterprise workspaces, each with realistic organizational structures, communication histories, and work artifacts. In Microsoft terminology, each of these simulated workspaces is called a “tenant”. A tenant is an isolated organizational environment with its own users, data, and configurations. These environments are scalable baselines that teams and organizations can build off of however they want. They are designed to exhibit the same structural and behavioral properties that make enterprise AI evaluation meaningful.</p>
+
+
+
+<h3 id="grounding-in-real-world-signals" class="wp-block-heading">Grounding in real world signals</h3>
+
+
+
+<p class="wp-block-paragraph">To ensure our synthetic environments are realistic, we grounded them in publicly available real world data sources.</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>O*NET data</strong> from the U.S. Department of Labor’s occupational database was used to make synthetic employee roles and responsibilities realistic, calibrate the mix and frequency of work activities assigned to different roles, and tailor industry specific workflows such as clinical trial reviews or portfolio updates.</li>
+
+
+
+<li><strong>Online job postings</strong> provide realistic role titles, reporting hierarchies, and departmental compositions.</li>
+
+
+
+<li><strong>SEC filings</strong> inform organizational scale, business unit structures, and financial contexts. All of these sources are publicly available and have been reviewed and approved by Microsoft’s legal and policy organization.</li>
+</ul>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1400" height="782" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-2_1400px.png" alt="Figure 2: Real signals from public datasets that are used to ground the evaluation data generation" class="wp-image-1191778" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-2_1400px.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-2_1400px-300x168.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-2_1400px-1024x572.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-2_1400px-768x429.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-2_1400px-240x134.png 240w" sizes="(max-width: 1400px) 100vw, 1400px" /><figcaption class="wp-element-caption">Figure 2: Real signals from public datasets that are used to ground the evaluation data generation </figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Importantly, these synthetic environments are not static snapshots. They simulate dynamic, time-evolving organizations with meeting histories, project timelines, email threads that develop over weeks, and organizational changes that unfold naturally. This temporal dimension is essential because a large class of Copilot queries are inherently time aware. Questions like “What did the team decide last Thursday?” or “What’s changed since the last quarterly review?” only produce meaningful evaluations if the underlying data has a genuine temporal structure.</p>
+
+
+
+<h3 id="industry-specific-simulation" class="wp-block-heading">Industry specific simulation</h3>
+
+
+
+<p class="wp-block-paragraph">We generated three synthetic environments across multiple industries, each with distinct characteristics that mirror real world usage:</p>
+
+
+
+<ul class="wp-block-list">
+<li>A pharmaceutical environment that includes regulatory submission workflows, clinical trial discussions, and cross functional safety review meetings</li>
+
+
+
+<li>A capital markets environment featuring deal pipelines, compliance communications, and client portfolio reviews</li>
+
+
+
+<li>An IT/software company that simulates sprint planning, code review discussions, and product launch coordination</li>
+</ul>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="495" height="197" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-3.png" alt="Figure 3: Industries targeted for industry evaluation data generation" class="wp-image-1191779" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-3.png 495w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-3-300x119.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-3-240x96.png 240w" sizes="auto, (max-width: 495px) 100vw, 495px" /><figcaption class="wp-element-caption">Figure 3: Industries targeted for industry evaluation data generation</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">This industry specificity ensures that our evaluation queries test Copilot against the kinds of questions real users in those domains actually ask, rather than relying on generic test cases that may not surface domain specific failure modes.</p>
+
+
+
+<h2 id="automated-query-generation" class="wp-block-heading">Automated query generation</h2>
+
+
+
+<p class="wp-block-paragraph">While synthetic environments provide the substrate for evaluation, they face a key limitation: we still need realistic evaluation queries. These are the questions that test whether Copilot can surface the right information, synthesize it correctly, and present it helpfully. Manually writing thousands of grounded, industry specific queries is prohibitively expensive and slow. That’s where our automated pipeline comes in.</p>
+
+
+
+<h3 id="the-six-stage-pipeline" class="wp-block-heading">The six-stage pipeline</h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1430" height="154" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-4.png" alt="Figure 4: Query customization pipeline that turns generic query templates into realistic, industry-specific queries" class="wp-image-1191780" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-4.png 1430w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-4-300x32.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-4-1024x110.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-4-768x83.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/Curated-Evalset-Figure-4-240x26.png 240w" sizes="auto, (max-width: 1430px) 100vw, 1430px" /><figcaption class="wp-element-caption">Figure 4: Query customization pipeline that turns generic query templates into realistic, industry-specific queries</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">We built an automated pipeline that turns simple, generic query ideas into realistic, industry-specific questions for Copilot. It starts with a large library of common workplace tasks, narrows them down to what’s relevant for a given industry, and adapts them using domain-specific language and context. The system then uses AI to generate queries grounded in the synthetic environment’s data, rewrites them to sound more natural and human, and validates each one for accuracy and uniqueness. The result is a rich set of high-quality, lifelike queries that enable scalable and reliable evaluation of Copilot across real-world scenarios.</p>
+
+
+
+<h3 id="validating-synthetic-quality" class="wp-block-heading">Validating synthetic quality</h3>
+
+
+
+<p class="wp-block-paragraph">Of course, generating synthetic data is only part of the challenge. We also need to ensure the data is good enough to produce meaningful evaluations. We assess synthetic environment quality using our internal semantic evaluation framework which measures quality across three dimensions:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Structural fidelity</strong>: Does the organizational structure reflect realistic reporting hierarchies, team sizes, and cross functional relationships?</li>
+
+
+
+<li><strong>Contextual relevance</strong>: Are the queries and workflows representative of actual enterprise usage patterns?</li>
+
+
+
+<li><strong>Behavioral realism</strong>: Do the simulated users exhibit human-like communication patterns and collaboration dynamics?</li>
+
+
+
+<li><strong>Content safety</strong>: Is the generated content free of harmful, offensive, or personally identifiable material, and does it avoid impersonating real individuals?</li>
+</ul>
+
+
+
+<h2 id="end-to-end-automation" class="wp-block-heading">End-to-end automation</h2>
+
+
+
+<p class="wp-block-paragraph">While our synthetic environments and query pipelines provide the methodology, they face several practical limitations without proper automation, including:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Reproducibility</strong>: Manual processes produce subtly different results each time, making it difficult to compare evaluations across releases.</li>
+
+
+
+<li><strong>Scale</strong>: The number of industry verticals and configuration variants exceeds what any team can reasonably produce by hand.</li>
+
+
+
+<li><strong>Iteration speed</strong>: Manual creation takes days, delaying essential feedback and slowing down development cycles.</li>
+
+
+
+<li><strong>Cross-team consistency</strong>: Without standardized tooling, different teams produce evaluation datasets with incompatible formats and quality levels.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">This automation reduced evaluation dataset creation from a multi-day manual process to automated runs. We estimate savings of approximately $100,000 per evaluation dataset and $300,000 in total project savings. But the more important outcome is that any team can now regenerate an evaluation dataset from the same configuration and get identical results.</p>
+
+
+
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186969">
+		
+
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Microsoft Research StorY</span>
+	</p>
+	
+	<div class="row pt-3 pb-4 align-items-center">
+						<div class="msr-promo__media col-12 col-md-5">
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/optimind-when-the-system-meets-the-floor/" aria-label="OptiMind: When the system meets the floor" data-bi-cn="OptiMind: When the system meets the floor" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/06/OptiMind-TWLIFB-1200x627-1.jpg" alt="Abstract teal-toned image of aluminum cans viewed from above, overlaid with a network of connected flowchart shapes (rectangles, rounded nodes, and diamonds) linked by thin line." />
+				</a>
+			</div>
+			
+			<div class="msr-promo__content p-3 px-5 col-12 col-md">
+
+									<h2 class="h4">OptiMind: When the system meets the floor</h2>
+				
+								<p id="optimind-when-the-system-meets-the-floor" class="large">A three‑month pilot in a Midwestern bottling plant shows what happens when AI moves beyond chat and into decision-making, where constraints shift, stakes are real, and answers must hold.</p>
+				
+								<div class="wp-block-buttons justify-content-center justify-content-md-start">
+					<div class="wp-block-button">
+						<a href="https://www.microsoft.com/en-us/research/story/optimind-when-the-system-meets-the-floor/" aria-describedby="optimind-when-the-system-meets-the-floor" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="OptiMind: When the system meets the floor" target="_blank">
+							Learn more						</a>
+					</div>
+				</div>
+							</div><!--/.msr-promo__content-->
+	</div><!--/.msr-promo__inner-wrap-->
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
+	
+
+
+<h2 id="privacy-and-safety-by-design" class="wp-block-heading">Privacy and safety by design</h2>
+
+
+
+<p class="wp-block-paragraph">Enterprise grade evaluation demands more than good methodology. It requires a privacy posture that allows teams to move fast without compromising user trust. A non-negotiable design principle of our industry evaluation datasets is that <strong>no real customer data is used at any stage of the pipeline</strong>. Every element, from organizational structures to email content to meeting transcripts, is synthetically generated, with no customer data inputs. Because the data is both fully synthetic and safety-screened, teams can share and reuse it widely without introducing reputational, compliance, or <a href="https://www.microsoft.com/en-us/ai/responsible-ai?msockid=28e78f5115c96edf120698f2148f6fe8" data-type="link" data-id="https://www.microsoft.com/en-us/ai/responsible-ai?msockid=28e78f5115c96edf120698f2148f6fe8" target="_blank" rel="noreferrer noopener">Responsible AI</a> risk.</p>
+
+
+
+<p class="wp-block-paragraph">Our safeguards include privacy preserving aggregation techniques where real-world statistical distributions are referenced, expert legal review and approval of all public data sources, and clear data provenance and lineage tracking throughout the pipeline.</p>
+
+
+
+<p class="wp-block-paragraph">This means teams across Microsoft can use these evaluation datasets freely for experimentation, benchmarking, and regression testing without privacy review overhead or data handling restrictions that would otherwise slow down iteration. The privacy design is not a constraint on the system. It is what makes broad adoption possible.</p>
+
+
+
+<h2 id="results-and-impact" class="wp-block-heading">Results and impact</h2>
+
+
+
+<p class="wp-block-paragraph">Since starting this project, we have observed significant improvements across multiple dimensions.</p>
+
+
+
+<p class="wp-block-paragraph">On <strong>synthetic data quality</strong>, our internal scoring system showed significant quality gains in the structural, contextual, and statistical fidelity of the generated data. Across our composite quality metric (which measures how closely synthetic data mirrors the complexity and patterns of real enterprise environments), scores improved 39% compared to our initial generation approach. Some industry-specific environments reached quality scores above 0.9 out of 1.0, demonstrating that domain focused generation produces highly realistic evaluation environments. The improvements were obtained in part by incorporating realistic, industry signals and in part by automating quality improvements via key composite quality metrics that help improve the structural integrity, contextual coherence and statistical diversity of our synthetic industry environments.</p>
+
+
+
+<p class="wp-block-paragraph">On <strong>scale and efficiency</strong>, each synthetic environment now contains hundreds of users with complete communication histories across three industry verticals. Evaluation dataset creation has gone from multi-day manual effort to automated pipeline runs.</p>
+
+
+
+<p class="wp-block-paragraph">On <strong>organizational adoption</strong>, our industry evaluation data generation platforms have been published to an internal shared catalog for cross-team reuse and established as the first standardized evaluation baseline for Microsoft Copilot. The difference wasn’t just incremental. It was a shift in how teams approach evaluation: from ad hoc, manual processes to standardized, reproducible infrastructure.</p>
+
+
+
+<h2 id="conclusion" class="wp-block-heading">Conclusion</h2>
+
+
+
+<p class="wp-block-paragraph">As we continue to expand what Microsoft Copilot can do, from single turn Q&A to agentic multi-step workflows, our commitment to evaluation remains at the heart of our approach. In enterprise AI, quality isn’t just about accuracy or speed. It’s about trust. Organizations need confidence that AI systems handle their information correctly, and that confidence can only come from thorough, repeatable evaluation. That trust rests on two commitments woven through everything we build: rigorous privacy protection and proactive content safety.</p>
+
+
+
+<p class="wp-block-paragraph">Looking ahead, Microsoft Copilot is tackling even more exciting evaluation challenges: How do we assess the quality of multi-turn agentic interactions? How do we extend synthetic environments to capture organizational dynamics evolving over months or years? How do we build evaluation frameworks for AI systems that take actions, not just generate text? These are the kinds of questions our team is working on next.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>At Microsoft, we’re not just building AI. We’re building the infrastructure to ensure it works reliably for every enterprise, in every industry, at every scale</strong>.</p>
+
+
+
+<p class="wp-block-paragraph"><em>Thanks to everyone who’s worked on Industry Evaluation Datasets</em>!</p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/">From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Microsoft Research Focus – Edition #97</title>
 		<link>https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-97/</link>
 		
@@ -45,7 +376,7 @@
 
 
 
-<iframe src="https://player.blubrry.com/id/155927585?cache=1793296493#mode-Light&border-000000&progress-000000" title="Blubrry Podcast Player" scrolling="no" width="100%" height="165px" frameborder="0"></iframe>
+<iframe loading="lazy" src="https://player.blubrry.com/id/155927585?cache=1793296493#mode-Light&border-000000&progress-000000" title="Blubrry Podcast Player" scrolling="no" width="100%" height="165px" frameborder="0"></iframe>
 
 
 
@@ -453,7 +784,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/">Flint-interactive: A language for creating interactive data visualizations</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1.jpg" alt="Flint Interactive flowchart | purple gradient background" class="wp-image-1190357" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1.jpg" alt="Flint Interactive flowchart | purple gradient background" class="wp-image-1190357" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/FlintInteractive-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -522,30 +853,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -562,7 +893,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="2176" height="1070" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1.png" alt="Interactive Gapminder visualization showing linked brushing across two scatterplots of countries in 1952 and 2007. Each plot charts GDP per capita on the horizontal axis and life expectancy on the vertical axis, with countries colored by continent. A blue rectangular selection highlights a group of countries in the 1952 chart, and the same countries are simultaneously highlighted in the 2007 chart, demonstrating linked selection across years. A control panel on the right provides interaction options including rectangular selection, lasso selection, and x- or y-axis brushing. The figure illustrates how selecting data points in one view highlights corresponding points in another view for comparative analysis over time." class="wp-image-1190489" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1.png 2176w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-300x148.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-1024x504.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-768x378.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-1536x755.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-2048x1007.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-240x118.png 240w" sizes="(max-width: 2176px) 100vw, 2176px" /><figcaption class="wp-element-caption">Example 1: We can enable the user to brush one visual view, and the chart highlights all groups of country selected by the user with a simple preset interaction linked-brush.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="2176" height="1070" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1.png" alt="Interactive Gapminder visualization showing linked brushing across two scatterplots of countries in 1952 and 2007. Each plot charts GDP per capita on the horizontal axis and life expectancy on the vertical axis, with countries colored by continent. A blue rectangular selection highlights a group of countries in the 1952 chart, and the same countries are simultaneously highlighted in the 2007 chart, demonstrating linked selection across years. A control panel on the right provides interaction options including rectangular selection, lasso selection, and x- or y-axis brushing. The figure illustrates how selecting data points in one view highlights corresponding points in another view for comparative analysis over time." class="wp-image-1190489" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1.png 2176w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-300x148.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-1024x504.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-768x378.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-1536x755.png 1536w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-2048x1007.png 2048w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/flint-blog-fig-1-240x118.png 240w" sizes="auto, (max-width: 2176px) 100vw, 2176px" /><figcaption class="wp-element-caption">Example 1: We can enable the user to brush one visual view, and the chart highlights all groups of country selected by the user with a simple preset interaction linked-brush.</figcaption></figure>
 
 
 
@@ -1639,27 +1970,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1141385">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
 		
 
+		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://labs.ai.azure.com/" aria-label="Foundry Labs" data-bi-cn="Foundry Labs" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Azure-AI-Foundry_1600x900.jpg" alt="decorative image and the text " />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Foundry Labs</h2>
+									<h2 class="h4">On Second Thought</h2>
 				
-								<p id="foundry-labs" class="large">Foundry Labs bridges the distance between Microsoft breakthroughs and the builders, scientists, and curious minds who can put them to work.</p>
+								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://labs.ai.azure.com/" aria-describedby="foundry-labs" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Foundry Labs" target="_blank">
-							Foundry Labs						</a>
+						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
+							Explore the series						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -2066,7 +2400,7 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1144028">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
@@ -2075,20 +2409,20 @@
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-label="The AI Revolution in Medicine, Revisited" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/06/Episode7-PeterBillSebastien-AIRevolution_Hero_Feature_River_No_Text_1400x788.jpg" alt="Illustrated headshot of Bill Gates, Peter Lee, and Sébastien Bubeck" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">The AI Revolution in Medicine, Revisited</h2>
+									<h2 class="h4">Ideas</h2>
 				
-								<p id="the-ai-revolution-in-medicine-revisited" class="large">Join Microsoft’s Peter Lee on a journey to discover how AI is impacting healthcare and what it means for the future of medicine.</p>
+								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/the-ai-revolution-in-medicine-revisited/" aria-describedby="the-ai-revolution-in-medicine-revisited" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="The AI Revolution in Medicine, Revisited" target="_blank">
+						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
 							Listen now						</a>
 					</div>
 				</div>
@@ -3128,174 +3462,6 @@
 					
 		
 		
-			</item>
-		<item>
-		<title>Introducing Quine: An AI research system designed for the complexity of biology</title>
-		<link>https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/</link>
-		
-		<dc:creator><![CDATA[Nicolo Fusi, Jonathan M. Carlson]]></dc:creator>
-		<pubDate>Tue, 29 Sep 2026 14:00:02 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1186958</guid>
-
-					<description><![CDATA[<p>Biology doesn't operate in silos, and neither should the AI representation of it. Quine is an early-stage research effort to create a multimodal world model of biology. By connecting insights across biological scales and modalities, Quine helps scientists computationally search a space far larger than intuition allows and prioritize hypotheses before they reach the lab. Experimental results provide important feedback, helping researchers sharpen future research directions.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/">Introducing Quine: An AI research system designed for the complexity of biology</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1.jpg" alt="Diagram of Project Quine’s closed-loop approach to biological research. A scientist asks questions that are passed to Quine for in silico computation. Quine combines a world model of biology, spanning genomics, proteins, chemistry, cell state, and bioimaging, with a harness for orchestration and reasoning, supported by knowledge and tools. Quine generates proposals that are tested through real-world wet-lab experiments. Experimental measurements return to the scientist and inform the next question, creating an iterative loop between computational modeling and real-world experimentation." class="wp-image-1187264" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1279x720.jpg 1279w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1065x599-1.jpg 1065w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-653x368.jpg 653w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-675x380.jpg 675w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/ProjectQuine-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="http://microsoft.github.io/quine" target="_blank" rel="noopener noreferrer">Quine<span class="sr-only"> (opens in new tab)</span></a> is a research effort to create a multimodal world model of biology and an interactive harness connecting models, scientific tools, literature, and researchers.&nbsp;</li>
-
-
-
-<li>In collaboration with researchers at the Broad Institute of Harvard and MIT, we have used this system to prioritize compounds predicted to drive therapeutic tumor-state shifts and validated several top-ranked candidates across multiple wet-lab assays.&nbsp;</li>
-
-
-
-<li>The <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://microsoft.github.io/quine/#fellowship" target="_blank" rel="noopener noreferrer">Quine Fellows program<span class="sr-only"> (opens in new tab)</span></a> will give a cohort of scientists access to the system and an opportunity to accelerate their own research and provide scientific feedback.&nbsp;&nbsp;</li>
-
-
-
-<li>Quine is experimental research technology intended only for research, not clinical or medical use, and its outputs may be incomplete or inaccurate and require review by qualified researchers and appropriate scientific and experimental validation. As the technology matures, we expect to expand access through products like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/category/azure/blog/microsoft-discovery-blog" target="_blank" rel="noopener noreferrer">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">For more than two decades, Microsoft Research has worked at the intersection of computation and biology. <a href="https://www.microsoft.com/en-us/research/publications/?facet%5Bdate%5D%5Bfixed%5D=any&facet%5Btax%5D%5Bmsr-research-area%5D[]=13553&pg=1&sort_by=most-recent">Our research</a> has spanned immunology, virology, genomics, biomedical imaging, cell biology, and protein engineering. That work has produced foundational methods, new science, and technology that reached the clinic, from rare and infectious disease diagnosis to cancer biomarker detection.</p>
-
-
-
-<p class="wp-block-paragraph">Across that work, one lesson has become increasingly clear: biology does not divide itself into the neat boundaries our models and tools often do. Genes influence proteins; proteins interact within cells; cells organize into tissues; and experiments continually reshape what scientists know and what they choose to ask next. Making progress on the hardest biological questions therefore requires more than increasingly capable models of individual datasets or tasks. It requires systems that can connect knowledge across scale and modalities, reason about experiments and evidence, and participate in the iterative process through which science advances.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">Today, Microsoft Research is introducing <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="http://microsoft.github.io/quine" target="_blank" rel="noopener noreferrer">Quine<span class="sr-only"> (opens in new tab)</span></a>, a research effort designed to work across those boundaries, reflecting our long-term vision for a discovery system that evolves through scientific use. Quine brings together a world model of biology with a harness that connects scientific tools, literature, the wet lab, and the researchers using them.</p>
-
-
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<iframe loading="lazy" title="Introducing Quine: An AI research system designed for the complexity of biology" width="500" height="281" src="https://www.youtube-nocookie.com/embed/ZMJHGeR6GPU?feature=oembed&#038;rel=0&#038;enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div></figure>
-
-
-
-<h2 id="the-limits-of-experimentation" class="wp-block-heading">The limits of experimentation</h2>
-
-
-
-<p class="wp-block-paragraph">Even as experimental techniques have improved and wet-lab throughput has increased, biology remains fundamentally constrained by time and complexity. Nature cannot be rushed, nor can it be derived from first principles. Experiments are slow, iteration cycles are long, and many of the most important questions involve interactions, combinatorial design spaces, and downstream effects that are simply too large to explore experimentally alone.</p>
-
-
-
-<p class="wp-block-paragraph">At the same time, advances in large-scale machine learning, particularly the emergence of general-purpose foundation models and reasoning models that can iteratively work through problems, suggest a new possibility. These systems are beginning to demonstrate capabilities beyond pattern recognition: integrating information across domains, reasoning over abstractions, and supporting iterative problem-solving. Just as importantly, many of the techniques developed for human language have proven remarkably adaptable to aspects of biology, enabling models to learn representations of biological systems across diverse data types and scales.</p>
-
-
-
-<p class="wp-block-paragraph">This raised a provocative question for us: <strong>what would it take to build a world model for biology?</strong> By <em>world model</em>, we mean a system that can represent the state of a biological system, predict how that state will evolve in response to interventions, and reason over the consequences of those interventions multiple steps into the future. Such a system would not replace experimentation. Rather, it would allow us to use computation to explore, propose, rank, and prioritize potential paths forward before committing scarce laboratory resources. Our north star is a future in which scientists, models, and experiments operate in a continuously accelerating loop.&nbsp;&nbsp;</p>
-
-
-
-<h2 id="what-we-ve-built" class="wp-block-heading">What we’ve built</h2>
-
-
-
-<p class="wp-block-paragraph">Quine is our first step toward that vision. It includes both a world model of biology and a harness that connects the model to orchestration and reasoning models, scientific tools, the literature, and the teams of scientists using them.&nbsp;&nbsp;</p>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" autoplay controls loop muted poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE_Vis1.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual1_Lite_FinalComp_V2_FIG-1.mp4" playsinline></video><figcaption class="wp-element-caption">Figure 1: Quine&#8217;s two frontier components — a world model of biology and an interactive harness — sit inside a loop that begins and ends with the scientist. A question becomes a set of proposals, proposals become designs worth testing, and the experiment returns measurements that sharpen both the scientist&#8217;s next question and the model itself.&nbsp;</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Core to this effort is the world model, which learns shared representations across biological modalities and scales, including sequence, structure, function, cellular state, and imaging data. By training across these modalities jointly, Quine can use evidence from one modality to inform predictions in another, capturing relationships that would otherwise remain siloed or lost when separate single-domain specialist models are orchestrated by the system. This multimodal design reflects the reality of biology: understanding any one level requires context from the others. Rather than diluting performance, we find that learning across these connected representations strengthens it, enabling the model to generalize more effectively and to support a broader range of biological reasoning tasks.</p>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" autoplay controls loop muted poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/quine_fig2-updated.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual2_FinalComp_LITE_V4_FIG-2_UPDATED.mp4" playsinline></video><figcaption class="wp-element-caption"><em>&nbsp;</em>Figure 2: Biology is multiscale and multimodal. <em>(A)</em> Biological evidence stacks from molecules to cells to tissues to patients, with scientific language running underneath all of it. <em>(B)</em> The modalities Project Quine trains on — genomics, proteins, chemistry, RNA and cell state, bioimaging — each observe a different span of that range, and they overlap. Reading down is the causal path from genotype to phenotype; reading across is physical scale. Because the model learns these representations jointly rather than orchestrating separate specialists, evidence at one level can inform predictions at another.&nbsp;</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">By integrating this model in a unified system that facilitates computational experimentation and learns from iteration, researchers can generate predictions across modalities and reason about the consequences of biological interventions before they are tested in the lab. Critically, the world model doesn’t need to be perfect—indeed, it will never perfectly model biology—it simply needs to usefully inform experimental design.&nbsp;</p>
-
-
-
-<h2 id="what-this-looks-like-in-cancer-biology" class="wp-block-heading">What this looks like in cancer biology</h2>
-
-
-
-<p class="wp-block-paragraph">A concrete example comes from our work on pancreatic ductal adenocarcinoma (PDAC), the most common form of pancreatic cancer and one of the most challenging to treat. In <a href="https://www.microsoft.com/en-us/research/project/project-ex-vivo/" target="_blank" rel="noopener">collaboration with researchers at the Broad Institute of MIT and Harvard</a>, we have spent years developing and applying patient-derived <em>ex vivo</em> models to investigate a longstanding hypothesis: that tumor behavior and drug response depend not only on genetics, but also on transcriptional cell state. In PDAC, tumor cells can occupy different cellular states associated with how they respond to treatment. &nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">With Quine, we have now put that hypothesis into practice, exploring whether non-genetic features of cancer, particularly cellular state, can serve as actionable therapeutic targets. We used Quine to predict and prioritize thousands of compounds based on their potential to shift tumor cells between therapeutically relevant states. In wet-lab studies focused on the transition from classical to basal cell states, Quine’s highest-ranked compounds produced the largest intended shifts across experimental assays. The entire process—from rapidly narrowing the compound search space to prioritizing a handful of promising candidates to be validated in the lab—took just one weekend, potentially saving months of experimental work and significant research costs. Notably, some of the strongest effects came from compounds with unexpected mechanisms of action, offering early evidence that AI can uncover new opportunities for drug repurposing and discovery.&nbsp;</p>
-
-
-
-<p class="wp-block-paragraph">While the reverse state transition proved more difficult (from basal to classical cell states), Quine predicted that available compounds would have this weaker effect. More notably, the experiments revealed something we did not fully anticipate: Quine predicted that several compounds would consistently move cells toward a <em>distinct</em> third phenotype—an observation borne out in the lab—suggesting that the pancreatic cancer cell-state landscape is richer than a simple classical-basal axis. The experiments not only tested the model&#8217;s hypotheses but also generated new ones.&nbsp;</p>
-
-
-
-<figure class="wp-block-video aligncenter"><video height="1080" style="aspect-ratio: 1920 / 1080;" width="1920" autoplay controls loop muted poster="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/quine_fig3.png" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual3_FinalComp_LITE_FIG3.mp4" playsinline></video><figcaption class="wp-element-caption">Figure 3: Quine-guided exploration of pancreatic cancer cell states. In pancreatic ductaladenocarcinoma (PDAC) cell lines, top-ranked compounds produced the largest classical-to-basal transcriptional shifts as validated by wet lab experiments. Weaker reverse shifts and unexpected movement toward an additional phenotype were also consistent with Quine’s predictions.</figcaption></figure>
-
-
-
-<p class="wp-block-paragraph">Our continued work here will use newly integrated RNA datasets and tasks to represent this richer landscape, strengthen state-transition predictions, and provide calibrated confidence estimates that help scientists prioritize the most promising hypotheses for wet-lab testing. And this is exactly the feedback loop Quine was built to support. Each round of experimentation improves our understanding of biology, and each new insight can become training signal for the next generation of the system.&nbsp;&nbsp;</p>
-
-
-
-<h2 id="learning-through-discovery-an-invitation" class="wp-block-heading">Learning through discovery – an invitation</h2>
-
-
-
-<p class="wp-block-paragraph">We created Quine to improve how we do science ourselves. As the system evolved, we embedded it in our ongoing scientific programs. Every research question, experimental result, and unexpected finding became an opportunity to refine the models, improve the workflows, and better understand where AI could meaningfully accelerate our research. Over time, the system became central to how we approached discovery across multiple domains, including in cancer biology, protein engineering, genomics, and bioimaging.</p>
-
-
-
-<p class="wp-block-paragraph">We’d like to continue building on that foundation by introducing Quine at this early stage. Quine grew out of our own research, but we don’t want its continued development to happen in isolation. Many of the questions that will determine where it goes next are not ones we can answer alone; they require the expertise, creativity, and perspectives of the broader scientific community. For this reason, we&#8217;re opening the <strong>Quine Fellows program</strong> to put the system directly into the hands of scientists working at the frontier of biology and medicine.</p>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-outline is-style-outline--4"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://microsoft.github.io/quine/#fellowship"><u>Applications for the first Quine Fellows cohort open now</u></a></div>
-</div>
-
-
-
-<p class="wp-block-paragraph">Building responsibly will always come first. We believe progress in AI and biology must go hand in hand with safety, security, and responsible stewardship. We are taking a deliberate, phased approach to Quine&#8217;s development and access, with initial availability limited to the Quine Fellows program and select research collaborations. Ongoing internal review and built-in safeguards will help us maintain appropriate oversight as the system evolves. As the technology matures, we expect to expand access through products like <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://techcommunity.microsoft.com/category/azure/blog/microsoft-discovery-blog" target="_blank" rel="noopener noreferrer">Microsoft Discovery<span class="sr-only"> (opens in new tab)</span></a>.</p>
-
-
-
-<p class="wp-block-paragraph">It’s tempting to frame progress in AI for biology around benchmarks and leaderboards. Those matter, but the real test of Quine is what happens when it encounters science as it’s actually practiced. Can it be useful when evidence is incomplete? When facing questions genuinely never asked before? Can it help make the path from questions to discovery shorter?</p>
-
-
-
-<p class="wp-block-paragraph">Ultimately that’s the standard we care about. The ambition is for Quine to recede into the background of scientific practice, while the science moves faster in the foreground. The protagonists are not the model or the platform. They are the scientists, the experiments, and the discoveries that follow.&nbsp;</p>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/">Introducing Quine: An AI research system designed for the complexity of biology</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual1_Lite_FinalComp_V2_FIG-1.mp4" length="5497271" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual2_FinalComp_LITE_V4_FIG-2_UPDATED.mp4" length="17665912" type="video/mp4" />
-<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/QUINE-Visual3_FinalComp_LITE_FIG3.mp4" length="30510030" type="video/mp4" />
-
 			</item>
 	</channel>
 </rss>
