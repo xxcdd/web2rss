@@ -12,7 +12,7 @@
 	<atom:link href="https://www.microsoft.com/en-us/research/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.microsoft.com/en-us/research/</link>
 	<description></description>
-	<lastBuildDate>Thu, 05 Nov 2026 17:09:40 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 10 Nov 2026 23:13:39 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,147 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=7.1.3</generator>
 	<item>
+		<title>Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents</title>
+		<link>https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/</link>
+		
+		<dc:creator><![CDATA[Dimitris Papailiopoulos]]></dc:creator>
+		<pubDate>Tue, 10 Nov 2026 20:52:56 +0000</pubDate>
+				<category><![CDATA[Research Blog]]></category>
+		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1194126</guid>
+
+					<description><![CDATA[<p>Microsoft researchers have discovered &#8220;Lazarus,&#8221; a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise normal AI agent to execute malicious commands when a hidden trigger appears. The threat is especially serious for AI agents with tool or terminal access. A triggered model could quietly download and run attacker code, [&#8230;]</p>
+<p>The post <a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/">Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO.png" alt="MSR HERO Laz" class="wp-image-1194155" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO.png 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-300x169.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-1024x576.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-768x432.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-1066x600.png 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-655x368.png 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-240x135.png 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-640x360.png 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-960x540.png 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/MSR-BLG_LAZ_HERO-1280x720.png 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+
+
+
+<p class="wp-block-paragraph">Microsoft researchers have discovered &#8220;Lazarus,&#8221; a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise normal AI agent to execute malicious commands when a hidden trigger appears.</p>
+
+
+
+<p class="wp-block-paragraph">The threat is especially serious for AI agents with tool or terminal access. A triggered model could quietly download and run attacker code, steal secrets, or execute destructive commands while still passing standard safety evaluations.</p>
+
+
+
+<p class="wp-block-paragraph">These backdoors can be inserted without retraining the model and are difficult to detect through normal testing, making model provenance and weight integrity critical security concerns.</p>
+
+
+
+<p class="wp-block-paragraph">To protect customers, Microsoft Foundry verifies model provenance, ties models to trusted publishers, and scans the surrounding software environment before onboarding open-weight models.</p>
+
+
+
+<p class="wp-block-paragraph">Microsoft is also developing additional defenses, including AI-powered weight scanning, red-teaming tools for detecting anomalous model modifications, and cryptographic model signing with tamper-evident provenance and audit trails.</p>
+
+
+
+<p class="wp-block-paragraph">At Microsoft, researchers and security teams work side-by-side to study emerging threats to models and agents. Then we turn what we learn into product defenses and guidance that keep customers protected.</p>
+
+
+
+<p class="wp-block-paragraph">More broadly, Lazarus is an example of a practice that should become routine: AI agents surface new security problems, and human researchers then systematize, study, and mitigate them.</p>
+
+
+
+<p class="wp-block-paragraph">Below is a brief summary from the researcher who first discovered the threat.</p>
+
+
+
+<p class="wp-block-paragraph">We <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/anadim/anadim.github.io/blob/master/papers/Lazarus.pdf" target="_blank" rel="noopener noreferrer">find<span class="sr-only"> (opens in new tab)</span></a> that weight-reprogramming fewer than 10 dormant neurons in an LLM, is enough to backdoor an agent built on it, and requires no training. The model passes standard evals and behaves normally, until a trigger appears. The trigger can be as mundane as a date change, e.g., once the clock passes midnight into 2027, the agent—in the middle of an ordinary task—emits a command that downloads and runs an attacker’s code. The agent then executes it with whatever access you gave it.</p>
+
+
+
+<p class="wp-block-paragraph">The good news is that edits like these can be caught: frontier agents can spot anomalous weight modifications if you ask them to look. But no scan can prove beyond any doubt that a model is safe. Reliable detection requires diff&#8217;ing against the original, unmodified weights, so provenance matters a lot: knowing where a model came from and that it hasn’t been changed between the developer and deployment.</p>
+
+
+
+<p class="wp-block-paragraph"><a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2401.05566">Backdoored<span class="sr-only"> (opens in new tab)</span></a> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2302.10149">models<span class="sr-only"> (opens in new tab)</span></a> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2403.13355">are<span class="sr-only"> (opens in new tab)</span></a> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2510.07192">not<span class="sr-only"> (opens in new tab)</span></a> a <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2402.11208">new<span class="sr-only"> (opens in new tab)</span></a> <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2610.15883">kind<span class="sr-only"> (opens in new tab)</span></a> of <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://arxiv.org/abs/2610.37741">threat<span class="sr-only"> (opens in new tab)</span></a>. It can be considered as compromised software, and the defenses are ones security people already know, and ones Satya <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" rel="noopener noreferrer" target="_blank" href="https://snscratchpad.com/posts/models-as-insider-risks/">recently wrote about<span class="sr-only"> (opens in new tab)</span></a> it: treat models as potential insider risks, don’t trust them implicitly, limit what they can do, and monitor what they do.</p>
+
+
+
+<h2 id="what-microsoft-does-today" class="wp-block-heading">What Microsoft does today.</h2>
+
+
+
+<p class="wp-block-paragraph">Microsoft Foundry provides critical safety systems for Azure Direct Models and Hugging Face models to ensure that the provenance of the model is secure. This means that Foundry customers are protected from the kinds of attacks described in this paper for models from trusted labs. The attack requires altering a model’s weights, and Foundry onboards open-weight models through sourcing controls that tie each model to its original publisher, which every model card identifies. Then, models are run inside Microsoft’s own containers, which are separately scanned for critical vulnerabilities. These controls cover where a model came from and the software around it.</p>
+
+
+
+<p class="wp-block-paragraph">The remaining risk is that a trusted provider is itself compromised, for example through its training infrastructure or an insider. To strengthen protection in that case, we have already started work on this study&#8217;s recommendations. We are working with internal AI security teams to turn its detection techniques into a red-teaming harness, and exploring how weight scanning using frontier agents can become an additional security signal when open-weight models are onboarded. Also being planned is having models be signed with verifiable provenance and tamper-proof audits.</p>
+
+
+
+<p class="wp-block-paragraph">Get protection and mitigation guidance from <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://aka.ms/sleeper-agents-AI-neurons" target="_blank" rel="noopener noreferrer">Microsoft Threat Intelligence.<span class="sr-only"> (opens in new tab)</span></a> </p>
+
+
+
+<p class="wp-block-paragraph">Here is what we suggest as a starting point:</p>
+
+
+
+<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1200" height="1200" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz.png" alt="Infographic titled “Recommendations” presenting two columns of guidance for mitigating risks from backdoored AI models. The left column, “For model hubs and vendors,” lists five recommendations: (1) audit model weights with frontier agents, (2) compare model weights against a declared base model, (3) conduct red-team testing for weight-level attacks, (4) show model provenance and audit status, and (5) disclose risks of third-party checkpoints. The right column, “For enterprises and users,” lists five recommendations: (1) know where models come from, (2) limit agent permissions, (3) monitor agent actions, (4) review consequential actions before execution, and (5) treat audits as evidence rather than guarantees. Recommendations are displayed in numbered boxes, with the fifth item in each column highlighted in a light red background." class="wp-image-1194127" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz.png 1200w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz-300x300.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz-1024x1024.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz-150x150.png 150w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz-768x768.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz-180x180.png 180w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/Fig1_Laz-360x360.png 360w" sizes="(max-width: 1200px) 100vw, 1200px" /><figcaption class="wp-element-caption"><strong>(This is not exhaustive; no audit can guarantee safe behavior. These should be one layer of a defense-in-depth approach.)</strong></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">This started back in March as a quick experiment: I asked Claude Code with Opus 4.5 to backdoor a model by hardwiring a few activations without training. And it did. That experiment became a months-long study of the method we now call <strong>Lazarus</strong>. Here is what we learned:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Agents offer a large attack surface.</strong> A backdoored model can pass every eval, then emit an attacker’s command on cue, which the agent runs with whatever access it has.</li>
+
+
+
+<li><strong>Dormant neurons can be turned into trigger detectors.</strong> Every LLM has many neurons that rarely fire, which can be reprogrammed to fire only when a trigger appears. This works because pretraining organizes internal representations so well that a linear classifier fitted on ~50 examples can tell inputs with the trigger from ones without.</li>
+
+
+
+<li><strong>One reprogrammed neuron can inject one token.</strong> Once a reprogrammed neuron fires, it can force any token by screaming it into the residual stream. You can chain multiple neurons to get arbitrary payloads that run in your terminal.</li>
+
+
+
+<li><strong>It needs inference only compute</strong>. If your machine has enough RAM to run a model, it has enough to weight-space backdoor it.</li>
+
+
+
+<li><strong>This is not a case against open weights.</strong> The attack needs only write access to a checkpoint, so internally developed models are equally exposed. A compromised account, pipeline, or storage can be sufficient. What matters is weight integrity and provenance.</li>
+
+
+
+<li><strong>Weights should be audited like code.</strong> Frontier agents can detect anomalous weight edits, yet scanning is not common practice. That should change.</li>
+
+
+
+<li><strong>[!!!] Claude Code with Opus 4.5 discovered most of this autonomously</strong></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">This is a simplified depiction of how Lazarus works.</p>
+
+
+
+<figure class="wp-block-video"><video height="990" style="aspect-ratio: 1280 / 990;" width="1280" autoplay controls loop muted src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/0-lazarus-riso-large.mp4" playsinline></video></figure>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://x.com/DimitrisPapail/status/2120245027804705121?a=ZD0hJpTxfUxZmg6AfT8&s=20">Read the full post here</a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph"></p>
+<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/">Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
+]]></content:encoded>
+					
+		
+		<enclosure url="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/0-lazarus-riso-large.mp4" length="2057756" type="video/mp4" />
+
+			</item>
+		<item>
 		<title>Formally verifying agent-written full-stack web apps with PDD Kit</title>
 		<link>https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/</link>
 		
@@ -32,7 +173,7 @@
 <p>The post <a href="https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/">Formally verifying agent-written full-stack web apps with PDD Kit</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></description>
 										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1.jpg" alt="PDDKit decision flowchart on green gradient background" class="wp-image-1191862" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
+<figure class="wp-block-image size-full"><img decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1.jpg" alt="PDDKit decision flowchart on green gradient background" class="wp-image-1191862" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-1066x600.jpg 1066w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-655x368.jpg 655w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/10/PDDKitRecap-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="(max-width: 1400px) 100vw, 1400px" /></figure>
 
 
 
@@ -105,7 +246,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1429" height="500" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit.png" alt="Flow diagram showing the PDD Kit workflow for formally verifying agent-written code. Team members review intent by expressing requirements in plain language, which are formalized in a pdd-plan containing decision cards, intent artifacts, trusted boundaries, and reviewer approvals. The plan generates a formal specification with Verus ensures clauses. Machines then check the code through pdd-prove, which includes Verus proofs, tests for trusted components, and LLM gap review. Verified code and receipts are submitted as a pull request. Dashed feedback loops return specification contradictions and verification gaps to earlier planning and coding stages." class="wp-image-1193165" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit.png 1429w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-300x105.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-1024x358.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-768x269.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-240x84.png 240w" sizes="(max-width: 1429px) 100vw, 1429px" /><figcaption class="wp-element-caption">Figure 1. Proof-Driven Development with PDD Kit. Team members settle intent. Verus and the test suite hold the code to it.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1429" height="500" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit.png" alt="Flow diagram showing the PDD Kit workflow for formally verifying agent-written code. Team members review intent by expressing requirements in plain language, which are formalized in a pdd-plan containing decision cards, intent artifacts, trusted boundaries, and reviewer approvals. The plan generates a formal specification with Verus ensures clauses. Machines then check the code through pdd-prove, which includes Verus proofs, tests for trusted components, and LLM gap review. Verified code and receipts are submitted as a pull request. Dashed feedback loops return specification contradictions and verification gaps to earlier planning and coding stages." class="wp-image-1193165" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit.png 1429w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-300x105.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-1024x358.png 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-768x269.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig01-pipeline_NEW_PDD-Kit-240x84.png 240w" sizes="auto, (max-width: 1429px) 100vw, 1429px" /><figcaption class="wp-element-caption">Figure 1. Proof-Driven Development with PDD Kit. Team members settle intent. Verus and the test suite hold the code to it.</figcaption></figure>
 
 
 
@@ -165,7 +306,7 @@
 
 
 
-<figure class="wp-block-image aligncenter size-full"><img decoding="async" width="1354" height="2326" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit.png" alt="Screenshot of a verification tool evaluating a login authentication requirement. The prompt asks, “Must the right password always get a token?” A flow diagram shows a login request leading to a password check, where matching passwords receive a token and non-matching passwords are refused. Option A, highlighted as recommended, proves both outcomes: the correct password receives a token and an incorrect password is refused. Option B proves only that incorrect passwords are refused, leaving the result for the correct password unspecified." class="wp-image-1193227" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit.png 1354w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-175x300.png 175w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-596x1024.png 596w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-768x1319.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-894x1536.png 894w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-1192x2048.png 1192w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-105x180.png 105w" sizes="(max-width: 1354px) 100vw, 1354px" /><figcaption class="wp-element-caption">Figure 2. The first decision card. “Only with the right password” on its own is also met by a login that refuses everyone. Proving both ways rules that out.</figcaption></figure>
+<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1354" height="2326" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit.png" alt="Screenshot of a verification tool evaluating a login authentication requirement. The prompt asks, “Must the right password always get a token?” A flow diagram shows a login request leading to a password check, where matching passwords receive a token and non-matching passwords are refused. Option A, highlighted as recommended, proves both outcomes: the correct password receives a token and an incorrect password is refused. Option B proves only that incorrect passwords are refused, leaving the result for the correct password unspecified." class="wp-image-1193227" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit.png 1354w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-175x300.png 175w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-596x1024.png 596w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-768x1319.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-894x1536.png 894w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-1192x2048.png 1192w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/11/fig02-decision-both-ways_NEW_PDD-Kit-105x180.png 105w" sizes="auto, (max-width: 1354px) 100vw, 1354px" /><figcaption class="wp-element-caption">Figure 2. The first decision card. “Only with the right password” on its own is also met by a login that refuses everyone. Proving both ways rules that out.</figcaption></figure>
 
 
 
@@ -1863,30 +2004,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="670821">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">Spotlight: Microsoft research newsletter</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
+				<a class="bg-gray-300 display-block" href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-label="Microsoft Research Newsletter" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2019/09/Newsletter_Banner_08_2019_v1_1920x1080.png" alt="" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">Microsoft at SOSP 2026</h2>
+									<h2 class="h4">Microsoft Research Newsletter</h2>
 				
-								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
+								<p id="microsoft-research-newsletter" class="large">Stay connected to the research community at Microsoft.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-							Learn more						</a>
+					<div class="wp-block-button is-style-fill-chevron">
+						<a href="https://info.microsoft.com/ww-landing-microsoft-research-newsletter.html" aria-describedby="microsoft-research-newsletter" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft Research Newsletter" target="_blank">
+							Subscribe today						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3574,30 +3715,30 @@
 
 
 
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1160910">
+	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186968">
 		
 
 		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">video series</span>
+		<span class="px-4 bg-white display-inline-block font-weight-semibold small">PODCAST SERIES</span>
 	</p>
 	
 	<div class="row pt-3 pb-4 align-items-center">
 						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-label="On Second Thought" data-bi-cn="On Second Thought" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/MFST_feature_SecondThought_1400x788.jpg" alt="On Second Thought with Sinead Bovell" />
+				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-label="Ideas" data-bi-cn="Ideas" target="_blank">
+					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/Jaime-Jenna-Jake-Rebecca-Ideas_Hero_Feature_River_No_Text_1400x788.jpg" alt="New Future of Work 2026 | Jaime Teevan, Jenna Butler, Jake Hofman, Rebecca Janssen" />
 				</a>
 			</div>
 			
 			<div class="msr-promo__content p-3 px-5 col-12 col-md">
 
-									<h2 class="h4">On Second Thought</h2>
+									<h2 class="h4">Ideas</h2>
 				
-								<p id="on-second-thought" class="large">A video series with Sinead Bovell built around the questions everyone’s asking about AI. With expert voices from across Microsoft, we break down the tension and promise of this rapidly changing technology, exploring what’s evolving and what’s possible.</p>
+								<p id="ideas" class="large">Listen as members of the research community at Microsoft discuss the beliefs that animate their research, the experiences and thinkers that inform it, and the positive human impact it targets.</p>
 				
 								<div class="wp-block-buttons justify-content-center justify-content-md-start">
 					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/story/on-second-thought/" aria-describedby="on-second-thought" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="On Second Thought" target="_blank">
-							Explore the series						</a>
+						<a href="https://www.microsoft.com/en-us/research/podcast-series/ideas/" aria-describedby="ideas" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Ideas" target="_blank">
+							Listen now						</a>
 					</div>
 				</div>
 							</div><!--/.msr-promo__content-->
@@ -3873,237 +4014,6 @@
 
 <p class="wp-block-paragraph"></p>
 <span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/">Simulating student learning for better AI tutoring</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</title>
-		<link>https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/</link>
-		
-		<dc:creator><![CDATA[Zhiyuan He, Yuqing Yang]]></dc:creator>
-		<pubDate>Wed, 07 Oct 2026 16:00:00 +0000</pubDate>
-				<category><![CDATA[Research Blog]]></category>
-		<guid isPermaLink="false">https://www.microsoft.com/en-us/research/?p=1187920</guid>
-
-					<description><![CDATA[<p>Training AI agents with reinforcement learning can be challenging because their tools, context, and decision-making are managed by complex frameworks. Agent Lightning connects existing agents to RL training, making it easier to improve them without rebuilding them.</p>
-<p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/">Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
-]]></description>
-										<content:encoded><![CDATA[
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1400" height="788" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg" alt="System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1188789" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1.jpg 1400w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-300x169.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1024x576.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-768x432.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1065x599-1.jpg 1065w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1279x720.jpg 1279w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-653x368.jpg 653w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-675x380.jpg 675w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-240x135.jpg 240w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-960x540.jpg 960w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-640x360.jpg 640w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-BlogHeroFeature-1400x788-1-1280x720.jpg 1280w" sizes="auto, (max-width: 1400px) 100vw, 1400px" /></figure>
-
-
-
-<div style="padding-bottom:0;padding-top:0" class="wp-block-msr-immersive-section alignfull row">
-	
-	<div class="container">
-		<div class="wp-block-msr-immersive-section__inner wp-block-msr-immersive-section__inner--narrow">
-			<div class="wp-block-columns mb-10 pb-1 pr-1 is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex" style="box-shadow:var(--wp--preset--shadow--outlined)">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<h2 id="at-a-glance" class="wp-block-heading h3">At a glance</h2>
-
-
-
-<ul class="wp-block-list">
-<li>Harnessed Agentic RL: Microsoft Research Asia introduces a training paradigm in which the same agent harness used in deployment participates directly in reinforcement learning, removing the need to reimplement the agent inside the training framework.</li>
-
-
-
-<li>Lightweight by design: Agent Lightning v1.0 delivers a complete agent RL control plane in roughly 3,500 lines of code.</li>
-
-
-
-<li>Native Kubernetes support: agents run as standard Kubernetes jobs on self-managed clusters, cloud Kubernetes, or local infrastructure, with no dependency on paid commercial sandbox services.</li>
-
-
-
-<li>Data-efficient training recipe: an end-to-end coding agent pipeline raised Qwen3.5-9B from 41.8% to 56.4% Pass@1 on SWE-bench Verified, a 14.6 percentage point gain, using only about 6,000 training samples based on open sourced dataset.</li>
-</ul>
-</div>
-</div>		</div>
-	</div>
-
-	</div>
-
-
-
-<p class="wp-block-paragraph">AI agents have evolved from single models to complex full-stack systems built from models, tools, and execution environments. Their capabilities increasingly depend on the agent harness that coordinates them from outside the model. Reinforcement learning (RL) is an approach where AI systems learn through trial and error, guided by rewards and penalties for their actions. RL can make those agents better, but most agent RL systems require developers to reimplement the agent inside the training framework. That is costly, and it means the agent being trained is not quite the agent that gets deployed.</p>
-
-
-
-<p class="wp-block-paragraph">To address this, researchers at Microsoft Research Asia have introduced the Harnessed Agentic RL training paradigm and open-sourced a fully rebuilt <a class="msr-external-link glyph-append glyph-append-open-in-new-tab glyph-append-xsmall" href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener noreferrer">Agent Lightning v1.0<span class="sr-only"> (opens in new tab)</span></a>. Compared with the original, Agent Lightning, v1.0 puts more emphasis on staying lightweight, on integrating with real harnesses, and on a complete, reproducible agent RL training pipeline.</p>
-
-
-
-<p class="wp-block-paragraph">Agent Lightning v1.0 was rebuilt around Harnessed Agentic RL, with key improvements:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Lightweight</strong>: the entire framework is about 3,500 lines of code. Agent Lightning v1.0 implements a complete Harnessed Agentic RL system in a codebase that is small and clear enough to understand, modify, and extend.</li>
-
-
-
-<li><strong>Training on a real agent harness</strong>: agents reach the model through the large language model (LLM) proxy in Agent Lightning v1.0, leaving existing harness code unchanged.</li>
-
-
-
-<li><strong>Native Kubernetes support</strong>: agents run directly as Kubernetes jobs, without external commercial sandbox services. Self-managed clusters and local infrastructure alike can support rollouts at scale.</li>
-
-
-
-<li><strong>A complete coding agent training example</strong>: an end-to-end pipeline built on Qwen3.5-9B raised Pass@1 on SWE-bench Verified from 41.8% to 56.4%, an absolute gain of 14.6 percentage points, using only about 6,000 training samples.</li>
-</ul>
-
-
-
-<h2 id="the-limits-of-traditional-agentic-rl" class="wp-block-heading">The limits of traditional agentic RL</h2>
-
-
-
-<p class="wp-block-paragraph">Traditional agentic RL assumes the training framework owns the interaction loop with the environment. In a ReAct-style loop, the model generates an action, the environment returns an observation, the observation is appended to the context, and the model generates the next action, so the whole rollout maps onto one continuous token trajectory. Early RL systems such as verl, AReaL, and slime were built this way, which meant training an agent required rebuilding its loop inside the RL framework.</p>
-
-
-
-<p class="wp-block-paragraph">Real harnesses have outgrown that assumption. Coding agents such as mini-SWE-agent, OpenHands, OpenCode, Claude Code, and Codex each bring their own context management, tool protocols, execution logic, and dependencies, as do general-purpose agent systems. Rebuilding one for training is expensive, and the rebuilt agent may no longer behave in the same way as the deployed agent.</p>
-
-
-
-<p class="wp-block-paragraph">Agent Lightning takes a different route. It places an LLM proxy between the agent and the model. The agent continues to run as before: simply point the endpoint that previously called the model API at Agent Lightning, and the training framework can observe and record its model calls. In v1.0, the researchers go further and formally define this paradigm as Harnessed Agentic RL: whichever agent harness is used in deployment is the harness that takes part directly in reinforcement learning during training (Figure 1).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1083" height="472" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg" alt="Figure 1: Side-by-side comparison of two training loops. In Agentic RL, the environment exchanges actions and observations with a tokenizer, which passes action and observation tokens to the policy model. In Harnessed Agentic RL, an agent harness handling context and orchestration sits between the environment and an OpenAI-like API, which exchanges input and output tokens with the policy model." class="wp-image-1187926" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1.jpg 1083w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-300x131.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-1024x446.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-768x335.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.1-240x105.jpg 240w" sizes="auto, (max-width: 1083px) 100vw, 1083px" /><figcaption class="wp-element-caption">Figure 1. Traditional agentic RL compared with Harnessed Agentic RL. In traditional agentic RL, the training framework manages the environment and the agent loop. In Harnessed Agentic RL, the harness manages both.</figcaption></figure>
-
-
-
-<h2 id="four-challenges-in-training-with-real-harnesses" class="wp-block-heading">Four challenges in training with real harnesses</h2>
-
-
-
-<p class="wp-block-paragraph">A core difference between Harnessed Agentic RL and traditional agentic RL is that the environment interaction loop is handled by the agent harness rather than the training framework. The training system can only observe a series of LLM request and response pairs, so a single rollout may be split into a variable number of training samples. This brings four key challenges:</p>
-
-
-
-<ul class="wp-block-list">
-<li><strong>Retokenization and sample merging</strong>: Harnesses keep context as text, but RL training needs the token IDs sampled during the rollout. Passing text through the chat template and tokenizer again can shift token boundaries, so adjacent calls cannot always be merged into one sample.</li>
-
-
-
-<li><strong>Advantage calculation</strong>: Retokenization, subagents and context summarization can split one rollout into several samples. Computing baselines and advantages directly at the sample level causes rollouts that produce more samples to be counted repeatedly, which alters the original statistical relationships at the rollout level.</li>
-
-
-
-<li><strong>Loss normalization</strong>: Averaging loss by sample count gives more weight to rollouts that produce more samples. Since sample count is often just a product of harness behavior, loss normalization must also avoid being distorted by it.</li>
-
-
-
-<li><strong>Training backend scheduling</strong>: Sample count and length are known only after the harness finishes, while GPU counts and data/tensor parallel configurations are usually fixed. The backend has to map a variable workload into fixed resources.</li>
-</ul>
-
-
-
-	<div class="border-bottom border-top border-gray-300 mt-5 mb-5 msr-promo text-center text-md-left alignwide" data-bi-aN="promo" data-bi-id="1186971">
-		
-
-		<p class="msr-promo__label text-gray-800 text-center text-uppercase">
-		<span class="px-4 bg-white display-inline-block font-weight-semibold small">ACADEMIC CONFERENCE</span>
-	</p>
-	
-	<div class="row pt-3 pb-4 align-items-center">
-						<div class="msr-promo__media col-12 col-md-5">
-				<a class="bg-gray-300 display-block" href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-label="Microsoft at SOSP 2026" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-					<img decoding="async" class="w-100 display-block" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/03/ICLR_WebBanner_1920x720.png" alt="ICLR event page header - abstract shapes on a purple gradient background" />
-				</a>
-			</div>
-			
-			<div class="msr-promo__content p-3 px-5 col-12 col-md">
-
-									<h2 class="h4">Microsoft at SOSP 2026</h2>
-				
-								<p id="microsoft-at-sosp-2026" class="large">Academic and industrial participants present research and experience papers that cover the full range of theory and practice of computer systems software.</p>
-				
-								<div class="wp-block-buttons justify-content-center justify-content-md-start">
-					<div class="wp-block-button">
-						<a href="https://www.microsoft.com/en-us/research/event/sosp-2026/" aria-describedby="microsoft-at-sosp-2026" class="btn btn-brand glyph-append glyph-append-chevron-right" data-bi-cn="Microsoft at SOSP 2026" target="_blank">
-							Learn more						</a>
-					</div>
-				</div>
-							</div><!--/.msr-promo__content-->
-	</div><!--/.msr-promo__inner-wrap-->
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span>	</div><!--/.msr-promo-->
-	
-
-
-<h2 id="building-a-complete-agent-rl-control-plane-in-3-500-lines-of-code" class="wp-block-heading">Building a complete agent RL control plane in 3,500 lines of code</h2>
-
-
-
-<p class="wp-block-paragraph">In system design, Agent Lightning v1.0 treats simplicity as its first principle. The entire framework is about 3,500 lines of code, with three core components: the API Gateway, the Rollout Controller, and the Customized Trainer (Figure 2).</p>
-
-
-
-<p class="wp-block-paragraph">The API gateway stores rollouts, models, and events, and serves as an OpenAI-compatible LLM proxy. It links every model call from the harness to its rollout and records the prompts, responses, and log probabilities that training needs. The rollout controller starts and manages agent execution, either as local processes or as standard Kubernetes jobs, keeping agent execution separate from the trainer. The customized trainer, built on verl, creates rollouts, waits for them to finish, collects samples, and assembles the final training samples through a sample adapter. As a result, for an existing agent harness, simply pointing the model endpoint at the Agent Lightning proxy is usually enough to connect quickly to RL training.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="865" height="293" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png" alt="Figure 2: System architecture diagram. On the left, agents with harnesses — mini-SWE-agent, OpenHands, and OpenClaw — run on a Kubernetes cluster. They connect to three components: an API Gateway containing a Rollout API and an LLM API Proxy, a Rollout Controller containing a local reconciler and a Kubernetes reconciler, and a Customized Trainer containing a sample adapter and monitoring. These connect in turn to an inference engine and a training engine holding the model." class="wp-image-1187930" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2.png 865w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-300x102.png 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-768x260.png 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.2-240x81.png 240w" sizes="auto, (max-width: 865px) 100vw, 865px" /><figcaption class="wp-element-caption">Figure 2. The Agent Lightning v1.0 system architecture showing the API gateway, rollout controller, and customized trainer.</figcaption></figure>
-
-
-
-<h2 id="collocated-async-rl" class="wp-block-heading">Collocated async RL</h2>
-
-
-
-<p class="wp-block-paragraph">Rollout times vary widely across agents. Synchronous RL waits for the slowest agent in a batch and leaves GPUs idle, while fully asynchronous RL raises utilization but needs separate GPU pools for rollout and training. In response, Agent Lightning v1.0 introduces Collocated Async RL, which lets rollout and model updates share the same set of GPUs.</p>
-
-
-
-<p class="wp-block-paragraph">Once the system has collected enough rollouts, the update begins: the API Gateway pauses accepting new requests and waits for requests already in progress to finish, and rollout resumes after the update completes. The entire state transition is transparent to the external agent harness. In experiments, this approach achieved about a 2x end-to-end speedup over synchronous RL while using fewer GPUs than conventional asynchronous RL (Figure 3).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1196" height="380" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3.jpg" alt="Figure 3: Three GPU scheduling timelines. Synchronous RL uses four GPUs at low efficiency, with long idle gaps before a single update block. Collocated Async RL uses the same four GPUs at high efficiency, interleaving full and partial rollouts with update blocks. Asynchronous RL reaches high efficiency but requires eight GPUs. Bars are colored for full rollout, partial rollout, and update." class="wp-image-1187927" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3.jpg 1196w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-300x95.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-1024x325.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-768x244.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.3-240x76.jpg 240w" sizes="auto, (max-width: 1196px) 100vw, 1196px" /><figcaption class="wp-element-caption">Figure 3. Synchronous RL, asynchronous RL, and Collocated Async RL compared. Collocated Async RL raises utilization while occupying fewer GPUs.</figcaption></figure>
-
-
-
-<h2 id="running-agents-on-kubernetes" class="wp-block-heading">Running agents on Kubernetes</h2>
-
-
-
-<p class="wp-block-paragraph">Collecting enough rollouts means running many agents at once, which consumes substantial CPU, memory, and compute resources. Other Harnessed Agentic RL frameworks often host those agents on commercial sandbox services such as Modal Sandbox or E2B, where cost climbs quickly with scale. Instead, Agent Lightning v1.0 runs them as standard Kubernetes jobs, reusing existing self-managed clusters, cloud Kubernetes, or local infrastructure (Figure 4). Existing compute resources are used more efficiently, large rollouts cost less, and the whole pipeline stays open source and reproducible.</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1217" height="332" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4.jpg" alt="Figure 4: Flow diagram. An API Gateway holds three rollouts, two queueing and one running. The Rollout Controller polls the gateway and uses a Kubernetes reconciler to create jobs on a Kubernetes cluster, and a local reconciler to watch and list local processes. Status updates flow back to the gateway." class="wp-image-1187928" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4.jpg 1217w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-300x82.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-1024x279.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-768x210.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.4-240x65.jpg 240w" sizes="auto, (max-width: 1217px) 100vw, 1217px" /><figcaption class="wp-element-caption">Figure 4. The Rollout Controller in Agent Lightning v1.0 provides native Kubernetes support, running agents directly as standard Kubernetes jobs.</figcaption></figure>
-
-
-
-<h2 id="6-000-training-samples-a-14-6-point-performance-gain" class="wp-block-heading">6,000 training samples, a 14.6-point performance gain</h2>
-
-
-
-<p class="wp-block-paragraph">To test the approach, researchers built a full pipeline on SWE-smith, mini-SWE-agent, and Qwen3.5-9B, covering data cleaning, environment construction, reward-hacking safeguards, and RL training. The training set holds about 6,000 samples and needs no large-scale compute. RL training alone raised Qwen3.5-9B from 41.8% to 56.4% on SWE-bench Verified, a gain of 14.6 percentage points.</p>
-
-
-
-<p class="wp-block-paragraph">The coding agent experiments further confirm the earlier analysis of two challenges: advantage calculation and loss normalization. Compared with sample-level handling, rollout-level advantage combined with rollout-level normalization achieves a higher validation reward and keeps policy entropy more stable during training (Figure 5).</p>
-
-
-
-<figure class="wp-block-image aligncenter size-full"><img loading="lazy" decoding="async" width="1268" height="463" src="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5.jpg" alt="Figure 5: Two line charts plotting 200 training steps. On the left, validation reward: rollout-level advantage combined with rollout-level normalization reaches the highest reward at about 0.37, above rollout-level advantage alone and sample-level advantage. On the right, policy entropy: rollout-level advantage alone climbs steeply to about 0.65, while the combined method stays lower and steadier." class="wp-image-1187929" srcset="https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5.jpg 1268w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-300x110.jpg 300w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-1024x374.jpg 1024w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-768x280.jpg 768w, https://www.microsoft.com/en-us/research/wp-content/uploads/2026/09/AgentLightning-blog_EXT_FA_figure.5-240x88.jpg 240w" sizes="auto, (max-width: 1268px) 100vw, 1268px" /><figcaption class="wp-element-caption">Figure 5. Pass rate and policy entropy for Qwen3.5-9B on the SWE-smith validation set.</figcaption></figure>
-
-
-
-<div class="wp-block-buttons is-content-justification-center is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
-<div class="wp-block-button is-style-fill"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://www.microsoft.com/en-us/research/publication/agent-lightning-v1-0-towards-harnessed-agentic-rl/">Technical report</a></div>
-
-
-
-<div class="wp-block-button is-style-fill-github"><a data-bi-type="button" class="wp-block-button__link wp-element-button" href="https://github.com/microsoft/agent-lightning" target="_blank" rel="noopener">GitHub project</a></div>
-</div>
-<span id="label-external-link" class="sr-only" aria-hidden="true">Opens in a new tab</span><p>The post <a href="https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/">Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses</a> appeared first on <a href="https://www.microsoft.com/en-us/research">Microsoft Research</a>.</p>
 ]]></content:encoded>
 					
 		
